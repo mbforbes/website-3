@@ -1,0 +1,30 @@
+{
+    "title": "Maxwell Forbes",
+    "url": "https://maxwellforbes.com/",
+    "language": "en",
+    "description": "Hello it is I, Max",
+    "feed": {
+        "subtitle": "Hello is it I, Max",
+        "filename": "feed.xml",
+        "path": "/feed/feed.xml",
+        "id": "https://maxwellforbes.com/"
+    },
+    "links": [
+        {
+            "name": "Studio",
+            "url": "/studio"
+        },
+        {
+            "name": "Research",
+            "url": "/research"
+        }
+    ],
+    "jsonfeed": {
+        "path": "/feed/feed.json",
+        "url": "https://maxwellforbes.com/feed/feed.json"
+    },
+    "author": {
+        "name": "Maxwell Forbes",
+        "url": "https://maxwellforbes.com/"
+    }
+}

@@ -1,0 +1,43 @@
+<link href='{{ "/assets/top/img/fav.png" | url }}' rel='shortcut icon'>
+<link href='{{ "/assets/top/css/style.css" | url }}' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+{% if page.date %}
+    <meta content='{{ site.url }}{{ page.url }}' property='og:url'/>
+    {% if page.image %}
+        <meta content='{{ site.url }}{{ page.image }}' property='og:image'/>
+        <meta name='twitter:image' content='{{ site.url }}{{ page.image }}'/>
+        <meta name='twitter:card' content='summary_large_image'/>
+    {% endif %}
+    <meta name='twitter:site' content='@maxforbes'/>
+    {% if page.customexcerpt %}
+        <meta content="{{ page.customexcerpt | striptags | trim | truncate(120) }}"
+        property='og:description'/>
+        <meta name='twitter:description'
+        content="{{ page.customexcerpt | striptags | trim | truncate(120) }}"/>
+    {% else %}
+        <meta content="{{ page.content | striptags | trim | truncate(120) }}" property='og:description'/>
+        <meta name='twitter:description' content="{{ page.content | striptags | trim | truncate(120) }}"/>
+    {% endif %}
+    <meta content="article" property="og:type"/>
+{% else %}
+    <meta content='{{ site.url }}' property='og:url'/>
+    <meta content="{{ site.description }}" property='og:description'/>
+    <meta content="blog" property="og:type"/>
+{% endif %}
+<!-- - -->
+
+{% if site.google_analytics %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', '{{ site.google_analytics }}');
+    </script>
+{% endif %}

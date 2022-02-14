@@ -1,0 +1,28 @@
+{
+    "name": "mbforbes-website-3",
+    "version": "0.0.1",
+    "description": "It's my personal website, baybeeeee.",
+    "scripts": {
+        "build": "eleventy",
+        "watch": "eleventy --watch",
+        "serve": "eleventy --serve",
+        "start": "eleventy --serve",
+        "debug": "DEBUG=* eleventy"
+    },
+    "author": {
+        "name": "Maxwell Forbes",
+        "url": "https://maxwellforbes.com/"
+    },
+    "license": "All rights reserved. (All my code I license MIT, but this repo has all my personal created content, ya know.)",
+    "homepage": "https://maxwellforbes.com",
+    "devDependencies": {
+        "@11ty/eleventy": "^1.0.0",
+        "@11ty/eleventy-navigation": "^0.3.2",
+        "@11ty/eleventy-plugin-rss": "^1.1.2",
+        "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.3",
+        "luxon": "^2.3.0",
+        "markdown-it": "^12.3.2",
+        "markdown-it-anchor": "^8.4.1",
+        "markdown-it-footnote": "^3.0.3"
+    }
+}

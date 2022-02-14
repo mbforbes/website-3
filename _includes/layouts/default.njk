@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>{{ title }} - {{ site.title }}</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="{{ title }} - {{ site.title }}" property="title"/>
+    <meta content="{{ title }} - {{ site.title }}" property="og:title"/>
+    <meta name="twitter:title" content="{{ title }} - {{ site.title }}"/>
+    {% include "head.njk" %}
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used {{ site.url }} changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          {% for link in site.links %}
+            <!-- If you're on that page, don't show as a link. -->
+            {% if page.title == link.name %}
+              <span class="ml3 pv1">
+                {{ link.name }}
+              </span>
+            {% else %}
+              <a class="link hover-mid-gray ml3 pv1" href="{{ link.url | url }}">
+                {{ link.name }}
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        {% if page.title and page.hidetitle != true %}
+          <div class="mb4">
+            <!-- Date -->
+            {% if page.date %}
+              <div class="fw600 light-silver mt1 ttu">
+                {% if page.collection != "garage" %}
+                  {{ page.date | date_to_string }}
+                {% else %}
+                  <a href="/studio#garage" class="light-silver hover-blue">GARAGE/</a>
+                {% endif %}
+              </div>
+            {% endif %}
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              {% if page.pagetitle %}
+                {{ page.pagetitle }}
+              {% else %}
+                {{ page.title }}
+              {% endif %}
+            </h1>
+            {% if page.subtitle %}
+              <p class="gray subtitle f4 f3-ns">
+                {{ page.subtitle }}
+              </p>
+            {% endif %}
+
+          </div>
+        {% endif %}
+
+        <!-- Series header. -->
+        {% if page.series %}
+          {% include "series-top.njk" %}
+        {% endif %}
+
+        <div class="markdown-body">
+          {{ content | safe }}
+        </div>
+
+        <!-- Series footer. -->
+        {% if page.series %}
+          {% include "series-bottom.njk" %}
+        {% endif %}
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        {% if page.collection != "garage" %}{% include "email.njk" %}
+        {% endif %}
+
+        <!-- Garage footer. -->
+        {% if page.collection == "garage" %}
+          {% include "garage.njk" %}
+        {% endif %}
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="{{ site.url }}/data/top/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>
