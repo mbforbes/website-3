@@ -224,12 +224,6 @@ f7  font-size: 0.75rem;
 .footnotes {
   /* f6 (for not-small (-ns) this gets f5) */
   font-size: 0.875rem;
-
-
-  /* Upper border automatically */
-  margin-top : 3em;
-  border-top : 1px dotted #CCC;
-  padding-top: 2em;
 }
 
 /* Elements within the .footnotes div will have this limited width. This is done so the
