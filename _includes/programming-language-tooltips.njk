@@ -1,0 +1,29 @@
+<style>
+    .black-and-white:not(:hover) {
+        filter: grayscale(100%);
+    }
+</style>
+<link href='{{ "/assets/css/tippy-6.3.1.light.css" | url }}' rel="stylesheet" type="text/css"/>
+<script defer src='{{ "/assets/lib/popper-2.9.3.min.js" | url }}'></script>
+<script defer src='{{ "/assets/lib/tippy-6.3.1.umd.min.js" | url }}'></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const langs = [
+            'Python',
+            'TypeScript',
+            'Bash',
+            'Java',
+            'HTML',
+            'JavaScript',
+            'Ruby',
+            'PHP'
+        ];
+        for (let lang of langs) {
+            let lower = lang.toLowerCase();
+            tippy(`.${lower}`, {
+                content: `Written in ${lang}`,
+                theme: 'light'
+            });
+        }
+    });
+</script>

@@ -3,7 +3,7 @@ title: Smaller Posts
 date: 2020-08-26
 ---
 
-![]({{ "/assets/blog/siciliano.jpg" | url }})
+![]({{ "/assets/blog/smaller-posts/siciliano.jpg" | url }})
 
 I'm going to try writing some smaller posts.
 

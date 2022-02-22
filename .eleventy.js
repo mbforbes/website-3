@@ -22,6 +22,48 @@ module.exports = function (eleventyConfig) {
     // Alias `layout: post` to `layout: layouts/post.njk`
     //   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
 
+    // My custom filters
+
+    /**
+     * To do foo.bar or foo["bar"], in a filter: foo | attr("bar")
+     */
+    eleventyConfig.addNunjucksFilter("attr", (obj, attr) => {
+        return obj[attr];
+    });
+
+
+    /**
+     * Returns subset of array where obj's attr == testVal.
+     *
+     * attr can be a nested attr by passing an array, i.e., ["foo", "bar"].
+     *
+     * selectattrequals([{"foo": 1}, {"foo": 2}], "foo", 1)
+     * -> {"foo": 1}
+     *
+     * selectattrequals([{"foo": {"bar": 1}}, {"foo": 2}], ["foo", "bar"], 1)
+     * -> {"foo": {"bar": 1}}
+     *
+     */
+    eleventyConfig.addNunjucksFilter("selectattrequals", (array, attrs, testVal) => {
+        if (typeof attrs == "string") {
+            attrs = [attrs];
+        }
+        return array.filter((obj) => {
+            let cur = obj;
+            for (let attr of attrs) {
+                if (!(attr in cur)) {
+                    return false;
+                }
+                cur = cur[attr];
+            }
+            return cur == testVal;
+        })
+    });
+
+
+    // ---------------------------------------------------------------------------------
+    // (Universal) filters from the eleventy starter template. Can remove if not using.
+
     eleventyConfig.addFilter("readableDate", dateObj => {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat("dd LLL yyyy");
     });
@@ -53,6 +95,7 @@ module.exports = function (eleventyConfig) {
     }
 
     eleventyConfig.addFilter("filterTagList", filterTagList)
+    // ---------------------------------------------------------------------------------
 
     // Create an array of all tags
     eleventyConfig.addCollection("tagList", function (collection) {

@@ -16,6 +16,8 @@ Stuff to not forget
 - should we do a non-image twitter card when there's no page image? or default to a generic site one?
 - are social tags actually correct now?
 - replace scribbles
+- all libs local (i think tachyons CSS is still imported from unpkg)
+- CSS relative support? nunjucks? (absolute URL rn...)
 
 ### code organization
 
@@ -52,3 +54,20 @@ Seems arbitrary to split up code and imgs
             - sound.mp3
 
 maybe that's good.
+
+### site org
+
+All locations under posts/
+
+W/ URLs:
+- /posts/XX
+- /blog/XX
+- /sketches/XX
+    - w/ redirects from old (~ /posts/sketch-XX )
+- /garage/XX
+
+W/o URLs:
+- news/
+    - (just get merged into feed)
+- software/
+    - (subsets get rendered in various places manually)
