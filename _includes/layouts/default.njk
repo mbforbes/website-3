@@ -23,7 +23,7 @@
         <div class="w-50 tr">
           {% for link in site.links %}
             <!-- If you're on that page, don't show as a link. -->
-            {% if page.title == link.name %}
+            {% if title == link.name %}
               <span class="ml3 pv1">
                 {{ link.name }}
               </span>
@@ -39,13 +39,13 @@
       <div class="mh3 mh4-ns bt b--black-80"></div>
 
       <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
-        {% if page.title and page.hidetitle != true %}
+        {% if title and hidetitle != true %}
           <div class="mb4">
             <!-- Date -->
             {% if page.date %}
               <div class="fw600 light-silver mt1 ttu">
-                {% if page.collection != "garage" %}
-                  {{ page.date | date_to_string }}
+                {% if collection != "garage" %}
+                  {{ page.date | readableDate }}
                 {% else %}
                   <a href="/studio#garage" class="light-silver hover-blue">GARAGE/</a>
                 {% endif %}
@@ -55,15 +55,15 @@
             <!-- Title -->
             <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
               <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
-              {% if page.pagetitle %}
-                {{ page.pagetitle }}
+              {% if pagetitle %}
+                {{ pagetitle }}
               {% else %}
-                {{ page.title }}
+                {{ title }}
               {% endif %}
             </h1>
-            {% if page.subtitle %}
+            {% if subtitle %}
               <p class="gray subtitle f4 f3-ns">
-                {{ page.subtitle }}
+                {{ subtitle }}
               </p>
             {% endif %}
 
@@ -71,7 +71,7 @@
         {% endif %}
 
         <!-- Series header. -->
-        {% if page.series %}
+        {% if series %}
           {% include "series-top.njk" %}
         {% endif %}
 
@@ -80,16 +80,16 @@
         </div>
 
         <!-- Series footer. -->
-        {% if page.series %}
+        {% if series %}
           {% include "series-bottom.njk" %}
         {% endif %}
 
         <!-- Email box. Disabling for garage right now for minimalism. -->
-        {% if page.collection != "garage" %}{% include "email.njk" %}
+        {% if collection != "garage" %}{% include "email.njk" %}
         {% endif %}
 
         <!-- Garage footer. -->
-        {% if page.collection == "garage" %}
+        {% if collection == "garage" %}
           {% include "garage.njk" %}
         {% endif %}
       </main>
