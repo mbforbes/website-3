@@ -1,0 +1,392 @@
+@import "https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css";
+
+.bg-super-white {
+  background: #f9f9f9;
+}
+
+.top-50 {
+  top: 50%
+}
+
+.link:hover {
+  background: url(/assets/img/line.png) repeat-x left bottom;
+}
+
+/* Markdown styles */
+
+/* Scribble defaults */
+/* Making a's everywhere!
+
+Previously was:
+  .markdown-body a {
+*/
+a {
+  text-decoration: none;
+  /* tachyons blue */
+  color          : #357edd;
+}
+
+.markdown-body a:visited {
+  /* tachyons dark-blue */
+  color   : #00449E;
+  /* color: red; */
+}
+
+.markdown-body .highlighter-rouge {
+  padding: .25rem .5rem;
+}
+
+.markdown-body pre {
+  margin  : 0;
+  overflow: auto;
+}
+
+/* Editing scribble defaults: this used to be the same as blockquote.
+   Starting more on left.  */
+.markdown-body>.highlighter-rouge,
+.markdown-body>blockquote {
+  padding: 1rem;
+}
+
+/* NOTE: Since removing overflow prevention from the <main> element,
+   I had to be more careful about the excessive padding (the below used
+   to be applied all the time). Unfortunately, now we do this for large
+   screens only. Would love to enable again for small screens---full width
+   gray background looks great---but the calculations of breaking out of
+   the box and lining things up correctly (i.e., code w/ non-code text) was
+   a huge hassle and would probably require javascript. */
+@media screen and (min-width: 58rem) {
+  .markdown-body>.highlighter-rouge,
+  .markdown-body>blockquote {
+    padding: .5rem 5rem;
+    margin : 2.5em -5rem;
+  }
+}
+
+
+/* Making hrs everywhere do this!
+
+Previously was
+  .markdown-body > hr {
+*/
+hr {
+  /* margin       : 2em -5rem; */
+  margin-top   : 2em;
+  margin-bottom: 2em;
+  border       : 0;
+  border-bottom: 1px dotted #CCC;
+}
+
+.markdown-body blockquote {
+  background           : #f9f9f9;
+  /* TODO - Why isn't this showing up in top-level blockquotes?
+   Even adding a specific rule to them (above) doesn't help... */
+  border-left          : .2rem solid #ccc;
+  /* padding-left      : 3.8rem; */
+}
+
+
+.markdown-body li blockquote {
+  /* background     : #f9f9f9; */
+  /* padding-left: 3.8rem; */
+  padding: 1rem 2rem;
+}
+
+/* end of Scribble defaults */
+
+
+/* My extensions */
+/* --- */
+
+.sitetitle a,
+.sitetitle a:visited {
+  /* font-size: 1rem; */
+  color          : #333;
+  text-decoration: none;
+}
+
+.sitetitle a:hover {
+  color: #000;
+}
+
+/* Subtitle */
+p.subtitle {
+  margin-top     : -.5rem;
+  /* font-variant: small-caps; */
+  /* font-size   : 1rem; */
+}
+
+.markdown-body a:hover {
+  color: #1d457a;
+}
+
+.markdown-body a:hover:not(.link) {
+  text-decoration: underline;
+}
+
+/* With a wide window, make text more centered. */
+@media (min-width: 766px) {
+  main.paddingOverride {
+    /* padding-left : 5rem; */
+    /* padding-right: 5rem; */
+  }
+}
+
+.markdown-body>audio {
+  width: 100%;
+}
+
+/* More space before non-first section headers */
+.markdown-body h2:first-of-type {
+  margin-top: 2em;
+}
+
+.markdown-body h2:not(:first-of-type) {
+  margin-top: 3em;
+}
+
+.markdown-body h3 {
+  margin-top   : 2em;
+  margin-bottom: 0.5em;
+}
+
+.markdown-body h4 {
+  margin-top   : 2em;
+  /* Any <p> will have a bigger margin than this, so doesn't really matter */
+  margin-bottom: 0em;
+}
+
+/* objects are for svg. tachyons adds this to img by default */
+.markdown-body object {
+  max-width: 100%;
+}
+
+/* Add the "bare" class to images to not get this default behavior. */
+.markdown-body img:not(.bare) {
+  display     : block;
+  margin-left : auto;
+  margin-right: auto;
+}
+
+/* The p > selector makes this match images in the body of posts (not, e.g., sketch
+previews on the studio page. objects (svg) aren't inside p > elements. */
+.markdown-body p>img,
+.markdown-body object {
+  margin-top   : 2rem;
+  margin-bottom: 2rem;
+}
+
+
+/* Images inline (like email address looking like it's text. */
+.markdown-body img.inline {
+  display      : inline;
+  margin-top   : 0;
+  margin-bottom: 0;
+}
+
+
+.markdown-body img.left {
+  margin-left: 3px;
+}
+
+/* Audio itself */
+.markdown-body audio {
+  margin-top: 1em;
+}
+
+/* Audio caption */
+.markdown-body p.audiocaption {
+  margin-top   : 2px;
+  margin-bottom: 1em;
+}
+
+
+/* Brief font index
+
+f1: font-size: 3rem;
+f2: font-size: 2.25rem;
+f3: font-size: 1.5rem;
+f4: font-size: 1.25rem;
+f5  font-size: 1rem;
+f6  font-size: 0.875rem;
+f7  font-size: 0.75rem;
+*/
+
+/* Image caption. Use class figcaption. */
+.markdown-body .figcaption {
+  margin-top   : -1.5rem;
+  text-align   : center;
+  color        : #555;
+  margin-bottom: 3em;
+  /* f6 (for not-small (-ns) this gets f5) */
+  font-size    : 0.875rem;
+}
+
+/* Footnotes (in posts) */
+.footnotes {
+  /* f6 (for not-small (-ns) this gets f5) */
+  font-size: 0.875rem;
+
+
+  /* Upper border automatically */
+  margin-top : 3em;
+  border-top : 1px dotted #CCC;
+  padding-top: 2em;
+}
+
+/* Elements within the .footnotes div will have this limited width. This is done so the
+.footnotes still stretches to the full width, so its border stretches the full width of
+the body, but the actual footnote text can be narrower (to wrap sooner, because it's a
+smaller font). */
+.footnotes>* {
+  /* max-width: 34em; */
+}
+
+
+/* Image source note. Use class attribution. Pair with "attribution" element for far-right
+caption (matching full-width image), or <p> element for text body-limited caption (for
+text-width image*/
+.markdown-body .figcaption.attribution {
+  text-align: right;
+  color     : #555;
+}
+
+.markdown-body .attribution a {
+  color: #555;
+}
+
+.markdown-body .attribution a:hover {
+  color: #357edd;
+}
+
+
+.markdown-body blockquote blockquote {
+  border-left: none;
+  font-style : italic;
+}
+
+/* Table styles! */
+
+.markdown-body table:not(.tablecustomfont) {
+  /* f5 - overridden to f4 when not small */
+  font-size: 1rem;
+}
+
+.markdown-body table {
+  width          : 100%;
+  margin-top     : 4rem;
+  margin-bottom  : 4rem;
+  /* padding     : 0.5em; */
+  border-top     : 1px solid #333;
+  border-bottom  : 1px solid #333;
+  border-collapse: collapse;
+}
+
+.markdown-body table th {
+  font-variant    : small-caps;
+  /* border-bottom: 1px solid #e1e1e1; */
+  padding         : 5px;
+  background-color: #f4f4f4;
+}
+
+.markdown-body table td {
+  padding: 5px;
+}
+
+.markdown-body table tbody tr {
+  border-top: 1px solid #e1e1e1;
+}
+
+.markdown-body table tbody tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+.markdown-body code {
+  /* f6. -> f5 when not-small. */
+  font-size: 0.875rem;
+}
+
+
+/* Up-right arrow for links that are off my site. */
+
+/* Orig: Ignore example.com and arXiv */
+/* a[href^="http://"]:not([href*="example.com"]):not([href*="arxiv.org"]):after,
+a[href^="https://"]:not([href*="example.com"]):not([href*="arxiv.org"]):after { */
+
+/* Current: ignore nothing  */
+a[href^="http://"]:after,
+a[href^="https://"]:after {
+  content: " \2197 \FE0E";
+}
+
+/* Inside an ordered list (1. 2. 3.), make
+  - the second level use letters (a. b. c.)
+  - the third level use roman numerals (i. ii. iii.)
+ */
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+ol ol ol {
+  list-style-type: lower-roman;
+}
+
+/* In garage links */
+#garage-metadata .inbound ul {
+  list-style-type: "⇠ ";
+}
+
+#garage-metadata .outbound ul {
+  list-style-type: "⇢ ";
+}
+
+/* Comments */
+.utterances {
+  margin-top: 4rem;
+}
+
+/* This is the -ns (not small) media query (at least currently) */
+@media screen and (min-width: 30em) {
+
+  /* Grow a bunch of font sizes. */
+  .markdown-body .highlighter-rouge {
+    font-size: 0.9em;
+  }
+
+  .markdown-body .figcaption {
+    /* f5 */
+    font-size: 1rem;
+  }
+
+  .footnotes {
+    /* f5 */
+    font-size: 1rem;
+  }
+
+  .markdown-body table:not(.tablecustomfont) {
+    /* f4 */
+    font-size: 1.25rem;
+  }
+
+  /* Grow table padding. */
+  .markdown-body table th {
+    /* vertical, horizontal */
+    padding: .5rem 1rem;
+  }
+
+  .markdown-body table td {
+    /* vertical, horizontal */
+    padding: .5rem 1rem;
+  }
+
+  .markdown-body code {
+    /* f5 */
+    font-size: 1rem;
+  }
+
+}
+
+/* --- */
+/* end of my extensions */
+
+/* end Markdown styles */

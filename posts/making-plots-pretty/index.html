@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Making Plots Pretty - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="Making Plots Pretty - Maxwell Forbes" property="title"/>
+    <meta content="Making Plots Pretty - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="Making Plots Pretty - Maxwell Forbes"/>
+    <link href='/assets/img/fav.png' rel='shortcut icon'>
+<link href='/assets/css/style.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com//posts/making-plots-pretty/' property='og:url'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com/ changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+
+        <!-- Series header. -->
+        
+
+        <div class="markdown-body">
+          <h2>Preface</h2>
+<p><em>Back in 2014, I gave this talk to my robotics lab on how to make good looking plots / figures. I’m posting it now in 2021. It’s fun to remember how far back my obsession with making figures goes.</em></p>
+<p><em>If you’re interested in using this material, the Keynote file is available in a GitHub repository:</em></p>
+<style>
+    .black-and-white:not(:hover) {
+        filter: grayscale(100%);
+    }
+</style>
+<link href='/assets/css/tippy-6.3.1.light.css' rel="stylesheet" type="text/css"/>
+<script defer src='/assets/lib/popper-2.9.3.min.js'></script>
+<script defer src='/assets/lib/tippy-6.3.1.umd.min.js'></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const langs = [
+            'Python',
+            'TypeScript',
+            'Bash',
+            'Java',
+            'HTML',
+            'JavaScript',
+            'Ruby',
+            'PHP'
+        ];
+        for (let lang of langs) {
+            let lower = lang.toLowerCase();
+            tippy(`.${lower}`, {
+                content: `Written in ${lang}`,
+                theme: 'light'
+            });
+        }
+    });
+</script>
+<div class="pl3 bl bw1 mb4">
+    <a href="https://github.com/mbforbes/making-plots-pretty" class="f5 f4-ns b code">making-plots-pretty</a><p class="mv1 f5 f4-ns">A 2014 lab talk I gave on how to make good looking plots and figures.</p></div>
+<p><em>Enjoy!</em></p>
+<p><em>– Max from 2021</em></p>
+<h2>Slides</h2>
+<p><img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.001.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.002.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.003.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.004.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.005.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.006.jpg" alt=""></p>
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.007.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.008.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.009.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.010.jpg) -->
+<p><img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.011.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.012.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.013.jpg" alt=""></p>
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.014.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.015.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.016.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.017.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.018.jpg) -->
+<p><img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.019.jpg" alt=""></p>
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.020.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.021.jpg) -->
+<p><img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.022.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.023.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.024.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.025.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.026.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.027.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.028.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.029.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.030.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.031.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.032.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.033.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.034.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.035.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.036.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.037.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.038.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.039.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.040.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.041.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.042.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.043.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.044.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.045.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.046.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.047.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.048.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.049.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.050.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.051.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.052.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.053.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.054.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.055.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.056.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.057.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.058.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.059.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.060.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.061.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.062.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.063.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.064.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.065.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.066.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.067.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.068.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.069.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.070.jpg" alt=""></p>
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.071.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.072.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.073.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.074.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.075.jpg) -->
+<p><img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.076.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.077.jpg" alt=""><br>
+<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.078.jpg" alt=""></p>
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.079.jpg) -->
+<p><img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.080.jpg" alt=""></p>
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.081.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.082.jpg) -->
+<h2>Acknowledgments</h2>
+<p>Thanks to the following folks whose resources I used either as examples of pretty things, or to make my own (somewhat) pretty things.</p>
+<ul>
+<li><a href="http://pages.cs.wisc.edu/~bilge/">Bilge Mutlu</a></li>
+<li><a href="http://www.olgabotvinnik.com/">Ola Botvinnik</a> (esp <a href="http://olgabot.github.io/prettyplotlib/">PrettyPlotLib</a>)</li>
+<li><a href="http://www.geog.psu.edu/people/brewer-cynthia">Cynthia Brewer</a> (esp <a href="http://colorbrewer2.org/">Colorbrewer</a>)</li>
+<li><a href="http://matplotlib.org/">John Hunter &amp; The Matplotlib Team</a></li>
+<li><a href="http://blogs.mathworks.com/loren/">Loren Shure</a> (esp <a href="http://blogs.mathworks.com/loren/2007/12/11/making-pretty-graphs/">this blog post</a>)</li>
+<li><a href="http://penandpants.com/">Matt Davis</a> (esp <a href="https://github.com/jiffyclub/brewer2mpl">brewer2mpl</a>)</li>
+</ul>
+<h2>Postscript</h2>
+<p><em>(Max from 2021 again here)</em></p>
+<p>I couldn’t get other plot configurations or libraries to work, so I packaged my own set of plot modifications into a function and released it.</p>
+<div class="pl3 bl bw1 mb4">
+    <a href="https://github.com/mbforbes/beautyplot" class="f5 f4-ns b code">beautyplot</a><span class="dib fr">
+            <img class="h1 black-and-white python" src="/assets/img/langs/python.svg"/>
+        </span><p class="mv1 f5 f4-ns">My own attempt at a little library to make bar plots prettier</p></div>
+<p>Please don’t use it. The standard configurations and libraries are assuredly the way to go. Even my guide for setting up this library (changing <code>PYTHONPATH</code>) is bad. I think a great modern alternative to this genre of libraries is <a href="https://seaborn.pydata.org/">Seaborn</a>.</p>
+<p>At the same time, I thought it would be fun to include here because it shows how many axes of growth there are in developing even little tools like this:</p>
+<ul>
+<li>configuration (e.g., why I couldn’t get the existing approaches to work)</li>
+<li>breadth (e.g., I only supported bar plots)</li>
+<li>aesthetics (e.g., I don’t think graying out many axis markers is actually helpful)</li>
+<li>packaging (e.g., my setup instructions are all wrong)</li>
+</ul>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com//data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>

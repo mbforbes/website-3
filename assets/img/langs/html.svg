@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="113" height="113" viewBox="0 0 113 113">
+  <g id="html" fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" transform="translate(8 .5)">
+    <polyline id="Path" fill="#E34F26" points="9 100.625 0 0 99 0 90 100.625 49.39 112"/>
+    <polyline id="Path" fill="#EF652A" points="50 103 82.391 94.046 90 8 50 8"/>
+    <path id="Shape" fill="#EBEBEB" d="M50 45.938H33.627L32.535 33.25H50V21H19l.218 3.281 3.057 34.125H50V45.938zm0 32.156h-.218l-13.754-3.719-.873-9.844H22.93L24.458 84l25.324 7H50V78.094z"/>
+    <path id="Shape" fill="#FFF" d="M49 45.938v12.468h15.282l-1.528 15.969L49 78.094V91l25.324-7 .218-2.188L77.38 49.22l.437-3.282H49zM49 21v12.25h29.908l.219-2.625.655-6.344L80 21H49z"/>
+  </g>
+</svg>
