@@ -15,7 +15,6 @@ _If you're interested in using this material, the Keynote file is available in a
 {% set item = collections.software | selectattrequals(["data", "title"], "making-plots-pretty") | first | attr("data") %}
 {% include "software-long.njk" %}
 
-
 _Enjoy!_
 
 _-- Max from 2021_
