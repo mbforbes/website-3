@@ -3,24 +3,24 @@
    problem other people online seemed to be having), which meant everything got
    put in <pre><code> blocks because they were indented. #}
 <div class="pl3 bl bw1 mb4">
-    <a href="{{- software.software_url -}}" class="f5 f4-ns b code">
-        {{- software.title -}}
+    <a href="{{- item.software_url -}}" class="f5 f4-ns b code">
+        {{- item.title -}}
     </a>
-    {%- if software.language -%}
+    {%- if item.language -%}
         <span class="dib fr">
-            <img class="h1 black-and-white {{ software.language }}" src="/assets/img/langs/{{ software.language }}.svg"/>
+            <img class="h1 black-and-white {{ item.language }}" src="/assets/img/langs/{{ item.language }}.svg"/>
         </span>
     {%- endif -%}
-    {%- if software.content | length > 0 -%}
+    {%- if item.content | length > 0 -%}
         <details>
             <summary class="mv1 pointer f5 f4-ns">
-                {{- software.summary -}}
+                {{- item.summary -}}
             </summary>
             <p class="f6 f5-ns">
-                {{- software.content | replace("<p>", "") | replace("</p>", "") -}}
+                {{- item.content | replace("<p>", "") | replace("</p>", "") -}}
             </p>
         </details>
     {%- else -%}
-        <p class="mv1 f5 f4-ns">{{- software.summary -}}</p>
+        <p class="mv1 f5 f4-ns">{{- item.summary -}}</p>
     {%- endif -%}
 </div>
