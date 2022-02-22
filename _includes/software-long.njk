@@ -8,7 +8,9 @@
     </a>
     {%- if item.language -%}
         <span class="dib fr">
-            <img class="h1 black-and-white {{ item.language }}" src="/assets/img/langs/{{ item.language }}.svg"/>
+            <img
+                class="h1 black-and-white {{ item.language }}"
+                src="{{ ["/assets/img/langs/", item.language, ".svg"] | join | url }}"/>
         </span>
     {%- endif -%}
     {%- if item.content | length > 0 -%}
