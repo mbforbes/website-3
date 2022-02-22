@@ -4,6 +4,7 @@
     "description": "It's my personal website, baybeeeee.",
     "scripts": {
         "build": "eleventy",
+        "build_ghio": "eleventy --pathprefix 'website-3'",
         "watch": "eleventy --watch",
         "serve": "eleventy --serve",
         "start": "eleventy --serve",
