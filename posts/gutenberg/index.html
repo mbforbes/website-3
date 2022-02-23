@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Downloading books from Project Gutenberg - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="Downloading books from Project Gutenberg - Maxwell Forbes" property="title"/>
+    <meta content="Downloading books from Project Gutenberg - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="Downloading books from Project Gutenberg - Maxwell Forbes"/>
+    <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com//posts/gutenberg/' property='og:url'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com/ changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+          <div class="mb4">
+            <!-- Date -->
+            
+              <div class="fw600 light-silver mt1 ttu">
+                
+                  22 Nov 2016
+                
+              </div>
+            
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              
+                Downloading books from Project Gutenberg
+              
+            </h1>
+            
+
+          </div>
+        
+
+        <!-- Series header. -->
+        
+
+        <div class="markdown-body">
+          <p><em>Note: I wrote this in 2016, and am posting it now in 2021. Others have found it helpful. In case it’s still a bit painful to download Project Gutenberg texts for NLP purposes, this guide might help you get started.</em></p>
+<p>So, you want to download books from Project Gutenberg to use as text for NLP?</p>
+<p>I had issues running <a href="https://github.com/c-w/gutenberg">the best repo I could find</a> for this process. So I wrote my own brief guide. Undoubtedly the files will have changed when you read this now, but I hope it can serve as a good jumping off point.</p>
+<h2>Step 1: Downloading</h2>
+<pre class="language-bash"><code class="language-bash"><span class="token comment"># 1. Scrape all 'en' books from a gutenberg mirror into a single</span><br><span class="token comment">#    directory. Took 3h 25m; total size was 11G. Run on Nov 17, 2016.</span><br><span class="token comment">#    All downloads are ".zip".</span><br><span class="token function">wget</span> -m -H -nd <span class="token string">"http://www.gutenberg.org/robot/harvest?filetypes[]=txt&amp;langs[]=en"</span><br><br><span class="token comment"># 2. Remove extra crap we get from using wget.</span><br><span class="token function">rm</span> robots.txt<br><span class="token function">rm</span> harvest*<br><br><span class="token comment"># 3. Remove all duplicate encodings in ISO-&lt;something> and UTF-8. Based</span><br><span class="token comment">#    on a few random samplings it seemed like there were ASCII versions</span><br><span class="token comment">#    of all of these. (NOTE: after trying to process the remainders, it</span><br><span class="token comment">#    seems like many aren't actually ASCII after all. Oh well.)</span><br><br><span class="token function">ls</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"-8.zip"</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">rm</span><br><span class="token function">ls</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"-0.zip"</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">rm</span><br><br><span class="token comment"># 4. We were then left with a handful of other files with '-' characters</span><br><span class="token comment">#    in them (which seemed to be an indication of non-standard</span><br><span class="token comment">#    formatting).</span><br><span class="token comment">#     - 89-AnnexI.zip          - trade agreement doc; weird text</span><br><span class="token comment">#     - 89-Descriptions.zip    - ""</span><br><span class="token comment">#     - 89-Contents.zip        - ""</span><br><span class="token comment">#     - 3290-u.zip             - unicode but with "u" instead of "0" suffix</span><br><span class="token comment">#     - 5192-tex.zip           - tex formatted book</span><br><span class="token comment">#     - 10681-index.zip        - thesaurus index</span><br><span class="token comment">#     - 10681-body.zip         - thesaurus body</span><br><span class="token comment">#     - 13526-page-inames.zip  - (I forget)</span><br><span class="token comment">#     - 15824-h.zip            - windows-encoded file (I think)</span><br><span class="token comment">#     - 18251-mac.zip          - mac-encoded file (I think)</span><br><span class="token comment">#    I removed all of them</span><br><span class="token function">rm</span> <span class="token number">89</span>-AnnexI.zip<br><span class="token function">rm</span> <span class="token number">89</span>-Descriptions.zip<br><span class="token function">rm</span> <span class="token number">89</span>-Contents.zip<br><span class="token function">rm</span> <span class="token number">3290</span>-u.zip<br><span class="token function">rm</span> <span class="token number">5192</span>-tex.zip<br><span class="token function">rm</span> <span class="token number">10681</span>-index.zip<br><span class="token function">rm</span> <span class="token number">10681</span>-body.zip<br><span class="token function">rm</span> <span class="token number">13526</span>-page-inames.zip<br><span class="token function">rm</span> <span class="token number">15824</span>-h.zip<br><span class="token function">rm</span> <span class="token number">18251</span>-mac.zip<br><br><span class="token comment"># 5. unzip all of the files and remove all of the zips.</span><br><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token function">unzip</span><br><span class="token function">unzip</span> <span class="token string">"*.zip"</span><br><span class="token function">rm</span> <span class="token string">"*.zip"</span><br><br><span class="token comment"># 6. From foo.zip, some files extract directly into foo.txt, while other</span><br><span class="token comment">#    extract into foo/foo.txt. Move all into this directory.</span><br><span class="token function">mv</span> */*.txt ./<br><br><span class="token comment"># 7. There will be empty directories left (what we want), and some</span><br><span class="token comment">#    non-empty ones. The non-empty directories include other formats</span><br><span class="token comment">#    (e.g. PDF), sneaky nested zips, sneaky nested zips with other</span><br><span class="token comment">#    formats in them, at least one typo (.TXT), and possibly other things.</span><br><span class="token comment">#    There are only 20 such directories (including several pdf/mid pairings</span><br><span class="token comment">#    of the same serial number), so we just remove them along with the</span><br><span class="token comment">#    empty directories.</span><br><span class="token function">ls</span> <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token string">"\.txt"</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">rm</span> -rf<br><br><br><span class="token comment"># The final size of original/ is 37,229 .txt files totaling 14G.</span></code></pre>
+<h2>Step 2: Cleaning</h2>
+<p>I used my fork of <a href="https://github.com/c-w/gutenberg">c-w/Gutenberg</a>, running <code>gutenberg/cleanup/strip_headers.py</code> to take off the inconsistent mountain of stuff above and below the books.</p>
+<style>
+    .black-and-white:not(:hover) {
+        filter: grayscale(100%);
+    }
+</style>
+<link href='/website-3/assets/css/tippy-6.3.1.light.css' rel="stylesheet" type="text/css"/>
+<script defer src='/website-3/assets/lib/popper-2.9.3.min.js'></script>
+<script defer src='/website-3/assets/lib/tippy-6.3.1.umd.min.js'></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const langs = [
+            'Python',
+            'TypeScript',
+            'Bash',
+            'Java',
+            'HTML',
+            'JavaScript',
+            'Ruby',
+            'PHP'
+        ];
+        for (let lang of langs) {
+            let lower = lang.toLowerCase();
+            tippy(`.${lower}`, {
+                content: `Written in ${lang}`,
+                theme: 'light'
+            });
+        }
+    });
+</script>
+<div class="pl3 bl bw1 mb4">
+    <a href="https://github.com/mbforbes/Gutenberg" class="f5 f4-ns b code">Gutenberg</a><span class="dib fr">
+            <img
+                class="h1 black-and-white python"
+                src="/website-3/assets/img/langs/python.svg"/>
+        </span><p class="mv1 f5 f4-ns">Fork of c-w/Gutenberg from 2016, with instructions and light modifications.</p></div>
+<p>You might want to check out the original repository, which has had many updates since I ran this!</p>
+<p>Here’s the rough process:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token comment"># Install the repository, setup a virtual environment.</span><br>pip <span class="token function">install</span> six tqdm<br><br><span class="token comment"># Run. &lt;indir> contains all of your downloaded .txt files. &lt;outdir> is</span><br><span class="token comment"># where the script dumps the (relatively) cleaned versions.</span><br>python3 clean.py <span class="token operator">&lt;</span>indir<span class="token operator">></span> <span class="token operator">&lt;</span>outdir<span class="token operator">></span><br><br><span class="token comment"># When I ran it, the above has encoding problems opening many of the</span><br><span class="token comment"># files. I probably could have tried harder to fix these but believe it</span><br><span class="token comment"># or not getting this text data has been about as fun as pulling my own</span><br><span class="token comment"># teeth out so I decided to just let it go.</span><br><span class="token comment">#</span><br><span class="token comment"># What remained are 36,154 of the original 37,229 files, so about 97%</span><br><span class="token comment"># of them.</span></code></pre>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com//data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>

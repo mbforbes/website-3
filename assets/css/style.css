@@ -21,29 +21,25 @@ Previously was:
 a {
   text-decoration: none;
   /* tachyons blue */
-  color          : #357edd;
+  color: #357edd;
 }
 
 .markdown-body a:visited {
   /* tachyons dark-blue */
-  color   : #00449E;
-  /* color: red; */
-}
-
-.markdown-body .highlighter-rouge {
-  padding: .25rem .5rem;
+  color: #00449E;
 }
 
 .markdown-body pre {
-  margin  : 0;
+  margin: 0;
   overflow: auto;
 }
 
 /* Editing scribble defaults: this used to be the same as blockquote.
    Starting more on left.  */
-.markdown-body>.highlighter-rouge,
+.markdown-body pre code,
 .markdown-body>blockquote {
-  padding: 1rem;
+  /* TODO: check and maybe reenable for blockquotes */
+  /* padding: 1rem; */
 }
 
 /* NOTE: Since removing overflow prevention from the <main> element,
@@ -54,10 +50,11 @@ a {
    the box and lining things up correctly (i.e., code w/ non-code text) was
    a huge hassle and would probably require javascript. */
 @media screen and (min-width: 58rem) {
-  .markdown-body>.highlighter-rouge,
+
+  .markdown-body pre code,
   .markdown-body>blockquote {
     padding: .5rem 5rem;
-    margin : 2.5em -5rem;
+    margin: 2.5em -5rem;
   }
 }
 
@@ -69,17 +66,17 @@ Previously was
 */
 hr {
   /* margin       : 2em -5rem; */
-  margin-top   : 2em;
+  margin-top: 2em;
   margin-bottom: 2em;
-  border       : 0;
+  border: 0;
   border-bottom: 1px dotted #CCC;
 }
 
 .markdown-body blockquote {
-  background           : #f9f9f9;
+  background: #f9f9f9;
   /* TODO - Why isn't this showing up in top-level blockquotes?
    Even adding a specific rule to them (above) doesn't help... */
-  border-left          : .2rem solid #ccc;
+  border-left: .2rem solid #ccc;
   /* padding-left      : 3.8rem; */
 }
 
@@ -99,7 +96,7 @@ hr {
 .sitetitle a,
 .sitetitle a:visited {
   /* font-size: 1rem; */
-  color          : #333;
+  color: #333;
   text-decoration: none;
 }
 
@@ -109,7 +106,7 @@ hr {
 
 /* Subtitle */
 p.subtitle {
-  margin-top     : -.5rem;
+  margin-top: -.5rem;
   /* font-variant: small-caps; */
   /* font-size   : 1rem; */
 }
@@ -144,12 +141,12 @@ p.subtitle {
 }
 
 .markdown-body h3 {
-  margin-top   : 2em;
+  margin-top: 2em;
   margin-bottom: 0.5em;
 }
 
 .markdown-body h4 {
-  margin-top   : 2em;
+  margin-top: 2em;
   /* Any <p> will have a bigger margin than this, so doesn't really matter */
   margin-bottom: 0em;
 }
@@ -161,8 +158,8 @@ p.subtitle {
 
 /* Add the "bare" class to images to not get this default behavior. */
 .markdown-body img:not(.bare) {
-  display     : block;
-  margin-left : auto;
+  display: block;
+  margin-left: auto;
   margin-right: auto;
 }
 
@@ -170,15 +167,15 @@ p.subtitle {
 previews on the studio page. objects (svg) aren't inside p > elements. */
 .markdown-body p>img,
 .markdown-body object {
-  margin-top   : 2rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
 
 /* Images inline (like email address looking like it's text. */
 .markdown-body img.inline {
-  display      : inline;
-  margin-top   : 0;
+  display: inline;
+  margin-top: 0;
   margin-bottom: 0;
 }
 
@@ -194,7 +191,7 @@ previews on the studio page. objects (svg) aren't inside p > elements. */
 
 /* Audio caption */
 .markdown-body p.audiocaption {
-  margin-top   : 2px;
+  margin-top: 2px;
   margin-bottom: 1em;
 }
 
@@ -212,12 +209,12 @@ f7  font-size: 0.75rem;
 
 /* Image caption. Use class figcaption. */
 .markdown-body .figcaption {
-  margin-top   : -1.5rem;
-  text-align   : center;
-  color        : #555;
+  margin-top: -1.5rem;
+  text-align: center;
+  color: #555;
   margin-bottom: 3em;
   /* f6 (for not-small (-ns) this gets f5) */
-  font-size    : 0.875rem;
+  font-size: 0.875rem;
 }
 
 /* Footnotes (in posts) */
@@ -240,7 +237,7 @@ caption (matching full-width image), or <p> element for text body-limited captio
 text-width image*/
 .markdown-body .figcaption.attribution {
   text-align: right;
-  color     : #555;
+  color: #555;
 }
 
 .markdown-body .attribution a {
@@ -254,7 +251,7 @@ text-width image*/
 
 .markdown-body blockquote blockquote {
   border-left: none;
-  font-style : italic;
+  font-style: italic;
 }
 
 /* Table styles! */
@@ -265,19 +262,19 @@ text-width image*/
 }
 
 .markdown-body table {
-  width          : 100%;
-  margin-top     : 4rem;
-  margin-bottom  : 4rem;
+  width: 100%;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
   /* padding     : 0.5em; */
-  border-top     : 1px solid #333;
-  border-bottom  : 1px solid #333;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
   border-collapse: collapse;
 }
 
 .markdown-body table th {
-  font-variant    : small-caps;
+  font-variant: small-caps;
   /* border-bottom: 1px solid #e1e1e1; */
-  padding         : 5px;
+  padding: 5px;
   background-color: #f4f4f4;
 }
 
@@ -339,11 +336,6 @@ ol ol ol {
 
 /* This is the -ns (not small) media query (at least currently) */
 @media screen and (min-width: 30em) {
-
-  /* Grow a bunch of font sizes. */
-  .markdown-body .highlighter-rouge {
-    font-size: 0.9em;
-  }
 
   .markdown-body .figcaption {
     /* f5 */
