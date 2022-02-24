@@ -35,9 +35,9 @@ Writing out that worry is helpful, because I immediately realize it is okay. Thr
 
 ---
 
-I think the idea of "freedom in _only_ ways of looking" (from [last week]({{ "_blog/2021-06-20-the-distant-rumble-of-change.md" | url }})) is the same thing as meta-rationality, which is the same thing as "[pattern and nebulosity](https://deconstructingyourself.com/dy-006-pattern-nebulosity-guest-david-chapman.html)," which is the same thing as "emptiness and form."
+I think the idea of "freedom in _only_ ways of looking" (from [last week]({{ "/blog/the-distant-rumble-of-change" | url }})) is the same thing as meta-rationality, which is the same thing as "[pattern and nebulosity](https://deconstructingyourself.com/dy-006-pattern-nebulosity-guest-david-chapman.html)," which is the same thing as "emptiness and form."
 
-It's funny how, even if the mind conceptually knows this, it still keeps chugging on, making conceptual frameworks. I tend to my conceptual frameworks like gardens---I mean, look, I'm all excited about this new garage garden.[^garden] I wonder whether, when these ideas are [deeply known]({{ "_posts/2020-04-08-deeply-knowing.md" | url }}), this will cease? I doubt it. From all accounts, you can still enjoy conceptual frameworks, you just don't get caught up in them.
+It's funny how, even if the mind conceptually knows this, it still keeps chugging on, making conceptual frameworks. I tend to my conceptual frameworks like gardens---I mean, look, I'm all excited about this new garage garden.[^garden] I wonder whether, when these ideas are [deeply known]({{ "/posts/deeply-knowing" | url }}), this will cease? I doubt it. From all accounts, you can still enjoy conceptual frameworks, you just don't get caught up in them.
 
 [^garden]: Is the garage actually a "meta-garden" in this already confusing analogy?
 

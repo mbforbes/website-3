@@ -6,11 +6,11 @@
 <!-- NOTE: Twitter uses name='', og uses property='' -->
 <meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
 <meta content='text/html; charset=utf-8' http-equiv='content-type'/>
-{% if page.date %}
+{% if date %}
     <meta content='{{ site.url }}{{ page.url }}' property='og:url'/>
-    {% if page.image %}
-        <meta content='{{ site.url }}{{ page.image }}' property='og:image'/>
-        <meta name='twitter:image' content='{{ site.url }}{{ page.image }}'/>
+    {% if image %}
+        <meta content='{{ image | url }}' property='og:image'/>
+        <meta name='twitter:image' content='{{ image | url }}'/>
         <meta name='twitter:card' content='summary_large_image'/>
     {% endif %}
     <meta name='twitter:site' content='@maxforbes'/>

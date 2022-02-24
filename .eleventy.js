@@ -165,7 +165,8 @@ module.exports = function (eleventyConfig) {
     // Customize Markdown library and settings:
     let markdownLibrary = markdownIt({
         html: true,
-        breaks: true,
+        // If you want this, revise the GAN map gen post
+        // breaks: true,
         linkify: true,
         typographer: true,
     }).use(markdownItFootnote);

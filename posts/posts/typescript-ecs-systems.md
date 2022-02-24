@@ -37,7 +37,6 @@ ecs.addSystem(90, new System.Lighting(...))
 To implement this, the `ECS`'s `addSystem()` function takes a priority and the `System`, and keeps (a) a sorted away it can iterate through to call updates, (b) a map from priority order to the `System`s to run.
 
 ```ts
-
 public addSystem(priority: number, system: System): void {
     // ... previously described code omitted ...
 
