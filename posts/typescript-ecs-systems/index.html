@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Deeper Dive: Systems - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="Deeper Dive: Systems - Maxwell Forbes" property="title"/>
+    <meta content="Deeper Dive: Systems - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="Deeper Dive: Systems - Maxwell Forbes"/>
+    <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com//posts/typescript-ecs-systems/' property='og:url'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com/ changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+          <div class="mb4">
+            <!-- Date -->
+            
+              <div class="fw600 light-silver mt1 ttu">
+                
+                  24 Jan 2022
+                
+              </div>
+            
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              
+                Deeper Dive: Systems
+              
+            </h1>
+            
+
+          </div>
+        
+
+        <!-- Series header. -->
+        
+          <div class="ba b--black-80 mv5">
+    <p class="bg-black-80 white mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib white-60 f6 f5-ns">series</span>
+        Building an ECS in TypeScript
+    </p>
+
+    <div class="pa3">
+        
+        <ol class="ma0">
+            
+                <li class="">
+                    
+                        <a href="/posts/typescript-ecs-aspects/" class="db pv1 link">
+                            Aspects
+                        </a>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <span class="b">
+                            Deeper Dive: Systems
+                        </span>
+                    
+                </li>
+            
+        </ol>
+
+    </div>
+</div>
+
+        
+
+        <div class="markdown-body">
+          <p>We’ve already covered the basics of how Systems work. Here I’ll touch on four advanced topics: ordering, disabling, cleanup, and communication.</p>
+<h2>1. System Ordering</h2>
+<p>When I add <code>System</code>s to the <code>ECS</code>, I also provide a priority order. Then, each frame, the <code>System</code>s’ <code>update()</code>s called in in that order.</p>
+<p>As an example, here’s some of my code that adds <code>System</code>s:</p>
+<pre class="language-ts"><code class="language-ts">ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> playerSelector<span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">PlayerInputMouseKeyboard</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">AISystem</span><span class="token punctuation">(</span>playerSelector<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">Swing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">Defend</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">SpatialHash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">CollisionDetection</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">CollisionMovement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">CollisionBlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">70</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">Attack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">70</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">Block</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">70</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">Stagger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">FollowCamera</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">90</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">StaticRenderer</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">90</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">AnimationRenderer</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">90</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">Lighting</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>To implement this, the <code>ECS</code>’s <code>addSystem()</code> function takes a priority and the <code>System</code>, and keeps (a) a sorted away it can iterate through to call updates, (b) a map from priority order to the <code>System</code>s to run.</p>
+<pre class="language-ts"><code class="language-ts"><br><span class="token keyword">public</span> <span class="token function">addSystem</span><span class="token punctuation">(</span>priority<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> system<span class="token operator">:</span> System<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>    <span class="token comment">// ... previously described code omitted ...</span><br><br>    <span class="token comment">// (a) Make a sorted list for calling updates in order.</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>priorities <span class="token operator">=</span> <span class="token builtin">Array</span><span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><br>        <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>priorities<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>priority<span class="token punctuation">)</span><br>    <span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token comment">// Yes, you actually need a custom sorting function for numbers.</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>priorities<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token keyword">return</span> a <span class="token operator">-</span> b<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token comment">// (b) Keep a map from [priority order] to [Systems to run].</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>updateMap<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>priority<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>updateMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>priority<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Set<span class="token operator">&lt;</span>System<span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>updateMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>priority<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>This is a dead simple way of making <code>System</code>s update in a particular order. The immediate benefit is it lets you ensure a particular System A runs before System B so that they function properly.</p>
+<p>It also had an unexpected side benefit: it let me create a better mental map of what was happening each frame. I partitioned the update logic into coarse chunks by what <code>System</code>s were running:</p>
+<table>
+<thead>
+<tr>
+<th>priority range</th>
+<th>kinds of <code>system</code>s that <code>update()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0s</code></td>
+<td>Read input, select groups of Entities, other “library” Systems</td>
+</tr>
+<tr>
+<td><code>10s</code></td>
+<td>Player and AI control, debug Systems</td>
+</tr>
+<tr>
+<td><code>20s</code></td>
+<td>Main actions: attack and defend</td>
+</tr>
+<tr>
+<td><code>40s</code></td>
+<td>Position child/parent nodes in render tree, run physics forward step, run spatial hashing</td>
+</tr>
+<tr>
+<td><code>50s</code></td>
+<td>Collision detection</td>
+</tr>
+<tr>
+<td><code>60s</code></td>
+<td>All collision resolution, calculate damage</td>
+</tr>
+<tr>
+<td><code>70s</code></td>
+<td>Tick “timebombs” (Components that last a limited number of frames), misc game logic</td>
+</tr>
+<tr>
+<td><code>80s</code></td>
+<td>Camera, determine what’s visible for rendering, run tweens</td>
+</tr>
+<tr>
+<td><code>90s</code></td>
+<td>Renderers: effects, lighting, HUD, text, GUI, particles, animations; also all audio</td>
+</tr>
+<tr>
+<td><code>100s</code></td>
+<td>Debug rendering (collision, HTML tables, inspection, timing inspecter)</td>
+</tr>
+<tr>
+<td><code>110s</code></td>
+<td>Bookkeeping (game score and stats) and screen fading</td>
+</tr>
+</tbody>
+</table>
+<h3>Downside: Implicit Logic in Ordering</h3>
+<p>With the power to order Systems, you can now cause yourself headaches by encoding <em>implicit</em> game logic into your System update order.</p>
+<p>If you program two Systems such that one <em>must</em> run before the other for them to behave correctly, you now have to remember that this is the case when you order their priorities. I did this just by writing comments in code that added Systems:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// SpatialHash must come before CollisionDetection</span><br><span class="token keyword">this</span><span class="token punctuation">.</span>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">SpatialHash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token comment">// CollisionDetection must come after Movement (to avoid sinking in</span><br><span class="token comment">// objects)</span><br><span class="token keyword">this</span><span class="token punctuation">.</span>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">CollisionDetection</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>But nothing in your code stops you from screwing this up or making a circular dependency.</p>
+<p>As a result, I tried to minimize assumptions I was making about which <code>System</code>s ran before which other ones when I was writing them. However, it wasn’t entirely avoidable. And it got messier the more I added to the game.</p>
+<h2>2. Disabling Systems</h2>
+<p>In my ECS implementation, all Systems are added when the game starts. Rather than adding and removing them throughout the game, I let them be <strong>enabled and disabled</strong>, and had <strong>debug</strong> Systems that are updated even when the rest of the game is paused.</p>
+<p>These are specified in the <code>System</code>’s constructor. Hey, check out how bad my code is: this is before I knew about the getter/setter syntax, so I just made a public attribute with instructions not to use it:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">System</span> <span class="token punctuation">{</span><br><br>    <span class="token comment">/**<br>     * @param disabled DO NOT SET THIS AFTER CONSTRUCTION. Use<br>     * ecs.toggleSystem(), ecs.disableSystem(), and ecs.enableSystem().<br>     * Lets systems start out disabled. Disabled systems are not updated.<br>     *<br>     * @param debug Denotes a debug system that is updated even when the<br>     * game is paused.<br>     */</span><br>    <span class="token function">constructor</span><span class="token punctuation">(</span><br>        <span class="token keyword">public</span> disabled<span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token keyword">public</span> debug<span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=</span> <span class="token boolean">false</span><br>    <span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><br><br>    <span class="token comment">/**<br>     * onDisabled() is called when a system is disabled; after this, it<br>     * won't receive any more update() calls (until it is enabled again).<br>     * It is expected to clean up its state as necessary (e.g., wiping<br>     * what it's drawn from the screen).<br>     */</span><br>    <span class="token keyword">public</span> <span class="token function">onDisabled</span><span class="token punctuation">(</span>entities<span class="token operator">:</span> Map<span class="token operator">&lt;</span>Entity<span class="token punctuation">,</span> Aspect<span class="token operator">></span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><br><br>    <span class="token comment">/**<br>     * onEnabled() is called when a system is enabled, having previously<br>     * been disabled.<br>     */</span><br>    <span class="token keyword">public</span> <span class="token function">onEnabled</span><span class="token punctuation">(</span>entities<span class="token operator">:</span> Map<span class="token operator">&lt;</span>Entity<span class="token punctuation">,</span> Aspect<span class="token operator">></span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>In practice, this meant that each <code>System</code> would specify their <code>disabled</code> and <code>debug</code> attributes in the <code>super()</code> call in their <code>constructor</code>. Here are a couple examples:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">/**<br> * We can select Entities to inspect during debugging. This System<br> * renders a graphic around the selected Entity.<br> */</span><br><span class="token keyword">class</span> <span class="token class-name">DebugInspectionRenderer</span> <span class="token keyword">extends</span> <span class="token class-name">System</span> <span class="token punctuation">{</span><br>    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// starts disabled, and is a debug system</span><br>        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><br><span class="token comment">/**<br> * Lets us adjust the game speed on-the-fly for debugging weird game<br> * events in slow motion.<br> */</span><br><span class="token keyword">class</span> <span class="token class-name">DebugGameSpeed</span> <span class="token keyword">extends</span> <span class="token class-name">System</span> <span class="token punctuation">{</span><br>    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// starts enabled, but is a debug system</span><br>        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>I had a global variable denote whether the game was a debug build, and the game only added debug systems when that was on. (There are probably better ways of doing that.)</p>
+<p>The ECS update loop (that calls <code>update()</code> on all the Systems) has changed a bit now that we have priority ordering, debug Systems, and disabled Systems. It’s still relatively straightforward, and looks roughly like:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">public</span> <span class="token function">update</span><span class="token punctuation">(</span>gameDelta<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>    <span class="token comment">// Apply any slow motion (not described in this tutorial, and my</span><br>    <span class="token comment">// implementation was quite rudimentary) to get timestep to use.</span><br>    <span class="token keyword">let</span> delta <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>slowMotion<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>gameDelta<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">let</span> debugOnly <span class="token operator">=</span> delta <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span><br><br>    <span class="token comment">// Call update on all systems in priority order.</span><br>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> priority <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>priorities<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">let</span> systems <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>updateMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>priority<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> sys <span class="token keyword">of</span> systems<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token comment">// update. can't be disabled. debugOnly either must be off,</span><br>            <span class="token comment">// or if it's on, the system must be a debug system.</span><br>            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>sys<span class="token punctuation">.</span>disabled <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token operator">!</span>debugOnly <span class="token operator">||</span> sys<span class="token punctuation">.</span>debug<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>                sys<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>delta<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>sys<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>            <span class="token punctuation">}</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>What should a System do when it is disabled or enabled?</p>
+<p>When a System is disabled, it has to clean up any state that would normally affect the game when it is running. And when it’s enabled, it must recreate that state.</p>
+<p>Let’s look at an example of a System that draws stuff to the screen and must do some state cleanup/re-creation when it’s disabled/enabled. This is from the <code>DebugInspectionRenderer</code> System we saw briefly above, which renders an indicator over the object being debugged:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// Each Aspect holds a reference to a parent "display object"</span><br><span class="token comment">// (I used `dobj` as a shorthand) that contains everything</span><br><span class="token comment">// this System draws. We set them all to be invisible when</span><br><span class="token comment">// the System is disabled.</span><br><span class="token decorator"><span class="token at operator">@</span><span class="token function">override</span></span><br><span class="token keyword">public</span> <span class="token function">onDisabled</span><span class="token punctuation">(</span>entities<span class="token operator">:</span> Map<span class="token operator">&lt;</span>Entity<span class="token punctuation">,</span> DebugInspectionAspect<span class="token operator">></span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> aspect <span class="token keyword">of</span> entities<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        aspect<span class="token punctuation">.</span>dobj<span class="token punctuation">.</span>visible <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// Here's the update() method. What, no onEnabled()? Read the text</span><br><span class="token comment">// below for why.</span><br><span class="token keyword">public</span> <span class="token function">update</span><span class="token punctuation">(</span><br>    delta<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> entities<span class="token operator">:</span> Map<span class="token operator">&lt;</span>Entity<span class="token punctuation">,</span> DebugInspectionAspect<span class="token operator">></span><br><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> aspect <span class="token keyword">of</span> entities<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">let</span> position <span class="token operator">=</span> aspect<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Component<span class="token punctuation">.</span>Position<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>        <span class="token comment">// update position and rotate</span><br>        aspect<span class="token punctuation">.</span>dobj<span class="token punctuation">.</span>visible <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><br>        aspect<span class="token punctuation">.</span>dobj<span class="token punctuation">.</span>position<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>position<span class="token punctuation">.</span>p<span class="token punctuation">.</span>x<span class="token punctuation">,</span> position<span class="token punctuation">.</span>p<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        aspect<span class="token punctuation">.</span>dobj<span class="token punctuation">.</span>rotation <span class="token operator">=</span> <span class="token function">angleClamp</span><span class="token punctuation">(</span><br>            aspect<span class="token punctuation">.</span>dobj<span class="token punctuation">.</span>rotation <span class="token operator">+</span> DebugInspectionAspect<span class="token punctuation">.</span><span class="token constant">ROTATE_DELTA</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>I don’t actually use the <code>onEnabled()</code> method here. And in fact, I only use it a couple times in the whole game! My usual pattern is what you see here: remove stuff in <code>onDisabled()</code>, and make sure everything is setup properly in <code>update()</code>.</p>
+<p>The reason I don’t use <code>onEnabled()</code> is simple: <code>update()</code> takes care of putting everything in the correct state, and <code>update()</code> is never called when a System is disabled. This means that if we write <code>update()</code> properly, we can rely on it to always put things back in the correct state after a System has been disabled.</p>
+<h2>3. ECS (and System) Cleanup</h2>
+<p>How many ECS engines should you have running in your game?</p>
+<p>I didn’t really know the answer to this question. So here’s what I did:</p>
+<ul>
+<li>There’s only ever one ECS, which owns everything.</li>
+<li>When you exit a level, all the Entities and Components are destroyed, and only the Systems persist.</li>
+<li>When you enter a new level, the game loads up all of the new Entities and Components into the ECS.</li>
+</ul>
+<p>We could make a new ECS each level, but it seemed simplest to set up a single ECS once, wipe the objects when exiting a level, and build up the new level afterwards.</p>
+<p>To support this kind of cleanup, the ECS has a <code>clear()</code> method. Here’s what it is verbatim in my game codebase:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name"><span class="token constant">ECS</span></span> <span class="token punctuation">{</span><br><br>    <span class="token comment">/** (other code omitted) */</span><br><br>    <span class="token comment">/**<br>     * This is how you can remove all entities from the game (e.g., for<br>     * switching between scenes). Happens IMMEDIATELY.<br>     */</span><br>    <span class="token keyword">public</span> <span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token comment">// remove all entities</span><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> entity <span class="token keyword">of</span> <span class="token function">mapKeyArr</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>entities<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">destroyEntity</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>        <span class="token comment">// clear the destroy queue. when destroying entities (above),</span><br>        <span class="token comment">// they will be removed from systems. some systems will then</span><br>        <span class="token comment">// try to queue up destruction of their own tracked entities</span><br>        <span class="token comment">// (e.g., gui entities). the queue would then carry onto the</span><br>        <span class="token comment">// next frame, where new legit entities would be deleted.</span><br>        <span class="token function">arrayClear</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>entitiesToDestroy<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>        <span class="token comment">// start fresh (done before onClear() because some systems will</span><br>        <span class="token comment">// start creating new entities right away (ahem, fx refilling</span><br>        <span class="token comment">// pools, ahem))</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>nextEntityID <span class="token operator">=</span> <span class="token number">0</span><br>        <span class="token comment">// tell all systems</span><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> system <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            system<span class="token punctuation">.</span><span class="token function">onClear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>        <span class="token comment">// tell all event handlers</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>eventsManager<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>You might notice a reference to a bug that I had previously (<em>“ahem, fx refilling pools, ahem”</em>). The way I implemented some Systems, like animated particle effects, was that they kept a pool of Entities around. When I implemented their <code>onClear()</code> functions, I had them immediately refill their pool of Entities. However, I hadn’t reset the <code>ECS's</code> internal state properly yet (in particular, <code>this.nextEntityID</code>), so it shouldn’t have been ready to accept new Entities. But the ECS faithfully added the new Entities anyway, using the high ID numbers.</p>
+<p>If I recall correctly, we managed to avoid hitting this bug for a long time. I only found it when really bizarre things started happening, like certain walls lacking collision boxes—a result of Entity IDs being reused improperly and the Components getting jumbled.</p>
+<p>Just for completeness, here’s a couple example <code>onClear()</code> functions for some Systems:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// The Audio system queues up sounds to play, and ensures that it</span><br><span class="token comment">// doesn't try to play the same one multiple times per frame.</span><br><span class="token keyword">class</span> <span class="token class-name">Audio</span> <span class="token keyword">extends</span> <span class="token class-name">System</span> <span class="token punctuation">{</span><br><br>    <span class="token comment">// Clears its queue of things to play, and what has been played.</span><br>    <span class="token decorator"><span class="token at operator">@</span><span class="token function">override</span></span><br>    <span class="token keyword">public</span> <span class="token function">onClear</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token function">arrayClear</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>queue<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>playedThisFrame<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><br><br><span class="token comment">// FxAnimations handle effects that are animated (e.g., particles that</span><br><span class="token comment">// have multiple frames) and so must plug into the animation System.</span><br><span class="token keyword">class</span> <span class="token class-name">FxAnimations</span> <span class="token keyword">extends</span> <span class="token class-name">System</span> <span class="token punctuation">{</span><br><br>    <span class="token comment">// The ECS has done the job of clearing all the Entities and</span><br>    <span class="token comment">// Components that existed, so our job is to create new ones.</span><br>    <span class="token comment">// Internally, the emitter clears its cache of Entity IDs and makes</span><br>    <span class="token comment">// new ones.</span><br>    <span class="token decorator"><span class="token at operator">@</span><span class="token function">override</span></span><br>    <span class="token keyword">public</span> <span class="token function">onClear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> emitter <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>emitters<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            emitter<span class="token punctuation">.</span><span class="token function">refillPools</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<h2>4. Systems Communicating</h2>
+<p>The way Systems communicated caused me more design stress than anything else in the game.</p>
+<p>Have you ever read <em>The Zen of Python?</em></p>
+<blockquote>
+<p>There should be one—and preferably only one—obvious way to do it.</p>
+<p>— <em>Tim Peters, The Zen of Python</em></p>
+</blockquote>
+<p>Well, the problem was that I ended up making <em>three</em> ways for Systems to communicate:</p>
+<ol>
+<li>
+<p>Passing information through <code>Component</code>s</p>
+<ul>
+<li>This feels like the “officially supported” method for an ECS. It’s implicit communication only: Systems only know about the Components, not other Systems.</li>
+</ul>
+</li>
+<li>
+<p>Using an event system</p>
+<ul>
+<li>I made an <code>EventsManager</code> (one per ECS) that let Systems both subscribe to and broadcast events. As a rule-of-thumb, I tried to have Systems still only take meaningful actions during their <code>update()</code>, rather than right when they received an event, so I could better reason about when things happened in each frame. This meant that some Systems would store a queue of events to process.</li>
+</ul>
+</li>
+<li>
+<p>Directly calling methods (or changing attributes 😱) of other <code>System</code>s</p>
+<ul>
+<li>I started by passing one <code>System</code> into another’s <code>constructor</code>. But that awkwardly requires one to be created before the other, so I eventually added a <code>getSystem()</code> function to the ECS.</li>
+</ul>
+</li>
+</ol>
+<p>This diversity of options led to some monstrosities like the following, which lives in a <code>Script</code> section of the codebase:<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">/**<br> * Things that happen before a single frame is run in the new level.<br> */</span><br><span class="token keyword">function</span> <span class="token function">startLevelInit</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">:</span> Script<span class="token punctuation">,</span> allowAllAIs<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token comment">// disable player input (start w/ this b/c sometimes we start a level</span><br>    <span class="token comment">// w/o having exited a previous one, like at the start of the game)</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>eventsManager<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>        name<span class="token operator">:</span> Events<span class="token punctuation">.</span>EventTypes<span class="token punctuation">.</span>PlayerControl<span class="token punctuation">,</span><br>        args<span class="token operator">:</span> <span class="token punctuation">{</span> allow<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">,</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token comment">// maybe disable non-cutscene AIs</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>allowAllAIs<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>ecs<span class="token punctuation">.</span><span class="token function">getSystem</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>AISystem<span class="token punctuation">)</span><span class="token punctuation">.</span>inCutscene <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">// fade in here</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>ecs<span class="token punctuation">.</span><span class="token function">getSystem</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>Fade<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>This one function</p>
+<ul>
+<li>(a) uses the event system,</li>
+<li>(b) changes an attribute of one System</li>
+<li>© calls a method on another System</li>
+</ul>
+<p>The big picture challenge here is that Systems end up being a catch-all place to add game logic, but there isn’t an obvious way to orchestrate behavior across Systems. I’ll write about this much more in the upcoming post called <em>Beyond Systems.</em></p>
+<h3>Case Study: Passing Information with Components</h3>
+<p>For now, though, I want to illustrate the challenge of only passing information with Components. This seems like the most “pure” application of an ECS—no separate event system, no Systems talking to each other.</p>
+<p>So, say we want to do something in our game like “go to the next level,” and we want to make the changes described in the above piece of code:</p>
+<ul>
+<li>remove player control</li>
+<li>turn off AIs (maybe)</li>
+<li>fade in the screen from black.</li>
+</ul>
+<p>How might we do that while only passing information in Components? Several awkward problems arise:</p>
+<ol>
+<li>
+<p>What Entities and Components would one use for a “go to next level” event? Even just this notion is totally bizarre—unlike the idea of a “player” or an “enemy,” there’s no object in the game world that is naturally represented by the concept of “let’s change the level.”</p>
+</li>
+<li>
+<p>Even more awkward, we’d be overloading simple Systems with more responsibilities. Taking the example above, we have the <code>PlayerControl</code>, <code>AI</code>, and <code>Fade</code> Systems.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> Each of these tracks only the Entities they care about. If we want them to react to some Component that denotes the changing of a level, does this mean that we put like a special <code>LevelChange</code> Component on the player, all the enemies, and, uh… the map?</p>
+</li>
+<li>
+<p>Finally, the orchestration itself is awkward. We might might have to wait for several frames for different Systems to react to some state change shoved into a Component, especially if the effects cascade. And the logic is no longer centralized, but spread across several Systems, which makes it harder to find in your code and reason about.</p>
+</li>
+</ol>
+<p>It seems clear that we need a place for <em>some</em> higher order game logic that can orchestrate changes. As far as I can tell, we end up with two options:</p>
+<ol>
+<li>Let other code (Systems or otherwise) directly reference Systems and call methods on them.</li>
+<li>Partition your game logic so that everything that <em>would</em> need higher level orchestration lives outside of Systems and the ECS.</li>
+</ol>
+<p>This is where my expertise really reaches its limits, because these are issues I struggled with in programming the game. If you want my musings for what you might think about doing beyond pure Systems, stay tuned for the next post.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>The abstraction I called <code>Script</code>s were my second-least-favorite design decision (after the many-ways-for-Systems-to-talk thing). Scripts lived somewhere outside the ECS, and would basically stitch Systems together through timed events and helper functions. They would continuously make things go awry, when, say, one script responsible for changing levels would step all over a script responsible for some screen transitions or control changes. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Technically that code snippet actually referenced two systems called <code>AISystem</code> and <code>Fade</code>, and sent an <em>event</em> that referenced player control. (Just to be crystal clear for the sharp reader.) <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+          <div class="ba b--black-10 mv5">
+    <p class="bg-near-white black-60 mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib black-30 f6 f5-ns">series</span>
+        Building an ECS in TypeScript
+    </p>
+
+    <div class="pa3 flex">
+        <div class="w-50 ma0">
+            
+            
+                <p class="b ttu tracked ma0 black-30 f7 f6-ns">&larr; previous</p>
+                <a href="/posts/typescript-ecs-aspects/" class=" ma0 link">8. Aspects</a>
+            
+        </div>
+        <div class="w-50 ma0 tr">
+            
+            
+        </div>
+    </div>
+</div>
+
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        
+          <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com//data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>

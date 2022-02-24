@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Aspects - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="Aspects - Maxwell Forbes" property="title"/>
+    <meta content="Aspects - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="Aspects - Maxwell Forbes"/>
+    <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com//posts/typescript-ecs-aspects/' property='og:url'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com/ changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+          <div class="mb4">
+            <!-- Date -->
+            
+              <div class="fw600 light-silver mt1 ttu">
+                
+                  03 Jan 2022
+                
+              </div>
+            
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              
+                Aspects
+              
+            </h1>
+            
+
+          </div>
+        
+
+        <!-- Series header. -->
+        
+          <div class="ba b--black-80 mv5">
+    <p class="bg-black-80 white mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib white-60 f6 f5-ns">series</span>
+        Building an ECS in TypeScript
+    </p>
+
+    <div class="pa3">
+        
+        <ol class="ma0">
+            
+                <li class="">
+                    
+                        <span class="b">
+                            Aspects
+                        </span>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/typescript-ecs-systems/" class="db pv1 link">
+                            Deeper Dive: Systems
+                        </a>
+                    
+                </li>
+            
+        </ol>
+
+    </div>
+</div>
+
+        
+
+        <div class="markdown-body">
+          <blockquote>
+<p><strong>Disclaimer:</strong> I’m not sure whether “Aspects” are really a standard thing for ECS. (Or, if they are, whether my usage is the standard one.) When I was learning about ECS, my friend <a href="https://spacefiller.space/">Alex</a> told me about this idea of Aspects, so I implemented them as he described. They proved useful, so I’m including them here.</p>
+</blockquote>
+<h2>What is an Aspect?</h2>
+<p>An Aspect stores transient state about an Entity for a System.</p>
+<p>For example, if you have a <code>Renderer</code> System, then it might have an Aspect (e.g., the <code>RendererAspect</code>) that stores information about the underlying graphics objects it is using to render an Entity. Whereas an Entity’s Component (e.g., a <code>Sprite</code> component) might contain the high level information needed to draw it (e.g., the image paths for different animations), the <code>RendererAspect</code> could contain the raw texture data used by the underlying graphics library.</p>
+<p>Here are some properties of Aspects:</p>
+<ul>
+<li>
+<p>Aspects are optional. A System might not need them.</p>
+</li>
+<li>
+<p>An Aspect is specific to a particular System. No other System will see an Aspect.</p>
+</li>
+<li>
+<p>An Aspect should store data that can be reconstructed by Components. In other words, the game state should be fully represented by the Components.</p>
+</li>
+</ul>
+<p>You can think of Aspects like per-Entity caches that Systems use to store internal state. It’s simply a standard place for a System to store data that is (a) specific to an Entity, and (b) not a good fit for storing in Components.</p>
+<h2>Planning Our Implementation</h2>
+<p>I implemented Aspects by having them become the default way Systems access Entities and their Components. Every time a System starts tracking an Entity, it creates an Aspect for it.</p>
+<p>This way, Systems can easily upgrade their Aspect usage to include storing additional information. By default, a System gets the standard Aspect, which just has references to the Entity and Components. But if a System decides to make a custom Aspect, then it will receive them instead.</p>
+<p>Let’s dive in.</p>
+<h2>The <code>Aspect</code></h2>
+<p>First, we have the Aspect itself. There’s a bit of awkwardness around initialization, especially storing the Components, which you can see in the <code>setCC()</code> method. I’ll discuss it more below.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">/**<br> * An Aspect is a System's view of an Entity. In other words, it<br> * allows a System to store its own (transient!) state for each<br> * Entity.<br> */</span><br><span class="token keyword">class</span> <span class="token class-name">Aspect</span> <span class="token punctuation">{</span><br><br>    <span class="token keyword">public</span> entity<span class="token operator">:</span> Entity<br>    <span class="token keyword">private</span> components<span class="token operator">:</span> ComponentContainer<br><br>    <span class="token comment">/**<br>     * Called by ECS at setup to pass in the Entity's Component<br>     * Container reference. Simply done this way so Systems and<br>     * Aspect subclasses don't have to pass these around during<br>     * construction. Any initialization will likely be done in the<br>     * System's `onAdd()` function, which is given the new Aspect.<br>     */</span><br>    <span class="token keyword">public</span> <span class="token function">setCC</span><span class="token punctuation">(</span>cc<span class="token operator">:</span> ComponentContainer<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>components <span class="token operator">=</span> cc<span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">/**<br>     * Directly gets a Component. Example: `aspect.get(Position)`.<br>     *<br>     * @param c The Component class (e.g., Position).<br>     */</span><br>    <span class="token keyword">public</span> <span class="token generic-function"><span class="token function">get</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token constant">T</span> <span class="token keyword">extends</span> Component<span class="token operator">></span></span></span><span class="token punctuation">(</span>c<span class="token operator">:</span> ComponentClass<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token constant">T</span> <span class="token punctuation">{</span><br>        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>components<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">/**<br>     * Check whether 1 or more components exist. Returns true only if<br>     * *all* components exist. Example: `aspect.has(Position)`.<br>     *<br>     * @param cs One or more Component classes (e.g., Position).<br>     */</span><br>    <span class="token keyword">public</span> <span class="token function">has</span><span class="token punctuation">(</span><span class="token operator">...</span>cs<span class="token operator">:</span> <span class="token builtin">Function</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">{</span><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> c <span class="token keyword">of</span> cs<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>components<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span><br>            <span class="token punctuation">}</span><br>        <span class="token punctuation">}</span><br>        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>I chose to have the <code>setCC()</code> method in the <code>Aspect</code> base class, and to use it in the <code>ECS</code> engine. This is a bit ugly, but it means that custom <code>Aspect</code> subclasses, and <code>System</code>s that create them, don’t have to worry about passing the <code>Component</code>s to the <code>Aspect</code>; it all happens in the <code>ECS</code>.</p>
+<p>Speaking of which, let’s check out our modifications to <code>System</code>.</p>
+<h2>Making the <code>System</code> use <code>Aspect</code>s</h2>
+<p>We’ll make four modifications to the <code>System</code> to handle <code>Aspects</code>:</p>
+<ol>
+<li>
+<p>A new <code>makeAspect()</code> method, which can be overridden to make a custom <code>Aspect</code></p>
+</li>
+<li>
+<p>A new <code>onAdd()</code> method, called when a new <code>Entity</code> is tracked</p>
+</li>
+<li>
+<p>A new <code>onRemove()</code> method, called when an <code>Entity</code> is no longer tracked</p>
+</li>
+<li>
+<p>The <code>update()</code> method will now provide the <code>System</code> its <code>Aspects</code></p>
+</li>
+</ol>
+<p>Here’s how these look in our <code>System</code> class:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">System</span> <span class="token punctuation">{</span><br><br>    <span class="token comment">/** ... omitting what we 've seen before ...*/</span><br><br>    <span class="token comment">/**<br>     * `makeAspect()` is called to make a new Aspect for this System,<br>     * which happens whenever an Entity is added. By default, Systems<br>     * get a standard Aspect. If they override this, they can return<br>     * a subclass of Aspect instead, which they can use to store<br>     * stuff in. Whatever they return here will be the Aspect they<br>     * get in `update()`, `onAdd()`, and `onRemove()`.<br>     */</span><br>    <span class="token keyword">public</span> <span class="token function">makeAspect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Aspect <span class="token punctuation">{</span><br>        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Aspect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">/**<br>     * `onAdd()` is called just AFTER an entity is added to a system.<br>     * (It *will* be in the system's set of entities.)<br>     */</span><br>    <span class="token keyword">public</span> <span class="token function">onAdd</span><span class="token punctuation">(</span>aspect<span class="token operator">:</span> Aspect<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><br><br>    <span class="token comment">/**<br>     * `onRemove()` is called just AFTER an entity is removed from a<br>     * system. (It will *not* be in the system's set of entities.)<br>     */</span><br>    <span class="token keyword">public</span> <span class="token function">onRemove</span><span class="token punctuation">(</span>aspect<span class="token operator">:</span> Aspect<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><br><br>    <span class="token comment">/**<br>     * `update()` is called on the System every frame.<br>     */</span><br>    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token function">update</span><span class="token punctuation">(</span><br>        entities<span class="token operator">:</span> Map<span class="token operator">&lt;</span>Entity<span class="token punctuation">,</span> Aspect<span class="token operator">></span><span class="token punctuation">,</span> dirty<span class="token operator">:</span> Set<span class="token operator">&lt;</span>Entity<span class="token operator">></span><br>    <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><br><span class="token punctuation">}</span></code></pre>
+<h2>Making the <code>ECS</code> use <code>Aspect</code>s</h2>
+<p>There are three changes to the <code>ECS</code> to support <code>Aspects</code>: (1) tracking <code>Aspect</code>s, (2) adding <code>Entity</code>s, (3) removing <code>Entity</code>s.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<h3>1. Tracking <code>Aspect</code>s</h3>
+<p>For each <code>System</code>, we now track a mapping from <code>Entity</code> to <code>Aspect</code>:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// Before:</span><br><span class="token keyword">private</span> systems <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token operator">&lt;</span>System<span class="token punctuation">,</span> Set<span class="token operator">&lt;</span>Entity<span class="token operator">>></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token comment">// After:</span><br><span class="token keyword">private</span> systems <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token operator">&lt;</span>System<span class="token punctuation">,</span> Map<span class="token operator">&lt;</span>Entity<span class="token punctuation">,</span> Aspect<span class="token operator">>></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>And so, when we add a System, we make <code>Map</code> instead of a <code>Set</code>:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// Before:</span><br><span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>system<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token comment">// After:</span><br><span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>system<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3>2. Adding <code>Entity</code>s</h3>
+<p>We have a private <code>checkES()</code> helper method, which checks whether an <code>Entity</code> should be tracked by a <code>System</code>. The implementation before was quite simple: if the <code>Component</code>s fulfill the <code>System</code>’s requirements, it’s added to the <code>System</code>’s set.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// Before:</span><br><span class="token keyword">private</span> <span class="token function">checkES</span><span class="token punctuation">(</span>entity<span class="token operator">:</span> Entity<span class="token punctuation">,</span> system<span class="token operator">:</span> System<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>    <span class="token keyword">let</span> have <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>entities<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">let</span> need <span class="token operator">=</span> system<span class="token punctuation">.</span>componentsRequired<span class="token punctuation">;</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span>have<span class="token punctuation">.</span><span class="token function">hasAll</span><span class="token punctuation">(</span>need<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// should be in system</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// no-op if in</span><br>    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><br>        <span class="token comment">// should not be in system</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// no-op if out</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>With <code>Aspect</code>s, the logic to check whether an <code>Entity</code> should be tracked is the same, but what we do becomes a tiny bit more complicated, because we have to make an <code>Aspect</code> and add the <code>Entity</code> and <code>Components</code> to it.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// After:</span><br><span class="token keyword">private</span> <span class="token function">checkES</span><span class="token punctuation">(</span>entity<span class="token operator">:</span> Entity<span class="token punctuation">,</span> system<span class="token operator">:</span> System<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>    <span class="token keyword">let</span> have <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>entities<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">let</span> need <span class="token operator">=</span> system<span class="token punctuation">.</span>componentsRequired<span class="token punctuation">;</span><br>    <span class="token keyword">let</span> aspects <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span>have<span class="token punctuation">.</span><span class="token function">hasAll</span><span class="token punctuation">(</span>need<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// should be in system; add if not</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>aspects<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">let</span> aspect <span class="token operator">=</span> system<span class="token punctuation">.</span><span class="token function">makeAspect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>            aspect<span class="token punctuation">.</span>entity <span class="token operator">=</span> entity<span class="token punctuation">;</span><br>            aspect<span class="token punctuation">.</span><span class="token function">setCC</span><span class="token punctuation">(</span>have<span class="token punctuation">)</span><span class="token punctuation">;</span><br>            aspects<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>entity<span class="token punctuation">,</span> aspect<span class="token punctuation">)</span><span class="token punctuation">;</span><br>            system<span class="token punctuation">.</span><span class="token function">onAdd</span><span class="token punctuation">(</span>aspect<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><br>        <span class="token comment">// should not be in system</span><br>        aspects<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// no-op if out</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<h3>3. Removing <code>Entity</code>s</h3>
+<p>Getting rid of an <code>Entity</code> now means letting the <code>System</code> know we’ve removed the <code>Aspect</code> by calling <code>onRemove()</code> so it can do any cleanup.</p>
+<blockquote>
+<p>Aside: I’m omitting the extra logic we added for the <a href="/website-3/posts/typescript-ecs-dirty-component-optimization">dirty Component optimization</a>; it’s included in the complete code listing linked below.</p>
+</blockquote>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// Before:</span><br><span class="token keyword">private</span> <span class="token function">destroyEntity</span><span class="token punctuation">(</span>entity<span class="token operator">:</span> Entity<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>entities<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>system<span class="token punctuation">,</span> entities<span class="token punctuation">]</span> <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// Remove Entity from System (if applicable).</span><br>        entities<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// no-op if doesn't have it</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// After:</span><br><span class="token keyword">private</span> <span class="token function">destroyEntity</span><span class="token punctuation">(</span>entity<span class="token operator">:</span> Entity<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>entities<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>system<span class="token punctuation">,</span> entities<span class="token punctuation">]</span> <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// Remove Entity from System (if applicable).</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span>entities<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">let</span> aspect <span class="token operator">=</span> entities<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>            entities<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>            system<span class="token punctuation">.</span><span class="token function">onRemove</span><span class="token punctuation">(</span>aspect<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<h2>Trying It Out</h2>
+<p>Now we have an <code>Aspect</code> implementation, and we’ve changed <code>System</code> and <code>ECS</code> to use them. They’ve become the way that <code>Systems</code> know about <code>Entity</code>s and <code>Component</code>s. We’ve also made it so that a <code>System</code> can subclass <code>makeAspect()</code>. When it does that, the <code>System</code> will instead receive its custom Aspects:</p>
+<ul>
+<li>when it starts tracking an Entity (<code>onAdd()</code>)</li>
+<li>when it stops tracking an Entity (<code>onRemove()</code>)</li>
+<li>on every <code>update()</code></li>
+</ul>
+<p>Let’s take it for a ride.</p>
+<p>Say we have some data in a <code>Component</code>. To make things dead simple, let’s store a single number:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">NumberHolder</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span><br>    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">public</span> myNumber<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>Now, let’s imagine that we have a <code>System</code> that needs something that can be computed based on the <code>NumberHolder</code> Component, but it’s really expensive to do so. Just for a simple example, let’s store the square of that number.</p>
+<blockquote>
+<p>To be crystal clear: the square of a number is trivial to compute, even every frame. We’re just imagining that it’s something expensive, like some internal graphics objects used for rendering.</p>
+</blockquote>
+<p>To store this, we can make a special <code>Aspect</code>:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">NumberSquarerAspect</span> <span class="token keyword">extends</span> <span class="token class-name">Aspect</span> <span class="token punctuation">{</span><br>    <span class="token keyword">public</span> numberSq<span class="token operator">:</span> <span class="token builtin">number</span><br><span class="token punctuation">}</span></code></pre>
+<p>Finally, we’ll make a <code>System</code> that:</p>
+<ol>
+<li>
+<p>Overrides <code>makeAspect()</code> to ask for a <code>NumberSquarerAspect</code> instead of a normal <code>Aspect</code></p>
+</li>
+<li>
+<p>Overrides <code>onAdd()</code> to do something every time a new <code>NumberSquarerAspect</code> is made—specifically, it will square the Component’s number and store it</p>
+</li>
+<li>
+<p>Provides an <code>update()</code> to show off what it’s done</p>
+</li>
+</ol>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">NumberSquarer</span> <span class="token keyword">extends</span> <span class="token class-name">System</span> <span class="token punctuation">{</span><br>    componentsRequired <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set<span class="token operator">&lt;</span><span class="token builtin">Function</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">[</span>NumberHolder<span class="token punctuation">]</span><span class="token punctuation">)</span><br><br>    <span class="token function">makeAspect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> NumberSquarerAspect <span class="token punctuation">{</span><br>        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">NumberSquarerAspect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token function">onAdd</span><span class="token punctuation">(</span>aspect<span class="token operator">:</span> NumberSquarerAspect<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">let</span> n <span class="token operator">=</span> aspect<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>NumberHolder<span class="token punctuation">)</span><span class="token punctuation">.</span>myNumber<span class="token punctuation">;</span><br>        aspect<span class="token punctuation">.</span>numberSq <span class="token operator">=</span> n <span class="token operator">*</span> n<span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token function">update</span><span class="token punctuation">(</span><br>        entities<span class="token operator">:</span> Map<span class="token operator">&lt;</span>Entity<span class="token punctuation">,</span> NumberSquarerAspect<span class="token operator">></span><span class="token punctuation">,</span><br>        dirty<span class="token operator">:</span> Set<span class="token operator">&lt;</span>Entity<span class="token operator">></span><br>    <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> aspect <span class="token keyword">of</span> entities<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">let</span> n <span class="token operator">=</span> aspect<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>NumberHolder<span class="token punctuation">)</span><span class="token punctuation">.</span>myNumber<span class="token punctuation">;</span><br>            <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"n="</span> <span class="token operator">+</span> n <span class="token operator">+</span> <span class="token string">', n^2='</span> <span class="token operator">+</span> aspect<span class="token punctuation">.</span>numberSq<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>We can run the above with a couple example Components:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">let</span> ecs <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token constant">ECS</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">NumberSquarer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token keyword">let</span> e1 <span class="token operator">=</span> ecs<span class="token punctuation">.</span><span class="token function">addEntity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addComponent</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">NumberHolder</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">let</span> e2 <span class="token operator">=</span> ecs<span class="token punctuation">.</span><span class="token function">addEntity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addComponent</span><span class="token punctuation">(</span>e2<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">NumberHolder</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>ecs<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>When we run it, we see:</p>
+<pre class="language-txt"><code class="language-txt">n=4, n^2=16<br>n=10, n^2=100</code></pre>
+<p>During the <code>update()</code>, the <code>System</code> was successfully able to retrieve the data it stored in the <code>Aspect</code> for each <code>Entity</code>.</p>
+<h2>Real <code>Aspect</code> Use Cases</h2>
+<p>I generally used <code>Aspect</code>s to store <code>System</code>-specific state that <em>needed to persist between frames.</em> Here are some examples:</p>
+<ul>
+<li>
+<p><strong>AI</strong> — My AI <code>System</code>s stored a bunch of temporary state, like where the <code>Entity</code> last spawned, what action it’s doing, and how long it’s been doing that action.</p>
+</li>
+<li>
+<p><strong>Particles</strong> — Particle effects, like bleeding after being hit, only happen for a short period of time. The <code>System</code>s controlling those effects would track how many frames an effect has been happening.</p>
+</li>
+<li>
+<p><strong>Tweens</strong> — <code>System</code>s responsible for running tweens—i.e., interpolations between values—store a queue of tweens that are waiting to happen, and a set of running tweens along with their state.</p>
+</li>
+<li>
+<p><strong>Graphics Objects</strong> — Rendering <code>System</code>s stored references to the underlying objects they constructed. Since I was using <a href="https://github.com/pixijs/pixijs">PixiJS</a>, the <code>Aspect</code>s stored references to Pixi objects, or my own thin wrappers around them.</p>
+</li>
+</ul>
+<h2>Final Thoughts: <code>Aspect</code> vs <code>Component</code></h2>
+<p>Some of the above use cases probably seem like good candidates for storing in <code>Component</code>s rather than in <code>Aspect</code>s.</p>
+<p>Here’s how I made that call: I used <code>Aspect</code>s when I wanted to store extra per-<code>Entity</code> data that only one <code>System</code> would ever care about. If the data ever became useful for more than one <code>System</code>, that was a sign it should probably go in a <code>Component</code> instead.</p>
+<p>However, we might wonder whether we should use <code>Aspect</code>s at all. Should we just use <code>Component</code>s for everything?</p>
+<p>I think there’s a good argument to be made for only using <code>Component</code>s to store all data. To me, this is a perfectly acceptable design decision because it avoids the complexity of introducing a new concept (the <code>Aspect</code>) to the engine.</p>
+<p>The advantage of storing single <code>System</code>-specific data in <code>Aspect</code>s is that other <code>System</code>s don’t need to bother with even looking at that data. Since <code>Component</code>s can be accessed by all <code>System</code>s, their state is “global,” in a sense. Squirreling some state away in <code>Aspect</code>s was a way of keeping <strong><code>System</code>-local</strong> state for <code>Entity</code>s that persisted between frames.</p>
+<h2>Code Listing</h2>
+<p>Here’s the <a href="https://gist.github.com/mbforbes/be6583042eb9a16091f0af98662fb2e6">full code listing so far</a>, which includes the <a href="/website-3/posts/typescript-ecs-dirty-component-optimization">dirty Component optimization</a> and <code>Aspect</code>s.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>I wish I could just render a <code>diff</code> of the <code>ECS</code> code before and after the <code>Aspect</code> implementation. I spent a while trying to find a simple <code>diff</code> renderer that I could embed here, but I didn’t find anything that would provide syntax highlighting, match the website style, and let me just render it (to HTML) beforehand. If you’re reading this and know of one, please let me know. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+          <div class="ba b--black-10 mv5">
+    <p class="bg-near-white black-60 mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib black-30 f6 f5-ns">series</span>
+        Building an ECS in TypeScript
+    </p>
+
+    <div class="pa3 flex">
+        <div class="w-50 ma0">
+            
+            
+        </div>
+        <div class="w-50 ma0 tr">
+            
+            
+                <p class="b ttu tracked ma0 black-30 f7 f6-ns">next &rarr;</p>
+                <a href="/posts/typescript-ecs-systems/" class=" ma0 link">9. Deeper Dive: Systems</a>
+            
+        </div>
+    </div>
+</div>
+
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        
+          <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com//data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>
