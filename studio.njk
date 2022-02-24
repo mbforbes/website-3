@@ -13,7 +13,7 @@ layout: "layouts/default.njk"
     <ul class="list pa0 mt0">
         {%- for post in collections[tag] -%}
             <li class="mv1">
-                <a href={{ post.url }} class="db pv1 link">
+                <a href={{ post.url | url }} class="db pv1 link">
                     <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
                     {{ post.data.title }}
                 </a>
