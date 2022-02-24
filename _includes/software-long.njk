@@ -3,26 +3,26 @@
    problem other people online seemed to be having), which meant everything got
    put in <pre><code> blocks because they were indented. #}
 <div class="pl3 bl bw1 mb4">
-    <a href="{{- item.software_url -}}" class="f5 f4-ns b code">
-        {{- item.title -}}
+    <a href="{{- item.data.software_url -}}" class="f5 f4-ns b code">
+        {{- item.data.title -}}
     </a>
-    {%- if item.language -%}
+    {%- if item.data.language -%}
         <span class="dib fr">
             <img
-                class="h1 black-and-white {{ item.language }}"
-                src="{{ ["/assets/img/langs/", item.language, ".svg"] | join | url }}"/>
+                class="h1 black-and-white {{ item.data.language }}"
+                src="{{ ["/assets/img/langs/", item.data.language, ".svg"] | join | url }}"/>
         </span>
     {%- endif -%}
-    {%- if item.content | length > 0 -%}
+    {%- if item.templateContent | length > 0 -%}
         <details>
             <summary class="mv1 pointer f5 f4-ns">
-                {{- item.summary -}}
+                {{- item.data.summary -}}
             </summary>
             <p class="f6 f5-ns">
-                {{- item.content | replace("<p>", "") | replace("</p>", "") -}}
+                {{- item.templateContent | replace("<p>", "") | replace("</p>", "") | safe -}}
             </p>
         </details>
     {%- else -%}
-        <p class="mv1 f5 f4-ns">{{- item.summary -}}</p>
+        <p class="mv1 f5 f4-ns">{{- item.data.summary -}}</p>
     {%- endif -%}
 </div>

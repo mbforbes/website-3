@@ -12,7 +12,7 @@ _If you're interested in using this material, the Keynote file is available in a
 
 {% include "programming-language-tooltips.njk" %}
 
-{% set item = collections.software | selectattrequals(["data", "title"], "making-plots-pretty") | first | attr("data") %}
+{% set item = collections.software | selectAttrEquals(["data", "title"], "making-plots-pretty") | first %}
 {% include "software-long.njk" %}
 
 _Enjoy!_
@@ -122,7 +122,7 @@ _(Max from 2021 again here)_
 
 I couldn't get other plot configurations or libraries to work, so I packaged my own set of plot modifications into a function and released it.
 
-{% set item = collections.software | selectattrequals(["data", "title"], "beautyplot") | first | attr("data") %}
+{% set item = collections.software | selectAttrEquals(["data", "title"], "beautyplot") | first %}
 {% include "software-long.njk" %}
 
 Please don't use it. The standard configurations and libraries are assuredly the way to go. Even my guide for setting up this library (changing `PYTHONPATH`) is bad. I think a great modern alternative to this genre of libraries is [Seaborn](https://seaborn.pydata.org/).

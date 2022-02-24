@@ -1,8 +1,10 @@
 const { DateTime } = require("luxon");
 const fs = require("fs");
+const util = require("util");
 // const pluginRss = require("@11ty/eleventy-plugin-rss"); // TODO
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 // const pluginNavigation = require("@11ty/eleventy-navigation"); // TODO
+const pluginLinkTo = require('eleventy-plugin-link_to');
 const markdownIt = require("markdown-it");
 // const markdownItAnchor = require("markdown-it-anchor");  // TODO
 const markdownItFootnote = require("markdown-it-footnote");
@@ -17,6 +19,7 @@ module.exports = function (eleventyConfig) {
     //   eleventyConfig.addPlugin(pluginRss); // TODO
     eleventyConfig.addPlugin(pluginSyntaxHighlight);
     //   eleventyConfig.addPlugin(pluginNavigation); // TODO
+    eleventyConfig.addPlugin(pluginLinkTo);
 
     // TODO: consider
     // Alias `layout: post` to `layout: layouts/post.njk`
@@ -26,29 +29,36 @@ module.exports = function (eleventyConfig) {
 
     /**
      * To do foo.bar or foo["bar"], in a filter: foo | attr("bar")
+     * Also works on an array; calls on each.
      */
     eleventyConfig.addNunjucksFilter("attr", (obj, attr) => {
+        if (Array.isArray(obj)) {
+            return obj.map(o => {
+                return o[attr];
+            })
+        }
         return obj[attr];
     });
 
-
     /**
-     * Returns subset of array where obj's attr == testVal.
+     * Returns subset of array where obj[attr] == testVal
      *
-     * attr can be a nested attr by passing an array, i.e., ["foo", "bar"].
+     * attr can be a nested attr by passing an array, i.e., ["foo", "bar"], which checks
+     * obj[attrs[0]][attrs[1]] == testVal
      *
-     * selectattrequals([{"foo": 1}, {"foo": 2}], "foo", 1)
+     * selectAttrEquals([{"foo": 1}, {"foo": 2}], "foo", 1)
      * -> {"foo": 1}
      *
-     * selectattrequals([{"foo": {"bar": 1}}, {"foo": 2}], ["foo", "bar"], 1)
+     * selectAttrEquals([{"foo": {"bar": 1}}, {"foo": 2}], ["foo", "bar"], 1)
      * -> {"foo": {"bar": 1}}
      *
      */
-    eleventyConfig.addNunjucksFilter("selectattrequals", (array, attrs, testVal) => {
+    eleventyConfig.addNunjucksFilter("selectAttrEquals", (array, attrs, testVal) => {
         if (typeof attrs == "string") {
             attrs = [attrs];
         }
         return array.filter((obj) => {
+            // drill down the list of attrs to get our test val
             let cur = obj;
             for (let attr of attrs) {
                 if (!(attr in cur)) {
@@ -56,10 +66,55 @@ module.exports = function (eleventyConfig) {
                 }
                 cur = cur[attr];
             }
+            // check inclusion
             return cur == testVal;
-        })
+        });
     });
 
+    // removes all whose attr(s) are not truthy
+    eleventyConfig.addNunjucksFilter("rejectAttrNested", (array, attrs) => {
+        if (typeof attrs == "string") {
+            attrs = [attrs];
+        }
+        return array.filter((obj) => {
+            // drill down the list of attrs to get our test val
+            let cur = obj;
+            for (let attr of attrs) {
+                if (!(attr in cur)) {
+                    return true;
+                }
+                cur = cur[attr];
+            }
+            // reject if found and truthy (TODO: no idea how general this is)
+            return !cur;
+        });
+    });
+
+    // selectAttrContains: attr's value is array, testCal is single, checks testVal in
+    eleventyConfig.addNunjucksFilter("selectAttrContains", (array, attrs, testVal) => {
+        if (typeof attrs == "string") {
+            attrs = [attrs];
+        }
+        return array.filter((obj) => {
+            // drill down the list of attrs to get our test val
+            let cur = obj;
+            for (let attr of attrs) {
+                if (!(attr in cur)) {
+                    return false;
+                }
+                cur = cur[attr];
+            }
+
+            // check inclusion
+            return Array.isArray(cur) && cur.indexOf(testVal) > -1;
+        });
+    });
+
+    // smart dump --- don't explode when there's a circular reference, which there is by
+    // default on like all the objects.
+    eleventyConfig.addNunjucksFilter('sdump', obj => {
+        return util.inspect(obj)
+    });
 
     // ---------------------------------------------------------------------------------
     // (Universal) filters from the eleventy starter template. Can remove if not using.

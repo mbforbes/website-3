@@ -1,0 +1,26 @@
+<div class="ba b--black-80 mv5">
+    <p class="bg-black-80 white mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib white-60 f6 f5-ns">series</span>
+        {{ series }}
+    </p>
+
+    <div class="pa3">
+        {% set seriesPostDatas = collections.all | attr("data") | selectAttrEquals("series", series) %}
+        <ol class="ma0">
+            {% for seriesPostData in seriesPostDatas %}
+                <li class="">
+                    {% if seriesPostData.title == title %}
+                        <span class="b">
+                            {{ seriesPostData.title }}
+                        </span>
+                    {% else %}
+                        <a href="{{ seriesPostData.page.url }}" class="db pv1 link">
+                            {{ seriesPostData.title }}
+                        </a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ol>
+
+    </div>
+</div>

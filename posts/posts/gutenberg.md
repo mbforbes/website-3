@@ -84,7 +84,7 @@ I used my fork of [c-w/Gutenberg](https://github.com/c-w/gutenberg), running `gu
 {% include "programming-language-tooltips.njk" %}
 
 
-{% set item = collections.software | selectattrequals(["data", "title"], "Gutenberg") | first | attr("data") %}
+{% set item = collections.software | selectAttrEquals(["data", "title"], "Gutenberg") | first %}
 {% include "software-long.njk" %}
 
 

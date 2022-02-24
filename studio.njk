@@ -1,0 +1,37 @@
+---
+title: Studio
+hidedate: true
+layout: "layouts/default.njk"
+---
+
+<h2>Writing</h2>
+
+{%- set writingTags = ["creating & thinking", "design", "health", "programming"] -%}
+{%- for tag in writingTags -%}
+    <h3>{{ tag | title }}</h3>
+    <ul class="list pa0 mt0">
+        {%- for post in collections[tag] -%}
+            <li class="mv1">
+                <a href={{ post.url }} class="db pv1 link">
+                    <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
+                    {{ post.data.title }}
+                </a>
+            </li>
+        {%- endfor -%}
+    </ul>
+{%- endfor -%}
+
+<h2>Software</h2>
+
+{% include "programming-language-tooltips.njk" %}
+
+{% set software = collections.software | selectAttrContains([
+    "data", "tags"
+], "studio") | rejectAttrNested(["data", "omit"]) %}
+{% for item in software %}
+    {%- include "software-long.njk" -%}
+{% endfor %}
+
+<p>
+You might also be interested in checking out my <a href="{{ "/research#software" | url }}">research software</a>.
+</p>

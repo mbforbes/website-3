@@ -39,10 +39,10 @@
       <div class="mh3 mh4-ns bt b--black-80"></div>
 
       <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
-        {% if title and hidetitle != true %}
+        {% if title and not hidetitle %}
           <div class="mb4">
             <!-- Date -->
-            {% if page.date %}
+            {% if page.date and not hidedate %}
               <div class="fw600 light-silver mt1 ttu">
                 {% if collection != "garage" %}
                   {{ page.date | readableDate }}
@@ -85,7 +85,8 @@
         {% endif %}
 
         <!-- Email box. Disabling for garage right now for minimalism. -->
-        {% if collection != "garage" %}{% include "email.njk" %}
+        {% if collection != "garage" %}
+          {% include "email.njk" %}
         {% endif %}
 
         <!-- Garage footer. -->

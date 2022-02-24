@@ -34,12 +34,17 @@ a {
   overflow: auto;
 }
 
+.markdown-body :not(pre) code {
+  background-color: #f4f4f4;
+  padding: 0.25rem 0.25rem;
+}
+
 /* Editing scribble defaults: this used to be the same as blockquote.
    Starting more on left.  */
-.markdown-body pre code,
+/* .markdown-body pre code, */
 .markdown-body>blockquote {
   /* TODO: check and maybe reenable for blockquotes */
-  /* padding: 1rem; */
+  padding: 0.1rem 1rem;
 }
 
 /* NOTE: Since removing overflow prevention from the <main> element,
@@ -290,7 +295,7 @@ text-width image*/
   background-color: #f4f4f4;
 }
 
-.markdown-body code {
+.markdown-body pre code {
   /* f6. -> f5 when not-small. */
   font-size: 0.875rem;
 }
@@ -363,7 +368,7 @@ ol ol ol {
     padding: .5rem 1rem;
   }
 
-  .markdown-body code {
+  .markdown-body pre code {
     /* f5 */
     font-size: 1rem;
   }
