@@ -693,7 +693,7 @@ Most of all, if you’re in your PhD, I wish you luck finding it.
 
 _**Thanks** to Ari Holtzman, Julian Michael, and Maarten Sap for reading drafts of this._
 
-<script src="/dev/lib/anime.min.js"></script>
+<script src="/assets/lib/anime-3.2.1.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         // cover

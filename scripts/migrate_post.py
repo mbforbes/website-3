@@ -46,7 +46,7 @@ def build_worklist():
     return worklist
 
 
-def process_match(out_line, match, add_parens, output_raw):
+def process_match(out_line, match, add_parens, output_raw, prefix=None, postfix=None):
     """
     Potential translations
 
@@ -62,8 +62,14 @@ def process_match(out_line, match, add_parens, output_raw):
       /posts/foo-bar
     > /posts/foo-bar/
 
-    If not output raw, becomes {{ "result" | url }}
-    If not output raw and add parens, becomes ({{ "result" | url }})
+    Assets directly linked w/ src="..."
+          src="/foo/bar.x"
+    > src="{{ "/foo/bar.x" | url }}"
+
+    If output raw, nothing else added. Otherwise:
+    - output is {{ "result" | url }}
+    - if add parens, this becomes ({{ "result" | url }})
+    - then any prefix and postfix are added
     """
     assert len(match.groups()) == 1
     url = match.groups()[0]
@@ -103,6 +109,10 @@ def process_match(out_line, match, add_parens, output_raw):
         new_text = f'{{{{ "{new_url}" | url }}}}'
         if add_parens:
             new_text = "(" + new_text + ")"
+        if prefix is not None:
+            new_text = prefix + new_text
+        if postfix is not None:
+            new_text = new_text + postfix
     out_line = out_line[:start] + new_text + out_line[stop:]
 
     translate_dirs = {}
@@ -159,6 +169,17 @@ def process_file(w):
                 out_line, new_t_dirs = process_match(out_line, match, False, False)
                 translate_dirs.update(new_t_dirs)
 
+            # src="/data/foo/bar.jpg"
+            # src="{{ "/data/foo/bar.jpg" | url }}"
+            while True:
+                match = re.search(r"src=\"(/\S*)\"", out_line)
+                if match is None:
+                    break
+                out_line, new_t_dirs = process_match(
+                    out_line, match, False, False, 'src="', '"'
+                )
+                translate_dirs.update(new_t_dirs)
+
             # ({{ site.baseurl }}/data/foo/bar.x)
             # {{ "/assets/posts/foo/bar.x" | url }}
             while True:
@@ -200,10 +221,11 @@ def process_dirs(translate_dirs):
     for t_dir_src, t_dir_dst in translate_dirs.items():
         print(f"Creating {t_dir_dst}")
         os.makedirs(t_dir_dst, exist_ok=True)
-        for src_path in glob.glob(t_dir_src + "*"):
+        dst_files = glob.glob(t_dir_src + "*")
+        print(f"Copying {len(dst_files)} files")
+        for src_path in dst_files:
             basename = os.path.basename(src_path)
             dst_path = os.path.join(t_dir_dst, basename)
-            print(f"Copying {src_path} -> {dst_path}")
             shutil.copy2(src_path, dst_path)
 
 
@@ -212,7 +234,7 @@ def main():
     # grab first unfinished
     w = [w for w in worklist if not w["finished"] and not w["is_sketch"]][0]
     # grab specific
-    # w = [w for w in worklist if w["new_basename"] == "every-phd-is-different.md"][0]
+    # w = [w for w in worklist if w["new_basename"] == "misinterpreting-results.md"][0]
     translate_dirs = process_file(w)
     if len(translate_dirs) > 0:
         process_dirs(translate_dirs)
