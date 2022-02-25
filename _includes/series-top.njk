@@ -5,7 +5,7 @@
     </p>
 
     <div class="pa3">
-        {% set seriesPostDatas = collections.all | attr("data") | selectAttrEquals("series", series) %}
+        {% set seriesPostDatas = collections.all | attr("data") | selectAttrEquals("series", series) | sort(false, false, "seriesOrder") %}
         <ol class="ma0">
             {% for seriesPostData in seriesPostDatas %}
                 <li class="">
