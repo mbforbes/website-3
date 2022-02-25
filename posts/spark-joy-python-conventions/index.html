@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Conventions Are Small Magic - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="Conventions Are Small Magic - Maxwell Forbes" property="title"/>
+    <meta content="Conventions Are Small Magic - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="Conventions Are Small Magic - Maxwell Forbes"/>
+    <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com/posts/spark-joy-python-conventions/' property='og:url'/>
+    
+        <meta content='/website-3/assets/posts/spark-joy-python/spark-joy-python-wide.jpg' property='og:image'/>
+        <meta name='twitter:image' content='/website-3/assets/posts/spark-joy-python/spark-joy-python-wide.jpg'/>
+        <meta name='twitter:card' content='summary_large_image'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+          <div class="mb4">
+            <!-- Date -->
+            
+              <div class="fw600 light-silver mt1 ttu">
+                
+                  21 Jul 2020
+                
+              </div>
+            
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              
+                Conventions Are Small Magic
+              
+            </h1>
+            
+
+          </div>
+        
+
+        <!-- Series header. -->
+        
+          <div class="ba b--black-80 mv5">
+    <p class="bg-black-80 white mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib white-60 f6 f5-ns">series</span>
+        Sparking Joy with Python
+    </p>
+
+    <div class="pa3">
+        
+        <ol class="ma0">
+            
+                <li class="">
+                    
+                        <a href="/posts/spark-joy-python-tools/" class="db pv1 link">
+                            Decluttering with Tools
+                        </a>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <span class="b">
+                            Conventions Are Small Magic
+                        </span>
+                    
+                </li>
+            
+        </ol>
+
+    </div>
+</div>
+
+        
+
+        <div class="markdown-body">
+          <p><img src="/website-3/assets/posts/spark-joy-python/spark-joy-python-narrow.jpg" alt="Marie Kondo holding up the python logo"></p>
+<p class="figcaption">
+Adapted from
+<a href="https://www.flickr.com/photos/riseconf/27113243380/in/album-72157668861374906/">
+photo by RISE</a>,
+CC BY 2.0.
+</p>
+<p>I have started following a few simple rules when I write Python that helps me focus on stuff that matters. For some folks, these conventions may already be second nature. But I read code all the time that follows none of them, and I thought they might help.</p>
+<h2>Absolute <code>import</code>s</h2>
+<p>I feel like an insane person when I think about Python imports. Has anyone else struggled way too much with this? Whenever I would start a project that gets to medium complexity I would freshly try to learn how to import stuff in Python. This usually involved the following process:</p>
+<ol>
+<li>
+<p>Try splattering <code>import name</code> and <code>import .name</code> and <code>import ..name</code> around your code,  add <code>__init__.py</code>s everywhere, try installing things locally with <code>pip</code>, start linking directories around, then get fed up with yourself and…</p>
+</li>
+<li>
+<p>Try to read Python’s official explanations of how modules and imports work. Completely fail to see how it applies to your use case.</p>
+</li>
+<li>
+<p>Search on Stack Overflow and find some people manipulating Python’s path using  <code>sys.path</code> and <code>__init__.py</code> files and <code>PYTHONPATH</code>, and other people yelling at them never to do that, offering solutions that don’t quite apply to your use case.</p>
+</li>
+<li>
+<p>Look at larger Python projects on GitHub, which manipulate Pythons’s path using
+<code>sys.path</code>, <code>__init__.py</code>s, and <code>PYTHONPATH</code>.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+</li>
+<li>
+<p>Cry silently for a while. Consider going back to steps 1 or 2 Consider copy
+pasting code. Consider switching programming languages or careers.</p>
+</li>
+</ol>
+<p>I finally came across a guide—which for the life of me I cannot find now—that
+outlined a practice that has worked for me since:</p>
+<ul>
+<li>Put your Python code under a top-level directory and use subdirectories as needed</li>
+<li>Always use absolute imports</li>
+<li>Always run with <code>python -m</code></li>
+</ul>
+<p>For example, say you come up with dumb codenames for your projects like “ice”,<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> your source code tree would look like:</p>
+<pre class="language-python"><code class="language-python">ice<span class="token operator">/</span>data<span class="token punctuation">.</span>py<br>ice<span class="token operator">/</span>util<span class="token punctuation">.</span>py<br>ice<span class="token operator">/</span>models<span class="token operator">/</span>bert<span class="token punctuation">.</span>py<br>ice<span class="token operator">/</span>models<span class="token operator">/</span>singularity<span class="token punctuation">.</span>py<br>ice<span class="token operator">/</span>runners<span class="token operator">/</span>trainer<span class="token punctuation">.</span>py</code></pre>
+<p>Then you would import each file <strong>from <em>anywhere</em> else</strong> like:</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> ice<span class="token punctuation">.</span>data<br><span class="token keyword">import</span> ice<span class="token punctuation">.</span>util<br><span class="token keyword">import</span> ice<span class="token punctuation">.</span>models<span class="token punctuation">.</span>bert<br><span class="token keyword">import</span> ice<span class="token punctuation">.</span>models<span class="token punctuation">.</span>singularity<br><span class="token keyword">import</span> ice<span class="token punctuation">.</span>runners<span class="token punctuation">.</span>trainer</code></pre>
+<p>Or, you know, like:</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">from</span> ice <span class="token keyword">import</span> data<br><span class="token keyword">from</span> ice <span class="token keyword">import</span> util<br><span class="token keyword">from</span> ice<span class="token punctuation">.</span>models <span class="token keyword">import</span> bert<br><span class="token keyword">from</span> ice<span class="token punctuation">.</span>models <span class="token keyword">import</span> singularity<br><span class="token keyword">from</span> ice<span class="token punctuation">.</span>runners <span class="token keyword">import</span> trainer</code></pre>
+<p>And you could run each file like:</p>
+<pre class="language-python"><code class="language-python">python <span class="token operator">-</span>m ice<span class="token punctuation">.</span>data<br>python <span class="token operator">-</span>m ice<span class="token punctuation">.</span>util<br>python <span class="token operator">-</span>m ice<span class="token punctuation">.</span>models<span class="token punctuation">.</span>bert<br>python <span class="token operator">-</span>m ice<span class="token punctuation">.</span>models<span class="token punctuation">.</span>singularity<br>python <span class="token operator">-</span>m ice<span class="token punctuation">.</span>runners<span class="token punctuation">.</span>trainer</code></pre>
+<p><strong>Unfortunately</strong>, there are some annoyances: you don’t get shell autocomplete with <code>python -m</code>, and logging is less intuitive.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> There are also some other complications to consider: how to have separate directories for test code, and how to allow you to run without <code>-m</code> (e.g., <code>python ice/data.py</code>).</p>
+<p><strong>Fortunately</strong>, these are all overcome-able. And by always using absolute imports this way, you get a single, consistent import strategy that lets you import anything from anywhere else. For me, this always just works. If you’re looking for a fire-and-forget setup, give this a whirl.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<h2>Organize imports</h2>
+<p>Three groups: built-ins, 3rd party, my own code. Order them alphabetically in each group.</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> argparse<br><span class="token keyword">import</span> json<br><span class="token keyword">import</span> logging<br><br><span class="token keyword">import</span> torch<br><span class="token keyword">import</span> torch<span class="token punctuation">.</span>nn <span class="token keyword">as</span> nn<br><span class="token keyword">from</span> tqdm <span class="token keyword">import</span> tqdm<br><br><span class="token keyword">from</span> ice <span class="token keyword">import</span> data<br><span class="token keyword">from</span> ice<span class="token punctuation">.</span>models <span class="token keyword">import</span> singularity</code></pre>
+<p><strong>Why?</strong> This makes it easy to see what is imported at a glance. It’s arbitrary, especially alphabetization. But it’s one less thing to decide about, and one more piece of consistency so you can skim your own code faster.</p>
+<h2>Put everything in functions</h2>
+<p>Don’t put code in the top-level of a file.</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># We may have a bad time.</span><br>i_am_global_now_lol <span class="token operator">=</span> <span class="token number">17</span><br>should_i_be_a_constant <span class="token operator">=</span> <span class="token string">'maybe'</span><br>really_slow_function<span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token comment"># Better</span><br><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span><br>    i_am_global_now_lol <span class="token operator">=</span> <span class="token number">17</span><br>    should_i_be_a_constant <span class="token operator">=</span> <span class="token string">'maybe'</span><br>    really_slow_function<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p><strong>Why?</strong> If you want to import something from the file, like a function, you will run all the code that you put in the top-level scope. This means slow stuff, and things you don’t want to run, all get run when you import it. You’ll also end up with everything in the same scope, which can make variables hard to track. You may end up accidentally using them in functions.</p>
+<h2>Minimize mutation</h2>
+<p>Straight to an example:</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># lots of mutation. Please forgive</span><br><span class="token comment"># that this is contrived.</span><br>path <span class="token operator">=</span> cur_dir<br>path <span class="token operator">+=</span> filename<br>path <span class="token operator">+=</span> <span class="token string">'.txt'</span><br><span class="token comment"># … say, 40 lines later …</span><br>path <span class="token operator">+=</span> <span class="token string">'.gz'</span><br><span class="token comment"># what’s in path? you have to decode</span><br><span class="token comment"># backwards to find out</span></code></pre>
+<p>vs</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># no mutation</span><br>path_txt <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><br>    cur_dir<span class="token punctuation">,</span> <span class="token string">'{}.txt'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">)</span><br>path_gz <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><br>    cur_dir<span class="token punctuation">,</span> <span class="token string">'{}.gz'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">)</span><br>path_txtgz <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><br>    cur_dir<span class="token punctuation">,</span> <span class="token string">'{}.txt.gz'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p><strong>Why?</strong> I find that if I minimize mutating variables, I have to remember less and don’t accidentally use the wrong piece of state. This example is not very convincing (I’m sorry), but it truly does eliminate a whole class of bugs.</p>
+<h2>Always Write Minimal Comments</h2>
+<p>I mean both interpretations of this: (1) always write comments instead of skipping them; (2) always write minimal comments instead of long ones. Always do both.</p>
+<p>Let’s look at examples.</p>
+<p>Bad: no comments:</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Bad</span><br><span class="token keyword">def</span> <span class="token function">favorite_dish</span><span class="token punctuation">(</span><br>    user_id<span class="token punctuation">,</span><br>    all_dishes<span class="token punctuation">,</span><br>    since_sec <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><br><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre>
+<p>Bad: long comments. Putting argument types in the docstring (unhelpful for type checking, requires more space, requires following conventions), and writing verbose obvious descriptions of each type and return value:</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Bad</span><br><span class="token keyword">def</span> <span class="token function">favorite_dish</span><span class="token punctuation">(</span><br>    user_id<span class="token punctuation">,</span><br>    all_dishes<span class="token punctuation">,</span><br>    since_sec <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><br><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    <span class="token triple-quoted-string string">"""Returns favorite dish from<br>    `all_dishes` for `user_id`<br>    within `since_sec`, or any time<br>    if -1.<br><br>    Args:<br>        user_id (int): The ID of the<br>            user.<br>        all_dishes (Dishes): The<br>            collection of all<br>            dishes.<br>        since_sec (int, optional):<br>            Maximum age of dishes<br>            considered. If -1 is<br>            provided, considers<br>            dishes of any age.<br>            Defaults to -1.<br><br>    Returns:<br>        Dish: The user’s favorite<br>        dish.<br>    """</span><br>    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre>
+<p>Bad: Adding type annotations, but keeping all the other crap:</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Bad</span><br><span class="token keyword">def</span> <span class="token function">favorite_dish</span><span class="token punctuation">(</span><br>    user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span><br>    all_dishes<span class="token punctuation">:</span> Dishes<span class="token punctuation">,</span><br>    since_sec<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><br><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Dish<span class="token punctuation">:</span><br>    <span class="token triple-quoted-string string">"""Returns favorite dish for<br>    `user_id` from `all_dishes`<br>    within `since_sec`, or any time<br>    if -1.<br><br>    Args:<br>        user_id: The ID of the user.<br>        all_dishes: The collection<br>            of all dishes.<br>        since_sec: Maximum age of<br>            dishes considered. If<br>            -1 is provided,<br>            considers dishes of any<br>            age. Defaults to -1.<br><br>    Returns:<br>        Dish: The user’s favorite<br>            dish.<br>    """</span><br>    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre>
+<p>Good: what if we just wrote this:</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Good</span><br><span class="token keyword">def</span> <span class="token function">favorite_dish</span><span class="token punctuation">(</span><br>    user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span><br>    all_dishes<span class="token punctuation">:</span> Dishes<span class="token punctuation">,</span><br>    since_sec<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><br><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Dish<span class="token punctuation">:</span><br>    <span class="token triple-quoted-string string">"""Returns favorite dish within<br>    `since_sec`, or any time if<br>    -1."""</span><br>    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre>
+<p>This example is simple enough that you can probably get away with no comment. But consider some real code that I wrote recently:</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Good luck figuring what this does</span><br><span class="token comment"># without reading the code.</span><br><span class="token keyword">def</span> <span class="token function">preprocess</span><span class="token punctuation">(</span><br>    path<span class="token punctuation">:</span> <span class="token builtin">str</span><br><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">:</span><br>    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><br><br><span class="token comment"># Good luck figuring out what this</span><br><span class="token comment"># returns without reading the code.</span><br><span class="token keyword">def</span> <span class="token function">item_to_id_pieces</span><span class="token punctuation">(</span><br>    item<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span><br>    side<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span><br><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Tuple<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span><br>    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre>
+<p><strong>Why?</strong> All code is a burden, and comments are doubly so, because they can silently go out of date. This is especially true when writing code solo, and you have little incentive to keep comments up-to-date. The main burden for me was that when I would start a function, I would sometimes spend as much time writing the docstring as I did the code itself. Even worse, when I would change a function four or five times, I would have to bookkeep the docstring every time.</p>
+<p>Eventually, I realized that what I really wanted from docstrings were types, and a short summary. Having type annotations that are actually checked (e.g., by mypy) keeps them up-to-date. For a while I considered the short summary optional. But I found that, inevitably, I would appreciate them when I came back to the code base after a break. I try to keep the summary so that it fits on one line as an extra terseness challenge for myself. While difficult, I find this is often surprisingly possible. Doing this helps if your editor supports tooltips, or while skimming code.</p>
+<p>There’s a pattern in writing code for projects in grad school:</p>
+<ol>
+<li><strong>project development</strong>: comments not needed, all state in your brain</li>
+<li><strong>submission</strong>: not reading your code for months, working on other things</li>
+<li><strong>revision or publishing code</strong>: OMG, what the hell was all this, how does anything work</li>
+</ol>
+<p>These short function summaries really help with phase 3.</p>
+<p>One more thing: I also think file-level summaries are really helpful. Having a one-sentence summary at the top of each file helps immensely when coming back to a project. I also have a <code>scripts/</code> directory with a dozen or two scripts which munge data in similar but different ways.</p>
+<h2>Prefer Pure Functions with Minimal Interfaces</h2>
+<p>Instead of using <code>class</code>es and methods, or functions that take class instances:</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># class with method</span><br><span class="token keyword">class</span> <span class="token class-name">Thing</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    state_a<span class="token punctuation">:</span> <span class="token builtin">str</span><br>    state_b<span class="token punctuation">:</span> <span class="token builtin">int</span><br>    state_c<span class="token punctuation">:</span> <span class="token builtin">float</span><br>    state_d<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><br>    state_e<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">float</span><span class="token punctuation">]</span><br>    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><br><br>    <span class="token keyword">def</span> <span class="token function">compute</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span><br>        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><br><br><span class="token comment"># function that takes an instance</span><br><span class="token keyword">def</span> <span class="token function">compute</span><span class="token punctuation">(</span>t<span class="token punctuation">:</span> Thing<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span><br>    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre>
+<p>… I try to use functions that specify only the state they need:</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">compute</span><span class="token punctuation">(</span><br>    state_a<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span><br>    state_c<span class="token punctuation">:</span> <span class="token builtin">float</span><br><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span><br>    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre>
+<p>I found myself doing this for two reasons:</p>
+<ol>
+<li>
+<p>If a function is an object’s method, it’s hard to reuse the function elsewhere. If you discover you want to reuse the logic, you must make a big ol’ object to call it on.</p>
+</li>
+<li>
+<p>If a function accepts a big object with lots of state as an argument, it’s hard to use that function elsewhere because it’s hard to figure out what subset of the object’s state is actually required.</p>
+</li>
+</ol>
+<p>In other words, in service of reusing and changing code, I found it easiest to keep functions out of objects, and keep the APIs as slim as possible.</p>
+<p>The fact that I need to reuse and change code all the time is probably because of the kind of programming I’m doing with Python. I never really know the whole scope of the project, and the project direction changes often. Those needs seem to fit better with separate functions that only require the state they need.</p>
+<p>I’d like to note here that I think I’m just rediscovering what functional programmers and API designers have written books about for decades.</p>
+<h3>Case Study: <code>args</code></h3>
+<p>In the pytorch code I read a lot these days, there is an extremely annoying pattern I encounter constantly:</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">do_something</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span><br>    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre>
+<p>Here, <code>args</code> is something<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> created by an <code>ArgumentParser</code> — i.e., command line arguments. This is a legendarily annoying way to write functions if you want anyone else to understand and change your code:</p>
+<ul>
+<li>
+<p>If you check out machine learning code, the number of command line arguments is INSANE. We’re talking <strong>multiple dozens</strong> of command line arguments. Which subset does this function <em>actually</em> need? Who knows! You have to read the code.</p>
+</li>
+<li>
+<p>Even worse, people mutate this <code>args</code> object throughout the program. So <code>args</code> isn’t really just what the user provided on the command line, it’s also anything else they’ve decided to stick into it at any point in the program before this function call.</p>
+</li>
+</ul>
+<p>These two factors make a function that takes args a HUGE interface, which by default contains dozens of things, whose actual values are hard to trace down.</p>
+<p>On the flip side, I get why people do it. Just having <code>args</code> makes it really easy to plumb a massive amount of global state all throughout the program. And it makes changing APIs easy… because you don’t actually change the API, you just cram more stuff into <code>args</code>.</p>
+<p>There’s a balance to be had here. If you’re using more than three or four things from <code>args</code>, sure, just pass the whole thing in. But just one or two? Help your dear readers and send in those arguments directly.</p>
+<h2>Write Less Code</h2>
+<p>This is hard to keep in mind, but it’s the most crucial bit. All code is a burden. The less code the better.</p>
+<ul>
+<li>
+<p>Use tiny shell scripts whenever possible. You get programs that are written in C and by default run in parallel (or is it concurrently?).</p>
+</li>
+<li>
+<p>Use battle-tested libraries whenever possible.</p>
+</li>
+<li>
+<p>Learn the libraries you must use. After years of dragging my feet, I finally went beyond an absolute beginner’s level of Pandas, and now my data manipulation scripts are 25% as much code and run about 100x faster.</p>
+</li>
+</ul>
+<h2>Summary</h2>
+<p>You will have as little code as possible, with reasonable interfaces, less mutation, concise comments, and skimmable imports.</p>
+<h2>Sparking Joy with Python</h2>
+<p>Like a tiny, old apartment, Python may not immediately spark joy. You have to work at it. I hope these posts help you in some little way. And I wish you joy.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Even The Hitchhiker’s Guide to Python <a href="https://docs.python-guide.org/writing/structure/">mucks with sys.path</a>. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>I have nothing more to say on this topic. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>It turns out that basically every guide is written assuming you’re logging while running with <code>python ice/data.py</code> and not <code>python -m ice.data</code>, and if you try to configure different loggers per module you’re going to be very confused trying to get a robust logging system set up. At least I have been thoroughly confused by this twice. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>I feel a bit guilty about my attitude here. Wouldn’t the right thing to do be to really learn how Python packages and modules work, and be able to build your own project structure and import scheme from first principles? Well, maybe… and yet… and yet… I just can’t bring myself to care about this more than I care about building stuff. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>Specifically, it’s a <code>Namespace</code> object. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+          <div class="ba b--black-10 mv5">
+    <p class="bg-near-white black-60 mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib black-30 f6 f5-ns">series</span>
+        Sparking Joy with Python
+    </p>
+
+    <div class="pa3 flex">
+        <div class="w-50 ma0">
+            
+            
+                <p class="b ttu tracked ma0 black-30 f7 f6-ns">&larr; previous</p>
+                <a href="/posts/spark-joy-python-tools/" class=" ma0 link">3. Decluttering with Tools</a>
+            
+        </div>
+        <div class="w-50 ma0 tr">
+            
+            
+        </div>
+    </div>
+</div>
+
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        
+          <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>

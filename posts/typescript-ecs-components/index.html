@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Deeper Dive: Components - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="Deeper Dive: Components - Maxwell Forbes" property="title"/>
+    <meta content="Deeper Dive: Components - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="Deeper Dive: Components - Maxwell Forbes"/>
+    <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com/posts/typescript-ecs-components/' property='og:url'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+          <div class="mb4">
+            <!-- Date -->
+            
+              <div class="fw600 light-silver mt1 ttu">
+                
+                  12 Sep 2021
+                
+              </div>
+            
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              
+                Deeper Dive: Components
+              
+            </h1>
+            
+
+          </div>
+        
+
+        <!-- Series header. -->
+        
+          <div class="ba b--black-80 mv5">
+    <p class="bg-black-80 white mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib white-60 f6 f5-ns">series</span>
+        Building an ECS in TypeScript
+    </p>
+
+    <div class="pa3">
+        
+        <ol class="ma0">
+            
+                <li class="">
+                    
+                        <a href="/posts/typescript-ecs-why/" class="db pv1 link">
+                            Why build an ECS? Why TypeScript?
+                        </a>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/typescript-ecs-implementation/" class="db pv1 link">
+                            A TypesScript ECS in 99 Lines of Code
+                        </a>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <span class="b">
+                            Deeper Dive: Components
+                        </span>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/typescript-ecs-dirty-component-optimization/" class="db pv1 link">
+                            Dirty Component Optimization
+                        </a>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/typescript-ecs-aspects/" class="db pv1 link">
+                            Aspects
+                        </a>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/typescript-ecs-systems/" class="db pv1 link">
+                            Deeper Dive: Systems
+                        </a>
+                    
+                </li>
+            
+        </ol>
+
+    </div>
+</div>
+
+        
+
+        <div class="markdown-body">
+          <p>As with <code>Entity</code>, our <code>Component</code> implementation is also quite minimal.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">/**<br> * A Component is a bundle of state. Each instance of a Component is<br> * associated with a single Entity.<br> *<br> * Components have no API to fulfill.<br> */</span><br><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span></code></pre>
+<p>This deceptively simple interface can drive a considerable number of designs when put inside an ECS. Its uses are best shown by example.</p>
+<p>So, let’s check out three Components I wrote for <a href="/website-3/posts/fallgate/">Fallgate</a>. For each Component, I’ll give example code that uses it, and discuss some design tradeoffs that arise. After the example components, we’ll bend the notion of a Component by adding <em>code</em> to the classes instead of only storing data.  I’ll cover three ways that I added code to Components.</p>
+<blockquote>
+<p>Just to be clear, the example usage code below all lives in Systems, not the Components. But I figured it’d be easiest to understand what these Components do if you see how they’re used.</p>
+</blockquote>
+<h2>Example Components</h2>
+<p>Here are three example Components, ordered from simple to complex. They are the <code>CameraFollowable</code>, <code>Spawnable</code>, and <code>Armed</code> Components.</p>
+<h3><code>CameraFollowable</code></h3>
+<p>This simple Component contains no data. It’s just a marker to tell a camera System to follow this Entity.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">CameraFollowable</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre>
+<h4>Usage</h4>
+<p>This Component is used by a System called <code>FollowCamera</code>, which looks for Entities with <code>Position</code> and <code>CameraFollowable</code> Components, and contains logic to center them in the screen. Only one object (usually the player) had <code>CameraFollowable</code> on it at a time, so we just tracked the first Entity we found with this marker.</p>
+<h3><code>Spawnable</code></h3>
+<p>This contains the position at which an Entity should be respawned.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">Spawnable</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span><br>    <span class="token keyword">public</span> position<span class="token operator">:</span> Point<br><br>    <span class="token function">constructor</span><span class="token punctuation">(</span>position<span class="token operator">:</span> Point<span class="token punctuation">,</span> <span class="token keyword">public</span> angle<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>position <span class="token operator">=</span> position<span class="token punctuation">.</span><span class="token function">copy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>For reference, a <code>Point</code> is a utility object that stores an <code>(x, y)</code> coordinate.</p>
+<p>You might notice this looks a little verbose. Why not just specify the <code>position</code> directly as a public member in the constructor?</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">Spawnable</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span><br>    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">public</span> position<span class="token operator">:</span> Point<span class="token punctuation">,</span> <span class="token keyword">public</span> angle<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>The reason is that the <code>Point</code> object would now be shared between this <code>Spawnable</code> Component, and whatever code passed in the <code>Point</code> (probably from some kind of <code>Position</code> Component). Then, later updates to underlying <code>Point</code> object would also change the position stored by the <code>Spawnable</code> Component! I discovered this from seeing weird bugs where Entities would respawn where they were last located, rather from (what I thought was) their spawn point.</p>
+<p>This is one of many areas where a more sophisticated design of either the <code>Point</code> object, or the <code>Component</code>s themselves, could potentially have mitigated these issues, by ensuring that objects were always copied rather than reused. But this was beyond my pay grade (i.e., $0). Instead, I just tried to remember to always <code>copy()</code> <code>Point</code>s when they were passed to new Components.</p>
+<h4>Usage</h4>
+<p>The <code>Spawnable</code> Component had pretty straightforward usage. When an Entity is created during level building, its spawn point is marked as its initial position. This works for both the player and enemies.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// If respawn marked, also make that component.</span><br><span class="token keyword">if</span> <span class="token punctuation">(</span>props<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>Respawn<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>props<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Respawn<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">boolean</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    ecs<span class="token punctuation">.</span><span class="token function">addComponent</span><span class="token punctuation">(</span>entity<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Spawnable</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>The player can hit checkpoints (which are cauldrons), which updates their respawn position. We set it to the cauldron’s position, plus a little offset so they don’t respawn right on top of it.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">let</span> spawnable <span class="token operator">=</span> playerComps<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Spawnable<span class="token punctuation">)</span><span class="token punctuation">;</span><br>spawnable<span class="token punctuation">.</span>position<span class="token punctuation">.</span><span class="token function">copyFrom_</span><span class="token punctuation">(</span>cauldronPos<span class="token punctuation">.</span>p<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add_</span><span class="token punctuation">(</span><span class="token constant">SPAWN_OFFSET</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Also, when the player hits a checkpoint, this saves their progress of how many enemies they have killed. We do this by simply removing the <code>Spawnable</code> Component from all dead enemies when the player hits a checkpoint.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// make all dead enemies no longer able to be respawned</span><br><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> enemy <span class="token keyword">of</span> enemySelector<span class="token punctuation">.</span><span class="token function">latest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">let</span> enemyComps <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ecs<span class="token punctuation">.</span><span class="token function">getComponents</span><span class="token punctuation">(</span>enemy<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token comment">// if it's not dead, let it keep any spawnable prop it has</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>enemyComps<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>Dead<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">continue</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>ecs<span class="token punctuation">.</span><span class="token function">removeComponentIfExists</span><span class="token punctuation">(</span>enemy<span class="token punctuation">,</span> Spawnable<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>There are a couple of new things in this code snippet:</p>
+<ul>
+<li>
+<p><code>enemeySelector</code> — instance of a System that, you guessed it, selects all enemies. It’s a bit of a weird pattern, because that System is then used by other Systems to get a list of Entities. But it’s also super easy to implement, because Systems track sets of Entities out-of-the-box. We’ll discuss this more in the post diving deeper into Systems.</p>
+</li>
+<li>
+<p><code>ecs.removeComponentIfExists()</code> — just like <code>removeComponent()</code>, but no error if the Component isn’t there. I could totally imagine a game engine that just always does this behavior, in which case <code>removeComponent()</code> would be all you’d need.</p>
+</li>
+</ul>
+<h3><code>Armed</code></h3>
+<p>This Component stores the set of weapons that an Entity has, and tracks which one is currently equipped.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">Armed</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span><br>    <span class="token keyword">public</span> active<span class="token operator">:</span> Weapon<br>    <span class="token keyword">public</span> inventory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token builtin">Array</span><span class="token operator">&lt;</span>Weapon<span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">public</span> activeIdx <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><br><br>    <span class="token comment">/**<br>     * Elapsed is the time in ms that has been spent in this.state. This<br>     * is used for display purposes (e.g. for flashing tints during<br>     * various stages of charging). It is set by the Swing system to<br>     * match its internal state and should only be observed by other<br>     * systems.<br>     */</span><br>    <span class="token keyword">public</span> elapsed <span class="token operator">=</span> <span class="token number">0</span><br><br>    <span class="token function">constructor</span><span class="token punctuation">(</span><br>            active<span class="token operator">:</span> Weapon<span class="token punctuation">,</span><br><br>            <span class="token comment">/**<br>             * The state is set by the Swing system to match its<br>             * internal state and should only be observed by other<br>             * systems.<br>             */</span><br>            <span class="token keyword">public</span> state<span class="token operator">:</span> SwingState <span class="token operator">=</span> SwingState<span class="token punctuation">.</span>Idle<br>    <span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>active <span class="token operator">=</span> <span class="token function">cloneWeapon</span><span class="token punctuation">(</span>active<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>inventory<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>active<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>activeIdx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>A couple of observations here:</p>
+<ul>
+<li>
+<p>You might notice some potential weakness in the ECS design here, with the comments on the <code>elapsed</code> and <code>state</code> public variables. The comments tell you which System (i.e., <code>Swing</code>) should write its state. This is somewhat helpful, but it is error-prone. There’s nothing stopping us from accidentally updating its state from another System. And there’s no way to understand <em>why</em> I wrote those comments without reading the code in the <code>Swing</code> System. What is going on here is that these properties are set as the result of complex logic in the <code>Swing</code> System, but must be read by other Systems, like the renderer. In short, it’s a totally normal usage of Components to share data between Systems, but lacks any programmatic enforcement of invariants, like who is allowed to update what. This is one area you might consider modifying your ECS design: specifying contracts to prevent accidental variable misuse.</p>
+</li>
+<li>
+<p>You can see we do <code>cloneWeapon(active)</code> for the same reason that we did <code>position.copy()</code> in the <code>Spawnable</code> Component above: avoiding accidentally sharing object references between Components. I end up doing this kind of defensive copying many places, and it is a hazardous potential source of bugs. Another design extension you might consider would be some way to automatically make state copied by default. I chose to keep the design simpler and the syntax cleaner, at the cost of having to remember to make copies. This was an okay tradeoff for me to make, since I was the only one programming, and we had no pressure to make things perfect.</p>
+</li>
+<li>
+<p>This Component actually stores <em>a lot</em> of state! You can’t quite tell because I haven’t shown you what’s in the <code>Weapon</code> type.</p>
+</li>
+</ul>
+<p>To drill into that last point, here’s the <code>Weapon</code> type.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">/**<br>* Data class for what comprises a weapon.<br>*/</span><br><span class="token keyword">type</span> <span class="token class-name">Weapon</span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>    timing<span class="token operator">?</span><span class="token operator">:</span> CharacterTiming<span class="token punctuation">,</span><br>    swingAttack<span class="token operator">?</span><span class="token operator">:</span> AttackInfo<span class="token punctuation">,</span><br>    quickAttack<span class="token operator">?</span><span class="token operator">:</span> AttackInfo<span class="token punctuation">,</span><br>    comboAttack<span class="token operator">?</span><span class="token operator">:</span> AttackInfo<span class="token punctuation">,</span><br>    partID<span class="token operator">?</span><span class="token operator">:</span> PartID<span class="token punctuation">,</span><br><span class="token punctuation">}</span></code></pre>
+<p>The <code>CharacterTiming</code> looks like this:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">/**<br> * Timing info for a weapon's swing stages. This is character-centric.<br> */</span><br><span class="token keyword">type</span> <span class="token class-name">CharacterTiming</span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>    idleCooldown<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br>    minChargeDuration<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br>    swingDuration<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br>    sheatheDuration<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br><br>    <span class="token comment">/**<br>     * How long after the quick attack state was entered (i.e., not<br>     * including the quickAttackAttackDelay) must the entity wait before<br>     * beginning the next quick attack (or combo). Should be less than<br>     * quickAttackDuration.<br>     */</span><br>    quickAttackNextWait<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br><br>    <span class="token comment">/**<br>     * How long a quick attack lasts before returning to idle. Starts<br>     * from when state was entered (i.e., not including the<br>     * quickAttackAttackDelay).<br>     */</span><br>    quickAttackDuration<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br><br>    <span class="token comment">/**<br>     * From from when the swing state was entered until the "Attack"<br>     * entity is spawned.<br>     */</span><br>    swingAttackDelay<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br><br>    <span class="token comment">/**<br>     * Time from when the quick attack state was entered until the<br>     * "Attack" entity is spawned.<br>     */</span><br>    quickAttackAttackDelay<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br><br>    <span class="token comment">/**<br>     * Total duration for the combo state.<br>     */</span><br>    comboDuration<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br><br>    <span class="token comment">/**<br>     * Time from when the combo state is entered until the attack<br>     * object (collision box) is spawned.<br>     */</span><br>    comboAttackDelay<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span></code></pre>
+<p>… and the <code>AttackInfo</code> looks like this:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">/**<br> * Info (including timing) for the attack. (This is attack-centric.)<br> */</span><br><span class="token keyword">type</span> <span class="token class-name">AttackInfo</span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>    <span class="token comment">// NOTE: cboxDims and cboxOffset should exist on normal attacks;</span><br>    <span class="token comment">// they should not exist for static damage definitions, because then</span><br>    <span class="token comment">// the attack takes the collision box of the parent object. We might</span><br>    <span class="token comment">// want to make a separate spec for this.</span><br>    cboxDims<span class="token operator">?</span><span class="token operator">:</span> Point<span class="token punctuation">,</span><br>    cboxOffset<span class="token operator">?</span><span class="token operator">:</span> Point<span class="token punctuation">,</span><br>    movement<span class="token operator">:</span> AttackMovement<span class="token punctuation">,</span><br>    damage<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br>    attackType<span class="token operator">:</span> AttackType<span class="token punctuation">,</span><br>    cTypes<span class="token operator">:</span> CollisionType<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><br><br>    <span class="token comment">/**<br>     * Denotes that this attack cannot be blocked. Useful for, e.g.,<br>     * environmental attacks that are long-lived and shields shouldn't<br>     * protect you from.<br>     */</span><br>    unblockable<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span><br><br>    <span class="token comment">/**<br>     * How much force is applied to the victim if this attack causes a<br>     * knockback.<br>     */</span><br>    knockbackForce<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br><br>    <span class="token comment">/**<br>     * How much force is applied to the victim if this attack causes a<br>     * stagger.<br>     */</span><br>    staggerForce<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br><br>    <span class="token comment">/**<br>     * How much force is applied to the attacker to move it forward.<br>     */</span><br>    lungeForce<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br><br>    <span class="token comment">/**<br>     * Time in ms before the attack is stopped. -1 for no limit<br>     * (e.g., arrows that go until they hit something).<br>     */</span><br>    duration<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br><br>    <span class="token comment">/**<br>     * If this attack is blocked (e.g., by the player's shield), this is<br>     * the amount of time in ms that the `Blocked` state will be<br>     * applied to the attacker. If not provided, uses<br>     * Blocked.DEFAULT_DURATION.<br>     */</span><br>    blockedDuration<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br><br>    <span class="token comment">/**<br>     * Only relevant for AttackMovement.Launch; speed it flies.<br>     */</span><br>    velocity<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br><br>    <span class="token comment">/**<br>     * Only relevant for AttackMovement.Launch; how to draw the attack<br>     * itself (e.g., an arrow).<br>     */</span><br>    animDatas<span class="token operator">?</span><span class="token operator">:</span> Map<span class="token operator">&lt;</span>Anim<span class="token punctuation">.</span>Key<span class="token punctuation">,</span> Anim<span class="token punctuation">.</span>Data<span class="token operator">></span><span class="token punctuation">,</span><br><br>    <span class="token comment">/**<br>     * Sound effects to play based on different situations (e.g., swing,<br>     * hit).<br>     */</span><br>    sounds<span class="token operator">?</span><span class="token operator">:</span> Sound<span class="token punctuation">.</span>Attack<span class="token punctuation">,</span><br><span class="token punctuation">}</span></code></pre>
+<p>Phew! Boy, even simple games are complicated. So many details of timing and state to keep track of.</p>
+<h3>Usage</h3>
+<p>I’ve already overwhelmed you with so much code describing the state that the <code>Armed</code> Component keeps track of. Instead of providing more code, I’ll give you a brief rundown of the places it is used.</p>
+<table>
+<thead>
+<tr>
+<th>where</th>
+<th>how <code>Armed</code> is used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Level loading</td>
+<td>Giving Entities their weapons</td>
+</tr>
+<tr>
+<td><code>Activity</code> System</td>
+<td>Figuring out overall state of how an Entity should be rendered</td>
+</tr>
+<tr>
+<td>Several AI Systems</td>
+<td>Changing behavior based on what weapon the player has equipped, and what state of attacking the enemy is currently in</td>
+</tr>
+<tr>
+<td><code>Body</code> System</td>
+<td>Figuring out detailed parts of how an Entity should be rendered (e.g., overlaying the body with the equipped weapon, synchronized to the right frames)</td>
+</tr>
+<tr>
+<td><code>Defend</code> System</td>
+<td>Checking whether something is attacking to figure out whether it can defend (can’t do both at same time)</td>
+</tr>
+<tr>
+<td><code>Movement</code> System</td>
+<td>Slowing down movement when attacking</td>
+</tr>
+<tr>
+<td><code>PlayerHUDRenderer</code> System</td>
+<td>Displaying the equipped weapons in the HUD, and highlighting the active one</td>
+</tr>
+<tr>
+<td><code>Swing</code> System</td>
+<td>Managing the process of attacking: charging up, swinging, cooldown, combos, that kind of thing</td>
+</tr>
+</tbody>
+</table>
+<h2>Extending Components</h2>
+<p>According to what I know about the design philosophy of ECS,<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> Components should be “pure state.” They’d might as well be JSON. No code.</p>
+<p>Buuuuuut, hey, we’ve already decided that Components are going to be classes in our code. And we already have some basic code running, like defensibly copying data passed into the constructors so that callers don’t have to remember to. What if we bent the rules in a few situations and added some code to our Components?</p>
+<p>The three main ways I modified Components were for debugging, sharing behavior, and optimizing updates. Let’s dive in.</p>
+<h3>Debugging with Setters</h3>
+<p>At some point during development, I had a problem where Entities were being thrown <em>way</em> off into space, or would disappear entirely. As usual, this bug was pretty funny for a while, but eventually I had to buckle down and figure out what the hell was going on.</p>
+<p>Using a live Component viewer tool I had built, I saw that the positions were being set to <code>NaN</code>. The question was, where? It took a little bit of refactoring, but I replaced all the places where code would modify an Entity’s position to instead go through a setter:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">Position</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span><br>    <span class="token comment">// old code:</span><br>    <span class="token comment">// public p = new Point()</span><br><br>    <span class="token comment">// new code:</span><br>    <span class="token keyword">private</span> _p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">private</span> _revealP <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">public</span> <span class="token keyword">get</span> <span class="token function">p</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Point <span class="token punctuation">{</span><br>        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_revealP<span class="token punctuation">.</span><span class="token function">copyFrom_</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_p<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">public</span> <span class="token keyword">set</span> <span class="token function">p</span><span class="token punctuation">(</span>v<span class="token operator">:</span> Point<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isNaN</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">throw</span> <span class="token function">Error</span><span class="token punctuation">(</span><span class="token string">'Tried to set x to NaN!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isNaN</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">throw</span> <span class="token function">Error</span><span class="token punctuation">(</span><span class="token string">'Tried to set y to NaN!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>_p<span class="token punctuation">.</span><span class="token function">copyFrom_</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">// Omitted: angle (i.e., facing direction)</span><br><span class="token punctuation">}</span></code></pre>
+<p class="figcaption" markdown="1">I also added `setX()` and `setY()` functions that behave as you'd expect.</p>
+<p>If you’re not familiar with getters/setters, they automatically run under-the-hood when you try to get or set a value, like:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">let</span> foo <span class="token operator">=</span> position<span class="token punctuation">.</span>p<span class="token punctuation">;</span> <span class="token comment">// runs getter</span><br>position<span class="token punctuation">.</span>p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// runs setter</span></code></pre>
+<p>You can see in the setter (<code>set p()</code>), we check the coordinates passed in for <code>NaN</code>, and immediately throw an error when this happens. Could you do this check by setting a breakpoint in the debugger instead? Absolutely. But the nice thing is that you don’t have to go and do that when problems arise—this way, your invariants are checked at all times. Despite how silly this error is, these <code>NaN</code> checks actually found errors several times after I fixed this particular bug.</p>
+<p>Also, you might notice that there’s another trick: we have a <code>_revealP</code> <code>Point</code> which we return in the getter (<code>get p()</code>). This protects users of the code from getting the underlying <code>Point</code> and modifying it. It’s not a perfect fix, because callers still shouldn’t use this <code>_revealP</code> object; if multiple callers got it and tried to modify it, they could still confuse each other. Still, it does protect the <code>Position</code> Component itself, while letting calling code easily read the <code>Point</code>, and without allocating a new <code>Point</code> for every access.</p>
+<h3>Sharing Behavior with <code>Timebomb</code></h3>
+<p>If you thought writing Components that ran code was sacrilegious, wait until you hear this one: I wrote a bunch of Components that used inheritance!</p>
+<p>The name of the game here is restraint. I was really cautious of using inheritance, but it seemed like a great fit.</p>
+<p>Here’s the situation. I kept running into cases where I wanted a Component that would last a handful of frames, then disappear:</p>
+<ul>
+<li><code>Attack</code> objects (the collision boxes generated by attacking)</li>
+<li><code>Bleeding</code> state (emitted blood streaks)</li>
+<li><code>Block</code> objects (the collision boxes generated by defending)</li>
+<li><code>Blocked</code> state (when someone’s attack was blocked; they might have a delay before they can attack again, or have to recoil backwards)</li>
+<li><code>DamagedFlash</code> state (flashing from taking damage)</li>
+<li><code>Immobile</code> state (temporarily can’t move)</li>
+<li><em>… (there are about six more)</em></li>
+</ul>
+<p>To accomplish this, I implemented a <code>Timebomb</code> Component, and then had other Components subclass it. I also had a <code>Timebomb</code> System that I would subclass—yes, I subclassed a System as well 😱. The <code>Timebomb</code> System would automatically apply the the common timing and destruction logic, and the particular subclass would add any specific behavior (e.g., for <code>Bleeding</code>, actually emit blood).</p>
+<p>Here’s what the <code>Timebomb</code> Component looks like:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">/**<br> * What to do when the timebomb goes off.<br> */</span><br><span class="token keyword">enum</span> Destruct <span class="token punctuation">{</span><br>	<span class="token comment">/**<br>	 * Remove the component.<br>	 */</span><br>	Component <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span><br><br>	<span class="token comment">/**<br>	 * Remove the entire entity.<br>	 */</span><br>	Entity<span class="token punctuation">,</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">class</span> <span class="token class-name">Timebomb</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span><br>    <span class="token comment">/**<br>     * When created (set on first Timebomb System pass).<br>     */</span><br>    <span class="token keyword">public</span> startTime<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><br><br>    <span class="token function">constructor</span><span class="token punctuation">(</span><br>        <span class="token comment">/**<br>         * Total time in ms this will last (doesn't change).<br>         */</span><br>        <span class="token keyword">public</span> duration<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br><br>        <span class="token comment">/**<br>         * What to do upon destruction.<br>         */</span><br>        <span class="token keyword">public</span> destruct<span class="token operator">:</span> Destruct<span class="token punctuation">,</span><br><br>        <span class="token comment">/**<br>         * A fuse, to allow others to request that the destruction is<br>         * activated.<br>         */</span><br>        <span class="token keyword">public</span> fuse<span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span><br><br>        <span class="token comment">/**<br>         * An optional function that will be called upon destruction.<br>         */</span><br>        <span class="token keyword">public</span> lastWish<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span><br>            ecs<span class="token operator">:</span> Engine<span class="token punctuation">.</span><span class="token constant">ECS</span><span class="token punctuation">,</span> entity<span class="token operator">:</span> Engine<span class="token punctuation">.</span>Entity<br>        <span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span><span class="token punctuation">,</span><br>    <span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>As an example Component extending this, here’s the <code>Attack</code> Component. This Component is added to Entities that represent an “attack” collision box. It tracks the parameters of the attack by storing the <code>AttackInfo</code>, passed in from the weapon that created it. It extends <code>Timebomb</code> and passes in the particular attack’s duration.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">Attack</span> <span class="token keyword">extends</span> <span class="token class-name">Timebomb</span> <span class="token punctuation">{</span><br>    <span class="token keyword">public</span> info<span class="token operator">:</span> AttackInfo<br><br>    <span class="token comment">/**<br>     * Whether the attack has hit something (used for combo logic).<br>     */</span><br>    <span class="token keyword">public</span> hit<span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=</span> <span class="token boolean">false</span><br><br>    <span class="token comment">/**<br>     * Used to limit heavy-duty effects (like pause and flash) shown per<br>     * attack.<br>     */</span><br>    <span class="token keyword">public</span> heavyEffectsShown<span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=</span> <span class="token boolean">false</span><br><br>    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">public</span> attacker<span class="token operator">:</span> Engine<span class="token punctuation">.</span>Entity<span class="token punctuation">,</span> info<span class="token operator">:</span> AttackInfo<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// This is where we pass the critical information into our</span><br>        <span class="token comment">// Timebomb super class: how long does this last, and what</span><br>        <span class="token comment">// should happen when time runs out.</span><br>        <span class="token keyword">super</span><span class="token punctuation">(</span>info<span class="token punctuation">.</span>duration<span class="token punctuation">,</span> Destruct<span class="token punctuation">.</span>Entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token comment">// (Also storing some state for the Attack itself.)</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>info <span class="token operator">=</span> <span class="token function">cloneAttackInfo</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>The <code>Timebomb</code> is also useful for objects that exist semi-indefinitely, like a “block” object. Blocks exist until the shield is lowered, or something else happens. For those cases, we just pass <code>-1</code> as the duration, and let managing code trigger the destruct action by setting the <code>fuse</code> attribute.</p>
+<p>I won’t go into the details of the <code>Timebomb</code> System, which actually handles counting down the destruct time and triggering the destruct action. But to briefly show how new Systems are made that extend it, here’s the corresponding System for the <code>Attack</code> component:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">/**<br> * I've been omitting namespaces for brevity so far, but this is the<br> * first time we've had a name collision. In reality, the classes above<br> * were in the `Component` namespace, so they would be the<br> * `Component.Attack` extending the `Component.Timebomb`. These are<br> * Systems, so they'd be `System.Attack` extending `System.Timebomb`.<br> */</span><br><span class="token keyword">class</span> <span class="token class-name">Attack</span> <span class="token keyword">extends</span> <span class="token class-name">Timebomb</span> <span class="token punctuation">{</span><br>    <span class="token comment">/**<br>     * The Timebomb System requires this attribute, and uses it to<br>     * perform the common timing and destruction logic.<br>     */</span><br>    tbComp <span class="token operator">=</span> Component<span class="token punctuation">.</span>Attack<br><br>    <span class="token keyword">public</span> componentsRequired <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set<span class="token operator">&lt;</span><span class="token builtin">Function</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">[</span><br>        Component<span class="token punctuation">.</span>Attack<span class="token punctuation">,</span><br>    <span class="token punctuation">]</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<h3>Optimizing Updates with Dirty Flags</h3>
+<p>This final example of adding code to Components was the messiest to implement, but also provided a huge performance optimization.</p>
+<p>The feature allows Components to track whether their state has changed. Then, Systems can take the information about changed Components into account to only update a subset of the Entities. When you have Systems running on a large number of Entities, but with few changes every frame, this performance gain can be considerable.</p>
+<p>However, describing this change is quite involved. It touches not only Components, but also Systems, and the ECS itself. As such, it warrants a post of its own.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Full disclosure, my understanding of ECS wasn’t from learning about it in industry, or even reading about it online (I couldn’t find that much good stuff?), it was basically from talking to my friend <a href="https://spacefiller.space/">Alex</a>. So when I write stuff like, <em>“the design philosophy of ECS,”</em> please take that with a grain of salt. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+          <div class="ba b--black-10 mv5">
+    <p class="bg-near-white black-60 mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib black-30 f6 f5-ns">series</span>
+        Building an ECS in TypeScript
+    </p>
+
+    <div class="pa3 flex">
+        <div class="w-50 ma0">
+            
+            
+        </div>
+        <div class="w-50 ma0 tr">
+            
+            
+                <p class="b ttu tracked ma0 black-30 f7 f6-ns">next &rarr;</p>
+                <a href="/posts/typescript-ecs-dirty-component-optimization/" class=" ma0 link">7. Dirty Component Optimization</a>
+            
+        </div>
+    </div>
+</div>
+
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        
+          <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>

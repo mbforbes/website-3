@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>The Power of Lists - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="The Power of Lists - Maxwell Forbes" property="title"/>
+    <meta content="The Power of Lists - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="The Power of Lists - Maxwell Forbes"/>
+    <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com/posts/the-power-of-lists/' property='og:url'/>
+    
+        <meta content='/website-3/assets/posts/power-of-lists/power-of-lists-header.jpg' property='og:image'/>
+        <meta name='twitter:image' content='/website-3/assets/posts/power-of-lists/power-of-lists-header.jpg'/>
+        <meta name='twitter:card' content='summary_large_image'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+          <div class="mb4">
+            <!-- Date -->
+            
+              <div class="fw600 light-silver mt1 ttu">
+                
+                  13 Sep 2021
+                
+              </div>
+            
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              
+                The Power of Lists
+              
+            </h1>
+            
+              <p class="gray subtitle f4 f3-ns">
+                Complete Enumeration
+              </p>
+            
+
+          </div>
+        
+
+        <!-- Series header. -->
+        
+
+        <div class="markdown-body">
+          <p><img src="/website-3/assets/posts/power-of-lists/power-of-lists-header.jpg" alt=""></p>
+<p>I often find it extremely helpful when people simply enumerate all of the options for something.</p>
+<p>Here are some examples.</p>
+<h2>Reserved Keywords in TypeScript</h2>
+<p>In <a href="https://github.com/microsoft/TypeScript/issues/2536">this GitHub issue</a>, somebody asked what the list of reserved keywords in TypeScript were.</p>
+<p>As a reply, someone simply posted a list:</p>
+<p><img src="/website-3/assets/posts/power-of-lists/ts-reserved-keywords.jpg" alt=""></p>
+<p>I have used this list many times.</p>
+<h2>Grimgrains Ingredients and Recipes</h2>
+<p><a href="https://grimgrains.com/">Grimgrains</a>, the Hundred Rabbits’ cooking blog, opens with a complete list of ingredients, followed by a complete list of recipes.</p>
+<p><img src="/website-3/assets/posts/power-of-lists/grimgrains-ingredients.jpg" alt=""></p>
+<p><img src="/website-3/assets/posts/power-of-lists/grimgrains-recipes.jpg" alt=""></p>
+<h2>PyTorch Installation and Tensor Types</h2>
+<p>I’ve always been a huge fan of <a href="https://pytorch.org/">PyTorch’s installation instructions</a>. It concisely but completely enumerates the set of installations. I never mind clicking through.</p>
+<p><img src="/website-3/assets/posts/power-of-lists/pytorch-install.jpg" alt=""></p>
+<p>The list of tensor types available in PyTorch has exploded a bit—right now it still says there are ten tensor types, but by my counting, the table has seventeen rows—but I still like that they’re all there in one place.</p>
+<p><img src="/website-3/assets/posts/power-of-lists/pytorch-tensors.jpg" alt=""></p>
+<h2>Matplotlib Color Palettes</h2>
+<p>While ordinarily a bane of my existence,<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> Matplotlib’s documentation shines on the page where they list—and render—all of the color palettes they have in the library.</p>
+<p><img src="/website-3/assets/posts/power-of-lists/matplotlib-colors.jpg" alt=""></p>
+<h2>Missing: <code>pandas.Series.agg</code></h2>
+<p>This is a case where I wish there was a list, but there isn’t.</p>
+<p>The <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.agg.html">documentation for <code>pandas.Series.add</code></a> says you can pass names of functions, but it’s not obvious which ones are valid. Can they live in the local namespace? Can they be builtins? Should they exist on the <code>pandas.Series</code> object?</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>No shade on Matplotlib. You can tell it’s trying really hard, and I think graph-making is just actually really complicated to program. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        
+          <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>

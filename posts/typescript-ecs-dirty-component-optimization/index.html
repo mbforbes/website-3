@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Dirty Component Optimization - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="Dirty Component Optimization - Maxwell Forbes" property="title"/>
+    <meta content="Dirty Component Optimization - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="Dirty Component Optimization - Maxwell Forbes"/>
+    <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com/posts/typescript-ecs-dirty-component-optimization/' property='og:url'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+          <div class="mb4">
+            <!-- Date -->
+            
+              <div class="fw600 light-silver mt1 ttu">
+                
+                  17 Oct 2021
+                
+              </div>
+            
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              
+                Dirty Component Optimization
+              
+            </h1>
+            
+
+          </div>
+        
+
+        <!-- Series header. -->
+        
+          <div class="ba b--black-80 mv5">
+    <p class="bg-black-80 white mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib white-60 f6 f5-ns">series</span>
+        Building an ECS in TypeScript
+    </p>
+
+    <div class="pa3">
+        
+        <ol class="ma0">
+            
+                <li class="">
+                    
+                        <a href="/posts/typescript-ecs-why/" class="db pv1 link">
+                            Why build an ECS? Why TypeScript?
+                        </a>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/typescript-ecs-implementation/" class="db pv1 link">
+                            A TypesScript ECS in 99 Lines of Code
+                        </a>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/typescript-ecs-components/" class="db pv1 link">
+                            Deeper Dive: Components
+                        </a>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <span class="b">
+                            Dirty Component Optimization
+                        </span>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/typescript-ecs-aspects/" class="db pv1 link">
+                            Aspects
+                        </a>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/typescript-ecs-systems/" class="db pv1 link">
+                            Deeper Dive: Systems
+                        </a>
+                    
+                </li>
+            
+        </ol>
+
+    </div>
+</div>
+
+        
+
+        <div class="markdown-body">
+          <h2>Backstory: Crates</h2>
+<p>A while into development, my co-developer Cooper made a level with a ton of objects. Specifically, crates.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<p><img src="/website-3/assets/posts/typescript-ecs/lot-of-crates.jpg" alt=""></p>
+<p class="figcaption" markdown="1">A similar level in the finished game. That's a lotta crates.</p>
+<p>Even though they sound like boring dumb wooden boxes, crates are interesting because they actually have a lot of functionality. Two relevant things crates support:</p>
+<ol>
+<li>
+<p><strong>Collision:</strong> crates could be run into (like walls) and attacked (like enemies), so they had multi-purpose collision boxes.</p>
+</li>
+<li>
+<p><strong>Animation:</strong> crates could also be destroyed, so they had animations (e.g., “exploding”).</p>
+</li>
+</ol>
+<p>As game objects, these properties made crates pretty “heavy,” by which I mean they had several Components on them, and several expensive Systems were running code on them.</p>
+<p>So what happened with this room full of crates?</p>
+<p>The symptom was obvious: you’d enter the level, and your frame rate would drop.</p>
+<p>The only thing different about the level was the proliferation of crates, so we figured out pretty quickly that the crates were causing the slowdown. Delete the crates, and the frame rate would be fine.</p>
+<p>Intuitively, the problem felt fixable, because the crates aren’t actually <em>doing</em> anything most of the time. So if a bunch of these unmoving objects are causing the engine to chug, it’s probably a sign of inefficiencies we can iron out in the engine code.</p>
+<p>Fortunately, I had my wits about me. Rather than blindly rushing in and optimizing, I implemented a profiling system that would let us see what was taking so long in Cooper’s Crate-topia.</p>
+<p><img src="/website-3/assets/posts/typescript-ecs/measurement-before.jpg" alt=""></p>
+<p class="figcaption" markdown="1">Our profiling (white bars and text) rendering on top of the game's debug view.</p>
+<p>The timings are on the right side of picture. If you look at the <strong>Overall</strong> section (top), you can see we’ve split our game loop into two parts that take all the time:</p>
+<ol>
+<li><em>update</em> (game logic), which is taking 11.8 ms</li>
+<li><em>render</em>, which is taking 5.7 ms.</li>
+</ol>
+<p>This totals 17.5 ms, which is greater than the 16.6 ms you need to hit to achieve 60 FPS. And the situation was worse on older computers.</p>
+<p>Getting the <em>render</em> faster involved better using our rendering library (the awesome <a href="https://github.com/pixijs/pixijs">PixiJS</a>). I won’t go into detail here—if you’re curious, check out this footnote<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>—but suffice to say, we’ll be focusing on the <em>update</em> (game logic).</p>
+<p>Breaking the <em>update</em> down into <strong>Systems</strong> (block second from top), the <code>AnimationRenderer</code> and <code>CollisionDetection</code> Systems were the culprits. Fixing these involved many modifications to the game: implementing spatial hashing, reorganizing the collision sets that are run, optimizing a few other Systems, and implementing the <em>dirty Component optimization</em> feature.</p>
+<p>It’s this last one—dirty Component optimization—that we’ll discuss here.</p>
+<h2>Dirty Component Optimization</h2>
+<p>Here’s the main idea of dirty Component optimization:</p>
+<blockquote>
+<p>An <em>opt-in</em> feature where Components can track whether their state has changed, and Systems can choose not to update them if it hasn’t.</p>
+</blockquote>
+<p>It was important to me to make this feature opt-in, because I didn’t want to have to change all of the game’s Components and Systems to support it—especially the ones that were running just fine.</p>
+<p>Making this optimization required changes to <code>Component</code>, <code>System</code>, and <code>ECS</code>—so basically the whole ECS engine! (Thankfully, <code>Entity</code>s remained simple numbers, blissfully ignorant of their surroundings.)</p>
+<ul>
+<li>
+<p>The <code>Component</code> implementation must change because Components are the ones that will track whether they’re dirty.</p>
+</li>
+<li>
+<p>The <code>System</code> class must change because Systems are the ones that actually run code on Components—i.e., the Systems are the source of the slowdown. The Systems need to be given information about which Components are dirty so they can perform optimizations.</p>
+</li>
+<li>
+<p>And we have to change the <code>ECS</code> to manage everything correctly: passing information about dirty Components to the Systems.</p>
+</li>
+</ul>
+<p>Let’s walk through each of these changes in their own section.</p>
+<h2>Dirtying the <code>Component</code></h2>
+<p>Remember that our Component class has been about as minimal as possible so far:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span></code></pre>
+<p class="figcaption" markdown="1">Our previous `Component` implementation.</p>
+<p>To start things off, I added two things to the base <code>Component</code> class:</p>
+<ol>
+<li>A <code>dirty()</code> method the Component can use to signal its state has changed.</li>
+<li>A <code>signal()</code> method the ECS injects later which runs when <code>dirty()</code> is called.</li>
+</ol>
+<p>Now our <code>Component</code> class looks like this:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span><br>    <span class="token comment">/**<br>     * If a Component wants to support dirty Component optimization, it<br>     * manages its own bookkeeping of whether its state has changed,<br>     * and calls `dirty()` on itself when it has.<br>     */</span><br>    <span class="token keyword">public</span> <span class="token function">dirty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">signal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">/**<br>     * Overridden by ECS once it tracks this Component.<br>     */</span><br>    <span class="token keyword">public</span> <span class="token function-variable function">signal</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function-variable function">void</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p class="figcaption" markdown="1">Our new `Component` implementation for the dirty Component optimization.</p>
+<p>You might ask, “why have two methods when we only need one?” And to that, I say, whoops, I think I over-engineered this one. I thought I might (a) want to override the implementation of <code>dirty()</code> in a specific Component to do more stuff, or (b) want to add more code in the <code>dirty()</code> of this base <code>Component</code> class. But I probably should have followed the YAGNI (you ain’t gonna need it) rule, and just crossed that bridge when the need arose.</p>
+<h3>Dirty <code>Component</code> Examples</h3>
+<p>Here are a few examples of dirty <code>Components</code> in action:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">CollisionShape</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span><br>    <span class="token comment">/** Omitted: Core data, like the polygon's vertices, offset,<br>     * collision type, ...<br>     */</span><br><br>    <span class="token comment">/**<br>     * Can be used to make the collision shape inactive without having to<br>     * destroy and recreate it. Disabled collision shapes don't collide<br>     * with anything.<br>     */</span><br>    <span class="token keyword">public</span> <span class="token keyword">get</span> <span class="token function">disabled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_disabled<span class="token punctuation">;</span><span class="token punctuation">}</span><br>    <span class="token keyword">public</span> <span class="token keyword">set</span> <span class="token function">disabled</span><span class="token punctuation">(</span>v<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_disabled <span class="token operator">!==</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span>_disabled <span class="token operator">=</span> v<span class="token punctuation">;</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">dirty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">private</span> _disabled<span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=</span> <span class="token boolean">false</span><br><span class="token punctuation">}</span></code></pre>
+<p class="figcaption" markdown="1">A snippet of the `CollisionShape` Component, which holds data about a polygon that participates in collision detection.</p>
+<p>The properties of a <code>CollisionShape</code> never change once it is created. This was an invariant that worked for our game, because we didn’t have any objects that changed shape. As such, the only time a <code>CollisionShape</code>’s data meaningfully changed was when it was disabled.</p>
+<p>You may immediately be wondering, <em>but wait, what about its position? Doesn’t the position have, uh, a huge effect on whether a collision shape will collide with something?</em></p>
+<p>The answer is: yes, absolutely, but remember that we’re doing an ECS. An entity’s position lives in its own Component, which can track whether it is dirty on its own.</p>
+<p>Speaking of the <code>Position</code> Component, let’s look at how it manages its dirty state.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">Position</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span><br>    <span class="token comment">// All this is just for getting/setting the (x, y) values.</span><br>    <span class="token keyword">private</span> _p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">private</span> _revealP <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">public</span> <span class="token keyword">get</span> <span class="token function">p</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Point <span class="token punctuation">{</span><br>        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_revealP<span class="token punctuation">.</span><span class="token function">copyFrom_</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_p<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">public</span> <span class="token keyword">set</span> <span class="token function">p</span><span class="token punctuation">(</span>v<span class="token operator">:</span> Point<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setP</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>x<span class="token punctuation">,</span> v<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">public</span> <span class="token function">setX</span><span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setP</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_p<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">public</span> <span class="token function">setY</span><span class="token punctuation">(</span>y<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setP</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_p<span class="token punctuation">.</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">public</span> <span class="token function">setP</span><span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>_p<span class="token punctuation">.</span><span class="token function">equalsCoords</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span>_p<span class="token punctuation">.</span><span class="token function">set_</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">dirty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">// We originally used getters and setters here so that we can control</span><br>    <span class="token comment">// the angle value with angleClamp(), which keeps the angle between</span><br>    <span class="token comment">// 0 and 360 degrees. If you're writing something like this, you</span><br>    <span class="token comment">// should document whether this value is in degrees or radians :-)</span><br>    <span class="token keyword">private</span> _angle<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">0</span><br>    <span class="token keyword">public</span> <span class="token keyword">get</span> <span class="token function">angle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span><br>        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_angle<span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">public</span> <span class="token keyword">set</span> <span class="token function">angle</span><span class="token punctuation">(</span>v_raw<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// This was to debug (and then prevent) setting angles to NaN</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isNaN</span><span class="token punctuation">(</span>v_raw<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">throw</span> <span class="token function">Error</span><span class="token punctuation">(</span><span class="token string">'Tried to set angle to NaN!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><br>        <span class="token keyword">let</span> v <span class="token operator">=</span> <span class="token function">angleClamp</span><span class="token punctuation">(</span>v_raw<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_angle <span class="token operator">!==</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span>_angle <span class="token operator">=</span> v<span class="token punctuation">;</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">dirty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p class="figcaption" markdown="1">The `Position` Component, now with dirty Component optimization.</p>
+<p>First, as a quick throwback, you may notice two techniques that we covered in our <a href="/website-3/posts/typescript-ecs-components/"><code>Component</code> deep-dive</a>:</p>
+<ul>
+<li>that we reveal only a copy of our underlying <code>Point</code> using getters/setters</li>
+<li>that we check angles against being <code>NaN</code>before setting</li>
+</ul>
+<p>But on to the main logic: if the (x, y) coordinate or angle changes, the Component becomes dirty. We’ve internally routed all our (x, y) changes through the <code>setP()</code> method, so we only check for changes and call <code>dirty()</code> there.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+<h2>Dirtying the <code>System</code></h2>
+<p>I’ll show the <code>System</code> changes next because it’s simpler than the <code>ECS</code>. You’ll see how the Systems will receive dirty Component information.</p>
+<p>If you recall our <code>System</code> implementation from before, it’s pretty minimal: just the set of required Components, the <code>update()</code> function that gets called every frame, and a reference to the <code>ECS</code> so it can actually do anything.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">System</span> <span class="token punctuation">{</span><br>    <span class="token keyword">public</span> <span class="token keyword">abstract</span> componentsRequired<span class="token operator">:</span> Set<span class="token operator">&lt;</span><span class="token builtin">Function</span><span class="token operator">></span><br>    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token function">update</span><span class="token punctuation">(</span>entities<span class="token operator">:</span> Set<span class="token operator">&lt;</span>Entity<span class="token operator">></span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><br>    <span class="token keyword">public</span> ecs<span class="token operator">:</span> <span class="token constant">ECS</span><br><span class="token punctuation">}</span></code></pre>
+<p class="figcaption" markdown="1">Our previous `System` implementation.</p>
+<p>We will make two changes here:</p>
+<ol>
+<li>
+<p>A set of <code>dirtyComponents</code> that the System is interested in. If the System is tracking an Entity with a Component in this list, and that Component calls <code>dirty()</code>, then this System wants to know about it on the next <code>update()</code>.</p>
+</li>
+<li>
+<p>The <code>update()</code> will now be passed an additional set of Entities: the ones with any dirty Components from the <code>dirtyComponents</code> list.</p>
+</li>
+</ol>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">System</span> <span class="token punctuation">{</span><br>    <span class="token keyword">public</span> <span class="token keyword">abstract</span> componentsRequired<span class="token operator">:</span> Set<span class="token operator">&lt;</span><span class="token builtin">Function</span><span class="token operator">></span><br><br>    <span class="token comment">/**<br>     * Set of Component classes. If *ANY* of them become dirty, the<br>     * System will be given that Entity during its update(). Components<br>     * here need *not* be tracked by `componentsRequired`. To make this<br>     * opt-in, we default this to the empty set.<br>     */</span><br>    <span class="token keyword">public</span> dirtyComponents<span class="token operator">:</span> Set<span class="token operator">&lt;</span><span class="token builtin">Function</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br>    <span class="token comment">/**<br>     * Note the addition of the second set.<br>     */</span><br>    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token function">update</span><span class="token punctuation">(</span><br>        entities<span class="token operator">:</span> Set<span class="token operator">&lt;</span>Entity<span class="token operator">></span><span class="token punctuation">,</span> dirty<span class="token operator">:</span> Set<span class="token operator">&lt;</span>Entity<span class="token operator">></span><br>    <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><br><br>    <span class="token keyword">public</span> ecs<span class="token operator">:</span> <span class="token constant">ECS</span><br><span class="token punctuation">}</span></code></pre>
+<p class="figcaption" markdown="1">The new `System` base class that supports dirty Component optimization. Note how both additions can be ignored for Systems that don't wish to support it.</p>
+<p>You may be wondering why we made the design decision mentioned in the comment on <code>dirtyComponents</code>: <em>“Components here need <em>not</em> be tracked by <code>componentsRequired</code>.”</em> I’ll show why with an example.</p>
+<p>Check out the <code>componentsRequired</code> and <code>dirtyComponents</code> from the <code>AnimationRenderer</code> System, a huge System in charge of rendering everything that has an animation:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">/**<br> * Renders animations, AKA almost all sprites, AKA basically everything<br> * on screen except the background!<br> */</span><br><span class="token keyword">class</span> <span class="token class-name">AnimationRenderer</span> <span class="token keyword">extends</span> <span class="token class-name">System</span> <span class="token punctuation">{</span><br>    <span class="token keyword">public</span> componentsRequired <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set<span class="token operator">&lt;</span><span class="token builtin">Function</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">[</span><br>        Component<span class="token punctuation">.</span>Position<span class="token punctuation">,</span><br>        Component<span class="token punctuation">.</span>Animatable<span class="token punctuation">,</span><br>    <span class="token punctuation">]</span><span class="token punctuation">)</span><br><br>    <span class="token keyword">public</span> dirtyComponents <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set<span class="token operator">&lt;</span><span class="token builtin">Function</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">[</span><br>        <span class="token comment">// changes in these require updates.</span><br>        Component<span class="token punctuation">.</span>Position<span class="token punctuation">,</span><br>        Component<span class="token punctuation">.</span>Animatable<span class="token punctuation">,</span><br>        Component<span class="token punctuation">.</span>Activity<span class="token punctuation">,</span><br>        Component<span class="token punctuation">.</span>Body<span class="token punctuation">,</span><br><br>        <span class="token comment">// listening for these to be added/removed as also means update</span><br>        <span class="token comment">// required</span><br>        Component<span class="token punctuation">.</span>Dead<span class="token punctuation">,</span><br>        Component<span class="token punctuation">.</span>DamagedFlash<span class="token punctuation">,</span><br>    <span class="token punctuation">]</span><span class="token punctuation">)</span><br><br>    <span class="token comment">// ... other code omitted ...</span><br><span class="token punctuation">}</span></code></pre>
+<p class="figcaption" markdown="1">The `AnimationRenderer` System is interested in a much larger set of dirty Components than it selects for in its update.</p>
+<p>The <code>componentsRequired</code> says: anything that has a <code>Position</code> and is <code>Animatable</code>, I want to know about it so I can render it.</p>
+<p>But the <code>dirtyComponents</code> says: changes to <em>any</em> of these <code>Components</code> mean I’ll need to re-render the Entity.</p>
+<p>In other words, the <code>componentsRequired</code> still specifies what Entities the System cares about. But a broader set of Components (<code>dirtyComponents</code>) affects whether any state has changed about an Entity in question. If any state has changed, the System has to update that Entity.</p>
+<blockquote>
+<p>In practice, this means that anything that is currently animating—like a player or enemy moving around—is still going to be dirty, and hence updated, every frame. But something that is just sitting still, <em>like a crate</em>, won’t be dirty.</p>
+</blockquote>
+<p>Backing up a bit, you might notice this is caching at a relatively high level. Rather than trying to optimize <em>within</em> a System by seeing whether we can be lazy about how we modify state—which I would call low level—we’re trying to optimize <em>what the System updates in the first place.</em> If we decide an Entity is dirty, we just run the full, normal update on it. Both types of optimization have their place. I like this one because it’s a mechanism that can apply to any System.</p>
+<blockquote>
+<p><strong>Important aside:</strong> A way to reduce bugs and retain your sanity is to keep implementing your Systems such that they behave correctly, just perhaps slowly, if they update every Entity every frame. The changes to a System for dirty Component optimization should alter <em>performance,</em> but not <em>correctness</em>. In other words, avoid update logic relying on only a subset of Entities to be updated every frame in order to be correct.</p>
+</blockquote>
+<h2>Dirtying the <code>ECS</code></h2>
+<p>We now have to make sure our <code>ECS</code> tracks dirty Components (which have called <code>signal()</code>) and keeps up-to-date lists of those Entities for participating Systems (who have defined <code>dirtyComponents</code>).</p>
+<p>To pull this off, we have to be a bit careful.</p>
+<h3>A Buggy First Draft</h3>
+<p>One thing we might try is to create a fresh list of dirty Entities every frame.</p>
+<p>In other words, at the beginning of each frame, no Components are dirty, so no Entities are considered dirty by any System. Then, as Systems run, Components become dirty. We pass each System the set of currently dirty Entities (based on the System’s <code>dirtyComponents</code>. Then, at the end of the frame, we say that all Entities and Components are are clean.</p>
+<p>Can you spot the bug?</p>
+<p>Imagine this scenario:</p>
+<ul>
+<li>System <code>A</code> cares about when the <code>Position</code> Component gets dirty.</li>
+<li>System <code>B</code> changes the <code>Position</code> Component.</li>
+</ul>
+<p>The problem happens if System <code>A</code> runs before System <code>B</code>. Imagine the following frame:</p>
+<ol>
+<li>Start of frame: nothing is dirty.</li>
+<li>System <code>A</code> runs, sees no dirty Entities, and does nothing.</li>
+<li>System <code>B</code> runs on Entity 1, and changes its <code>Position</code>. Entity 1 is correctly marked as dirty for System <code>A</code>.</li>
+<li>End of frame: we clear the dirty list.</li>
+</ol>
+<p>System <code>A</code> never found out about Entity 1’s dirty <code>Position</code> component.</p>
+<h3>Fixed: Clear After Update</h3>
+<p>To prevent this, we can instead make the following rule: each System’s list of dirty Entities is only cleared <em>after it actually runs.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></em></p>
+<p>With that implementation, the above scenario would now play out:</p>
+<ul>
+<li>Frame <code>i</code>
+<ol>
+<li>Start of frame. Nothing is dirty.</li>
+<li>System <code>A</code> runs, sees no dirty Entities, and does nothing.</li>
+<li>System <code>B</code> runs on Entity 1, and changes its <code>Position</code>. Entity 1 is correctly marked as dirty for System <code>A</code>.</li>
+<li>End of frame. System <code>A</code> thinks that Entity 1 is dirty.</li>
+</ol>
+</li>
+<li>Frame <code>i+1</code>
+<ol>
+<li>Start of frame. System <code>A</code> thinks that Entity 1 is dirty.</li>
+<li>System <code>A</code> runs, sees Entity 1 is dirty, updates it, and clears its dirty list.</li>
+<li>System <code>B</code> does whatever (let’s say it does nothing, for simplicity).</li>
+<li>End of frame. Nothing is dirty.</li>
+</ol>
+</li>
+</ul>
+<p>System <code>A</code> was able to update its dirty Entity on the next frame. (This is the earliest it could have found out about System <code>B</code>’s changes anyway, since System <code>A</code> runs before System <code>B</code> each frame.<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>)</p>
+<h3>The Implementation</h3>
+<p>OK, let’s make those changes to our ECS to support dirty Component optimization.</p>
+<p>In the upcoming code block, I’ll show just the parts of the <code>ECS</code> that have changed. Afterwards, I’ll link to a complete listing of the code so far.</p>
+<p>I’ve changed six sections for the dirty Component optimization:</p>
+<ol>
+<li>Two new data structures — tracking dirty state</li>
+<li><code>addComponent()</code> — hooking up dirty <code>signal()</code> and calling it</li>
+<li><code>componentDirty()</code> — new function: what to do when Component is dirty</li>
+<li><code>addSystem()</code> — make dirty Component / Entity lists for new Systems</li>
+<li><code>update()</code> — pass dirty Entities to Systems each frame, then clear</li>
+<li><code>destroyEntity()</code> — remove Entity from any dirty lists</li>
+</ol>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name"><span class="token constant">ECS</span></span> <span class="token punctuation">{</span><br><br>    <span class="token comment">// NEW: Data structures for dirty Component optimization.</span><br>    <span class="token keyword">private</span> dirtySystemsCare <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token operator">&lt;</span><span class="token builtin">Function</span><span class="token punctuation">,</span> Set<span class="token operator">&lt;</span>System<span class="token operator">>></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">private</span> dirtyEntities <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token operator">&lt;</span>System<span class="token punctuation">,</span> Set<span class="token operator">&lt;</span>Entity<span class="token operator">>></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br>    <span class="token keyword">public</span> <span class="token function">addComponent</span><span class="token punctuation">(</span>entity<span class="token operator">:</span> Entity<span class="token punctuation">,</span> component<span class="token operator">:</span> Component<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token comment">/** Code omitted */</span><br><br>        <span class="token comment">// NEW: Let Component signal ECS when it gets dirty.</span><br>        component<span class="token punctuation">.</span><span class="token function-variable function">signal</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">componentDirty</span><span class="token punctuation">(</span>entity<span class="token punctuation">,</span> component<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br><br>        <span class="token comment">// NEW: Initial dirty signal to broadcast to interested Systems</span><br>        <span class="token comment">// so that it gets a first update.</span><br>        component<span class="token punctuation">.</span><span class="token function">signal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">/**<br>     * NEW: This whole function.<br>     */</span><br>    <span class="token keyword">private</span> <span class="token function">componentDirty</span><span class="token punctuation">(</span><br>        entity<span class="token operator">:</span> Entity<span class="token punctuation">,</span> component<span class="token operator">:</span> Component<br>    <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token comment">// For all systems that care about this Component becoming</span><br>        <span class="token comment">// dirty, tell them, but only if they're actually tracking</span><br>        <span class="token comment">// this Entity.</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>dirtySystemsCare<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>component<span class="token punctuation">.</span>constructor<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">return</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> system <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>dirtySystemsCare<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><br>            component<span class="token punctuation">.</span>constructor<span class="token punctuation">)</span><br>        <span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>                <span class="token keyword">this</span><span class="token punctuation">.</span>dirtyEntities<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>            <span class="token punctuation">}</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">public</span> <span class="token function">addSystem</span><span class="token punctuation">(</span>system<span class="token operator">:</span> System<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token comment">/** Code omitted */</span><br><br>        <span class="token comment">// NEW: Bookkeeping for dirty Component optimization.</span><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> c <span class="token keyword">of</span> system<span class="token punctuation">.</span>dirtyComponents<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>dirtySystemsCare<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>                <span class="token keyword">this</span><span class="token punctuation">.</span>dirtySystemsCare<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>            <span class="token punctuation">}</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span>dirtySystemsCare<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>dirtyEntities<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>system<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br><br>    <span class="token comment">/**<br>     * NOTE: Removed the `removeSystem()` function because it was<br>     * just for proof-of-concept in the initial post. If we kept it,<br>     * we'd need to remove the System from `dirtySystemsCare` and<br>     * `dirtyEntities`.<br>     */</span><br><br>    <span class="token keyword">public</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>system<span class="token punctuation">,</span> entities<span class="token punctuation">]</span> <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token comment">// NEW: Pass in list of dirty Entities (2nd parameter).</span><br>            system<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>entities<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>dirtyEntities<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>            <span class="token comment">// NEW: Clear System's dirty Entity list.</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span>dirtyEntities<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br><br>         <span class="token comment">/** Code omitted */</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">private</span> <span class="token function">destroyEntity</span><span class="token punctuation">(</span>entity<span class="token operator">:</span> Entity<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token comment">/** Code omitted */</span><br><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>system<span class="token punctuation">,</span> entities<span class="token punctuation">]</span> <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token comment">// Remove Entity from System (if applicable).</span><br>            entities<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// no-op if doesn't have it</span><br><br>            <span class="token comment">// NEW: Remove Entity from dirty list if it was there.</span><br>            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>dirtyEntities<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>                <span class="token comment">// Again, simply a no-op if it's not in there.</span><br>                <span class="token keyword">this</span><span class="token punctuation">.</span>dirtyEntities<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>            <span class="token punctuation">}</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p class="figcaption" markdown="1">Code changes to our `ECS` to support dirty Component optimization.</p>
+<blockquote>
+<p><strong>Note: Adding Systems during gamplay.</strong> In Fallgate, I never added Systems later on during the game. They were all added upfront, before any Entities or Components were made. If you wanted to add Systems dynamically during gameplay, and wanted dirty Component optimization to work correctly for them, you’d need to also make sure the System runs once on all of its matching Entities. Otherwise, it would miss everything that already exists. You might do this, for example, by marking all Entities that match a System as dirty whenever a System is added. Later, we’ll make an <code>onAdd()</code> function for when an Entity is first tracked by a System; you could do it there.</p>
+</blockquote>
+<blockquote>
+<p>Here’s the <a href="https://gist.github.com/mbforbes/5604a426a7f9b054d0308ac3cc170037">complete code listing</a> for the ECS with dirty Component optimization.</p>
+</blockquote>
+<h2>Trying it out</h2>
+<p>I’ve made a tiny demo to show the dirty Component optimization at work.</p>
+<p>We’ll start with our basic <code>Health</code> Component, as before, but add in <code>dirty()</code> reporting whenever it changes:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">Health</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span><br>    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> _maximum<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> <span class="token keyword">private</span> _current<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">public</span> <span class="token keyword">get</span> <span class="token function">current</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span><br>        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_current<br>    <span class="token punctuation">}</span><br>    <span class="token keyword">public</span> <span class="token keyword">set</span> <span class="token function">current</span><span class="token punctuation">(</span>value<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>_current <span class="token operator">=</span> value<span class="token punctuation">;</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">dirty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">public</span> <span class="token keyword">get</span> <span class="token function">maximum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span><br>        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_maximum<br>    <span class="token punctuation">}</span><br>    <span class="token keyword">public</span> <span class="token keyword">set</span> <span class="token function">maximum</span><span class="token punctuation">(</span>value<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>_maximum <span class="token operator">=</span> value<span class="token punctuation">;</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">dirty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p class="figcaption" markdown="1">The `Health` Component stores two numbers, but calls `dirty()` whenever either changes. There's probably a more elegant way to do this in TypeScript 😅</p>
+<p>We’ll make a <code>LatestHealthLogger</code> System that logs the latest value of an Entity’s <code>Health</code> Component.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">LatestHealthLogger</span> <span class="token keyword">extends</span> <span class="token class-name">System</span> <span class="token punctuation">{</span><br>    componentsRequired <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set<span class="token operator">&lt;</span><span class="token builtin">Function</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">[</span>Health<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    dirtyComponents <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set<span class="token operator">&lt;</span><span class="token builtin">Function</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">[</span>Health<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token function">update</span><span class="token punctuation">(</span>entities<span class="token operator">:</span> Set<span class="token operator">&lt;</span>Entity<span class="token operator">></span><span class="token punctuation">,</span> dirty<span class="token operator">:</span> Set<span class="token operator">&lt;</span>Entity<span class="token operator">></span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> entity <span class="token keyword">of</span> dirty<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">let</span> health <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ecs<span class="token punctuation">.</span><span class="token function">getComponents</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Health<span class="token punctuation">)</span><span class="token punctuation">;</span><br>            <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>health<span class="token punctuation">.</span>current <span class="token operator">+</span> <span class="token string">"/"</span> <span class="token operator">+</span> health<span class="token punctuation">.</span>maximum<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p class="figcaption" markdown="1">Notice that the `LatestHealthLogger` ignores its full set of `entities` and only iterates over the `dirty` ones!</p>
+<p>Now, we can run a little function to test it out.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">function</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>    <span class="token keyword">let</span> ecs <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token constant">ECS</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">LatestHealthLogger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token keyword">let</span> entity <span class="token operator">=</span> ecs<span class="token punctuation">.</span><span class="token function">addEntity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">let</span> health <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Health</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    ecs<span class="token punctuation">.</span><span class="token function">addComponent</span><span class="token punctuation">(</span>entity<span class="token punctuation">,</span> health<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    ecs<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// should print "10/10" (Component starts dirty)</span><br>    ecs<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// should not print anything</span><br>    health<span class="token punctuation">.</span>current <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span><br>    ecs<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// should print "8/10"</span><br>    ecs<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// should not print anything</span><br><span class="token punctuation">}</span></code></pre>
+<p>Sure enough, when I run this, I see:</p>
+<pre class="language-txt"><code class="language-txt">10/10<br>8/10</code></pre>
+<p>If we change the <code>LatestHealthLogger</code> to iterate over all <code>entities</code>, rather than just <code>dirty</code>, it prints:</p>
+<pre class="language-txt"><code class="language-txt">10/10<br>10/10<br>8/10<br>8/10</code></pre>
+<h2>Epilogue: What Happened with the Crates?</h2>
+<p>After the dirty Component optimization—and some other improvements to collision detection, which I might cover elsewhere—we brought the <em>update</em> time for each frame from <strong>11.8ms</strong> down to <strong>1.4ms</strong>. The game now ran buttery smooth.</p>
+<p><img src="/website-3/assets/posts/typescript-ecs/measurement-after.jpg" alt=""></p>
+<p>Most importantly, the changes meant the game’s performance now depended on the number of things that <em>changed</em> every frame, not the number of things that simply <em>existed.</em> This paved the way for even bigger levels without worrying about performance.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>This was one of the many great reminders of the benefits of working with others who think differently than you. I would never have filled a room with crates. I’m not sure why. But for Cooper, it was totally natural—hey, we have crates, what if you had a huge room full of them you had to smash through. And when he did this, it totally broke the game. If it was just me, I might of thought, oops, that was a bad design. But because he did it, I was forced to think a bit more. And I realized, yeah, it’s actually a pretty reasonable design, and the engine is weak if it doesn’t support it. This caused me to implement a profiling system and make some great upgrades to the engine. I think you’d call this an example of artistic direction influencing the technical side of things. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>There are a few basics of using PixiJS so that it can render things fast. This was in 2018, so things might have changed by now. But the two main improvements we did were: (1) avoiding <code>Graphics</code> objects, which are extremely slow in PixiJS, and instead using textures almost exclusively. We were using <code>Graphics</code> objects to draw the collision boxes during debugging mode, so part of the slowdown was from debugging itself. We created a single white pixel (1x1) texture, then colored it and stretched it over the areas we wanted. This was a massive speedup. (2) For particles, we started using PixiJS’s <code>ParticleContainer</code> over a vanilla <code>Container</code>. Combined, these two changes sped up rendering nearly 3x (5.7ms → 1.8ms). <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>You might notice that the API for changing the <code>Position</code> is very broad. It’s broad because the <code>Position</code> is such a central Component in the game. Pretty much everything has a position, so there are many different little ways callers might want to change it. Since we haven’t exposed the underlying <code>Point</code>, we can’t use its methods to change the actual value, so we must write our own wrappers. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>Another nice aspect of the “clear after run” decision is another feature I added to Systems that I haven’t covered yet: disabling them. Instead of removing Systems, I would disable and enable them. This would be another potential source of pain with the dirty Component optimization. But since we keep a list of dirty Entities per System, and we don’t clear the list until a System runs, the System simply accumulates dirty Entities while it is disabled. Then, once the System runs again, it simply plows through the list of everything it missed while it was disabled. Piece of cake. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>In Fallgate, I had Systems run in a specific order in each frame. This created invisible logical dependencies that I had to remember to not do things out-of-order. It was trivial to remember at first, because the order was like “run game logic before drawing.” But later, it became more complex, like “update the particular attack state before updating the visible body parts.” If I were to build another game with an ECS, I would try to avoid this. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+          <div class="ba b--black-10 mv5">
+    <p class="bg-near-white black-60 mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib black-30 f6 f5-ns">series</span>
+        Building an ECS in TypeScript
+    </p>
+
+    <div class="pa3 flex">
+        <div class="w-50 ma0">
+            
+            
+                <p class="b ttu tracked ma0 black-30 f7 f6-ns">&larr; previous</p>
+                <a href="/posts/typescript-ecs-components/" class=" ma0 link">6. Deeper Dive: Components</a>
+            
+        </div>
+        <div class="w-50 ma0 tr">
+            
+            
+                <p class="b ttu tracked ma0 black-30 f7 f6-ns">next &rarr;</p>
+                <a href="/posts/typescript-ecs-aspects/" class=" ma0 link">8. Aspects</a>
+            
+        </div>
+    </div>
+</div>
+
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        
+          <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>
