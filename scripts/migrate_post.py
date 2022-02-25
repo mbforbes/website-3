@@ -77,9 +77,18 @@ def process_match(out_line, match, add_parens, output_raw, prefix=None, postfix=
 
     if url.startswith("/data/"):
         is_asset = True
-        assert len(url.split("/")) == 4
-        _, __, subdir, filename = url.split("/")
+        assert len(url.split("/")) >= 4
+        pieces = url.split("/")
+        subdir = pieces[2]
+        filename = "/".join(pieces[3:])  # may be just file, or foo/file.x, both ok
+        # old:
+        # _, __, subdir, filename = url.split("/")
         new_url = f"/assets/posts/{subdir}/{filename}"
+    elif url.startswith("/dev/lib/"):
+        is_asset = True
+        assert len(url.split("/")) == 4
+        _blank, _dev, _lib, filename = url.split("/")
+        new_url = f"/assets/lib/{filename}"
     elif url.startswith("/posts/"):
         assert len(url.split("/")) == 3
         _, __, path = url.split("/")
