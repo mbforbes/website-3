@@ -4,7 +4,7 @@ const util = require("util");
 // const pluginRss = require("@11ty/eleventy-plugin-rss"); // TODO
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 // const pluginNavigation = require("@11ty/eleventy-navigation"); // TODO
-const pluginLinkTo = require('eleventy-plugin-link_to');
+// const pluginLinkTo = require('eleventy-plugin-link_to');  // NOTE: if path prefix added
 const markdownIt = require("markdown-it");
 // const markdownItAnchor = require("markdown-it-anchor");  // TODO
 const markdownItFootnote = require("markdown-it-footnote");
@@ -19,7 +19,7 @@ module.exports = function (eleventyConfig) {
     //   eleventyConfig.addPlugin(pluginRss); // TODO
     eleventyConfig.addPlugin(pluginSyntaxHighlight);
     //   eleventyConfig.addPlugin(pluginNavigation); // TODO
-    eleventyConfig.addPlugin(pluginLinkTo);
+    // eleventyConfig.addPlugin(pluginLinkTo);  // NOTE: if path prefix added
 
     // TODO: consider
     // Alias `layout: post` to `layout: layouts/post.njk`
