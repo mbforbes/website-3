@@ -126,7 +126,10 @@ def process_file(w):
         elif tdash_seen == 1:
             # in frontmatter
             if line.startswith("category:"):
-                skip = True
+                if line.startswith("category: Research"):
+                    out_line = "tags: research\n"
+                else:
+                    skip = True
             elif line.startswith("tag:"):
                 # "tag" -> "tags", and lowercase val
                 pieces = line.split(" ")
@@ -164,7 +167,7 @@ def process_file(w):
             # (/foo/bar)
             # ({{ "/foo/bar" | url }})
             while True:
-                match = re.search(r"\((\S*/\S*)\)", out_line)
+                match = re.search(r"\((/\S*)\)", out_line)
                 if match is None:
                     break
                 out_line, new_t_dirs = process_match(out_line, match, True, False)
@@ -203,9 +206,9 @@ def process_dirs(translate_dirs):
 def main():
     worklist = build_worklist()
     # grab first unfinished
-    # w = [w for w in worklist if not w["finished"] and not w["is_sketch"]][0]
+    w = [w for w in worklist if not w["finished"] and not w["is_sketch"]][0]
     # grab specific
-    w = [w for w in worklist if w["new_basename"] == "appropriate-quality.md"][0]
+    # w = [w for w in worklist if w["new_basename"] == "every-phd-is-different.md"][0]
     translate_dirs = process_file(w)
     if len(translate_dirs) > 0:
         process_dirs(translate_dirs)
