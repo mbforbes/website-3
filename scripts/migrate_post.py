@@ -21,7 +21,11 @@ def build_worklist():
         basename = os.path.basename(src_path)
         pieces = basename.split("-")
         new_basename = "-".join(pieces[3:])
-        is_sketch = new_basename.startswith("sketch")
+        is_sketch = (
+            new_basename.startswith("sketch")
+            or new_basename.startswith("voxel")
+            or new_basename.startswith("t-shirt")
+        )
         dst_path = (
             dst_sketch_dir + new_basename if is_sketch else dst_post_dir + new_basename
         )
