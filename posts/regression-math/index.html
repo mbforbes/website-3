@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Ordinary least squares, ℓ² (ridge), and ℓ¹ (lasso) linear regressions - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="Ordinary least squares, ℓ² (ridge), and ℓ¹ (lasso) linear regressions - Maxwell Forbes" property="title"/>
+    <meta content="Ordinary least squares, ℓ² (ridge), and ℓ¹ (lasso) linear regressions - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="Ordinary least squares, ℓ² (ridge), and ℓ¹ (lasso) linear regressions - Maxwell Forbes"/>
+    <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com/posts/regression-math/' property='og:url'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+          <div class="mb4">
+            <!-- Date -->
+            
+              <div class="fw600 light-silver mt1 ttu">
+                
+                  21 Nov 2017
+                
+              </div>
+            
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              
+                Ordinary least squares, ℓ² (ridge), and ℓ¹ (lasso) linear regressions
+              
+            </h1>
+            
+
+          </div>
+        
+
+        <!-- Series header. -->
+        
+
+        <div class="markdown-body">
+          <h2>Preface</h2>
+<p><em>I wrote this in 2017, and am posting it now in 2021. I was surprised how difficult it was to find complete information about linear regressions in one place: the derivations of the gradients, how they get their properties (e.g., lasso’s sparsity requiring coordinate descent), and some simple code to implement them. I tried to be careful about vector shapes and algebra, but there are probably still minor errors, which are of course my own.</em></p>
+<p><em>One big goof I had was running this on MNIST, which ought to be treated as a classification problem per class (e.g., with logistic regression), rather than trying to regress each digit to a number (e.g., the digit “1” to the number <code>1</code>, and the digit “5” to the number <code>5</code>). I should have ran this code on a true regression dataset instead, where you do want real numbers (rather than class decisions) as output.</em></p>
+<p><em>However, the silver lining is that after this goof, I was in a computer architecture class where we needed to run MNIST classification on FPGAs, and the starter code had made exactly this same mistake—they were doing linear instead of logistic regression! Making that simple switch resulted in such an accuracy boost that the classifier became one of the pareto optimal ones.</em></p>
+<p><em>The repository for this project, which contains the full writeup below, as well as simple pytorch code to implement it, is here:</em></p>
+<style>
+    .black-and-white:not(:hover) {
+        filter: grayscale(100%);
+    }
+</style>
+<link href='/website-3/assets/css/tippy-6.3.1.light.css' rel="stylesheet" type="text/css"/>
+<script defer src='/website-3/assets/lib/popper-2.9.3.min.js'></script>
+<script defer src='/website-3/assets/lib/tippy-6.3.1.umd.min.js'></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const langs = [
+            'Python',
+            'TypeScript',
+            'Bash',
+            'Java',
+            'HTML',
+            'JavaScript',
+            'Ruby',
+            'PHP'
+        ];
+        for (let lang of langs) {
+            let lower = lang.toLowerCase();
+            tippy(`.${lower}`, {
+                content: `Written in ${lang}`,
+                theme: 'light'
+            });
+        }
+    });
+</script>
+<div class="pl3 bl bw1 mb4">
+    <a href="https://github.com/mbforbes/rndjam1" class="f5 f4-ns b code">rndjam1</a><span class="dib fr">
+            <img
+                class="h1 black-and-white python"
+                src="/website-3/assets/img/langs/python.svg"/>
+        </span><p class="mv1 f5 f4-ns">Regression derivations (+ basic code running on MNIST): ordinary least squares, ridge (ℓ²), and lasso (ℓ¹).</p></div>
+<p><em>Enjoy!</em></p>
+<p><em>– Max from 2021</em></p>
+<h2>Goal</h2>
+<p><strong>Build</strong> linear regression for MNIST from scratch using pytorch.</p>
+<h2>Data splits</h2>
+<p>MNIST (<a href="https://pjreddie.com/projects/mnist-in-csv/">csv version</a>) has a 60k/10k train/test split.</p>
+<p>I pulled the last 10k off of train for a val set.</p>
+<p>My final splits are then 50k/10k/10k train/val/test.</p>
+<h2>Viewing an image</h2>
+<p>Here’s an MNIST image:</p>
+<p><img src="/website-3/assets/posts/regression-math/images/example_normal.jpg" alt="the first mnist datum"></p>
+<p>Here it is expanded 10x:</p>
+<p><img src="/website-3/assets/posts/regression-math/images/example_bloated.jpg" alt="the first mnist datum, expanded"></p>
+<h2>Data loading: CSV vs binary (“tensor”)</h2>
+<p>y-axis is seconds taken to load the file; lower is better. Result: binary is
+way faster.</p>
+<p><img src="/website-3/assets/posts/regression-math/images/data_loading.png" alt="data loading speeds, csv vs binary"></p>
+<h2>Naive regression to scalar</h2>
+<p>In this we regress each image to a scalar that is the number represented in
+that image. For example, we regress the image <img alt="the first MNIST datum" src="/website-3/assets/posts/regression-math/images/example_normal.jpg" class="inline ph2"> to the number <code>5</code>.</p>
+<blockquote>
+<p>Disclaimer: this is a suboptimal approach. If you’re going to treat was is really a
+classification problem (like MNIST) as regression, you should regress to each
+class independently (i.e., do 10 regression problems at once instead of a
+single regression). Explaining why would take math that I would have to talk
+to people smarter than me to produce. I think the intuition is that you’re
+making the learning problem harder by forcing these distinct classes to exist
+as points in a 1D real space, when they really have no relation to each
+other. This is better treated as a logistic regression problem.</p>
+<p>However: (a) if you’re confused like I was, you might try it, (b) if you’re bad at
+math like me, it’s simpler to start out with a “normal” regression than 10 of
+them, © I’m kind of treating this like a notebook, so might as well
+document the simple → complex progression of what I tried.</p>
+<p>So here we go.</p>
+</blockquote>
+<h3>Notation</h3>
+<p>Definitions:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/definitions.svg" alt="definitions"></p>
+<p>Math reminders and my notation choices:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/math-reminders.svg" alt="math reminders"></p>
+<blockquote>
+<p>NB: While the derivative of a function <strong>f</strong> : ℝ<sup>n</sup> → ℝ is
+<a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">technically a row
+vector</a>,
+people™ have decided that gradients of functions are column vectors,
+which is why I have transposes sprinkled below. (Thanks to Chris Xie for
+explaining this.)</p>
+</blockquote>
+<h3>Ordinary least squares (OLS)</h3>
+<p><strong>Loss</strong> (average per datum):</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-loss.svg" alt="least squares loss"></p>
+<p>Using the average loss per datum is nice because it is invariant of the dataset
+(or (mini)batch) size, which will come into play when we do gradient
+descent. Expanding the loss function out for my noob math:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-loss-expanded.svg" alt="least squares loss expanded"></p>
+<p>Taking the <strong>derivative</strong> of the loss function with respect to the <strong>weight
+vector</strong>:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-loss-expanded-derivative.svg" alt="least squares loss expanded derivative"></p>
+<p>We can set the gradient equal to 0 (the zero vector) and solve for the
+<strong>analytic solution</strong> (omitting second derivative check):</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-analytic-expanded.svg" alt="least squares analytic expanded"></p>
+<p>Doing a little bit of algebra to clean up the gradient, we’ll get our
+<strong>gradient for gradient descent</strong>:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-gradient.svg" alt="least squares gradient"></p>
+<p>We can plot the loss as we take more gradient descent steps:</p>
+<p><img src="/website-3/assets/posts/regression-math/images/ols_gd_linear.png" alt="ols gradient descent linear plot"></p>
+<p>… but it’s hard to see what’s happening. That’s because the loss starts so
+high and the y-axis is on a linear scale. A log scale is marginally more
+informative:</p>
+<p><img src="/website-3/assets/posts/regression-math/images/ols_gd_log.png" alt="ols gradient descent log plot"></p>
+<p>To instead do <strong>coordinate descent</strong>, we optimize a single coordinate at a
+time, keeping all others fixed. We take the <strong>derivative</strong> of the loss function
+with respect to a <strong>single weight</strong>:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-derivative-single-weight.svg" alt="least squares derivative single weight"></p>
+<p>Setting the derivative equal to zero, we can solve for the optimal value for
+that single weight:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-derivative-single-weight-zero.svg" alt="least squares derivative single weight zero"></p>
+<p>However, this is an expensive update to a single weight. We can speed this up.
+If we define the residual,</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/residual.svg" alt="residual"></p>
+<p>then we can rewrite the inner term above as,</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-residual-rewrite.svg" alt="least squares residual rewrite"></p>
+<p>and, using <code>(t)</code> and <code>(t+1)</code> to clarify old and new values for the weight,
+rewrite the single weight optimum as:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-coord-descent.svg" alt="least squares coord descent"></p>
+<p>After updating that weight, <strong>r</strong> is immediately stale, so we must update it as
+well:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-coord-descent-r-update.svg" alt="least squares coord descent r update"></p>
+<p>We can compute an initial <strong>r</strong> and we can precompute all of the column norms
+(the denominator) because they do not change. That means that each weight
+update involves just the <em>n</em>-dimensional vector dot product (the numerator) and
+updating <strong>r</strong> (<em>n</em>-dimensional operations). Because of this, one full round of
+coordinate descent (updating all weight coordinates once) is said to have the
+same update time complexity as one step of gradient descent (<code>O(nd)</code>).</p>
+<p>However, I found that in practice, one step of (vanilla) gradient descent is
+much faster. I think this is because my implementation of coordinate descent
+requires moving values to and from the GPU (for bookkeeping old values),
+whereas gradient descent can run entirely on the GPU. I’m not sure if I can
+remedy this. With that said, coordinate descent converges with 10x fewer
+iterations.</p>
+<p><img src="/website-3/assets/posts/regression-math/images/ols_cd.png" alt="ols coordinate descent plot"></p>
+<p>But how well do we do in regressing to a scalar with OLS?</p>
+<p><img src="/website-3/assets/posts/regression-math/images/ols_acc.png" alt="ols accuracy"></p>
+<p>Not very well.</p>
+<h3>Ridge regression (RR)</h3>
+<p><strong>Loss:</strong></p>
+<p><img src="/website-3/assets/posts/regression-math/svg/ridge-loss.svg" alt="ridge loss"></p>
+<blockquote>
+<p>NB: For all regularization methods (e.g., ridge and lasso), we shouldn’t be
+regularizing the weight corresponding to the bias term (I added as an extra
+feature column of <code>1</code>s). You can remedy this by either (a) centering the <code>y</code>s
+and omitting the bias term, or (b) removing the regularization of the bias
+weight in the loss and gradient. I tried doing (b) but I think I failed (GD
+wasn’t getting nearly close enough to analytic loss), so I’ve left the
+normalization in there for now (!).</p>
+</blockquote>
+<p><strong>Derivative:</strong></p>
+<p>(Being a bit more liberal with my hand waving of vector and matrix derivatives
+than above)</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/ridge-derivative.svg" alt="ridge derivative"></p>
+<p><strong>Analytic:</strong></p>
+<blockquote>
+<p>NB: I think some solutions combine <em>n</em> into <em>λ</em> because it looks cleaner. In
+order to get the analytic solution and gradient (descent) to reach the same
+solution, I needed to be consistent with how I applied <em>n</em>, so I’ve left it
+in for completeness.</p>
+</blockquote>
+<p><img src="/website-3/assets/posts/regression-math/svg/ridge-analytic.svg" alt="ridge analytic"></p>
+<p><strong>Gradient:</strong></p>
+<p>(Just massaging the derivative we found a bit more.)</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/ridge-gradient.svg" alt="ridge gradient"></p>
+<p><strong>Coordinate descent:</strong></p>
+<p>The derivative of the regularization term with respect to a single weight is:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/ridge-cd-0.svg" alt="ridge cd 0"></p>
+<p>with that in mind, the derivative of the loss function with respect to a single
+weight is:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/ridge-cd-1.svg" alt="ridge cd 1"></p>
+<p>In setting this equal to 0 and solving, I’m going to do some serious hand
+waving about “previous” versus “next” values of the weight. (I discovered what
+seems (empirically) to be the correct form by modifying late equations of the
+Lasso coordinate descent update, but I’m not sure the correct way to do the
+derivation here.) We’ll also make use of the residual
+<img src="/website-3/assets/posts/regression-math/svg/residual.svg" alt="residual">.</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/ridge-cd-2.svg" alt="ridge cd 2"></p>
+<p>As above, we update the residual after each weight update:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/residual-update.svg" alt="residual update"></p>
+<h3>Lasso</h3>
+<p><strong>Loss:</strong></p>
+<p><img src="/website-3/assets/posts/regression-math/svg/lasso-loss.svg" alt="lasso loss"></p>
+<p><strong>Derivative:</strong></p>
+<p><img src="/website-3/assets/posts/regression-math/svg/lasso-derivative-part1.svg" alt="lasso derivative part 1"></p>
+<p>Focusing on the final term, we’ll use the subgradient, and pick <code>0</code> (valid in
+<code>[-1, 1]</code>) for the nondifferentiable point. This means we can use <code>sgn(x)</code> as
+the “derivative” of <code>|x|</code>.</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/lasso-derivative-part2.svg" alt="lasso derivative part 2"></p>
+<p>Substitute in to get the final term for the (sub)gradient:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/lasso-derivative-part3.svg" alt="lasso derivative part 3"></p>
+<blockquote>
+<p>NB: There’s no soft thresholding (sparsity-encouraging) property of LASSO
+when you use gradient descent. You need something like coordinate descent to
+get that. Speaking of which…</p>
+</blockquote>
+<p><strong>Coordinate descent:</strong></p>
+<p><img src="/website-3/assets/posts/regression-math/svg/lasso-cd-1.svg" alt="lasso cd 1"></p>
+<p>setting this = 0, and again using the residual <img src="/website-3/assets/posts/regression-math/svg/residual.svg" alt="residual">,
+we have:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/lasso-cd-2.svg" alt="lasso cd 2"></p>
+<blockquote>
+<p>NB: I think that here (and below) we might really be saying that 0 is in the
+set of subgradients, rather than that it equals zero.</p>
+</blockquote>
+<p>There’s a lot going on. Let’s define two variables to clean up our equation:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/lasso-cd-3.svg" alt="lasso cd 3"></p>
+<p>From this, we can more clearly see the solution to this 1D problem:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/lasso-cd-4.svg" alt="lasso cd 4"></p>
+<p>This solution is exactly the soft threshold operator:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/lasso-cd-5.svg" alt="lasso cd 5"></p>
+<p>Rewriting this into its full form:</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/lasso-cd-6.svg" alt="lasso cd 6"></p>
+<p>As with coordinate descent above, we need to update the residual <strong>r</strong> after
+each weight update (skipping the derivation; same as above for OLS):</p>
+<p><img src="/website-3/assets/posts/regression-math/svg/residual-update.svg" alt="residual update"></p>
+<h2>Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Regularized_least_squares#Partial_list_of_RLS_methods">Table of regularized least squares functions (Wikipedia)</a></li>
+<li><a href="https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf">The Matrix Cookbook (Petersen &amp; Pedersen)</a></li>
+<li><a href="https://web.stanford.edu/~mrosenfe/soc_meth_proj3/matrix_OLS_NYU_notes.pdf">OLS with matrices notes (possibly Rosenfeld?)</a></li>
+<li><a href="https://www.cs.cmu.edu/~ggordon/10725-F12/slides/25-coord-desc.pdf">Coordinate Descent (Gordon &amp; Tibshirani)</a></li>
+<li><a href="http://jocelynchi.com/a-coordinate-descent-algorithm-for-the-lasso-problem">A Coordinate Descent Algorithm for the Lasso Problem (Chi)</a></li>
+<li><a href="https://www.coursera.org/learn/ml-regression/lecture/6OLyn/deriving-the-lasso-coordinate-descent-update">Deriving the lasso coordinate descent update (Fox)</a></li>
+</ul>
+<h2>Acknowledgements</h2>
+<p>Many thanks to Chris Xie and John Thickstun for helping me out with math. All errors are my own.</p>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        
+          <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>
