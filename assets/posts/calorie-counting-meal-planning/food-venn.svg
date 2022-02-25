@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="333px" height="345px" viewBox="0 0 333 345" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#979797" fill-opacity="0.5" fill="#EEF5B2" cx="111" cy="219" r="110.5"></circle>
+        <circle id="Oval" stroke="#979797" fill-opacity="0.5" fill="#3FC5F0" cx="174" cy="111" r="110.5"></circle>
+        <circle id="Oval" stroke="#979797" fill-opacity="0.5" fill="#6DECB9" cx="222" cy="222" r="110.5"></circle>
+        <text id="fast" font-family="AvenirNext-Bold, Avenir Next" font-size="21" font-weight="bold" fill="#404040">
+            <tspan x="254" y="286">FAST</tspan>
+        </text>
+        <text id="CHEAP" font-family="AvenirNext-Bold, Avenir Next" font-size="21" font-weight="bold" fill="#404040">
+            <tspan x="28" y="287">CHEAP</tspan>
+        </text>
+        <text id="HEALTHY" font-family="AvenirNext-Bold, Avenir Next" font-size="21" font-weight="bold" fill="#404040">
+            <tspan x="124" y="32">HEALTHY</tspan>
+        </text>
+        <text id="meal-prepping" font-family="AvenirNext-Italic, Avenir Next" font-size="16" font-style="italic" font-weight="normal" line-spacing="15" fill="#404040">
+            <tspan x="150.208" y="177">meal</tspan>
+            <tspan x="134" y="192">prepping</tspan>
+        </text>
+        <text id="fast-food" font-family="AvenirNext-Italic, Avenir Next" font-size="16" font-style="italic" font-weight="normal" line-spacing="15" fill="#404040">
+            <tspan x="156.232" y="258">fast</tspan>
+            <tspan x="152" y="273">food</tspan>
+        </text>
+        <text id="healthy-cooking" font-family="AvenirNext-Italic, Avenir Next" font-size="16" font-style="italic" font-weight="normal" line-spacing="15" fill="#404040">
+            <tspan x="77.696" y="142">healthy</tspan>
+            <tspan x="75" y="157">cooking</tspan>
+        </text>
+        <text id="meal-kit-subscriptio" font-family="AvenirNext-Italic, Avenir Next" font-size="16" font-style="italic" font-weight="normal" line-spacing="15" fill="#404040">
+            <tspan x="146.232" y="70">meal kit</tspan>
+            <tspan x="130" y="85">subscription</tspan>
+        </text>
+        <text id="most-restaurants" font-family="AvenirNext-Italic, Avenir Next" font-size="16" font-style="italic" font-weight="normal" line-spacing="15" fill="#404040">
+            <tspan x="263.12" y="228">most</tspan>
+            <tspan x="241" y="243">restaurants</tspan>
+        </text>
+        <text id="comfort-cooking" font-family="AvenirNext-Italic, Avenir Next" font-size="16" font-style="italic" font-weight="normal" line-spacing="15" fill="#404040">
+            <tspan x="30.936" y="228">comfort</tspan>
+            <tspan x="30" y="243">cooking</tspan>
+        </text>
+        <text id="healthy-delivery" font-family="AvenirNext-Italic, Avenir Next" font-size="16" font-style="italic" font-weight="normal" line-spacing="15" fill="#404040">
+            <tspan x="211.152" y="144">healthy</tspan>
+            <tspan x="209" y="159">delivery</tspan>
+        </text>
+        <text id="maxwellforbes.com" font-family="AmericanTypewriter-Light, American Typewriter" font-size="10" font-weight="300" fill="#BBBBBB">
+            <tspan x="240.35" y="342">maxwellforbes.com</tspan>
+        </text>
+    </g>
+</svg>

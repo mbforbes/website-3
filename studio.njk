@@ -22,6 +22,14 @@ layout: "layouts/default.njk"
     </ul>
 {%- endfor -%}
 
+<h2>Projects</h2>
+{% for post in collections.projects %}
+    <a href={{ post.url | url }} class="db pv1 link">
+        <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
+        {{ post.data.title }}
+    </a>
+{% endfor %}
+
 <h2>Software</h2>
 
 {% include "programming-language-tooltips.njk" %}

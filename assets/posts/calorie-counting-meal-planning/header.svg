@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200px" height="1200px" viewBox="0 0 1200 1200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFA259" x="0" y="0" width="1200" height="1200"></rect>
+        <g id="box" transform="translate(430.000000, 356.000000)" stroke="#DFEEEF" stroke-width="13">
+            <rect id="Rectangle" x="7.5" y="8.5" width="326" height="473" rx="8"></rect>
+        </g>
+        <g id="box" transform="translate(803.000000, 646.000000)" stroke="#DFEEEF" stroke-width="13">
+            <rect id="Rectangle" x="7.5" y="8.5" width="326" height="473" rx="8"></rect>
+        </g>
+        <g id="box" transform="translate(57.000000, 146.000000)" stroke="#DFEEEF" stroke-width="13">
+            <rect id="Rectangle" x="7.5" y="8.5" width="326" height="473" rx="8"></rect>
+        </g>
+        <rect id="Rectangle" fill="#DFEEEF" x="84" y="314" width="287" height="118" rx="8"></rect>
+        <rect id="Rectangle" fill="#59CD90" x="265" y="328" width="90" height="90" rx="8"></rect>
+        <text id="☕️" fill="#D8D8D8" font-family="AppleColorEmoji, Apple Color Emoji" font-size="100" font-weight="normal">
+            <tspan x="93" y="414">☕️</tspan>
+        </text>
+        <rect id="Rectangle" fill="#DFEEEF" x="84" y="177" width="287" height="118" rx="8"></rect>
+        <text id="🍳" fill="#D8D8D8" font-family="AppleColorEmoji, Apple Color Emoji" font-size="100" font-weight="normal">
+            <tspan x="93" y="271">🍳</tspan>
+        </text>
+        <rect id="Rectangle" fill="#DFEEEF" x="457" y="381" width="287" height="118" rx="8"></rect>
+        <text id="🥙" fill="#D8D8D8" font-family="AppleColorEmoji, Apple Color Emoji" font-size="100" font-weight="normal">
+            <tspan x="466" y="475">🥙</tspan>
+        </text>
+        <rect id="Rectangle" fill="#DFEEEF" x="457" y="525" width="287" height="118" rx="8"></rect>
+        <text id="🍵" fill="#D8D8D8" font-family="AppleColorEmoji, Apple Color Emoji" font-size="100" font-weight="normal">
+            <tspan x="466" y="619">🍵</tspan>
+        </text>
+        <rect id="Rectangle" fill="#DFEEEF" x="830" y="671" width="287" height="118" rx="8"></rect>
+        <text id="🐓" fill="#D8D8D8" font-family="AppleColorEmoji, Apple Color Emoji" font-size="100" font-weight="normal">
+            <tspan x="839" y="765">🐓</tspan>
+        </text>
+        <rect id="Rectangle" fill="#DFEEEF" x="830" y="808" width="287" height="118" rx="8"></rect>
+        <text id="🥦" fill="#D8D8D8" font-family="AppleColorEmoji, Apple Color Emoji" font-size="100" font-weight="normal">
+            <tspan x="839" y="902">🥦</tspan>
+        </text>
+        <rect id="Rectangle" fill="#DFEEEF" x="830" y="944" width="287" height="118" rx="8"></rect>
+        <text id="🚰" fill="#D8D8D8" font-family="AppleColorEmoji, Apple Color Emoji" font-size="100" font-weight="normal">
+            <tspan x="825" y="1038">🚰</tspan>
+        </text>
+        <rect id="Rectangle" fill="#59CD90" x="265" y="191" width="90" height="90" rx="8"></rect>
+        <rect id="Rectangle" fill="#59CD90" x="638" y="391" width="90" height="90" rx="8"></rect>
+        <rect id="Rectangle" fill="#59CD90" x="638" y="538" width="90" height="90" rx="8"></rect>
+        <rect id="Rectangle" fill="#59CD90" x="1011" y="681" width="90" height="90" rx="8"></rect>
+        <rect id="Rectangle" fill="#59CD90" x="1011" y="822" width="90" height="90" rx="8"></rect>
+        <rect id="Rectangle" fill="#59CD90" x="1011" y="958" width="90" height="90" rx="8"></rect>
+    </g>
+</svg>

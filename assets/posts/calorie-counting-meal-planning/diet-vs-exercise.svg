@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="409px" height="640px" viewBox="0 0 409 640" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(52.000000, 28.000000)" stroke="#E0E0E0" stroke-linecap="square">
+            <line x1="5.83606557" y1="506.25" x2="349" y2="506.75" id="Line"></line>
+            <line x1="6.83606557" y1="421.25" x2="350" y2="421.75" id="Line"></line>
+            <line x1="2.83606557" y1="337.25" x2="346" y2="337.75" id="Line"></line>
+            <line x1="3.83606557" y1="253.25" x2="347" y2="253.75" id="Line"></line>
+            <line x1="8.83606557" y1="169.25" x2="352" y2="169.75" id="Line"></line>
+            <line x1="9.83606557" y1="85.25" x2="353" y2="85.75" id="Line"></line>
+            <line x1="6.83606557" y1="1.25" x2="350" y2="1.75" id="Line"></line>
+        </g>
+        <rect id="Rectangle" fill="#3FC5F0" x="162" y="198" width="60" height="420"></rect>
+        <rect id="Rectangle" fill="#6DECB9" x="273" y="568" width="60" height="51"></rect>
+        <line x1="52.5" y1="618.5" x2="408.5" y2="618.5" id="Line" stroke="#979797" stroke-linecap="square"></line>
+        <rect id="Rectangle" fill="#34A2C5" x="190" y="30" width="4" height="285"></rect>
+        <rect id="Rectangle" fill="#5AC298" x="301" y="551" width="4" height="34"></rect>
+        <rect id="Rectangle" fill="#34A2C5" transform="translate(192.000000, 315.000000) scale(-1, 1) translate(-192.000000, -315.000000) " x="175" y="314" width="34" height="2"></rect>
+        <rect id="Rectangle" fill="#5AC298" transform="translate(303.000000, 585.000000) scale(-1, 1) translate(-303.000000, -585.000000) " x="286" y="584" width="34" height="2"></rect>
+        <rect id="Rectangle" fill="#5AC298" transform="translate(303.000000, 551.000000) scale(-1, 1) translate(-303.000000, -551.000000) " x="286" y="550" width="34" height="2"></rect>
+        <rect id="Rectangle" fill="#34A2C5" transform="translate(192.000000, 31.000000) scale(-1, 1) translate(-192.000000, -31.000000) " x="175" y="30" width="34" height="2"></rect>
+        <text id="0" font-family="AvenirNext-MediumItalic, Avenir Next" font-size="10" font-style="italic" font-weight="400" fill="#6A6A6A">
+            <tspan x="40.05" y="622">0</tspan>
+        </text>
+        <text id="500" font-family="AvenirNext-MediumItalic, Avenir Next" font-size="10" font-style="italic" font-weight="400" fill="#6A6A6A">
+            <tspan x="28.15" y="538">500</tspan>
+        </text>
+        <text id="1000" font-family="AvenirNext-MediumItalic, Avenir Next" font-size="10" font-style="italic" font-weight="400" fill="#6A6A6A">
+            <tspan x="22.2" y="453">1000</tspan>
+        </text>
+        <text id="1500" font-family="AvenirNext-MediumItalic, Avenir Next" font-size="10" font-style="italic" font-weight="400" fill="#6A6A6A">
+            <tspan x="22.2" y="368">1500</tspan>
+        </text>
+        <text id="calories" transform="translate(13.000000, 279.500000) rotate(-90.000000) translate(-13.000000, -279.500000) " font-family="AvenirNext-Regular, Avenir Next" font-size="14" font-weight="normal" fill="#6A6A6A">
+            <tspan x="-20.13" y="284">CALORIES</tspan>
+        </text>
+        <text id="food" font-family="AvenirNext-Regular, Avenir Next" font-size="14" font-weight="normal" fill="#6A6A6A">
+            <tspan x="171.734" y="635">FOOD</tspan>
+        </text>
+        <text id="exercise" font-family="AvenirNext-Regular, Avenir Next" font-size="14" font-weight="normal" fill="#6A6A6A">
+            <tspan x="271.048" y="635">EXERCISE</tspan>
+        </text>
+        <text id="2500" font-family="AvenirNext-MediumItalic, Avenir Next" font-size="10" font-style="italic" font-weight="400" fill="#6A6A6A">
+            <tspan x="26.2" y="201">2500</tspan>
+        </text>
+        <text id="2000" font-family="AvenirNext-MediumItalic, Avenir Next" font-size="10" font-style="italic" font-weight="400" fill="#6A6A6A">
+            <tspan x="26.2" y="285">2000</tspan>
+        </text>
+        <text id="3000" font-family="AvenirNext-MediumItalic, Avenir Next" font-size="10" font-style="italic" font-weight="400" fill="#6A6A6A">
+            <tspan x="26.2" y="117">3000</tspan>
+        </text>
+        <text id="3500" font-family="AvenirNext-MediumItalic, Avenir Next" font-size="10" font-style="italic" font-weight="400" fill="#6A6A6A">
+            <tspan x="28.2" y="33">3500</tspan>
+        </text>
+        <text id="a-pretty-decent-work" font-family="AvenirNext-Italic, Avenir Next" font-size="14" font-style="italic" font-weight="normal" fill="#2B2B2B">
+            <tspan x="249.065" y="491">a pretty decent workout</tspan>
+            <tspan x="251.025" y="510">probably burns around</tspan>
+            <tspan x="267.16" y="529">200 – 400 calories</tspan>
+        </text>
+        <path id="Path" d="M349.042023,532.559278 C353.421569,534.905894 354.623735,537.832849 352.441421,541.114726 C350.421459,544.152447 345.464287,547.510128 337.538538,551.242883 L337.017432,551.486856 L331.49,553.895 L338.723907,554.631128 L338.622718,555.625995 L329.49105,554.697209 L328.606724,554.607264 L329.142811,553.898227 L334.678515,546.576616 L335.476182,547.179714 L331.091,552.978 L336.60666,550.575201 C344.668417,546.822726 349.676514,543.466751 351.608715,540.56101 C353.382169,537.894 352.519107,535.637454 348.82593,533.580651 L348.569735,533.440722 L349.042023,532.559278 Z" fill="#979797" fill-rule="nonzero"></path>
+        <path id="Path" d="M325.500934,9.20625255 L326.276422,9.71246386 L325.723578,10.5457491 C300.597968,-6.12384058 266.369701,-2.05750958 222.998077,22.8263473 L221.680987,23.5867758 L216.466,26.705 L223.733109,26.5124737 L223.75973,27.5121193 L214.584203,27.7564677 L213.695629,27.7801308 L214.136832,27.0084681 L218.692752,19.0401811 L219.560872,19.5365347 L215.951,25.848 L221.173172,22.7253326 C265.026577,-2.75171628 299.817836,-7.28632199 325.500934,9.20625255 Z" fill="#979797" fill-rule="nonzero"></path>
+        <path id="Path" d="M326.5,178 C326.5,190.096847 296.839465,197.022614 237.298507,199.204794 L235.485089,199.269469 L229.422,199.456 L235.866694,202.82361 L235.403524,203.709879 L227.268652,199.458543 L226.480857,199.046836 L227.241794,198.587381 L235.099324,193.842992 L235.61621,194.699046 L229.392,198.457 L235.452347,198.270007 C294.809649,196.210922 324.895198,189.424204 325.490973,178.337283 L325.5,178 L326.5,178 Z" fill="#979797" fill-rule="nonzero"></path>
+        <text id="I-normally-need-to-e" font-family="AvenirNext-Italic, Avenir Next" font-size="14" font-style="italic" font-weight="normal" fill="#2B2B2B">
+            <tspan x="214.253" y="156">I normally need to eat around</tspan>
+            <tspan x="246.369" y="175">2500 calories a day</tspan>
+        </text>
+        <path id="Path" d="M326.5,285 C326.5,302.044588 296.743223,311.966538 237.289486,315.078934 L235.478767,315.171165 L229.43,315.437 L235.916423,318.719559 L235.464978,319.611858 L227.274762,315.468145 L226.481607,315.066861 L227.23642,314.597413 L235.030714,309.749839 L235.558843,310.599004 L229.384,314.438 L235.432034,314.172261 C294.89814,311.226499 324.89697,301.561089 325.491,285.488994 L325.5,285 L326.5,285 Z" fill="#979797" fill-rule="nonzero"></path>
+        <text id="When-careful,-I-can" font-family="AvenirNext-Italic, Avenir Next" font-size="14" font-style="italic" font-weight="normal" fill="#2B2B2B">
+            <tspan x="257.569" y="239">When careful, I can </tspan>
+            <tspan x="244.752" y="258">consistently eat around </tspan>
+            <tspan x="256.869" y="277">1800 calories a day</tspan>
+        </text>
+        <text id="It’s-not-hard-to-hit" font-family="AvenirNext-Italic, Avenir Next" font-size="14" font-style="italic" font-weight="normal" fill="#2B2B2B">
+            <tspan x="236.031" y="27">It’s not hard to hit 3500+</tspan>
+            <tspan x="229.661" y="46">calories a day when eating</tspan>
+            <tspan x="222.689" y="65">treats and enjoying delicious</tspan>
+            <tspan x="294.404" y="84">drinks</tspan>
+        </text>
+        <text id="maxwellforbes.com" font-family="AmericanTypewriter, American Typewriter" font-size="9" font-weight="normal" fill="#CACACA">
+            <tspan x="1.15" y="637">maxwellforbes.com</tspan>
+        </text>
+    </g>
+</svg>

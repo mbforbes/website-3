@@ -18,6 +18,9 @@ Stuff to not forget
 - replace scribbles
 - all libs local (i think tachyons CSS is still imported from unpkg)
 - CSS relative support? nunjucks? (absolute URL rn...)
+- meta tags have to have actual URLs (e.g., image), so need to adjust site url along with path prefix
+- fix rest of meta tags
+- fix content with `markdown="1"` because markdown-it doesn't support that (or dig harder to find / implement myself)
 
 ### code organization
 
@@ -43,11 +46,19 @@ Seems arbitrary to split up code and imgs
     - lib/
         - pixi-vX.js
         - three-vY.js
-    - (project)
-        - main.js
-        - img.png
-        - sound.mp3
-    - 3js-experiments
+    - posts/
+        - (project)
+            - main.js
+            - img.png
+            - sound.mp3
+    - sketches/
+        - (project)
+            - main.js
+            - img.png
+            - sound.mp3
+    - 3js
+        - 1-x.js
+        - 2-y.js
         - (subproject)
             - main.js
             - img.png
