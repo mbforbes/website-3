@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Why - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="Why - Maxwell Forbes" property="title"/>
+    <meta content="Why - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="Why - Maxwell Forbes"/>
+    <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com/posts/spark-joy-python-why/' property='og:url'/>
+    
+        <meta content='/website-3/assets/posts/spark-joy-python/spark-joy-python-wide.jpg' property='og:image'/>
+        <meta name='twitter:image' content='/website-3/assets/posts/spark-joy-python/spark-joy-python-wide.jpg'/>
+        <meta name='twitter:card' content='summary_large_image'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+          <div class="mb4">
+            <!-- Date -->
+            
+              <div class="fw600 light-silver mt1 ttu">
+                
+                  20 Jul 2020
+                
+              </div>
+            
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              
+                Why
+              
+            </h1>
+            
+
+          </div>
+        
+
+        <!-- Series header. -->
+        
+          <div class="ba b--black-80 mv5">
+    <p class="bg-black-80 white mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib white-60 f6 f5-ns">series</span>
+        Sparking Joy with Python
+    </p>
+
+    <div class="pa3">
+        
+        <ol class="ma0">
+            
+                <li class="">
+                    
+                        <a href="/posts/spark-joy-python-static-typing/" class="db pv1 link">
+                            Static Typing Is the Key to Joy
+                        </a>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/spark-joy-python-tools/" class="db pv1 link">
+                            Decluttering with Tools
+                        </a>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <span class="b">
+                            Why
+                        </span>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/spark-joy-python-conventions/" class="db pv1 link">
+                            Conventions Are Small Magic
+                        </a>
+                    
+                </li>
+            
+        </ol>
+
+    </div>
+</div>
+
+        
+
+        <div class="markdown-body">
+          <p><img src="/website-3/assets/posts/spark-joy-python/spark-joy-python-narrow.jpg" alt="Marie Kondo holding up the python logo"></p>
+<p class="figcaption">
+Adapted from
+<a href="https://www.flickr.com/photos/riseconf/27113243380/in/album-72157668861374906/">
+photo by RISE</a>,
+CC BY 2.0.
+</p>
+<p>I’ve been writing Python for about eight years.</p>
+<p>When you come from Java, Python is magic. You can get so much done in so little code.</p>
+<pre class="language-java"><code class="language-java"><span class="token comment">// Java be like</span><br><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><br>    <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span></code></pre>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Python be like</span><br><span class="token string">', '</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string-interpolation"><span class="token string">f"last: </span><span class="token interpolation"><span class="token punctuation">{</span>x<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><br>          <span class="token keyword">for</span> x <span class="token keyword">in</span> d<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<p>I think I was too confused as an undergrad to really appreciate Python.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> But at some point, I looked back at Java and just—yikes! So much typing to <em>do</em> anything.</p>
+<h2>The world discovers Python</h2>
+<p>Machine learning runs on Python.</p>
+<p>Matlab and Julia were fighting the good fight back in 2012, and it sort of looked like anybody’s ball game. Back then, I picked numpy. Once deep learning exploded, the heavy hitters Tensorflow and Pytorch both chose Python as their interface.</p>
+<p>And since then, it’s Python, all the way down. Absolute globs, scads, and mountains of Python.</p>
+<p>I write this only to tell you why I still use Python—because it’s the only first-class citizen in machine learning.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<h2>I discover TypeScript</h2>
+<p>During 2017 and 2018, I spent my free time writing TypeScript for a little game called <a href="/website-3/posts/fallgate/">Fallgate</a>. TypeScript is based on JavaScript, which everyone loves to hate, and so I was prepared to hate TypeScript.</p>
+<p>But then the funniest thing happened. I actually had a really great time writing TypeScript.</p>
+<h2>The Elephant in the Room</h2>
+<p>Yes, I was making a game with TypeScript, and attempting to do natural language processing (NLP) research with Python.</p>
+<p>And yes, game programming, in my opinion, is a much more fun genre of <em>programming</em> than natural language processing.</p>
+<p>Game programming has a stimulating feedback loop. When I built a new system for animation, lighting, particles, or movement, I’d immediately <em>see</em> the effects of the new feature. Plus, the actual code I wrote was interesting. The game programming centered around making real-time systems that efficiently managed interlocking behaviors for thousands of little game world entities. I got to try out new design patterns and play around in geometry, physics, and graphics.</p>
+<p>On the other hand, programming for NLP research, I spend most of my time pushing big sludge piles of text data around. I scrape, annotate, clean, format, chunk, and batch text. I pour through text and find mountains of badly encoded files, non-linguistic junk like HTML, and of course, scads of idiots’ Internet blatherings—like this blog post! From a purely time-based perspective, I spend shockingly few hours actually building those cool neural network models everyone is excited about. And when I do, the models themselves were only a few dozen lines of code.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+<div class="flex mv4">
+<div class="w-50" markdown="1">
+<img src="/website-3/assets/posts/spark-joy-python/game-before.gif">
+</div>
+<div class="w-50" markdown="1">
+<img src="/website-3/assets/posts/spark-joy-python/game-after.gif">
+</div>
+</div>
+<p class="figcaption">
+Figure 1: Game programming before and after.
+</p>
+<div class="flex mv4">
+<div class="w-50" markdown="1">
+<img src="/website-3/assets/posts/spark-joy-python/nlp.gif">
+</div>
+<div class="w-50" markdown="1">
+<img src="/website-3/assets/posts/spark-joy-python/nlp.gif">
+</div>
+</div>
+<p class="figcaption">
+Figure 2: NLP programming before and after.
+</p>
+<p>But aside from the (admittedly large) difference in <em>what</em> I was doing, there was a qualitative difference in the feel of the activity of programming.</p>
+<h2>Joy</h2>
+<p>Programming in TypeScript brought me joy. It was easy. I felt like I always had a better handle on what options were available to me. I also felt more confidence about what was going to happen when my code ran.</p>
+<p>Only through this contrast of using both languages in the same day did I realize how little joy I got from Python.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<p>Why does it matter if Python sparks joy? When I first chose this headline, I thought it was funny. Now that I’m actually writing this, I’m becoming convinced it might be quite serious. We pour hundreds of the precious hours of our only life into our work. Seeking joy in the day to day, minute-to-minute experience of programming might be one of the more important things we can do.</p>
+<p>What follows is a few posts in which I share my attempts to spark joy of Python back into my life. The first one is about static typing. I think it is the most important factor.</p>
+<h2>Disclaimers</h2>
+<p><strong>Familiarity</strong> — I’m assuming in these posts you’re moderately familiar with writing Python code. For example, I assume you understand kinds of stuff like:</p>
+<ul>
+<li>Why people dislike <code>from &lt;name&gt; import * </code></li>
+<li>What if <code>__name__ == &quot;__main__&quot;</code> does</li>
+<li>That list comprehensions are idiomatic</li>
+<li>What <code>virutalenv</code>s are and why people use them</li>
+</ul>
+<p><strong>Unfamiliarity</strong> — I’m also assuming you’re not a Python expert. Maybe you’re someone who picked it up as your first or second language in the last year or two. If you know too much, you will probably think that what I write is obvious, wrong, or both.</p>
+<p><strong>Solo coding</strong> — I realized after almost finishing a draft that some of these practices are geared towards effectively programming by yourself.</p>
+<p>How much discipline is necessary in solo coding? I found that after I stopped working for Google, I over-engineered most things I wrote, because I thought that writing production code for a company was “good practice” in general, and that I would be a more effective grad student if I wrote the same kind of code for my research. Many grad students (at least stereotypically) swing far on the other side of the spectrum: writing super hacky, unreadable code that barely works through a publication submission.</p>
+<p>The best approach, at least for me, is probably somewhere in the middle. I realized after a few years that speed of creation in research code trumps industrial robustness,<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> but there were still a few habits that would minimize my own burden down the road.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Side bar, undergrads are way too competent these days. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>It’s this, or spend all your time making Haskell/Scala/whatever bindings for everything and never actually get any work done. And even if you do get that house of cards built, god only knows research code doesn’t need any more help falling over. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Which, by the way, is a miracle (that neural network models are a dozen lines of code). It’s how it should be. But that does mean that you spend all your time doing everything <em>other</em> than writing the neural network itself. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>I also got joy from Ruby. Which is spooky, because Ruby is trying for you to feel that way. But it’s a completely different joy than with TypeScript. To me, writing TypeScript feels like going on a hike with a really knowledgeable friend who has planned everything and knows the names of all the plants. Writing Ruby feels like going to Amsterdam as a nineteen-year-old. But for better or for worse, now that I’m hooked on static typing, I don’t know if I can go back. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>One habit I still can’t kick is sprinkling <code>assert</code>s and sanity checks everywhere. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+          <div class="ba b--black-10 mv5">
+    <p class="bg-near-white black-60 mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib black-30 f6 f5-ns">series</span>
+        Sparking Joy with Python
+    </p>
+
+    <div class="pa3 flex">
+        <div class="w-50 ma0">
+            
+            
+        </div>
+        <div class="w-50 ma0 tr">
+            
+            
+                <p class="b ttu tracked ma0 black-30 f7 f6-ns">next &rarr;</p>
+                <a href="/posts/spark-joy-python-static-typing/" class=" ma0 link">2. Static Typing Is the Key to Joy</a>
+            
+        </div>
+    </div>
+</div>
+
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        
+          <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>

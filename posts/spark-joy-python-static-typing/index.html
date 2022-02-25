@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Static Typing Is the Key to Joy - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="Static Typing Is the Key to Joy - Maxwell Forbes" property="title"/>
+    <meta content="Static Typing Is the Key to Joy - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="Static Typing Is the Key to Joy - Maxwell Forbes"/>
+    <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com/posts/spark-joy-python-static-typing/' property='og:url'/>
+    
+        <meta content='/website-3/assets/posts/spark-joy-python/spark-joy-python-wide.jpg' property='og:image'/>
+        <meta name='twitter:image' content='/website-3/assets/posts/spark-joy-python/spark-joy-python-wide.jpg'/>
+        <meta name='twitter:card' content='summary_large_image'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+          <div class="mb4">
+            <!-- Date -->
+            
+              <div class="fw600 light-silver mt1 ttu">
+                
+                  20 Jul 2020
+                
+              </div>
+            
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              
+                Static Typing Is the Key to Joy
+              
+            </h1>
+            
+
+          </div>
+        
+
+        <!-- Series header. -->
+        
+          <div class="ba b--black-80 mv5">
+    <p class="bg-black-80 white mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib white-60 f6 f5-ns">series</span>
+        Sparking Joy with Python
+    </p>
+
+    <div class="pa3">
+        
+        <ol class="ma0">
+            
+                <li class="">
+                    
+                        <span class="b">
+                            Static Typing Is the Key to Joy
+                        </span>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/spark-joy-python-tools/" class="db pv1 link">
+                            Decluttering with Tools
+                        </a>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/spark-joy-python-why/" class="db pv1 link">
+                            Why
+                        </a>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/spark-joy-python-conventions/" class="db pv1 link">
+                            Conventions Are Small Magic
+                        </a>
+                    
+                </li>
+            
+        </ol>
+
+    </div>
+</div>
+
+        
+
+        <div class="markdown-body">
+          <p><img src="/website-3/assets/posts/spark-joy-python/spark-joy-python-narrow.jpg" alt="Marie Kondo holding up the python logo"></p>
+<p class="figcaption">
+Adapted from
+<a href="https://www.flickr.com/photos/riseconf/27113243380/in/album-72157668861374906/">
+photo by RISE</a>,
+CC BY 2.0.
+</p>
+<p>Static typing is the main point of this series of posts. Static type checking, when living inside your editor, improves your quality of life.</p>
+<p>Let’s jump right in, and I’ll armchair philosophize later on about why I think it’s important.</p>
+<h2>Without Static Typing</h2>
+<p>It is difficult to overstate the difference static typing makes in your minute-to-minute work. Returning to Python after writing Typescript, I was shocked and appalled at how much time I spent doing the following activities:</p>
+<h3>1. Reading code to figure out the types of a function’s arguments</h3>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Good luck figuring what this</span><br><span class="token comment"># returns without reading the code</span><br><span class="token comment"># or writing massive docstrings</span><br><span class="token comment"># everywhere.</span><br><span class="token keyword">def</span> <span class="token function">preprocess</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span><br>    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><br><br><span class="token comment"># Good luck figuring out the</span><br><span class="token comment"># argument types.</span><br><span class="token keyword">def</span> <span class="token function">score</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> scorer<span class="token punctuation">,</span> bst<span class="token punctuation">,</span> wrst<span class="token punctuation">)</span><span class="token punctuation">:</span><br>    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre>
+<p>I write more about docstrings in <em>Part IV</em>, but succinctly: I think docstrings are often
+a waste of time because (a) you have to type a lot, (b) they silently go out of date,
+© often you really just need the type and can infer the rest. And perhaps most
+importantly, (d) most research code just flat out isn’t gonna have detailed,
+per-argument docstrings.</p>
+<h3>2. Waiting for my code to run for minutes before discovering I’d misspelled a variable name, gotten my imports wrong, or messed up an indentation.</h3>
+<pre class="language-python"><code class="language-python"><span class="token comment"># help me red squiggles</span><br>lesser <span class="token operator">=</span> <span class="token number">45</span><br><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token comment"># omitted</span><br>foo<span class="token punctuation">(</span>leser<span class="token punctuation">)</span>  <span class="token comment"># oops</span><br><br><br><span class="token comment"># I also forget stuff</span><br>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>foo<span class="token punctuation">,</span> bar<span class="token punctuation">)</span><br><span class="token comment"># --> oops what's "os" says python</span><br><br><span class="token comment"># look it happens sometimes</span><br>do_this<span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token keyword">if</span> stuff<span class="token punctuation">:</span><br>	go_fast<span class="token punctuation">(</span><span class="token punctuation">)</span><br><br>run_slow<span class="token punctuation">(</span><span class="token punctuation">)</span><br><br>    and_this<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># oops, uhhh</span></code></pre>
+<h2>mypy</h2>
+<p>It turns out Python’s developers sort of saw the whole “oh hmmm actually we might want static types&quot; thing coming at least 13 years ago,<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> and started adding optional static type annotations to Python. <a href="http://mypy-lang.org/">mypy</a> is the gold standard static type checker, currently worked on by Guido himself (or at least last time I checked).</p>
+<p>Integrated with your editor (I’m using VS Code), you get those wonderful red squiggles when you screw up something obvious.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<h2>Simple checks</h2>
+<p>mypy can infer obvious types and tell you when you do a dumb thing:</p>
+<pre class="language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">5</span><br>a <span class="token operator">+</span> <span class="token string">'hello'</span><br><span class="token comment"># Error: Unsupported operand types</span><br><span class="token comment"># for + ("int" and "str")</span></code></pre>
+<h2>Typos</h2>
+<p>Do you ever misspell variables?</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">bigger</span><span class="token punctuation">(</span>bill<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    bill <span class="token operator">+=</span> <span class="token number">8</span><br>    blil <span class="token operator">+=</span> <span class="token number">17</span><br>    <span class="token comment"># Error: Name 'blil' is not</span><br>    <span class="token comment">#        defined</span><br>    bill <span class="token operator">+=</span> <span class="token number">25</span><br></code></pre>
+<p>Do you ever do bad bracket things?</p>
+<pre class="language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">'hi'</span><span class="token punctuation">,</span> <span class="token string">'max'</span><span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><br><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hi"</span><span class="token punctuation">)</span><br><span class="token comment"># Error: invalid syntax</span></code></pre>
+<p><em>It gets mad at the <code>print</code> when really I’m missing a <code>]</code> on the previous line. But I can’t be too grumpy, that’s probably a hard one.</em></p>
+<h2>Returns</h2>
+<p>Do you ever forget to return things?</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">r_map</span><span class="token punctuation">(</span><br>    v<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><br><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span><br>    res <span class="token operator">=</span> <span class="token punctuation">{</span><br>        w<span class="token punctuation">:</span> i<br>        <span class="token keyword">for</span> i<span class="token punctuation">,</span> w <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><br>    <span class="token punctuation">}</span><br>    <span class="token comment"># Error: Missing return</span><br>    <span class="token comment">#        statement</span></code></pre>
+<h2>Imports</h2>
+<p>Do you ever forget to import stuff?</p>
+<pre class="language-python"><code class="language-python">raw <span class="token operator">=</span> <span class="token string">'~/favorite-triangles.txt'</span><br>full <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>expanduser<span class="token punctuation">(</span>raw<span class="token punctuation">)</span><br><span class="token comment"># Error: Name 'os' is not defined</span></code></pre>
+<h2>I thought I needed another section here</h2>
+<p>I have a lot more to say below about the shortcomings I’ve encountered with mypy, and an embarrassing from-first-principles attempt at saying why IDEs can be nice.</p>
+<p>But I’ve run into one of those problems here where you said the most important things you wanted to say, and they didn’t take up that many words on the page. And since people seem to pay attention to number of words—at least without strong clues otherwise—I think I need to point this out specifically:</p>
+<p>The above is great! It’s <em>so much better</em> than not having those things. If you remove most misspellings, forgotten brackets, forgotten returns, and forgotten imports, you take away, I don’t know, maybe 80% of the reasons my Python programs used to die in the middle of running.</p>
+<p>This is fantastic. It is a massive improvement. I would encourage you to add some kind of real-time static Python checking to your workflow if you don’t have it already. Thank you, Python devs, for thinking of this and making it.</p>
+<p>OK, now that that’s out of the way, I’m going to give some real estate to complaining. Not because it’s relevant here, but because I’m probably not going to write about mypy ever again, so this is as good a spot as any.</p>
+<h2>Shortcomings</h2>
+<p>After using mypy for a year or two, I could go on and on about what it doesn’t get <em>quite</em> right. I’ll spare you and try to keep this relatively brief.</p>
+<p>The crux of it is this: mypy can’t actually figure out types that well, so it mostly catches typos and other shallow mistakes. This is very helpful. It’s certainly better than nothing. But it is very different from a static type analyzer knowing the type of <em>everything</em> in your program, and being able to fully trust it.</p>
+<p>I think there’s a qualitative leap that happens between a tool that works, say, 80% of the time, and one that works 98% of the time.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> I roughly correlate this with “how long will I spend trying to fix problems with the tool before giving up on it.” (mypy: 5–10 minutes; TypeScript: roughly forever.)</p>
+<p>This is the hardest part to come up with concrete examples for, but here are some of my pain points:</p>
+<h3>Shortcoming: A big library without annotations</h3>
+<p>I <a href="https://github.com/python/mypy/issues/3987">ran into this</a> when trying to get mypy to help me out with some pytorch basics. I wanted some way to differentiate an <code>IntTensor</code> vs a <code>FloatTensor</code>. I was willing to do some digging, fixing, and writing some small type annotations myself. But the only true solution seemed to be the gargantuan task of writing type annotations for the entirety of pytorch. Again, I can’t really knock them for this one, because TypeScript also requires type annotations for any library you’re using. But TypeScript’s seem to be more ubiquitous.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<h3>Shortcoming: Missing types</h3>
+<p>I was trying to say that something was specifically a <code>collections.defaultdict</code>, but I could not figure out how to do this. Could be just me, and this could be fixed now, but it’s something I’ve run into a few times. It’s frustrating to not be able to type something you know exists.</p>
+<h3>Shortcoming: Tensor Shapes</h3>
+<p>This isn’t really a reasonable request, because I suspect it’d make the type system really complicated:</p>
+<pre class="language-python"><code class="language-python">a <span class="token operator">=</span> torch<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br>b <span class="token operator">=</span> torch<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br>m <span class="token operator">=</span> a <span class="token operator">*</span> b  <span class="token comment"># Shapes mismatch</span></code></pre>
+<p>Nevertheless, practically speaking, it’s a big one.</p>
+<h3>Shortcoming: Confusion about aliases</h3>
+<p>I ran into this when mypy got mad about the distinction between <code>torch.optim.Optimizer</code> (I think this is what you use in code) and <code>torch.optim.optimizer.Optimizer</code> (I think this might be the underlying thing, and mypy couldn’t figure out that the shorter alias is legit).</p>
+<p>This is an instance of “the program runs fine, but the type checker yells at me that there’s an error.” I respond with <code># type: ignore</code> and deduct ten points from Guidoriffendor.</p>
+<h3>Shortcoming: Spurious errors</h3>
+<p>This doesn’t happen too often but it drives me nuts when it does.</p>
+<p>One thing I like to do sometimes is print each item of a list on a new line. Here’s a concise way I found of doing that, and what mypy thinks about it:</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># x is some list</span><br><span class="token punctuation">[</span><span class="token keyword">print</span><span class="token punctuation">(</span>_<span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> x<span class="token punctuation">]</span><br><span class="token comment"># Error: "print" does not return a</span><br><span class="token comment">#        value</span></code></pre>
+<p>This ends up creating a list of <code>len(x)</code> <code>None</code>s. It’s never even assigned to anything. Seems pythonic to me. Maybe using a <code>None</code> return type is a faux pas. But my expectation with mypy is that if it says “Error,” the program should crash.</p>
+<h3>Shortcoming: Literals</h3>
+<p>I use a lot of strings to represent categorical variables, so the strings can only take on a few values. Every time I’ve tried to define literal types that restrict these, I have found sorrow.</p>
+<pre class="language-python"><code class="language-python">Number <span class="token operator">=</span> Literal<span class="token punctuation">[</span><span class="token string">"One"</span><span class="token punctuation">,</span> <span class="token string">"Two"</span><span class="token punctuation">]</span><br><br><span class="token keyword">def</span> <span class="token function">foo</span><span class="token punctuation">(</span>n<span class="token punctuation">:</span> Number<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span><br>	<span class="token keyword">pass</span><br><br>foo<span class="token punctuation">(</span><span class="token string">"One"</span><span class="token punctuation">)</span>  <span class="token comment"># ok</span><br><br>n <span class="token operator">=</span> <span class="token string">"One"</span><br>foo<span class="token punctuation">(</span>n<span class="token punctuation">)</span>  <span class="token comment"># error, seriously??</span></code></pre>
+<p>I don’t understand programming languages or type theory well enough to know why this is difficult. I believe it is probably very difficult. It is still annoying as hell.</p>
+<h3>Shortcoming: Lots of Python is Just Crazy Shit</h3>
+<p>When I try to read other people’s Python (OK, and sometimes my own), I constantly run into wonky data types that are dicts of lists of tuples, built on-the-fly to solve some specific problem</p>
+<pre class="language-python"><code class="language-python"><span class="token punctuation">{</span><br>    <span class="token string">"jump"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><br>        <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"first"</span><span class="token punctuation">)</span><br>        <span class="token punctuation">(</span><span class="token number">0.4</span><span class="token punctuation">,</span> <span class="token string">"second"</span><span class="token punctuation">)</span><br>        <span class="token punctuation">(</span><span class="token number">0.7</span><span class="token punctuation">,</span> <span class="token string">"third"</span><span class="token punctuation">)</span><br>        <span class="token punctuation">{</span><span class="token string">"oops"</span><span class="token punctuation">:</span> <span class="token string">"I am special."</span><span class="token punctuation">}</span><br>    <span class="token punctuation">]</span><span class="token punctuation">,</span><br>    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><br><span class="token punctuation">}</span></code></pre>
+<p>now of course, I can dutifully go in and say, ah yes, this is a</p>
+<pre class="language-python"><code class="language-python">Dict<span class="token punctuation">[</span><br>    <span class="token builtin">str</span><span class="token punctuation">,</span><br>    List<span class="token punctuation">[</span><br>        Union<span class="token punctuation">[</span><br>            Tuple<span class="token punctuation">[</span><br>                Union<span class="token punctuation">[</span>Int<span class="token punctuation">,</span>Float<span class="token punctuation">]</span><span class="token punctuation">,</span><br>                <span class="token builtin">str</span><br>            <span class="token punctuation">]</span><span class="token punctuation">,</span><br>            Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">]</span><br>        <span class="token punctuation">]</span><br>    <span class="token punctuation">]</span><br><span class="token punctuation">]</span></code></pre>
+<p>(I think.) And sometimes this is worth it—it helps me figure out what the code is doing, and has caught some significant bugs. But more often than not, it’s like, ehhhhhhhhh, this is really starting to feel like bolting extra work on top of Python code that’s already doing what Python was meant to do: use an amazing core set of data structures to quickly compose data into flexible bundles and send it along.<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
+<h3>Taken together</h3>
+<p>All of these shortcomings are completely understandable. But taken together, you end up getting fed up playing type golf to try to help the type checker out. At some point, the scales tip, and you think, “I’m just wasting my own time, it’s never going to catch bugs when I’m doing all the heavy lifting,” and you start throwing <code>Any</code>s at everything that whines at you.<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
+<h2>Why Static Typing Matters for Joy</h2>
+<p>Let me take an unqualified swing at this one.</p>
+<p>Programming as an activity involves many actions:</p>
+<ul>
+<li>You plan out what you want to do.</li>
+<li>You think about how you can accomplish this in the language that you’re using.</li>
+<li>You push buttons on a keyboard to write your ideas.</li>
+<li>You read documentation and StackOverflow to figure out how the pieces you forgot about work.</li>
+<li>You test out little toy programs to really make sure you know what’s going on.</li>
+<li>You run your code and see what happens.</li>
+</ul>
+<p>During the action of typing your code, it is immensely helpful to have a copilot. Something that checks what you’ve written and reminds you about what’s there.</p>
+<p>For some aspects of programming, this is convenient: you’ll fix a typo before you run your code. (Python with mypy is mostly here.)</p>
+<p>But for other aspects of programming, having a copilot categorically changes the class that the action falls under. (TypeScript is here.)</p>
+<p>For example, take method lookup on an object. The feedback loop to go from “what methods does this object have?” goes from many seconds (looking this up on the Internet) to instantaneous (scrolling through a tooltip with fuzzy autocomplete). This moves the action of “method lookup” into a new category.</p>
+<p>Changing categories is huge. Imagine if typing each key on the keyboard required ~10 seconds. I would go mad.</p>
+<p>Now, clearly this copilot isn’t necessary. But going from having a copilot (TypeScript) to not having one (Python), you really miss it. Many actions revert to being “slow” again. Stupid bugs pop up. In retrospect, it’s less delightful.</p>
+<h2>Summary</h2>
+<p>Static type analysis enables a programming copilot to provide wildly more helpful information. Programming with such a copilot sparks joy. Static typing is the key to joy.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>At least judging by the early <a href="https://www.python.org/dev/peps/pep-3107/">PEP 3107</a> from 2006. This got more formalized in <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> with rules about how you can add lots of little variable and function annotations, and then check them with tools. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Other editors like PyCharm also have mypy-like static type checking features. From a bit of experimentation with PyCharm, it seems that its static type checker is very similar to mypy, but they both have different edge cases and quirks. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>“Works” isn’t totally fair here. It’s not that mypy is broken; instead, I suspect it <em>can’t</em> be clever enough given the dynamic language it’s analyzing. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>I don’t actually know whether type annotations for major libraries are more common in Javascript than Python, it’s just sort of my feeling from mucking around in both. Also, it could be that a library like pytorch is doing all sorts of hairy business with reflection, metaprogramming, and C extensions, and it would be difficult to cleanly type. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>No idea if this is what Python was supposed to be meant to do, but in my opinion this is what it does truly great. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>The problems I hit also seem to be just beneath being Googleable because they’re relatively specific to a somewhat-unused piece of Python. <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+          <div class="ba b--black-10 mv5">
+    <p class="bg-near-white black-60 mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib black-30 f6 f5-ns">series</span>
+        Sparking Joy with Python
+    </p>
+
+    <div class="pa3 flex">
+        <div class="w-50 ma0">
+            
+            
+                <p class="b ttu tracked ma0 black-30 f7 f6-ns">&larr; previous</p>
+                <a href="/posts/spark-joy-python-why/" class=" ma0 link">1. Why</a>
+            
+        </div>
+        <div class="w-50 ma0 tr">
+            
+            
+                <p class="b ttu tracked ma0 black-30 f7 f6-ns">next &rarr;</p>
+                <a href="/posts/spark-joy-python-tools/" class=" ma0 link">3. Decluttering with Tools</a>
+            
+        </div>
+    </div>
+</div>
+
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        
+          <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Figure Creation Tutorial: Making a Figure 1 - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="Figure Creation Tutorial: Making a Figure 1 - Maxwell Forbes" property="title"/>
+    <meta content="Figure Creation Tutorial: Making a Figure 1 - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="Figure Creation Tutorial: Making a Figure 1 - Maxwell Forbes"/>
+    <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com/posts/figure-creation-tutorial-making-a-figure-1/' property='og:url'/>
+    
+        <meta content='/website-3/assets/posts/figure-creation-tutorial-figure-1/cover.jpg' property='og:image'/>
+        <meta name='twitter:image' content='/website-3/assets/posts/figure-creation-tutorial-figure-1/cover.jpg'/>
+        <meta name='twitter:card' content='summary_large_image'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+          <div class="mb4">
+            <!-- Date -->
+            
+              <div class="fw600 light-silver mt1 ttu">
+                
+                  30 Sep 2021
+                
+              </div>
+            
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              
+                Figure Creation Tutorial: Making a Figure 1
+              
+            </h1>
+            
+
+          </div>
+        
+
+        <!-- Series header. -->
+        
+
+        <div class="markdown-body">
+          <style>
+.bg-rot-blue {
+    background-color: #D0DFF4;
+}
+</style>
+<p><img src="/website-3/assets/posts/figure-creation-tutorial-figure-1/cover.jpg" alt=""></p>
+<h2>Intro</h2>
+<p>One of the things I think our lab<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> does well is that we put a lot of time into each “Figure 1” for our papers. It’s not uncommon for us to go through ten or even twenty revisions of this figure.</p>
+<p>What is Figure 1? It’s what we call the figure that appears on the first page of a paper. Due to the software we use to write papers, this figure always gets automatically labeled “Figure 1,” hence the name.</p>
+<p><img src="/website-3/assets/posts/figure-creation-tutorial-figure-1/what-is-figure-1.jpg" alt=""></p>
+<p>Figure 1 is important because:</p>
+<ul>
+<li>it’s how people will visually <strong>remember</strong> your paper,</li>
+<li>it’s a chance to <strong>engage</strong> someone’s interest and lure them into actually reading your paper,<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></li>
+<li>and perhaps most crucially, it’s your first and best shot to visually <strong>explain</strong> what your paper does.</li>
+</ul>
+<p>As a reader, I love seeing a Figure 1 because it often answers the question, <em>“what did this paper actually <strong>do</strong>?”</em> You can sometimes figure this out from the abstract and intro, but more often than not, what the paper literally accomplishes is somewhat buried behind pontificating and ambitious framing. A clear Figure 1 is a welcome shortcut to getting the “what’s the input and what’s the output?” view of the work.</p>
+<h2>This Tutorial</h2>
+<p>Because I’d like to see more people make Figure 1s, I figured (hehe) it’d be fun to share an example of my process making a Figure 1.</p>
+<p>The Figure 1 I’m sharing here is for a paper I worked on called <em>Social Chemistry 101.</em></p>
+<blockquote>
+<p><strong>Shameless plug:</strong> if you’re interested in reading the  <em>Social Chemistry 101</em> paper, you can find it <a href="https://arxiv.org/abs/2011.00620">here</a>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Important disclaimer:</strong> This is not a perfect Figure 1! I’ve seen better, and I think I’ve probably made better. But it’s a recent one for which I remembered to save my working drafts.</p>
+</blockquote>
+<h2>Goals</h2>
+<p>My high-level goals for a Figure 1 are:</p>
+<ol>
+<li>Use a good example</li>
+<li>Have moderately high information density</li>
+<li>Make it as visually appealing as I can</li>
+</ol>
+<p>Let’s break each of these down.</p>
+<p>For me, a <strong>good example</strong> must hit several criteria:</p>
+<ul>
+<li>
+<p>The example should clearly articulate the primary mechanism accomplished by the paper. If your paper does syntax parsing by making a special representation of entities, then your Figure 1 should show an example syntax parse tree and some visualization of the entity representations. If your paper captions images by first replacing all people with dogs, please show some of those images and captions because omg that would be a hit.</p>
+</li>
+<li>
+<p>The example should be plausibly producible by the proposed approach. We all expect the Figure 1 example to be cherry-picked, but it should at least be realistic.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+</li>
+<li>
+<p>The example should be at least a little bit funny, interesting, or memorable. Picking at random from your dataset is usually a recipe for discovering how boring most text is, not capturing your reader’s attention.</p>
+</li>
+</ul>
+<p>Current paper aesthetics generally demand <strong>moderately high information density,</strong> and this includes Figure 1. Wasted space connotes a lack of content.</p>
+<p>And by making the figure <strong>as visually appealing as you are able,</strong> I’m referencing the entire study of graphic design. As far as I can tell, design is a skill that must be acquired by practice. The best tip I have is to notice what you like, and keep making things so you’ll improve. For any project, you just do what you can with where you’re at on your design journey—hence the <em>“as you are able”</em> part.</p>
+<p>I’ll get into some additional goals for this particular Figure 1 in a bit. In the meanwhile, let’s jump right in.</p>
+<h2>First Iterations</h2>
+<p>My first drafts centered around an example from our dataset, <em>“Asking my boyfriend to stop being friends with his ex.”</em> I drew out several related social rules-of-thumb, connected them to the relevant characters, and also provided some attributes.</p>
+<blockquote>
+<p>If you’d like a brief primer on what the terms in these figures mean, the <a href="https://maxwellforbes.com/social-chemistry/">Social Chemistry website</a> starts with a walkthrough of the core concepts.</p>
+</blockquote>
+<h3>v1</h3>
+<p><img src="/website-3/assets/posts/figure-creation-tutorial-figure-1/figure-1-v1.jpg" alt=""></p>
+<p>There is a lot going on here! If we focus on <strong>color</strong>, we have the colors of larger boxes representing the relevant character (orange, blue, purple), the underline and judgment box colors matching the whether an action is good or bad (green, yellow, red), and grey to otherwise provide borders.</p>
+<p>I love using color to represent meaning in Figures, because our brains are great at doing color matching. A semantic color palette gives you an additional dimension to work with, allowing you to group concepts across space. <sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<p>If we think about the <strong>concepts introduced</strong>, there are also quite a few: a <span class="bg-light-gray b ph2 pv1 br1">situation</span> (center), characters (<span class="bg-orange b white ph2 pv1 br-pill">narrator</span>, <span class="bg-blue b white ph2 pv1 br-pill">my boyfriend</span>, <span class="bg-purple b white ph2 pv1 br-pill">his ex</span>), rules-of-thumb (larger boxes), actions (underlined), judgments (<span class="bg-green b white ph2 pv1 br1">good</span>, <span class="bg-red b white ph2 pv1 br1">bad</span>, <span class="bg-yellow b ph2 pv1 br1">expected / OK</span>), and moral foundation axes (smaller gray boxes). I’ve also tried to slip in one additional concept, which is whether the rule-of-thumb is being followed or violated. I did this by using a dashed line connecting <span class="bg-blue b white ph2 pv1 br-pill">my boyfriend</span> to the bottom rule-of-thumb.</p>
+<p>Introducing so many concepts right in Figure 1 means that the caption must do a lot of legwork to explain it. As a rule-of-thumb, the <em>Figure 1 + caption</em> package should be understandable by someone else in your area of study on its own (i.e., without reading the paper).</p>
+<p>With such a broad color palette and high density of concepts, I then tried out a few drafts to reduce the number of things appearing on the page at once.</p>
+<h3>v2</h3>
+<p><img src="/website-3/assets/posts/figure-creation-tutorial-figure-1/figure-1-v2.jpg" alt=""></p>
+<p>For <strong>v2</strong>, I tried eliminating the moral foundation axes and the <span class="bg-purple b white ph2 pv1 br-pill">his ex</span> character. This reduces the number of concepts, and slightly narrows the color palette. (If we’d further developed this version, I’d have compressed the spacing to make it denser.)</p>
+<h3>v3</h3>
+<p><img src="/website-3/assets/posts/figure-creation-tutorial-figure-1/figure-1-v3.jpg" alt=""></p>
+<p>I wanted to try a much simpler example for <strong>v3</strong> to try to evoke the essence of the project: rules-of-thumb (<span class="bg-rot-blue b ph2 pv1 br1">it’s rude to make loud noises while others are sleeping</span>) annotated on characters (<span class="bg-blue b white ph2 pv1 br-pill">my roommate</span>) in situations (<span class="bg-light-gray b ph2 pv1 br1">running the blender at 5am</span>). This his the other side of the complexity spectrum compared to <strong>v1</strong>.</p>
+<p>Though we didn’t keep it, I think it’s helpful to try these minimalist reductions and see whether they work. I find I’m often trying to balance communicating the <em>scope</em> of what we did, with clearly getting across the <em>key idea</em>.</p>
+<h3>v4</h3>
+<p><img src="/website-3/assets/posts/figure-creation-tutorial-figure-1/figure-1-v4.jpg" alt=""></p>
+<p><strong>v4</strong> expands on <strong>v3</strong> in a different direction. Rather than emphasize the <em>multiple character</em> and <em>multiple perspective</em> angles we saw in <strong>v1</strong> and <strong>v2</strong>, we introduce more <em>attributes</em> in <strong>v4</strong>: cultural pressure (<span class="bg-red b white ph2 pv1 br1">against</span>) and anticipated agreement (<span class="bg-green b white ph2 pv1 br1">&gt; 99%</span>). This starts to hint at the density of the annotations we collect (we have over ten attributes per rule-of-thumb).</p>
+<p>At this point—if not before—it’s good to share some drafts with collaborators. I’m usually so zoomed into the details of a project that it’s tough to see the bigger picture. Collaborators who <a href="/website-3/posts/every-phd-is-different#1-collaborators/">aren’t as tightly involved</a> can be a huge help <em>because</em> they don’t remember as much about the project. You can use them to simulate someone coming to the paper fresh.</p>
+<h2>Rethinking the Design</h2>
+<p>After discussing the designs with my collaborators, the main feedback I got was to evoke a graph-like structure from our work.<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> This presented a new challenge to convey visually, because our annotations are dense, but have almost no connections between them.</p>
+<p>To display a denser graph that still illustrated our problem, I eventually realized we could pivot through a few attributes in order to show multiple rules-of-thumb. This is best shown rather than described, so I’ll save further explanation until after <strong>v5</strong>.</p>
+<p>My other goal, since we had settled on <em>Social Chemistry</em> as the name for our work, was to more deliberately evoke a “chemistry” look. I attempted this by mimicking the design of chemical structural formulas, which use hexagonal shapes.</p>
+<p><img src="/website-3/assets/posts/figure-creation-tutorial-figure-1/chemistry-diagrams.jpg" alt=""></p>
+<p class="figcaption" markdown="1">
+Example of structural formulas used in chemistry. **Left:** legit example from Wikipedia ([source](https://en.wikipedia.org/wiki/File:Cobalamin_skeletal.svg)). **Right:** illustration, which also has circuitry-like embellishments ([source](https://www.pngfind.com/mpng/mToimT_clipart-free-library-euclidean-molecule-and-hexagonal-molecule/) from aggregator; original source unknown). I drew visual styles and color inspiration from the illustrated version.
+</p>
+<h3>v5</h3>
+<p><img src="/website-3/assets/posts/figure-creation-tutorial-figure-1/figure-1-v5.jpg" alt=""></p>
+<p>Rather than focusing on the rules-of-thumb that were <em>annotated</em> for a particular situation, for <strong>v5</strong>, I showed <em>generated</em> rules-of-thumb that illustrate different attribute labels. For example, for the <em>Cultural Pressure</em> dimension (top), I show rules-of-thumb for <strong>↑ positive</strong>, <strong>— neutral</strong>, and <strong>↓ negative</strong> cultural pressure.</p>
+<p>The downside of this is that we move away from showing the literal annotation that we performed, which also sometimes makes the rules-of-thumb more loosely related to the actual situation.</p>
+<p>The upside is that we can show a richer graph structure that illustrates a strength of the work: a hybrid between structured values (the attributes and <strong>↑/—/↓</strong> labels) and unstructured natural language (the free-form rules-of-thumb).</p>
+<blockquote>
+<p><strong>Aside:</strong> Notice that color no longer conveys any meaning in this figure 🤷</p>
+</blockquote>
+<h3>v6</h3>
+<p><img src="/website-3/assets/posts/figure-creation-tutorial-figure-1/figure-1-v6.jpg" alt=""></p>
+<p>At this point, I was honing the visuals.</p>
+<ul>
+<li>
+<p><strong>I centered the situation.</strong></p>
+<ul>
+<li>With all attributes descending vertically, I thought things looked more list-like than graph-like. Centering the subject in the middle allows lines to emerge from multiple directions vertically, which I think helps with the impression of a graph.</li>
+</ul>
+</li>
+<li>
+<p><strong>I removed the ⚗️ pre-rendered emoji and project name.</strong></p>
+<ul>
+<li>I was using Apple’s alembic emoji—which is beautiful—but I am pretty sure those rendered emoji are copyrighted. Since this was for an archival academic paper, I thought it would be better to err on the side of caution. And removing the project name from the figure just felt more tasteful.</li>
+</ul>
+</li>
+<li>
+<p><strong>I added icons for the four attributes.</strong></p>
+<ul>
+<li>I made the icon backgrounds solid colors because I thought the figure felt too sparse. The icons add some fun, and the color adds some weight.<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></li>
+</ul>
+</li>
+<li>
+<p><strong>I made the color usage more consistent.</strong></p>
+<ul>
+<li>Restricting the teal to only be around the central situation helps differentiate it from the attributes, which now alternate orange and blue.</li>
+</ul>
+</li>
+</ul>
+<h3>v7</h3>
+<p><img src="/website-3/assets/posts/figure-creation-tutorial-figure-1/figure-1-v7.jpg" alt=""></p>
+<p>At this point, I was honing in on the design elements, and adding more bits as necessary for clarity.</p>
+<ul>
+<li>
+<p><strong>I made the situation a hexagon, and thickened main lines.</strong></p>
+<ul>
+<li>I also removed the gray and yellow colors on the situation.<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup> This, I hope, finally made things start to look <em>chemistry diagram-like.</em></li>
+</ul>
+</li>
+<li>
+<p><strong>I added attribute value labels.</strong></p>
+<ul>
+<li>E.g., for <em>Social Judgment</em>, I added the labels <em>“good,” “expected,”</em> and <em>“bad”</em> above the examples. I like the simplicity of the <strong>↑/—/↓</strong> icons, but having a key lets interested viewers understand more precisely what’s going on.</li>
+</ul>
+</li>
+<li>
+<p><strong>I gave attribute value icons solid colors.</strong></p>
+<ul>
+<li>The solid colors behind the <strong>↑/—/↓</strong> icons further my effort to give more visual weight to each attribute section.</li>
+</ul>
+</li>
+</ul>
+<h3>v8</h3>
+<p><img src="/website-3/assets/posts/figure-creation-tutorial-figure-1/figure-1-v8.jpg" alt=""></p>
+<p>Can you spot the difference?</p>
+<p>I had spelled &quot;<em>Anticipated&quot;</em> wrong. I’m certain one of my coauthors caught this.</p>
+<p>Lack of spell-check is one knock against <a href="https://sketch.com/">Sketch</a>, the drawing software I use.</p>
+<h2>It’s Done</h2>
+<p>Eight short versions later, we’ve got a Figure 1. Now, rinse and repeat—with slightly different goals—for the other figures in the paper.</p>
+<h2>Five Final Tips</h2>
+<p>As I was writing this, I thought of a handful of tips that didn’t neatly fit into any of the revisions.</p>
+<h3>1. Start on Paper</h3>
+<p>Maybe if you’re a design guru you can think at the speed of click, but I find it vastly easier to cook up an initial design with a pen.</p>
+<p>Usually, my first drawing won’t work perfectly with the space constraints of the figure, because I misestimate the sizes of objects or text. But it gets me started.</p>
+<h3>2. Use a Text Size Guide</h3>
+<p><img src="/website-3/assets/posts/figure-creation-tutorial-figure-1/text-size-demo.jpg" alt=""></p>
+<p>The smallest text in your figures should be around the font size of footnotes. It can be difficult to judge this when you’re making the figure. I made some placeholder figures that have text at a legible size, and I use them as a guide when I’ve moved from pen and paper to building the actual figure.</p>
+<h3>3. Start with Decent Colors</h3>
+<p><img src="/website-3/assets/posts/figure-creation-tutorial-figure-1/tachyons-colors.jpg" alt=""></p>
+<p class="figcaption" markdown="1">
+Curated color palette from [Tachyons](https://tachyons.io/docs/themes/skins/).
+</p>
+<p>If you’re used to thinking that red should be <code>#FF0000</code>, you can immediately up your aesthetic game by starting from a curated palette, like the basic one above from <a href="https://tachyons.io/docs/themes/skins/">Tachyons</a>. If you’re using colors to describe a scale, either with sequential values or unrelated categories, consider starting from <a href="https://colorbrewer2.org/">ColorBrewer</a>. If you’re making a gradient, check out the collection at <a href="https://uigradients.com/">uiGradients</a>.</p>
+<h3>4. Care about Contrast</h3>
+<p><img src="/website-3/assets/posts/figure-creation-tutorial-figure-1/contrast.jpg" alt=""></p>
+<p>The simplest tip I can give is to try switching your text color from black to white when the background gets darker.</p>
+<ul>
+<li class="mv2"><span class="bg-purple b black ph2 pv1 br-pill">This is awful.</span></li>
+<li class="mv2"><span class="bg-purple b white ph2 pv1 br-pill">This is fine.</span></li>
+</ul>
+<p>If you want to be thorough, run any color combos you’re worried about through a <a href="https://webaim.org/resources/contrastchecker/">contrast checking tool</a>.<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup></p>
+<h3>5. Export a Scalable Format</h3>
+<p><img src="/website-3/assets/posts/figure-creation-tutorial-figure-1/zoom.jpg" alt=""></p>
+<p>E.g., PDF for a paper, SVG for a website.<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup> That way text and graphics remain sharp when people zoom in to read the tiny text you crammed in there when ignoring tip #2 (hey, no judgment).</p>
+<h2>Summary</h2>
+<p>Figure 1 is important for memory, engagement, and as a visual explanation.</p>
+<p>I put forward three common goals for a Figure 1:</p>
+<ol>
+<li>Good example</li>
+<li>High information density</li>
+<li>Best design you can muster</li>
+</ol>
+<p>In my Figure 1 design, the key points I hit on were:</p>
+<ul>
+<li>Using color either to convey meaning, or as visual engagement</li>
+<li>Explicitly considering a budget of introduced concepts</li>
+<li>The figure and caption should be self-contained</li>
+<li>Evoking a design (e.g., a graph structure) that is within the vocabulary of others in your field, and serves a broader purpose</li>
+<li>Evoking a connotation (e.g., <em>chemistry</em>)</li>
+<li>Minding copyrights (emojis, icons, and fonts if embedding in a website)</li>
+<li>Erring on over-labeling for clarity</li>
+<li>Last but not least, spell checking 🤦‍♂️</li>
+</ul>
+<p>Then I gave five final tips:</p>
+<ol>
+<li>Paper first</li>
+<li>Sizing guide</li>
+<li>Colors</li>
+<li>Contrast</li>
+<li>Vector export</li>
+</ol>
+<p>If you enjoyed this, consider <a href="https://twitter.com/maxforbes">following me on Twitter</a>, or <a href="https://tinyletter.com/mbforbes">subscribing to my monthly email digest</a>.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>I’m in <a href="https://homes.cs.washington.edu/~yejin/">Yejin Choi’s</a> lab (research group) at the UW. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Given the volume of research published these days, especially in machine learning-related fields, getting people to read what you write turns out to be one of your biggest problems. I didn’t care about this until I wrote a paper I was actually proud of, and have had the damndest time getting folks to notice it. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Cherry picking—or even hand-crafting—the example shown in Figure 1 might be a little controversial. My take right now is that the primary purpose of a Figure 1 is to convey the <em>idea</em> behind the work, not necessarily the strengths or weaknesses of the execution (unless that is the main idea). We have canonical spots later in papers for “examples chosen at random,” “model successes,” and “failure modes.” <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>There are a couple caveats with color to bear in mind. One is whether the figure must be interpretable without it, i.e., when printed in black-and-white. In my opinion, this has flipped just over the course of my PhD (i.e., from 2015–2021). Previously, I would say it’s vital the figure conveys all meaning in black-and-white, but now, I think printing is so rare—simply due to the volume of papers we must skim—that it is fine to rely on color. Some paper venues may insist otherwise, in which case the colors must retain their perceptive grouping in grayscale, or another redundant element must be used (e.g., borders, or background textures like cross hatching). The other main caveat with using color to communicate meaning is the visually impaired. My rule-of-thumb is to mitigate the most common kind of colorblindness, both preemptively by choosing a color palette (e.g., with <a href="https://colorbrewer2.org/">ColorBrewer</a>) and at the end by running the figure through a <a href="https://www.color-blindness.com/coblis-color-blindness-simulator/">colorblind simulator</a>. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>In case “evoke a graph-like structure” seems like weird feedback, I offer a couple thoughts. First, if you’re like me and you get sucked into what you were <em>literally</em> doing in a project, it can be tough to remember that what you’re doing is probably an <em>instance</em> or <em>special case</em> of a broader research idea. So, while an overarching structure that you don’t see may seem artificial, it may in fact be true, or at the least helpful for communicating your work to others in the field who are familiar with a certain vocabulary of framing devices. Second, your work probably exists in part of a broader research agenda. Keeping research agendas moderately cohesive is helpful for science as a social practice—not just for purposes like funding and name recognition, but for easing the cognitive load of communicating with others in the field. Put another way, there are many ways of telling the story of a particular research project, and some of them may help both your lab’s and your own broader communication strategy. Anyway, I’m not an expert here, just my two cents. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>Icons or little graphics are another source of copyright headaches. I went with public domain icons that I tweaked. For other projects, I’ve used CC-BY icons and added an attribution in the figure caption. <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p>A rule-of-thumb I have for colors is to use as few as you can. I used to be so extreme about this that the Figure 1 for <a href="https://arxiv.org/pdf/1706.03799.pdf">my first NLP paper</a> is entirely in shades of gray. There is an elegance to this, but it could be more engaging, fun, and warm with a pop of color. As with everything, it’s a balance. <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p>Thanks to Callan Berry for suggesting the contrast checking tool. <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p>One big caveat with SVGs is that they typically require the viewer to have the fonts you used installed to display properly. This is because SVGs don’t embed the fonts, they just reference them by name. This means if your viewer doesn’t have the font you picked, their formatting may get totally messed up, and you probably won’t realize it because it looks fine on your computer. You can get around this by having the fonts included on your webpage, but this restricts you to using fonts you can distribute for free. You can also get around this by converting all of your text to shapes before exporting. However, this might be a pain—for Sketch (the software), it’s prohibitively annoying to do this. This is all just enough of a headache that you might consider skipping SVG altogether for a webpage and just slapping a JPG (😱) on the website. That’s what I used for this post because I didn’t want to deal with the potential font problems. <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        
+          <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>

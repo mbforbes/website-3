@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Don&#39;t Justify Web Text - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="Don&#39;t Justify Web Text - Maxwell Forbes" property="title"/>
+    <meta content="Don&#39;t Justify Web Text - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="Don&#39;t Justify Web Text - Maxwell Forbes"/>
+    <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com/posts/web-justified-text/' property='og:url'/>
+    
+        <meta content='/website-3/assets/posts/web-justified-text/paper-annotated.jpg' property='og:image'/>
+        <meta name='twitter:image' content='/website-3/assets/posts/web-justified-text/paper-annotated.jpg'/>
+        <meta name='twitter:card' content='summary_large_image'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+          <div class="mb4">
+            <!-- Date -->
+            
+              <div class="fw600 light-silver mt1 ttu">
+                
+                  29 Mar 2021
+                
+              </div>
+            
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              
+                Don&#39;t Justify Web Text
+              
+            </h1>
+            
+              <p class="gray subtitle f4 f3-ns">
+                Or at least hyphenate
+              </p>
+            
+
+          </div>
+        
+
+        <!-- Series header. -->
+        
+
+        <div class="markdown-body">
+          <p>In print, or when typeset with a good program, justified text is beautiful. All of the academic writing in my field is set justified by default, and I think it looks lovely:</p>
+<div class="flex mv4">
+<img src="/website-3/assets/posts/web-justified-text/paper.jpg" class="sc bare mh2 flex-auto">
+<img src="/website-3/assets/posts/web-justified-text/paper-annotated.jpg" class="sc bare mh2 flex-auto">
+</div>
+<p>You get these really nice ultra long vertical lines, broken up into a satisfying rhythm by stuff like headers, figures, tables, and equations.</p>
+<p>Grab any book and it’s probably justified. I just took one off my bookshelf at random—<em>White,</em> by Kenya Hara:</p>
+<p><img src="/website-3/assets/posts/web-justified-text/book.jpg" alt=""></p>
+<p>So, what about the web?</p>
+<h2>It’s the Hyphenation, Dummy</h2>
+<p>Whatever is doing your type layout has got to be able to hyphenate words. If you just slap on a <code>text-align: justify</code> CSS, you’ll get goofy spread out text:</p>
+<div class="flex mv4">
+<img src="/website-3/assets/posts/web-justified-text/web-justify.jpg" class="sc bare mh2 flex-auto">
+<img src="/website-3/assets/posts/web-justified-text/web-justify-annotated.jpg" class="sc bare mh2 flex-auto">
+</div>
+<p class="figcaption">I marked somewhat awkward spaces in orange, and very ugly ones in red.</p>
+<p>The last time I’d looked, hyphenation (CSS: <code>hyphens: auto</code>) wasn’t widely available. But, lo and behold, wait a few months, and it’s starting to emerge:</p>
+<p><img src="/website-3/assets/posts/web-justified-text/web-hyphen.jpg" alt=""></p>
+<p class="figcaption">Hey, much better!</p>
+<p>This is with Chrome. For, e.g., Safari on macOS and iOS, you’ve still got to use one of those janky CSS <code>-webkit-</code> prefixes. Edge apparently isn’t quite there yet entirely.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<h3>Aside: Hyphenation</h3>
+<p>When I looked this up a while back, it was the first time I’d really thought about hyphenation. Why would it be hard? As far as I can tell, there are a couple main aspects:</p>
+<ol>
+<li>
+<p><strong>Where</strong> are you allowed to hyphenate? At syllable boundaries. First of all, this requires knowing where the syllables in all words are. In other words, you suddenly need a huge dictionary with syllable markings for all words. Second, this means the process is now language-specific. Compared to just splatting down symbols on the page and wrapping, knowing about syllables seems way more complex.</p>
+</li>
+<li>
+<p><strong>How</strong> do you decide when to hyphenate? There’s some algorithm running making tradeoffs between shoving words further apart and splitting them up. Decisions you make on one line affect the next. Apparently this is surprisingly computationally intensive, which might have factored into it languishing for so long.</p>
+</li>
+</ol>
+<p>The second point especially should reveal that hyphenating justified text involves an algorithm, and the algorithm can be of different quality in different implementations.</p>
+<h2>Justify + Hyphenation on the Web: It’s Still not Great</h2>
+<p>Here’s another example of justified text with and without hyphenation in Chrome (this is Chrome 89, on March 29, 2021).</p>
+<p>Justified:</p>
+<p><img src="/website-3/assets/posts/web-justified-text/web2.jpg" alt=""></p>
+<p>Justified, with hyphenation:</p>
+<p><img src="/website-3/assets/posts/web-justified-text/web2.jpg" alt=""></p>
+<p>Notice the difference? Exactly; there is none. Chrome couldn’t figure out a good way to lay this out, even with hyphenation turned on.</p>
+<p>Compare this with LaTeX,<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> which aggressively hyphenates. You will almost never see the kind of floaty word spacing like above. Instead, you’ll see dense blocks rich with hyphenation:</p>
+<p><img src="/website-3/assets/posts/web-justified-text/paper-paragraph.jpg" alt=""></p>
+<p>In the above paragraph, of the nine lines that reach the right margin, five (over half!) are hyphenated and split.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+<h2>Recommendation: Don’t Do It</h2>
+<p>I’m not actually in a position to recommend any design decisions to anybody. But my personal preference is still for left-aligned text on the web. If and when a major shop like the NYT, Medium, or Substack justifies their text online, it might be worth looking into.</p>
+<p>I only write this because I come across hand-designed blogs semi-regularly that use justified text and no hyphenation.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> Once you are aware of it, you can’t un-see those ghastly word gaps. If this is you, maybe consider turning on hyphenation right now.</p>
+<p>Or better yet, just align left.</p>
+<h2>Gallery of <s>Shame</s> Opportunity</h2>
+<p>I’ve started collecting pages I find with justified text without hyphenation that ends up looking awkward. To, uhhh, raise awareness?</p>
+<div class="flex items-center flex-wrap mv4">
+  <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
+      <img src="/website-3/assets/posts/web-justified-text/jpegxl.jpg" class="br3 br4-ns">
+      <p class="f6" markdown="1">~~From [jpegxl.info](https://jpegxl.info/)~~ hyphens have been added!</p>
+  </div>
+  <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
+      <img src="/website-3/assets/posts/web-justified-text/kylemcdonald.jpg" class="br3 br4-ns">
+      <p class="f6" markdown="1">From [Kyle McDonald](https://kylemcdonald.net/psac/)</p>
+  </div>
+  <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
+      <img src="/website-3/assets/posts/web-justified-text/publicdelivery.jpg" class="br3 br4-ns">
+      <p class="f6" markdown="1">From [Public Delivery](https://publicdelivery.org/damian-ortega-cosmic-thing/)</p>
+  </div>
+</div>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Here’s a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens#browser_compatibility">thorough table</a> of browser compatibility for hyphenation, and here’s a <a href="https://caniuse.com/css-hyphens">condensed one</a> (AKA, English-centric). <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>I would like to take this opportunity to complain that LaTeX iS cApItAlIzEd lIkE tHiS. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Once I realized how dense hyphenated words are in printed text, I was surprised that it never bothers me when reading. My guess is that growing up reading books, we’re so used to parsing hyphenated words that we don’t even notice. I wonder whether this might be different for a window of generations that grows up reading text mostly online, but before the web is universally justified and hyphenated. (Or, will it ever be?) <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>These often look OK on a desktop monitor—and I suspect that’s where they were designed—but break down when you <a href="/website-3/posts/fixing-mobile-page-layouts/">read them on your phone</a>. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        
+          <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>

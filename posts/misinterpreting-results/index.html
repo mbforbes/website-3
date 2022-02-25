@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>A Modest Proposal: Let’s Stop Lying To Each Other in Our Research Papers - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="A Modest Proposal: Let’s Stop Lying To Each Other in Our Research Papers - Maxwell Forbes" property="title"/>
+    <meta content="A Modest Proposal: Let’s Stop Lying To Each Other in Our Research Papers - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="A Modest Proposal: Let’s Stop Lying To Each Other in Our Research Papers - Maxwell Forbes"/>
+    <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com/posts/misinterpreting-results/' property='og:url'/>
+    
+        <meta content='/website-3/assets/posts/misinterpreting-results/cover.png' property='og:image'/>
+        <meta name='twitter:image' content='/website-3/assets/posts/misinterpreting-results/cover.png'/>
+        <meta name='twitter:card' content='summary_large_image'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+          <div class="mb4">
+            <!-- Date -->
+            
+              <div class="fw600 light-silver mt1 ttu">
+                
+                  26 Mar 2021
+                
+              </div>
+            
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              
+                A Modest Proposal: Let’s Stop Lying To Each Other in Our Research Papers
+              
+            </h1>
+            
+              <p class="gray subtitle f4 f3-ns">
+                How we can fight spin
+              </p>
+            
+
+          </div>
+        
+
+        <!-- Series header. -->
+        
+
+        <div class="markdown-body">
+          <p><img src="/website-3/assets/posts/misinterpreting-results/cover.png" alt=""></p>
+<p>I was reviewing for ACL<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> last week, and it was a particularly depressing time. It was depressing because it made me remember how much we lie to each other in our research papers.</p>
+<p>It goes like this.</p>
+<h2>The Model</h2>
+<p>Say you you’re reading a paper that presents a new NLP<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> model. The model takes some ubiquitous neural network architecture—technical: like the LSTM or the Transformer—and bolts something onto it.</p>
+<p><img src="/website-3/assets/posts/misinterpreting-results/cool-new-model.jpg" alt=""></p>
+<p class="figcaption" markdown="1">
+_Components: wrench, hammer, half of dog._
+</p>
+<p>Let’s pause briefly to imagine you’re considering working on the same task presented in the paper—for example, sentiment classification, or image captioning. Which will you pick: the established model, or this new idea which is “established model + crazy thing bolted onto it?”</p>
+<p>Already, the established model has a bunch of major advantages:<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+<ul>
+<li>it probably has fewer bugs</li>
+<li>it’s much more likely you can actually just run the code</li>
+<li>it’s been battle-tested in other domains</li>
+<li>there’s a variety of community wisdom, GitHub issues, StackOverflow posts, etc., around running it</li>
+<li>it doesn’t require any special auxillary data, training regime, or boutique preprocessing, which the new thing probably does</li>
+<li>the new thing is probably slower</li>
+</ul>
+<p>Add to this meta-analyses that show bolted-on tweaks aren’t actually doing anything (e.g.: <a href="https://arxiv.org/abs/1503.04069">this one for LSTMs</a>, <a href="https://arxiv.org/abs/2102.11972">this one for Transformers</a>), and you have a pretty compelling case to stick with the base thing.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<p>But wait, there is one factor that remains king in how we judge which research papers get published. It starts with “S” and rhymes with “OTA.” That’s right, it’s “state of the art performance.”</p>
+<h2>The Bait</h2>
+<p>This new paper offers you better performance. For example, it detects sentiment more accurately, or writes better captions for images. By how much? Well… let me take an example from a paper I was reviewing. I’ll tweak the values and obscure the metrics, but keep the intervals the same:<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
+<table class="f7 f6-m f5-l tablecustomfont" style="margin-top: 3em; margin-bottom: 2rem;">
+    <thead>
+      <tr>
+        <th style="text-align: left">model</th>
+        <th style="text-align: right">score 1</th>
+        <th style="text-align: right">score 2</th>
+        <th style="text-align: right">score 3</th>
+        <th style="text-align: right">score 4</th>
+        <th style="text-align: right">score 5</th>
+        <th style="text-align: right">score 6</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: left">Even Older Prev. Work</td>
+        <td style="text-align: right"><strong>39.2</strong></td>
+        <td style="text-align: right">46.3</td>
+        <td style="text-align: right">50.3</td>
+        <td style="text-align: right"><strong>62.9</strong></td>
+        <td style="text-align: right">-</td>
+        <td style="text-align: right">140.1</td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Previous Work</td>
+        <td style="text-align: right">39.1</td>
+        <td style="text-align: right"><strong>46.5</strong></td>
+        <td style="text-align: right"><strong>50.4</strong></td>
+        <td style="text-align: right">62.7</td>
+        <td style="text-align: right">85.9</td>
+        <td style="text-align: right">140.8</td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Our New Model</td>
+        <td style="text-align: right"><strong>39.2</strong></td>
+        <td style="text-align: right"><strong>46.5</strong></td>
+        <td style="text-align: right">49.8</td>
+        <td style="text-align: right">62.5</td>
+        <td style="text-align: right"><strong>86.1</strong></td>
+        <td style="text-align: right"><strong>140.9</strong></td>
+      </tr>
+    </tbody>
+  </table>
+<!--
+<div markdown="1" class="f7 f6-ns">
+
+| model                 | score 1 | score 2 | score 3 | score 4 | score 5 | score 6 |
+| :-------------------- | ------: | ------: | ------: | ------: | ------: | ------: |
+| Even Older Prev. Work | **39.2**    | 46.3    | 50.3    | **62.9**    | -       | 140.1   |
+| Previous Work         | 39.1    | **46.5**    | **50.4**    | 62.7    | 85.9    | 140.8   |
+| Our New Model     | **39.2**    | **46.5**    | 49.8    | 62.5    | **86.1**    | **140.9**   |
+
+</div>
+
+-->
+<p class="figcaption" markdown="1">
+The highest numbers are bolded. (This is standard practice.)
+</p>
+<p>Now, already we’re trusting researchers to run fairly on the test set, and report the right numbers. I’m fine with this—though one paper I reviewed actually reported that they did hyperparameter tuning and model ablations on the test set 🤦‍♂️.  But let’s assume these numbers are honestly gotten and honestly transcribed.</p>
+<h2>The Lie</h2>
+<p>Here is what the paper says about these numbers:</p>
+<blockquote>
+<p>“Our method outperforms all existing methods in terms of scores 1, 2, 5, and 6, while having comparable performance in terms of scores 3 and 4.”</p>
+</blockquote>
+<p>Seems harmless, right?</p>
+<p>Well, until you actually read the numbers. Let’s look at the metrics they said they won:</p>
+<ul>
+<li>score 1: <strong>tied</strong>, didn’t outperform all existing methods</li>
+<li>score 2: <strong>tied</strong>, didn’t outperform</li>
+<li>score 5: higher by <strong>0.2</strong></li>
+<li>score 6: higher by <strong>0.1</strong></li>
+</ul>
+<p>OK, so this changes the story a little bit… it looks like two ties, and two numbers that eked out slightly ahead. Well, what about the others with “comparable performance?”</p>
+<ul>
+<li>score 3: lower by <strong>0.6</strong></li>
+<li>score 4: lower by <strong>0.4</strong></li>
+</ul>
+<p>Oops, writing and reality have diverged. The writing says, <em>“usually better, otherwise the same.”</em> But just a few pesky inches away, the numbers say, <em>“usually the same, otherwise worse.”</em></p>
+<p>Call it by whatever name you want, this is lying to the reader.</p>
+<p>The problem is not that this one paper that did this. The problem is that this is so normal we don’t even usually blink when we read it. In fact, I felt guilty even brining this up in my review.</p>
+<h2>Interlude to Remind Us We’re Doing “Science”</h2>
+<p>I just want to pause here and reflect that we are supposedly doing science right now. These are scientific papers. At least in the U.S., we’re funded by scientific grants, which come from the government, which come from people paying taxes. (If you reject that computer science is “science,” and think that it’s actually “engineering,” fine—I think the point stands even more.)</p>
+<p>It just makes me think about what if someone was, oh, I don’t know, working on a vaccine, or cancer research, or some kind of hard science with stakes that matter, and tried to pull this kind of baloney. This might be overly optimistic because I don’t know how other fields work, and because of the whole <a href="https://en.wikipedia.org/wiki/Misuse_of_p-values"><em>p</em>-value crisis</a>, but I still have to imagine other fields have established a numerical culture where this kind of color commentary simply would not fly.</p>
+<p>OK, back in.</p>
+<h2>We Were Saying How This Is Maybe Worse</h2>
+<p>So, to recap, vs previous work:</p>
+<ul>
+<li>two scores: exactly the same</li>
+<li>two scores: higher by 0.1, 0.2</li>
+<li>two scores: lower by 0.4, 0.6</li>
+</ul>
+<p><strong>Current standing by extremely naïve looking at numbers:</strong> pretty much the same, but slightly worse.</p>
+<p>The first thing you might ask is, “OK, there are six scores here. Which one is most important?”</p>
+<p>I think that is a great question. After all, these are different metrics for attempting to measure how good the model is. Could it be that some metrics are better than others at doing that? (Hint: yes, and the best is not one they do better on.)</p>
+<p>People spend lots of time coming up with new metrics to address known deficiencies in previous metrics. They agonize over them, do all kinds of correlations with human judgments, and publish the new metric.</p>
+<p>Then what happens? Well, it just becomes yet another column for the results table. There’s no mention of the scads of previous research about which metrics we should care more about. It’s just ✨numbers✨. Oooh, look, some of them are higher!</p>
+<p><strong>Current standing by incorporating metric importance:</strong> slightly worse.</p>
+<p>But, you might ask another question.</p>
+<h2>Can We Even Say It’s Actually Worse?</h2>
+<p>How do we know this isn’t just statistical noise? Could the results be basically the same as the last paper? Maybe even the last <em>few</em> papers?</p>
+<p>My answer is: ya, it’s probably just statistical noise. Thanks for playing. 🤷‍♂️</p>
+<p><strong>Current standing by remembering statistics exists:</strong> probably the same.</p>
+<p>But wait, we must have… statistical tests we can run, right? Surely it’s standard practice to—</p>
+<p>Nope.</p>
+<p>Maybe, just maybe, if you’ve got some eagle-eyed reviewers and diligent researchers, you’ll get statistical significance tests on stuff like human evaluations.<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
+<p>But on the good old results table, people just look for the highest number according to (<em>waves hands</em>) decimal places, bold it, and move on.<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup></p>
+<h2>Are Things Really This Bad?</h2>
+<p>Yes and no.</p>
+<p>There’s a ton of great research—even some <em>Real Science</em>—going on out there, and lots of people that agonize over this and get it right.</p>
+<p>But so many papers just blow past this. The field’s obsession with higher numbers, coupled with a few dominant models that make it hard to truly get higher numbers, leads to this bizarro world where a research paper:</p>
+<ul>
+<li>gets basically the same numbers</li>
+<li>can’t lie about the actual numbers, fearing they’ll get found out</li>
+<li>instead writes colorful language about how the numbers mean they’re better</li>
+</ul>
+<p>Then,</p>
+<ul>
+<li>everyone who is in on the game ignores it entirely</li>
+<li>everyone who is not in on the game—funding agencies, disinterested hiring and promotion committees, the general public—just sees ✨research✨ happening</li>
+<li>the paper mill continues</li>
+</ul>
+<p>This has led to an unbelievable amount of noise in published research.<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> And as a researcher, you have to develop this skill of actively mistrusting basically everything you read.</p>
+<h2>My Call to Action</h2>
+<p>There are several things we need to do. I will outline just the simplest piece here, which is to get our $%*! together on the numbers front.</p>
+<p>As a field, we need to standardize:</p>
+<ul>
+<li>
+<p><strong>Metric importance.</strong> Which metrics we care about more. If a model wins on X but not Y, is it better? We know this already,<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup> we just aren’t taking it seriously. Right now, papers get to call their own shots, which roughly amounts to completely ignoring this.</p>
+</li>
+<li>
+<p><strong>Uncertainty statistics.</strong> For each metric, what is some statistic we can measure to basically get “error bars?” There’s no established measure we run on each metric. People don’t even agree that there should be one, because they believe these metrics measure something like a child’s score on a test. We can collectively think about this for five minutes and realize, oh yeah, <em>any test set is sampling from a distribution</em>, and so when you average 100 or 1,000 or 10,000 numbers and come up with some value, we can take that process into account and include a measure of uncertainty.<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup></p>
+</li>
+</ul>
+<ul>
+<li><strong>Thresholds for “better.”</strong> For each metric, given the corresponding uncertainty statistic, for what difference are we allowed to say X &gt; Y? We intuitively understand that 62.000000001 isn’t that different from 62.000000002,<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup> but for some reason, we’re still allowed to write that 62.1 is significantly worse than 62.2. This means picking a cutoff for the metrics.</li>
+</ul>
+<p>If we can do this, it removes the fudgework from deciding whether model X &gt; model Y given the availability of metrics A, B, and C. And if we make it dead-simple to do, like running automatically in standard evaluation scripts, people will actually report it.</p>
+<p><strong>Important:</strong> I’m not saying we need to use these metrics as a way to gatekeep what gets to be published. I will be the first person to tell you that my own research is not built off getting the highest number on leaderboards. We need a variety of research styles, including new angles, new tasks, model dissection, and thorough analysis.<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup></p>
+<p>All I’m saying is, I think it’d be a bit less embarrassing for everyone if, when someone new to the field—like an undergrad who just joined the lab—holds up a paper and says, “we should start here, because they got the highest number,&quot; we didn’t have to take them aside and sadly say, “Oh kid, I’m sorry, nobody told you yet… We’re all just a bunch of lying baboons.”</p>
+<h2>Epilogue: What’s the Bigger Picture</h2>
+<p>The researchers who wrote this paper aren’t at fault, really. They’re just playing the game. But the game is made collectively, and we can change it. In academia, this happens somewhat slowly, but it does happen.<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup></p>
+<p>Stay tuned for more on this.<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup></p>
+<hr>
+<p><em><strong>Thanks</strong> to Ari Holtzman for finding the LSTM and Transformer meta-analysis papers when I couldn’t remember their names, and to Julie Leow and Alex Miller for reading drafts of this.</em></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>ACL is one of the three top-tier (most prestigious) conferences in our field. If you’re not familiar with academic computer science, we publish our research in “conferences,” not “journals,” mostly because the turnaround time is faster, I think. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>NLP is “Natural Language Processing,” a field in machine learning (or now, “AI”) that studies using computers to do stuff with human languages (mostly English). <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Established models being so good is actually a pretty recent phenomenon, largely due to <a href="https://github.com/huggingface/transformers">big consolidated efforts</a>. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>When I started my PhD, posting your research code on GitHub <em>at all</em> was novel and exciting. For years profs. would infamously say something like, “well, the code’s online right? Just run it.” Which, to be fair, having code available is usually probably slightly easier than reimplementing it. But then, dozens of hours later spent slogging through undocumented research code with hardcoded paths and missing files… fortunately, I think profs have weathered enough complaining at this point they know “code online != can run it.” But this just reinforces the gap between major popular repositories and one-off blobs of deep learning gunk published by schmucks like me. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>If you’re paying close attention, “tweaking the values but keeping the intervals the same” should make you a little suspicious. After all, 0.1 vs 0.2 is pretty different than 100,000.1 vs 100,000.2. Suffice to say, I kept them close enough for jazz (= statistics by a computer science person). <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>Human evaluations are where you ask humans to judge whether system A or system B is better. This has a whole suite of problems on its own, which I will save for another rant. <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p>Tomfoolery around bolding numbers abounds. You will see hilarious tactics like migrating better numbers to other sections of the table so as to avoid bolding them, or just flat out not bolding metrics the proposed work didn’t win on. <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p>Check out <a href="https://arxiv.org/abs/1807.03341">Troubling Trends in Machine Learning Scholarship (Lipton and Steinhardt, 2018)</a> by some folks who cared enough about these problems to actually write a paper about it and get (other) famous people to review it. I really applaud this, though I also <a href="https://maxwellforbes.com/posts/use-examples#pulling-punches">roast them a bit elsewhere</a>. <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p>Great analyses of metrics and human judgment abound. Here’s a recent nice one: <a href="https://arxiv.org/abs/2006.06264">Tangled up in BLEU (Mathur et al., 2020)</a>. <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn10" class="footnote-item"><p>Coming up with statistics for all of our metrics is above my pay grade and, more importantly, beyond my abilities to do stats on a whim. But for inspiration, check out <a href="https://en.wikipedia.org/wiki/Bootstrapping_(statistics)">bootstrap sampling</a>, or common statistical tests like <a href="https://en.wikipedia.org/wiki/Student%27s_t-test">students t-tests</a>. <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn11" class="footnote-item"><p>Physicists, you stay out of this. <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn12" class="footnote-item"><p>As someone interested both in human evaluation as well as using ML models to score other ML models, I also don’t mean that we should be restricting evaluation just to the currently established metrics. I think continuously questioning how we assess models is a great line of inquiry, and it should keep happening. What I’m talking about is standards for the flip side of the coin: papers that propose new models and just “run the gauntlet of standard metrics” on them. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn13" class="footnote-item"><p>NLP seems to be a bit on the slow side in terms of machine learning disciplines—for example, we still haven’t figured out that the arXiv blackout window seemed like a good idea but sucks in practice—but even <em>we</em> are making some strides: e.g., switching to a <a href="https://aclrollingreview.org/">rolling review cycle</a>. Maybe some day we’ll even let our reviews be readable (<em>gasp</em>) <em>on the Internet.</em> <a href="#fnref13" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn14" class="footnote-item"><p>As in: I wrote more but it made this post too long. <a href="#fnref14" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        
+          <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>
