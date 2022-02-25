@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>A TypesScript ECS in 99 Lines of Code - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="A TypesScript ECS in 99 Lines of Code - Maxwell Forbes" property="title"/>
+    <meta content="A TypesScript ECS in 99 Lines of Code - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="A TypesScript ECS in 99 Lines of Code - Maxwell Forbes"/>
+    <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com/posts/typescript-ecs-implementation/' property='og:url'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+          <div class="mb4">
+            <!-- Date -->
+            
+              <div class="fw600 light-silver mt1 ttu">
+                
+                  04 Sep 2021
+                
+              </div>
+            
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              
+                A TypesScript ECS in 99 Lines of Code
+              
+            </h1>
+            
+
+          </div>
+        
+
+        <!-- Series header. -->
+        
+          <div class="ba b--black-80 mv5">
+    <p class="bg-black-80 white mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib white-60 f6 f5-ns">series</span>
+        Building an ECS in TypeScript
+    </p>
+
+    <div class="pa3">
+        
+        <ol class="ma0">
+            
+                <li class="">
+                    
+                        <span class="b">
+                            A TypesScript ECS in 99 Lines of Code
+                        </span>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/typescript-ecs-aspects/" class="db pv1 link">
+                            Aspects
+                        </a>
+                    
+                </li>
+            
+                <li class="">
+                    
+                        <a href="/posts/typescript-ecs-systems/" class="db pv1 link">
+                            Deeper Dive: Systems
+                        </a>
+                    
+                </li>
+            
+        </ol>
+
+    </div>
+</div>
+
+        
+
+        <div class="markdown-body">
+          <h2>Overview</h2>
+<p>Without further ado, this post is a minimal but complete TypeScript implementation of an ECS.</p>
+<p>Here’s a brief overview of five main parts of the code. I’ve written more about the <code>ComponentContainer</code>, since it seems like extra cruft, but is vital for making the API easy to work with.</p>
+<ol>
+<li>
+<p><code>Entity</code> — just a number.</p>
+</li>
+<li>
+<p><code>Component</code> — just an empty class: subclass and add data!</p>
+</li>
+<li>
+<p><code>System</code> — specifies which <code>Components</code> it needs to run on an entity, and what code to run each frame on <code>update()</code>.</p>
+</li>
+<li>
+<p><code>ComponentContainer</code> — gives you access to an Entity’s Components by the most convenient means for each circumstance:</p>
+<ul>
+<li><strong>Instance:</strong> when you will already have a Component, you just provide it (i.e., when <code>add()</code>ing that Component).</li>
+<li><strong>Class:</strong> when you won’t have an instance of a Component, like when you want to <code>get()</code> a Component or see whether the Entity <code>has()</code> one, you instead provide its class.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></li>
+</ul>
+</li>
+<li>
+<p><code>ECS</code> — you go through this to add or remove any Entity, Component, or System from the engine. It performs all the tracking and updating.</p>
+</li>
+</ol>
+<p>The actual code follows. I’ve heavily commented it up for readability, but if you remove the comments, it’s <a href="https://gist.github.com/mbforbes/c7bfba0ce62f1a1e6d69f9a8ffd1d828">99 lines!</a> I didn’t make things JavaScript-y by, e.g., using functions for iterators (like with <code>.map()</code> or <code>.forEach()</code>), and instead stuck with generic, imperative programming.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<h2>Code</h2>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">/**<br> * An entity is just an ID. This is used to look up its associated<br> * Components.<br> */</span><br><span class="token keyword">type</span> <span class="token class-name">Entity</span> <span class="token operator">=</span> <span class="token builtin">number</span><br><br><span class="token comment">/**<br> * A Component is a bundle of state. Each instance of a Component is<br> * associated with a single Entity.<br> *<br> * Components have no API to fulfill.<br> */</span><br><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><br><br><span class="token comment">/**<br> * A System cares about a set of Components. It will run on every Entity<br> * that has that set of Components.<br> *<br> * A System must specify two things:<br> *<br> *  (1) The immutable set of Components it needs at compile time. (Its<br> *      immutability isn't enforced by anything but my wrath.) We use the<br> *      type `Function` to refer to a Component's class; i.e., `Position`<br> *      (class) rather than `new Position()` (instance).<br> *<br> *  (2) An update() method for what to do every frame (if anything).<br> */</span><br><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">System</span> <span class="token punctuation">{</span><br><br>    <span class="token comment">/**<br>     * Set of Component classes, ALL of which are required before the<br>     * system is run on an entity.<br>     *<br>     * This should be defined at compile time and should never change.<br>     */</span><br>    <span class="token keyword">public</span> <span class="token keyword">abstract</span> componentsRequired<span class="token operator">:</span> Set<span class="token operator">&lt;</span><span class="token builtin">Function</span><span class="token operator">></span><br><br>    <span class="token comment">/**<br>     * update() is called on the System every frame.<br>     */</span><br>    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token function">update</span><span class="token punctuation">(</span>entities<span class="token operator">:</span> Set<span class="token operator">&lt;</span>Entity<span class="token operator">></span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><br><br>    <span class="token comment">/**<br>     * The ECS is given to all Systems. Systems contain most of the game<br>     * code, so they need to be able to create, mutate, and destroy<br>     * Entities and Components.<br>     */</span><br>    <span class="token keyword">public</span> ecs<span class="token operator">:</span> <span class="token constant">ECS</span><br><span class="token punctuation">}</span><br><br><span class="token comment">/**<br> * This type is so functions like the ComponentContainer's get(...) will<br> * automatically tell TypeScript the type of the Component returned. In<br> * other words, we can say get(Position) and TypeScript will know that an<br> * instance of Position was returned. This is amazingly helpful.<br> */</span><br><span class="token keyword">type</span> <span class="token class-name">ComponentClass<span class="token operator">&lt;</span><span class="token constant">T</span> <span class="token keyword">extends</span> Component<span class="token operator">></span></span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token constant">T</span><br><br><span class="token comment">/**<br> * This custom container is so that calling code can provide the<br> * Component *instance* when adding (e.g., add(new Position(...))), and<br> * provide the Component *class* otherwise (e.g., get(Position),<br> * has(Position), delete(Position)).<br> *<br> * We also use two different types to refer to the Component's class:<br> * `Function` and `ComponentClass&lt;T>`. We use `Function` in most cases<br> * because it is simpler to write. We use `ComponentClass&lt;T>` in the<br> * `get()` method, when we want TypeScript to know the type of the<br> * instance that is returned. Just think of these both as referring to<br> * the same thing: the underlying class of the Component.<br> *<br> * You might notice a footgun here: code that gets this object can<br> * directly modify the Components inside (with add(...) and delete(...)).<br> * This would screw up our ECS bookkeeping of mapping Systems to<br> * Entities! We'll fix this later by only returning callers a view onto<br> * the Components that can't change them.<br> */</span><br><span class="token keyword">class</span> <span class="token class-name">ComponentContainer</span> <span class="token punctuation">{</span><br>    <span class="token keyword">private</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token operator">&lt;</span><span class="token builtin">Function</span><span class="token punctuation">,</span> Component<span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br>    <span class="token keyword">public</span> <span class="token function">add</span><span class="token punctuation">(</span>component<span class="token operator">:</span> Component<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>component<span class="token punctuation">.</span>constructor<span class="token punctuation">,</span> component<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">public</span> <span class="token generic-function"><span class="token function">get</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token constant">T</span> <span class="token keyword">extends</span> Component<span class="token operator">></span></span></span><span class="token punctuation">(</span><br>        componentClass<span class="token operator">:</span> ComponentClass<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span><br>    <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token constant">T</span> <span class="token punctuation">{</span><br>        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>componentClass<span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token constant">T</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">public</span> <span class="token function">has</span><span class="token punctuation">(</span>componentClass<span class="token operator">:</span> <span class="token builtin">Function</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">{</span><br>        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>map<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>componentClass<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">public</span> <span class="token function">hasAll</span><span class="token punctuation">(</span>componentClasses<span class="token operator">:</span> Iterable<span class="token operator">&lt;</span><span class="token builtin">Function</span><span class="token operator">></span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">{</span><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> cls <span class="token keyword">of</span> componentClasses<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>map<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span><br>            <span class="token punctuation">}</span><br>        <span class="token punctuation">}</span><br>        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">public</span> <span class="token keyword">delete</span><span class="token punctuation">(</span>componentClass<span class="token operator">:</span> <span class="token builtin">Function</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>map<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>componentClass<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><br><span class="token comment">/**<br> * The ECS is the main driver; it's the backbone of the engine that<br> * coordinates Entities, Components, and Systems. You could have a single<br> * one for your game, or make a different one for every level, or have<br> * multiple for different purposes.<br> */</span><br><span class="token keyword">class</span> <span class="token class-name"><span class="token constant">ECS</span></span> <span class="token punctuation">{</span><br>    <span class="token comment">// Main state</span><br>    <span class="token keyword">private</span> entities <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token operator">&lt;</span>Entity<span class="token punctuation">,</span> ComponentContainer<span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">private</span> systems <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token operator">&lt;</span>System<span class="token punctuation">,</span> Set<span class="token operator">&lt;</span>Entity<span class="token operator">>></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br>    <span class="token comment">// Bookkeeping for entities.</span><br>    <span class="token keyword">private</span> nextEntityID <span class="token operator">=</span> <span class="token number">0</span><br>    <span class="token keyword">private</span> entitiesToDestroy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token builtin">Array</span><span class="token operator">&lt;</span>Entity<span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br>    <span class="token comment">// API: Entities</span><br><br>    <span class="token keyword">public</span> <span class="token function">addEntity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Entity <span class="token punctuation">{</span><br>        <span class="token keyword">let</span> entity <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>nextEntityID<span class="token punctuation">;</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>nextEntityID<span class="token operator">++</span><span class="token punctuation">;</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>entities<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>entity<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ComponentContainer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">return</span> entity<span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">/**<br>     * Marks `entity` for removal. The actual removal happens at the end<br>     * of the next `update()`. This way we avoid subtle bugs where an<br>     * Entity is removed mid-`update()`, with some Systems seeing it and<br>     * others not.<br>     */</span><br>    <span class="token keyword">public</span> <span class="token function">removeEntity</span><span class="token punctuation">(</span>entity<span class="token operator">:</span> Entity<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>entitiesToDestroy<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">// API: Components</span><br><br>    <span class="token keyword">public</span> <span class="token function">addComponent</span><span class="token punctuation">(</span>entity<span class="token operator">:</span> Entity<span class="token punctuation">,</span> component<span class="token operator">:</span> Component<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>entities<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>component<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">checkE</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">public</span> <span class="token function">getComponents</span><span class="token punctuation">(</span>entity<span class="token operator">:</span> Entity<span class="token punctuation">)</span><span class="token operator">:</span> ComponentContainer <span class="token punctuation">{</span><br>        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>entities<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">public</span> <span class="token function">removeComponent</span><span class="token punctuation">(</span><br>        entity<span class="token operator">:</span> Entity<span class="token punctuation">,</span> componentClass<span class="token operator">:</span> <span class="token builtin">Function</span><br>    <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>entities<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>componentClass<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">checkE</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">// API: Systems</span><br><br>    <span class="token keyword">public</span> <span class="token function">addSystem</span><span class="token punctuation">(</span>system<span class="token operator">:</span> System<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token comment">// Checking invariant: systems should not have an empty</span><br>        <span class="token comment">// Components list, or they'll run on every entity. Simply remove</span><br>        <span class="token comment">// or special case this check if you do want a System that runs</span><br>        <span class="token comment">// on everything.</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span>system<span class="token punctuation">.</span>componentsRequired<span class="token punctuation">.</span>size <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"System not added: empty Components list."</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>            <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">;</span><br>            <span class="token keyword">return</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br><br>        <span class="token comment">// Give system a reference to the ECS so it can actually do</span><br>        <span class="token comment">// anything.</span><br>        system<span class="token punctuation">.</span>ecs <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span><br><br>        <span class="token comment">// Save system and set who it should track immediately.</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>system<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> entity <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>entities<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">checkES</span><span class="token punctuation">(</span>entity<span class="token punctuation">,</span> system<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">/**<br>     * Note: I never actually had a removeSystem() method for the entire<br>     * time I was programming the game Fallgate (2 years!). I just added<br>     * one here for a specific testing reason (see the next post).<br>     * Because it's just for demo purposes, this requires an actual<br>     * instance of a System to remove (which would be clunky as a real<br>     * API).<br>     */</span><br>    <span class="token keyword">public</span> <span class="token function">removeSystem</span><span class="token punctuation">(</span>system<span class="token operator">:</span> System<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">/**<br>     * This is ordinarily called once per tick (e.g., every frame). It<br>     * updates all Systems, then destroys any Entities that were marked<br>     * for removal.<br>     */</span><br>    <span class="token keyword">public</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token comment">// Update all systems. (Later, we'll add a way to specify the</span><br>        <span class="token comment">// update order.)</span><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>system<span class="token punctuation">,</span> entities<span class="token punctuation">]</span> <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            system<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>entities<span class="token punctuation">)</span><br>        <span class="token punctuation">}</span><br><br>        <span class="token comment">// Remove any entities that were marked for deletion during the</span><br>        <span class="token comment">// update.</span><br>        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>entitiesToDestroy<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">destroyEntity</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>entitiesToDestroy<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">// Private methods for doing internal state checks and mutations.</span><br><br>    <span class="token keyword">private</span> <span class="token function">destroyEntity</span><span class="token punctuation">(</span>entity<span class="token operator">:</span> Entity<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span>entities<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> entities <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            entities<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// no-op if doesn't have it</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">private</span> <span class="token function">checkE</span><span class="token punctuation">(</span>entity<span class="token operator">:</span> Entity<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> system <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">checkES</span><span class="token punctuation">(</span>entity<span class="token punctuation">,</span> system<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token keyword">private</span> <span class="token function">checkES</span><span class="token punctuation">(</span>entity<span class="token operator">:</span> Entity<span class="token punctuation">,</span> system<span class="token operator">:</span> System<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">let</span> have <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>entities<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">let</span> need <span class="token operator">=</span> system<span class="token punctuation">.</span>componentsRequired<span class="token punctuation">;</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span>have<span class="token punctuation">.</span><span class="token function">hasAll</span><span class="token punctuation">(</span>need<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token comment">// should be in system</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// no-op if in</span><br>        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><br>            <span class="token comment">// should not be in system</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// no-op if out</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<h2>Example Usage</h2>
+<p>Of course, an engine isn’t much fun without something to run on it. So let’s try it out.</p>
+<h3>Entities</h3>
+<p>To create and remove entities, we call <code>addEntity()</code> and <code>removeEntity()</code>:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">let</span> ecs <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token constant">ECS</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">let</span> entity <span class="token operator">=</span> ecs<span class="token punctuation">.</span><span class="token function">addEntity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">removeEntity</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Removed after next update()</span><br><span class="token comment">// Entity still here now.</span><br>ecs<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token comment">// Entity gone.</span></code></pre>
+<p><code>removeEntity()</code>'s behavior is a bit funny on purpose. We don’t want Entities being removed mid-frame, so we wait until the end of an <code>update()</code> to remove them.</p>
+<h3>Components</h3>
+<p>To add Components, we have to make an actual Component of our own. Here’s a Component that just stores some numbers:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">Position</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span><br>    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">public</span> x<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> <span class="token keyword">public</span> y<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>To use it with our ECS, we use <code>addComponent()</code>, <code>getComponents()</code>, and <code>removeComponent()</code>.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">let</span> ecs <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token constant">ECS</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">let</span> entity <span class="token operator">=</span> ecs<span class="token punctuation">.</span><span class="token function">addEntity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">let</span> position <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Position</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addComponent</span><span class="token punctuation">(</span>entity<span class="token punctuation">,</span> position<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// add with *instance*</span><br><span class="token keyword">let</span> comps <span class="token operator">=</span> ecs<span class="token punctuation">.</span><span class="token function">getComponents</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// `comps` is a ComponentContainer</span><br>comps<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>Position<span class="token punctuation">)</span>  <span class="token comment">// check with *class*</span><br><span class="token keyword">let</span> p <span class="token operator">=</span> comps<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>Position<span class="token punctuation">)</span>  <span class="token comment">// get with *class*</span><br><span class="token comment">// `p` is the same as `position`. TypeScript knows it is a Position</span><br><span class="token comment">// instance at compile time, so we get autocomplete (`p.x`, `p.y`).</span><br>ecs<span class="token punctuation">.</span><span class="token function">removeComponent</span><span class="token punctuation">(</span>entity<span class="token punctuation">,</span> Position<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// remove with *class*</span></code></pre>
+<h3>Systems</h3>
+<p>Our ECS requires each System specify (a) a non-empty list of Components it requires to run, (b) an <code>update()</code> method.</p>
+<p>Here’s a System that tracks all Entities that have a <code>Position</code> Component, and doesn’t do anything during its <code>update()</code>.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">Locator</span> <span class="token keyword">extends</span> <span class="token class-name">System</span> <span class="token punctuation">{</span><br>    componentsRequired <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set<span class="token operator">&lt;</span><span class="token builtin">Function</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">[</span>Position<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token function">update</span><span class="token punctuation">(</span>entities<span class="token operator">:</span> Set<span class="token operator">&lt;</span>Entity<span class="token operator">></span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span> <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>To our ECS, we can <code>addSystem()</code> and <code>removeSystem()</code>, and it will keep them up-to-date.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">let</span> ecs <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token constant">ECS</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">let</span> locator <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Locator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addSystem</span><span class="token punctuation">(</span>locator<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token keyword">let</span> entity <span class="token operator">=</span> ecs<span class="token punctuation">.</span><span class="token function">addEntity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token comment">// The ECS is now tracking `entity`, but our `locator` won't care about</span><br><span class="token comment">// it yet because it doesn't have a `Position`.</span><br><span class="token keyword">let</span> position <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Position</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ecs<span class="token punctuation">.</span><span class="token function">addComponent</span><span class="token punctuation">(</span>entity<span class="token punctuation">,</span> position<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token comment">// Now, our Locator will get `entity` in its list for its next update().</span><br><br>ecs<span class="token punctuation">.</span><span class="token function">removeSystem</span><span class="token punctuation">(</span>locator<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Bye bye.</span></code></pre>
+<h2>What’s Next</h2>
+<p><strong>Complexity.</strong> This ECS is the one I started with when programming the game <a href="/website-3/posts/fallgate/">Fallgate</a>. Its core design remained the same throughout the project, but over time I added a few more bells and whistles to handle needs that I encountered. So, I’d like to go through each aspect of the engine and write more about how it grew and why. I’ll do that in the upcoming sections.</p>
+<blockquote>
+<p>In general, though, this was one area where organic growth worked well. If I didn’t need some capability—like removing a system, as I mentioned above in the code—I just never wrote it.</p>
+</blockquote>
+<p><strong>Design choices.</strong> Where I can remember to, I’ll also discuss design decisions that we made in the code above, and how you might do things differently. The essence of ECS is minimal: Systems selecting Entities with a superset of their required Components. This makes it straightforward to try different flavors of implementation.</p>
+<p>But first, let’s actually run some simple tests to see whether our code works.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><code>delete()</code>ing the component is also implemented by <strong>class</strong> name, but it could be easily switched to instance instead. Or, you could provide both methods. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>I kept the style imperative (a) to be true to how I wrote it originally, (b) to keep the code accessible to non-JavaScript programmers. Imperative TypeScript like this should be legible to most programmers. (I wasn’t a TypeScript programer when I started writing an ECS engine in it, and even several thousand lines of code later, I still wouldn’t really call myself one!) <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+          <div class="ba b--black-10 mv5">
+    <p class="bg-near-white black-60 mv0 pv2 ph3 b">
+        <span class="fr ttu tracked dib black-30 f6 f5-ns">series</span>
+        Building an ECS in TypeScript
+    </p>
+
+    <div class="pa3 flex">
+        <div class="w-50 ma0">
+            
+            
+        </div>
+        <div class="w-50 ma0 tr">
+            
+            
+        </div>
+    </div>
+</div>
+
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        
+          <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>
