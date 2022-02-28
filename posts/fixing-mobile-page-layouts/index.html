@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Fixing Mobile Page Layouts - Maxwell Forbes</title>
+    <!-- NOTE: Twitter uses name='', og uses property='' -->
+    <meta content="Fixing Mobile Page Layouts - Maxwell Forbes" property="title"/>
+    <meta content="Fixing Mobile Page Layouts - Maxwell Forbes" property="og:title"/>
+    <meta name="twitter:title" content="Fixing Mobile Page Layouts - Maxwell Forbes"/>
+    <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'/>
+
+    <meta content='https://maxwellforbes.com/posts/fixing-mobile-page-layouts/' property='og:url'/>
+    
+        <meta content='/website-3/assets/posts/fixing-mobile-page-layouts/header.jpg' property='og:image'/>
+        <meta name='twitter:image' content='/website-3/assets/posts/fixing-mobile-page-layouts/header.jpg'/>
+        <meta name='twitter:card' content='summary_large_image'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+  </head>
+
+  <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+
+    <div class="mw7 mt3 mt4-ns mb3 center">
+
+      <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+        <div class="w-50 tl">
+          <!-- Note: originally used https://maxwellforbes.com changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+          <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+        </div>
+        <div class="w-50 tr">
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+                Studio
+              </a>
+            
+          
+            <!-- If you're on that page, don't show as a link. -->
+            
+              <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+                Research
+              </a>
+            
+          
+        </div>
+      </nav>
+
+      <div class="mh3 mh4-ns bt b--black-80"></div>
+
+      <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+        
+          <div class="mb4">
+            <!-- Date -->
+            
+              <div class="fw600 light-silver mt1 ttu">
+                
+                  22 Jul 2021
+                
+              </div>
+            
+
+            <!-- Title -->
+            <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+              
+                Fixing Mobile Page Layouts
+              
+            </h1>
+            
+
+          </div>
+        
+
+        <!-- Series header. -->
+        
+
+        <div class="markdown-body">
+          <style>
+/* "ScreenShot" */
+.sc {
+  border-width: .125rem;
+  border-style: solid;
+  border-color: #565656;
+}
+
+.br5 {
+  border-radius: 2rem;
+}
+
+/* This is the -ns (not small) media query (at least currently) */
+@media screen and (min-width: 30em) {
+  .br5-ns {
+    border-radius: 2rem;
+  }
+}
+
+.small {
+  width: 300px;
+}
+
+
+.big {
+  width: 400px;
+}
+
+</style>
+<svg viewBox="0 0 1200 675" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="header-page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Rectangle" fill-opacity="0.4" fill="#FFD700" transform="translate(600.000000, 184.000000) rotate(-270.000000) translate(-600.000000, -184.000000) " points="467.5 -416.5 732.5 -416.5 732.5 784.5 467.5 784.5"></polygon>
+        <polygon id="Rectangle-Copy-2" fill-opacity="0.4" fill="#FF4136" transform="translate(549.500000, 227.000000) rotate(-270.000000) translate(-549.500000, -227.000000) " points="296 143 803 143 803 311 296 311"></polygon>
+        <polygon id="Rectangle-Copy-2" fill-opacity="0.4" fill="#FF4136" transform="translate(285.500000, 198.000000) rotate(-270.000000) translate(-285.500000, -198.000000) " points="87 163 484 163 484 233 87 233"></polygon>
+        <path class="phone" d="M479.907982,-118.053476 C496.159808,-118.053476 502.109331,-116.502711 508.065839,-113.317135 C513.71401,-110.29646 518.146728,-105.863743 521.167403,-100.215572 C524.352978,-94.2590639 525.903743,-88.3095411 525.903743,-72.0577145 L525.903743,-72.0577145 L525.903743,440.057715 C525.903743,456.309541 524.352978,462.259064 521.167403,468.215572 C518.146728,473.863743 513.71401,478.29646 508.065839,481.317135 C502.109331,484.502711 496.159808,486.053476 479.907982,486.053476 L479.907982,486.053476 L298.899505,486.053476 C284.553931,486.053476 278.214467,484.860913 272.83727,482.367516 C271.841166,481.892614 271.291663,481.611287 270.741648,481.317135 C265.096164,478.297898 260.664977,473.86796 257.644396,468.223633 C254.375493,461.970192 252.903743,455.918645 252.903743,440.057715 L252.903743,440.057715 L252.903743,-72.0577145 C252.903743,-87.0838596 254.224649,-93.3060142 256.946804,-98.865159 L257.176895,-99.3270608 C257.254675,-99.4806328 257.333538,-99.6338678 257.413485,-99.7869401 C260.664977,-105.86796 265.096164,-110.297898 270.741648,-113.317135 C271.291663,-113.611287 271.841166,-113.892614 272.398962,-114.160582 C278.214467,-116.860913 284.553931,-118.053476 298.899505,-118.053476 L298.899505,-118.053476 Z" id="phone-top" stroke="#5B5B5B" stroke-width="8" transform="translate(389.403743, 184.000000) rotate(-270.000000) translate(-389.403743, -184.000000) "></path>
+        <polygon id="Rectangle" fill-opacity="0.4" fill="#FFD700" transform="translate(600.000000, 491.000000) rotate(-270.000000) translate(-600.000000, -491.000000) " points="467.5 -109 732.5 -109 732.5 1091 467.5 1091"></polygon>
+        <path class="phone" d="M915.407982,188.946524 C931.659808,188.946524 937.609331,190.497289 943.565839,193.682865 C949.21401,196.70354 953.646728,201.136257 956.667403,206.784428 C959.852978,212.740936 961.403743,218.690459 961.403743,234.942285 L961.403743,234.942285 L961.403743,747.057715 C961.403743,763.309541 959.852978,769.259064 956.667403,775.215572 C953.646728,780.863743 949.21401,785.29646 943.565839,788.317135 C937.609331,791.502711 931.659808,793.053476 915.407982,793.053476 L915.407982,793.053476 L734.399505,793.053476 C720.053931,793.053476 713.714467,791.860913 708.33727,789.367516 C707.341166,788.892614 706.791663,788.611287 706.241648,788.317135 C700.596164,785.297898 696.164977,780.86796 693.144396,775.223633 C689.875493,768.970192 688.403743,762.918645 688.403743,747.057715 L688.403743,747.057715 L688.403743,234.942285 C688.403743,219.91614 689.724649,213.693986 692.446804,208.134841 L692.676895,207.672939 C692.754675,207.519367 692.833538,207.366132 692.913485,207.21306 C696.164977,201.13204 700.596164,196.702102 706.241648,193.682865 C706.791663,193.388713 707.341166,193.107386 707.898962,192.839418 C713.714467,190.139087 720.053931,188.946524 734.399505,188.946524 L734.399505,188.946524 Z" id="phone-bottom" stroke="#5B5B5B" stroke-width="8" transform="translate(824.903743, 491.000000) rotate(-270.000000) translate(-824.903743, -491.000000) "></path>
+        <polygon id="Rectangle-Copy-2" fill-opacity="0.4" fill="#FF4136" transform="translate(985.000000, 491.000000) rotate(-270.000000) translate(-985.000000, -491.000000) " points="852.5 407 1117.5 407 1117.5 575 852.5 575"></polygon>
+        <polygon id="Rectangle-Copy-2" fill-opacity="0.4" fill="#FF4136" transform="translate(721.000000, 491.000000) rotate(-270.000000) translate(-721.000000, -491.000000) " points="588.5 456 853.5 456 853.5 526 588.5 526"></polygon>
+    </g>
+</svg>
+<p>Some webpages are too damn hard to read on my phone, like this one:</p>
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" class="sc small br5">
+<p class="figcaption">Squint harder</p>
+<p>The font is tiny, the page is wide, and the text is wrapping at a weird place. I must read these on my phone like a PDF: scrolling in and panning along each line.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<p>This post is my guide to fixing these issues. It’s aimed at folks like me who aren’t quite web developers, but blog or run small sites that could use a little fine-tuning.</p>
+<h3>Contents</h3>
+<ul>
+<li>
+<p><strong>How to Fix Common Problems</strong> — Four tricks I use to fix pages.</p>
+<ol>
+<li><a href="#viewport">Set the Viewport</a></li>
+<li><a href="#over-wide">Scroll Over-Wide Elements</a></li>
+<li><a href="#typography">Typographic Cleanup</a></li>
+<li><a href="#phone">Test on Your Actual Phone</a></li>
+</ol>
+</li>
+<li>
+<p><strong>Walkthroughs</strong> — Tutorials of repairing pages.</p>
+<ul>
+<li><a href="#gitbestpractices">Git Best Practices</a></li>
+<li><a href="#poisson">Poisson’s Equation</a></li>
+<li><a href="#fsharp">F#</a></li>
+<li><a href="#hydroponic">Hydroponic</a></li>
+<li><a href="#diffusion">Diffusion Models</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><em><strong>Disclaimer:</strong> I’m not a web developer. I have no idea what I’m doing, really.</em></p>
+</blockquote>
+<h2>How to Fix Common Problems</h2>
+<p><a name="viewport"></a></p>
+<h3>1. Set the Viewport</h3>
+<p>Does the page look like a desktop site zoomed way out? You might need to tell web browsers to render the web page at the actual device’s width.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> Add this HTML tag:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span><br>  <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span><br>  <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span></code></pre>
+<p>In action, this makes the following change:</p>
+<div class="flex items-center mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" class="sc w-40 bare br4 br5-ns">
+<div class="mh2 mh3-ns" style="flex-grow: 1">
+  <img src="/website-3/assets/posts/fixing-mobile-page-layouts/arrow.svg" class="w-100">
+</div>
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/1-meta.jpg" class="sc w-40 bare br4 br5-ns">
+</div>
+<p>Now the text renders into a more reasonable area. This makes the font look bigger and the lines wrap much earlier. But the page still has a problem that’s making the text only take up half the page. Something is too wide.</p>
+<p><a name="over-wide"></a></p>
+<h3>2. Scroll Over-Wide Elements</h3>
+<p>Over-wide elements are easy to miss even from your phone, because your phone might mask them with a horizontal scroll bar. If you accidentally scroll right, though, you’ll fly off the content.</p>
+<div class="flex mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/overwide-diagnose-1.jpg" class="sc bare mh2 br4 br5-ns flex-auto">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/overwide-diagnose-2.jpg" class="sc bare mh2 br4 br5-ns flex-auto">
+</div>
+<p class="figcaption">&rarr; Agh!</p>
+<p>Once you notice this happens, you can pinch to zoom out and survey the mess. Some element is probably too wide. Find the culprit.</p>
+<div class="flex mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/overwide2-before.jpg" class="sc bare mh2 br4 br5-ns flex-auto">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/overwide-before-annotated.jpg" class="sc bare mh2 br4 br5-ns flex-auto">
+</div>
+<p class="figcaption">Left: zoomed out. Right: the problem child.</p>
+<p>Ah ha. In this case, it’s text in <code>&lt;pre&gt;</code> blocks. We can add some simple CSS to limit their width.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">pre</span> <span class="token punctuation">{</span><br>    <span class="token property">max-width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>    <span class="token property">overflow-x</span><span class="token punctuation">:</span> scroll<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>This solves it. Here’s the before and after.</p>
+<div class="flex items-center mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/overwide-before.jpg" class="sc w-40 bare br4 br5-ns">
+<div class="mh2 mh3-ns" style="flex-grow: 1">
+  <img src="/website-3/assets/posts/fixing-mobile-page-layouts/arrow.svg" class="w-100">
+</div>
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/overwide-after.jpg" class="sc w-40 bare br4 br5-ns">
+</div>
+<p>No more scroll bar, and the width is correct. This section is a bit weird because of overly wide indentation. Here’s the same result on body text.</p>
+<div class="flex items-center mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/overwide2-before.jpg" class="sc w-40 bare br4 br5-ns">
+<div class="mh2 mh3-ns" style="flex-grow: 1">
+  <img src="/website-3/assets/posts/fixing-mobile-page-layouts/arrow.svg" class="w-100">
+</div>
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/overwide2-after.jpg" class="sc w-40 bare br4 br5-ns">
+</div>
+<h4>What About Bigger Screens?</h4>
+<p>This article is only about making pages look better on mobile. I try not to <em>break</em> anything for larger screens, but naively applying some of these changes will make desktop layouts more cramped.</p>
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/device-diagram.svg" class="w-100">
+<p class="figcaption">
+  <span class="b">Left:</span>
+  For mobile devices, everything must adhere to the body width to avoid making the page scroll horizontally; individual wide elements can scroll on their own.
+<p><span class="b">Center:</span>
+For larger screens, we can keep the same strategy as with mobile displays and clip everything to the body region, but wide elements will still need to scroll.</p>
+<p><span class="b">Right:</span>
+If we instead let wide elements spill outside the body area when there is room on larger displays, they won’t need to be scrolled.</p>
+</p>
+<p>When there’s more screen space, it probably makes sense to let larger elements take up more room rather than clipping them and making them scroll horizontally. Consider housing wide content in containers that can break out from the body text.</p>
+<p><a name="typography"></a></p>
+<h3>3. Typographic Cleanup</h3>
+<p>There are a few bits of low hanging fruit that will make a page go from functional to comfortably readable. (Don’t worry, I’m not going to make the text <span class="black-30">annoyingly light gray</span> or anything.)</p>
+<ol>
+<li>
+<p><strong>Margins.</strong> Content should have a bit of breathing room, but not waste real estate.</p>
+</li>
+<li>
+<p><strong>Font size.</strong> Text be readable without squinting, but not so big to cause short line lengths.</p>
+</li>
+<li>
+<p><strong>Line height.</strong> Picking around <code>1.5</code> is a standard typography trick for body text and helps with readability.</p>
+</li>
+</ol>
+<p>We can apply all these changes to our running example.</p>
+<div class="flex items-center mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/4-body.jpg" class="sc w-40 bare br4 br5-ns">
+<div class="mh2 mh3-ns" style="flex-grow: 1">
+  <img src="/website-3/assets/posts/fixing-mobile-page-layouts/arrow.svg" class="w-100">
+</div>
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/5-done.jpg" class="sc w-40 bare br4 br5-ns">
+</div>
+<p><a name="phone"></a></p>
+<h3>4. Test on Your Actual Phone</h3>
+<p>This last trick is the most important and also the easiest to skip. Believe me, I forget to do it, too. But there’s no getting around it.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+<p>Yes, test it using your browser’s <em>pretend I’m a phone</em> mode first. But to this day, I’ve never made a page where I didn’t find something to change when I actually looked at it on my phone. It’s easier to recognize bad proportions on the physical device you glue to your poor eyeballs all day.</p>
+<p>Furthermore, sometimes the browser simulators are just plain wrong. In fact, our running example is exactly one such case. I describe this more in the <a href="#gitbestpractices">walkthrough below</a>.</p>
+<h2>Walkthroughs</h2>
+<p>Click on any picture to jump to the walkthrough for fixing the mobile layout on that page.</p>
+<div class="flex items-center flex-wrap mv4">
+  <div class="w-third w-25-ns tc ph1 ph2-ns mb1 mb2-ns">
+    <a href="#gitbestpractices">
+      <img src="/website-3/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" class="sc br3 br4-ns dim">
+    </a>
+  </div>
+  <div class="w-third w-25-ns tc ph1 ph2-ns mb1 mb2-ns">
+    <a href="#poisson">
+      <img src="/website-3/assets/posts/fixing-mobile-page-layouts/poisson-start-out.png" class="sc br3 br4-ns dim">
+    </a>
+  </div>
+  <div class="w-third w-25-ns tc ph1 ph2-ns mb1 mb2-ns">
+    <a href="#fsharp">
+      <img src="/website-3/assets/posts/fixing-mobile-page-layouts/f-sharp-orig.jpg" class="sc br3 br4-ns dim">
+    </a>
+  </div>
+  <div class="w-third w-25-ns tc ph1 ph2-ns mb1 mb2-ns">
+    <a href="#hydroponic">
+      <img src="/website-3/assets/posts/fixing-mobile-page-layouts/hydroponic-start.jpg" class="sc br3 br4-ns dim">
+    </a>
+  </div>
+  <div class="w-third w-25-ns tc ph1 ph2-ns mb1 mb2-ns">
+    <a href="#diffusion">
+      <img src="/website-3/assets/posts/fixing-mobile-page-layouts/diffusion-start.jpg" class="sc br3 br4-ns dim">
+    </a>
+  </div>
+</div>
+<blockquote>
+<p><em><strong>Disclaimer:</strong> I’m nitpicking microscopic <strong>stylistic</strong> issues on these ages for the sake of illustration. Their actual <strong>content</strong> is largely fascinating, technical, and well-written. I humbly offer these example fixes because I like what the authors are doing and would like to enjoy it even more on my phone.</em></p>
+</blockquote>
+<p><a name="gitbestpractices"></a></p>
+<h2>Git Best Practices</h2>
+<p>This is the site that I used as the running example for the first section. This page is called <a href="https://sethrobertson.github.io/GitBestPractices/">Commit Often, Perfect Later, Publish Once: Git Best Practices</a>. The page looks like this on my phone:</p>
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" class="sc small br5">
+<p>Now, I can’t be too hard on the designer.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> First, the page is from 2012—ancient Internet history.</p>
+<p>Second, it’s actually kind of hard to tell this was going to happen. Normally, I would guess that they simply didn’t test it using developer tools. But if you ask Chrome and Safari what the page should look like on an iPhone X, they both say, “just fine:”</p>
+<div class="flex mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/before-chrome.jpg" class="pr2 pr3-ns flex-auto">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/before-safari.jpg" class="flex-auto">
+</div>
+<p>This is annoying, because it means we have to debug on the phone itself. No problem, just download the page, whip up a <code>python -m http.server</code>, find the laptop’s local IP address with <code>ifconfig | grep 192</code>, and point the ol’ telephone to <code>192.168.0.xxx:8000</code>. We’re in.</p>
+<h4>Fixing it</h4>
+<p>These fixes are exactly the ones I describe in detail in the first section, so I’ll run through them quickly.</p>
+<p>First, we adjust the viewport (<a href="#viewport">fix #1</a>).</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span><br>  <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span><br>  <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span></code></pre>
+<p>Then, we stop <code>&lt;pre&gt;</code>-formatted blocks from stretching out the page width (<a href="#over-wide">fix #2</a>).</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">pre</span> <span class="token punctuation">{</span><br>    <span class="token property">max-width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>    <span class="token property">overflow-x</span><span class="token punctuation">:</span> scroll<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>For the final tweaks (<a href="#typography">fix #3</a>), we apply:</p>
+<ol>
+<li>
+<p><strong>Narrower margins.</strong> We don’t need <em>that</em> much of a buffer on our phones. I’ll take it from <code>3em</code> → <code>1em</code>.<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
+</li>
+<li>
+<p><strong>Bigger font size.</strong> It’s just in the squint-y range for me. <code>16px</code> → <code>18px</code>.</p>
+</li>
+<li>
+<p><strong>Taller line height.</strong> The usual <code>normal</code> → <code>1.5</code>.</p>
+</li>
+</ol>
+<p>Apply them all, here’s the before/after.</p>
+<div class="flex items-center mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" class="sc w-40 bare br4 br5-ns">
+<div class="mh2 mh3-ns" style="flex-grow: 1">
+  <img src="/website-3/assets/posts/fixing-mobile-page-layouts/arrow.svg" class="w-100">
+</div>
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/5-done.jpg" class="sc w-40 bare br4 br5-ns">
+</div>
+<p>Hooray, super readable!</p>
+<h3>Extra credit: typography</h3>
+<p>If we wanted to, one last thing I’d tweak is the indentation, which is so comically large as to end up taking up nearly half the screen width (really only glaring on an actual phone, AKA (<a href="#phone">fix #4</a>):</p>
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/6-extra-credit.jpg" class="sc small br5">
+<p>… but eh, I’d say we’ve done enough for one evening. Let’s call it an exercise for the reader.</p>
+<p><a name="poisson"></a></p>
+<h2>Poisson’s Equation</h2>
+<p>This page is called <a href="https://mattferraro.dev/posts/poissons-equation">Poisson’s Equation is the Most Powerful Tool not yet in your Toolbox</a>. The page’s viewport seems good, but you can accidentally scroll to the right, revealing a bigger page and likely overly wide elements (<a href="#over-wide">fix #2</a>).</p>
+<div class="flex mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/poisson-start.png" class="sc bare mh2 br4 br5-ns flex-auto">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/poisson-start-out.png" class="sc bare mh2 br4 br5-ns flex-auto">
+</div>
+<p class="figcaption">Left: the default view on pageload. Right: Zooming out to the page's true width after noticing horizontal scrollbars.</p>
+<p>If we scroll down, we can see the worst offenders are, again, over-wide <code>&lt;pre&gt;</code> regions for code. They are already the correct width, but when their content overflows, it spills out.</p>
+<div class="flex mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/poisson-overwide.jpg" class="sc bare mh2 br4 br5-ns flex-auto">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/poisson-pre-box.jpg" class="sc bare mh2 br4 br5-ns flex-auto">
+</div>
+<p>We can fix these,</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">pre</span> <span class="token punctuation">{</span><br>    <span class="token property">overflow-x</span><span class="token punctuation">:</span> scroll<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>… but rendered math is still an issue. Like the <code>&lt;pre&gt;</code> chunks, they’re also set to a good width, but spill out.</p>
+<div class="flex mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/poisson-pre-done-annotated.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/poisson-math-box.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+</div>
+<p>The math chunks are all in <code>&lt;div&gt;</code>s with the CSS class <code>math</code>, so we can just add another selector to our rule:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">pre, .math</span> <span class="token punctuation">{</span><br>    <span class="token property">overflow-x</span><span class="token punctuation">:</span> scroll<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>And with that, we’ve tamed the over-wide elements and the page displays nicely.</p>
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/poisson-fixed.png" class="sc small br5">
+<h3>Extra credit: code and scrollbars</h3>
+<p>If I were to add finishing touches, the two things I’d tweak would be the code and math.</p>
+<p>The font size for code blocks is bigger than it needs to be (<a href="#typography">fix #3</a>) and lacks syntax highlighting. If we make those two changes and then reduce the indentation from four to two spaces, we can even fit all the code without any scrolling—we just need to wrap two of the comments.</p>
+<div class="flex items-center mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/poisson-extra-code.jpg" class="sc w-40 bare br4 br5-ns">
+<div class="mh2 mh3-ns" style="flex-grow: 1">
+  <img src="/website-3/assets/posts/fixing-mobile-page-layouts/arrow.svg" class="w-100">
+</div>
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/poisson-extra-code-fixed.jpg" class="sc w-40 bare br4 br5-ns">
+</div>
+<blockquote>
+<p><em>Aside: This was another place where it was instrumental to check on my physical phone (<a href="#phone">fix #4</a>). Only there did I notice the code font was so large, and only there could I verify that it was still readable after reducing the font size.</em></p>
+</blockquote>
+<p>The second aspect I’d improve is the math display—or more generally, the remaining elements that are have their own horizontal scroll bars because of their width.</p>
+<p>When possible, it’s nice to have your content fit inside the display so people don’t have to scroll horizontally to see it. But it’s not always worth the effort to make that happen. I think typeset math is one of those occasions. It’s enough work just to make LaTeX display your math nicely, let alone making a version that fits on portrait-sized mobile screen.</p>
+<p>But when we <em>do</em> have content that needs scrolling, I think it’s good to <em>show</em> people that scrolling is available. In other words, to show them when an element has the scrolling <strong>affordance</strong>. Showing content that’s cut off is a hint, but this isn’t reliable unless calculated explicitly, as the content might be cut off in a way that doesn’t reveal there’s more to see.</p>
+<p>As I mentioned above, Apple’s browser seems to go out of its way to hide scroll bars. Even when they appear because you accidentally found something scrollable, they vanish a bit later. Can we make sure that our extra wide content has scroll bars them?</p>
+<p>In short, I couldn’t robustly figure this out. Using the <code>::-webkit-scrollbar</code> CSS selector, I could get really big chonky ones to always appear on Chrome, but not using Safari on my phone. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar">Mozilla says this feature isn’t standardized yet</a>, but that it should work on Safari and all iOS browsers 🤷‍♂️</p>
+<div class="flex mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/poisson-want-scrollbars.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/poisson-big-scrollbars.png" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+</div>
+<p class="figcaption">Left: no scrollbars still on my phone. Right: I could get big ugly ones on Chrome on my desktop.</p>
+<p><a name="fsharp"></a></p>
+<h2>F#</h2>
+<p>This page is called <a href="https://danielbmarkham.com/fsharp-is-the-best-programming-language-today/">F# Is The Best Coding Language Today</a>. Once again, a good viewport, but an over-wide <code>&lt;pre&gt;</code> code block. Jeez, what is it with these code blocks?</p>
+<div class="flex mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/f-sharp-orig.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/f-sharp-orig-code.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+</div>
+<p class="figcaption">Left: After loading the page, noticing it's got a horizontal scroll bar, and zooming out. Right: The culprit code block.</p>
+<p>Two oddities with this one:</p>
+<ol>
+<li>
+<p>Not only is the code overly wide, but the left part is also cut off and can’t be revealed. Not sure how that one happened.</p>
+</li>
+<li>
+<p>The page becomes a broken, un-styled mess when I download it to make tweaks. I’m guessing it’s blocking some CSS from being loaded.</p>
+</li>
+</ol>
+<p>Because of 2., I only made minimal tweaks in the browser’s developer tools to fix things (<a href="#over-wide">fix #2</a>).</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* Attached these to the &lt;figure> element,<br>   the literal root of figurative evil. */</span><br><span class="token property">max-width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br><span class="token comment">/* Once again, you'd want to tweak font<br>   sizes for desktop vs mobile. */</span><br><span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span></code></pre>
+<div class="flex mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/f-sharp-fixed.png" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/f-sharp-fixed-code.png" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+</div>
+<p class="figcaption">Fixed view of the top of the page (left), and the code block (right).</p>
+<p>This fixes the page and makes the code readable. Hooray!</p>
+<h3>Extra credit</h3>
+<p>Nothing else major here, but I would wrap the comments in the code earlier so we could get rid of horizontal scrolling entirely. The URL, which would be hard to wrap, could simply be moved outside of the code.</p>
+<p><a name="hydroponic"></a></p>
+<h2>Hydroponic</h2>
+<p>This page is called <a href="https://kylegabriel.com/projects/2020/06/automated-hydroponic-system-build.html">Automated Hydroponic System Build</a>. In a crazy turn of events, 🚨 <em>it’s not code in a <code>&lt;pre&gt;</code> block this time!</em> 🚨 This page actually contains pretty huge chunks of code, but they all obey the body width. What’s the issue, then?</p>
+<div class="flex mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/hydroponic-start.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/hydroponic-problem.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+</div>
+<p>An overly long URL, yeeted into the comments by none other than the author himself. Bummer.</p>
+<p>In fact, there’s a different comment from another person that includes a URL that would also stretch the page (<a href="#over-wide">fix #2</a>). This means that any commenter can break the mobile page layout 😱</p>
+<p>I checked out the source, and saw each comment has <code>class=&quot;comment-body&quot;</code>. So if we simply add the CSS:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.comment-body</span> <span class="token punctuation">{</span><br>    <span class="token property">overflow-wrap</span><span class="token punctuation">:</span> break-word<br><span class="token punctuation">}</span></code></pre>
+<p>… then everything is groovy.</p>
+<div class="flex mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/hydroponic-start-fixed.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/hydroponic-problem-fixed.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+</div>
+<p><a name="diffusion"></a></p>
+<h2>Diffusion Models</h2>
+<p>This page is called <a href="https://lilianweng.github.io/lil-log/2021/07/11/diffusion-models.html">What are Diffusion Models?</a> This time, it’s pesky math again, stretching a good viewport too wide.</p>
+<div class="flex mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/diffusion-start.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/diffusion-problem.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+</div>
+<p>We can tell MathJax to stay in its lane (<a href="#over-wide">fix #2</a>) by adding the CSS:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.MathJax_Display</span> <span class="token punctuation">{</span><br>    <span class="token property">overflow-x</span><span class="token punctuation">:</span> scroll<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>… and the page is back in its box.</p>
+<div class="flex mv4">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/diffusion-start-fixed.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="/website-3/assets/posts/fixing-mobile-page-layouts/diffusion-problem-fixed.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+</div>
+<script src="/website-3/assets/lib/anime-3.2.1.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // cover
+        anime({
+            targets: '#header-page *',
+            // transform: ["translate(-3,0)", "translate(3,0)"],
+            // translateX: [-3, 3],
+            // translateY: [-1, 2],
+            opacity: [0, 1],
+            easing: 'easeInOutSine',
+            // endDelay: 1000,
+            duration: 750,
+            delay: anime.stagger(150),
+            // loop: true,
+            // direction: "alternate",
+        });
+    });
+</script>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>In hindsight, Safari’s <em>Reader View</em> almost completely solves this (for web pages, not PDFs). So I should just use that more. But it does mess up content on some pages, which you won’t know is happening while you’re reading it, and, you know, *waves hands* fixing stuff is fun etc. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>“Actual” device’s width is already a simplification, because screens have pretend pixels (e.g., “oh hey, I’m 375 x 812”) and actual pixels (e.g., “shh I’m actually 1125 x 2436 lol”). As usual, to read way more than you wanted to about this check out <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag">Mozilla’s docs on the viewport meta tag</a>. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>I was in vague denial that everyone who visited my website would be on a desktop. Then I added some basic analytics. Nope, mostly phones. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>I was writing “author” until I realized, oh yeah, this is a design issue, and, like it or not, self-publishing on the web a designer of us all makes. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>Keep in mind for a real project we’d probably have the measurements change based on the screen size using CSS media queries. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        <!-- Series footer. -->
+        
+
+        <!-- Email box. Disabling for garage right now for minimalism. -->
+        
+          <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+        
+
+        <!-- Garage footer. -->
+        
+      </main>
+    </div>
+    <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+      <div class="mh3 mh4-ns bt b--silver mb1"></div>
+      <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+      <!-- <img src="https://maxwellforbes.com/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+    </footer>
+
+    <!-- The wave -->
+    <script>
+      // settings
+      let periods = 0.5;
+      let baseDelay = 1; // s
+      let charDelay = 0.1; // s
+      let duration = 0.70; // s
+      let startW = 400; // w
+      let mag = 400; // +/- w
+      let refresh = 0.016667; // s
+
+      // computed vals
+      let frames = duration / refresh;
+
+      // state
+      let updaters = [];
+      let frameNs = [];
+
+      function fontWeighter(idx) {
+        frameNs[idx] += 1;
+        let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+        let w = Math.round(startW + mag * Math.sin(x));
+        document
+          .getElementById("header")
+          .children[idx]
+          .style
+          .fontWeight = w;
+        if (frameNs[idx] >= frames) {
+          clearInterval(updaters[idx]);
+        }
+      }
+
+      function wave() {
+        // replace the string w/ elements. i write it as a string to start because i
+        // couldn't get vscode's html formatter (using one for nunjucks) to not split
+        // span elements each onto their own lines, which caused spaces between each
+        // letter.
+        let header = document.getElementById("header");
+        let name = header.innerText;
+        let els = [];
+        for (let i = 0; i < name.length; i++) {
+          let el = document.createElement("span");
+          el.innerText = name[i];
+          els.push(el);
+        }
+        header.innerText = '';
+        header.append(...els);
+
+        for (let i = 0; i < els.length; i++) {
+          frameNs.push(0);
+          setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+          }, (baseDelay + charDelay * i) * 1000);
+        }
+      }
+
+      wave();
+    </script>
+
+  </body>
+
+</html>

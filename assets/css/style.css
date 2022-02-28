@@ -168,9 +168,8 @@ p.subtitle {
   margin-right: auto;
 }
 
-/* The p > selector makes this match images in the body of posts (not, e.g., sketch
-previews on the studio page. objects (svg) aren't inside p > elements. */
-.markdown-body p>img,
+/* Note: Need to check sketch previews on studio page. */
+.markdown-body img,
 .markdown-body object,
 .markdown-body pre {
   margin-top: 2rem;

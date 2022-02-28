@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="279px" height="281px" viewBox="0 0 279 281" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>arrow</title>
+    <defs>
+        <radialGradient cx="100%" cy="0%" fx="100%" fy="0%" r="141.430976%" gradientTransform="translate(1.000000,0.000000),scale(0.999864,1.000000),rotate(135.003897),translate(-1.000000,-0.000000)" id="radialGradient-1">
+            <stop stop-color="#00C6FF" offset="0%"></stop>
+            <stop stop-color="#0072FF" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Path" stroke="#333333" stroke-width="5" fill="url(#radialGradient-1)" points="100.600123 5.2243214 273.241157 140.355885 100.600123 275.345542 100.600123 183.83218 3.08318746 183.83218 3.08318746 97.6179511 100.600123 97.6179511"></polygon>
+    </g>
+</svg>
