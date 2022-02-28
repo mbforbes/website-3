@@ -108,7 +108,8 @@ def process_match(out_line, match, add_parens, output_raw, prefix=None, postfix=
             postname = postname[len("yyyy-mm-dd-") :]
         new_url = f"/{category}/{postname}/"
     else:
-        assert False, f"Unimplemented URL: {url}"
+        print(f"WARNING: Copying URL: '{url}'")
+        new_url = url
 
     # make the new name, w/ any modifications
     start, stop = match.span()
@@ -219,15 +220,18 @@ def process_file(w):
 
 
 def process_dirs(translate_dirs):
-    print("Can copy over the following directories:")
     for t_dir_src, t_dir_dst in translate_dirs.items():
+        # preview
+        print("Can copy over the following directories:")
         print(f"{t_dir_src}\n-> {t_dir_dst}")
         for src_path in glob.glob(t_dir_src + "*"):
             print(f"    - {os.path.basename(src_path)}")
-    if input("Proceed (y/n)? ").lower() != "y":
-        return
 
-    for t_dir_src, t_dir_dst in translate_dirs.items():
+        # decision
+        if input("Proceed (y/n)? ").lower() != "y":
+            continue
+
+        # copying
         print(f"Creating {t_dir_dst}")
         os.makedirs(t_dir_dst, exist_ok=True)
         dst_files = glob.glob(t_dir_src + "*")
@@ -243,7 +247,9 @@ def main():
     # grab first unfinished
     w = [w for w in worklist if not w["finished"] and not w["is_sketch"]][0]
     # grab specific
-    # w = [w for w in worklist if w["new_basename"] == "misinterpreting-results.md"][0]
+    # w = [
+    #     w for w in worklist if w["new_basename"] == "force-click-for-layer-selection.md"
+    # ][0]
     translate_dirs = process_file(w)
     if len(translate_dirs) > 0:
         process_dirs(translate_dirs)
