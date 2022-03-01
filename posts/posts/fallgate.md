@@ -2,7 +2,7 @@
 title: Fallgate
 subtitle: We made a pixel-art action-adventure game
 date: 2019-01-04
-tags: projects
+tags: project
 image: /assets/posts/fallgate/title.jpg
 ---
 

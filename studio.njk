@@ -11,7 +11,7 @@ layout: "layouts/default.njk"
 {%- for tag in writingTags -%}
     <h3>{{ tag | title }}</h3>
     <ul class="list pa0 mt0">
-        {%- for post in collections[tag] -%}
+        {%- for post in collections[tag] | sort(true, false, "date") -%}
             <li class="mv1">
                 <a href={{ post.url | url }} class="db pv1 link">
                     <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
@@ -23,7 +23,7 @@ layout: "layouts/default.njk"
 {%- endfor -%}
 
 <h2>Projects</h2>
-{% for post in collections.projects %}
+{% for post in collections.project %}
     <a href={{ post.url | url }} class="db pv1 link">
         <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
         {{ post.data.title }}
@@ -44,3 +44,17 @@ layout: "layouts/default.njk"
 <p>
 You might also be interested in checking out my <a href="{{ "/research#software" | url }}">research software</a>.
 </p>
+
+<h2>Sketches</h2>
+<a name="sketches"></a>
+
+<div class="cf">
+    {% for post in collections.sketch | sort(true, false, "date") %}
+        <div class="fl mr2 mb2 mr3-ns mb3-ns">
+            <a href="{{ post.url | url }}">
+                <img class="dim novmargin" src="{{ post.data.thumb | url }}" style="width: 72px; height: 72px;"/>
+            </a>
+        </div>
+    {% endfor %}
+
+</div>

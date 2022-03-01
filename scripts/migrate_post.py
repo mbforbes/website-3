@@ -20,12 +20,16 @@ def build_worklist():
     for src_path in src_paths:
         basename = os.path.basename(src_path)
         pieces = basename.split("-")
-        new_basename = "-".join(pieces[3:])
+        new_basename = "-".join(pieces[3:])  # modified below if sketch
         is_sketch = (
             new_basename.startswith("sketch")
             or new_basename.startswith("voxel")
             or new_basename.startswith("t-shirt")
         )
+        redirect_url = None
+        if is_sketch and new_basename.startswith("sketch-"):
+            redirect_url = "/posts/" + new_basename[:-3] + "/"
+            new_basename = new_basename[len("sketch-") :]
         dst_path = (
             dst_sketch_dir + new_basename if is_sketch else dst_post_dir + new_basename
         )
@@ -33,6 +37,7 @@ def build_worklist():
             {
                 "is_sketch": is_sketch,
                 "new_basename": new_basename,
+                "redirect_url": redirect_url,
                 "src": src_path,
                 "dst": dst_path,
                 "finished": os.path.exists(dst_path),
@@ -144,6 +149,7 @@ def process_file(w):
     translate_dirs = {}
     for line in lines:
         out_line = line
+        extra_line = None
         skip = False
         if line.strip() == "---":
             tdash_seen += 1
@@ -154,13 +160,26 @@ def process_file(w):
                     out_line = "tags: research\n"
                 else:
                     skip = True
+            elif line.startswith("layout:"):
+                if w["is_sketch"] and line.strip() == "layout: sketch-fullscreen":
+                    skip = True
+                else:
+                    print("WARNING: INTERESTING LAYOUT:", line.strip())
             elif line.startswith("tag:"):
                 # "tag" -> "tags", and lowercase val
                 pieces = line.split(" ")
                 out_line = "tags: " + " ".join(pieces[1:]).lower()
             elif line.startswith("date:"):
                 out_line = " ".join(line.split(" ")[:2]) + "\n"
+                # append any redirect after date
+                if w["redirect_url"] is not None:
+                    extra_line = f"redirect_from: {w['redirect_url']}\n"
+            elif line.startswith("thumb: /data/sketches/"):
+                out_line = (
+                    "thumb: /assets/sketches/" + line[len("thumb: /data/sketches/") :]
+                )
             elif line.startswith("image: /data/"):
+                # broken for sketches, manually fixing for now...
                 match = re.search(r"(/data/.*)", out_line)
                 # YAML broken w/ nunjucks, and quoting means nunjucks doesn't run. we
                 # have to do extra processing in head for domain anyway, which means we
@@ -210,6 +229,8 @@ def process_file(w):
 
         if not skip:
             out_lines.append(out_line)
+        if extra_line is not None:
+            out_lines.append(extra_line)
 
     with open(w["dst"], "w") as f:
         f.writelines(out_lines)
@@ -245,11 +266,10 @@ def process_dirs(translate_dirs):
 def main():
     worklist = build_worklist()
     # grab first unfinished
-    w = [w for w in worklist if not w["finished"] and not w["is_sketch"]][0]
+    w = [w for w in worklist if not w["finished"]][0]
     # grab specific
-    # w = [
-    #     w for w in worklist if w["new_basename"] == "force-click-for-layer-selection.md"
-    # ][0]
+    # w = [w for w in worklist if w["new_basename"] == "thinking.md"][0]
+    # print(w)
     translate_dirs = process_file(w)
     if len(translate_dirs) > 0:
         process_dirs(translate_dirs)

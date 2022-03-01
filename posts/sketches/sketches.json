@@ -1,4 +1,6 @@
 {
     "tags": "sketch",
-    "permalink": "/sketches/{{ page.fileSlug }}/"
+    "permalink": "/sketches/{{ page.fileSlug }}/",
+    "layout": "layouts/sketch-fullscreen.njk",
+    "customexcerpt": "Hello, this is a sketch of mine, please enjoy"
 }
