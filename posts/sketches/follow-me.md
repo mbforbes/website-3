@@ -6,9 +6,9 @@ image: /assets/sketches/follow-me.png
 thumb: /assets/sketches/follow-me-thumb.jpg
 ---
 
-<script src="/assets/lib/p5-0.10.2.js"></script>
-<script src="/assets/lib/matter-0.14.2.min.js"></script>
-<script src="/assets/sketches/follow-me.js"></script>
+<script src="{{ "/assets/lib/p5-0.10.2.js" | url }}"></script>
+<script src="{{ "/assets/lib/matter-0.14.2.min.js" | url }}"></script>
+<script src="{{ "/assets/sketches/follow-me.js" | url }}"></script>
 
 <style>
 
