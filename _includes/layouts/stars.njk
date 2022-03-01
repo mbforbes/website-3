@@ -1,0 +1,24 @@
+{# NOTE: This is exactly sketch-fullscreen but with nothing but content after the back
+banner; the fullscreen stuff is built into the stars page itself. Could redo this if
+desired. As is, need to port any back banner layout changes here too. #}
+
+{% extends "layouts/skeleton.njk" %}
+
+{% block body %}
+
+    <!-- Back banner -->
+    {% set backName = "garage" if ("garage" in tags) 
+        else 
+            "sketches" %}
+    {% set backURL = "/studio#" + backName %}
+    <div class="bg-white fixed z-2 o-70">
+        <p class="f6 ph3">
+            <a href="{{ backURL | url }}" class="dim">
+                &#8592; {{ backName }}
+            </a>
+        </p>
+    </div>
+
+    {{ content | safe }}
+
+{% endblock %}
