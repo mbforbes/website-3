@@ -169,7 +169,7 @@ p.subtitle {
 }
 
 /* Note: Need to check sketch previews on studio page. */
-.markdown-body img,
+.markdown-body img:not(.novmargin),
 .markdown-body object,
 .markdown-body pre {
   margin-top: 2rem;
