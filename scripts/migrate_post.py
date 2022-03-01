@@ -40,7 +40,8 @@ def build_worklist():
                 "redirect_url": redirect_url,
                 "src": src_path,
                 "dst": dst_path,
-                "finished": os.path.exists(dst_path),
+                "finished": os.path.exists(dst_path)
+                or os.path.exists(dst_path[:-3] + ".njk"),
             }
         )
     n_finished = sum([w["finished"] for w in worklist])
