@@ -27,6 +27,99 @@ module.exports = function (eleventyConfig) {
 
     // My custom filters
 
+    const latestDateComp = (a, b) => { return a.date > b.date ? -1 : 1 }
+    const seriesOrderComp = (a, b) => { return a.data.seriesOrder - b.data.seriesOrder }
+
+    /**
+     * Groups posts by series and date, ordered newest to oldest.
+     * - each series is ordered by its latest post date
+     * - non-series posts are interleaved according to their post dates, grouped into
+     *   empty ("") series for convenience
+     *
+     * Input: [post, post, post, post, post, post, post, post]
+     * Output: [
+     *  {"": [post, post]}
+     *  {"series1": [post, post]}
+     *  {"": [post]}
+     *  {"series2": [post, post]}
+     *  {"": [post]}
+     * ]
+     */
+    eleventyConfig.addNunjucksFilter("dateSeriesGroupBy", (arr) => {
+        // build collection of posts and save series representative dates for sorting
+        let items = [];
+        let seriesInfo = {};
+        for (let post of arr) {
+            let series = post.data.series;
+            if (!series || series == "") {
+                items.push({
+                    kind: "post",
+                    date: post.date,
+                    post: post,
+                })
+            } else {
+                if (!seriesInfo[series]) {
+                    seriesInfo[series] = {
+                        date: post.date,
+                        posts: [post],
+                    }
+                } else {
+                    // series' date should be the latest post date
+                    if (seriesInfo[series].date < post.date) {
+                        seriesInfo[series].date = post.date;
+                    }
+                    seriesInfo[series].posts.push(post);
+                }
+            }
+        }
+
+        // console.log("Non series items:", items);
+        // console.log("SeriesInfo:", seriesInfo);
+
+        // add series to items for overall sorting
+        for (let series in seriesInfo) {
+            let info = seriesInfo[series];
+            // console.log(series, info.posts.length);
+            items.push({
+                kind: "series",
+                date: info.date,
+                name: series,
+                posts: info.posts,
+            })
+        }
+
+        // latest first
+        items.sort(latestDateComp)
+
+        // two final operations:
+        // 1. consecutive non-series posts should be aggregated into "" series groups
+        // (for frontend convenience)
+        // 2. series posts should be ordered by seriesOrder
+        let res = [];
+        let curNoSeries = { series: "", posts: [] };
+        for (let item of items) {
+            if (item.kind == "post") {
+                curNoSeries.posts.push(item.post);
+            } else {
+                // item.kind == "series"
+                // add any empty series if they exist
+                if (curNoSeries.posts.length > 0) {
+                    res.push(curNoSeries);
+                }
+                res.push({ series: item.name, posts: item.posts.sort(seriesOrderComp) })
+                curNoSeries = { series: "", posts: [] };
+            }
+        }
+        // push any final curSeries
+        if (curNoSeries.posts.length > 0) {
+            res.push(curNoSeries);
+        }
+
+        // console.log("Results:", res);
+        return res;
+    });
+
+
     /**
      * To do foo.bar or foo["bar"], in a filter: foo | attr("bar")
      * Also works on an array; calls on each.

@@ -4,30 +4,44 @@ hidedate: true
 layout: "layouts/default.njk"
 ---
 
+<a name="writing"></a>
 <h2>Writing</h2>
 
-{# TODO: Research here temporarily #}
-{%- set writingTags = ["creating & thinking", "design", "health", "programming", "research"] -%}
-{%- for tag in writingTags -%}
+{% set writingTags = ["creating & thinking", "design", "health", "programming"] %}
+{# {% set writingTags = ["programming"] %} #}
+{% for tag in writingTags %}
     <h3>{{ tag | title }}</h3>
     <ul class="list pa0 mt0">
-        {%- for post in collections[tag] | sort(true, false, "date") -%}
-            <li class="mv1">
-                <a href="{{ post.url | url }}" class="db pv1 link">
-                    <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
-                    {{ post.data.title }}
-                </a>
-            </li>
-        {%- endfor -%}
-    </ul>
-{%- endfor -%}
+        {# Type is {name: post[]}[], where name is "" for no series. #}
+        {% for seriesObj in collections[tag] | dateSeriesGroupBy %}
+            {% if seriesObj.series != "" %}
+                <li class="b mb1 mt4">{{ seriesObj.series }}</li>
+                <ol class="mb4">
+            {% endif %}
+
+            {% for post in seriesObj.posts %}
+                <li class="mv1">
+                    <a href="{{ post.url | url }}" class="db pv1 link">
+                        <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
+                        {{ post.data.title }}
+                    </a>
+                </li>
+            {% endfor %}
+
+            {% if seriesObj.series != "" %}
+                </ol>
+            {% endif %}
+
+        {% endfor %}
+</ul>
+{% endfor %}
 
 <h2>Projects</h2>
 {% for post in collections.project %}
-    <a href="{{ post.url | url }}" class="db pv1 link">
-        <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
-        {{ post.data.title }}
-    </a>
+<a href="{{ post.url | url }}" class="db pv1 link">
+    <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
+    {{ post.data.title }}
+</a>
 {% endfor %}
 
 <h2>Software</h2>
@@ -35,10 +49,10 @@ layout: "layouts/default.njk"
 {% include "programming-language-tooltips.njk" %}
 
 {% set software = collections.software | selectAttrContains([
-    "data", "tags"
+"data", "tags"
 ], "studio") | rejectAttrNested(["data", "omit"]) %}
 {% for item in software %}
-    {%- include "software-long.njk" -%}
+{%- include "software-long.njk" -%}
 {% endfor %}
 
 <p>
@@ -49,18 +63,27 @@ You might also be interested in checking out my <a href="{{ "/research#software"
 <a name="sketches"></a>
 
 <div class="cf">
-    {% for post in collections.sketch | sort(true, false, "date") %}
-        <div class="fl mr2 mb2 mr3-ns mb3-ns">
-            <a href="{{ post.url | url }}">
-                <img class="dim novmargin" src="{{ post.data.thumb | url }}" style="width: 72px; height: 72px;"/>
-            </a>
-        </div>
-    {% endfor %}
-
+{% for post in collections.sketch | sort(true, false, "date") %}
+    <div class="fl mr2 mb2 mr3-ns mb3-ns">
+        <a href="{{ post.url | url }}">
+            <img class="dim novmargin" src="{{ post.data.thumb | url }}" style="width: 72px; height: 72px;"/>
+        </a>
+    </div>
+{% endfor %}
 </div>
 
-<h2>Garage</h2>
+<a name="blog"></a>
+<h2>Blog</h2>
+{% for post in collections.blog | sort(true, false, "date") %}
+<a href="{{ post.url | url }}" class="db pv1 link">
+    <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
+    {{ post.data.title }}
+</a>
+{% endfor %}
+
+
 <a name="garage"></a>
+<h2>Garage</h2>
 
 <p>
 The garage is a new experiment in "working with the garage door up."
@@ -74,13 +97,13 @@ The following is an index of all the current entires in the garage.
 </p>
 
 <ul class="list pa0">
-    {% for post in collections.garage | sort(false, false, "data.title") %}
-        <li class="mv2">
-            <a href="{{ post.url | url }}" class="db pv1 link">
-                {# TODO: make latest of {date, updated} #}
-                <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
-                {{ post.data.title }}
-            </a>
-        </li>
-    {% endfor %}
+{% for post in collections.garage | sort(false, false, "data.title") %}
+    <li class="mv2">
+        <a href="{{ post.url | url }}" class="db pv1 link">
+            {# TODO: make latest of {date, updated} #}
+            <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
+            {{ post.data.title }}
+        </a>
+    </li>
+{% endfor %}
 </ul>
