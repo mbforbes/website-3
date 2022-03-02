@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="771px" height="353px" viewBox="0 0 771 353" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>discovery-intentional-process</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F12711" offset="0%"></stop>
+            <stop stop-color="#F5AF19" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#AD5389" offset="0%"></stop>
+            <stop stop-color="#3C1053" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="discovery-intentional-process" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M765,25.4220776 L765,280 L56.738465,280 L765,25.4220776 Z" id="Triangle" stroke="#1D1D1D" stroke-width="2" fill="url(#linearGradient-1)"></path>
+        <path d="M760.261535,25 L52,279.577922 L52,25 L760.261535,25 Z" id="Triangle" stroke="#1D1D1D" stroke-width="2" fill="url(#linearGradient-2)"></path>
+        <text id="process" transform="translate(22.500000, 162.000000) rotate(-90.000000) translate(-22.500000, -162.000000) " font-family="AvenirNext-Medium, Avenir Next" font-size="42" font-weight="400" fill="#1D1D1D">
+            <tspan x="-52.281" y="175.5">process</tspan>
+        </text>
+        <text id="skill" transform="translate(374.500000, 324.000000) rotate(-360.000000) translate(-374.500000, -324.000000) " font-family="AvenirNext-Medium, Avenir Next" font-size="42" font-weight="400" fill="#1D1D1D">
+            <tspan x="337.75" y="337.5">skill</tspan>
+        </text>
+        <text id="DISCOVERY" transform="translate(144.500000, 223.000000) rotate(-20.000000) translate(-144.500000, -223.000000) " font-family="AvenirNext-Medium, Avenir Next" font-size="30" font-weight="400" fill="#FFFFFF">
+            <tspan x="59.915" y="232.5">DISCOVERY</tspan>
+        </text>
+        <text id="INTENTIONALITY" transform="translate(640.500000, 97.500000) rotate(-20.000000) translate(-640.500000, -97.500000) " font-family="AvenirNext-Medium, Avenir Next" font-size="30" font-weight="400" fill="#FFFFFF">
+            <tspan x="518.52" y="107">INTENTIONALITY</tspan>
+        </text>
+        <path id="Line" d="M743.5,290.5 L757.5,297.5 L743.5,304.5 L743.5,298.5 L50.5,298.5 L50.5,296.5 L743.5,296.5 L743.5,290.5 Z" fill="#1D1D1D" fill-rule="nonzero"></path>
+    </g>
+</svg>

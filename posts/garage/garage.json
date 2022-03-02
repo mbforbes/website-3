@@ -1,0 +1,4 @@
+{
+    "tags": "garage",
+    "permalink": "/garage/{{ page.fileSlug }}/"
+}

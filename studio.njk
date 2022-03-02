@@ -13,7 +13,7 @@ layout: "layouts/default.njk"
     <ul class="list pa0 mt0">
         {%- for post in collections[tag] | sort(true, false, "date") -%}
             <li class="mv1">
-                <a href={{ post.url | url }} class="db pv1 link">
+                <a href="{{ post.url | url }}" class="db pv1 link">
                     <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
                     {{ post.data.title }}
                 </a>
@@ -24,7 +24,7 @@ layout: "layouts/default.njk"
 
 <h2>Projects</h2>
 {% for post in collections.project %}
-    <a href={{ post.url | url }} class="db pv1 link">
+    <a href="{{ post.url | url }}" class="db pv1 link">
         <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
         {{ post.data.title }}
     </a>
@@ -58,3 +58,29 @@ You might also be interested in checking out my <a href="{{ "/research#software"
     {% endfor %}
 
 </div>
+
+<h2>Garage</h2>
+<a name="garage"></a>
+
+<p>
+The garage is a new experiment in "working with the garage door up."
+I develop inter-linked micro notes that evolve over time.
+They're written for me but posted publicly here.
+Read more in
+<a href="{{ "/garage/what-is-the-garage/" | url }}">
+What is the garage?
+</a>
+The following is an index of all the current entires in the garage.
+</p>
+
+<ul class="list pa0">
+    {% for post in collections.garage | sort(false, false, "data.title") %}
+        <li class="mv2">
+            <a href="{{ post.url | url }}" class="db pv1 link">
+                {# TODO: make latest of {date, updated} #}
+                <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
+                {{ post.data.title }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

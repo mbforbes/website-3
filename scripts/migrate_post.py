@@ -8,31 +8,41 @@ import shutil
 
 src_root_dir = os.path.expanduser("~/repos/website/")
 src_post_dir = os.path.expanduser("~/repos/website/_posts/")
+src_garage_dir = os.path.expanduser("~/repos/website/_garage/")
 
 dst_root_dir = os.path.expanduser("~/repos/website-3/")
 dst_post_dir = os.path.expanduser("~/repos/website-3/posts/posts/")
 dst_sketch_dir = os.path.expanduser("~/repos/website-3/posts/sketches/")
+dst_garage_dir = os.path.expanduser("~/repos/website-3/posts/garage/")
 
 
-def build_worklist():
-    src_paths = glob.glob(src_post_dir + "*.md")
+def build_worklist(src_dir):
+    src_paths = glob.glob(src_dir + "*.md")
     worklist = []
     for src_path in src_paths:
         basename = os.path.basename(src_path)
-        pieces = basename.split("-")
-        new_basename = "-".join(pieces[3:])  # modified below if sketch
-        is_sketch = (
-            new_basename.startswith("sketch")
-            or new_basename.startswith("voxel")
-            or new_basename.startswith("t-shirt")
-        )
-        redirect_url = None
-        if is_sketch and new_basename.startswith("sketch-"):
-            redirect_url = "/posts/" + new_basename[:-3] + "/"
-            new_basename = new_basename[len("sketch-") :]
-        dst_path = (
-            dst_sketch_dir + new_basename if is_sketch else dst_post_dir + new_basename
-        )
+        if src_dir.endswith("_garage/"):
+            new_basename = basename
+            is_sketch = False
+            redirect_url = None
+            dst_path = dst_garage_dir + new_basename
+        else:
+            pieces = basename.split("-")
+            new_basename = "-".join(pieces[3:])  # modified below if sketch
+            is_sketch = (
+                new_basename.startswith("sketch")
+                or new_basename.startswith("voxel")
+                or new_basename.startswith("t-shirt")
+            )
+            redirect_url = None
+            if is_sketch and new_basename.startswith("sketch-"):
+                redirect_url = "/posts/" + new_basename[:-3] + "/"
+                new_basename = new_basename[len("sketch-") :]
+            dst_path = (
+                dst_sketch_dir + new_basename
+                if is_sketch
+                else dst_post_dir + new_basename
+            )
         worklist.append(
             {
                 "is_sketch": is_sketch,
@@ -265,15 +275,15 @@ def process_dirs(translate_dirs):
 
 
 def main():
-    worklist = build_worklist()
+    worklist = build_worklist(src_garage_dir)
     # grab first unfinished
     w = [w for w in worklist if not w["finished"]][0]
     # grab specific
     # w = [w for w in worklist if w["new_basename"] == "thinking.md"][0]
     # print(w)
     translate_dirs = process_file(w)
-    if len(translate_dirs) > 0:
-        process_dirs(translate_dirs)
+    # if len(translate_dirs) > 0:
+    #     process_dirs(translate_dirs)
 
 
 if __name__ == "__main__":
