@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Summer 2021 website goals - Maxwell Forbes</title>
+        <!-- NOTE: Twitter uses name='', og uses property='' -->
+        <meta content="Summer 2021 website goals - Maxwell Forbes" property="title"/>
+        <meta content="Summer 2021 website goals - Maxwell Forbes" property="og:title"/>
+        <meta name="twitter:title" content="Summer 2021 website goals - Maxwell Forbes"/>
+
+        <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+
+    <meta content='https://maxwellforbes.com/garage/summer-2021-website-goals/' property='og:url'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+    </head>
+
+    <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+        
+
+  <div class="mw7 mt3 mt4-ns mb3 center">
+
+    <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+      <div class="w-50 tl">
+        <!-- Note: originally used https://maxwellforbes.com changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+        <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+      </div>
+      <div class="w-50 tr">
+        
+          <!-- If you're on that page, don't show as a link. -->
+          
+            <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+              Studio
+            </a>
+          
+        
+          <!-- If you're on that page, don't show as a link. -->
+          
+            <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+              Research
+            </a>
+          
+        
+      </div>
+    </nav>
+
+    <div class="mh3 mh4-ns bt b--black-80"></div>
+
+    <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+      
+        <div class="mb4">
+          <!-- Date -->
+          
+            <div class="fw600 light-silver mt1 ttu">
+              
+                15 Jul 2021
+              
+            </div>
+          
+
+          <!-- Title -->
+          <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+            <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+            
+              Summer 2021 website goals
+            
+          </h1>
+          
+
+        </div>
+      
+
+      <!-- Series header. -->
+      
+
+      <div class="markdown-body">
+        <style>
+/* general */
+progress {
+    border: none;
+}
+progress::-webkit-progress-bar {
+    background-color: #efefef;
+    border-radius: .5rem;
+}
+progress::-webkit-progress-value {
+    /* border-top-left-radius: .5rem; */
+    /* border-bottom-left-radius: .5rem; */
+    border-radius: .5rem;
+}
+progress::-moz-progress-bar {
+    /* border-top-left-radius: .5rem; */
+    /* border-bottom-left-radius: .5rem; */
+    border-radius: .5rem;
+}
+
+
+/* time */
+progress#time::-webkit-progress-value {
+    background-color: #FF4136;
+}
+progress#time::-moz-progress-bar {
+    background-color: #FF4136;
+}
+
+/* milestone */
+progress#milestone::-webkit-progress-value {
+    background-color: #19A974;
+}
+progress#milestone::-moz-progress-bar {
+    background-color: #19A974;
+}
+
+/* "new (posts) */
+progress#new::-webkit-progress-value {
+    background-color: #FFD700;
+}
+progress#new::-moz-progress-bar {
+    background-color: #FFD700;
+}
+
+/* series */
+progress#series::-webkit-progress-value {
+    background-color: #D5008F;
+}
+progress#series::-moz-progress-bar {
+    background-color: #D5008F;
+}
+
+/* revisions */
+progress#revision::-webkit-progress-value {
+    background-color: #FF6300;
+}
+progress#revision::-moz-progress-bar {
+    background-color: #FF6300;
+}
+
+/* "cleanup" (+ features) */
+progress#cleanup::-webkit-progress-value {
+    background-color: #357EDD;
+}
+progress#cleanup::-moz-progress-bar {
+    background-color: #357EDD;
+}
+
+</style>
+<p class="mb0 ttu b black-70">Time elapsed</p>
+<progress id="time" value="0" max="1" class="w-100 h2 br3">
+</progress>
+<div class="cf">
+<p class="fl black-40 ttu mt0 f6 f5-ns b">jul 14</p>
+<p class="fr black-40 ttu mt0 f6 f5-ns b"><span id="time-cur" class="red"></span>/oct 1</p>
+</div>
+<p class="mt1 mb0 ttu b black-70">Overall progress</p>
+<progress id="milestone" value="0" max="1" class="w-100 h2 br3">
+</progress>
+<p class="fr black-40 ttu mt0 f6 f5-ns b"><span id="milestone-cur" class="green"></span>/<span id="milestone-total">???</span></p>
+<br/>
+<h3>Components</h3>
+<p class="mb0 b black-70">Posts</p>
+<progress id="new" value="0" max="1" class="w-100 h1 br3">
+</progress>
+<p class="fr black-40 ttu mt0 f6 f5-ns b"><span id="new-cur" class="yellow"></span>/<span id="new-total">???</span></p>
+<p class="mb0 b black-70">Series</p>
+<progress id="series" value="0" max="1" class="w-100 h1 br3">
+</progress>
+<p class="fr black-40 ttu mt0 f6 f5-ns b"><span id="series-cur" class="dark-pink"></span>/<span id="series-total">???</span></p>
+<p class="mb0 b black-70">Revisions</p>
+<progress id="revision" value="0" max="1" class="w-100 h1 br3">
+</progress>
+<p class="fr black-40 ttu mt0 f6 f5-ns b"><span id="revision-cur" class="orange"></span>/<span id="revision-total">???</span></p>
+<p class="mb0 b black-70">Cleanup / features</p>
+<progress id="cleanup" value="0" max="1" class="w-100 h1 br3">
+</progress>
+<p class="fr black-40 ttu mt0 f6 f5-ns b"><span id="cleanup-cur" class="blue"></span>/<span id="cleanup-total">???</span></p>
+<p>For the curious, here are the <a href="https://github.com/mbforbes/website-dev/issues?q=is%3Aissue+milestone%3A%22Summer+2021%22+">underlying items</a>. I later <a href="https://github.com/mbforbes/website-dev/projects/1">allocated the bigger ones</a> to weeks in the summer, which has been quite helpful.</p>
+<script type="module">
+    import { request } from "https://cdn.skypack.dev/@octokit/request";
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        function calcTime() {
+            const start = new Date('July 14, 2021');
+            const now = new Date();
+            const deadline = new Date('October 1, 2021');
+            let portion = 0;
+            if (now > deadline) {
+                portion = 1;
+            } else {
+                const total = deadline - start;
+                const elapsed = now - start;
+                portion = elapsed / total;
+            }
+            document.getElementById("time").value = portion;
+            const dayStr = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' }).format(now);
+            document.getElementById("time-cur").innerText = dayStr;
+        }
+
+        async function loadGithub() {
+            const mResult = await request("GET /repos/mbforbes/website-dev/milestones/1");
+            // console.log(mResult);
+            const m = mResult.data;
+            document.getElementById("milestone").value = m.closed_issues;
+            document.getElementById("milestone").max = m.open_issues + m.closed_issues;
+            document.getElementById("milestone-cur").innerText = m.closed_issues;
+            document.getElementById("milestone-total").innerText = m.open_issues + m.closed_issues;
+
+            const iResult = await request("GET /repos/mbforbes/website-dev/issues", {
+                "state": "all",
+                "per_page": 100,
+            });
+            // console.log(iResult);
+            const allowed = ['new', 'series', 'revision', 'cleanup'];
+            const closed = {}, total = {};
+            for (let a of allowed) {
+                closed[a] = 0;
+                total[a] = 0;
+            }
+            for (let issue of iResult.data) {
+                // make sure issue is of this milestone
+                if (!issue.milestone || issue.milestone.number != m.number) {
+                    continue;
+                }
+                // right now issues only have one relevant label, but I could imagine
+                // something counting for multiple, and it's an array anyway, so loop.
+                for (let label of issue.labels) {
+                    // make the label is one we're tracking here.
+                    if (allowed.indexOf(label.name) == -1) {
+                        console.warn("Milestone issue w/ unrecognized label: '" + label.name + "'");
+                    }
+                    if (issue.state == "closed") {
+                        closed[label.name] += 1;
+                    }
+                    total[label.name] += 1;
+                }
+            }
+
+            // update html
+            for (let a of allowed) {
+                document.getElementById(a).value = closed[a];
+                document.getElementById(a).max = total[a];
+                document.getElementById(a + "-cur").innerText = closed[a];
+                document.getElementById(a + "-total").innerText = total[a];
+            }
+        }
+
+        calcTime();
+        loadGithub();
+    });
+</script>
+
+      </div>
+
+      <!-- Series footer. -->
+      
+
+      <!-- Email box. Disabling for garage right now for minimalism. -->
+      
+        <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+      
+
+      <!-- Garage footer. -->
+      
+    </main>
+  </div>
+  <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+    <div class="mh3 mh4-ns bt b--silver mb1"></div>
+    <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+    <!-- <img src="https://maxwellforbes.com/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+  </footer>
+
+  <!-- The wave -->
+  <script>
+    // settings
+    let periods = 0.5;
+    let baseDelay = 1; // s
+    let charDelay = 0.1; // s
+    let duration = 0.70; // s
+    let startW = 400; // w
+    let mag = 400; // +/- w
+    let refresh = 0.016667; // s
+
+    // computed vals
+    let frames = duration / refresh;
+
+    // state
+    let updaters = [];
+    let frameNs = [];
+
+    function fontWeighter(idx) {
+      frameNs[idx] += 1;
+      let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+      let w = Math.round(startW + mag * Math.sin(x));
+      document
+        .getElementById("header")
+        .children[idx]
+        .style
+        .fontWeight = w;
+      if (frameNs[idx] >= frames) {
+        clearInterval(updaters[idx]);
+      }
+    }
+
+    function wave() {
+      // replace the string w/ elements. i write it as a string to start because i
+      // couldn't get vscode's html formatter (using one for nunjucks) to not split
+      // span elements each onto their own lines, which caused spaces between each
+      // letter.
+      let header = document.getElementById("header");
+      let name = header.innerText;
+      let els = [];
+      for (let i = 0; i < name.length; i++) {
+        let el = document.createElement("span");
+        el.innerText = name[i];
+        els.push(el);
+      }
+      header.innerText = '';
+      header.append(...els);
+
+      for (let i = 0; i < els.length; i++) {
+        frameNs.push(0);
+        setTimeout(() => {
+          updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+        }, (baseDelay + charDelay * i) * 1000);
+      }
+    }
+
+    wave();
+  </script>
+
+
+    </body>
+
+</html>

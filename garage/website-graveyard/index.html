@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Website graveyard - Maxwell Forbes</title>
+        <!-- NOTE: Twitter uses name='', og uses property='' -->
+        <meta content="Website graveyard - Maxwell Forbes" property="title"/>
+        <meta content="Website graveyard - Maxwell Forbes" property="og:title"/>
+        <meta name="twitter:title" content="Website graveyard - Maxwell Forbes"/>
+
+        <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+
+    <meta content='https://maxwellforbes.com/garage/website-graveyard/' property='og:url'/>
+    
+        <meta content='/website-3/assets/garage/website-graveyard/mortrag.jpg' property='og:image'/>
+        <meta name='twitter:image' content='/website-3/assets/garage/website-graveyard/mortrag.jpg'/>
+        <meta name='twitter:card' content='summary_large_image'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+    </head>
+
+    <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+        
+
+  <div class="mw7 mt3 mt4-ns mb3 center">
+
+    <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+      <div class="w-50 tl">
+        <!-- Note: originally used https://maxwellforbes.com changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+        <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+      </div>
+      <div class="w-50 tr">
+        
+          <!-- If you're on that page, don't show as a link. -->
+          
+            <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+              Studio
+            </a>
+          
+        
+          <!-- If you're on that page, don't show as a link. -->
+          
+            <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+              Research
+            </a>
+          
+        
+      </div>
+    </nav>
+
+    <div class="mh3 mh4-ns bt b--black-80"></div>
+
+    <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+      
+        <div class="mb4">
+          <!-- Date -->
+          
+            <div class="fw600 light-silver mt1 ttu">
+              
+                23 Aug 2021
+              
+            </div>
+          
+
+          <!-- Title -->
+          <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+            <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+            
+              Website graveyard
+            
+          </h1>
+          
+
+        </div>
+      
+
+      <!-- Series header. -->
+      
+
+      <div class="markdown-body">
+        <p>I think it’s important to create <a href="/website-3/garage/benefits-of-creating-prototypes-that-fail/">experiments and prototypes</a>, and also to let them go.</p>
+<p>To celebrate these, I’ve created a tiny catalog here of abandoned websites I’ve made.</p>
+<h2>Mortrag</h2>
+<p>Like many people, I really cut my teeth programming by building websites.</p>
+<p>It was a blast. I remember working on these websites for so many hours during a day I would forget to eat. Or scheming up website features I could make and being so excited I couldn’t sleep.</p>
+<p>The first series of websites I made were for <em>Mortrag,</em> a self-described nerd club. They were raw HTML/CSS static sites, hosted on Freewebs (yes), then Geocities (yes!), then Google Pages. They are so old that the Internet Archive doesn’t even have good scrapes of them.</p>
+<p>I eventually bought a domain name and web hosting, which suddenly let us run server-side code. Having a bad taste in my mouth from trying to learn Java in middle school, and being terrified of this camel thing called Perl, I stumbled upon a language called PHP. I wrote code for months (years?) in Windows Notepad, not even knowing the concept of syntax highlighting. I am thankful it—the crumbling mountain of PHP—has been lost to the annals of time.</p>
+<p><img src="/website-3/assets/garage/website-graveyard/mortrag.jpg" alt=""></p>
+<p>I had a brief stint with rekindling the Mortrag website, and spent a month or two learning Ruby on Rails with the aim of writing a new one from scratch.</p>
+<p><img src="/website-3/assets/garage/website-graveyard/mortrag-ror.jpg" alt=""></p>
+<style>
+    .black-and-white:not(:hover) {
+        filter: grayscale(100%);
+    }
+</style>
+<link href='/website-3/assets/css/tippy-6.3.1.light.css' rel="stylesheet" type="text/css"/>
+<script defer src='/website-3/assets/lib/popper-2.9.3.min.js'></script>
+<script defer src='/website-3/assets/lib/tippy-6.3.1.umd.min.js'></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const langs = [
+            'Python',
+            'TypeScript',
+            'Bash',
+            'Java',
+            'HTML',
+            'JavaScript',
+            'Ruby',
+            'PHP'
+        ];
+        for (let lang of langs) {
+            let lower = lang.toLowerCase();
+            tippy(`.${lower}`, {
+                content: `Written in ${lang}`,
+                theme: 'light'
+            });
+        }
+    });
+</script>
+<div class="pl3 bl bw1 mb4">
+    <a href="https://github.com/mbforbes/alpha1" class="f5 f4-ns b code">alpha1</a><span class="dib fr">
+            <img
+                class="h1 black-and-white ruby"
+                src="/website-3/assets/img/langs/ruby.svg"/>
+        </span><p class="mv1 f5 f4-ns">The beginnings of a Ruby on Rails website.</p></div>
+<p>Ruby on Rails blew my mind. It was so powerful. It made me realize just how much boilerplate I was writing in PHP.</p>
+<p>But, alas, the time for making Mortrag websites had passed. I moved on.</p>
+<h2>My first personal website</h2>
+<p><img src="/website-3/assets/garage/website-graveyard/prjpages.jpg" alt=""></p>
+<div class="pl3 bl bw1 mb4">
+    <a href="https://github.com/mbforbes/prjpages" class="f5 f4-ns b code">prjpages</a><span class="dib fr">
+            <img
+                class="h1 black-and-white javascript"
+                src="/website-3/assets/img/langs/javascript.svg"/>
+        </span><p class="mv1 f5 f4-ns">My first personal website.</p></div>
+<p>Coming off of the high of seeing how brilliant Ruby on Rails was compared to PHP, I wanted to try the new hotness: Node.js. But not just that: building on a library called Express, running the site on Heroku, writing posts in markdown, storing structured data with CSON (like JSON with Coffeescript), rendering with Jade (HTML templates), styling with Bootstrap and SASS—everything, everything!</p>
+<p>It’s funny how much you realize in hindsight.</p>
+<p>I hadn’t been familiar the concept of generating a static website, so I just assumed I needed to have a sever. Do my own route handling, that kind of thing.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> This added headaches and complexity.</p>
+<p>Also, if there a few names from that technology list you don’t recognize, there’s the next lesson: relying on too much shiny new tech. This made debugging a pain.</p>
+<p>I wrote more about the nuts and bolts of this website failing in <a href="/website-3/posts/creative-friction/">creative friction</a>. With the rose tinted glasses of several years of hindsight, I can comfortably recline and proclaim: but hey, what a great learning experience!</p>
+<h2>schmidlak</h2>
+<p><img src="/website-3/assets/garage/website-graveyard/schmidlak.jpg" alt=""></p>
+<div class="pl3 bl bw1 mb4">
+    <a href="https://github.com/mbforbes/schmidlak" class="f5 f4-ns b code">schmidlak</a><span class="dib fr">
+            <img
+                class="h1 black-and-white html"
+                src="/website-3/assets/img/langs/html.svg"/>
+        </span><p class="mv1 f5 f4-ns">A minimal single-page portfolio website.</p></div>
+<p>I made this for my friend Cooper.</p>
+<h2>mlbc</h2>
+<p><img src="/website-3/assets/garage/website-graveyard/mlbc.jpg" alt=""></p>
+<div class="pl3 bl bw1 mb4">
+    <a href="https://github.com/mbforbes/mlbc" class="f5 f4-ns b code">mlbc</a><span class="dib fr">
+            <img
+                class="h1 black-and-white html"
+                src="/website-3/assets/img/langs/html.svg"/>
+        </span><p class="mv1 f5 f4-ns">A single-page website for organizing a study group and posting typeset math.</p></div>
+<p>Machine learning bootcamp (<code>mlbc</code>). A statistics study group I helped organize in the first year of my PhD. This website mostly had our schedule and my manifesto, but also some nice typeset math on a couple topics.</p>
+<h2>snurfle</h2>
+<p><img src="/website-3/assets/garage/website-graveyard/snurfle.jpg" alt=""></p>
+<div class="pl3 bl bw1 mb4">
+    <a href="https://github.com/mbforbes/snurfle" class="f5 f4-ns b code">snurfle</a><span class="dib fr">
+            <img
+                class="h1 black-and-white html"
+                src="/website-3/assets/img/langs/html.svg"/>
+        </span><p class="mv1 f5 f4-ns">A single-page joke portfolio website.</p></div>
+<p>A joke website I made.</p>
+<p>It took a few times, but at this point I learned not everyone loves having websites made for them as birthday presents. Who would have thought?</p>
+<hr>
+<p>Related: <a href="/website-3/garage/video-game-graveyard/">video game graveyard</a>, <a href="/website-3/garage/personal-infrastructure-graveyard/">personal infrastructure graveyard</a>.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Add this to the long list of practical stuff you don’t get from a CS degree. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+      </div>
+
+      <!-- Series footer. -->
+      
+
+      <!-- Email box. Disabling for garage right now for minimalism. -->
+      
+        <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+      
+
+      <!-- Garage footer. -->
+      
+    </main>
+  </div>
+  <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+    <div class="mh3 mh4-ns bt b--silver mb1"></div>
+    <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+    <!-- <img src="https://maxwellforbes.com/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+  </footer>
+
+  <!-- The wave -->
+  <script>
+    // settings
+    let periods = 0.5;
+    let baseDelay = 1; // s
+    let charDelay = 0.1; // s
+    let duration = 0.70; // s
+    let startW = 400; // w
+    let mag = 400; // +/- w
+    let refresh = 0.016667; // s
+
+    // computed vals
+    let frames = duration / refresh;
+
+    // state
+    let updaters = [];
+    let frameNs = [];
+
+    function fontWeighter(idx) {
+      frameNs[idx] += 1;
+      let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+      let w = Math.round(startW + mag * Math.sin(x));
+      document
+        .getElementById("header")
+        .children[idx]
+        .style
+        .fontWeight = w;
+      if (frameNs[idx] >= frames) {
+        clearInterval(updaters[idx]);
+      }
+    }
+
+    function wave() {
+      // replace the string w/ elements. i write it as a string to start because i
+      // couldn't get vscode's html formatter (using one for nunjucks) to not split
+      // span elements each onto their own lines, which caused spaces between each
+      // letter.
+      let header = document.getElementById("header");
+      let name = header.innerText;
+      let els = [];
+      for (let i = 0; i < name.length; i++) {
+        let el = document.createElement("span");
+        el.innerText = name[i];
+        els.push(el);
+      }
+      header.innerText = '';
+      header.append(...els);
+
+      for (let i = 0; i < els.length; i++) {
+        frameNs.push(0);
+        setTimeout(() => {
+          updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+        }, (baseDelay + charDelay * i) * 1000);
+      }
+    }
+
+    wave();
+  </script>
+
+
+    </body>
+
+</html>

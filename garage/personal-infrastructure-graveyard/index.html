@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Personal infrastructure graveyard - Maxwell Forbes</title>
+        <!-- NOTE: Twitter uses name='', og uses property='' -->
+        <meta content="Personal infrastructure graveyard - Maxwell Forbes" property="title"/>
+        <meta content="Personal infrastructure graveyard - Maxwell Forbes" property="og:title"/>
+        <meta name="twitter:title" content="Personal infrastructure graveyard - Maxwell Forbes"/>
+
+        <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
+<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+
+<!-- NOTE: Twitter uses name='', og uses property='' -->
+
+    <meta content='https://maxwellforbes.com/garage/personal-infrastructure-graveyard/' property='og:url'/>
+    
+        <meta content='/website-3/assets/garage/personal-infrastructure-graveyard/levelup-1.jpg' property='og:image'/>
+        <meta name='twitter:image' content='/website-3/assets/garage/personal-infrastructure-graveyard/levelup-1.jpg'/>
+        <meta name='twitter:card' content='summary_large_image'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        <meta content="" property='og:description'/>
+        <meta name='twitter:description' content=""/>
+    
+    <meta content="article" property="og:type"/>
+
+<!-- - -->
+
+
+
+    </head>
+
+    <body class="lh-copy near-black pa0 f5 f4-ns sans-serif">
+        
+
+  <div class="mw7 mt3 mt4-ns mb3 center">
+
+    <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
+      <div class="w-50 tl">
+        <!-- Note: originally used https://maxwellforbes.com changed for href-looking CSS that adds
+          the up arrow. Change back (this & other internal links) if no longer on root domain. -->
+        <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
+      </div>
+      <div class="w-50 tr">
+        
+          <!-- If you're on that page, don't show as a link. -->
+          
+            <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+              Studio
+            </a>
+          
+        
+          <!-- If you're on that page, don't show as a link. -->
+          
+            <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+              Research
+            </a>
+          
+        
+      </div>
+    </nav>
+
+    <div class="mh3 mh4-ns bt b--black-80"></div>
+
+    <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
+      
+        <div class="mb4">
+          <!-- Date -->
+          
+            <div class="fw600 light-silver mt1 ttu">
+              
+                24 Aug 2021
+              
+            </div>
+          
+
+          <!-- Title -->
+          <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+            <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
+            
+              Personal infrastructure graveyard
+            
+          </h1>
+          
+
+        </div>
+      
+
+      <!-- Series header. -->
+      
+
+      <div class="markdown-body">
+        <p>I think it’s important to create <a href="/website-3/garage/benefits-of-creating-prototypes-that-fail/">experiments and prototypes</a>, and also to let them go.</p>
+<p>To celebrate these, I’ve created a tiny catalog here of abandoned personal infrastructure I’ve made.</p>
+<h2>org</h2>
+<style>
+    .black-and-white:not(:hover) {
+        filter: grayscale(100%);
+    }
+</style>
+<link href='/website-3/assets/css/tippy-6.3.1.light.css' rel="stylesheet" type="text/css"/>
+<script defer src='/website-3/assets/lib/popper-2.9.3.min.js'></script>
+<script defer src='/website-3/assets/lib/tippy-6.3.1.umd.min.js'></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const langs = [
+            'Python',
+            'TypeScript',
+            'Bash',
+            'Java',
+            'HTML',
+            'JavaScript',
+            'Ruby',
+            'PHP'
+        ];
+        for (let lang of langs) {
+            let lower = lang.toLowerCase();
+            tippy(`.${lower}`, {
+                content: `Written in ${lang}`,
+                theme: 'light'
+            });
+        }
+    });
+</script>
+<div class="pl3 bl bw1 mb4">
+    <a href="https://github.com/mbforbes/org" class="f5 f4-ns b code">org</a><span class="dib fr">
+            <img
+                class="h1 black-and-white php"
+                src="/website-3/assets/img/langs/php.svg"/>
+        </span><p class="mv1 f5 f4-ns">A simple, legacy Markdown viewer for local hosting on macOS.</p></div>
+<p><img src="/website-3/assets/garage/personal-infrastructure-graveyard/org.jpg" alt=""></p>
+<p>I built this in 2013. What’s interesting is how markdown editor / viewers are <a href="https://www.zettlr.com/">still</a> <a href="https://macdown.uranusjr.com/">things</a> <a href="https://ulysses.app/">people</a> <a href="https://obsidian.md/">build</a> <a href="https://typora.io/">today</a>. Markdown is a great markup language. People like keeping notes.</p>
+<p>Today, after years trying several of the above, I’ve decided that absolutely minimal latency, scanning documents, embedding photos, cloud sync, apps for every device, and not paying a monthly fee are the features I like the most (in that order). A great note taking app was hiding under my nose the whole time: Apple Notes. So I use that.</p>
+<h2>levelup</h2>
+<div class="pl3 bl bw1 mb4">
+    <a href="https://github.com/mbforbes/levelup" class="f5 f4-ns b code">levelup</a><span class="dib fr">
+            <img
+                class="h1 black-and-white javascript"
+                src="/website-3/assets/img/langs/javascript.svg"/>
+        </span><p class="mv1 f5 f4-ns">A fledgling habit / goal / time tracker.</p></div>
+<p><img src="/website-3/assets/garage/personal-infrastructure-graveyard/levelup-1.jpg" alt=""></p>
+<p>The first UI was based on a video game I was endeared to at the time called Persona 3.</p>
+<p><img src="/website-3/assets/garage/personal-infrastructure-graveyard/levelup-2.jpg" alt=""></p>
+<p>The next UI took a more minimal approach.</p>
+<p>I’ve tried many apps for habit, goal, and time tracking over the years as well. At this point, it seems like something that is more difficult to fit into an app. Priorities shift, the lifestyle evolves, and the more infrastructure I build around a process, the more it seems to inevitably get in the way. Right now, I use <a href="https://culturedcode.com/things/">Things</a> to track recurring todos and things I don’t want to forget, but use pen and paper for planning my daily work structure. I think there still might be a gap to be filled there for medium-term planning and goals.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<hr>
+<p>Related: <a href="/website-3/garage/website-graveyard/">website graveyard</a>, <a href="/website-3/garage/video-game-graveyard/">video game graveyard</a>.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Though GitHub issues / milestones / projects have been working swell for <a href="/website-3/garage/summer-2021-website-goals/">this summer</a>. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+      </div>
+
+      <!-- Series footer. -->
+      
+
+      <!-- Email box. Disabling for garage right now for minimalism. -->
+      
+        <!-- <hr /> -->
+<!-- <div class="bt b--black-80 mt4"></div> -->
+<div class="ba b--black-80 mt5 f6 f5-ns">
+    <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/mbforbes', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <p class="tc b">
+            Monthly project and essay digest
+        </p>
+        <p class="tc measure center">
+            <label for="tlemail">
+                I send a summary every month of my new projects and essays.
+                No spam, just me, Max. Unsub whenever.
+            </label>
+        </p>
+        <p class="mb1">
+            <input type="text" style="width:200px" name="email" id="tlemail" placeholder="your email"/>
+            <input type="hidden" value="1" name="embed"/><input type="submit" value="Get on the list"/>
+        </p>
+        <p class="mt0 f7 f6-ns">
+            <!-- via -->
+            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+        </p>
+    </form>
+</div>
+
+      
+
+      <!-- Garage footer. -->
+      
+    </main>
+  </div>
+  <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
+    <div class="mh3 mh4-ns bt b--silver mb1"></div>
+    <a href="/about" class="link silver hover-blue pv1">
+      about me
+    </a>
+    | orig theme is
+    <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>
+    <!-- <img src="https://maxwellforbes.com/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
+  </footer>
+
+  <!-- The wave -->
+  <script>
+    // settings
+    let periods = 0.5;
+    let baseDelay = 1; // s
+    let charDelay = 0.1; // s
+    let duration = 0.70; // s
+    let startW = 400; // w
+    let mag = 400; // +/- w
+    let refresh = 0.016667; // s
+
+    // computed vals
+    let frames = duration / refresh;
+
+    // state
+    let updaters = [];
+    let frameNs = [];
+
+    function fontWeighter(idx) {
+      frameNs[idx] += 1;
+      let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+      let w = Math.round(startW + mag * Math.sin(x));
+      document
+        .getElementById("header")
+        .children[idx]
+        .style
+        .fontWeight = w;
+      if (frameNs[idx] >= frames) {
+        clearInterval(updaters[idx]);
+      }
+    }
+
+    function wave() {
+      // replace the string w/ elements. i write it as a string to start because i
+      // couldn't get vscode's html formatter (using one for nunjucks) to not split
+      // span elements each onto their own lines, which caused spaces between each
+      // letter.
+      let header = document.getElementById("header");
+      let name = header.innerText;
+      let els = [];
+      for (let i = 0; i < name.length; i++) {
+        let el = document.createElement("span");
+        el.innerText = name[i];
+        els.push(el);
+      }
+      header.innerText = '';
+      header.append(...els);
+
+      for (let i = 0; i < els.length; i++) {
+        frameNs.push(0);
+        setTimeout(() => {
+          updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+        }, (baseDelay + charDelay * i) * 1000);
+      }
+    }
+
+    wave();
+  </script>
+
+
+    </body>
+
+</html>
