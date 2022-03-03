@@ -37,7 +37,7 @@
               {% if not "garage" in tags %}
                 {{ page.date | readableDate }}
               {% else %}
-                <a href="/studio#garage" class="light-silver hover-blue">GARAGE/</a>
+                <a href="{{ "/studio#garage" | url }}" class="light-silver hover-blue">GARAGE/</a>
               {% endif %}
             </div>
           {% endif %}

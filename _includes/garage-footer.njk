@@ -52,6 +52,7 @@
                 console.warn("Skipping " + key + ", not found in link graph.")
                 continue;
             }
+            {# TODO: Path prefix #}
             links.push(`<li><a href="${graph[key].url}" class="hover-dark-blue underline-hover">${graph[key].title}<a/></li>`);
         }
         if (links.length == 0) {
@@ -75,7 +76,7 @@
     }
 
     async function renderLinks() {
-        let resp = await fetch("/assets/garage/link_graph.json");
+        let resp = await fetch("{{ "/assets/garage/link_graph.json" | url }}");
         if (!resp.ok) {
             return;
         }

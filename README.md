@@ -22,6 +22,10 @@ Stuff to not forget
 - fix rest of meta tags
 - fix content with `markdown="1"` because markdown-it doesn't support that (or dig harder to find / implement myself)
 - fix (c) -> © --- possible to disable while keeping other typographer things? (are they useful?)
+- if really want to host on github.io, a few more things broken or probs broken:
+    - resources for running code (need to prefix in all code libs) (e.g., sketch/thinking)
+    - however garage links are done probably needs to handle too
+    - idea: could solve both the above w/ some JS globals
 
 ### code organization
 

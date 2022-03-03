@@ -4,8 +4,7 @@ hidedate: true
 layout: "layouts/default.njk"
 ---
 
-<a name="writing"></a>
-<h2>Writing</h2>
+<h2>Writing<a name="writing"></a></h2>
 
 {% set writingTags = ["creating & thinking", "design", "health", "programming"] %}
 {# {% set writingTags = ["programming"] %} #}
@@ -36,7 +35,7 @@ layout: "layouts/default.njk"
 </ul>
 {% endfor %}
 
-<h2>Projects</h2>
+<h2>Projects<a name="projects"></a></h2>
 {% for post in collections.project %}
 <a href="{{ post.url | url }}" class="db pv1 link">
     <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
@@ -44,7 +43,7 @@ layout: "layouts/default.njk"
 </a>
 {% endfor %}
 
-<h2>Software</h2>
+<h2>Software<a name="software"></a></h2>
 
 {% include "programming-language-tooltips.njk" %}
 
@@ -57,8 +56,7 @@ layout: "layouts/default.njk"
 You might also be interested in checking out my <a href="{{ "/research#software" | url }}">research software</a>.
 </p>
 
-<h2>Sketches</h2>
-<a name="sketches"></a>
+<h2>Sketches<a name="sketches"></a></h2>
 
 <div class="cf">
 {% for post in collections.sketch | sort(true, false, "date") %}
@@ -80,8 +78,7 @@ You might also be interested in checking out my <a href="{{ "/research#software"
 {% endfor %}
 
 
-<a name="garage"></a>
-<h2>Garage</h2>
+<h2>Garage<a name="garage"></a></h2>
 
 <p>
 The garage is a new experiment in "working with the garage door up."
