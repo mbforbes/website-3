@@ -48,9 +48,7 @@ layout: "layouts/default.njk"
 
 {% include "programming-language-tooltips.njk" %}
 
-{% set software = collections.software | selectAttrContains([
-"data", "tags"
-], "studio") | rejectAttrNested(["data", "omit"]) %}
+{% set software = collections.software | selectAttrContains(["data", "tags"], "studio") | rejectAttrNested(["data", "omit"]) %}
 {% for item in software %}
 {%- include "software-long.njk" -%}
 {% endfor %}

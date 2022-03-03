@@ -2,3 +2,4 @@ black
 mypy
 tqdm
 rich
+mbforbes_python_utils

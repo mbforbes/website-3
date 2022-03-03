@@ -34,7 +34,7 @@
           <!-- Date -->
           {% if page.date and not hidedate %}
             <div class="fw600 light-silver mt1 ttu">
-              {% if collection != "garage" %}
+              {% if not "garage" in tags %}
                 {{ page.date | readableDate }}
               {% else %}
                 <a href="/studio#garage" class="light-silver hover-blue">GARAGE/</a>
@@ -74,14 +74,12 @@
         {% include "series-bottom.njk" %}
       {% endif %}
 
-      <!-- Email box. Disabling for garage right now for minimalism. -->
-      {% if collection != "garage" %}
-        {% include "email.njk" %}
-      {% endif %}
+      <!-- Email box. -->
+      {% include "email.njk" %}
 
       <!-- Garage footer. -->
-      {% if collection == "garage" %}
-        {% include "garage.njk" %}
+      {% if tags and "garage" in tags %}
+        {% include "garage-footer.njk" %}
       {% endif %}
     </main>
   </div>
