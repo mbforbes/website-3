@@ -72,7 +72,7 @@
           
             <div class="fw600 light-silver mt1 ttu">
               
-                22 Aug 2021
+                <a href="/studio#garage" class="light-silver hover-blue">GARAGE/</a>
               
             </div>
           
@@ -141,9 +141,8 @@
       <!-- Series footer. -->
       
 
-      <!-- Email box. Disabling for garage right now for minimalism. -->
-      
-        <!-- <hr /> -->
+      <!-- Email box. -->
+      <!-- <hr /> -->
 <!-- <div class="bt b--black-80 mt4"></div> -->
 <div class="ba b--black-80 mt5 f6 f5-ns">
     <form style="text-align:center;" action="https://tinyletter.com/mbforbes" method="post" target="popupwindow"
@@ -168,9 +167,91 @@
     </form>
 </div>
 
-      
 
       <!-- Garage footer. -->
+      
+        <p class="tr ttu black-30 fw6 f6 f5-ns mt5 mb0">garage entry metadata</p>
+<table class="mv0 collapse ba br2 b--black-10 pv2 ph3 f6 f5-ns black-50 w-100">
+    <tbody id="garage-metadata">
+        <tr class="striped--near-white">
+            <td class="pv2 ph3 ttu fw6">
+                started
+            </td>
+            <td class="pv2 ph3 ttu">
+                22 Aug 2021
+            </td>
+        </tr>
+
+        
+
+        <tr class="striped--near-white">
+            <td class="pv2 ph3 ttu fw6">
+                disclaimer
+            </td>
+            <td class="pv2 ph3">
+                This is an entry in
+                
+                    <a href="/website-3/garage/what-is-the-garage/" class="hover-dark-blue underline-hover">the garage</a>.
+                
+                It may change or disappear at any point.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Comments! -->
+<script src="https://utteranc.es/client.js" repo="mbforbes/website-comments" issue-term="pathname" theme="github-light"
+    crossorigin="anonymous" async>
+    </script>
+
+<!-- Link graph! -->
+<script async>
+    function addRow(name, graph, keys) {
+        let links = [];
+        for (let key of keys) {
+            if (!(key in graph)) {
+                console.warn("Skipping " + key + ", not found in link graph.")
+                continue;
+            }
+            links.push(`<li><a href="${graph[key].url}" class="hover-dark-blue underline-hover">${graph[key].title}<a/></li>`);
+        }
+        if (links.length == 0) {
+            return;
+        }
+        let row = document.createElement("tr");
+        row.classList.add("striped--near-white");
+        row.innerHTML = `
+        <tr class="striped--light-gray">
+            <td class="pv2 ph3 ttu fw6">
+                ${name}
+            </td>
+            <td class="pv2 ph3 ${name}">
+                <ul class="pl3 mv0">
+                    ${links.join("\n")}
+                </ul>
+            </td>
+        </tr>
+        `
+        document.getElementById("garage-metadata").appendChild(row);
+    }
+
+    async function renderLinks() {
+        let resp = await fetch("/assets/garage/link_graph.json");
+        if (!resp.ok) {
+            return;
+        }
+        let graph = await resp.json();
+        let current = "/garage/reducing-creative-friction-starting-a-new-project/";
+        if (!(current in graph)) {
+            return;
+        }
+        addRow("inbound", graph, graph[current].incoming);
+        addRow("outbound", graph, graph[current].outgoing);
+
+    }
+    renderLinks();
+</script>
+
       
     </main>
   </div>
