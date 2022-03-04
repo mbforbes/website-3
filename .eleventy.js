@@ -12,7 +12,6 @@ const markdownItFootnote = require("markdown-it-footnote");
 module.exports = function (eleventyConfig) {
     // Copy some folders to the output
     eleventyConfig.addPassthroughCopy("assets");
-    eleventyConfig.addPassthroughCopy("dev");  // TODO: work it to make in assets?
     eleventyConfig.addPassthroughCopy("social-chemistry");
 
     // Add plugins

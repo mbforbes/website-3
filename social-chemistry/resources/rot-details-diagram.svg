@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="476px" height="229px" viewBox="0 0 476 229" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#FFFFFF" x="-12" y="107" width="412" height="122"></rect>
+        <rect id="Rectangle" stroke="#FAD000" fill-opacity="0.183621066" fill="#FAD000" x="126.5" y="108.5" width="184" height="118"></rect>
+        <rect id="Rectangle" fill="#357EDD" x="78" y="14" width="82" height="21" rx="8"></rect>
+        <rect id="Rectangle" fill="#357EDD" x="223" y="201" width="82" height="21" rx="8"></rect>
+        <rect id="Rectangle" fill="#FF6400" x="20" y="14" width="58" height="21" rx="8"></rect>
+        <text id="SITUATION" font-family="Helvetica-Light, Helvetica" font-size="12" font-weight="300" fill="#000000">
+            <tspan x="25" y="11">SITUATION</tspan>
+        </text>
+        <text id="Narrator:-My-roommat" font-family="Helvetica-Bold, Helvetica" font-size="12" font-weight="bold">
+            <tspan x="25" y="28" fill="#FFFFFF">Narrator: My roommate </tspan>
+            <tspan x="161.03125" y="28" font-family="Helvetica" font-weight="normal" fill="#000000">woke me up by running the blender at 5am</tspan>
+        </text>
+        <text id="RULE-OF-THUMB" font-family="Helvetica-Light, Helvetica" font-size="12" font-weight="300" fill="#000000">
+            <tspan x="25" y="69">RULE-OF-THUMB</tspan>
+        </text>
+        <text id="It’s-rude-to-wake-pe" font-family="Helvetica" font-size="12" font-weight="normal" fill="#000000">
+            <tspan x="25" y="83">It’s rude to wake people up while they’re sleeping</tspan>
+        </text>
+        <line x1="25" y1="89.5" x2="69" y2="89.5" id="Path" stroke="#FA0000" stroke-width="4"></line>
+        <line x1="72" y1="89.5" x2="287" y2="89.5" id="Path" stroke="#FAD000" stroke-width="4"></line>
+        <rect id="Rectangle" stroke="#BC0E0E" fill="#FA0000" x="0.5" y="107.5" width="68" height="35"></rect>
+        <text id="JUDGMENT" font-family="Helvetica" font-size="10" font-weight="normal" fill="#FFFFFF">
+            <tspan x="3" y="119">JUDGMENT</tspan>
+        </text>
+        <text id="bad" font-family="Helvetica-Bold, Helvetica" font-size="12" font-weight="bold" fill="#FFFFFF">
+            <tspan x="3" y="134">bad</tspan>
+        </text>
+        <path id="Path" d="M63.25,92.5 L63.25,100.888 L66.25,100.888889 L63,107.888889 L59.75,100.888889 L62.75,100.888 L62.75,92.5 L63.25,92.5 Z" fill="#BC0E0E" fill-rule="nonzero"></path>
+        <path id="Path" d="M83.25,92.5 L83.25,100.888 L86.25,100.888889 L83,107.888889 L79.75,100.888889 L82.75,100.888 L82.75,92.5 L83.25,92.5 Z" fill="#CECC03" fill-rule="nonzero"></path>
+        <rect id="Rectangle" stroke="#CECC03" fill="#FAD000" x="75.5" y="107.5" width="235" height="35"></rect>
+        <text id="ACTION" font-family="Helvetica" font-size="10" font-weight="normal" fill="#FFFFFF">
+            <tspan x="78" y="119">ACTION</tspan>
+        </text>
+        <text id="waking-people-up-whi" font-family="Helvetica-Bold, Helvetica" font-size="12" font-weight="bold" fill="#FFFFFF">
+            <tspan x="78" y="134">waking people up while they’re sleeping</tspan>
+        </text>
+        <text id="Legal?" font-family="HelveticaNeue-Thin, Helvetica Neue" font-size="12" font-weight="300" fill="#000000">
+            <tspan x="131" y="177">Legal?</tspan>
+        </text>
+        <text id="Social-pressure?" font-family="HelveticaNeue-Thin, Helvetica Neue" font-size="12" font-weight="300" fill="#000000">
+            <tspan x="131" y="194">Social pressure?</tspan>
+        </text>
+        <text id="Agency?" font-family="HelveticaNeue-Thin, Helvetica Neue" font-size="12" font-weight="300" fill="#000000">
+            <tspan x="131" y="160">Agency?</tspan>
+        </text>
+        <text id="✓" font-family="LucidaGrande, Lucida Grande" font-size="12" font-weight="normal" fill="#000000">
+            <tspan x="225" y="160">✓</tspan>
+        </text>
+        <text id="Who-did-it?" font-family="HelveticaNeue-Thin, Helvetica Neue" font-size="12" font-weight="300" fill="#000000">
+            <tspan x="131" y="211">Who did it?</tspan>
+        </text>
+        <text id="✓" font-family="LucidaGrande, Lucida Grande" font-size="12" font-weight="normal" fill="#000000">
+            <tspan x="225" y="176">✓</tspan>
+        </text>
+        <text id="Against" font-family="LucidaGrande, Lucida Grande" font-size="12" font-weight="normal" fill="#000000">
+            <tspan x="225" y="195">Against</tspan>
+        </text>
+        <text id="My-roommate" font-family="Helvetica-Bold, Helvetica" font-size="12" font-weight="bold" fill="#FFFFFF">
+            <tspan x="225" y="215">My roommate </tspan>
+        </text>
+        <line x1="393.28125" y1="0.5" x2="401.71875" y2="0.5" id="Line" stroke="#474747" stroke-linecap="square"></line>
+        <line x1="402" y1="1" x2="401.5" y2="83.5" id="Line" stroke="#474747" stroke-linecap="square"></line>
+        <line x1="392.28125" y1="107.5" x2="400.71875" y2="107.5" id="Line" stroke="#474747" stroke-linecap="square"></line>
+        <line x1="401" y1="108" x2="401.5" y2="228" id="Line" stroke="#474747" stroke-linecap="square"></line>
+        <line x1="392.28125" y1="83.5" x2="400.71875" y2="83.5" id="Line" stroke="#474747" stroke-linecap="square"></line>
+        <line x1="393.28125" y1="228.5" x2="401.71875" y2="228.5" id="Line" stroke="#474747" stroke-linecap="square"></line>
+        <text id="what-we-have-so-far" font-family="Helvetica-LightOblique, Helvetica" font-size="12" font-style="italic" font-weight="300" fill="#1A1A1A">
+            <tspan x="405" y="35">what we</tspan>
+            <tspan x="405" y="49">have so far</tspan>
+        </text>
+        <text id="what-we-are-doing-in" font-family="Helvetica-LightOblique, Helvetica" font-size="12" font-style="italic" font-weight="300" fill="#1A1A1A">
+            <tspan x="408" y="164">what we are </tspan>
+            <tspan x="408" y="178">doing in this</tspan>
+            <tspan x="408" y="192">HIT!</tspan>
+        </text>
+    </g>
+</svg>

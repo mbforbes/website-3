@@ -7,7 +7,6 @@ Third (personal) website.
 Stuff to not forget
 
 - stuff commented out in eleventy (e.g., xml/json feeds)
-- 404 page
 - additional includes in the default layout
 - nouveau syntax highlighting (check how works)
 - all template variables in _includes (i think they'll just be omitted if broken)

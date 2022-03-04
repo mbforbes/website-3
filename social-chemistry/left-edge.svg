@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="100px" viewBox="0 0 27 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>left-edge</title>
+    <g id="left-edge" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <line x1="24" y1="100" x2="2" y2="51" id="Line-2" stroke="#000000" stroke-width="2"></line>
+        <line x1="24" y1="1" x2="2" y2="50" id="Line-2" stroke="#000000" stroke-width="2"></line>
+        <line x1="24.5" y1="0.5" x2="26.5" y2="0.5" id="Line-3" stroke="#000000" stroke-width="2"></line>
+        <line x1="24.5" y1="99.5" x2="26.5" y2="99.5" id="Line-3" stroke="#000000" stroke-width="2"></line>
+    </g>
+</svg>
