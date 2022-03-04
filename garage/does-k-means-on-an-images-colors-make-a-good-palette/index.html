@@ -107,8 +107,8 @@ source
 <p>For whatever reason, this made me wonder: how do people extract color palettes from images? Can we do this automatically?</p>
 <p>Could it perhaps be that, if we simply run k-means on the RGB colors of each pixel, we’ll recover the palette?</p>
 <p>Rather than Google for the answer, I was struck by a desire to rekindle my <a href="/website-3/garage/spirit-of-discovery/">spirit of discovery</a> and find out for myself.</p>
-<h2>k-means, RGB</h2>
-<p>Running k-means on the RGB colors of the image with <code>k = 7</code>, I came up with:</p>
+<h2 id="k-means-rgb" tabindex="-1">k-means, RGB</h2>
+<a class="dn" href="#k-means-rgb"><span class="dn">Permalink to “k-means, RGB”</span> <span aria-hidden="true">#</span></a><p>Running k-means on the RGB colors of the image with <code>k = 7</code>, I came up with:</p>
 <p><img src="/website-3/assets/garage/k-means-colors/example.rgb.palette-7.png" alt="7-color palette"></p>
 <p class="figcaption">k-means on RGB pixels, <code>k = 7</code></p>
 <p>Hmm, definitely missing some of the colors we’d like, at least a red and a green.</p>
@@ -125,8 +125,8 @@ source
 <p>Aside: I sorted the colors in the display of these palettes using HSV so they’re easier to compare. It turns out <a href="https://www.alanzucconi.com/2015/09/30/colour-sorting/">sorting colors is challenging</a> in its own right! You can already tell this by the inconsistencies in ordering the darker greens (bottom three) and grays (throughout).</p>
 </blockquote>
 <p>So the answer seems to be: no, it’s not quite as simple as running k-means on the RGB colors. My hunch is that RGB is a bad way of featurizing the colors. My guess is that what we are looking for in a palette—distinct, strong colors—is not reflected in perceptual RGB distances.</p>
-<h2>k-means, HSV</h2>
-<p>Just as I finished writing the above, and was considering Googling how people do this, I realized I’d missed a totally obvious connection.</p>
+<h2 id="k-means-hsv" tabindex="-1">k-means, HSV</h2>
+<a class="dn" href="#k-means-hsv"><span class="dn">Permalink to “k-means, HSV”</span> <span aria-hidden="true">#</span></a><p>Just as I finished writing the above, and was considering Googling how people do this, I realized I’d missed a totally obvious connection.</p>
 <p>I had run k-means on the pixels in RGB color space. But I had then sorted the output palette using a different color space: HSV. What if we ran k-means on the pixels in HSV?</p>
 <p><img src="/website-3/assets/garage/k-means-colors/reference.palette.jpg" alt="">
 <img src="/website-3/assets/garage/k-means-colors/example.rgb.palette-7.png" alt="">
@@ -148,8 +148,8 @@ HSV k-means.
 <p><img src="/website-3/assets/garage/k-means-colors/example.hsv.palette-1-36.png" alt=""></p>
 <p class="figcaption">k-means on HSV pixels, <code>k ∈ {1 ... 36}</code></p>
 <p>Looks like red was just around the corner. It’s a shame we never get that brilliant green back. I still think we can do better than this, but cranking <code>k</code> way up like this would reveal one computer/human hybrid approach: the computer over-generates a large palette, then the human samples from it to make a smaller one.</p>
-<h2>Wrapping up</h2>
-<p>I’ve got to stop working on this now and get back to my other <a href="/website-3/garage/summer-2021-website-goals/">summer goals</a>. If you’re curious, here’s my code:</p>
+<h2 id="wrapping-up" tabindex="-1">Wrapping up</h2>
+<a class="dn" href="#wrapping-up"><span class="dn">Permalink to “Wrapping up”</span> <span aria-hidden="true">#</span></a><p>I’ve got to stop working on this now and get back to my other <a href="/website-3/garage/summer-2021-website-goals/">summer goals</a>. If you’re curious, here’s my code:</p>
 <style>
     .black-and-white:not(:hover) {
         filter: grayscale(100%);

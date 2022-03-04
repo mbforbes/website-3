@@ -110,8 +110,8 @@
 <p>Grab any book and it’s probably justified. I just took one off my bookshelf at random—<em>White,</em> by Kenya Hara:</p>
 <p><img src="/website-3/assets/posts/web-justified-text/book.jpg" alt=""></p>
 <p>So, what about the web?</p>
-<h2>It’s the Hyphenation, Dummy</h2>
-<p>Whatever is doing your type layout has got to be able to hyphenate words. If you just slap on a <code>text-align: justify</code> CSS, you’ll get goofy spread out text:</p>
+<h2 id="it's-the-hyphenation-dummy" tabindex="-1">It’s the Hyphenation, Dummy</h2>
+<a class="dn" href="#it's-the-hyphenation-dummy"><span class="dn">Permalink to “It’s the Hyphenation, Dummy”</span> <span aria-hidden="true">#</span></a><p>Whatever is doing your type layout has got to be able to hyphenate words. If you just slap on a <code>text-align: justify</code> CSS, you’ll get goofy spread out text:</p>
 <div class="flex mv4">
 <img src="/website-3/assets/posts/web-justified-text/web-justify.jpg" class="sc bare mh2 flex-auto">
 <img src="/website-3/assets/posts/web-justified-text/web-justify-annotated.jpg" class="sc bare mh2 flex-auto">
@@ -121,8 +121,8 @@
 <p><img src="/website-3/assets/posts/web-justified-text/web-hyphen.jpg" alt=""></p>
 <p class="figcaption">Hey, much better!</p>
 <p>This is with Chrome. For, e.g., Safari on macOS and iOS, you’ve still got to use one of those janky CSS <code>-webkit-</code> prefixes. Edge apparently isn’t quite there yet entirely.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
-<h3>Aside: Hyphenation</h3>
-<p>When I looked this up a while back, it was the first time I’d really thought about hyphenation. Why would it be hard? As far as I can tell, there are a couple main aspects:</p>
+<h3 id="aside:-hyphenation" tabindex="-1">Aside: Hyphenation</h3>
+<a class="dn" href="#aside:-hyphenation"><span class="dn">Permalink to “Aside: Hyphenation”</span> <span aria-hidden="true">#</span></a><p>When I looked this up a while back, it was the first time I’d really thought about hyphenation. Why would it be hard? As far as I can tell, there are a couple main aspects:</p>
 <ol>
 <li>
 <p><strong>Where</strong> are you allowed to hyphenate? At syllable boundaries. First of all, this requires knowing where the syllables in all words are. In other words, you suddenly need a huge dictionary with syllable markings for all words. Second, this means the process is now language-specific. Compared to just splatting down symbols on the page and wrapping, knowing about syllables seems way more complex.</p>
@@ -132,8 +132,8 @@
 </li>
 </ol>
 <p>The second point especially should reveal that hyphenating justified text involves an algorithm, and the algorithm can be of different quality in different implementations.</p>
-<h2>Justify + Hyphenation on the Web: It’s Still not Great</h2>
-<p>Here’s another example of justified text with and without hyphenation in Chrome (this is Chrome 89, on March 29, 2021).</p>
+<h2 id="justify-+-hyphenation-on-the-web:-it's-still-not-great" tabindex="-1">Justify + Hyphenation on the Web: It’s Still not Great</h2>
+<a class="dn" href="#justify-+-hyphenation-on-the-web:-it's-still-not-great"><span class="dn">Permalink to “Justify + Hyphenation on the Web: It’s Still not Great”</span> <span aria-hidden="true">#</span></a><p>Here’s another example of justified text with and without hyphenation in Chrome (this is Chrome 89, on March 29, 2021).</p>
 <p>Justified:</p>
 <p><img src="/website-3/assets/posts/web-justified-text/web2.jpg" alt=""></p>
 <p>Justified, with hyphenation:</p>
@@ -142,12 +142,12 @@
 <p>Compare this with LaTeX,<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> which aggressively hyphenates. You will almost never see the kind of floaty word spacing like above. Instead, you’ll see dense blocks rich with hyphenation:</p>
 <p><img src="/website-3/assets/posts/web-justified-text/paper-paragraph.jpg" alt=""></p>
 <p>In the above paragraph, of the nine lines that reach the right margin, five (over half!) are hyphenated and split.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
-<h2>Recommendation: Don’t Do It</h2>
-<p>I’m not actually in a position to recommend any design decisions to anybody. But my personal preference is still for left-aligned text on the web. If and when a major shop like the NYT, Medium, or Substack justifies their text online, it might be worth looking into.</p>
+<h2 id="recommendation:-don't-do-it" tabindex="-1">Recommendation: Don’t Do It</h2>
+<a class="dn" href="#recommendation:-don't-do-it"><span class="dn">Permalink to “Recommendation: Don’t Do It”</span> <span aria-hidden="true">#</span></a><p>I’m not actually in a position to recommend any design decisions to anybody. But my personal preference is still for left-aligned text on the web. If and when a major shop like the NYT, Medium, or Substack justifies their text online, it might be worth looking into.</p>
 <p>I only write this because I come across hand-designed blogs semi-regularly that use justified text and no hyphenation.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> Once you are aware of it, you can’t un-see those ghastly word gaps. If this is you, maybe consider turning on hyphenation right now.</p>
 <p>Or better yet, just align left.</p>
-<h2>Gallery of <s>Shame</s> Opportunity</h2>
-<p>I’ve started collecting pages I find with justified text without hyphenation that ends up looking awkward. To, uhhh, raise awareness?</p>
+<h2 id="gallery-of-shame-opportunity" tabindex="-1">Gallery of <s>Shame</s> Opportunity</h2>
+<a class="dn" href="#gallery-of-shame-opportunity"><span class="dn">Permalink to “Gallery of Shame Opportunity”</span> <span aria-hidden="true">#</span></a><p>I’ve started collecting pages I find with justified text without hyphenation that ends up looking awkward. To, uhhh, raise awareness?</p>
 <div class="flex items-center flex-wrap mv4">
   <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
       <img src="/website-3/assets/posts/web-justified-text/jpegxl.jpg" class="br3 br4-ns">

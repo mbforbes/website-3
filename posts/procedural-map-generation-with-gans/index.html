@@ -97,8 +97,8 @@
       
 
       <div class="markdown-body">
-        <h2>Preface</h2>
-<p><em>This was my project for a computer graphics class I took back in 2017. (I’m writing this now in 2021.) I was interested in doing procedural city generation, but using machine learning to do it. As far as I could tell, that hadn’t been done before.</em></p>
+        <h2 id="preface" tabindex="-1">Preface</h2>
+<a class="dn" href="#preface"><span class="dn">Permalink to “Preface”</span> <span aria-hidden="true">#</span></a><p><em>This was my project for a computer graphics class I took back in 2017. (I’m writing this now in 2021.) I was interested in doing procedural city generation, but using machine learning to do it. As far as I could tell, that hadn’t been done before.</em></p>
 <p><em>I was originally excited to do something like “grammar induction:” learning a grammar for how to generate cities based on looking at them. Grammar induction is a thing in natural language processing (NLP, my home field), but I didn’t really know anything about it.</em></p>
 <p><em>In the end—as inevitably seems to happen with class projects—I ran out of time and did something simple: I trained a generative adversarial network (GAN) on image pairs to teach it how to add buildings to a map with other geographic features (stuff like roads, parks, and water). This still ended up being pretty cool.</em></p>
 <p><em>If you interested, my code is available here:</em></p>
@@ -139,8 +139,8 @@
         </span><p class="mv1 f5 f4-ns">Procedural map generation with GANs.</p></div>
 <p><em>Enjoy!</em></p>
 <p><em>– Max from 2021</em></p>
-<h2>Table of Contents</h2>
-<ul>
+<h2 id="table-of-contents" tabindex="-1">Table of Contents</h2>
+<a class="dn" href="#table-of-contents"><span class="dn">Permalink to “Table of Contents”</span> <span aria-hidden="true">#</span></a><ul>
 <li><a href="#introduction">Introduction</a><ul>
 <li><a href="#motivation">Motivation</a></li>
 <li><a href="#task">Task</a></li>
@@ -181,9 +181,9 @@
 </li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
-<h2>Introduction</h2>
-<h3>Motivation</h3>
-<p>Procedural generation affords the creation of large, authentic looking
+<h2 id="introduction" tabindex="-1">Introduction</h2>
+<a class="dn" href="#introduction"><span class="dn">Permalink to “Introduction”</span> <span aria-hidden="true">#</span></a><h3 id="motivation" tabindex="-1">Motivation</h3>
+<a class="dn" href="#motivation"><span class="dn">Permalink to “Motivation”</span> <span aria-hidden="true">#</span></a><p>Procedural generation affords the creation of large, authentic looking
 environments with far less time and effort than manual modeling.</p>
 <p>The domain of <em>urban</em> procedural generation can be roughly split into three
 sub-problems: layout modelling (maps and roads), building modelling (3D
@@ -211,8 +211,8 @@ town will present different layout patterns than a bustling metropolis like
 Tokyo. A machine learning model could capture these differences simply by being
 retrained on different data, without needed to re-design the parameters or
 grammars of the generation algorithm.</p>
-<h3>Task</h3>
-<p>In this project, we approach the first domain of urban procedural generation:
+<h3 id="task" tabindex="-1">Task</h3>
+<a class="dn" href="#task"><span class="dn">Permalink to “Task”</span> <span aria-hidden="true">#</span></a><p>In this project, we approach the first domain of urban procedural generation:
 generating the layout for a city. Within this domain, we further restrict our
 focus to the following task: given a road network and city features (like water
 and parks), fill in the buildings inside of blocks. Figure 1 shows a visual
@@ -233,9 +233,9 @@ take advantage of these semantic cues to generate layouts that are sensitive to
 their surroundings.</p>
 <p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/2tasks.jpg" alt="2 tasks"></p>
 <p class="figcaption">Figure 2: The two tasks we consider. In both cases, buildings must be generated on top of an input image. The difference is in the size of the region and the amount of geographic context provided.</p>
-<h2>Related Work</h2>
-<h3>Inverse Procedural Modeling <em>and</em> Shape Learning</h3>
-<p>The idea of attempting to learn the parameters of a procedural generation model
+<h2 id="related-work" tabindex="-1">Related Work</h2>
+<a class="dn" href="#related-work"><span class="dn">Permalink to “Related Work”</span> <span aria-hidden="true">#</span></a><h3 id="inverse-procedural-modeling-and-shape-learning" tabindex="-1">Inverse Procedural Modeling <em>and</em> Shape Learning</h3>
+<a class="dn" href="#inverse-procedural-modeling-and-shape-learning"><span class="dn">Permalink to “Inverse Procedural Modeling and Shape Learning”</span> <span aria-hidden="true">#</span></a><p>The idea of attempting to learn the parameters of a procedural generation model
 is called <em>inverse procedural modeling</em>. Though this has never been applied to
 city layout generation, it has been explored by several authors in other
 domains.</p>
@@ -257,8 +257,8 @@ inspiration from classical natural language processing, and learn the
 parameters of a parsing model to map point clouds that represent roofs to a
 hierarchy of the roof’s components (e.g., main roof, hood over window, shed
 roof, etc.).<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup></p>
-<h3>City Modeling</h3>
-<p>Though these works do not use machine learning or inverse procedural
+<h3 id="city-modeling" tabindex="-1">City Modeling</h3>
+<a class="dn" href="#city-modeling"><span class="dn">Permalink to “City Modeling”</span> <span aria-hidden="true">#</span></a><p>Though these works do not use machine learning or inverse procedural
 generation, it is worth briefly touching upon city generation literature.
 Several papers present tools for editing or expanding a set of aerial images of
 cities. Aliaga et al. (2008, a) present a tool for making edits to an urban
@@ -275,17 +275,17 @@ algorithm for automatically splitting blocks (the spaces carved out by road
 networks) into parcels (areas of land ownership).<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup>
 Finally, Nishida et al. (2016) present a tool for editing road networks that
 takes into account the style and layout of example data.<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup></p>
-<h2>Dataset Creation</h2>
-<p>To the best of our knowledge, no previous work attempt the task of generating
+<h2 id="dataset-creation" tabindex="-1">Dataset Creation</h2>
+<a class="dn" href="#dataset-creation"><span class="dn">Permalink to “Dataset Creation”</span> <span aria-hidden="true">#</span></a><p>To the best of our knowledge, no previous work attempt the task of generating
 city layouts using machine learning. Because of this, a significant portion of
 the project time was spent collecting and preprocessing the data. For that
 reason, this section of the report gives a brief overview of this process.</p>
-<h3>Task 1: Individual Blocks</h3>
-<p>The first task we address is: given a block, generate the buildings on the
+<h3 id="task-1:-individual-blocks" tabindex="-1">Task 1: Individual Blocks</h3>
+<a class="dn" href="#task-1:-individual-blocks"><span class="dn">Permalink to “Task 1: Individual Blocks”</span> <span aria-hidden="true">#</span></a><p>The first task we address is: given a block, generate the buildings on the
 block. For this task, we process maps data from OpenStreetMaps in order to
 identify and extract blocks.</p>
-<h4>Overview</h4>
-<p>The overall processes of the block extraction is shown below in Figure 3.</p>
+<h4 id="overview" tabindex="-1">Overview</h4>
+<a class="dn" href="#overview"><span class="dn">Permalink to “Overview”</span> <span aria-hidden="true">#</span></a><p>The overall processes of the block extraction is shown below in Figure 3.</p>
 <p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/datafig-1.jpg" alt="dataset fig 1">
 <img src="/website-3/assets/posts/procedural-map-generation-with-gans/datafig-2.jpg" alt="dataset fig 2"></p>
 <p class="figcaption">Figure 3: Stages of block extraction, done for the first task. The individual steps are described in the running text.</p>
@@ -348,8 +348,8 @@ candidate blocks and removing any large candidates that fully enclose smaller
 candidates.</p>
 </li>
 </ul>
-<h4>Graph Ring Discovery</h4>
-<p>A crucial part of the above process was devising an algorithm to find rings in
+<h4 id="graph-ring-discovery" tabindex="-1">Graph Ring Discovery</h4>
+<a class="dn" href="#graph-ring-discovery"><span class="dn">Permalink to “Graph Ring Discovery”</span> <span aria-hidden="true">#</span></a><p>A crucial part of the above process was devising an algorithm to find rings in
 the graph in order to identify candidate blocks. The algorithm is presented
 below in Python-like pseudocode with types. It is an augmented breadth-first
 search which tracks unique paths to vertices from paths starting at all
@@ -361,8 +361,8 @@ completeness, I still present here the algorithm that I devised to find rings
 in a graph.</em></p>
 <pre class="language-python"><code class="language-python"><span class="token comment"># The overall algorithm searches from each vertex and returns the unique</span><br><span class="token comment"># set of rings discovered.</span><br><span class="token keyword">def</span> <span class="token function">find_rings</span><span class="token punctuation">(</span>graph<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">,</span> Set<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span><br>    <span class="token keyword">return</span> unique<span class="token punctuation">(</span>find_rings_at<span class="token punctuation">(</span>graph<span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token keyword">for</span> n <span class="token keyword">in</span> graph<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><br><br><span class="token comment"># The bulk of the algorithm finds all rings that involve a chosen vertex up</span><br><span class="token comment"># to a maximum depth.</span><br><span class="token keyword">def</span> <span class="token function">find_rings_at</span><span class="token punctuation">(</span>graph<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">,</span> Set<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> start<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span><br>                    maxdepth<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span><br>    <span class="token comment"># Setup.</span><br>    start_path <span class="token operator">=</span> <span class="token punctuation">[</span>start<span class="token punctuation">]</span>  <span class="token comment"># type: List[int]</span><br>    shortest <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>  <span class="token comment"># type: Dict[int, List[List[int]]]</span><br>    q <span class="token operator">=</span> Queue<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> start_path<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><br><br>    <span class="token comment"># First, find sets of unique paths to surrounding vertices.</span><br>    <span class="token keyword">while</span> <span class="token builtin">len</span><span class="token punctuation">(</span>q<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span><br>        <span class="token comment"># Consider the vertex just found, a candidate "shortest path."</span><br>        cur<span class="token punctuation">,</span> curpath <span class="token operator">=</span> q<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><br>        <span class="token keyword">if</span> can_add_to_shortest<span class="token punctuation">(</span>cur<span class="token punctuation">,</span> curpath<span class="token punctuation">,</span> shortest<span class="token punctuation">)</span><span class="token punctuation">:</span><br>            <span class="token keyword">if</span> cur <span class="token keyword">not</span> <span class="token keyword">in</span> shortest<span class="token punctuation">:</span><br>                shortest<span class="token punctuation">[</span>cur<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><br>            shortest<span class="token punctuation">[</span>cur<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>curpath<span class="token punctuation">)</span><br><br>        <span class="token comment"># Add neighbors to queue if we haven't explored to max depth yet.</span><br>        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>curpath<span class="token punctuation">)</span> <span class="token operator">&lt;</span> maxdepth<span class="token punctuation">:</span><br>            <span class="token keyword">for</span> neighbor <span class="token keyword">in</span> graph<span class="token punctuation">[</span>cur<span class="token punctuation">]</span><span class="token punctuation">:</span><br>                <span class="token comment"># No backtracking per path.</span><br>                <span class="token keyword">if</span> neighbor <span class="token keyword">not</span> <span class="token keyword">in</span> curpath<span class="token punctuation">:</span><br>                    q<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>neighbor<span class="token punctuation">,</span> curpath <span class="token operator">+</span> <span class="token punctuation">[</span>neighbor<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><br>    <span class="token comment"># Now, extract rings. They are discovered vertices with multiple paths.</span><br>    rings <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><br>    <span class="token keyword">for</span> candidate <span class="token keyword">in</span> shortest<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><br>        paths <span class="token operator">=</span> shortest<span class="token punctuation">[</span>candidate<span class="token punctuation">]</span><br>        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>paths<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">:</span><br>            <span class="token comment"># Use the first two paths found, and remove duplicate nodes</span><br>            <span class="token comment"># (first and last) from the second.</span><br>            p1 <span class="token operator">=</span> paths<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><br>            p2 <span class="token operator">=</span> paths<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><br>            rings<span class="token punctuation">.</span>append<span class="token punctuation">(</span>p1 <span class="token operator">+</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">reversed</span><span class="token punctuation">(</span>p2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><br>    <span class="token keyword">return</span> rings<br><br><span class="token comment"># This helper algorithm determines whether a candidate path should be added</span><br><span class="token comment"># to the set of shortest paths to a vertex.</span><br><span class="token keyword">def</span> <span class="token function">can_add_to_shortest</span><span class="token punctuation">(</span>cur<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> curpath<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span><br>                        shortest<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">,</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span><br>    <span class="token comment"># If shortest hasn't found cur yet, then found a new shortest path.</span><br>    <span class="token keyword">if</span> cur <span class="token keyword">not</span> <span class="token keyword">in</span> shortest<span class="token punctuation">:</span><br>        <span class="token keyword">return</span> <span class="token boolean">True</span><br><br>    <span class="token comment"># Crowdsourced map data; might have multiple edges between two vertices.</span><br>    <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>curpath<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span><br>        <span class="token keyword">return</span> <span class="token boolean">False</span><br><br>    <span class="token comment"># Interesting case: We want to add only if we've found a new path to</span><br>    <span class="token comment"># this node that is unique; i.e., the middle nodes (excluding start and</span><br>    <span class="token comment"># cur) have nothing in common with any other paths.</span><br>    middle <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>curpath<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><br>    <span class="token keyword">for</span> p <span class="token keyword">in</span> shortest<span class="token punctuation">[</span>cur<span class="token punctuation">]</span><span class="token punctuation">:</span><br>        exist_middle <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><br>        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>exist_middle<span class="token punctuation">.</span>intersection<span class="token punctuation">(</span>middle<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span><br>            <span class="token keyword">return</span> <span class="token boolean">False</span><br>    <span class="token keyword">return</span> <span class="token boolean">True</span></code></pre>
 <p class="figcaption">Algorithm 1: Ring discovery in a graph.</p>
-<h4>Block-Building Matching and Rendering</h4>
-<p>After discovering blocks, we then match each block to the set of buildings that
+<h4 id="block-building-matching-and-rendering" tabindex="-1">Block-Building Matching and Rendering</h4>
+<a class="dn" href="#block-building-matching-and-rendering"><span class="dn">Permalink to “Block-Building Matching and Rendering”</span> <span aria-hidden="true">#</span></a><p>After discovering blocks, we then match each block to the set of buildings that
 lie on top of that block. To do this, we perform a point-in-polygon test for
 every vertex of every building onto the polygon defined by every block. While
 this test is an approximation of a polygon-in-polygon test, it works well in
@@ -379,14 +379,14 @@ Several example blocks are shown below in Figure 4.</p>
 least one building on them, giving a total of 1100 images, which we partition
 into train (521) / val (415) / test (164) splits such that the geographic
 regions do not overlap between the splits.</p>
-<h3>Task 2: Map Regions</h3>
-<p>The second task we address is: given a region of a map without any buildings,
+<h3 id="task-2:-map-regions" tabindex="-1">Task 2: Map Regions</h3>
+<a class="dn" href="#task-2:-map-regions"><span class="dn">Permalink to “Task 2: Map Regions”</span> <span aria-hidden="true">#</span></a><p>The second task we address is: given a region of a map without any buildings,
 generate all of the buildings.</p>
 <p>This task is simpler from a dataset creation perspective, because it simply
 involves rendering two versions of a map: one with most geographic features
 rendered except buildings, and the second including buildings as well.</p>
-<h4>Rendering Regions</h4>
-<p>The main challenge in creating a more realistic region-filling dataset is
+<h4 id="rendering-regions" tabindex="-1">Rendering Regions</h4>
+<a class="dn" href="#rendering-regions"><span class="dn">Permalink to “Rendering Regions”</span> <span aria-hidden="true">#</span></a><p>The main challenge in creating a more realistic region-filling dataset is
 accurately rendering a broader range of geographic features. Recall in the
 dataset for task 1 that we render only block outlines and buildings. For task
 2, we can encode more context and render additional geographic features, such
@@ -433,8 +433,8 @@ areas (darker grey polygons), (6) pedestrian walkways (darker grey lines), (7)
 parks (green polygons). Four example renderings are shown below in Figure 5:</p>
 <p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/example_regions.jpg" alt="example regions"></p>
 <p class="figcaption">Figure 5: Four example regions in the dataset for task 2. The dataset exhibits a wide variety in the correct number of buildings in the output, as can be seen by the second column, which should be left mostly blank. Furthermore, note the presence of pedestrian footpaths around which buildings should not be generated (left and rightmost columns), the presence of buildings along the pier (third column), and the variety of block shapes around which buildings must be placed (columns one versus four).</p>
-<h4>Scraping</h4>
-<p>The only additional complication with rendering larger map segments is that the
+<h4 id="scraping" tabindex="-1">Scraping</h4>
+<a class="dn" href="#scraping"><span class="dn">Permalink to “Scraping”</span> <span aria-hidden="true">#</span></a><p>The only additional complication with rendering larger map segments is that the
 amount of map data required is significantly greater. We address this by
 building a small scraping pipeline that walks a given latitude, longitude
 geographic region by fixed window sizes (chosen to render well onto a square
@@ -444,8 +444,8 @@ image).</p>
 results in 2967 individual regions, which we filter to include only those with
 at least one building. After filtering, 1880 regions remain, which we partition
 into train (1680) / val (100) / test (100) splits.</p>
-<h2>Model</h2>
-<p>We use the conditional adversarial network, proposed by Isola et al.
+<h2 id="model" tabindex="-1">Model</h2>
+<a class="dn" href="#model"><span class="dn">Permalink to “Model”</span> <span aria-hidden="true">#</span></a><p>We use the conditional adversarial network, proposed by Isola et al.
 (2017).<sup class="footnote-ref"><a href="#fn15" id="fnref15">[15]</a></sup></p>
 <p>This model trains two networks, a generator, and a discriminator. The generator
 produces candidate output images, and the discriminator attempts to decide
@@ -466,9 +466,9 @@ The second issue is less prevalent in conditional GANs, because the
 discriminator also receives the input; however, in our particular dataset, many
 inputs look identical, especially for the first task (there are many uniform
 grey squares as input).</p>
-<h2>Experimental Results and Discussion</h2>
-<h3>Task 1</h3>
-<p>At the beginning of training, the model has trouble producing coherent shapes,
+<h2 id="experimental-results-and-discussion" tabindex="-1">Experimental Results and Discussion</h2>
+<a class="dn" href="#experimental-results-and-discussion"><span class="dn">Permalink to “Experimental Results and Discussion”</span> <span aria-hidden="true">#</span></a><h3 id="task-1" tabindex="-1">Task 1</h3>
+<a class="dn" href="#task-1"><span class="dn">Permalink to “Task 1”</span> <span aria-hidden="true">#</span></a><p>At the beginning of training, the model has trouble producing coherent shapes,
 and has not yet learned that it should only output one of three color values.
 This can be seen in Figure 6 with the multicolor banding on the right side of
 the image. However, it is able to immediately learn to reproduce the grey
@@ -491,8 +491,8 @@ neural network. However, the L1 distance from the generated image to the gold
 is terrible, as it got the buildings almost completely wrong.</p>
 <p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task1-epoch193.jpg" alt="task 1 epoch 193"></p>
 <p class="figcaption">Figure 8: Task 1, after 193 epochs. (The model was trained for 200 epochs in total.)</p>
-<h4>Mode collapse</h4>
-<p>One question we were interested to investigate is: does the conditional
+<h4 id="mode-collapse" tabindex="-1">Mode collapse</h4>
+<a class="dn" href="#mode-collapse"><span class="dn">Permalink to “Mode collapse”</span> <span aria-hidden="true">#</span></a><p>One question we were interested to investigate is: does the conditional
 adversarial network suffer from mode collapse in this task?</p>
 <p>During the middle of training, we observed what appeared to be mode collapse,
 as can be seen in Figure 9. The model repeatedly generates a single building
@@ -505,8 +505,8 @@ be interested in disentangling what aspect of the training helped remedy
 this—was it the optimization method? The discriminator “catching up” to the
 mode? Or simply the L1 loss?—but we would need to conduct ablations and
 further model analysis to propose an answer to this question.</p>
-<h3>Task 2</h3>
-<p>Similar to with task 1, the model is able to pick up on copying general
+<h3 id="task-2" tabindex="-1">Task 2</h3>
+<a class="dn" href="#task-2"><span class="dn">Permalink to “Task 2”</span> <span aria-hidden="true">#</span></a><p>Similar to with task 1, the model is able to pick up on copying general
 background shapes over to the output by the end of epoch 1, though the results
 are fuzzy, and it has trouble producing buildings (Figure 10).</p>
 <p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task2-epoch1.jpg" alt="task 2 epoch 1"></p>
@@ -521,8 +521,8 @@ many of the inputs. Figure 12 shows the model after its final 200th epoch of
 training, generating a remarkably faithful output compared to the gold.</p>
 <p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task2-epoch200.jpg" alt="task 2 epoch 200"></p>
 <p class="figcaption">Figure 12: Task 2, the final model after 200 epochs.</p>
-<h4>Success cases</h4>
-<p>There are a few cases that the model can handle very well, shown in the three
+<h4 id="success-cases" tabindex="-1">Success cases</h4>
+<a class="dn" href="#success-cases"><span class="dn">Permalink to “Success cases”</span> <span aria-hidden="true">#</span></a><p>There are a few cases that the model can handle very well, shown in the three
 rows in Figure 13. The first row demonstrates the situation where the model
 excels the most: in regular, dense, suburban grids. This is likely due to the
 large quantity of similarly structured examples in the training set, as well as
@@ -535,8 +535,8 @@ the parks themselves (with rare exceptions being visitor centers).</p>
 has learned: that buildings do not go between freeway roads.</p>
 <p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task2-successes.jpg" alt="task 2 successes"></p>
 <p class="figcaption">Figure 13: Task 2, three patterns the model has learned to reproduce well.</p>
-<h4>Failure cases</h4>
-<p>The model is of course not without its shortcomings. Figure 14 illustrates
+<h4 id="failure-cases" tabindex="-1">Failure cases</h4>
+<a class="dn" href="#failure-cases"><span class="dn">Permalink to “Failure cases”</span> <span aria-hidden="true">#</span></a><p>The model is of course not without its shortcomings. Figure 14 illustrates
 two of the main problems that plague the model even after it is fully trained.
 In the first row we see that the model still generates blobs for buildings,
 especially in-between curvy blocks. The second row demonstrates visual
@@ -545,8 +545,8 @@ banding in the green park area, and the color mixtures around the long vertical
 grey lines.</p>
 <p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task2-problems.jpg" alt="task 2 failures"></p>
 <p class="figcaption">Figure 14: Task 2, two problems the model has even after training.</p>
-<h4>Unpredictable Sparsity</h4>
-<p>Some of the most frequent failures cases for the model were arguably not due to
+<h4 id="unpredictable-sparsity" tabindex="-1">Unpredictable Sparsity</h4>
+<a class="dn" href="#unpredictable-sparsity"><span class="dn">Permalink to “Unpredictable Sparsity”</span> <span aria-hidden="true">#</span></a><p>Some of the most frequent failures cases for the model were arguably not due to
 shortcomings of the model itself, but the unpredictability of the task. Figure
 15 shows the sparsity / density issue happening in both directions. Some road
 networks, though seemingly regular and residential, in fact have no buildings
@@ -561,8 +561,8 @@ to ensure that the above sparse blocks are truly empty. One possibility is that
 there are other geographic landmarks (such as military areas, cemetaries, or
 railroad tracks) that would either explain the emptiness, or provide clues for
 the model to better determine when it should leave regions unoccupied.</p>
-<h2>Conclusion</h2>
-<p>We presented what is, to our knowledge, the first attempt to generate urban
+<h2 id="conclusion" tabindex="-1">Conclusion</h2>
+<a class="dn" href="#conclusion"><span class="dn">Permalink to “Conclusion”</span> <span aria-hidden="true">#</span></a><p>We presented what is, to our knowledge, the first attempt to generate urban
 city layouts using machine learning. We collected two “fill in the buildings”
 datasets by generating custom renderings from geographic data. We showed that
 conditional adversarial network models perform surprisingly well on both tasks,

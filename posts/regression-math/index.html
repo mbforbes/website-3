@@ -93,8 +93,8 @@
       
 
       <div class="markdown-body">
-        <h2>Preface</h2>
-<p><em>I wrote this in 2017, and am posting it now in 2021. I was surprised how difficult it was to find complete information about linear regressions in one place: the derivations of the gradients, how they get their properties (e.g., lasso’s sparsity requiring coordinate descent), and some simple code to implement them. I tried to be careful about vector shapes and algebra, but there are probably still minor errors, which are of course my own.</em></p>
+        <h2 id="preface" tabindex="-1">Preface</h2>
+<a class="dn" href="#preface"><span class="dn">Permalink to “Preface”</span> <span aria-hidden="true">#</span></a><p><em>I wrote this in 2017, and am posting it now in 2021. I was surprised how difficult it was to find complete information about linear regressions in one place: the derivations of the gradients, how they get their properties (e.g., lasso’s sparsity requiring coordinate descent), and some simple code to implement them. I tried to be careful about vector shapes and algebra, but there are probably still minor errors, which are of course my own.</em></p>
 <p><em>One big goof I had was running this on MNIST, which ought to be treated as a classification problem per class (e.g., with logistic regression), rather than trying to regress each digit to a number (e.g., the digit “1” to the number <code>1</code>, and the digit “5” to the number <code>5</code>). I should have ran this code on a true regression dataset instead, where you do want real numbers (rather than class decisions) as output.</em></p>
 <p><em>However, the silver lining is that after this goof, I was in a computer architecture class where we needed to run MNIST classification on FPGAs, and the starter code had made exactly this same mistake—they were doing linear instead of logistic regression! Making that simple switch resulted in such an accuracy boost that the classifier became one of the pareto optimal ones.</em></p>
 <p><em>The repository for this project, which contains the full writeup below, as well as simple pytorch code to implement it, is here:</em></p>
@@ -135,23 +135,23 @@
         </span><p class="mv1 f5 f4-ns">Regression derivations (+ basic code running on MNIST): ordinary least squares, ridge (ℓ²), and lasso (ℓ¹).</p></div>
 <p><em>Enjoy!</em></p>
 <p><em>– Max from 2021</em></p>
-<h2>Goal</h2>
-<p><strong>Build</strong> linear regression for MNIST from scratch using pytorch.</p>
-<h2>Data splits</h2>
-<p>MNIST (<a href="https://pjreddie.com/projects/mnist-in-csv/">csv version</a>) has a 60k/10k train/test split.</p>
+<h2 id="goal" tabindex="-1">Goal</h2>
+<a class="dn" href="#goal"><span class="dn">Permalink to “Goal”</span> <span aria-hidden="true">#</span></a><p><strong>Build</strong> linear regression for MNIST from scratch using pytorch.</p>
+<h2 id="data-splits" tabindex="-1">Data splits</h2>
+<a class="dn" href="#data-splits"><span class="dn">Permalink to “Data splits”</span> <span aria-hidden="true">#</span></a><p>MNIST (<a href="https://pjreddie.com/projects/mnist-in-csv/">csv version</a>) has a 60k/10k train/test split.</p>
 <p>I pulled the last 10k off of train for a val set.</p>
 <p>My final splits are then 50k/10k/10k train/val/test.</p>
-<h2>Viewing an image</h2>
-<p>Here’s an MNIST image:</p>
+<h2 id="viewing-an-image" tabindex="-1">Viewing an image</h2>
+<a class="dn" href="#viewing-an-image"><span class="dn">Permalink to “Viewing an image”</span> <span aria-hidden="true">#</span></a><p>Here’s an MNIST image:</p>
 <p><img src="/website-3/assets/posts/regression-math/images/example_normal.jpg" alt="the first mnist datum"></p>
 <p>Here it is expanded 10x:</p>
 <p><img src="/website-3/assets/posts/regression-math/images/example_bloated.jpg" alt="the first mnist datum, expanded"></p>
-<h2>Data loading: CSV vs binary (“tensor”)</h2>
-<p>y-axis is seconds taken to load the file; lower is better. Result: binary is
+<h2 id="data-loading:-csv-vs-binary-(&quot;tensor&quot;)" tabindex="-1">Data loading: CSV vs binary (“tensor”)</h2>
+<a class="dn" href="#data-loading:-csv-vs-binary-(&quot;tensor&quot;)"><span class="dn">Permalink to “Data loading: CSV vs binary (“tensor”)”</span> <span aria-hidden="true">#</span></a><p>y-axis is seconds taken to load the file; lower is better. Result: binary is
 way faster.</p>
 <p><img src="/website-3/assets/posts/regression-math/images/data_loading.png" alt="data loading speeds, csv vs binary"></p>
-<h2>Naive regression to scalar</h2>
-<p>In this we regress each image to a scalar that is the number represented in
+<h2 id="naive-regression-to-scalar" tabindex="-1">Naive regression to scalar</h2>
+<a class="dn" href="#naive-regression-to-scalar"><span class="dn">Permalink to “Naive regression to scalar”</span> <span aria-hidden="true">#</span></a><p>In this we regress each image to a scalar that is the number represented in
 that image. For example, we regress the image <img alt="the first MNIST datum" src="/website-3/assets/posts/regression-math/images/example_normal.jpg" class="inline ph2"> to the number <code>5</code>.</p>
 <blockquote>
 <p>Disclaimer: this is a suboptimal approach. If you’re going to treat was is really a
@@ -168,8 +168,8 @@ them, © I’m kind of treating this like a notebook, so might as well
 document the simple → complex progression of what I tried.</p>
 <p>So here we go.</p>
 </blockquote>
-<h3>Notation</h3>
-<p>Definitions:</p>
+<h3 id="notation" tabindex="-1">Notation</h3>
+<a class="dn" href="#notation"><span class="dn">Permalink to “Notation”</span> <span aria-hidden="true">#</span></a><p>Definitions:</p>
 <p><img src="/website-3/assets/posts/regression-math/svg/definitions.svg" alt="definitions"></p>
 <p>Math reminders and my notation choices:</p>
 <p><img src="/website-3/assets/posts/regression-math/svg/math-reminders.svg" alt="math reminders"></p>
@@ -181,8 +181,8 @@ people™ have decided that gradients of functions are column vectors,
 which is why I have transposes sprinkled below. (Thanks to Chris Xie for
 explaining this.)</p>
 </blockquote>
-<h3>Ordinary least squares (OLS)</h3>
-<p><strong>Loss</strong> (average per datum):</p>
+<h3 id="ordinary-least-squares-(ols)" tabindex="-1">Ordinary least squares (OLS)</h3>
+<a class="dn" href="#ordinary-least-squares-(ols)"><span class="dn">Permalink to “Ordinary least squares (OLS)”</span> <span aria-hidden="true">#</span></a><p><strong>Loss</strong> (average per datum):</p>
 <p><img src="/website-3/assets/posts/regression-math/svg/least-squares-loss.svg" alt="least squares loss"></p>
 <p>Using the average loss per datum is nice because it is invariant of the dataset
 (or (mini)batch) size, which will come into play when we do gradient
@@ -237,8 +237,8 @@ iterations.</p>
 <p>But how well do we do in regressing to a scalar with OLS?</p>
 <p><img src="/website-3/assets/posts/regression-math/images/ols_acc.png" alt="ols accuracy"></p>
 <p>Not very well.</p>
-<h3>Ridge regression (RR)</h3>
-<p><strong>Loss:</strong></p>
+<h3 id="ridge-regression-(rr)" tabindex="-1">Ridge regression (RR)</h3>
+<a class="dn" href="#ridge-regression-(rr)"><span class="dn">Permalink to “Ridge regression (RR)”</span> <span aria-hidden="true">#</span></a><p><strong>Loss:</strong></p>
 <p><img src="/website-3/assets/posts/regression-math/svg/ridge-loss.svg" alt="ridge loss"></p>
 <blockquote>
 <p>NB: For all regularization methods (e.g., ridge and lasso), we shouldn’t be
@@ -279,8 +279,8 @@ derivation here.) We’ll also make use of the residual
 <p><img src="/website-3/assets/posts/regression-math/svg/ridge-cd-2.svg" alt="ridge cd 2"></p>
 <p>As above, we update the residual after each weight update:</p>
 <p><img src="/website-3/assets/posts/regression-math/svg/residual-update.svg" alt="residual update"></p>
-<h3>Lasso</h3>
-<p><strong>Loss:</strong></p>
+<h3 id="lasso" tabindex="-1">Lasso</h3>
+<a class="dn" href="#lasso"><span class="dn">Permalink to “Lasso”</span> <span aria-hidden="true">#</span></a><p><strong>Loss:</strong></p>
 <p><img src="/website-3/assets/posts/regression-math/svg/lasso-loss.svg" alt="lasso loss"></p>
 <p><strong>Derivative:</strong></p>
 <p><img src="/website-3/assets/posts/regression-math/svg/lasso-derivative-part1.svg" alt="lasso derivative part 1"></p>
@@ -315,8 +315,8 @@ set of subgradients, rather than that it equals zero.</p>
 <p>As with coordinate descent above, we need to update the residual <strong>r</strong> after
 each weight update (skipping the derivation; same as above for OLS):</p>
 <p><img src="/website-3/assets/posts/regression-math/svg/residual-update.svg" alt="residual update"></p>
-<h2>Links</h2>
-<ul>
+<h2 id="links" tabindex="-1">Links</h2>
+<a class="dn" href="#links"><span class="dn">Permalink to “Links”</span> <span aria-hidden="true">#</span></a><ul>
 <li><a href="https://en.wikipedia.org/wiki/Regularized_least_squares#Partial_list_of_RLS_methods">Table of regularized least squares functions (Wikipedia)</a></li>
 <li><a href="https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf">The Matrix Cookbook (Petersen &amp; Pedersen)</a></li>
 <li><a href="https://web.stanford.edu/~mrosenfe/soc_meth_proj3/matrix_OLS_NYU_notes.pdf">OLS with matrices notes (possibly Rosenfeld?)</a></li>
@@ -324,8 +324,8 @@ each weight update (skipping the derivation; same as above for OLS):</p>
 <li><a href="http://jocelynchi.com/a-coordinate-descent-algorithm-for-the-lasso-problem">A Coordinate Descent Algorithm for the Lasso Problem (Chi)</a></li>
 <li><a href="https://www.coursera.org/learn/ml-regression/lecture/6OLyn/deriving-the-lasso-coordinate-descent-update">Deriving the lasso coordinate descent update (Fox)</a></li>
 </ul>
-<h2>Acknowledgements</h2>
-<p>Many thanks to Chris Xie and John Thickstun for helping me out with math. All errors are my own.</p>
+<h2 id="acknowledgements" tabindex="-1">Acknowledgements</h2>
+<a class="dn" href="#acknowledgements"><span class="dn">Permalink to “Acknowledgements”</span> <span aria-hidden="true">#</span></a><p>Many thanks to Chris Xie and John Thickstun for helping me out with math. All errors are my own.</p>
 
       </div>
 

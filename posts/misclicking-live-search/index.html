@@ -103,8 +103,8 @@
       <div class="markdown-body">
         <p><object id="cover" type="image/svg+xml" data="/website-3/assets/posts/misclicking-live-search/cover.svg"></object></p>
 <p>This post is about problems with search-as-you-type features, like search on an iPhone or Spotlight on macOS.</p>
-<h2>An Example</h2>
-<p>On my phone, I want to open Google Maps. So I swipe down and start typing “maps.” I get to “m” and search results start streaming in:</p>
+<h2 id="an-example" tabindex="-1">An Example</h2>
+<a class="dn" href="#an-example"><span class="dn">Permalink to “An Example”</span> <span aria-hidden="true">#</span></a><p>On my phone, I want to open Google Maps. So I swipe down and start typing “maps.” I get to “m” and search results start streaming in:</p>
 <p><img src="/website-3/assets/posts/misclicking-live-search/searches-1.jpg" alt=""></p>
 <p class="figcaption" markdown="1">Ah good, there it is, just let me...</p>
 <p>As I finish typing “maps,” I notice where Google Maps is, so I start moving my big stupid slow finger to press it. But right before I touch the screen:</p>
@@ -112,8 +112,8 @@
 <p class="figcaption" markdown="1">I end up opening the settings page for Apple Maps, rather than the actual app for Google Maps.</p>
 <p>This happened all the time when I had an iPhone 6. It was a shockingly bad experience right on the surface of multiple Apple products.</p>
 <p>Of course, I knew the reason for it happening on my phone: it was too old. (I was still using my iPhone 6 up until the iPhone 11 came out.) They test all their stuff on newer phones, I’m sure, where the results latency is always very low. But the design does not degrade gracefully. When you phone is slower, your experience doesn’t just become slower, it actually causes errors.</p>
-<h2>The Problem(s)</h2>
-<p>There are actually two separate problems that might happen. The previous example was for problem #1. Both of the problems manifest in you selecting the wrong thing and getting grumpy.</p>
+<h2 id="the-problem(s)" tabindex="-1">The Problem(s)</h2>
+<a class="dn" href="#the-problem(s)"><span class="dn">Permalink to “The Problem(s)”</span> <span aria-hidden="true">#</span></a><p>There are actually two separate problems that might happen. The previous example was for problem #1. Both of the problems manifest in you selecting the wrong thing and getting grumpy.</p>
 <ol>
 <li>
 <p><strong>Selecting too slow: updates during the physical act of selection.</strong> Search results update as you’re typing, but (inevitably) with some delay. So, the completions for a prefix (like “Desk”) are different than for the full query (like “Desktop”). This causes problems if you go to select on something from a <em>partial completion,</em> but the results update right before you press/click because of more text you typed.</p>
@@ -125,8 +125,8 @@
 </ol>
 <p>I used to hit problem #2 almost daily with macOS Spotlight (<code>cmd+space</code>), the search function I use to open basically everything on my computer.</p>
 <p>This is all bizarre to me because Apple usually does a great job with most interface stuff. I’m surprised to find something this consistently bad.</p>
-<h2>The Design Problem</h2>
-<p>First I was annoyed at this,</p>
+<h2 id="the-design-problem" tabindex="-1">The Design Problem</h2>
+<a class="dn" href="#the-design-problem"><span class="dn">Permalink to “The Design Problem”</span> <span aria-hidden="true">#</span></a><p>First I was annoyed at this,</p>
 <p>Then, I was still annoyed at this, but had to admit, “OK, that’s a hard design problem.”</p>
 <p>You want to display some kind of results as quickly as possible so the user isn’t waiting around. But you must plan around variable latency. Even if you somehow cache everything on the phone and can guarantee those matches are quick, once you include Internet material, you simply must to plan for some results to come back with higher latency.</p>
 <p>Here are some half-baked ideas.</p>
@@ -140,8 +140,8 @@
 </li>
 </ol>
 <p>You could combine ideas 1 and 2. If you can be sure that one section will update fast enough nobody will select a stale one, you can display it early. However, for something like Spotlight, where the top result may be slow (Internet) or fast (local on your computer), the section-based idea wouldn’t help.</p>
-<h2>Epilogue</h2>
-<p>When I first wrote this, I was using an iPhone 6 and a Macbook Pro from 2015. Now, I’m using a newer iPhone and newer Macbook Pro. I don’t have these issues.</p>
+<h2 id="epilogue" tabindex="-1">Epilogue</h2>
+<a class="dn" href="#epilogue"><span class="dn">Permalink to “Epilogue”</span> <span aria-hidden="true">#</span></a><p>When I first wrote this, I was using an iPhone 6 and a Macbook Pro from 2015. Now, I’m using a newer iPhone and newer Macbook Pro. I don’t have these issues.</p>
 <p>Have they fixed the design? Or have I just graduated back into the expensive class of blissful ignorance?</p>
 <script src="/website-3/assets/lib/anime-3.2.1.min.js"></script>
 <script>

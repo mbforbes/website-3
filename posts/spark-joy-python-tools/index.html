@@ -153,8 +153,8 @@ photo by RISE</a>,
 CC BY 2.0.
 </p>
 <p>Use a code formatter to wash away all of your stupid opinions about how your code should look. Ditch linters. Debug with a REPL. Use a newer language. And pick an editor that works on your servers. Ahh.</p>
-<h2>Black</h2>
-<p>Do you ever try to align variables to function indentations?</p>
+<h2 id="black" tabindex="-1">Black</h2>
+<a class="dn" href="#black"><span class="dn">Permalink to “Black”</span> <span aria-hidden="true">#</span></a><p>Do you ever try to align variables to function indentations?</p>
 <pre class="language-python"><code class="language-python">check_this_call_out<span class="token punctuation">(</span>argument1<span class="token punctuation">,</span><br>                    here_is_arg2<span class="token punctuation">,</span><br>                    look_at_arg3<span class="token punctuation">)</span><br><br>oh_another<span class="token punctuation">(</span>slightly<span class="token punctuation">,</span><br>           different<span class="token punctuation">,</span><br>           indentation<span class="token punctuation">)</span><br><br>this_one_is_way_too_long_so<span class="token punctuation">(</span><br>    lets<span class="token punctuation">,</span> get<span class="token punctuation">,</span> back<span class="token punctuation">,</span> to<span class="token punctuation">,</span> basics<span class="token punctuation">,</span><br><span class="token punctuation">)</span><br></code></pre>
 <p>When do you switch? Do you put trailing commas? When you start adding type annotations, things get even hairier.</p>
 <p>My life improved when I stopped ever dealing with any of that crap. Enter <a href="https://github.com/python/black">Black</a>, a python formatter. Directly from their GitHub:</p>
@@ -162,10 +162,10 @@ CC BY 2.0.
 <p>By using it, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters.</p>
 </blockquote>
 <p>I’ve never minded python’s indentation-instead-of-braces style, but I have minded rearranging stuff around manually and thinking about when to put what where. After writing in Go for a while and similarly relinquishing formatting to <code>gofmt</code>, this comes as a welcome relief. Simply set up your editor to run your formatter when you save a file.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
-<h2>Ditch linters</h2>
-<p>Every linter I have used whined about non-vital things. I have abandoned all such noise. Black declutters, mypy (from the previous post) tells me when things are truly wrong. (Sometimes.)</p>
-<h2><code>code.interact(…)</code></h2>
-<p>Whenever, I don’t know what’s going on, I just drop in this line:</p>
+<h2 id="ditch-linters" tabindex="-1">Ditch linters</h2>
+<a class="dn" href="#ditch-linters"><span class="dn">Permalink to “Ditch linters”</span> <span aria-hidden="true">#</span></a><p>Every linter I have used whined about non-vital things. I have abandoned all such noise. Black declutters, mypy (from the previous post) tells me when things are truly wrong. (Sometimes.)</p>
+<h2 id="code.interact(...)" tabindex="-1"><code>code.interact(…)</code></h2>
+<a class="dn" href="#code.interact(...)"><span class="dn">Permalink to “code.interact(…)”</span> <span aria-hidden="true">#</span></a><p>Whenever, I don’t know what’s going on, I just drop in this line:</p>
 <pre class="language-python"><code class="language-python">code<span class="token punctuation">.</span>interact<span class="token punctuation">(</span>local<span class="token operator">=</span><span class="token builtin">dict</span><span class="token punctuation">(</span><span class="token builtin">globals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">**</span><span class="token builtin">locals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>That line drops you into an interactive python prompt with the complete state of your program. (Don’t forget to <code>import code</code> before using.) I use it so much I made a button on my keyboard vomit out that whole line.</p>
 <p>This single line joins together file-based programming (is there a better word for that?), with interactive experimentation. If you send it “end of file” (ctrl-D for me) your program keeps on running where it left off.</p>
@@ -196,10 +196,10 @@ CC BY 2.0.
 <p>using breakpoints with an editor — seems great. <strong>But</strong> you have to figure out how to hook your editor up to Python, or figure out how to run python from within your editor. I tried this once, and my code ran way slower. So I never tried it again.</p>
 </li>
 </ul>
-<h2>Python 3</h2>
-<p>I started writing this blog post so long ago that this idea was somewhat controversial. At this point, it seems pretty much accepted. Python 3 is smooth sailing. Strings just work, and you get support for cooler stuff like cleaner type annotation syntax. Here’s a <a href="http://ptgmedia.pearsoncmg.com/imprint_downloads/informit/promotions/python/python2python3.pdf">cheat sheet</a> if you need help.</p>
-<h2>VS Code’s Remote Development</h2>
-<p>For the first time, I have a twenty-first century editor that can edit code that lives on a remote server as well as my desktop.</p>
+<h2 id="python-3" tabindex="-1">Python 3</h2>
+<a class="dn" href="#python-3"><span class="dn">Permalink to “Python 3”</span> <span aria-hidden="true">#</span></a><p>I started writing this blog post so long ago that this idea was somewhat controversial. At this point, it seems pretty much accepted. Python 3 is smooth sailing. Strings just work, and you get support for cooler stuff like cleaner type annotation syntax. Here’s a <a href="http://ptgmedia.pearsoncmg.com/imprint_downloads/informit/promotions/python/python2python3.pdf">cheat sheet</a> if you need help.</p>
+<h2 id="vs-code's-remote-development" tabindex="-1">VS Code’s Remote Development</h2>
+<a class="dn" href="#vs-code's-remote-development"><span class="dn">Permalink to “VS Code’s Remote Development”</span> <span aria-hidden="true">#</span></a><p>For the first time, I have a twenty-first century editor that can edit code that lives on a remote server as well as my desktop.</p>
 <p>For me, the editor is the lynchpin that holds together other joy-sparking tools:</p>
 <ul>
 <li>
@@ -216,8 +216,8 @@ CC BY 2.0.
 </li>
 </ul>
 <p>It is such a joy to have a really solid editor that <em>just works</em> locally and remotely. I can’t tell you how many times I’ve played the “<code>git push</code> here and <code>git pull</code> there” game, <code>ssh</code>’d in for Emacs to change “just one little thing,” or spent hours trying to jurry rig mount filesystems that end up crashing my Mac so I could use Sublime. This all strikes me as one of those things programmers of the future will be shocked we took so long to figure out after inventing the Internet.</p>
-<h2>Summary</h2>
-<p>Pick few tools to help you with common tasks and declutter annoying ones.</p>
+<h2 id="summary" tabindex="-1">Summary</h2>
+<a class="dn" href="#summary"><span class="dn">Permalink to “Summary”</span> <span aria-hidden="true">#</span></a><p>Pick few tools to help you with common tasks and declutter annoying ones.</p>
 <!-- Sorry, I already hedged about this point in the intro, but I’m hedging more here. -->
 <hr class="footnotes-sep">
 <section class="footnotes">

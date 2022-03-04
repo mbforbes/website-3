@@ -100,13 +100,13 @@
         <p><img src="/website-3/assets/posts/calorie-counting-meal-planning/header.svg" alt=""></p>
 <p>I made a really simple calorie counting × meal planning web app. It’s open-source, and you can use it <a href="https://github.com/mbforbes/food">here</a> if you’d like (not for the faint of heart). Following it worked pretty well for me—I was able to lose fat, save money, and learn to cook some new things.</p>
 <p>But hold on. Calorie counting? Meal planning? Yes, this post is about fat loss.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> This side project isn’t really on-brand for me, so I wanted to write everything out in one go. What follows is my brain dump on calorie counting, meal planning, and the resulting little app I made to help me out. While it’s not flashy or exciting, I admit it’s the only app I’ve made that I actually use on a day-to-day basis.</p>
-<h3>Disclaimer</h3>
-<p>An honest take on the science of food and nutrition seems to be: <em>we have no idea what’s going on.</em> And yet of course the internet and bookstores are filled with diets and exercise plans. There’s a lot that works for many people, and a lot that doesn’t. Take everything I write with a Samin Nosrat helping of salt.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
-<h2>Losing fat</h2>
-<p>My goal was to lose some fat.</p>
+<h3 id="disclaimer" tabindex="-1">Disclaimer</h3>
+<a class="dn" href="#disclaimer"><span class="dn">Permalink to “Disclaimer”</span> <span aria-hidden="true">#</span></a><p>An honest take on the science of food and nutrition seems to be: <em>we have no idea what’s going on.</em> And yet of course the internet and bookstores are filled with diets and exercise plans. There’s a lot that works for many people, and a lot that doesn’t. Take everything I write with a Samin Nosrat helping of salt.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<h2 id="losing-fat" tabindex="-1">Losing fat</h2>
+<a class="dn" href="#losing-fat"><span class="dn">Permalink to “Losing fat”</span> <span aria-hidden="true">#</span></a><p>My goal was to lose some fat.</p>
 <p>Losing fat seems both potentially quite simple, but at the same time extremely challenging for myriad reasons that may be different for each person. And though it’s a fascinating topic, fat loss seems to have suffered from years of bad information and tabloid-level expertise,<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> making it both slightly uncomfortable to discuss, yet somehow critical to both shallow ideas of beauty and seemingly legitimate effects on one’s health.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
-<h2>Why food?</h2>
-<p>If you consume American media, it’s hard not to think that exercise is the key to achieving a fit body. On TV, you’re bombarded with videos of beautifully sweaty athletes, pumping their gleaming bodies around to the latest beats, rocking the freshest sportswear and headphones. (And right after, you’ll probably see ads for pizza, soda, and beer.) <sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
+<h2 id="why-food" tabindex="-1">Why food?</h2>
+<a class="dn" href="#why-food"><span class="dn">Permalink to “Why food?”</span> <span aria-hidden="true">#</span></a><p>If you consume American media, it’s hard not to think that exercise is the key to achieving a fit body. On TV, you’re bombarded with videos of beautifully sweaty athletes, pumping their gleaming bodies around to the latest beats, rocking the freshest sportswear and headphones. (And right after, you’ll probably see ads for pizza, soda, and beer.) <sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
 <p>I remember seeing a graph a while ago that I can’t find, so I’ve made one that expresses the same idea:</p>
 <p><img src="/website-3/assets/posts/calorie-counting-meal-planning/diet-vs-exercise.svg" alt="Bar graph comparing calorie intake with food vs spending with exercise"></p>
 <p class="figcaption" markdown="1">
@@ -118,8 +118,8 @@ _With food, you control calories from roughly 1800 - 3500 per day, but with exer
 <p>Is exercise still important? It seems to be. You don’t want your muscles to atrophy, and you probably want them to even grow a bit. And exercise seems to help your mood, sleep, thinking, longevity, and mental health in all kinds of difficult-to-measure ways.</p>
 <p>But let’s be clear: exercise takes a back seat to food in the quest of consuming fewer calories than you burn. There’s just no contest.</p>
 <p>Is losing fat as simple as consuming fewer calories than you burn? Aside from lifting weights sometimes to keep your muscles, I think so. I might be wrong. You can read a lot about this on the internet, but consuming fewer calories than you burn seems to be an overwhelmingly reasonable approach to losing fat. The strongest case against this is the idea that your body adjusts to needing fewer calories when you feed it less—but if this is true, the effect seems to be small.</p>
-<h2>Counting calories</h2>
-<p><img src="/website-3/assets/posts/calorie-counting-meal-planning/bubbles.jpg" alt="A picture of San Pellegrino with a splash of aperol."></p>
+<h2 id="counting-calories" tabindex="-1">Counting calories</h2>
+<a class="dn" href="#counting-calories"><span class="dn">Permalink to “Counting calories”</span> <span aria-hidden="true">#</span></a><p><img src="/website-3/assets/posts/calorie-counting-meal-planning/bubbles.jpg" alt="A picture of San Pellegrino with a splash of aperol."></p>
 <p class="figcaption" markdown="1">
 _San Pellegrino with a splash of aperol. My friend Woody correctly observed that buying water in a bottle shipped from Italy is stupid given access to clean and nearly free tap water. But I maintain it's a great treat substitute for a beer._
 </p>
@@ -131,8 +131,8 @@ _San Pellegrino with a splash of aperol. My friend Woody correctly observed that
 <p>If instead you were just vaguely trying to eat healthier, it’s easy to think, “I’ll just have a small handful of nuts, that feels pretty healthy.” You grab a 1/2 cup of cashews, which ends up being as much as a workout (~360 calories) and can easily erase your progress for the day.</p>
 <p>Once you’ve decided to count your calories, you enter this challenge of figuring out the calorie content of literally every single thing you put in your mouth. If you cook your food, this is a bit annoying, but gets much easier once you’ve looked up your ingredients a couple times. For eating out, it can be almost impossible, at least until you’re really good at estimating.</p>
 <p>So cooking seems like the right way to go for counting calories. You have much more control. But wait, does this mean cooking all your food?</p>
-<h2>How do you get your food?</h2>
-<p>If you’re with me so far, food choice is paramount to losing fat. And if you’re determined to lose fat and don’t want the guesswork, counting calories gives you total control.</p>
+<h2 id="how-do-you-get-your-food" tabindex="-1">How do you get your food?</h2>
+<a class="dn" href="#how-do-you-get-your-food"><span class="dn">Permalink to “How do you get your food?”</span> <span aria-hidden="true">#</span></a><p>If you’re with me so far, food choice is paramount to losing fat. And if you’re determined to lose fat and don’t want the guesswork, counting calories gives you total control.</p>
 <p>But you’re a human being with money and time to manage. When I thought about getting my food, I really had three goals: cheap, fast, and healthy. Could I get all three at once?</p>
 <p><img src="/website-3/assets/posts/calorie-counting-meal-planning/food-venn.svg" alt="A venn diagram showing healthy, fast, and cheap meal prep options."></p>
 <p class="figcaption" markdown="1">
@@ -152,52 +152,52 @@ _Only meal prepping hit all three marks of cheap, fast, and healthy._
 </ul>
 <p>It seems that the only answer here is to <em>meal prep</em>. Plan out your meals in advance to hit specific calorie requirements, and cook some of them in bulk in advance. Cheap, fast, and healthy.</p>
 <p>But I want to highlight one point about meal prepping I found to be absolutely critical.</p>
-<h2>Planning calories in advance</h2>
-<p><strong>Advance meal planning front-loads your decision making, which makes it so much easier to stay on track with calorie goals.</strong> I really can’t emphasize enough the enormous difference this makes.</p>
+<h2 id="planning-calories-in-advance" tabindex="-1">Planning calories in advance</h2>
+<a class="dn" href="#planning-calories-in-advance"><span class="dn">Permalink to “Planning calories in advance”</span> <span aria-hidden="true">#</span></a><p><strong>Advance meal planning front-loads your decision making, which makes it so much easier to stay on track with calorie goals.</strong> I really can’t emphasize enough the enormous difference this makes.</p>
 <p>Advanced calorie planning is so helpful because you don’t want to make decisions about what to eat when you’re hungry. If you’re like me, you don’t have much useful experience with the sensation of hunger.<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup> When you’re hungry, you fix that problem. You have a hard time regulating your emotions and actions when you’re hungry. And if you’re trying to lose fat, you’re going to start feeling hungry more often. Being hungry and making decisions about what to eat taxes your willpower like crazy.</p>
 <p>With meal prepping, you can make all of your meal decisions in advance. Say you plan your meals during the weekend and cook some of them in advance to save time. Then, during the week, you just eat that food. No decisions, just eat that food.</p>
 <p>If you get hungry sometimes, that’s OK. Having a bit of background hunger becomes much more tolerable when you know where you’re at calorie wise. At first, it feels wrong and awful to be hungry. You may have gone your entire life without feeling the sensation of hunger and just sitting with it. But the crazy thing is, it’s not that bad.<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> You can handle a lot more of this than you think. And it gets better with some practice.</p>
 <p>Having a meal plan, and knowing calorie amounts, also helps guide your decisions when you do decide to deviate. You can choose smaller treats, or compensate for them with your meals.</p>
-<h3>Satiety</h3>
-<p>But wait, it’s not all about being hungry. I found that calorie counting forced me to develop an understanding of which foods made me feel more full for longer.</p>
+<h3 id="satiety" tabindex="-1">Satiety</h3>
+<a class="dn" href="#satiety"><span class="dn">Permalink to “Satiety”</span> <span aria-hidden="true">#</span></a><p>But wait, it’s not all about being hungry. I found that calorie counting forced me to develop an understanding of which foods made me feel more full for longer.</p>
 <p>With no rules on what you can eat aside from hitting calorie goals<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>, you quickly discover what makes you feel full for longer. A breakfast of buttered toast left me famished by 10:45am, but with a scramble of eggs and vegetables, I’d feel comfortably full until lunchtime.</p>
 <p>Dealing with hunger, then, was kind of a natural feedback mechanism for screwing up food choices.</p>
 <p><img src="/website-3/assets/posts/calorie-counting-meal-planning/chicken-cup.jpg" alt="A cup full of chicken"></p>
 <p class="figcaption" markdown="1">
 _Sometimes you just need a cup full of chicken._
 </p>
-<h2>The method</h2>
-<p>In service of losing fat, count calories. In service of counting calories and your money, cook your own food. In service of actually sticking to your calorie plan, plan your meals in advance. And in service of your time, cook some dishes in bulk.</p>
+<h2 id="the-method" tabindex="-1">The method</h2>
+<a class="dn" href="#the-method"><span class="dn">Permalink to “The method”</span> <span aria-hidden="true">#</span></a><p>In service of losing fat, count calories. In service of counting calories and your money, cook your own food. In service of actually sticking to your calorie plan, plan your meals in advance. And in service of your time, cook some dishes in bulk.</p>
 <p>Simply put, this means combining calorie counting with meal planning.</p>
-<h2>Calorie counting × meal planning</h2>
-<p>I originally began my meal planning with a spreadsheet. Looking up the calories for each ingredient is both hugely annoying and hugely informative. One of my earlier sheets looked like this:</p>
+<h2 id="calorie-counting-meal-planning" tabindex="-1">Calorie counting × meal planning</h2>
+<a class="dn" href="#calorie-counting-meal-planning"><span class="dn">Permalink to “Calorie counting × meal planning”</span> <span aria-hidden="true">#</span></a><p>I originally began my meal planning with a spreadsheet. Looking up the calories for each ingredient is both hugely annoying and hugely informative. One of my earlier sheets looked like this:</p>
 <p><img src="/website-3/assets/posts/calorie-counting-meal-planning/spreadsheet-small.png" alt="A screenshot of an early calorie counting spreadsheet I used."></p>
 <p class="figcaption" markdown="1">
 _I don't think I had all of the colors originally._
 </p>
 <p>I think it’s helpful to have an early phase of looking up calories on your own, especially if you’re thinking about eventually using a service that does it for you. I can’t imagine anyone would like to count calories or pay for a meal planning subscription forever. But doing it manually for a few days or weeks gives you all kinds of surprising moments, as I mentioned above about Dairy Queen vs eggs. For the first time, you have an apples-to-apples tool to compare apples and oranges.<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup> More importantly, having a basic background understanding of calorie counts will serve you in the tens of thousands of decisions you make for the rest of your life. After all, we eat every day.</p>
 <p>But when your hammer is programming, repetitive tasks look like nails. I was looking up the same ingredients multiple times. I’d copy and paste meals I had already put together. I’d manually look through the week to compile a grocery list. I wished I had an inventory of the meals I liked to cook, and the calories for common ingredients. If only I could automate some parts of this…</p>
-<h3>Calorie counting apps</h3>
-<p>I eventually looked up calorie counting apps. Would they help me meal plan with calories in mind?</p>
+<h3 id="calorie-counting-apps" tabindex="-1">Calorie counting apps</h3>
+<a class="dn" href="#calorie-counting-apps"><span class="dn">Permalink to “Calorie counting apps”</span> <span aria-hidden="true">#</span></a><p>I eventually looked up calorie counting apps. Would they help me meal plan with calories in mind?</p>
 <p>No. The calorie counting apps I found solve the wrong problem. <strong>Calorie counting apps expect you to record calories as you eat them.</strong> Though some had limited features for advance planning, it was the exception rather than the expected workflow. But this is exactly backwards for the easiest way to meet calorie goals. If I was trying to figure out how many calories something was at the time I was eating it, it was already too late.</p>
 <p>Instead, I specifically wanted to plan, in advance, all of the meals I’d eat for the week, along with their calorie amounts. Then, I’d shop, cook, and eat.</p>
 <p>If you’re planning your meals in advance, then tracking your calories for every meal in an app <em>when you eat the meal</em> is completely pointless. At best, you have to constantly type every damn thing into the app. At worst, this will keep you painfully aware of past failures.</p>
 <p>Another problem is that the calorie counts apps that give for foods vary widely. If you’re in a significant caloric deficit, this is a huge deal. Being off by even 200 calories over the course of several meals is the difference between being slightly hungry and absolutely tortured. Some apps seem to assume you use cooking oil in preparing some food, which leads to huge variations because oil is so calorie dense. Plus, many apps crowdsource their calorie counts, which leads to all sorts of garbage like calorie counts for “1 caesar salad,” which in reality could be anywhere from 200 – 2000.<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup></p>
 <p>In addition to not doing what I wanted, it felt like calorie counting apps do way too much other stuff.  Exercise tracking, sleep logging, sensor integration, weight loss graphs, built-in journal, and so on. For some, this may be fun. But I only wanted to plan and eat my meals.</p>
-<h3>Meal planning apps</h3>
-<p>If your goal is counting calories, you might not think to Google a different set of keywords. But the approach closer to what I wanted is “meal planning.”</p>
+<h3 id="meal-planning-apps" tabindex="-1">Meal planning apps</h3>
+<a class="dn" href="#meal-planning-apps"><span class="dn">Permalink to “Meal planning apps”</span> <span aria-hidden="true">#</span></a><p>If your goal is counting calories, you might not think to Google a different set of keywords. But the approach closer to what I wanted is “meal planning.”</p>
 <p>So, what about meal planning apps? They have the opposite problem: they don’t have any interest in calorie counting. Calories often aren’t available at all. When they are, they’re often estimates, and are never shown per-ingredient. You can’t afford guesswork when you really care about hitting numeric goals. Knowing calories per-ingredient is vital when you want to make a bigger meal or make it more satiating. As soon as you have to tweak something yourself, you need to break back out into a spreadsheet.</p>
 <p>The few apps that I saw that attempted to be hybrids (both calorie counting and meal planning) made it tough to customize what you eat, add your own recipes, or cook in bulk. It felt like these apps try to do as much automation as possible, sacrificing control.</p>
 <p>This sounds like I’m griping over minutae, but I challenge you to follow an app that prescribes you “2 tbsp peanut butter” for lunch and not start gnawing at your potted plants by 3:30.</p>
 <p>The final factor is money. Call me stingy, but when my calorie counting and meal planning were going pretty well with spreadsheets, it felt absurd to pay a subscription (they’re nearly all subscription-based) for an app that did almost the same thing, and left me without the control I wanted.</p>
-<h3>Interlude: apps translating Japanese menus</h3>
-<p>This is off topic but I can’t resist.</p>
+<h3 id="interlude:-apps-translating-japanese-menus" tabindex="-1">Interlude: apps translating Japanese menus</h3>
+<a class="dn" href="#interlude:-apps-translating-japanese-menus"><span class="dn">Permalink to “Interlude: apps translating Japanese menus”</span> <span aria-hidden="true">#</span></a><p>This is off topic but I can’t resist.</p>
 <p><img src="/website-3/assets/posts/calorie-counting-meal-planning/hot-sand.jpg" alt="Picture of bad menu translation labeling buttered toast as hot sand"></p>
 <p class="figcaption" markdown="1">
 _I can't believe it's not sand!_
 </p>
-<h2>What should a calorie counting × meal planning app do?</h2>
-<p>Recap: calorie counting apps suck for meal planning, meal planning apps suck for calorie counting.</p>
+<h2 id="what-should-a-calorie-counting-meal-planning-app-do" tabindex="-1">What should a calorie counting × meal planning app do?</h2>
+<a class="dn" href="#what-should-a-calorie-counting-meal-planning-app-do"><span class="dn">Permalink to “What should a calorie counting × meal planning app do?”</span> <span aria-hidden="true">#</span></a><p>Recap: calorie counting apps suck for meal planning, meal planning apps suck for calorie counting.</p>
 <p>Now enters the part where we figure out what we actually want from an app.</p>
 <p>As I began to make meal plans, first with spreadsheets, and then with early versions of my app, a few realities revealed themselves to me:</p>
 <ol>
@@ -215,8 +215,8 @@ _I can't believe it's not sand!_
 </li>
 </ol>
 <p>… and that’s pretty much it. So, without further ado:</p>
-<h2>Voila</h2>
-<p>The main view of the web app looks like this:</p>
+<h2 id="voila" tabindex="-1">Voila</h2>
+<a class="dn" href="#voila"><span class="dn">Permalink to “Voila”</span> <span aria-hidden="true">#</span></a><p>The main view of the web app looks like this:</p>
 <p><img src="/website-3/assets/posts/calorie-counting-meal-planning/preview-edit.png" alt=""></p>
 <p>The dishes are on the right, and you drag and drop them into the meal slots for the upcoming week:</p>
 <p><img src="/website-3/assets/posts/calorie-counting-meal-planning/dnd-add-dish.gif" alt=""></p>
@@ -228,12 +228,12 @@ _I can't believe it's not sand!_
 <pre class="language-json"><code class="language-json"><span class="token property">"chili"</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Chili"</span><span class="token punctuation">,</span><br>    <span class="token property">"mealHint"</span><span class="token operator">:</span> <span class="token string">"dinner"</span><span class="token punctuation">,</span><br>    <span class="token property">"ingredients"</span><span class="token operator">:</span> <span class="token punctuation">[</span><br>        <span class="token string">"1 tbsp olive oil"</span><span class="token punctuation">,</span><br>        <span class="token string">"2 lbs ground beef (90% lean)"</span><span class="token punctuation">,</span><br>        <span class="token string">"1 onion"</span><span class="token punctuation">,</span><br>        <span class="token string">"6 cloves garlic"</span><span class="token punctuation">,</span><br>        <span class="token string">"2 can diced tomatoes"</span><span class="token punctuation">,</span><br>        <span class="token string">"24 oz tomato sauce"</span><span class="token punctuation">,</span><br>        <span class="token string">"0.5 cup beef broth"</span><span class="token punctuation">,</span><br>        <span class="token string">"2 tbsp chili powder"</span><span class="token punctuation">,</span><br>        <span class="token string">"2.5 tsp cumin"</span><span class="token punctuation">,</span><br>        <span class="token string">"2 tsp paprika"</span><span class="token punctuation">,</span><br>        <span class="token string">"2 tsp cocoa powder"</span><span class="token punctuation">,</span><br>        <span class="token string">"1 tsp sugar"</span><span class="token punctuation">,</span><br>        <span class="token string">"0.5 tsp coriander"</span><span class="token punctuation">,</span><br>        <span class="token string">"30 oz kidney beans"</span><br>    <span class="token punctuation">]</span><span class="token punctuation">,</span><br>    <span class="token property">"img"</span><span class="token operator">:</span> <span class="token string">"img/chili.png"</span><span class="token punctuation">,</span><br>    <span class="token property">"recipe"</span><span class="token operator">:</span> <span class="token string">"cookingclassy.com/slow-cooker-chili/"</span><span class="token punctuation">,</span><br>    <span class="token property">"recipeServings"</span><span class="token operator">:</span> <span class="token number">5</span><br><span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
 <p>There’s no logging in, so there’s no user accounts or databases or anything. You have to run the app by starting a web server on your computer (fortunately this is just one line of code). Oh, and it’s not mobile friendly at all.</p>
 <p>But with all that said, it’s the first app I’ve made that I actually use every week. If you download it, you’ll find dozens of dishes and weeks tucked away. You know, in case you want to know what I had for dinner on September 15th.</p>
-<h2>That’s it</h2>
-<p>Thank you for making it all the way through this lengthy diatribe on calorie counting, meal planning, and my tiny meal prepping app.</p>
+<h2 id="that's-it" tabindex="-1">That’s it</h2>
+<a class="dn" href="#that's-it"><span class="dn">Permalink to “That’s it”</span> <span aria-hidden="true">#</span></a><p>Thank you for making it all the way through this lengthy diatribe on calorie counting, meal planning, and my tiny meal prepping app.</p>
 <p>I started this post because I finished the app as a side project, and it seemed like the app needed some context for why it exists at all. To be honest, I would be shocked (but delighted) if the app is ever used by another person.</p>
 <p>Instead, my hope is that someone in the cognitive ballpark of wanting to lose fat will find something in this post that’s helpful or useful to them, and it will aid them in their journey.</p>
-<h2>Epilogue</h2>
-<p>After several months of counting calories and losing some fat, I found my perspective on a few things changed. I mentioned some of these in passing above, but to put them all in one place:</p>
+<h2 id="epilogue" tabindex="-1">Epilogue</h2>
+<a class="dn" href="#epilogue"><span class="dn">Permalink to “Epilogue”</span> <span aria-hidden="true">#</span></a><p>After several months of counting calories and losing some fat, I found my perspective on a few things changed. I mentioned some of these in passing above, but to put them all in one place:</p>
 <ul>
 <li>
 <p><strong>Satiety</strong> — Some foods are really good at making me feel full for longer with fewer calories than others. Good examples: eggs, broccoli, chicken. Bad examples: cocktails, fettuccini alfredo, potato chips.<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup></p>
@@ -248,8 +248,8 @@ _I can't believe it's not sand!_
 <p><strong>Cooking</strong> — After looking up a lot of calories and cooking a lot of food, some broad patterns emerged. The basic formula was to eat mostly protein and vegetables, and drink a lot of water. As I transition away from purely calorie counting and towards cooking for daily life, I’m starting to try to learn how to make food more delicious. Cooking so much has made me more interested in cooking well, which turns out to be a deep and wonderful world in its own right (news only to me).<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup></p>
 </li>
 </ul>
-<h2>Further resources</h2>
-<ul>
+<h2 id="further-resources" tabindex="-1">Further resources</h2>
+<a class="dn" href="#further-resources"><span class="dn">Permalink to “Further resources”</span> <span aria-hidden="true">#</span></a><ul>
 <li>
 <p><strong><a href="http://ss.fitness">ss.fitness</a></strong> — Advocates focusing on food and cooking your own meals. Lots of nice graphs and illustrations. I didn’t give any citations for my claims throughout this post, but this site provides hundreds of links to studies. Ultimately very helpful, though a bit annoying because the website is constantly redesigned and different pieces get randomly shuffled or locked behind paywalls.</p>
 </li>

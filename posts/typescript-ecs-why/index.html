@@ -187,8 +187,8 @@
 <li>Why build a game engine at all?</li>
 <li>Why use TypeScript?</li>
 </ul>
-<h2>Why Build an ECS?</h2>
-<p>Game engine architectures seem to be a mini religious war in programming, much like Emacs vs Vim, or tabs vs spaces. You can find critiques by prominent game industry figures:</p>
+<h2 id="why-build-an-ecs" tabindex="-1">Why Build an ECS?</h2>
+<a class="dn" href="#why-build-an-ecs"><span class="dn">Permalink to “Why Build an ECS?”</span> <span aria-hidden="true">#</span></a><p>Game engine architectures seem to be a mini religious war in programming, much like Emacs vs Vim, or tabs vs spaces. You can find critiques by prominent game industry figures:</p>
 <p><img src="/website-3/assets/posts/typescript-ecs/jblow.jpg" alt="jonathan blow says ecs only good for big teams"></p>
 <p>Here’s an example of one such big company (Blizzard) using ECS to build a prominent game (Overwatch):</p>
 <iframe class="db center mw-100 mv4" width="560" height="315" src="https://www.youtube-nocookie.com/embed/W3aieHjyNvw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -196,8 +196,8 @@
 <p>So, is it true that ECS is only good for big teams?</p>
 <p>To be honest, I don’t know. I don’t work in the games industry, and I don’t have that much experience. So all I can draw on is my own experience.</p>
 <p>My experience is that <strong>ECS is a simple design that scales beautifully with the project.</strong> I wrote a simple ECS when I first started programming Fallgate (I’ll show you what I wrote in the next post), and it was fun and easy to work with for <em>two years of programming.</em> If you’ve worked on a programming project before, you might realize that this is, in fact, an absolutely wild accomplishment for a design pattern. Usually, I run into serious design flaws with my code after about a week. In the course of the two years, I never had to replace the ECS, and it felt natural to keep building on top of it.</p>
-<h3>Aside: ECS vs Data Locality</h3>
-<p>When I see discussions of ECS, I commonly see people conflating two ideas:</p>
+<h3 id="aside:-ecs-vs-data-locality" tabindex="-1">Aside: ECS vs Data Locality</h3>
+<a class="dn" href="#aside:-ecs-vs-data-locality"><span class="dn">Permalink to “Aside: ECS vs Data Locality”</span> <span aria-hidden="true">#</span></a><p>When I see discussions of ECS, I commonly see people conflating two ideas:</p>
 <ol>
 <li>ECS as a design pattern for structuring code</li>
 <li>Placing data contiguously in memory for good cache performance</li>
@@ -207,8 +207,8 @@
 </blockquote>
 <p>Now, #2 (data locality) can be important for performance.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> And both can go hand-in-hand. However, my focus here is purely #1: using ECS to structure the design of your codebase.</p>
 <p>Building small (2D) games as an independent or hobbyist developer, I think it’s worth exploring design patterns that help you <em>think</em> and <em>structure</em> your code, without worrying about performance. In my experience, ECS is a straightforward, natural way of thinking about how to compose entities in a game world. Once you do want to worry about performance, you can measure your code and see where the bottlenecks are.</p>
-<h3>Aside: ECS Strengths and Weaknesses</h3>
-<p>Is the ECS a perfect architecture?</p>
+<h3 id="aside:-ecs-strengths-and-weaknesses" tabindex="-1">Aside: ECS Strengths and Weaknesses</h3>
+<a class="dn" href="#aside:-ecs-strengths-and-weaknesses"><span class="dn">Permalink to “Aside: ECS Strengths and Weaknesses”</span> <span aria-hidden="true">#</span></a><p>Is the ECS a perfect architecture?</p>
 <p>As usual, I think the answer is: it has pros and cons depending on what you’d like to achieve. As a beginner, I found it a great architecture to get started with.</p>
 <p>I found ECS worked very well for:</p>
 <ul>
@@ -228,12 +228,12 @@
 </ul>
 <p>In my mind, the areas where ECS didn’t help were an opportunity for defining other parts of the game engine, and building nice ways for them to interact with the ECS. Because my design was ECS-centric, those other aspects of Fallgate—like events, scripts, and animations—varied in how well I built them, and how well they worked with the ECS. Some, like particles, worked out great, and played nicely with the ECS. Others, like events and animations, ended up more like warts. If I was to work on a second engine, those would be the design areas I would focus on improving the most.</p>
 <p>But okay, we’re getting ahead of ourselves.</p>
-<h2>Why Build a Game Engine at All?</h2>
-<p>In general, I think that if your goal is just to make games, you shouldn’t write game engines.</p>
+<h2 id="why-build-a-game-engine-at-all" tabindex="-1">Why Build a Game Engine at All?</h2>
+<a class="dn" href="#why-build-a-game-engine-at-all"><span class="dn">Permalink to “Why Build a Game Engine at All?”</span> <span aria-hidden="true">#</span></a><p>In general, I think that if your goal is just to make games, you shouldn’t write game engines.</p>
 <p>But people write their own boutique engines all the time. Why? Are they fools?</p>
 <p>I can think of three main reasons people do it.</p>
-<h3>1. Skip Setup Hell</h3>
-<p>This sounds like a complete paradox. You think you’re going to lower the setup cost of making a game by <em>building an engine first?</em></p>
+<h3 id="1.-skip-setup-hell" tabindex="-1">1. Skip Setup Hell</h3>
+<a class="dn" href="#1.-skip-setup-hell"><span class="dn">Permalink to “1. Skip Setup Hell”</span> <span aria-hidden="true">#</span></a><p>This sounds like a complete paradox. You think you’re going to lower the setup cost of making a game by <em>building an engine first?</em></p>
 <p>But let me tell you, if you’ve ever tried to use a game engine like Unity, there’s a horrible, multi-day or multi-week slog of trying to figure out the damn software. I’ve bounced off seriously trying at least four times over the years—and I mean serious, like multi-day efforts.</p>
 <p>You’re reading potentially mediocre documentation, learning a specialized languages or APIs, struggling through bloated tutorials, and trying to figure out how the game engine designer decided you should think about things.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
 <p>None of this is fun! It’s the worst part of a project (in my opinion).<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> It can be so bad that you can give up altogether. I know I have.</p>
@@ -242,22 +242,22 @@
 <p>I found this with <a href="https://pixijs.com/">pixi.js</a>. It’s a Javascript library that, at its essence, lets you say, “draw this .png at location (x, y) on the screen.” And you know what, that’s really all you need to get started. Throw in a loop that updates 60x a second, start moving the image around, get keyboard input, and you’re off to the races.</p>
 <p>So, it’s safe to say that this is the bucket that I fall into (though I’m guilty to some degree of all three). I built something myself because I just wanted to get started, and I didn’t want to risk yet another project dying as I spent another four days going through tutorials for deprecated versions of bloated engines.</p>
 <p>But the only reason this would be remotely possible is reason #2 people build their own engines: it’s actually not that bad.</p>
-<h3>2. What Is a Game Engine Anyway?</h3>
-<p>“Game engine” is one of those words, like “framework,” that’s so vague as to be nearly meaningless.</p>
+<h3 id="2.-what-is-a-game-engine-anyway" tabindex="-1">2. What Is a Game Engine Anyway?</h3>
+<a class="dn" href="#2.-what-is-a-game-engine-anyway"><span class="dn">Permalink to “2. What Is a Game Engine Anyway?”</span> <span aria-hidden="true">#</span></a><p>“Game engine” is one of those words, like “framework,” that’s so vague as to be nearly meaningless.</p>
 <p>For people building 3D games, the engine has to be comparatively massive. The process of rendering realtime 3D worlds, and managing a whole pipeline of 3D assets (models, skeletons, textures, shaders, scenes), is one or two orders of magnitude more complex than a 2D pipeline, where you basically have textures and 2D maps. Add on top of this the fact that 3D games tend to correlate with bigger games in general, which means more complex simulation systems, game logic, content authoring tools—the list goes on. And look, I’m not even qualified to write these lists. I’ve never worked on a 3D game. This is an outsider’s perspective.</p>
 <p>But for a 2D game, the process is much more constrained. And I think that a lot of what you build in a 2D game is stuff the engine isn’t going to provide you in the first place. All the logic of “how the game works” and “what the game is” are things you’d have to design and build anyway, even if you used an existing engine. The only exceptions are cookie-cutter game making tools (like building an RPG in an RPG making tool). So using a game engine might help—especially if you’re inexperienced (I’d still count myself in that bucket)—but maybe not by that much.</p>
 <p>This idea is something that I only really realized listening to Matt Thorson and Noel Berry talk about making <a href="http://www.mattmakesgames.com/">Celeste</a>. I can’t remember the exact source—I think it was in a Twitch livestream—but they were asked whether they used a game engine. And they kind of laughed and said something like, “no, it wouldn’t have helped.”<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
 <p>So anyway, to bring this back around, the idea isn’t that there’s a fixed target called a “game engine” that you go out and build, and then you build the game on top of it. For my case at least, the engine is the broader codebase that evolves around the game as you build it.</p>
-<h3>3. It’s Fun</h3>
-<p>While I primarily came from reason #1 (getting started), and I think the Celeste developers came from reason #2 (it’s not that bad), I think someone like Jonathan Blow—who has worked on not only a new 3D engine, but a new game programming language—ultimately falls into this third category.</p>
+<h3 id="3.-it's-fun" tabindex="-1">3. It’s Fun</h3>
+<a class="dn" href="#3.-it's-fun"><span class="dn">Permalink to “3. It’s Fun”</span> <span aria-hidden="true">#</span></a><p>While I primarily came from reason #1 (getting started), and I think the Celeste developers came from reason #2 (it’s not that bad), I think someone like Jonathan Blow—who has worked on not only a new 3D engine, but a new game programming language—ultimately falls into this third category.</p>
 <p>People like building shit. It’s fun. It’s really fun.</p>
 <p>This is the answer nobody will give you. It’s the same reason your one friend who is obsessed with Linux bothers to recompile the drivers for their bizarre distribution you’ve never heard of, uses some text-only free software music player, and types with Colemak key bindings. They’ll tell you it’s because of privacy or freedom or something, and while that’s not untrue, they’re not being honest with why they’re <em>really</em> doing it in the first place. They’re doing it because they love it.</p>
 <p>For a AAA studio, there’s probably a real need to invent new technology. Breath of the Wild probably required some wild magic to run a world of that size that well on the Switch. The Elder Scrolls games famously have intricate quest and content building software that ships with the game itself. And any kind of <a href="https://www.youtube.com/watch?v=ueEmiDM94IE">real-time multiplayer</a> needs a serious physics × networking backend, even if it’s built on a mainstream engine.</p>
 <p>But small indie shops making their own engine, I submit, do it because they want to. Above smaller reasons like <a href="https://www.youtube.com/watch?v=ckm8_SEIXQM">getting away from object-oriented programming</a>, there’s a deep drive to understand how things work, and to build things yourself. (It’s a good thing Richard Feynman didn’t discover game programming.<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>)</p>
-<h3>Summary</h3>
-<p>Just to be clear, I’m proposing mostly that we build a tiny ECS engine for 2D games because it’ll be easy to get started (#1), and we’re not missing a ton like we would in 3D games (#2). But secretly, let’s admit it will be fun (#3).</p>
-<h2>Why use TypeScript?</h2>
-<p>This one’s easy:</p>
+<h3 id="summary" tabindex="-1">Summary</h3>
+<a class="dn" href="#summary"><span class="dn">Permalink to “Summary”</span> <span aria-hidden="true">#</span></a><p>Just to be clear, I’m proposing mostly that we build a tiny ECS engine for 2D games because it’ll be easy to get started (#1), and we’re not missing a ton like we would in 3D games (#2). But secretly, let’s admit it will be fun (#3).</p>
+<h2 id="why-use-typescript" tabindex="-1">Why use TypeScript?</h2>
+<a class="dn" href="#why-use-typescript"><span class="dn">Permalink to “Why use TypeScript?”</span> <span aria-hidden="true">#</span></a><p>This one’s easy:</p>
 <ul>
 <li>If you want to easily share your game with others, it’s hard to beat sending them a web page</li>
 <li>JavaScript it still the de-facto language of the web</li>

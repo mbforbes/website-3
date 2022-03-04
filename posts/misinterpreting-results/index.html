@@ -104,8 +104,8 @@
         <p><img src="/website-3/assets/posts/misinterpreting-results/cover.png" alt=""></p>
 <p>I was reviewing for ACL<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> last week, and it was a particularly depressing time. It was depressing because it made me remember how much we lie to each other in our research papers.</p>
 <p>It goes like this.</p>
-<h2>The Model</h2>
-<p>Say you you’re reading a paper that presents a new NLP<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> model. The model takes some ubiquitous neural network architecture—technical: like the LSTM or the Transformer—and bolts something onto it.</p>
+<h2 id="the-model" tabindex="-1">The Model</h2>
+<a class="dn" href="#the-model"><span class="dn">Permalink to “The Model”</span> <span aria-hidden="true">#</span></a><p>Say you you’re reading a paper that presents a new NLP<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> model. The model takes some ubiquitous neural network architecture—technical: like the LSTM or the Transformer—and bolts something onto it.</p>
 <p><img src="/website-3/assets/posts/misinterpreting-results/cool-new-model.jpg" alt=""></p>
 <p class="figcaption" markdown="1">
 _Components: wrench, hammer, half of dog._
@@ -122,8 +122,8 @@ _Components: wrench, hammer, half of dog._
 </ul>
 <p>Add to this meta-analyses that show bolted-on tweaks aren’t actually doing anything (e.g.: <a href="https://arxiv.org/abs/1503.04069">this one for LSTMs</a>, <a href="https://arxiv.org/abs/2102.11972">this one for Transformers</a>), and you have a pretty compelling case to stick with the base thing.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
 <p>But wait, there is one factor that remains king in how we judge which research papers get published. It starts with “S” and rhymes with “OTA.” That’s right, it’s “state of the art performance.”</p>
-<h2>The Bait</h2>
-<p>This new paper offers you better performance. For example, it detects sentiment more accurately, or writes better captions for images. By how much? Well… let me take an example from a paper I was reviewing. I’ll tweak the values and obscure the metrics, but keep the intervals the same:<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
+<h2 id="the-bait" tabindex="-1">The Bait</h2>
+<a class="dn" href="#the-bait"><span class="dn">Permalink to “The Bait”</span> <span aria-hidden="true">#</span></a><p>This new paper offers you better performance. For example, it detects sentiment more accurately, or writes better captions for images. By how much? Well… let me take an example from a paper I was reviewing. I’ll tweak the values and obscure the metrics, but keep the intervals the same:<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
 <table class="f7 f6-m f5-l tablecustomfont" style="margin-top: 3em; margin-bottom: 2rem;">
     <thead>
       <tr>
@@ -182,8 +182,8 @@ _Components: wrench, hammer, half of dog._
 The highest numbers are bolded. (This is standard practice.)
 </p>
 <p>Now, already we’re trusting researchers to run fairly on the test set, and report the right numbers. I’m fine with this—though one paper I reviewed actually reported that they did hyperparameter tuning and model ablations on the test set 🤦‍♂️.  But let’s assume these numbers are honestly gotten and honestly transcribed.</p>
-<h2>The Lie</h2>
-<p>Here is what the paper says about these numbers:</p>
+<h2 id="the-lie" tabindex="-1">The Lie</h2>
+<a class="dn" href="#the-lie"><span class="dn">Permalink to “The Lie”</span> <span aria-hidden="true">#</span></a><p>Here is what the paper says about these numbers:</p>
 <blockquote>
 <p>“Our method outperforms all existing methods in terms of scores 1, 2, 5, and 6, while having comparable performance in terms of scores 3 and 4.”</p>
 </blockquote>
@@ -203,12 +203,12 @@ The highest numbers are bolded. (This is standard practice.)
 <p>Oops, writing and reality have diverged. The writing says, <em>“usually better, otherwise the same.”</em> But just a few pesky inches away, the numbers say, <em>“usually the same, otherwise worse.”</em></p>
 <p>Call it by whatever name you want, this is lying to the reader.</p>
 <p>The problem is not that this one paper that did this. The problem is that this is so normal we don’t even usually blink when we read it. In fact, I felt guilty even brining this up in my review.</p>
-<h2>Interlude to Remind Us We’re Doing “Science”</h2>
-<p>I just want to pause here and reflect that we are supposedly doing science right now. These are scientific papers. At least in the U.S., we’re funded by scientific grants, which come from the government, which come from people paying taxes. (If you reject that computer science is “science,” and think that it’s actually “engineering,” fine—I think the point stands even more.)</p>
+<h2 id="interlude-to-remind-us-we're-doing-&quot;science&quot;" tabindex="-1">Interlude to Remind Us We’re Doing “Science”</h2>
+<a class="dn" href="#interlude-to-remind-us-we're-doing-&quot;science&quot;"><span class="dn">Permalink to “Interlude to Remind Us We’re Doing “Science””</span> <span aria-hidden="true">#</span></a><p>I just want to pause here and reflect that we are supposedly doing science right now. These are scientific papers. At least in the U.S., we’re funded by scientific grants, which come from the government, which come from people paying taxes. (If you reject that computer science is “science,” and think that it’s actually “engineering,” fine—I think the point stands even more.)</p>
 <p>It just makes me think about what if someone was, oh, I don’t know, working on a vaccine, or cancer research, or some kind of hard science with stakes that matter, and tried to pull this kind of baloney. This might be overly optimistic because I don’t know how other fields work, and because of the whole <a href="https://en.wikipedia.org/wiki/Misuse_of_p-values"><em>p</em>-value crisis</a>, but I still have to imagine other fields have established a numerical culture where this kind of color commentary simply would not fly.</p>
 <p>OK, back in.</p>
-<h2>We Were Saying How This Is Maybe Worse</h2>
-<p>So, to recap, vs previous work:</p>
+<h2 id="we-were-saying-how-this-is-maybe-worse" tabindex="-1">We Were Saying How This Is Maybe Worse</h2>
+<a class="dn" href="#we-were-saying-how-this-is-maybe-worse"><span class="dn">Permalink to “We Were Saying How This Is Maybe Worse”</span> <span aria-hidden="true">#</span></a><p>So, to recap, vs previous work:</p>
 <ul>
 <li>two scores: exactly the same</li>
 <li>two scores: higher by 0.1, 0.2</li>
@@ -221,16 +221,16 @@ The highest numbers are bolded. (This is standard practice.)
 <p>Then what happens? Well, it just becomes yet another column for the results table. There’s no mention of the scads of previous research about which metrics we should care more about. It’s just ✨numbers✨. Oooh, look, some of them are higher!</p>
 <p><strong>Current standing by incorporating metric importance:</strong> slightly worse.</p>
 <p>But, you might ask another question.</p>
-<h2>Can We Even Say It’s Actually Worse?</h2>
-<p>How do we know this isn’t just statistical noise? Could the results be basically the same as the last paper? Maybe even the last <em>few</em> papers?</p>
+<h2 id="can-we-even-say-it's-actually-worse" tabindex="-1">Can We Even Say It’s Actually Worse?</h2>
+<a class="dn" href="#can-we-even-say-it's-actually-worse"><span class="dn">Permalink to “Can We Even Say It’s Actually Worse?”</span> <span aria-hidden="true">#</span></a><p>How do we know this isn’t just statistical noise? Could the results be basically the same as the last paper? Maybe even the last <em>few</em> papers?</p>
 <p>My answer is: ya, it’s probably just statistical noise. Thanks for playing. 🤷‍♂️</p>
 <p><strong>Current standing by remembering statistics exists:</strong> probably the same.</p>
 <p>But wait, we must have… statistical tests we can run, right? Surely it’s standard practice to—</p>
 <p>Nope.</p>
 <p>Maybe, just maybe, if you’ve got some eagle-eyed reviewers and diligent researchers, you’ll get statistical significance tests on stuff like human evaluations.<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
 <p>But on the good old results table, people just look for the highest number according to (<em>waves hands</em>) decimal places, bold it, and move on.<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup></p>
-<h2>Are Things Really This Bad?</h2>
-<p>Yes and no.</p>
+<h2 id="are-things-really-this-bad" tabindex="-1">Are Things Really This Bad?</h2>
+<a class="dn" href="#are-things-really-this-bad"><span class="dn">Permalink to “Are Things Really This Bad?”</span> <span aria-hidden="true">#</span></a><p>Yes and no.</p>
 <p>There’s a ton of great research—even some <em>Real Science</em>—going on out there, and lots of people that agonize over this and get it right.</p>
 <p>But so many papers just blow past this. The field’s obsession with higher numbers, coupled with a few dominant models that make it hard to truly get higher numbers, leads to this bizarro world where a research paper:</p>
 <ul>
@@ -245,8 +245,8 @@ The highest numbers are bolded. (This is standard practice.)
 <li>the paper mill continues</li>
 </ul>
 <p>This has led to an unbelievable amount of noise in published research.<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> And as a researcher, you have to develop this skill of actively mistrusting basically everything you read.</p>
-<h2>My Call to Action</h2>
-<p>There are several things we need to do. I will outline just the simplest piece here, which is to get our $%*! together on the numbers front.</p>
+<h2 id="my-call-to-action" tabindex="-1">My Call to Action</h2>
+<a class="dn" href="#my-call-to-action"><span class="dn">Permalink to “My Call to Action”</span> <span aria-hidden="true">#</span></a><p>There are several things we need to do. I will outline just the simplest piece here, which is to get our $%*! together on the numbers front.</p>
 <p>As a field, we need to standardize:</p>
 <ul>
 <li>
@@ -262,8 +262,8 @@ The highest numbers are bolded. (This is standard practice.)
 <p>If we can do this, it removes the fudgework from deciding whether model X &gt; model Y given the availability of metrics A, B, and C. And if we make it dead-simple to do, like running automatically in standard evaluation scripts, people will actually report it.</p>
 <p><strong>Important:</strong> I’m not saying we need to use these metrics as a way to gatekeep what gets to be published. I will be the first person to tell you that my own research is not built off getting the highest number on leaderboards. We need a variety of research styles, including new angles, new tasks, model dissection, and thorough analysis.<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup></p>
 <p>All I’m saying is, I think it’d be a bit less embarrassing for everyone if, when someone new to the field—like an undergrad who just joined the lab—holds up a paper and says, “we should start here, because they got the highest number,&quot; we didn’t have to take them aside and sadly say, “Oh kid, I’m sorry, nobody told you yet… We’re all just a bunch of lying baboons.”</p>
-<h2>Epilogue: What’s the Bigger Picture</h2>
-<p>The researchers who wrote this paper aren’t at fault, really. They’re just playing the game. But the game is made collectively, and we can change it. In academia, this happens somewhat slowly, but it does happen.<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup></p>
+<h2 id="epilogue:-what's-the-bigger-picture" tabindex="-1">Epilogue: What’s the Bigger Picture</h2>
+<a class="dn" href="#epilogue:-what's-the-bigger-picture"><span class="dn">Permalink to “Epilogue: What’s the Bigger Picture”</span> <span aria-hidden="true">#</span></a><p>The researchers who wrote this paper aren’t at fault, really. They’re just playing the game. But the game is made collectively, and we can change it. In academia, this happens somewhat slowly, but it does happen.<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup></p>
 <p>Stay tuned for more on this.<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup></p>
 <hr>
 <p><em><strong>Thanks</strong> to Ari Holtzman for finding the LSTM and Transformer meta-analysis papers when I couldn’t remember their names, and to Julie Leow and Alex Miller for reading drafts of this.</em></p>

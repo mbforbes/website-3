@@ -102,10 +102,10 @@
 <li><a href="#animating">Animating with anime.js</a></li>
 </ol>
 <p><a name="sketch"></a></p>
-<h2>Exporting from Sketch</h2>
-<p>There are two main problems.</p>
-<h3>1. Mitigating <code>transform</code>s</h3>
-<p>Many SVG elements are positioned using <code>transform</code> attributes.</p>
+<h2 id="exporting-from-sketch" tabindex="-1">Exporting from Sketch</h2>
+<a class="dn" href="#exporting-from-sketch"><span class="dn">Permalink to “Exporting from Sketch”</span> <span aria-hidden="true">#</span></a><p>There are two main problems.</p>
+<h3 id="1.-mitigating-transforms" tabindex="-1">1. Mitigating <code>transform</code>s</h3>
+<a class="dn" href="#1.-mitigating-transforms"><span class="dn">Permalink to “1. Mitigating transforms”</span> <span aria-hidden="true">#</span></a><p>Many SVG elements are positioned using <code>transform</code> attributes.</p>
 <p>As far as I can tell, the animation library (anime.js) cannot apply <em>relative</em> mutations to the <code>transform</code> attribute of SVGs. In plain language, this means you can’t move stuff around. That’s a big problem because moving stuff around is kind of the essence of animating.</p>
 <p>To make this work, you need to be able to produce SVG elements without any <code>transform</code> attribute. That way, anime.js can apply <em>absolute</em> changes via the <code>transform</code> attribute.</p>
 <p><s>There are good things about Sketch’s SVG export. For example, if you name layers, it keeps these names as SVG <code>id</code> attributes in the export. This lets you select them with your animation library and move them. Yay.</s></p>
@@ -121,16 +121,16 @@
 <p>The bad news is, while the plugin appears to do some things, neither of those features actually work. After applying <code>moveGroupAttrsToElems</code>, all groups (<code>&lt;g&gt;</code>) still have <code>transform</code> (and many other) attributes on them. Similarly, after applying <code>convertPathData</code>, some paths (<code>&lt;path&gt;</code>) still have <code>transform</code> attributes on them.</p>
 <p>I opened an issue for <a href="https://github.com/sketch-hq/svgo-compressor/issues/79">the first problem</a>, but as there are unresolved issues on that repository that are five years old—including a <a href="https://github.com/sketch-hq/svgo-compressor/issues/20">very similar report</a> to my own that’s been closed and still broken for three years—I am not optimistic.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
 <p><strong>My current workaround is:</strong> because, after running the plugin, <em>most</em> groups have <code>transform</code>s on them, but <em>most</em> children (like paths) contained in the groups don’t, I use anime.js to select all <em>children</em> of a group, using a selector like <code>#group-id *</code>. Then, I add <code>transform</code> animations to the children directly, which give them relative motion.</p>
-<h3>2. Converting text to shapes</h3>
-<p>Not everyone has the same fonts installed. Text in SVG, by default, simply contains the font that’s supposed to be used, and the text to render. If someone doesn’t have the font you want installed, text will not display properly.</p>
+<h3 id="2.-converting-text-to-shapes" tabindex="-1">2. Converting text to shapes</h3>
+<a class="dn" href="#2.-converting-text-to-shapes"><span class="dn">Permalink to “2. Converting text to shapes”</span> <span aria-hidden="true">#</span></a><p>Not everyone has the same fonts installed. Text in SVG, by default, simply contains the font that’s supposed to be used, and the text to render. If someone doesn’t have the font you want installed, text will not display properly.</p>
 <p>Sketch has a way to convert text to outlines. This is a destructive process; once you do it, you can no longer edit the text or any of its properties (like typeface, size, weight). Obviously, this makes iterating unpleasant.</p>
 <p>Sketch lacks any SVG export option to automatically convert text to shapes. This is a bummer. (It was <a href="https://sketchtalk.io/discussion/3654/automatically-convert-text-to-outlines-on-export">suggested</a> three years ago into the pointless void of product forums.)</p>
 <p>One <a href="https://www.reddit.com/r/sketchapp/comments/csn0rs/converting_text_to_outlines_on_svg_export/exm71et/">workaround</a> I’ve seen is to “intersect” all text with a box of the same color as the text. As far as I can tell, this must be done separately per text color, and text must either be grouped first (or each text won’t mutually intersect and become blank) or intersected with a separate box. Doing this makes the text export as paths, but can still be edited by selecting the layer.</p>
 <p>Unfortunately, the workaround, at least as I’ve implemented it, is not only tedious, but pollutes the sketch with these background objects that make selecting both the text and other content quite difficult.</p>
 <p><strong>My current workaround is:</strong> to wait until my <em>final</em> draft, and convert all text to outlines then. I am also trying to start keeping little samples of non-converted text around outside the arboard area so that I know what it was in case I need to make more edits down the road.</p>
 <p><a name="embedding"></a></p>
-<h2>Embedding SVG files</h2>
-<p><s>As far as I can tell, you cannot animate an SVG file with anime.js if it’s not literally dumped inside the source HTML page.</s> This was the approach I took for the diagrams I’d made so far. Today, I finally went down the full rabbit hole to solve this issue.</p>
+<h2 id="embedding-svg-files" tabindex="-1">Embedding SVG files</h2>
+<a class="dn" href="#embedding-svg-files"><span class="dn">Permalink to “Embedding SVG files”</span> <span aria-hidden="true">#</span></a><p><s>As far as I can tell, you cannot animate an SVG file with anime.js if it’s not literally dumped inside the source HTML page.</s> This was the approach I took for the diagrams I’d made so far. Today, I finally went down the full rabbit hole to solve this issue.</p>
 <p>You cannot do <code>&lt;img src=&quot;picture.svg&quot; /&gt;</code>. The image will be rendered, but the DOM won’t have all the SVG nodes, so they can’t be selected by the animation library. This one is obvious.</p>
 <p>You can do <code>&lt;object data=&quot;picture.svg&quot;&gt;&lt;/object&gt;</code>, but it requires two workarounds.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
 <p>The crux of the issue is that contents of the SVG will be inserted, but anime.js won’t be able to find the SVG nodes with its element selectors. This is because the SVG is actually inside a new <code>document</code> within the <code>&lt;object&gt;</code> node.</p>
@@ -172,10 +172,10 @@
 <pre class="language-js"><code class="language-js"><span class="token comment">// IDK whether this outer event listener is necessary, but I don't think</span><br><span class="token comment">// it can hurt (famous last words).</span><br>document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'DOMContentLoaded'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token comment">// Wait for the SVG contents to load</span><br>    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'my-diagram'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"load"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// Grab the inner document</span><br>        <span class="token keyword">const</span> innerDoc <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'my-diagram'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>contentDocument<span class="token punctuation">;</span><br>        <span class="token function">anime</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>            <span class="token comment">// Query the inner doc for the nodes, and repackage them</span><br>            <span class="token comment">// as a vanilla array.</span><br>            <span class="token literal-property property">targets</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token operator">...</span>innerDoc<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">"#fun-group *"</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span><br>            <span class="token literal-property property">translateX</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span><br>            <span class="token operator">...</span><br>        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><strong>In summary, my current workarounds are:</strong> (1) wait for the <code>&lt;object&gt;</code> to load and get the nodes we want to animate ourselves, (2) unpack them to a vanilla array before sending into anime.js.</p>
 <p><a name="animating"></a></p>
-<h2>Animating with anime.js</h2>
-<p>I’ve run into two main issues.</p>
-<h3>1. Cannot apply relative changes to <code>transform</code>s</h3>
-<p>As I mentioned above to motivate trying to clean up Sketch’s SVG exports, I do not think anime.js can apply relative changes to <code>transform</code> attributes.</p>
+<h2 id="animating-with-anime.js" tabindex="-1">Animating with anime.js</h2>
+<a class="dn" href="#animating-with-anime.js"><span class="dn">Permalink to “Animating with anime.js”</span> <span aria-hidden="true">#</span></a><p>I’ve run into two main issues.</p>
+<h3 id="1.-cannot-apply-relative-changes-to-transforms" tabindex="-1">1. Cannot apply relative changes to <code>transform</code>s</h3>
+<a class="dn" href="#1.-cannot-apply-relative-changes-to-transforms"><span class="dn">Permalink to “1. Cannot apply relative changes to transforms”</span> <span aria-hidden="true">#</span></a><p>As I mentioned above to motivate trying to clean up Sketch’s SVG exports, I do not think anime.js can apply relative changes to <code>transform</code> attributes.</p>
 <p>anime.js can:</p>
 <ol>
 <li>
@@ -195,8 +195,8 @@
 </ol>
 <p>Unfortunately, I don’t think there is a way of combining points 1 and 2: using relative changes to mutate <code>transform</code> values.</p>
 <p><strong>My current workaround is:</strong> to attempt to avoid this by trying to get SVG to output things that I want to animate that don’t have <code>transform</code> attributes at all. That way I can use point 2 above to apply fresh <code>transform</code>s to move them relative to where they start.</p>
-<h3>2. Cannot easily compose motion</h3>
-<p>This may be a limitation of my own understanding. The main feature presented by anime.js for complex motion is a timeline. This works for <em>sequential</em> motion. But I do not know how to accomplish <em>concurrent</em> motion.</p>
+<h3 id="2.-cannot-easily-compose-motion" tabindex="-1">2. Cannot easily compose motion</h3>
+<a class="dn" href="#2.-cannot-easily-compose-motion"><span class="dn">Permalink to “2. Cannot easily compose motion”</span> <span aria-hidden="true">#</span></a><p>This may be a limitation of my own understanding. The main feature presented by anime.js for complex motion is a timeline. This works for <em>sequential</em> motion. But I do not know how to accomplish <em>concurrent</em> motion.</p>
 <p>By <em>concurrent</em> motion, I simply mean: imagine that you want a circle to do two things at the same time:</p>
 <ol>
 <li>bob up and down</li>
@@ -205,8 +205,8 @@
 <p>This motion should be compositional: the circle travels around, bobbing up and down all the while.</p>
 <p>I do not know how to easily accomplish this with anime.js.</p>
 <p><strong>My current workaround is:</strong> to avoid using compositional motion.</p>
-<h3>Other little bugs</h3>
-<p>Just keeping a note here in case they’re note part of the above (though I’m not sure).</p>
+<h3 id="other-little-bugs" tabindex="-1">Other little bugs</h3>
+<a class="dn" href="#other-little-bugs"><span class="dn">Permalink to “Other little bugs”</span> <span aria-hidden="true">#</span></a><p>Just keeping a note here in case they’re note part of the above (though I’m not sure).</p>
 <ul>
 <li>SVG rotations (can’t easily pick a center point)</li>
 <li>SVG translateX/Y on Safari</li>

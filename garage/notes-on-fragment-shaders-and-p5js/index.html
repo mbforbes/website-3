@@ -93,8 +93,8 @@
       
 
       <div class="markdown-body">
-        <h2><code>createGraphics()</code> makes a new <code>&lt;canvas&gt;</code></h2>
-<p>I thought I had a bug with <code>resizeCanvas()</code> because a bunch of extra <code>&lt;canvas&gt;</code>es were showing up down in the DOM. Turns out <code>createGraphics()</code> makes a new <code>&lt;canvas&gt;</code> with <code>display: none</code> CSS.</p>
+        <h2 id="creategraphics()-makes-a-new-lesscanvasgreater" tabindex="-1"><code>createGraphics()</code> makes a new <code>&lt;canvas&gt;</code></h2>
+<a class="dn" href="#creategraphics()-makes-a-new-lesscanvasgreater"><span class="dn">Permalink to “createGraphics() makes a new &lt;canvas&gt;”</span> <span aria-hidden="true">#</span></a><p>I thought I had a bug with <code>resizeCanvas()</code> because a bunch of extra <code>&lt;canvas&gt;</code>es were showing up down in the DOM. Turns out <code>createGraphics()</code> makes a new <code>&lt;canvas&gt;</code> with <code>display: none</code> CSS.</p>
 <p>I like this. It is a clever and natural way for them to implement a drawable but hidden graphics object on the web.</p>
 <p>For fun, I deleted the <code>display: none</code> in the developer console, and there it is, just like you’d expect. This would be a nice way to get a debugger view if the display size wasn’t locked to the graphics object’s size. Or wait…</p>
 <ul>
@@ -105,12 +105,12 @@
 <p><strong>Question:</strong> Would this (displaying the underlying graphics objects) be more efficient than explicitly rendering them separately? Maybe this wouldn’t matter at all.</p>
 </li>
 </ul>
-<h2>Rendering to <code>WEBGL</code> puts you in “3D Mode”</h2>
-<p>Huh. I think this was unexpected because pixi.js, which is a 2D rendering engine, is WebGL-first.</p>
-<h2>In “3D Mode,” the screen origin (0,0) is center instead of top-left</h2>
-<p>So well OK</p>
-<h2>References</h2>
-<ul>
+<h2 id="rendering-to-webgl-puts-you-in-&quot;3d-mode&quot;" tabindex="-1">Rendering to <code>WEBGL</code> puts you in “3D Mode”</h2>
+<a class="dn" href="#rendering-to-webgl-puts-you-in-&quot;3d-mode&quot;"><span class="dn">Permalink to “Rendering to WEBGL puts you in “3D Mode””</span> <span aria-hidden="true">#</span></a><p>Huh. I think this was unexpected because pixi.js, which is a 2D rendering engine, is WebGL-first.</p>
+<h2 id="in-&quot;3d-mode&quot;-the-screen-origin-(00)-is-center-instead-of-top-left" tabindex="-1">In “3D Mode,” the screen origin (0,0) is center instead of top-left</h2>
+<a class="dn" href="#in-&quot;3d-mode&quot;-the-screen-origin-(00)-is-center-instead-of-top-left"><span class="dn">Permalink to “In “3D Mode,” the screen origin (0,0) is center instead of top-left”</span> <span aria-hidden="true">#</span></a><p>So well OK</p>
+<h2 id="references" tabindex="-1">References</h2>
+<a class="dn" href="#references"><span class="dn">Permalink to “References”</span> <span aria-hidden="true">#</span></a><ul>
 <li>
 <p><a href="https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5">https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5</a></p>
 <p>This describes the coordinate system shift, and how to change it back. It looks like WebGL is a pretty significant change for p5.js, which surprises me, but only because I know nothing about the internals. I guess I am probably spoiled by pixi.js’s “WebGL first, seamless Canvas fallback.” Which, wait, since a <code>&lt;canvas&gt;</code> element is used for both backends… means I’m definitely not understanding the details yet.</p>

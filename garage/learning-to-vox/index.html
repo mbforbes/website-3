@@ -97,8 +97,8 @@
 <p><img src="/website-3/assets/garage/learning-to-vox/27_BOF3Chicken.jpg" alt=""></p>
 <p><img src="/website-3/assets/garage/learning-to-vox/28_CeramiChickens.jpg" alt=""></p>
 <p>Even earlier work is already posted as sketches. But I need a workshop.</p>
-<h2>Importing</h2>
-<p>You can just drag’n’drop  a <code>.obj</code> file into MagicaVoxel to import it.</p>
+<h2 id="importing" tabindex="-1">Importing</h2>
+<a class="dn" href="#importing"><span class="dn">Permalink to “Importing”</span> <span aria-hidden="true">#</span></a><p>You can just drag’n’drop  a <code>.obj</code> file into MagicaVoxel to import it.</p>
 <p>Need to paint, though. Importing material (<code>.mtl</code>) file didn’t do anything. Can import <code>.png</code> palette, but would need to construct anyway.</p>
 <p><img src="/website-3/assets/garage/learning-to-vox/29_Importing-edited.jpg" alt=""></p>
 <p class="figcaption" markdown="1">
@@ -106,19 +106,19 @@
 potted plant source
 </a>
 </p>
-<h2>Postprocessing Colors</h2>
-<p>Realized this a bit ago. Phone is great for this.</p>
+<h2 id="postprocessing-colors" tabindex="-1">Postprocessing Colors</h2>
+<a class="dn" href="#postprocessing-colors"><span class="dn">Permalink to “Postprocessing Colors”</span> <span aria-hidden="true">#</span></a><p>Realized this a bit ago. Phone is great for this.</p>
 <div class="flex mv4">
 <img src="/website-3/assets/garage/learning-to-vox/29_Importing.jpg" class="bare mh2 w-50 flex-auto">
 <img src="/website-3/assets/garage/learning-to-vox/29_Importing-edited.jpg" class="bare mh2 w-50 flex-auto">
 </div>
-<h2>Layer vs Outline</h2>
-<p>I think Layer doesn’t determine draw order, but Outline does.</p>
+<h2 id="layer-vs-outline" tabindex="-1">Layer vs Outline</h2>
+<a class="dn" href="#layer-vs-outline"><span class="dn">Permalink to “Layer vs Outline”</span> <span aria-hidden="true">#</span></a><p>I think Layer doesn’t determine draw order, but Outline does.</p>
 <p>Manipulating the order with the Outline is awkward. In World mode, you can move the selected model in the outline with “First”/“Last” buttons in the Order control area. But if you click on something in the outline to select it, you switch from World mode to Model mode, which removes the Order control area. And in World mode, you can’t see which model you have selected in the outline. This makes it hard to tell what the order is and if reordering is working. <strong>Naming your models (in Outline controls) helps this a lot.</strong></p>
 <p>Use Outline ordering for stuff like underwater: rather than filling in gaps in a model, have a <em>later</em> node in the Outline w/ big block of water. Also have on a Layer, w/ visibility off, so you can freely edit other stuff.</p>
 <p>I.e., Outline: models are drawn last to first. First is on top.</p>
-<h2>Shaders</h2>
-<p>For me it’s not immediately obvious how to use them, sometimes even after reading about it.</p>
+<h2 id="shaders" tabindex="-1">Shaders</h2>
+<a class="dn" href="#shaders"><span class="dn">Permalink to “Shaders”</span> <span aria-hidden="true">#</span></a><p>For me it’s not immediately obvious how to use them, sometimes even after reading about it.</p>
 <ul>
 <li><strong>Brush</strong>
 <ul>
@@ -134,14 +134,14 @@ potted plant source
 <ul>
 <li><strong>Can we get shader selection back?</strong> I feel like MagicaVoxel has a more generous undo policy than many other programs. One example of this in my mind is that it counts (de)selection operations as actions that can be undone. However, this is exactly what I’m having trouble with: if I have a shader brush area that I’m editing, and I lose focus on it, I can’t undo to get it back. I end up having to remove it and start over to make edits. Maybe there’s a better way?</li>
 </ul>
-<h2>Project (3D objects) to ground</h2>
-<p>Have different color voxels underneath, then run <code>drop</code> shader on color w/ 64 iterations. If multiple colors, run lowest to highest.</p>
+<h2 id="project-(3d-objects)-to-ground" tabindex="-1">Project (3D objects) to ground</h2>
+<a class="dn" href="#project-(3d-objects)-to-ground"><span class="dn">Permalink to “Project (3D objects) to ground”</span> <span aria-hidden="true">#</span></a><p>Have different color voxels underneath, then run <code>drop</code> shader on color w/ 64 iterations. If multiple colors, run lowest to highest.</p>
 <p>(Might be better shader or builtin for this that I haven’t found.)</p>
-<h2>Terrain</h2>
-<p>Turns out Perlin noise is great, much nicer than what I can do by hand. Run shader <code>tergen</code> (or <code>tergen2</code> for selected area only).</p>
+<h2 id="terrain" tabindex="-1">Terrain</h2>
+<a class="dn" href="#terrain"><span class="dn">Permalink to “Terrain”</span> <span aria-hidden="true">#</span></a><p>Turns out Perlin noise is great, much nicer than what I can do by hand. Run shader <code>tergen</code> (or <code>tergen2</code> for selected area only).</p>
 <p>Open Q: How to nicely generate terrain that spans multiple models (a “model” being 256³ voxels max)? Current approach was to try to do some hybrid of copying + re-generating + linking up manually, which was a royal pain and looks just OK. (But maybe at this point I’m hitting over-reliance on tools and should be okay with hand-clicking monotony.)</p>
-<h2>Underwater</h2>
-<p><img src="/website-3/assets/garage/learning-to-vox/30_Underwater.jpg" alt=""></p>
+<h2 id="underwater" tabindex="-1">Underwater</h2>
+<a class="dn" href="#underwater"><span class="dn">Permalink to “Underwater”</span> <span aria-hidden="true">#</span></a><p><img src="/website-3/assets/garage/learning-to-vox/30_Underwater.jpg" alt=""></p>
 <p>I experimented with the grass shader to make some underwater… uh… grass? Kelp? The kelp right on the boundary look weird—should make water extend 1 vox beyond.</p>
 <p>Learned about <a href="#layer-vs-outline">layers and object order</a> in order to have water overlay without having to actually flood whole scene w/ water (and then delete every time changing base model). tl;dr: layer helpful for quickly enabling/disabling, but outline order determines render order.</p>
 <p>Realized that completely flat terrain is weird, next draft tried to make varied terrain.</p>
@@ -163,8 +163,8 @@ potted plant source
 </ul>
 <p>… and it remains murky and flat looking.</p>
 <p>I also realized, when considering working on this more, that filling even a moderately sized scene like this (it’s 4 models), is a massive amount of work. The colors, foliage, and terrain details alone would be a big undertaking. I want to work on smaller models and case studies first; it would feel like a slog to try filling it right now, and I want to have fun.</p>
-<h2>Character: Ryu (BoF III)</h2>
-<p>Look at this terrifying thing</p>
+<h2 id="character:-ryu-(bof-iii)" tabindex="-1">Character: Ryu (BoF III)</h2>
+<a class="dn" href="#character:-ryu-(bof-iii)"><span class="dn">Permalink to “Character: Ryu (BoF III)”</span> <span aria-hidden="true">#</span></a><p>Look at this terrifying thing</p>
 <p><img src="/website-3/assets/garage/learning-to-vox/33_Ryu-Too-Big.jpeg" alt=""></p>
 <p><img src="/website-3/assets/garage/learning-to-vox/33_Ryu-Too-Big-zoom.jpeg" alt=""></p>
 <p>I think I made him too big for the amount of detail I’m actually comfortable doing.</p>

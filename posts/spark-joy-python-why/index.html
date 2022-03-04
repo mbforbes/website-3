@@ -157,16 +157,16 @@ CC BY 2.0.
 <pre class="language-java"><code class="language-java"><span class="token comment">// Java be like</span><br><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><br>    <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span></code></pre>
 <pre class="language-python"><code class="language-python"><span class="token comment"># Python be like</span><br><span class="token string">', '</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string-interpolation"><span class="token string">f"last: </span><span class="token interpolation"><span class="token punctuation">{</span>x<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><br>          <span class="token keyword">for</span> x <span class="token keyword">in</span> d<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>I think I was too confused as an undergrad to really appreciate Python.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> But at some point, I looked back at Java and just—yikes! So much typing to <em>do</em> anything.</p>
-<h2>The world discovers Python</h2>
-<p>Machine learning runs on Python.</p>
+<h2 id="the-world-discovers-python" tabindex="-1">The world discovers Python</h2>
+<a class="dn" href="#the-world-discovers-python"><span class="dn">Permalink to “The world discovers Python”</span> <span aria-hidden="true">#</span></a><p>Machine learning runs on Python.</p>
 <p>Matlab and Julia were fighting the good fight back in 2012, and it sort of looked like anybody’s ball game. Back then, I picked numpy. Once deep learning exploded, the heavy hitters Tensorflow and Pytorch both chose Python as their interface.</p>
 <p>And since then, it’s Python, all the way down. Absolute globs, scads, and mountains of Python.</p>
 <p>I write this only to tell you why I still use Python—because it’s the only first-class citizen in machine learning.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
-<h2>I discover TypeScript</h2>
-<p>During 2017 and 2018, I spent my free time writing TypeScript for a little game called <a href="/website-3/posts/fallgate/">Fallgate</a>. TypeScript is based on JavaScript, which everyone loves to hate, and so I was prepared to hate TypeScript.</p>
+<h2 id="i-discover-typescript" tabindex="-1">I discover TypeScript</h2>
+<a class="dn" href="#i-discover-typescript"><span class="dn">Permalink to “I discover TypeScript”</span> <span aria-hidden="true">#</span></a><p>During 2017 and 2018, I spent my free time writing TypeScript for a little game called <a href="/website-3/posts/fallgate/">Fallgate</a>. TypeScript is based on JavaScript, which everyone loves to hate, and so I was prepared to hate TypeScript.</p>
 <p>But then the funniest thing happened. I actually had a really great time writing TypeScript.</p>
-<h2>The Elephant in the Room</h2>
-<p>Yes, I was making a game with TypeScript, and attempting to do natural language processing (NLP) research with Python.</p>
+<h2 id="the-elephant-in-the-room" tabindex="-1">The Elephant in the Room</h2>
+<a class="dn" href="#the-elephant-in-the-room"><span class="dn">Permalink to “The Elephant in the Room”</span> <span aria-hidden="true">#</span></a><p>Yes, I was making a game with TypeScript, and attempting to do natural language processing (NLP) research with Python.</p>
 <p>And yes, game programming, in my opinion, is a much more fun genre of <em>programming</em> than natural language processing.</p>
 <p>Game programming has a stimulating feedback loop. When I built a new system for animation, lighting, particles, or movement, I’d immediately <em>see</em> the effects of the new feature. Plus, the actual code I wrote was interesting. The game programming centered around making real-time systems that efficiently managed interlocking behaviors for thousands of little game world entities. I got to try out new design patterns and play around in geometry, physics, and graphics.</p>
 <p>On the other hand, programming for NLP research, I spend most of my time pushing big sludge piles of text data around. I scrape, annotate, clean, format, chunk, and batch text. I pour through text and find mountains of badly encoded files, non-linguistic junk like HTML, and of course, scads of idiots’ Internet blatherings—like this blog post! From a purely time-based perspective, I spend shockingly few hours actually building those cool neural network models everyone is excited about. And when I do, the models themselves were only a few dozen lines of code.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
@@ -193,13 +193,13 @@ Figure 1: Game programming before and after.
 Figure 2: NLP programming before and after.
 </p>
 <p>But aside from the (admittedly large) difference in <em>what</em> I was doing, there was a qualitative difference in the feel of the activity of programming.</p>
-<h2>Joy</h2>
-<p>Programming in TypeScript brought me joy. It was easy. I felt like I always had a better handle on what options were available to me. I also felt more confidence about what was going to happen when my code ran.</p>
+<h2 id="joy" tabindex="-1">Joy</h2>
+<a class="dn" href="#joy"><span class="dn">Permalink to “Joy”</span> <span aria-hidden="true">#</span></a><p>Programming in TypeScript brought me joy. It was easy. I felt like I always had a better handle on what options were available to me. I also felt more confidence about what was going to happen when my code ran.</p>
 <p>Only through this contrast of using both languages in the same day did I realize how little joy I got from Python.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
 <p>Why does it matter if Python sparks joy? When I first chose this headline, I thought it was funny. Now that I’m actually writing this, I’m becoming convinced it might be quite serious. We pour hundreds of the precious hours of our only life into our work. Seeking joy in the day to day, minute-to-minute experience of programming might be one of the more important things we can do.</p>
 <p>What follows is a few posts in which I share my attempts to spark joy of Python back into my life. The first one is about static typing. I think it is the most important factor.</p>
-<h2>Disclaimers</h2>
-<p><strong>Familiarity</strong> — I’m assuming in these posts you’re moderately familiar with writing Python code. For example, I assume you understand kinds of stuff like:</p>
+<h2 id="disclaimers" tabindex="-1">Disclaimers</h2>
+<a class="dn" href="#disclaimers"><span class="dn">Permalink to “Disclaimers”</span> <span aria-hidden="true">#</span></a><p><strong>Familiarity</strong> — I’m assuming in these posts you’re moderately familiar with writing Python code. For example, I assume you understand kinds of stuff like:</p>
 <ul>
 <li>Why people dislike <code>from &lt;name&gt; import * </code></li>
 <li>What if <code>__name__ == &quot;__main__&quot;</code> does</li>
