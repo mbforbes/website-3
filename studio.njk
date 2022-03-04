@@ -59,10 +59,10 @@ You might also be interested in checking out my <a href="{{ "/research/#software
 <h2>Sketches<a name="sketches"></a></h2>
 
 <div class="cf">
-{% for post in collections.sketch | sort(true, false, "date") %}
+{% for sketch in collections.sketch | sort(true, false, "date") %}
     <div class="fl mr2 mb2 mr3-ns mb3-ns">
-        <a href="{{ post.url | url }}">
-            <img class="dim novmargin" src="{{ post.data.thumb | url }}" style="width: 72px; height: 72px;"/>
+        <a href="{{ sketch.url | url }}">
+            <img class="dim novmargin" src="{{ sketch.data.thumb | url }}" style="width: 72px; height: 72px;"/>
         </a>
     </div>
 {% endfor %}

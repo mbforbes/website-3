@@ -2,7 +2,6 @@
 title: "Figure Creation Tutorial: Making a Figure 1"
 # subtitle: TBD
 date: 2021-09-30
-tags: research
 image: /assets/posts/figure-creation-tutorial-figure-1/cover.jpg
 ---
 

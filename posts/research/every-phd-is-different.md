@@ -3,7 +3,6 @@ title: "\"Every PhD Is Different\""
 subtitle: Five Maps for Finding Your PhD
 customexcerpt: I heard this phrase a handful of times when I started my PhD. Like most platitudes, I immediately dismissed it.
 date: 2021-06-13
-tags: research
 image: /assets/posts/every-phd-is-different/cover.png
 ---
 

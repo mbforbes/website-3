@@ -1,7 +1,6 @@
 ---
 title: Ordinary least squares, ℓ² (ridge), and ℓ¹ (lasso) linear regressions
 date: 2017-11-21
-tags: research
 ---
 
 ## Preface

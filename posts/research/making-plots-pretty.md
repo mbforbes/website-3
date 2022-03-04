@@ -1,7 +1,6 @@
 ---
 title: Making Plots Pretty
 date: 2014-04-24
-tags: research
 ---
 
 ## Preface

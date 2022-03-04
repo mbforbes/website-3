@@ -2,7 +2,6 @@
 title: "A Modest Proposal: Let’s Stop Lying To Each Other in Our Research Papers"
 subtitle: How we can fight spin
 date: 2021-03-26
-tags: research
 image: /assets/posts/misinterpreting-results/cover.png
 ---
 

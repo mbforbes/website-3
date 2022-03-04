@@ -1,7 +1,6 @@
 ---
 title: Downloading books from Project Gutenberg
 date: 2016-11-22
-tags: research
 ---
 
 _Note: I wrote this in 2016, and am posting it now in 2021. Others have found it helpful. In case it's still a bit painful to download Project Gutenberg texts for NLP purposes, this guide might help you get started._

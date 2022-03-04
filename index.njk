@@ -8,16 +8,25 @@ layout: "layouts/default.njk"
 <h2>Latest from the studio</h2>
 
 <ul class="list pa0">
-    {% set writingTags = ["creating & thinking", "design", "health", "programming"] %}
-    {% for post in collections.studio | rejectAttrContains(["data", "tags"], "software") | head(3) %}
+    {% for post in collections.studio | rejectAttrContains(["data", "tags"], "software") | sort(true, false, "date") | head(3) %}
     <li class="mv2">
-      <a href="{{ post.url }}" class="db pv1 link">
+      <a href="{{ post.url | url }}" class="db pv1 link">
         <time class="fr silver ttu ml3">{{ post.date | readableDate }} </time>
         {{ post.data.title }}
       </a>
     </li>
   {% endfor %}
 </ul>
+
+<div class="cf mb1">
+    {% for sketch in collections.sketch | sort(true, false, "date") | head(3) %}
+        <div class="fl mr3">
+            <a href="{{ sketch.url | url }}">
+            <img class="dim novmargin" src="{{ sketch.data.thumb }}" style="width: 72px; height: 72px;" />
+            </a>
+        </div>
+    {% endfor %}
+</div>
 
 <p class="tr f6 f5-ns gray mt1">
 ... see more in the

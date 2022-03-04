@@ -1,7 +1,6 @@
 ---
 title: Procedural City Layout Generation with GANs
 date: 2017-12-15
-tags: research
 image: /assets/posts/procedural-map-generation-with-gans/example_regions.jpg
 ---
 
