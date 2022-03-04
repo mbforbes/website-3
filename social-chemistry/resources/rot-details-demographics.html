@@ -1,0 +1,553 @@
+<!--
+ROT Details: Break down a ROT w.r.t. a situation
+
+    [[ ------------------------------------------------- ]]
+    [[ Demographics only HIT / TASK file                 ]]
+    [[ ------------------------------------------------- ]]
+
+Generate the file with:
+    python -m sc.mturk.layout.rot_details
+-->
+
+<!-- Enable responsive behavior on smaller screens -->
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1" name="viewport" />
+
+<!--CSS -->
+<link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
+<style type="text/css">
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #212529;
+        line-height: 1.5;
+    }
+
+    .container {
+        padding-left: 3rem;
+        padding-right: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .card {
+        margin: 1rem;
+        background-color: #f8f9fa;
+        border: 1px solid #d9dadb;
+        border-radius: 4px;
+
+        max-width: 1140px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .shadowCard {
+        margin: 1rem;
+
+        max-width: 1140px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .card-header {
+        width: 100%;
+        background-color: rgba(0, 0, 0, .03);
+        text-decoration: none;
+        padding: .75rem 1.25rem;
+        border-bottom: 1px solid #d9dadb;
+        display: flex;
+    }
+
+    a.card-header {
+        color: #157ffb
+    }
+
+    a.card-header:hover {
+        color: #0a4d99;
+        text-decoration: underline;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    input.text {
+        width: 700px;
+        max-width: calc(100% - 80px);
+    }
+
+    .mf-textarea {
+        width: 100%;
+        max-width: 500px;
+        height: 80px;
+        margin-top: 0px;
+    }
+
+    .inputs li {
+        /* float: left; */
+        list-style-type: none;
+        padding: 5px;
+        margin-right: 5px;
+    }
+
+    .f7 {
+        font-size: 0.5 rem;
+    }
+
+    hr {
+        border-top: 1px solid #dfe0e1;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+</style>
+
+<!-- NOTE: airplane styles could be here if needed -->
+
+<!-- JS -->
+<!-- Live reloading -->
+<!-- <script type="text/javascript" src="http://livejs.com/live.js"></script> -->
+<!-- Timeme (inject locally) -->
+<script>
+    (function () { var e, t; e = this, t = function () { var r = { startStopTimes: {}, idleTimeoutMs: 3e4, currentIdleTimeMs: 0, checkStateRateMs: 250, active: !1, idle: !1, currentPageName: "default-page-name", timeElapsedCallbacks: [], userLeftCallbacks: [], userReturnCallbacks: [], trackTimeOnElement: function (e) { var t = document.getElementById(e); t && (t.addEventListener("mouseover", function () { r.startTimer(e) }), t.addEventListener("mousemove", function () { r.startTimer(e) }), t.addEventListener("mouseleave", function () { r.stopTimer(e) }), t.addEventListener("keypress", function () { r.startTimer(e) }), t.addEventListener("focus", function () { r.startTimer(e) })) }, getTimeOnElementInSeconds: function (e) { var t = r.getTimeOnPageInSeconds(e); return t || 0 }, startTimer: function (e, t) { if (e || (e = r.currentPageName), void 0 === r.startStopTimes[e]) r.startStopTimes[e] = []; else { var n = r.startStopTimes[e], i = n[n.length - 1]; if (void 0 !== i && void 0 === i.stopTime) return } r.startStopTimes[e].push({ startTime: t || new Date, stopTime: void 0 }), r.active = !0, r.idle = !1 }, stopAllTimers: function () { for (var e = Object.keys(r.startStopTimes), t = 0; t < e.length; t++)r.stopTimer(e[t]) }, stopTimer: function (e, t) { e || (e = r.currentPageName); var n = r.startStopTimes[e]; void 0 !== n && 0 !== n.length && (void 0 === n[n.length - 1].stopTime && (n[n.length - 1].stopTime = t || new Date), r.active = !1) }, getTimeOnCurrentPageInSeconds: function () { return r.getTimeOnPageInSeconds(r.currentPageName) }, getTimeOnPageInSeconds: function (e) { var t = r.getTimeOnPageInMilliseconds(e); return void 0 === t ? void 0 : t / 1e3 }, getTimeOnCurrentPageInMilliseconds: function () { return r.getTimeOnPageInMilliseconds(r.currentPageName) }, getTimeOnPageInMilliseconds: function (e) { var t = r.startStopTimes[e]; if (void 0 !== t) { for (var n = 0, i = 0; i < t.length; i++) { var s = t[i].startTime, o = t[i].stopTime; void 0 === o && (o = new Date), n += o - s } return Number(n) } }, getTimeOnAllPagesInSeconds: function () { for (var e = [], t = Object.keys(r.startStopTimes), n = 0; n < t.length; n++) { var i = t[n], s = r.getTimeOnPageInSeconds(i); e.push({ pageName: i, timeOnPage: s }) } return e }, setIdleDurationInSeconds: function (e) { var t = parseFloat(e); if (!1 !== isNaN(t)) throw { name: "InvalidDurationException", message: "An invalid duration time (" + e + ") was provided." }; return r.idleTimeoutMs = 1e3 * e, this }, setCurrentPageName: function (e) { return r.currentPageName = e, this }, resetRecordedPageTime: function (e) { delete r.startStopTimes[e] }, resetAllRecordedPageTimes: function () { for (var e = Object.keys(r.startStopTimes), t = 0; t < e.length; t++)r.resetRecordedPageTime(e[t]) }, resetIdleCountdown: function () { r.idle && r.triggerUserHasReturned(), r.idle = !1, r.currentIdleTimeMs = 0 }, callWhenUserLeaves: function (e, t) { this.userLeftCallbacks.push({ callback: e, numberOfTimesToInvoke: t }) }, callWhenUserReturns: function (e, t) { this.userReturnCallbacks.push({ callback: e, numberOfTimesToInvoke: t }) }, triggerUserHasReturned: function () { if (!r.active) for (var e = 0; e < this.userReturnCallbacks.length; e++) { var t = this.userReturnCallbacks[e], n = t.numberOfTimesToInvoke; (isNaN(n) || void 0 === n || 0 < n) && (t.numberOfTimesToInvoke -= 1, t.callback()) } r.startTimer() }, triggerUserHasLeftPage: function () { if (r.active) for (var e = 0; e < this.userLeftCallbacks.length; e++) { var t = this.userLeftCallbacks[e], n = t.numberOfTimesToInvoke; (isNaN(n) || void 0 === n || 0 < n) && (t.numberOfTimesToInvoke -= 1, t.callback()) } r.stopAllTimers() }, callAfterTimeElapsedInSeconds: function (e, t) { r.timeElapsedCallbacks.push({ timeInSeconds: e, callback: t, pending: !0 }) }, checkState: function () { for (var e = 0; e < r.timeElapsedCallbacks.length; e++)r.timeElapsedCallbacks[e].pending && r.getTimeOnCurrentPageInSeconds() > r.timeElapsedCallbacks[e].timeInSeconds && (r.timeElapsedCallbacks[e].callback(), r.timeElapsedCallbacks[e].pending = !1); !1 === r.idle && r.currentIdleTimeMs > r.idleTimeoutMs ? (r.idle = !0, r.triggerUserHasLeftPage()) : r.currentIdleTimeMs += r.checkStateRateMs }, visibilityChangeEventName: void 0, hiddenPropName: void 0, listenForVisibilityEvents: function () { void 0 !== document.hidden ? (r.hiddenPropName = "hidden", r.visibilityChangeEventName = "visibilitychange") : void 0 !== document.mozHidden ? (r.hiddenPropName = "mozHidden", r.visibilityChangeEventName = "mozvisibilitychange") : void 0 !== document.msHidden ? (r.hiddenPropName = "msHidden", r.visibilityChangeEventName = "msvisibilitychange") : void 0 !== document.webkitHidden && (r.hiddenPropName = "webkitHidden", r.visibilityChangeEventName = "webkitvisibilitychange"), document.addEventListener(r.visibilityChangeEventName, function () { document[r.hiddenPropName] ? r.triggerUserHasLeftPage() : r.triggerUserHasReturned() }, !1), window.addEventListener("blur", function () { r.triggerUserHasLeftPage() }), window.addEventListener("focus", function () { r.triggerUserHasReturned() }), document.addEventListener("mousemove", function () { r.resetIdleCountdown() }), document.addEventListener("keyup", function () { r.resetIdleCountdown() }), document.addEventListener("touchstart", function () { r.resetIdleCountdown() }), window.addEventListener("scroll", function () { r.resetIdleCountdown() }), setInterval(function () { r.checkState() }, r.checkStateRateMs) }, websocket: void 0, websocketHost: void 0, setUpWebsocket: function (e) { if (window.WebSocket && e) { var t = e.websocketHost; try { r.websocket = new WebSocket(t), window.onbeforeunload = function () { r.sendCurrentTime(e.appId) }, r.websocket.onopen = function () { r.sendInitWsRequest(e.appId) }, r.websocket.onerror = function (e) { console && console.log("Error occurred in websocket connection: " + e) }, r.websocket.onmessage = function (e) { console && console.log(e.data) } } catch (e) { console && console.error("Failed to connect to websocket host.  Error:" + e) } } return this }, websocketSend: function (e) { r.websocket.send(JSON.stringify(e)) }, sendCurrentTime: function (e) { var t = { type: "INSERT_TIME", appId: e, timeOnPageMs: r.getTimeOnCurrentPageInMilliseconds(), pageName: r.currentPageName }; r.websocketSend(t) }, sendInitWsRequest: function (e) { var t = { type: "INIT", appId: e }; r.websocketSend(t) }, initialize: function (e) { var t = r.idleTimeoutMs || 30, n = r.currentPageName || "default-page-name", i = void 0, s = void 0; e && (t = e.idleTimeoutInSeconds || t, n = e.currentPageName || n, i = e.websocketOptions, s = e.initialStartTime), r.setIdleDurationInSeconds(t).setCurrentPageName(n).setUpWebsocket(i).listenForVisibilityEvents(), r.startTimer(void 0, s) } }; return r }, "undefined" != typeof module && module.exports ? module.exports = t() : "function" == typeof define && define.amd ? define([], function () { return e.TimeMe = t() }) : e.TimeMe = t() }).call(this);
+
+    TimeMe.initialize({
+        currentPageName: "task",
+        idleTimeoutInSeconds: 30
+    });
+
+    // update debug display
+    // setInterval(function () {
+    //     document.getElementById('timing-debug').innerText = TimeMe.getTimeOnCurrentPageInSeconds();
+    // }, 0.1);
+</script>
+<!-- The ol big boy, jQ -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+<script>
+    function str2bool(s) {
+        return s === 'true';
+    }
+
+    $(document).ready(function () {
+        // overall sections expand/collapse
+        let worklist = ['Instructions', 'Motivation', 'Examples', 'Feedback']
+        for (let w of worklist) {
+            var content = $('#body' + w);
+            var trigger = $('#collapseTrigger' + w);
+
+            if (content == null || trigger == null) {
+                continue;
+            }
+            if (str2bool(trigger.attr('start-hidden'))) {
+                content.hide();
+            }
+            trigger.click(function () {
+                $('#body' + w).toggle();
+                let isVisible = $('#body' + w).is(':visible');
+            });
+        }
+
+        $('#submitButton').click(function () {
+            try {
+                $('input[name=te]').attr('value', TimeMe.getTimeOnCurrentPageInSeconds());
+            } catch {
+
+            }
+
+            // NOTE: Can add validation here if desired.
+            return true;
+        });
+    });
+</script>
+
+<!-- HTML (finally!) -->
+
+<body>
+    <div class="container">
+
+        <!-- Instructions Card -->
+        <div class="card mb-3">
+
+            <!-- Card Heading -->
+            <b class="card-header" href="javascript:void(0);" id="collapseTriggerInstructions">
+                <strong>Instructions</strong>
+            </b>
+
+            <!-- Card Content -->
+            <div class="card-body" id="bodyInstructions">
+
+                <p class="measure-wide f5">
+                    Welcome! This is a task for just collecting demographic information
+                    from you. It's linked to the <span class="b">rules-of-thumb (ROTs)</span>
+                    tasks about understanding social norms.
+                </p>
+
+                <!-- Disclaimer -->
+                <p class="measure-wide f6 i mt4">
+                    Current employees of the University of Washington, family members of
+                    UW employees, and UW students involved in this particular research
+                    are not eligible to complete this HIT.
+                </p>
+
+            </div>
+        </div>
+
+        <!-- Task Part 1 -->
+        <div class="card bg-light mb-3">
+
+            <!--Heading -->
+            <div class="card-header">
+                <strong>Demographic Survey</strong>
+            </div>
+
+            <!-- Content -->
+            <div class="card-body">
+
+                <p class="f2 mt0 mb0">Basic Demographics</p>
+                <hr class="mt0 mb2 b--black" />
+                <p class="measure-wide">
+                    We're collecting basic demographic information for use in our research.
+                </p>
+                <p class="mt4 mb1 measure-wide mb0 b">
+    What gender do you identify with?
+</p>
+<ul class="list mt0">
+    <li>
+        <input type="radio" name="gender" value="male" required /> Male
+    </li>
+    <li>
+        <input type="radio" name="gender" value="female" required /> Female
+    </li>
+    <li>
+        <input type="radio" name="gender" value="other" required /> Other:
+        <input type="text" name="gender-manual" placeholder="Please specify if other" />
+    </li>
+</ul>
+
+
+<p class="mt4 mb1 measure-wide mb0 b">
+    Which category below includes your age?
+</p>
+<ul class="list mt0">
+    <li>
+        <input type="radio" name="age" value="-17" required /> 17 or younger
+    </li>
+    <li>
+        <input type="radio" name="age" value="18-20" required /> 18-20
+    </li>
+    <li>
+        <input type="radio" name="age" value="21-29" required /> 21-29
+    </li>
+    <li>
+        <input type="radio" name="age" value="30-39" required /> 30-39
+    </li>
+    <li>
+        <input type="radio" name="age" value="40-49" required /> 40-49
+    </li>
+    <li>
+        <input type="radio" name="age" value="50-59" required /> 50-59
+    </li>
+    <li>
+        <input type="radio" name="age" value="60-69" required /> 60-69
+    </li>
+    <li>
+        <input type="radio" name="age" value="70-" required /> 70 or older
+    </li>
+</ul>
+
+<p class="mt4 mb1 measure-wide mb0 b">
+    Please select the race(s) which fit you best.
+</p>
+<ul class="list mt0">
+
+    <li>
+        <input type="checkbox" name="race" value="white" /> White
+    </li>
+    <li>
+        <input type="checkbox" name="race" value="black" /> Black or African-American
+    </li>
+    <li>
+        <input type="checkbox" name="race" value="native" /> Native American or Alaskan Native
+    </li>
+    <li>
+        <input type="checkbox" name="race" value="asian" /> Asian
+    </li>
+    <li>
+        <input type="checkbox" name="race" value="pacific" /> Native Hawaiian or other Pacific islander
+    </li>
+    <li>
+        <input type="checkbox" name="race" value="hispanic" /> Spanish, Hispanic, or Latino
+    </li>
+    <li>
+        <input type="checkbox" name="race" value="other" /> Some other race (please specify)
+        <input type="text" name="race-manual" placeholder="Please specify if other" />
+    </li>
+</ul>
+
+
+<p class="mt4 mb1 measure-wide mb0 b">
+    Which option best fits your marital status?
+</p>
+<ul class="list mt0">
+    <li>
+        <input type="radio" name="marital" value="married" required /> Married
+    </li>
+    <li>
+        <input type="radio" name="marital" value="widowed" required /> Widowed
+    </li>
+    <li>
+        <input type="radio" name="marital" value="divorced" required /> Divorced
+    </li>
+    <li>
+        <input type="radio" name="marital" value="separated" required /> Separated
+    </li>
+    <li>
+        <input type="radio" name="marital" value="never" required /> Never married
+    </li>
+</ul>
+
+
+<p class="mt4 mb1 measure-wide mb0 b">
+    Which socioeconomic class do you best identify with?
+</p>
+<ul class="list mt0">
+    <li>
+        <input type="radio" name="economic" value="lower" required /> Lower
+    </li>
+    <li>
+        <input type="radio" name="economic" value="working" required /> Working
+    </li>
+    <li>
+        <input type="radio" name="economic" value="middle" required /> Middle
+    </li>
+    <li>
+        <input type="radio" name="economic" value="upper-middle" required /> Upper-middle
+    </li>
+    <li>
+        <input type="radio" name="economic" value="upper" required /> Upper
+    </li>
+</ul>
+
+
+<p class="mt4 mb1 measure-wide mb0 b">
+    Which option best fits the highest level of school you have completed, or the
+    highest degree you have received?
+</p>
+<ul class="list mt0">
+    <li>
+        <input type="radio" name="school" value="no-hs" required /> Less than high school degree
+    </li>
+    <li>
+        <input type="radio" name="school" value="hs" required /> High school degree or equivalent (e.g., GED)
+    </li>
+    <li>
+        <input type="radio" name="school" value="some-college" required /> Some college but no degree
+    </li>
+    <li>
+        <input type="radio" name="school" value="associate" required /> Associate degree
+    </li>
+    <li>
+        <input type="radio" name="school" value="bachelor" required /> Bachelor degree
+    </li>
+    <li>
+        <input type="radio" name="school" value="grad" required /> Graduate degree
+    </li>
+</ul>
+
+
+<p class="mt4 mb1 measure-wide mb0 b">
+    Approximately how much total combined money did all members of your household earn
+    in 2019?
+</p>
+<ul class="list mt0">
+    <li>
+        <input type="radio" name="income" value="0" required /> $0 – $19,999
+    </li>
+    <li>
+        <input type="radio" name="income" value="20" required /> $20,000 – $29,999
+    </li>
+    <li>
+        <input type="radio" name="income" value="30" required /> $30,000 – $39,999
+    </li>
+    <li>
+        <input type="radio" name="income" value="40" required /> $40,000 – $49,999
+    </li>
+    <li>
+        <input type="radio" name="income" value="50" required /> $50,000 – $74,999
+    </li>
+    <li>
+        <input type="radio" name="income" value="75" required /> $75,000 – $99,999
+    </li>
+    <li>
+        <input type="radio" name="income" value="100" required /> $100,000 – $149,999
+    </li>
+    <li>
+        <input type="radio" name="income" value="150" required /> $150,000 – $249,999
+    </li>
+    <li>
+        <input type="radio" name="income" value="250-" required /> $250,000 or more
+    </li>
+</ul>
+
+<p class="mt4 mb1 measure-wide mb0 b">
+    Do you have children?
+</p>
+<ul class="list mt0">
+    <li>
+        <input type="radio" name="children" value="yes" required /> Yes
+    </li>
+    <li>
+        <input type="radio" name="children" value="no" required /> No
+    </li>
+</ul>
+
+
+<p class="mt4 mb1 measure-wide mb0 b">
+    How many members are in your household?
+</p>
+<input class="ml4" type="number" name="household" min="0" max="20" />
+
+
+<p class="mt4 mb1 measure-wide mb0 b">
+    Do you live in the United States?
+</p>
+<ul class="list mt0">
+    <li>
+        <input type="radio" name="us" value="yes" required /> Yes
+    </li>
+    <li>
+        <input type="radio" name="us" value="no" required /> No
+    </li>
+</ul>
+
+<p class="mt4 mb1 measure-wide mb0 b">
+    In which U.S. state or territory do you live?
+</p>
+<p class="mt0 mb1 measure-wide mb0 i">
+    Territories and armed forces are at the bottom. If not in the U.S., pick "n/a" at the very bottom.
+</p>
+
+<select name="state" class="ml4">
+    <option value="AL">Alabama</option>
+    <option value="AK">Alaska</option>
+    <option value="AZ">Arizona</option>
+    <option value="AR">Arkansas</option>
+    <option value="CA">California</option>
+    <option value="CO">Colorado</option>
+    <option value="CT">Connecticut</option>
+    <option value="DE">Delaware</option>
+    <option value="DC">District Of Columbia</option>
+    <option value="FL">Florida</option>
+    <option value="GA">Georgia</option>
+    <option value="HI">Hawaii</option>
+    <option value="ID">Idaho</option>
+    <option value="IL">Illinois</option>
+    <option value="IN">Indiana</option>
+    <option value="IA">Iowa</option>
+    <option value="KS">Kansas</option>
+    <option value="KY">Kentucky</option>
+    <option value="LA">Louisiana</option>
+    <option value="ME">Maine</option>
+    <option value="MD">Maryland</option>
+    <option value="MA">Massachusetts</option>
+    <option value="MI">Michigan</option>
+    <option value="MN">Minnesota</option>
+    <option value="MS">Mississippi</option>
+    <option value="MO">Missouri</option>
+    <option value="MT">Montana</option>
+    <option value="NE">Nebraska</option>
+    <option value="NV">Nevada</option>
+    <option value="NH">New Hampshire</option>
+    <option value="NJ">New Jersey</option>
+    <option value="NM">New Mexico</option>
+    <option value="NY">New York</option>
+    <option value="NC">North Carolina</option>
+    <option value="ND">North Dakota</option>
+    <option value="OH">Ohio</option>
+    <option value="OK">Oklahoma</option>
+    <option value="OR">Oregon</option>
+    <option value="PA">Pennsylvania</option>
+    <option value="RI">Rhode Island</option>
+    <option value="SC">South Carolina</option>
+    <option value="SD">South Dakota</option>
+    <option value="TN">Tennessee</option>
+    <option value="TX">Texas</option>
+    <option value="UT">Utah</option>
+    <option value="VT">Vermont</option>
+    <option value="VA">Virginia</option>
+    <option value="WA">Washington</option>
+    <option value="WV">West Virginia</option>
+    <option value="WI">Wisconsin</option>
+    <option value="WY">Wyoming</option>
+
+    <option value="spacer">---</option>
+
+    <option value="AS">American Samoa</option>
+    <option value="GU">Guam</option>
+    <option value="MP">Northern Mariana Islands</option>
+    <option value="PR">Puerto Rico</option>
+    <option value="UM">United States Minor Outlying Islands</option>
+    <option value="VI">Virgin Islands</option>
+
+    <option value="spacer">---</option>
+
+    <option value="AA">Armed Forces Americas</option>
+    <option value="AP">Armed Forces Pacific</option>
+    <option value="AE">Armed Forces Others</option>
+
+    <option value="spacer">---</option>
+
+    <option value="none">n/a</option>
+</select>
+
+
+<p class="mt4 mb1 measure-wide mb0 b">
+    Which best describes the area that you live?
+</p>
+<ul class="list mt0">
+    <li>
+        <input type="radio" name="area" value="rural" required /> Rural
+    </li>
+    <li>
+        <input type="radio" name="area" value="suburban" required /> Suburban
+    </li>
+    <li>
+        <input type="radio" name="area" value="urban" required /> Urban
+    </li>
+</ul>
+
+
+<p class="mt4 mb1 measure-wide mb0 b">
+    How long have you lived in the U.S.? (if not in U.S., please pick "n/a")
+</p>
+<ul class="list mt0">
+    <li>
+        <input type="radio" name="time-in-us" value="-1" required /> Less than 1 year
+    </li>
+    <li>
+        <input type="radio" name="time-in-us" value="1-2" required /> between 1 and 2 years
+    </li>
+    <li>
+        <input type="radio" name="time-in-us" value="2-5" required /> between 2 and 5 years
+    </li>
+    <li>
+        <input type="radio" name="time-in-us" value="5-10" required /> between 5 and 10 years
+    </li>
+    <li>
+        <input type="radio" name="time-in-us" value="10-" required /> 10 or more years
+    </li>
+    <li>
+        <input type="radio" name="time-in-us" value="none" required /> n/a
+    </li>
+</ul>
+
+                <!-- Bookkeeping vars. -->
+                <input type="hidden" name="te" value="-1">
+
+            </div>
+        </div>
+
+        <div class="shadowCard">
+    <input type="submit" id="submitButton" class="pa2 mt2 mb4 b white bg-gold" value="Submit">
+</div>
+    </div>
+</body>

@@ -1,0 +1,3724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>Social Chemistry</title>
+
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1" name="viewport" />
+
+<meta property="og:title" content="Social Chemistry 101">
+<meta property="og:description"
+    content="A new conceptual formalism to study people’s everyday social norms and moral judgments.">
+<meta property="og:image" content="https://maxwellforbes.com/social-chemistry/social-chemistry-preview.png">
+<meta property="og:url" content="https://maxwellforbes.com/social-chemistry/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="shortcut icon" href="/social-chemistry/favicon.ico">
+<link rel="icon" type="image/png" href="/social-chemistry/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/social-chemistry/favicon-16x16.png" sizes="16x16">
+
+
+<!--CSS -->
+<link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" type="text/css" />
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css" type="text/css" />
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    type="text/css" />
+<link rel="stylesheet" href="autoComplete.css" type="text/css" />
+<link rel="stylesheet" href="vivify-custom.css" type="text/css" />
+
+<style>
+    /* .big-grad {
+        background: linear-gradient(180deg, #0cebeb 0%, #20e3b2 50%, #29ffc6 100%);
+    } */
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .big-grad {
+        background: linear-gradient(314deg, #29ffc6, #20e3b2, #0cebeb);
+        background-size: 600% 600%;
+
+        -webkit-animation: diagonal-scroll 30s ease infinite;
+        -moz-animation: diagonal-scroll 30s ease infinite;
+        -o-animation: diagonal-scroll 30s ease infinite;
+        animation: diagonal-scroll 30s ease infinite;
+    }
+
+    @-webkit-keyframes diagonal-scroll {
+        0% {
+            background-position: 0% 2%
+        }
+
+        50% {
+            background-position: 100% 99%
+        }
+
+        100% {
+            background-position: 0% 2%
+        }
+    }
+
+    @-moz-keyframes diagonal-scroll {
+        0% {
+            background-position: 0% 2%
+        }
+
+        50% {
+            background-position: 100% 99%
+        }
+
+        100% {
+            background-position: 0% 2%
+        }
+    }
+
+    @-o-keyframes diagonal-scroll {
+        0% {
+            background-position: 0% 2%
+        }
+
+        50% {
+            background-position: 100% 99%
+        }
+
+        100% {
+            background-position: 0% 2%
+        }
+    }
+
+    @keyframes diagonal-scroll {
+        0% {
+            background-position: 0% 2%
+        }
+
+        50% {
+            background-position: 100% 99%
+        }
+
+        100% {
+            background-position: 0% 2%
+        }
+    }
+
+
+    /* .loading {
+        animation: pulse;
+        animation-duration: 2s;
+    } */
+
+    .rainbow {
+        background: linear-gradient(90deg, #2c7bb6, #a97900, #d7191c);
+        background-size: 600% 600%;
+
+        -webkit-animation: diagonal-scroll 4s ease infinite;
+        -moz-animation: diagonal-scroll 4s ease infinite;
+        -o-animation: diagonal-scroll 4s ease infinite;
+        animation: diagonal-scroll 4s ease infinite;
+    }
+
+    .rainbow-button {
+        box-shadow: inset 0px 0px 0px 1px #07041c;
+    }
+
+    .rainbow-button:disabled {
+        box-shadow: inset 0px 0px 0px 1px #A5A5A5;
+    }
+
+    /*
+     * have to use "not disabled" instead of "enabled" because there are links
+     * that use this class that aren't inputs so aren't technically ever "enabled"
+     */
+    .rainbow-button:hover:not([disabled]) {
+        color: white;
+        cursor: pointer;
+
+        box-shadow: none;
+        background: linear-gradient(90deg, #2c7bb6, #a97900, #d7191c);
+        background-size: 600% 600%;
+        -webkit-animation: diagonal-scroll 4s ease infinite;
+        -moz-animation: diagonal-scroll 4s ease infinite;
+        -o-animation: diagonal-scroll 4s ease infinite;
+        animation: diagonal-scroll 4s ease infinite;
+    }
+
+    .rainbow-button.selected {
+        color: white;
+
+        box-shadow: none;
+        background: linear-gradient(90deg, #2c7bb6, #a97900, #d7191c);
+        background-size: 600% 600%;
+        -webkit-animation: diagonal-scroll 4s ease infinite;
+        -moz-animation: diagonal-scroll 4s ease infinite;
+        -o-animation: diagonal-scroll 4s ease infinite;
+        animation: diagonal-scroll 4s ease infinite;
+
+        /* NOTE: can't do multiple animations, at least like this. But this way we at
+           least get the pulse, then it sticks to a slight gradient. */
+        animation: pulse;
+        animation-duration: 0.1s;
+    }
+
+    a.rainbow-button {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .button:hover {
+        /* background: linear-gradient(180deg, #0cebeb 0%, #20e3b2 50%, #29ffc6 100%); */
+        /* background: linear-gradient(0deg, #20e3b2 0%, #29ffc6 100%); */
+
+        /* background-color: #29ffc6; */
+
+        background-color: #353535;
+        color: white;
+
+        /* opacity: 0.75; */
+        /* border-color: white; */
+    }
+
+    .selected {
+        /* background-color: #29ffc6; */
+
+        background-color: #353535;
+        color: white;
+
+        /* opacity: 0.85; */
+        animation: pulse;
+        animation-duration: 0.1s;
+    }
+
+    .notice-me {
+        animation: bounce;
+        animation-duration: 1.0s;
+    }
+
+    .temp-tall {
+        height: 500px;
+    }
+
+    .main-text-color {
+        color: #050526;
+    }
+
+    .light-text-color {
+        color: #69697C;
+    }
+
+    .ultralight-text-color {
+        color: #828291;
+    }
+
+    .demo-bg {
+        background-color: #fafafa;
+    }
+
+    .fade-bg {
+        background-image: linear-gradient(rgba(5, 5, 38, 0.02) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 80%, rgba(5, 5, 38, 0.02) 100%);
+    }
+
+    .mode-inactive {
+        background-color: #f2f2f2;
+        color: #69697C;
+    }
+
+    .mode-inactive:hover {
+        color: #050526;
+    }
+
+    .mode-active {
+        background-color: #dfdfdf;
+    }
+
+    .reveal-section {
+        animation: fadeIn;
+        animation-duration: 0.5s;
+    }
+
+    .content-width {
+        max-width: 750px;
+    }
+
+    /* .dataset-browser-width {
+        max-width: 1200px;
+    } */
+
+    /* @media screen and (min-width: 770px) {
+        .two-col-width {
+            width: 750px;
+        }
+    } */
+
+    .two-col-width {
+        width: 798px;
+        /* max-width: 100%; */
+    }
+
+    .quick-links-width {
+        /* width: auto; */
+        max-width: 1400px;
+    }
+
+    .find-out-more-width {
+        /* width: auto; */
+        max-width: 800px;
+    }
+
+    .demo-header {
+        max-width: 798px;
+    }
+
+    .demo-header-text {
+        max-width: 734px;
+    }
+
+    @media screen and (min-width: 1611px) {
+        .demo-header {
+            max-width: none;
+            width: calc(1596px);
+        }
+    }
+
+
+    .footer-border {
+        border-top: 2px solid #e9e9ec;
+    }
+
+    .customlink {
+        color: inherit;
+    }
+
+    /* .customlink:hover {
+        color: #20e3b2;
+    } */
+
+    .w6 {
+        width: 32rem;
+    }
+
+    .slider-zone {
+        margin-left: 3%;
+        margin-right: 3%;
+        width: 94%
+    }
+
+    .gradient-posneg-h {
+        background: linear-gradient(270deg, #2c7bb6 0%, #abd9e9 25%, #ffffbf 50%, #fdae61 75%, #d7191c 100%);
+    }
+
+    .gradient-posneg-v {
+        background: linear-gradient(180deg, #2c7bb6 0%, #abd9e9 25%, #ffffbf 50%, #fdae61 75%, #d7191c 100%);
+    }
+
+    .bg-model-choice {
+        background-color: white;
+    }
+
+    .bg-neg2 {
+        background-color: #d7191c;
+    }
+
+    .bg-neg1 {
+        background-color: #fdae61;
+    }
+
+    .bg-neutral {
+        background-color: #ffffbf;
+    }
+
+    .bg-pos1 {
+        background-color: #abd9e9;
+    }
+
+    .bg-pos2 {
+        background-color: #2c7bb6;
+    }
+
+
+
+    .suggestion:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .w35 {
+        width: 6em;
+    }
+
+    .w45 {
+        width: 12rem;
+    }
+
+    @media screen and (min-width: 30em) {
+        .w45-ns {
+            width: 12rem;
+        }
+    }
+
+    .h35 {
+        height: 6rem;
+    }
+
+    @media screen and (min-width: 30em) {
+        .h35-ns {
+            height: 6rem;
+        }
+    }
+
+    .bg-washed-orange {
+        background-color: #ffdcc7;
+    }
+
+    .bg-lightester-blue {
+        background-color: #e5f5ff;
+    }
+
+    /* Our five graded colors. Not in use yet. */
+    /* .bg-2 {
+        background-color: #2c7bb6;
+    }
+
+    .bg-1 {
+        background-color: #abd9e9;
+    }
+
+    .bg-0 {
+        background-color: #ffffbf;
+    }
+
+    .bg--1 {
+        background-color: #fdae61;
+    }
+
+    .bg--2 {
+        background-color: #d7191c;
+    } */
+
+
+    /*
+    #a55b69 #d48a7e #f19c69 #e8713d #d3171e
+    #ad948f #dcc4a5 #fbd78f #f7af60 #e8713d
+    #a7babd #d7ecd4 #f9100be #fbd78f #f19c69
+    #7da8d0 #afd9e9 #d7ecd4 #dcc4a5 #d48a7e
+    #457ab6 #7da8d0 #a7babd #ad948f #a55b69
+    */
+
+    .pj-table-cell {
+        width: 64px;
+        height: 64px;
+    }
+
+    .pj-cell {
+        border: 2px solid #00000000;
+        opacity: 0.5;
+    }
+
+    .pj-cell:hover {
+        border: 2px solid #050526;
+        opacity: 1;
+    }
+
+    .pj-cell.cell-selected {
+        border: 2px solid #050526;
+        opacity: 1;
+        animation: pulse;
+        animation-duration: 0.1s;
+    }
+
+    .pj-cell-11 {
+        background-color: #a55b69;
+    }
+
+    .pj-cell-12 {
+        background-color: #ad948f;
+    }
+
+    .pj-cell-13 {
+        background-color: #a7babd;
+    }
+
+    .pj-cell-14 {
+        background-color: #7da8d0;
+    }
+
+    .pj-cell-15 {
+        background-color: #457ab6;
+    }
+
+    .pj-cell-21 {
+        background-color: #d48a7e;
+    }
+
+    .pj-cell-22 {
+        background-color: #dcc4a5;
+    }
+
+    .pj-cell-23 {
+        background-color: #d7ecd4;
+    }
+
+    .pj-cell-24 {
+        background-color: #afd9e9;
+    }
+
+    .pj-cell-25 {
+        background-color: #7da8d0;
+    }
+
+    .pj-cell-31 {
+        background-color: #f19c69;
+    }
+
+    .pj-cell-32 {
+        background-color: #fbd78f;
+    }
+
+    .pj-cell-33 {
+        background-color: #ffffbf;
+    }
+
+    .pj-cell-34 {
+        background-color: #d7ecd4;
+    }
+
+    .pj-cell-35 {
+        background-color: #a7babd;
+    }
+
+    .pj-cell-41 {
+        background-color: #e8713d;
+    }
+
+    .pj-cell-42 {
+        background-color: #f7af60;
+    }
+
+    .pj-cell-43 {
+        background-color: #fbd78f;
+    }
+
+    .pj-cell-44 {
+        background-color: #dcc4a5;
+    }
+
+    .pj-cell-45 {
+        background-color: #ad948f;
+    }
+
+    .pj-cell-51 {
+        background-color: #d3171e;
+    }
+
+    .pj-cell-52 {
+        background-color: #e8713d;
+    }
+
+    .pj-cell-53 {
+        background-color: #f19c69;
+    }
+
+    .pj-cell-54 {
+        background-color: #d48a7e;
+    }
+
+    .pj-cell-55 {
+        background-color: #a55b69;
+    }
+
+    .scroll-down {
+        --animate-duration: 10s;
+    }
+
+    .bubble {
+        /* animation-name: bubble; */
+        transition: transform 1s ease-out;
+    }
+
+    .bubble:hover {
+        transform: translateY(-8px);
+    }
+
+    .shadow:hover {
+        /* transition: box-shadow 0.2s ease; */
+        box-shadow: 0 10px 5px -5px rgb(222, 222, 222);
+    }
+
+    .endnotes-bg {
+        /* background-color: #7C7A8E; */
+        background-color: #3D3B47;
+    }
+
+    .endnotes-bg :visited {
+        /* color: #69697C; */
+        color: white;
+    }
+
+    .near-browser-section {
+        transition: all 0.5s ease;
+    }
+
+    .browser-results {
+        z-index: 10;
+    }
+</style>
+
+
+<body class="">
+
+    <!-- Spying sorry I guess what is the Internet anyway -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808469-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-125808469-2');
+    </script>
+
+    <article class="">
+        <!-- TODO: probably remove height once we have enough content -->
+        <header class=" mt0 vh-100 w-100 big-grad pa3 pa5-ns sans-serif dt tc">
+            <div class="dt-row">
+                <div class="dtc v-mid">
+                    <h1 class="f2 f1-m f-headline-l white-90 fw5">Social Chemistry</h1>
+                    <p class="f5 f3-ns measure lh-copy white center fw5">
+                        We present a new conceptual formalism
+                        to study people’s everyday
+                        social norms and moral judgments.
+                        <!-- over a rich spectrum of real life situations described in natural language. -->
+                    </p>
+                </div>
+            </div>
+            <div class="dt-row">
+                <div class="v-btm dtc h2 animate__animated animate__fadeInDown animate__delay-3s">
+                    <p
+                        class="f5 mb6 mb3-ns measure lh-copy white center small-caps tracked animate__animated animate__shakeY animate__delay-2s animate__infinite scroll-down">
+                        scroll down </p>
+                </div>
+            </div>
+        </header>
+        <section class="main-text-color">
+
+
+            <!-- Quick links block -->
+            <section class="demo-bg pv5 sans-serif fade-bg">
+                <div class="center quick-links-width ph4-ns ph2 lh-copy">
+
+                    <p class="pv0 f6 fw6 ttu tracked mt0 mb4">quick info</p>
+
+                    <!-- <p class="dn db-ns">BIG</p> -->
+                    <!-- <p class="dn-m dn-l">small</p> -->
+
+                    <div class="cf">
+
+                        <div class="fl w5 dib-ns mr4-m mr5-l mb4 pr2 pr0-ns ml4 ml0-ns">
+                            <p class="f5 f4-l fw6 tracked">ABOUT</p>
+                            <span class="f7 f6-ns db black-70">
+                                This is the project webpage for the
+                                <span class="b">Social Chemistry</span>
+                                research project.
+                            </span>
+
+                            <span class="f7 f6-ns db black-70 mt1">
+                                The work is by natural language processing (NLP) researchers from the
+                                <a class="link customlink dim" href="https://www.cs.washington.edu/">
+                                    University of Washington
+                                </a>
+                                and
+                                <a class="link customlink dim" href="https://allenai.org/">
+                                    AI2</a>.
+                            </span>
+                        </div>
+
+                        <div class="fl w5 dib-ns mr4-m mr5-l mb4 pr2 pr0-ns ml4 ml0-ns">
+                            <p class="f5 f4-l fw6 tracked">PAPER</p>
+                            <span class="f7 f6-ns db black-70">Social Chemistry 101: Learning to Reason about Social
+                                and Moral Norms</span>
+                            <span class="f7 f6-ns db black-70 i">EMNLP 2020</span>
+                            <a class="f6 f5-ns db fw6 pv3 black-70 link dim small-caps"
+                                href="https://arxiv.org/abs/2011.00620">
+                                read on arxiv
+                            </a>
+                        </div>
+
+                        <div class="fl w5 w-auto-l dib-ns mr3 mr4-m mr5-l mb4 pr2 pr0-ns ml4 ml0-ns">
+                            <p class="f5 f4-l fw6 tracked">DATA</p>
+                            <span class="f7 f6-ns db black-70">Social-Chem-101 Dataset</span>
+                            <span class="f7 f6-ns db black-70">4.5M+ annotations</span>
+                            <span class="f7 f6-ns db black-70 i">28 MB .zip</span>
+                            <a class="f6 f5-ns db fw6 pv3 black-70 link dim small-caps"
+                                href="https://storage.googleapis.com/ai2-mosaic-public/projects/social-chemistry/data/social-chem-101.zip">
+                                download
+                            </a>
+                        </div>
+
+                        <div class="fl w5 w-auto-l dib-ns mr4-m mr5-l mb4 pr2 pr0-ns ml4 ml0-ns">
+                            <p class="f5 f4-l fw6 tracked">CODE</p>
+                            <span class="f7 f6-ns db black-70">Accompanies the paper</span>
+                            <span class="f7 f6-ns db black-70">Training, inference, analysis</span>
+                            <span class="f7 f6-ns db black-70 i">Python</span>
+                            <a class="f6 f5-ns db fw6 pv3 black-70 link dim small-caps"
+                                href="https://github.com/mbforbes/social-chemistry-101">
+                                view on github
+                            </a>
+                        </div>
+
+                        <div class="fl w5 w-auto-l dib-ns mr4-m mr5-l mb4 pr2 pr0-ns ml4 ml0-ns">
+                            <p class="f5 f4-l fw6 tracked">CONTENTS</p>
+                            <ol class="f7 f6-ns db black-70 pl3">
+                                <li>
+                                    <a class="link customlink dim" href="#rules-of-thumb">
+                                        Rules-of-Thumb
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="link customlink dim" href="#attributes">
+                                        Attributes
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="link customlink dim" href="#demo">
+                                        Demo
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="link customlink dim" href="#dataset">
+                                        Dataset
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="link customlink dim" href="#limitations">
+                                        Limitations
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- Content block -->
+            <section class="pv5 serif">
+                <!-- Centered text content -->
+                <section class="center content-width ph2 lh-copy f5 f4-ns">
+
+                    <a name="rules-of-thumb"></a>
+                    <h2 class="f3 f2-ns fw6 sans-serif mb2">Rules-of-Thumb</h2>
+                    <p class="mt0">
+                        Our study centers around cultural <span class="i">rules-of-thumb</span>.
+                        Each rule-of-thumb is inspired by a <span class="i">situation</span>:
+                    </p>
+                    <div class="inline-example mv4 ml5-ns ml4 sans-serif">
+                        <p class="f6 f5-ns ttu tracked b mb0">situation</p>
+                        <p class="mt0">My roommate ran the blender at 5am</p>
+
+                        <p class="f6 f5-ns ttu tracked b mb0">rule-of-thumb</p>
+                        <p class=" mt0">It's rude to make loud noises early in the morning</p>
+                    </div>
+
+                    <p class="">
+                        A rule-of-thumb has a simple structure: it is the
+                        <span class="i">judgment</span>
+                        of an
+                        <span class="i">action</span>.
+                    </p>
+
+                    <div class="inline-example mv4 ml5-ns ml4 sans-serif">
+                        <table>
+                            <tr>
+                                <td class=" tr bb">
+                                    It's rude
+                                </td>
+                                <td class="w1"></td>
+                                <td class=" bb">
+                                    to make loud noises early in the morning
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="f6 f5-ns ttu tracked b">
+                                    judgment
+                                </td>
+                                <td></td>
+                                <td class="f6 f5-ns ttu tracked b">
+                                    action
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <p class="">
+                        We use rules-of-thumb to capture <span class="i">cultural norms.</span>
+                        These include moral, ethical, and social norms.
+                        We treat rules-of-thumb as explanations of everyday social expectations.
+                    </p>
+
+                    <h3 class="f4 f3-ns fw6 sans-serif mt4 mb2">Multiple perspectives</h3>
+                    <p class=" mt0">
+                        We try to collect rules-of-thumb that capture competing perspectives.
+                        This helps us understand the different factors someone might be weighing in the situation.
+                    </p>
+
+                    <div class="inline-example mv4 ml5-ns ml4 sans-serif">
+                        <p class="f6 f5-ns ttu tracked b mb0">situation</p>
+                        <p class=" mt0">
+                            <!-- <span class="br3 bg-light-gray pl2 pr1 pv1 fw5">
+                                Narrator
+                            </span>: -->
+                            Narrator:
+                            "Asking my boyfriend to stop being friends with his ex"
+                        </p>
+
+                        <p class="f6 f5-ns mb0">
+                            <span class="ttu tracked b">
+                                rule-of-thumb 1
+                            </span>
+                            <span class="i">for</span>
+                            <span class="br3 bg-washed-green ph1 pv1 fw5">
+                                Narrator
+                            </span>
+                        </p>
+                        <p class=" mt0">It's okay to ask your significant other to stop doing something you're
+                            uncomfortable with</p>
+                        <p class="f6 f5-ns mb0">
+                            <span class="ttu tracked b">
+                                rule-of-thumb 2
+                            </span>
+                            <span class="i">for</span>
+                            <span class="br3 bg-washed-green ph1 pv1 fw5">
+                                Narrator
+                            </span>
+                        </p>
+                        <p class=" mt0">It's not right to tell another person who to spend time with</p>
+                    </div>
+
+                    <p class="">
+                        Those two rules-of-thumb are both written for the narrator of the situation.
+                        But we can also write rules-of-thumb for other characters.
+                    </p>
+
+                    <div class="inline-example mv4 ml5-ns ml4 sans-serif">
+                        <p class="f6 f5-ns mb0">
+                            <span class="ttu tracked b">
+                                rule-of-thumb 3
+                            </span>
+                            <span class="i">for</span>
+                            <span class="br3 bg-lightest-blue ph1 pv1 fw5">
+                                my boyfriend
+                            </span>
+                        </p>
+                        <p class=" mt0">
+                            You should make sure your significant other doesn't feel like a lower priority than your ex
+                        </p>
+                    </div>
+
+                    <a name="attributes"></a>
+                    <h2 class="f3 f2-ns f2-ns fw6 sans-serif mt5 mb2">Attributes</h2>
+                    <p class=" mt0">
+                        We annotate each rule-of-thumb with discrete labels along
+                        several different dimensions. These new attributes let us
+                        understand rules-of-thumb at a coarse level, and tie the
+                        rule-of-thumb to its parent situation.
+                    </p>
+
+                    <details class="mt4 mb2">
+                        <summary class="f4 f3-ns fw6 sans-serif pointer">
+                            Moral Foundations
+                        </summary>
+                        <p class=" mt0">
+                            A popular social psychology theory, <span class="i">Moral
+                                Foundations (Haidt et al., 2013)</span> define fundamental
+                            axes of morality.
+                        </p>
+
+                        <div class="inline-example mv4 ml5-ns ml4 sans-serif">
+                            <table class="collapse ba br2 b--black-10">
+                                <tr class="striped--light-gray ">
+                                    <th class="pv1 pv2-ns ph2 ph3-ns tl f6 fw6 ttu">
+                                        axis
+                                    </th>
+                                    <th class="pv1 pv2-ns ph2 ph3-ns tl f6 fw6 ttu">
+                                        Example
+                                    </th>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5">
+                                        Care ⇄ Harm
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        It's mean to tell someone they aren't as attractive as someone else.
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5">
+                                        Fairness ⇄ Cheating
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        It's wrong to copy someone else's answers in an exam.
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5">
+                                        Loyalty ⇄ Betrayal
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        It's rude for a cheerleader to boo their own team.
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5">
+                                        Authority ⇄ Subversion
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        It's rude to walk way from your boss while they are talking to you.
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5">
+                                        Sanctity ⇄ Degradation
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        It's disgusting to pee into a public pool full of people.
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </details>
+
+                    <details class="mt4 mb2">
+                        <summary class="f4 f3-ns fw6 sans-serif pointer">
+                            Anticipated agreement
+                        </summary>
+
+                        <p class=" mt0">
+                            How universally held is the rule-of-thumb as a belief? This
+                            question is captured by the <span class="i">anticipated
+                                agreement</span> attribute. This label allows us to understand a
+                            broader distribution of cultural beliefs.
+                        </p>
+
+                        <div class="inline-example mv4 ml5-ns ml4 sans-serif">
+                            <table class="collapse ba br2 b--black-10">
+                                <tr class="striped--light-gray ">
+                                    <th class="pv1 pv2-ns ph2 ph3-ns tl f6 fw6 ttu">
+                                        agreement
+                                    </th>
+                                    <th class="pv1 pv2-ns ph2 ph3-ns tl f6 fw6 ttu">
+                                        example
+                                    </th>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-pos2 dib mr1 ba"></div>
+                                        Universal (~99%)
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        You're expected to wear clothes in public.
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-pos1 dib mr1 ba"></div>
+                                        Common (~75% &ndash; 90%)
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Human beings evolved, like other animals.
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-neutral dib mr1 ba"></div>
+                                        Controversial (~50%)
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        We should pass stronger gun control laws.
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-neg1 dib mr1 ba"></div>
+                                        Uncommon (~5% &ndash; 25%)
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Believing that ghosts exist.
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-neg2 dib mr1 ba"></div>
+                                        Almost no one (&lt; 1%)
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        It's good to murder others.
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <p class="f5 f4-ns fw6 sans-serif mb1">
+                            Examples: consistent
+                        </p>
+                        <p class="f6 f5-ns mt1">
+                            In our annotations with 50 people, workers had high agreement
+                            of their <span class="b">anticipated agreement</span> of
+                            these rules-of-thumb.
+                        </p>
+                        <object class="mw-100" data="examples/rot-agree/low-variance-1.svg"></object>
+                        <object class="mw-100 mt3" data="examples/rot-agree/low-variance-9.svg"></object>
+
+                        <p class="f5 f4-ns fw6 sans-serif mb1">
+                            Examples: high variance
+                        </p>
+                        <p class="f6 f5-ns mt1">
+                            In our annotations with 50 people, workers disagreed about
+                            their <span class="b">anticipated agreement</span> of
+                            these rules-of-thumb.
+                        </p>
+                        <object class="mw-100" data="examples/rot-agree/high-variance-1.svg"></object>
+                        <object class="mw-100 mt3" data="examples/rot-agree/high-variance-2.svg"></object>
+
+                    </details>
+
+
+                    <details class="mt4 mb2">
+                        <summary class="f4 f3-ns fw6 sans-serif pointer">
+                            Relevant character
+                        </summary>
+
+                        <p class=" mt0">
+                            If the rule-of-thumb is advice, then who should follow it? The
+                            <span class="i">relevant character</span> marks who in the
+                            situation (including the narrator) is the person to who you
+                            would tell this rule-of-thumb. They may already be following its
+                            advice, they may be doing exactly the opposite, or we might not
+                            be able to tell from the situation.
+                        </p>
+
+                        <div class="inline-example mv4 ml5-ns ml4 sans-serif">
+                            <p class="f6 f5-ns ttu tracked b mb0">situation</p>
+                            <p class=" mt0">
+                                <!-- <span class="br3 bg-light-gray pl2 pr1 pv1 fw5">
+                                Narrator
+                            </span>: -->
+                                Narrator:
+                                "I noticed my friend wasn't tipping the bartender"
+                            </p>
+
+                            <p class="f6 f5-ns mb0">
+                                <span class="ttu tracked b">
+                                    rule-of-thumb
+                                </span>
+                                <span class="i">for</span>
+                                <span class="br3 bg-washed-green ph1 pv1 fw5">
+                                    Narrator
+                                </span>
+                            </p>
+                            <p class=" mt0">
+                                It's all right to gently correct a friend who is being rude
+                            </p>
+
+                            <p class="f6 f5-ns mb0">
+                                <span class="ttu tracked b">
+                                    rule-of-thumb
+                                </span>
+                                <span class="i">for</span>
+                                <span class="br3 bg-lightest-blue ph1 pv1 fw5">
+                                    my friend
+                                </span>
+                            </p>
+                            <p class=" mt0">It's expected that you tip bartenders for each drink</p>
+
+                            <p class="f6 f5-ns mb0">
+                                <span class="ttu tracked b">
+                                    rule-of-thumb
+                                </span>
+                                <span class="i">for</span>
+                                <span class="br3 bg-washed-red ph1 pv1 fw5">
+                                    the bartender
+                                </span>
+                            </p>
+                            <p class=" mt0">It's professional to give good service even to people who don't tip</p>
+                        </div>
+                    </details>
+
+                    <details class="mt4 mb2">
+                        <summary class="f4 f3-ns fw6 sans-serif pointer">
+                            Action
+                        </summary>
+
+                        <p class=" mt0">
+                            Each rule-of-thumb is the
+                            <span class="i">judgment</span>
+                            of an
+                            <span class="i">action</span>.
+                            We isolate the <span class="i">action</span> so that we can study it in further detail with
+                            the
+                            attributes below.
+                        </p>
+
+                        <div class="inline-example mv4 ml5-ns ml4 sans-serif">
+                            <table class="collapse ba br2 b--black-10">
+                                <tr class="striped--light-gray ">
+                                    <th class="pv1 pv2-ns ph2 ph3-ns tl f6 fw6 ttu">
+                                        rule-of-thumb
+                                    </th>
+                                    <th class="pv1 pv2-ns ph2 ph3-ns tl f6 fw6 ttu">
+                                        action
+                                    </th>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns">
+                                        It's good to care for the elderly.
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        caring for the elderly
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns">
+                                        It's bad to expose others to secondhand smoke.
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        exposing others to secondhand smoke
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns">
+                                        It's okay to be angry if your friend talks to someone you used to date.
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        being angry when your friend talks to someone you used to date
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </details>
+
+                    <details class="mt4 mb2">
+                        <summary class="f4 f3-ns fw6 sans-serif pointer">
+                            Cultural pressure
+                        </summary>
+                        <p class=" mt0">
+                            <span class="i">Cultural pressure</span> measures to what degree
+                            someone feels socially influenced to do (or avoid) an <span class="i">action</span>. This
+                            pressure may come from one’s
+                            family, friends, community, culture, or society at large.
+                        </p>
+
+                        <div class="inline-example mv4 ml5-ns ml4 sans-serif">
+                            <table class="collapse ba br2 b--black-10">
+                                <tr class="striped--light-gray ">
+                                    <th class="pv1 pv2-ns ph2 ph3-ns tl f6 fw6 ttu">
+                                        pressure
+                                    </th>
+                                    <th class="pv1 pv2-ns ph2 ph3-ns tl f6 fw6 ttu">
+                                        Example
+                                    </th>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-pos2 dib mr1 ba"></div>
+                                        Strongly for
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Wearing clothes in public
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-pos1 dib mr1 ba"></div>
+                                        For
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Being honest with people
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-neutral dib mr1 ba"></div>
+                                        Discretionary
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Choosing to read before bed
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-neg1 dib mr1 ba"></div>
+                                        Against
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Spending money on jewelry if you can't afford it
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-neg2 dib mr1 ba"></div>
+                                        Strongly against
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Intentionally harming an animal
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <p class="f5 f4-ns fw6 sans-serif mb1">
+                            Examples: consistent
+                        </p>
+                        <p class="f6 f5-ns mt1">
+                            In our annotations with 50 people, workers had high agreement
+                            of the <span class="b">cultural pressure</span> they perceived
+                            for these actions.
+                        </p>
+                        <object class="mw-100" data="examples/action-pressure/low-variance-0.svg"></object>
+                        <object class="mw-100 mt3" data="examples/action-pressure/low-variance-2.svg"></object>
+
+                        <p class="f5 f4-ns fw6 sans-serif mb1">
+                            Examples: high variance
+                        </p>
+                        <p class="f6 f5-ns mt1">
+                            In our annotations with 50 people, worker perceived different amounts
+                            of <span class="b">cultural pressure</span> for these
+                            actions.
+                        </p>
+                        <object class="mw-100" data="examples/action-pressure/high-variance-0.svg"></object>
+                        <object class="mw-100 mt3" data="examples/action-pressure/high-variance-1.svg"></object>
+
+                    </details>
+
+                    <details class="mt4 mb2">
+                        <summary class="f4 f3-ns fw6 sans-serif pointer">
+                            Social judgment
+                        </summary>
+                        <p class=" mt0">
+                            A subjective moral judgment is captured by the <span class="i">social
+                                judgment</span> of an <span class="i">action</span>.
+                            This is an intuitive reaction of whether something is good or bad.
+                        </p>
+                        <div class="inline-example mv4 ml5-ns ml4 sans-serif">
+                            <table class="collapse ba br2 b--black-10">
+                                <tr class="striped--light-gray ">
+                                    <th class="pv1 pv2-ns ph2 ph3-ns tl f6 fw6 ttu">
+                                        judgment
+                                    </th>
+                                    <th class="pv1 pv2-ns ph2 ph3-ns tl f6 fw6 ttu">
+                                        Example
+                                    </th>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-pos2 dib mr1 ba"></div>
+                                        Very good
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Buying groceries for a financially struggling neighbor
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-pos1 dib mr1 ba"></div>
+                                        Good
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Driving a friend to the airport
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-neutral dib mr1 ba"></div>
+                                        Expected / OK
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Wearing clothes in public
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-neg1 dib mr1 ba"></div>
+                                        Bad
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Saying something mean to a friend
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-neg2 dib mr1 ba"></div>
+                                        Very bad
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Slashing tires
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <p class="f5 f4-ns fw6 sans-serif mb1">
+                            Examples: consistent
+                        </p>
+                        <p class="f6 f5-ns mt1">
+                            In our annotations with 50 people, workers had high agreement
+                            of the <span class="b">social judgments</span> they perceived
+                            for these actions.
+                        </p>
+                        <object class="mw-100" data="examples/action-moral-judgment/low-variance-4.svg"></object>
+                        <object class="mw-100 mt3" data="examples/action-moral-judgment/low-variance-7.svg"></object>
+
+                        <p class="f5 f4-ns fw6 sans-serif mb1">
+                            Examples: high variance
+                        </p>
+                        <p class="f6 f5-ns mt1">
+                            In our annotations with 50 people, worker perceived different
+                            <span class="b">social judgments</span> for these
+                            actions.
+                        </p>
+                        <object class="mw-100" data="examples/action-moral-judgment/high-variance-0.svg"></object>
+                        <object class="mw-100 mt3" data="examples/action-moral-judgment/high-variance-4.svg"></object>
+                        <object class="mw-100 mt3" data="examples/action-moral-judgment/high-variance-5.svg"></object>
+                    </details>
+
+                    <details class="mt4 mb2">
+                        <summary class="f4 f3-ns fw6 sans-serif pointer">
+                            Is character doing action?
+                        </summary>
+                        <p class=" mt0">
+                            Using the <span class="i">relevant character</span> identified
+                            above, we might want to know: in the <span class="i">situation</span>, are they doing the
+                            <span class="i">action</span>
+                            given by the rule-of-thumb?
+                        </p>
+
+                        <div class="inline-example mv4 ml5-ns ml4 sans-serif">
+                            <p class="f6 f5-ns ttu tracked b mb0">situation</p>
+                            <p class=" mt0">
+                                <!-- <span class="br3 bg-light-gray pl2 pr1 pv1 fw5">
+                                Narrator
+                            </span>: -->
+                                Narrator:
+                                "I noticed my friend wasn't tipping the bartender"
+                            </p>
+
+                            <p class="f6 f5-ns mb0">
+                                <span class="ttu tracked b">
+                                    character
+                                </span>
+                            </p>
+                            <p class=" mt0">
+                                <span class="br3 bg-lightest-blue ph1 pv1 fw5">
+                                    my friend
+                                </span>
+                            </p>
+
+                            <table class="collapse ba br2 b--black-10">
+                                <tr class="striped--light-gray ">
+                                    <th class="pv1 pv2-ns ph2 ph3-ns tl f6 fw6 ttu">
+                                        doing action?
+                                    </th>
+                                    <th class="pv1 pv2-ns ph2 ph3-ns tl f6 fw6 ttu">
+                                        action
+                                    </th>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-pos2 dib mr1 ba"></div>
+                                        Explicitly
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Having drinks at a bar
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-pos1 dib mr1 ba"></div>
+                                        Probably
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Paying for drinks
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-neutral dib mr1 ba"></div>
+                                        Hypothetically
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Going clubbing every day
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-neg1 dib mr1 ba"></div>
+                                        Probably not
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Enjoying the drinks
+                                    </td>
+                                </tr>
+                                <tr class="striped--light-gray ">
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns fw5 nowrap">
+                                        <div class="w1 h1 bg-neg2 dib mr1 ba"></div>
+                                        Explicitly not
+                                    </td>
+                                    <td class="pv1 pv2-ns ph2 ph3-ns f6 f5-ns i">
+                                        Tipping the bartender
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </details>
+
+                </section>
+
+                <!-- End of content block -->
+            </section>
+
+
+            <!-- Wide demo block -->
+            <section class="demo-bg pv5 sans-serif fade-bg">
+                <form id="input">
+
+                    <!-- <div class="center content-width ph2 lh-copy"> -->
+                    <div class="center demo-header ph4-ns ph2 lh-copy">
+                        <a name="demo"></a>
+                        <h2 class="f3 f2-ns mv0 fw6">Demo</h2>
+                        <div class="demo-header-text mt0">
+                            <p class="f5 f4-ns mt0">
+                                Try writing a situation and see what rules-of-thumb the model writes.
+                            </p>
+                            <p class="f6 f5-ns">
+                                This model&mdash;which we call the <span class="i">Neural Norm
+                                    Transformer</span>&mdash;is a conditional
+                                language model based on the GPT2-XL (Radford et al., 2019) architecture. It was trained
+                                on
+                                a large collection of rules-of-thumb as well as label tokens representing the attributes
+                                described above.
+                                In
+                                <span class="f7 f6-ns ttu tracked fw6">
+                                    advanced
+                                </span>
+                                mode, you can also select and view these attributes.
+                            </p>
+                        </div>
+
+                        <label id="label-mode-basic" class="w4 tc pointer mode-active dib br2 mt3 mb4">
+                            <input type="radio" name="mode" value="basic" class="dn" checked>
+                            <p class="f5 ttu tracked b mv2">
+                                basic
+                            </p>
+                        </label>
+                        <label id="label-mode-advanced" class="w4 tc pointer mode-inactive dib br2 mt3 mb4">
+                            <input type="radio" name="mode" value="advanced" class="dn">
+                            <p class="f5 ttu tracked b mv2">
+                                advanced
+                            </p>
+                        </label>
+
+                    </div>
+
+                    <div class="flex flex-wrap justify-center">
+
+                        <section class="controls two-col-width ph4-ns ph2 lh-copy">
+                            <p class="f4 f3–ns bb bw2 b ttu tracked light-text-color">
+                                Input
+                            </p>
+
+                            <p class="f5 ttu tracked mb1 b">Situation</p>
+                            <input type="text" id="input-situation" name="situation"
+                                class="w-100 f5 f4-ns pa1 bw1 b--solid b--black-80" value="Running the blender at 5am"
+                                maxlength="150" minlength="5" />
+
+                            <p class="f6 f5-ns mt1 mt2-ns light-text-color tr">
+                                ... or <span id="random-situation" class="underline pointer dim">pick one
+                                    randomly.</span>
+                            </p>
+                            <!-- <p class="f5 mb0 mt2 light-text-color">
+                        Some ideas:
+                    </p>
+                    <ul class="f5 mt0 light-text-color">
+                        <li class="suggestion">Getting mad at my boss for taking my parking spot</li>
+                        <li class="suggestion">Not wanting my boyfriend to keep having lunch with his ex</li>
+                        <li class="suggestion">I can't stand waiting in line</li>
+                    </ul> -->
+
+                            <!-- Advanced -->
+                            <div class="mb4 mb5-ns advanced-only dn">
+
+                                <p class="f5 ttu tracked mt4 mb1 b dib">
+                                    Moral Foundation axis
+                                </p>
+                                <div
+                                    class="help-mf f5 ml2 bg-black-30 white ph2 br-pill tc dim tutorial-question dib b">
+                                    ?
+                                </div>
+
+                                <br />
+
+                                <label id="label-mf-control-model"
+                                    class="pointer mt1 w5 rainbow-button black dib tc mf-label">
+                                    <input type="radio" name="mf-control" value="model-choice" class="dn" checked>
+                                    <p class="dib f6 f5-ns mv2 mv3-ns">
+                                        Let the model decide
+                                    </p>
+                                </label>
+
+                                <label id="label-mf-control-user"
+                                    class="ml0 ml1-ns pointer mt1 w5 rainbow-button black dib tc">
+                                    <input type="radio" name="mf-control" value="user" class="dn">
+                                    <p class="dib f6 f5-ns mv2 mv3-ns">
+                                        Choose myself
+                                    </p>
+                                </label>
+
+                                <div id="mf-choices" class="dn">
+
+                                    <p class="f6 f5-ns light-text-color mt3 mb2">Pick from one of these five moral
+                                        foundation
+                                        axes:</p>
+
+                                    <div class="cf">
+                                        <label id="label-care-harm"
+                                            class="fl w4 h4 ba tc pointer mr2 mt2 button mf-label">
+                                            <input type="radio" name="mf" value="care-harm" class="dn">
+                                            <p class="f5">
+                                                Care<br />⇅<br />Harm
+                                            </p>
+                                        </label>
+
+                                        <label id="label-fairness-cheating"
+                                            class="fl w4 h4 ba tc pointer mr2 mt2 button mf-label">
+                                            <input type="radio" name="mf" value="fairness-cheating" class="dn">
+                                            <p class="f5">
+                                                Fairness<br />⇅<br />Cheating
+                                            </p>
+                                        </label>
+                                        <label id="label-loyalty-betrayal"
+                                            class="fl w4 h4 ba tc pointer mr2 mt2 button mf-label">
+                                            <input type="radio" name="mf" value="loyalty-betrayal" class="dn">
+                                            <p class="f5">
+                                                Loyalty<br />⇅<br />Betrayal
+                                            </p>
+                                        </label>
+                                        <label id="label-authority-subversion"
+                                            class="fl w4 h4 ba tc pointer mr2 mt2 button mf-label">
+                                            <input type="radio" name="mf" value="authority-subversion" class="dn">
+                                            <p class="f5">
+                                                Authority<br />⇅<br />Subversion
+                                            </p>
+                                        </label>
+
+
+                                        <label id="label-sanctity-degradation"
+                                            class="fl w4 h4 ba tc pointer mr2 mt2 button mf-label">
+                                            <input type="radio" name="mf" value="sanctity-degradation" class="dn">
+                                            <p class="f5">
+                                                Sanctity<br />⇅<br />Degradation
+                                            </p>
+                                        </label>
+                                    </div>
+
+                                    <div id="explanation-mf-none" class="mf-explanation">
+                                        <p class="f5 mt2 mb0 b">Model choice</p>
+                                        <p class="f5 mt0">
+                                            The model will choose a moral foundation axis for each rule-of-thumb. Click
+                                            on
+                                            one of the five boxes
+                                            above to pick one yourself.
+                                            <!-- You can click a square above to pick one yourself. -->
+                                        </p>
+                                    </div>
+                                    <div id="explanation-care-harm" class="mf-explanation dn">
+                                        <p class="f5 mt2 mb0 b">Care ⇄ Harm</p>
+                                        <p class="f5 mt0">
+                                            Preventing or inflicting pain or suffering. For example,
+                                            <span class="i">
+                                                It's mean to tell someone they aren't as attractive as someone else.
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div id="explanation-fairness-cheating" class="mf-explanation dn">
+                                        <p class="f5 mt2 mb0 b">Fairness ⇄ Cheating</p>
+                                        <p class="f5 mt0">
+                                            Notions of equity, justice, and rights. For example,
+                                            <span class="i">
+                                                It's wrong to copy someone else's answers in an exam.
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div id="explanation-loyalty-betrayal" class="mf-explanation dn">
+                                        <p class="f5 mt2 mb0 b">Loyalty ⇄ Betrayal</p>
+                                        <p class="f5 mt0">
+                                            Obligations or concerns for group, family, and nation. For example,
+                                            <span class="i">
+                                                It's rude for a cheerleader to boo their own team.
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div id="explanation-authority-subversion" class="mf-explanation dn">
+                                        <p class="f5 mt2 mb0 b">Authority ⇄ Subversion</p>
+                                        <p class="f5 mt0">
+                                            Submission and deference to traditions or legitimate authority. For example,
+                                            <span class="i">
+                                                It's rude to walk way from your boss while they are talking to you.
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div id="explanation-sanctity-degradation" class="mf-explanation dn">
+                                        <p class="f5 mt2 mb0 b">Sanctity ⇄ Degradation</p>
+                                        <p class="f5 mt0">
+                                            Preference for purity, or abhorrence for disgusting things or actions. For
+                                            example,
+                                            <span class="i">
+                                                It's disgusting to pee into a public pool full of people.
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="mw-100">
+                                    <p class="f5 ttu tracked mt4 mt5-ns mb2 b dib">
+                                        cultural pressure &amp; social judgment
+                                        <span
+                                            class="help-pj f5 ml2 bg-black-30 white br-pill ph2 tc dim tutorial-question dib b">
+                                            ?
+                                        </span>
+                                    </p>
+
+
+                                    <br />
+
+                                    <label id="label-pj-control-model"
+                                        class="pointer mt1 w5 rainbow-button black dib tc selected">
+                                        <input type="radio" name="pj-control" value="model-choice" class="dn" checked>
+                                        <p class="dib f6 f5-ns mv2 mv3-ns">
+                                            Let the model decide
+                                        </p>
+                                    </label>
+                                    <label id="label-pj-control-user"
+                                        class="ml0 ml1-ns pointer mt1 w5 rainbow-button black dib tc">
+                                        <input type="radio" name="pj-control" value="user" class="dn">
+                                        <p class="dib f6 f5-ns mv2 mv3-ns">
+                                            Choose myself
+                                        </p>
+                                    </label>
+
+                                    <div id="pj-choices" class="dn">
+
+                                        <p class="f6 f5-ns light-text-color mt3 mb3">Select values for cultural pressure
+                                            and
+                                            social judgment from the grid:</p>
+
+                                        <div class="cf w-100">
+                                            <table class="fl">
+                                                <tr>
+                                                    <td rowspan="5" class="w2">
+                                                        <p style="writing-mode: vertical-rl;" class="rotate-180 b mh0">
+                                                            Cultural&nbsp;pressure
+                                                        </p>
+                                                    </td>
+                                                    <td rowspan="5" class="gradient-posneg-v" style="width: 5px;">
+
+                                                    </td>
+                                                    <td class="">
+                                                    </td>
+                                                    <td class="">
+                                                    </td>
+                                                    <td class="">
+                                                        <label class="h3 w3 pointer dtc pj-cell pj-cell-13">
+                                                            <input type="radio" name="pj" value="13" class="dn">
+                                                        </label>
+                                                    </td>
+                                                    <td class="">
+                                                        <label class="h3 w3 pointer dtc pj-cell pj-cell-14">
+                                                            <input type="radio" name="pj" value="14" class="dn">
+                                                        </label>
+                                                    </td>
+                                                    <td class="">
+                                                        <label class="h3 w3 pointer dtc pj-cell pj-cell-15">
+                                                            <input type="radio" name="pj" value="15" class="dn">
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="">
+                                                    </td>
+                                                    <td class="">
+                                                        <!-- <label class="h3 w3 pointer dtc pj-cell pj-cell-22">
+                                                        <input type="radio" name="pj" value="22" class="dn">
+                                                    </label> -->
+                                                    </td>
+                                                    <td class="">
+                                                        <label class="h3 w3 pointer dtc pj-cell pj-cell-23">
+                                                            <input type="radio" name="pj" value="23" class="dn">
+                                                        </label>
+                                                    </td>
+                                                    <td class="">
+                                                        <label class="h3 w3 pointer dtc pj-cell pj-cell-24">
+                                                            <input type="radio" name="pj" value="24" class="dn">
+                                                        </label>
+                                                    </td>
+                                                    <td class="">
+                                                        <!-- <label class="h3 w3 pointer dtc pj-cell pj-cell-25">
+                                                        <input type="radio" name="pj" value="25" class="dn">
+                                                    </label> -->
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="">
+                                                        <!-- <label class="h3 w3 pointer dtc pj-cell pj-cell-31">
+                                                        <input type="radio" name="pj" value="31" class="dn">
+                                                    </label> -->
+                                                    </td>
+                                                    <td class="">
+                                                        <label class="h3 w3 pointer dtc pj-cell pj-cell-32">
+                                                            <input type="radio" name="pj" value="32" class="dn">
+                                                        </label>
+                                                    </td>
+                                                    <td class="">
+                                                        <label class="h3 w3 pointer dtc pj-cell pj-cell-33">
+                                                            <input type="radio" name="pj" value="33" class="dn">
+                                                        </label>
+                                                    </td>
+                                                    <td class="">
+                                                        <label class="h3 w3 pointer dtc pj-cell pj-cell-34">
+                                                            <input type="radio" name="pj" value="34" class="dn">
+                                                        </label>
+                                                    </td>
+                                                    <td class="">
+                                                        <!-- <label class="h3 w3 pointer dtc pj-cell pj-cell-35">
+                                                        <input type="radio" name="pj" value="35" class="dn">
+                                                    </label> -->
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="">
+                                                        <label class="h3 w3 pointer dtc pj-cell pj-cell-41">
+                                                            <input type="radio" name="pj" value="41" class="dn">
+                                                        </label>
+                                                    </td>
+                                                    <td class="">
+                                                        <label class="h3 w3 pointer dtc pj-cell pj-cell-42">
+                                                            <input type="radio" name="pj" value="42" class="dn">
+                                                        </label>
+                                                    </td>
+                                                    <td class="">
+                                                        <label class="h3 w3 pointer dtc pj-cell pj-cell-43">
+                                                            <input type="radio" name="pj" value="43" class="dn">
+                                                        </label>
+                                                    </td>
+                                                    <td class="">
+                                                        <!-- <label class="h3 w3 pointer dtc pj-cell pj-cell-44">
+                                                        <input type="radio" name="pj" value="44" class="dn">
+                                                    </label> -->
+                                                    </td>
+                                                    <td class="">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="">
+                                                        <label class="h3 w3 pointer dtc pj-cell pj-cell-51">
+                                                            <input type="radio" name="pj" value="51" class="dn">
+                                                        </label>
+                                                    </td>
+                                                    <td class="">
+                                                        <label class="h3 w3 pointer dtc pj-cell pj-cell-52">
+                                                            <input type="radio" name="pj" value="52" class="dn">
+                                                        </label>
+                                                    </td>
+                                                    <td class="">
+                                                        <!-- <label class="h3 w3 pointer dtc pj-cell pj-cell-53">
+                                                        <input type="radio" name="pj" value="53" class="dn">
+                                                    </label> -->
+                                                    </td>
+                                                    <td class="">
+                                                    </td>
+                                                    <td class="">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td colspan="5" class="gradient-posneg-h" style="height: 5px;"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td colspan="5" class="tc b">
+                                                        <p class="mt1">Social judgment</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+
+                                            <!-- <div class="cf ml4"> -->
+                                            <div class="fl ml4-ns w5-ns mb3">
+                                                <p class="f6 f5-ns mt1 mb0 ttu b light-text-color">Cultural pressure</p>
+                                                <div class="w1 h1 dib mr1 ba" id="preview-p-color"></div>
+                                                <p class="f5 f4-ns mt0 mb0 dib b" id="preview-p-value">
+                                                    Value
+                                                </p>
+                                                <p class="f6 f5-ns mt0 mb0 h35-ns" id="preview-p-desc">
+                                                    Value description
+                                                </p>
+                                            </div>
+                                            <div class="fl ml4-ns w5-ns">
+                                                <p class="f6 f5-ns mt1 mb0 ttu b light-text-color">Social judgment</p>
+                                                <div class="w1 h1 dib mr1 ba" id="preview-j-color"></div>
+                                                <p class="f5 f4-ns mt0 mb0 dib b" id="preview-j-value">
+                                                    Value
+                                                </p>
+                                                <p class="f6 f5-ns mt0 h35-ns" id="preview-j-desc">
+                                                    Value description
+                                                </p>
+                                            </div>
+                                            <!-- </div> -->
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="mw-100">
+
+                                    <p class="f5 ttu tracked mt4 mt5-ns mb1 b dib">
+                                        Anticipated Agreement
+                                    </p>
+                                    <div
+                                        class="help-aa f5 ml2 bg-black-30 white br-pill ph2 tc dim tutorial-question dib b">
+                                        ?
+                                    </div>
+
+                                    <br />
+
+                                    <label id="label-aa-control-model"
+                                        class="pointer mt1 w5 rainbow-button black dib tc selected">
+                                        <input type="radio" name="aa-control" value="model-choice" class="dn" checked>
+                                        <p class="dib f6 f5-ns mv2 mv3-ns">
+                                            Let the model decide
+                                        </p>
+                                    </label>
+
+                                    <label id="label-aa-control-user"
+                                        class="ml0 ml1-ns pointer mt1 w5 rainbow-button black dib tc">
+                                        <input type="radio" name="aa-control" value="user" class="dn">
+                                        <p class="dib f6 f5-ns mv2 mv3-ns">
+                                            Choose myself
+                                        </p>
+                                    </label>
+
+                                    <div id="aa-choices" class="mw6 dn">
+
+                                        <p class="f6 f5-ns light-text-color mt3 mb2">
+                                            Use the slider to pick from three levels of anticipated agreement:
+                                        </p>
+
+                                        <div class="slider-zone">
+                                            <div id="range-holder">
+                                                <input id="input-aa" type="range" min="1" max="3" step="1" value="2"
+                                                    class="pointer w-100 range">
+                                            </div>
+                                        </div>
+                                        <div class="cf">
+                                            <div id="label-aa-1" class="fl w-third tl label-aa pointer hover-dark-gray">
+                                                ~50%
+                                            </div>
+                                            <div id="label-aa-2" class="fl w-third tc label-aa pointer hover-dark-gray">
+                                                ~75%
+                                                &ndash;
+                                                90%</div>
+                                            <div id="label-aa-3" class="fl w-third tr label-aa pointer hover-dark-gray">
+                                                ~99%
+                                            </div>
+                                        </div>
+
+                                        <div id="explanation-aa-1" class="tl h3">
+                                            <p class="f5 mt0 mb0 b">Controversial</p>
+                                            <p class="f6 mt0">People are divided on this rule-of-thumb. Roughly half of
+                                                people will agree with it, and half will disagree.</p>
+                                        </div>
+                                        <div id="explanation-aa-2" class="tc h3">
+                                            <p class="f5 mt0 mb0 b">Common</p>
+                                            <p class="f6 mt0">Most people generally believe this rule-of-thumb,
+                                                <br />but
+                                                there is
+                                                a minority who will disagree.
+                                            </p>
+                                        </div>
+                                        <div id="explanation-aa-3" class="tr h3">
+                                            <p class="f5 mt0 mb0 b">Universal</p>
+                                            <p class="f6 mt0">Nearly everyone believes this rule-of-thumb.</p>
+                                        </div>
+                                        <div id="explanation-aa-model-choice" class="tl h3">
+                                            <p class="f5 mt2 mb0 b">Model choice</p>
+                                            <p class="f6 mt0">
+                                                The model will choose an anticipated
+                                                agreement level. You can use the slider
+                                                above to pick one yourself.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- End advanced controls -->
+                            </div>
+
+
+                            <div class="tc mb5">
+                                <input id="submit" type="submit"
+                                    class="demo-bg mt3 mt4-ns f4 pa3 pa4-ns center small-caps tracked upper rainbow-button b--none"
+                                    value="generate rules-of-thumb">
+                            </div>
+
+                        </section>
+                        <section id="output-col" class="output two-col-width ph4-ns ph2 lh-copy">
+                            <p class="f4 f3-ns bb b bw2 ttu tracked light-text-color">
+                                Output
+                            </p>
+
+                            <!-- Input mirror -->
+                            <div id="input-mirror" class="dn">
+                                <h3 class="f4 f3-ns mb0">Situation and Constraints</h3>
+                                <p class="f5 i mt0">The input you provided</p>
+
+                                <div id="input-mirror-contents"></div>
+                            </div>
+
+                            <!-- Loading -->
+                            <div id="loading" class="dn">
+                                <p class="f4 f3-ns i v-mid light-text-color small-caps tracked">
+                                    <img src="alembic.svg"
+                                        class="animate__animated animate__wobble animate__infinite v-btm mr2 animate__delay-2s" />
+                                    generating rules-of-thumb ...
+                                </p>
+                            </div>
+
+
+                            <!-- Output goes here. -->
+                            <div id="output" class="dn">
+                                <h3 class="f3 mb0 mt4">Rules-of-Thumb</h3>
+                                <p class="f5 i mt0 mb1 basic-only">
+                                    Generated by the model
+                                    <span class="f6 light-text-color link dim ttu disclaimer ml1">*disclaimer</span>
+                                </p>
+                                <p class="f5 i mt0 mb3 advanced-only">
+                                    The model generated rules-of-thumb, and then it broke apart each
+                                    into an underlying <span class="fw5">action</span> along with <span class="fw5">six
+                                        attributes</span>.</span>
+                                    <span class="f6 light-text-color link dim ttu disclaimer ml1">*disclaimer</span>
+                                </p>
+
+
+                                <div class="basic-only basic-output"></div>
+                                <div class="advanced-only advanced-output dn"></div>
+                            </div>
+
+                        </section>
+
+                    </div>
+
+                </form>
+            </section>
+
+            <!-- Content block -->
+            <section class="pv5 serif">
+                <!-- Centered text content -->
+                <section class="center content-width ph2 lh-copy f5 f4-ns near-browser-section">
+                    <a name="dataset"></a>
+                    <h2 class="f3 f2-ns fw6 sans-serif mb2">Social-Chem-101 Dataset</h2>
+                    <p class="mt0">
+                        We collect 292,000 rules-of-thumb based off of 104,000
+                        situations. Along with each rule-of-thumb, we provide a complete
+                        set of attribute labels, breaking it down along 12 dimensions.
+                        In total, we collect over 4.5 million free-text and labeled
+                        annotations. We release this as the <span class="i">Social-Chem-101 dataset</span>.
+                    </p>
+
+                    <img src="dataset-stats-web.svg"
+                        class="mt4 mb2 pa1 pa4-ns ba br2 b--black-10 w-100 w-90-l border-box" />
+                    <p class="f6 f5-ns light-text-color mt0 w-100 w-90-l">
+                        Figure: Statistics of the Social-Chem-101 dataset. All bars are drawn to scale. Several
+                        attributes are shown that aren't described on this page. Please see the paper for comprehensive
+                        details.
+                    </p>
+
+                    <p class="mt4">
+                        The discrete-valued attributes, annotated on top of rules-of-thumb and actions, present many
+                        possibilities for stratifying the data.
+                    </p>
+
+                    <img src="attribute-plot-web.svg"
+                        class="mt4 mb2 pa1 pa4-ns ba br2 b--black-10 w-100 w-90-l border-box" />
+                    <p class="f6 f5-ns light-text-color mt0 w-100 w-90-l">
+                        Figure: Rules-of-thumb in Social-Chem-101 plotted according to social judgment (x), agreement
+                        (y), and cultural pressure (color).
+                        Jitter is applied to each bucket to help show the distribution.
+                        Two observations:
+                        Discretionary actions (yellow) span a range of moral values (social judgment; x-axis).
+                        Also, fringe beliefs (bottom) often evoke strong negative cultural pressure (red), even when
+                        morally neutral (center).
+                    </p>
+                </section>
+            </section>
+
+            <!-- Dataset browser block -->
+            <section class="demo-bg pv5 sans-serif fade-bg">
+                <div class="center content-width ph2 lh-copy">
+                    <a name="dataset-browser"></a>
+                    <h2 class="f3 f2-ns mv0 fw6">Dataset Browser</h2>
+                    <p class="f5 f4-ns mt0 demo-header-text">
+                        Start typing to see situations and the complete annotations
+                        <!-- and see rules-of-thumb -->
+                        from the
+                        <span class="fw5">Social-Chem-101</span> Dataset.
+                    </p>
+
+                    <p class="f5 ttu tracked mb1 b">browse Situations</p>
+                    <div style="height: 3rem">
+                        <div id="browser-loading" class="">
+                            <p class="f4 f3-ns i v-mid small-caps tracked mv0">
+                                <img src="alembic.svg"
+                                    class="animate__animated animate__wobble animate__infinite v-btm mr2 " />
+                                loading dataset ...
+                            </p>
+                        </div>
+                        <input id="autoComplete" class="dn">
+                    </div>
+
+
+                    <p class="f5 ttu tracked b mt3 mb1 lh-solid browser-results dn">selected situation</p>
+                    <p id="browser-selected-situation" class="f4 mt0 mb0 pv0 browser-results dn"></p>
+                    <p id="browser-situation-info"
+                        class="f7 f6-ns small-caps light-text-color mt0 mb4 pv0 browser-results dn"></p>
+
+                    <p id="browser-rot-title" class="f5 ttu tracked b mb1 lh-solid browser-results dn rot-controls">
+                        rules-of-thumb</p>
+                    <div class="mb4 browser-results dn rot-controls">
+                        <div class="flex flex-wrap" id="browser-rot-buttons"></div>
+                    </div>
+
+                    <p class="f5 ttu tracked b tc mt4 mb3 lh-solid browser-results dn rot-controls">full annotation</p>
+
+                </div>
+                <div id="browser-rots-full" class="flex flex-wrap justify-center browser-results dn"></div>
+
+                </div>
+            </section>
+
+            <!-- Content block -->
+            <section class="pv5 serif">
+                <!-- Centered text content -->
+                <section class="center content-width ph2 lh-copy f5 f4-ns near-browser-section">
+                    <a name="limitations"></a>
+                    <h2 class="f3 f2-ns fw6 sans-serif mb2">Limitations</h2>
+                    <h3 class="f4 f3-ns fw6 sans-serif mt4 mb2">Cultural Scope</h3>
+                    <p class=" mt0">
+                        We recognize that social norms are often culturally sensitive
+                        and judgments of morality
+                        and ethics concerning individuality, community and society do
+                        not always hold universally. While
+                        some situations (e.g., "punching someone") might have similar
+                        levels of acceptability across a number of cultures, others
+                        might have drastically varied levels depending on the culture of
+                        its participants (e.g., "kissing someone on the cheek as a
+                        greeting").
+                    </p>
+                    <p class="">
+                        As a starting point, our study focuses on the
+                        socio-normative judgments of English-speaking cultures
+                        represented within North America. While we find some variation
+                        of judgments in our annotations (e.g., with respect to certain
+                        worker characteristics),
+                        extending this formalism to other countries and non-English
+                        speaking cultures remains a compelling area of future research.
+                    </p>
+                    <a name="disclaimer"></a>
+                    <h3 class="f4 f3-ns fw6 sans-serif mt4 mb2">Disclaimer</h3>
+                    <p class="">
+                        The rules-of-thumb, especially those output by the model, are
+                        intended for research purposes only. None of this work should be
+                        used for advice, or to aid in social understanding by humans.
+                    </p>
+
+                    <!-- <h2 class="f2 fw6 sans-serif mt5 mb2">Find out more</h2>
+
+                    <a class="rainbow-button pointer db w5 small-caps pa3 tc sans-serif"
+                        href="https://arxiv.org/abs/2011.00620">
+                        <span class=" f3 mb0">read the paper</span>
+                        <span class="db mt0 f5" style="margin-top: -10px;">arxiv</span></a>
+                    </a>
+                    <a class="rainbow-button pointer db w5 small-caps pa3 tc mt3 sans-serif"
+                        href="https://storage.googleapis.com/ai2-mosaic-public/projects/social-chemistry/data/social-chem-101.zip">
+                        <span class="f3 mb0">get the dataset</span>
+                        <span class="db mt0 f5" style="margin-top: -10px;">download</span></a>
+
+                    <a class="rainbow-button pointer db w5 small-caps pa3 tc mt3 sans-serif"
+                        href="https://github.com/mbforbes/social-chemistry-101">
+                        <span class="f3 mb0">check out the code</span>
+                        <span class="db mt0 f5" style="margin-top: -10px;">github</span></a> -->
+
+                </section>
+
+                <!-- End of content block -->
+            </section>
+
+            <!-- Find out more block -->
+            <section class="demo-bg pv5 sans-serif fade-bg">
+                <div class="center find-out-more-width ph4-ns ph2 lh-copy">
+
+                    <p class="pv0 f6 fw6 ttu tracked mt0 mb4">find out more</p>
+                    <div class="cf ml4 ml0-ns">
+
+                        <div class="fl w5 dib-ns mr4-m mr5-l mb4 pr2 pr0-ns">
+                            <p class="f5 f4-l fw6 tracked">PAPER</p>
+                            <span class="f7 f6-ns db black-70">Social Chemistry 101: Learning to Reason about Social
+                                and Moral Norms</span>
+                            <span class="f7 f6-ns db black-70 i">EMNLP 2020</span>
+                            <a class="f6 f5-ns db fw6 pv3 black-70 link dim small-caps"
+                                href="https://arxiv.org/abs/2011.00620">
+                                read on arxiv
+                            </a>
+                        </div>
+
+                        <div class="fl w5 w-auto-ns dib-ns mr3 mr4-m mr5-l mb4 pr2 pr0-ns">
+                            <p class="f5 f4-l fw6 tracked">DATA</p>
+                            <span class="f7 f6-ns db black-70">Social-Chem-101 Dataset</span>
+                            <span class="f7 f6-ns db black-70">4.5M+ annotations</span>
+                            <span class="f7 f6-ns db black-70 i">28 MB .zip</span>
+                            <a class="f6 f5-ns db fw6 pv3 black-70 link dim small-caps"
+                                href="https://storage.googleapis.com/ai2-mosaic-public/projects/social-chemistry/data/social-chem-101.zip">
+                                download
+                            </a>
+                        </div>
+
+                        <div class="fl w5 w-auto-ns dib-ns mb4 pr2 pr0-ns">
+                            <p class="f5 f4-l fw6 tracked">CODE</p>
+                            <span class="f7 f6-ns db black-70">Accompanies the paper</span>
+                            <span class="f7 f6-ns db black-70">Training, inference, analysis</span>
+                            <span class="f7 f6-ns db black-70 i">Python</span>
+                            <a class="f6 f5-ns db fw6 pv3 black-70 link dim small-caps"
+                                href="https://github.com/mbforbes/social-chemistry-101">
+                                view on github
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Endnotes block -->
+            <section class="pv5 sans-serif white endnotes-bg">
+                <!-- Centered text content -->
+                <section class="center content-width ph2 lh-copy">
+
+                    <span class="b f5 mb1">Authors</span>
+                    <span class="db lh-copy f6">
+                        <a class="link customlink dim" href="https://maxwellforbes.com/">Maxwell Forbes</a>,
+                        <a class="link customlink dim" href="https://jdch00.github.io/">Jena D. Hwang</a>,
+                        <a class="link customlink dim" href="https://vered1986.github.io/">Vered Shwartz</a>,
+                        <a class="link customlink dim" href="https://homes.cs.washington.edu/~msap/">Maarten Sap</a>,
+                        <a class="link customlink dim" href="https://homes.cs.washington.edu/~yejin/">Yejin Choi</a>
+                    </span>
+
+                    <hr class="b--white-80 mv4">
+
+                    <span class="b f5 mb1">Built at</span>
+                    <span class="db lh-copy f6">
+                        <a class="link customlink dim" href="https://www.cs.washington.edu/">University of
+                            Washington</a>,
+                        <a class="link customlink dim" href="https://allenai.org/">Allen Institute for AI</a>
+                    </span>
+
+                    <hr class="b--white-80 mv4">
+
+                    <span class="b f5 mb1">Acknowledgments</span>
+                    <span class="db lh-copy f6">
+                        The authors would like to thank Nicholas Lourie for project inspiration and the Scruples
+                        dataset, Rowan Zellers for advice on grounding the attribute collection, Chandra Bhagavatula for
+                        discussions about modeling, and Sam Skjonsberg and Carissa Schoenick for help with the demo
+                        infrastructure.
+                        Thanks to the hundreds of workers on Mechanical Turk who spent hours building the dataset.
+                        Thanks also to OpenAI for significant influence in web design.
+                    </span>
+
+                    <hr class="b--white-80 mv4">
+
+                    <span class="b f5 mb1">Funding</span>
+                    <span class="db lh-copy f6">
+                        This material is based upon work supported by the National Science Foundation Graduate Research
+                        Fellowship under Grant No. DGE1256082, and in part by NSF (IIS-1714566), DARPA CwC through ARO
+                        (W911NF15-1-0543), DARPA MCS program through NIWC Pacific (N66001-19-2-4031), and the Allen
+                        Institute for AI.
+                    </span>
+
+                    <hr class="b--white-80 mv4">
+
+                    <span class="b f5 mb1">Website</span>
+                    <span class="db lh-copy f6">
+                        <a class="link customlink dim" href="https://maxwellforbes.com/">Maxwell Forbes</a>
+                    </span>
+
+                </section>
+
+
+                <!-- End of endnotes block -->
+            </section>
+
+        </section>
+    </article>
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
+    <script>
+        // global settings
+        const tippy_theme = 'dark';
+        const jColors = {
+            "model-choice": "model-choice",
+            'very-bad': 'neg2',
+            'bad': 'neg1',
+            'ok': 'neutral',
+            'good': 'pos1',
+            'very-good': 'pos2',
+        };
+        const pColors = {
+            "model-choice": "model-choice",
+            "strong-against": "neg2",
+            "against": "neg1",
+            "discretionary": "neutral",
+            "for": "pos1",
+            "strong-for": "pos2",
+        };
+        const aaColors = {
+            "model-choice": "model-choice",
+            "controversial": "neutral",
+            "most": "pos1",
+            "all": "pos2",
+        };
+        const hColors = {
+            "explicit-no": "neg2",
+            "probable-no": "neg1",
+            "hypothetical": "neutral",
+            "probable": "pos1",
+            "explicit": "pos2",
+        };
+        const posColorNameMap = {
+            "0": "neg2",
+            "1": "neg1",
+            "2": "neutral",
+            "3": "pos1",
+            "4": "pos2",
+        };
+        const negColorNameMap = {
+            "-2": "neg2",
+            "-1": "neg1",
+            "0": "neutral",
+            "1": "pos1",
+            "2": "pos2",
+        };
+        const mfHumanMap = {
+            "model-choice": "Model choice",
+            "care-harm": "Care ⇄ Harm",
+            "fairness-cheating": "Fairness ⇄ Cheating",
+            "loyalty-betrayal": "Loyalty ⇄ Betrayal",
+            "authority-subversion": "Authority ⇄ Subversion",
+            "sanctity-degradation": "Sanctity ⇄ Degradation",
+        };
+        const catHumanMap = {
+            "morality-ethics": "Morality / Ethics",
+            "social-norms": "Social Norms",
+            "advice": "Advice",
+            "description": "\"It is what it is\"",
+        };
+        const jNegCodeMap = {
+            "-2": "very-bad",
+            "-1": "bad",
+            "0": "ok",
+            "1": "good",
+            "2": "very-good",
+        }
+        const jHumanMap = {
+            "model-choice": "Model choice",
+            'very-bad': 'Very bad',
+            'bad': 'Bad',
+            'ok': 'Expected / OK',
+            'good': 'Good',
+            'very-good': 'Very good',
+        };
+        const pNegCodeMap = {
+            "-2": "strong-against",
+            "-1": "against",
+            "0": "discretionary",
+            "1": "for",
+            "2": "strong-for",
+        }
+        const pHumanMap = {
+            "model-choice": "Model choice",
+            "strong-against": "Strongly against",
+            "against": "Against",
+            "discretionary": "Discretionary",
+            "for": "For",
+            "strong-for": "Strongly for",
+        };
+        const lColorNameMap = {
+            "illegal": "neg2",
+            "tolerated": "neutral",
+            "legal": "pos2",
+        }
+        const agencyColorNameMap = {
+            "agency": "pos2",
+            "experience": "neutral",
+        }
+        const aaPosCodeMap = {
+            "0": "nobody",
+            "1": "uncommon",
+            "2": "controversial",
+            "3": "most",
+            "4": "all",
+        }
+        const aaHumanMap = {
+            "model-choice": "Model choice",
+            "nobody": "Almost no one",
+            "uncommon": "Uncommon",
+            "controversial": "Controversial",
+            "most": "Common",
+            "all": "Universal",
+        };
+        const hHumanMap = {
+            "explicit-no": "Explicitly not",
+            "probable-no": "Probably not",
+            "hypothetical": "Hypothetically",
+            "probable": "Probably",
+            "explicit": "Explicitly",
+        };
+
+        // global vals
+        let sampleSituations = [];
+
+        function reattachTippys() {
+            let attrs = [
+                ["rule-of-thumb", "The ", "Rule-of-Thumb (RoT)", "is the central annotation we collect. It is a cultural norm expressed as the judgment of an action."],
+                ["action", "The ", "action", "is manually extracted from each rule-of-thumb so that it can be studied in further detail."],
+                ["aa", "", "Anticipated agreement (RoT)", "estimates what portion of people believe the rule-of-thumb."],
+                ["aa-action", "", "Anticipated agreement (action)", "estimates what portion of people agree with the <b>social judgment</b> given to the <b>action</b>."],
+                ["mf", "", "Moral Foundations", "are underlying core dimensions of moral reasoning proposed by a social psychology theory <i>(Haidt et al., 2013)</i>."],
+                ["cat", "", "RoT Categories", "are a coarse categorization of the general idea behind the rule-of-thumb. They try to separate moral, ethical, and social norms from more everyday advice and descriptions."],
+                ["agency", "", "Agency", "captures whether the action is something one can choose to do (agency), or whether it's just something that happens to you (experience)."],
+                ["p", "", "Cultural pressure", "represents how much pressure people feel from those around them to do an action."],
+                ["j", "", "Social judgment", "is how \"good\" or \"bad\" an action is."],
+                ["l", "", "Legality", "is whether the action is legal, illegal, or tolerated."],
+                ["char-rot", "The ", "relevant character (RoT)", "is the person in the provided situation for whom the <b>rule-of-thumb</b> is most relevant. If the rule-of-thumb was advice, it would be for this person."],
+                ["char", "The ", "relevant character (action)", "is the person in the provided situation for whom the <b>action</b> is most relevant."],
+                ["doing", "The ", "is character doing action?", "field indicates whether the <b>relevant character</b> is explicitly doing the <b>action</b> in the provided <b>situation</b>, or whether the is action is merely hypothetical (or even explicitly not being done)."],
+            ]
+            for (let [label, prefix, humanName, desc] of attrs) {
+                tippy(`.help-${label}`, {
+                    content: `<p class='sans-serif ma1'>${prefix}<span class="b">${humanName}</span> ${desc}</p>`,
+                    animation: 'shift-away',
+                    allowHTML: true,
+                    theme: tippy_theme,
+                });
+            }
+
+            tippy('.help-pj', {
+                content: `<p class='sans-serif ma1'><span class="b">Cultural pressure</span> represents how much pressure people feel from those around them to do an activity. <span class="b">Social judgment</span> is how "good" or "bad" an action is.</p>`,
+                animation: 'shift-away',
+                allowHTML: true,
+                theme: tippy_theme,
+            });
+
+            let js = [
+                ['model-choice', 'Model choice', "The model will choose a social judgment value for the action in each rule-of-thumb."],
+                ['very-bad', 'Very bad', "An action that's spiteful, malicious, or insulting. For example, slashing tires, or destroying someone's phone."],
+                ['bad', 'Bad', "Frowned upon, rude, or unkind behavior. For example, littering, or saying something mean to a friend."],
+                ['ok', 'Expected / OK', "A normal action; generally expected by society. For example, wearing clothes, or showing up to work on time."],
+                ['good', 'Good', "Doing something kind or considerate. For example, driving a friend to the airport."],
+                ['very-good', 'Very good', "Being generous, self-sacrificing, or even heroic. For example, buying groceries for a financially struggling neighbor."],
+            ];
+            for (let j of js) {
+                tippy(`.help-simple-j-${j[0]}`, {
+                    content: `<p class='sans-serif ma1'>The model predicts the action in this Rule-of-Thumb is <span class="b">${j[1].toLowerCase()}</span> by common social judgment.</p>`,
+                    animation: 'shift-away',
+                    allowHTML: true,
+                    theme: tippy_theme,
+                });
+            }
+            let mfs = [
+                ["model-choice", "Model Choice", "The model will choose any moral foundation axes that apply to the rule-of-thumb."],
+                ["care-harm", "Care ⇄ Harm", "Preventing or inflicting pain or suffering. <i>For example, It's mean to tell someone they aren't as attractive as someone else.</i>"],
+                ["fairness-cheating", "Fairness ⇄ Cheating", "Notions of equity, justice, and rights. For example, <i>It's wrong to copy someone else's answers in an exam.</i>"],
+                ["loyalty-betrayal", "Loyalty ⇄ Betrayal", "Obligations or concerns for group, family, and nation. For example, <i>It's rude for a cheerleader to boo their own team.</i>"],
+                ["authority-subversion", "Authority ⇄ Subversion", "Submission and deference to traditions or legitimate authority. For example, <i>It's rude to walk way from your boss while they are talking to you.</i>"],
+                ["sanctity-degradation", "Sanctity ⇄ Degradation", "Preference for purity, or abhorrence for disgusting things or actions. For example, <i>It's disgusting to pee into a public pool full of people.</i>"],
+            ];
+            let cats = [
+                ["morality-ethics", "Morality / Ethics", "The rule-of-thumb evokes rules or guiding principles that deal with the concepts of right or wrong conduct. For example, <i>It's wrong to turn your back on your friends who need your help.</i>"],
+                ["social-norms", "Social Norms", "The rule-of-thumb deals with standards of appropriate behavior in a society. These norms emphasize social conventions. For example, <i>It's good to shake hands with your opponent even if you lost.</i>"],
+                ["advice", "Advice", "The rule-of-thumb has helpful (or unhelpful) advice concerning prudent behaviors that are aimed at improving one’s life. For example, <i>It’s good to take medicine your doctor prescribes.</i>"],
+                ["description", "\"It is what it is\"", "The rule-of-thumb does not provide advice or deal with questions of ethics, morality or social norms. It simply describes how things are. For example, <i>bananas are for eating</i>, or <i>sometimes people can get stressed.</i>"],
+            ];
+            let ps = [
+                ['model-choice', 'Model choice', "The model will choose a value for the cultural pressure to do the action in each rule-of-thumb."],
+                ['strong-against', 'Strongly against', "Culture generally frowns upon this action. For example, <i>intentionally harming an animal.</i>"],
+                ['against', 'Against', "Culture generally discourages this action. For example, <i>spending money on jewelry if you can't afford it.</i>"],
+                ['discretionary', 'Discretionary', "Culture has little or nothing to say about this action. For example, <i>choosing to read before bed.</i>"],
+                ['for', 'For', "Culture generally encourages this action. For example, <i>being honest with people.</i>"],
+                ['strong-for', 'Strongly for', "Culture strongly promotes this action. For example, <i>wearing clothes in public.</i>"],
+            ];
+            let aas = [
+                ['model-choice', 'Model Choice', "The model will choose an anticipated agreement level for this rule-of-thumb."],
+                ['nobody', 'Almost no one (&lt; 1%)', "Except for rare circumstances, no one believes this rule of thumb. For example, <i>thinking it's good to murder others.</i>"],
+                ['uncommon', 'Uncommon (~5% &ndash; 25%)', "People occasionally believe this rule-of-thumb, but it's significantly more common not to. For example, <i>believing that ghosts exist.</i>"],
+                ['controversial', 'Controversial (~50%)', "People are divided on this rule-of-thumb. Roughly half of people will agree with it, and half will disagree. For example, <i>believing we should pass stronger gun control laws.</i>"],
+                ['most', 'Common (~75% &ndash; 90%)', "Most people generally believe this rule-of-thumb, but there is a minority who will disagree. For example, <i>believing that human beings evolved, like other animals.</i>"],
+                ['all', 'Universal (~99%)', "Nearly everyone believes this rule-of-thumb. For example, <i>believing that we're expected to wear clothes in public.</i>"],
+            ]
+            let actionAAs = [
+                ['nobody', 'Almost no one (&lt; 1%)', "Except for rare circumstances, no one believes the judgment of this action. For example, <i>thinking it's good to murder others.</i>"],
+                ['uncommon', 'Uncommon (~5 &ndash; 25%)', "People occasionally believe the judgment for this action, but it's significantly more common not to."],
+                ['controversial', 'Controversial (~50%)', "People are divided on the judgment for this action. Roughly half of people will agree with it, and half will disagree. For example, <i>believing it is okay to have an abortion.</i>"],
+                ['most', 'Common (~75% &ndash; 90%)', "Most people generally believe the judgment for this action, but there is a minority who will disagree."],
+                ['all', 'Universal (~99%)', "Nearly everyone believes the judgment for this action. For example, <i>believing that it's good to take a feverish baby to the doctor.</i>"],
+            ]
+            let hs = [
+                ['explicit-no', 'Explicitly not', "The relevant character is explicitly <i>not</i> doing the action given in the rule-of-thumb."],
+                ['probable-no', 'Probably not', "It's unlikely (but theoretically possible) the relevant character will do the action given the rule-of-thumb."],
+                ['hypothetical', 'Hypothetically', "It's possible the relevant character will do the action given the rule-of-thumb, but we just don't know either way."],
+                ['probable', 'Probably', "We don't know for sure if the relevant character will do the action given the rule-of-thumb, but it seems likely."],
+                ['explicit', 'Explicitly', "Based on the situation, the relevant character is doing the action given the rule-of-thumb."],
+            ];
+            let ls = [
+                ['illegal', 'Illegal', "The action is illegal."],
+                ['tolerated', 'Tolerated', "The action is generally illegal, but depending on the circumstances or location, it might be unenforced. For example, <i>jaywalking, or texting while driving.</i>"],
+                ['legal', 'Legal', "The action is legal."],
+            ];
+            let agencies = [
+                ['agency', 'Agency', "The action is something you have control over doing. For example, <i>riding a bike.</i>"],
+                ['experience', 'Experience', "The action is something that happens to you. It's generally viewed that you don't have a choice in doing it. For example, <i>falling ill.</i>"],
+            ];
+            // attach several in common format
+            let worklist = [[js, 'j'], [mfs, 'mf'], [cats, 'cat'], [ps, 'p'], [aas, 'aa'], [actionAAs, 'aa-action'], [hs, 'h'], [ls, 'l'], [agencies, "agency"]];
+            for (let [data, label] of worklist) {
+                for (let [codeName, humanName, desc] of data) {
+                    tippy(`.help-${label}-${codeName}`, {
+                        content: `<p class='sans-serif ma1'><span class="b">${humanName}</span> &mdash; ${desc}</p>`,
+                        animation: 'shift-away',
+                        allowHTML: true,
+                        theme: tippy_theme,
+                    });
+                }
+            }
+            tippy('.disclaimer', {
+                content: `<p class='sans-serif ma1'>The rules-of-thumb, especially those output by the model, are intended for research purposes only. None of this work should be used for advice, or to aid in social understanding by humans.</p>`,
+                animation: 'shift-away',
+                allowHTML: true,
+                theme: tippy_theme,
+            });
+        }
+
+        $(document).ready(function () {
+
+            $.getJSON("situations-suggest.json", function (situations) {
+                sampleSituations = situations;
+            });
+
+            function cleanSituation(s) {
+                if (s[0] == '"' && s[s.length - 1] == '"') {
+                    return s.slice(1, s.length - 1)
+                }
+                return s;
+            }
+
+            $("#random-situation").click(function (_) {
+                if (sampleSituations.length == 0) {
+                    return;
+                }
+                let idx = Math.floor(Math.random() * sampleSituations.length);
+                // console.log(idx);
+                $("#input-situation").val(cleanSituation(sampleSituations[idx]));
+            })
+
+            function updateMode() {
+                // console.log("new mode");
+                let mode = $("input[type=radio][name=mode]:checked").val();
+                let other = mode == "basic" ? "advanced" : "basic";
+
+                $("#label-mode-" + mode).removeClass("mode-inactive").addClass("mode-active");
+                $("#label-mode-" + other).removeClass("mode-active").addClass("mode-inactive");
+
+                if (mode == "advanced") {
+                    $(".basic-only").removeClass("reveal-section").addClass("dn");
+                    $(".advanced-only").removeClass("dn").addClass("reveal-section");
+                } else {
+                    $(".basic-only").removeClass("dn").addClass("reveal-section");
+                    $(".advanced-only").removeClass("reveal-section").addClass("dn")
+                }
+
+            }
+            $("input[type=radio][name=mode]").on("change", updateMode);
+
+            function suggestions() {
+                $(".suggestion").click(function () {
+                    let txt = $(this).text();
+                    // console.log("Handling suggestion: " + txt);
+                    $("#input\\:situation").val(txt);
+                })
+            }
+            suggestions();
+
+            function updateAA() {
+                let aa_model_control = $("input[type=radio][name=aa-control]:checked").val();
+
+                // update label view
+                let val = $("#input-aa").val();
+                // console.log("new val: " + val);
+                for (let i = 1; i <= 3; i++) {
+                    let labelId = "#label-aa-" + i;
+                    let explanationId = "#explanation-aa-" + i;
+                    if (val == i && aa_model_control == "user") {
+                        $(labelId).removeClass('light-text-color');
+                        $(labelId).addClass('b');
+                        $(explanationId).removeClass('dn');
+                    } else {
+                        $(labelId).addClass('light-text-color');
+                        $(labelId).removeClass('b');
+                        $(explanationId).addClass('dn');
+                    }
+                }
+
+                // update model control view
+                // console.log(aa_model_control);
+                let aa_control_model_label_id = "#label-aa-control-model";
+                let aa_control_user_label_id = "#label-aa-control-user";
+                let aa_model_explanation_id = "#explanation-aa-model-choice";
+                let aa_choices_id = "#aa-choices"
+                if (aa_model_control == "model-choice") {
+                    $(aa_control_model_label_id).addClass("selected");
+                    $(aa_control_user_label_id).removeClass("selected");
+                    $(aa_model_explanation_id).removeClass('dn');
+                    $(aa_choices_id).addClass("dn").removeClass("reveal-section");
+                } else {
+                    $(aa_control_model_label_id).removeClass("selected");
+                    $(aa_control_user_label_id).addClass("selected");
+                    $(aa_model_explanation_id).addClass('dn');
+                    $(aa_choices_id).removeClass("dn").addClass("reveal-section");
+                }
+            }
+
+            // AA range click
+            $("#input-aa").on("input change click", function () {
+                // uncheck AA model choice
+                // $("input[type=radio][name=aa-control]:checked").val("user");
+
+                updateAA();
+            });
+
+            // AA model choice vs user click
+            function aaControlClicked() {
+                // // get val
+                // let val = $("input[type=radio][name=aa-control]:checked").val();
+                // if (val == "model-choice") {
+                //     // disable range slider
+                //     $("#input-aa").prop("disabled", true);
+                // }
+
+                // update view
+                updateAA();
+            }
+            $("input[type=radio][name=aa-control]").on("change", aaControlClicked);
+
+            updateAA();
+
+            // // AA range hovering (for handling disabled state)
+            // $("#range-holder").hover(function () {
+            //     // hover enter, always enable
+            //     $("#input-aa").prop("disabled", false);
+            // }, function () {
+            //     // hover exit, disable if "let model decide" is checked
+            //     let val = $("input[type=radio][name=aa-control]:checked").val();
+            //     if (val != null) {
+            //         $("#input-aa").prop("disabled", true);
+            //     }
+            // });
+
+            // AA labels can also be clicked
+            $(".label-aa").click(function () {
+                // set AA range val
+                let val = $(this)[0].id.slice("label-aa-".length);
+                $("#input-aa").val(val);
+
+                // uncheck AA model choice
+                // $("input[type=radio][name=aa-control]").prop("checked", false);
+
+                // un-disable range
+                // $("#input-aa").prop("disabled", false);
+
+                // update view
+                updateAA();
+            });
+
+            function hoverMF() {
+                $(".mf-label").hover(function () {
+                    // handler IN
+                    let axis = $(this)[0].id.slice("label-".length);
+                    if (axis == "mf-control-model") {
+                        axis = "mf-none";
+                    }
+                    $(".mf-explanation").addClass("dn");
+                    $("#explanation-" + axis).removeClass("dn");
+                    // console.log("Hover on " + axis);
+                }, function () {
+                    // handler OUT
+                    $(".mf-explanation").addClass("dn");
+                    let axis = $("input[type=radio][name=mf]:checked").val();
+                    if (axis == null) {
+                        axis = "mf-none";
+                    }
+                    $("#explanation-" + axis).removeClass("dn");
+
+                });
+            }
+            hoverMF();
+
+            function updateMF() {
+                let vals = [
+                    "care-harm",
+                    "fairness-cheating",
+                    "loyalty-betrayal",
+                    "authority-subversion",
+                    "sanctity-degradation",
+                ]
+
+                // update individual axes
+                let val = $("input[type=radio][name=mf]:checked").val();
+                for (let candidate of vals) {
+                    let labelId = "#label-" + candidate;
+                    if (candidate == val) {
+                        $(labelId).addClass("selected");
+                    } else {
+                        $(labelId).removeClass("selected");
+                    }
+                }
+
+                // update model control
+                let mf_model_control = $("input[type=radio][name=mf-control]:checked").val();
+                // console.log(mf_model_control);
+                let mf_control_model_label_id = "#label-mf-control-model";
+                let mf_control_user_label_id = "#label-mf-control-user";
+                let mf_choices_id = "#mf-choices";
+                if (mf_model_control == "model-choice") {
+                    $(mf_control_model_label_id).addClass("selected");
+                    $(mf_control_user_label_id).removeClass("selected");
+                    $(mf_choices_id).addClass("dn").removeClass("reveal-section");
+                } else {
+                    $(mf_control_model_label_id).removeClass("selected");
+                    $(mf_control_user_label_id).addClass("selected");
+                    $(mf_choices_id).removeClass("dn").addClass("reveal-section");
+                }
+            }
+
+            function mfAxisClicked() {
+                // uncheck model choice
+                let val = $("input[type=radio][name=mf]:checked").val();
+                if (val != null) {
+                    $("input[type=radio][name=mf-control]").prop("checked", false);
+                }
+
+                // update view
+                updateMF();
+
+            }
+            $("input[type=radio][name=mf]").on("change", mfAxisClicked);
+
+            function mfControlClicked() {
+                // uncheck any axes
+                $("input[type=radio][name=mf]:checked").prop("checked", false);
+
+                // update view
+                updateMF();
+            }
+            $("input[type=radio][name=mf-control]").on("change", mfControlClicked);
+
+            // one call at start to set state
+            updateMF();
+
+
+            function previewPJ(cell) {
+                // Update display below selection
+                let pCell2val = {
+                    "1": "2",
+                    "2": "1",
+                    "3": "0",
+                    "4": "-1",
+                    "5": "-2",
+                }
+                let jCell2val = {
+                    "1": "-2",
+                    "2": "-1",
+                    "3": "0",
+                    "4": "1",
+                    "5": "2",
+                }
+                let colors = {
+                    "2": "#2c7bb6",
+                    "1": "#abd9e9",
+                    "0": "#ffffbf",
+                    "-1": "#fdae61",
+                    "-2": "#d7191c",
+                    "none": "#fff"
+                }
+                let pHumanLabels = {
+                    "-2": "Strongly against",
+                    "-1": "Against",
+                    "0": "Discretionary",
+                    "1": "For",
+                    "2": "Strongly for",
+                    "none": "Model choice"
+                }
+                let jHumanLabels = {
+                    "-2": "Very bad",
+                    "-1": "Bad",
+                    "0": "Expected / OK ",
+                    "1": "Good",
+                    "2": "Very good",
+                    "none": "Model choice"
+                }
+                let pDescriptions = {
+                    "-2": "Culture generally frowns upon this action. For example, intentionally harming an animal.",
+                    "-1": "Culture generally discourages this action. For example, spending money on jewelry if you can't afford it.",
+                    "0": "Culture has little or nothing to say about this action. For example, choosing to read before bed.",
+                    "1": "Culture generally encourages this action. For example, being honest with people.",
+                    "2": "Culture strongly promotes this action. For example, wearing clothes in public.",
+                    "none": "The model will choose a cultural pressure value. Click a square in the colored grid to pick one yourself."
+                }
+                let jDescriptions = {
+                    "-2": "An action that's spiteful, malicious, or insulting. For example, slashing tires, or destroying someone's phone.",
+                    "-1": "Frowned upon, rude, or unkind behavior. For example, littering, or saying something mean to a friend.",
+                    "0": "A normal action; generally expected by society. For example, wearing clothes, or showing up to work on time.",
+                    "1": "Doing something kind or considerate. For example, driving a friend to the airport.",
+                    "2": "Being generous, self-sacrificing, or even heroic. For example, buying groceries for a financially struggling neighbor.",
+                    "none": "The model will choose a social judgment value. Click a square in the colored grid to pick one yourself."
+                }
+
+                let pVal = "none";
+                let jVal = "none";
+                if (cell != null) {
+                    pVal = pCell2val[cell[0]];
+                    jVal = jCell2val[cell[1]];
+                }
+                $("#preview-p-color").css("background-color", colors[pVal])
+                $("#preview-p-value").text(pHumanLabels[pVal]);
+                $("#preview-p-desc").text(pDescriptions[pVal]);
+
+                $("#preview-j-color").css("background-color", colors[jVal])
+                $("#preview-j-value").text(jHumanLabels[jVal]);
+                $("#preview-j-desc").text(jDescriptions[jVal]);
+            }
+            previewPJ();
+
+            // function hoverPJ() {
+            $(".pj-cell").hover(function () {
+                // Update preview to hovered cell.
+                let cell = $(this).children()[0].getAttribute("value");
+                previewPJ(cell);
+            }, function () {
+                // Revert preview to selected cell.
+                // console.log("Hover off");
+                let cell = $("input[type=radio][name=pj]:checked").val();
+                // console.log(cell);
+                previewPJ(cell);
+            })
+            // }
+            // hoverPJ();
+
+            // function hoverPJControl() {
+            $("#label-pj-control-model").hover(function () {
+                previewPJ(null);
+            }, function () {
+                let cell = $("input[type=radio][name=pj]:checked").val();
+                previewPJ(cell);
+            });
+            // }
+            // hoverPJControl()
+
+            function updatePJ() {
+                // console.log("In updatePJ");
+                // Update cell visual
+                let cell = $("input[type=radio][name=pj]:checked").val();
+                // console.log("PJ value changed");
+                // console.log(cell);
+                // console.log(typeof (cell));
+                $(".pj-cell").removeClass("cell-selected");
+                $(".pj-cell-" + cell).addClass("cell-selected");
+
+                // remove control selection
+                if (cell != null) {
+                    // console.log(cell);
+                    $("input[type=radio][name=pj-control]").prop("checked", false);
+                    $("#label-pj-control").removeClass("selected");
+                }
+            }
+            $("input[type=radio][name=pj]").on("change", updatePJ);
+
+            function pjControlClicked() {
+                // console.log("In pjControlClicked");
+
+                // get value
+                let val = $("input[type=radio][name=pj-control]:checked").val();
+                // console.log("PJ control value: " + val);
+
+                if (val == "model-choice") {
+                    // uncheck any cells
+                    $("input[type=radio][name=pj]:checked").prop("checked", false);
+                }
+                updatePJ()
+
+                // update self
+                if (val == "model-choice") {
+                    $("#label-pj-control-model").addClass("selected");
+                    $("#label-pj-control-user").removeClass("selected");
+                    $("#pj-choices").addClass("dn").removeClass("reveal-section");
+                } else {
+                    $("#label-pj-control-model").removeClass("selected");
+                    $("#label-pj-control-user").addClass("selected");
+                    $("#pj-choices").removeClass("dn").addClass("reveal-section");;
+                }
+
+            }
+            $("input[type=radio][name=pj-control]").on("click", pjControlClicked);
+
+            // $("#submit").click(function () {
+            //     $("#output-simulation").removeClass("dn").addClass("reveal-section");
+            // });
+
+            // We may want to get rid of this. It may be annoying.
+
+            let seen = {};
+
+            function setBounce(elem) {
+                if (!seen.hasOwnProperty(elem.id)) {
+                    $(elem).toggleClass("notice-me");
+                    setTimeout(setBounce.bind(this, elem), 10000 + Math.random() * 10000);
+                }
+            }
+
+            $(".tutorial-question").each(function (index, elem) {
+                setTimeout(setBounce.bind(this, elem), 100);
+                $(elem).hover(function () {
+                    seen[elem.id] = true;
+                })
+            });
+
+            function toMap(selector) {
+                let flat = $("#input").serializeArray();
+                let res = {}
+                $.map(flat, function (n, i) {
+                    res[n['name']] = n['value'];
+                });
+                // console.log(res);
+                return res;
+            }
+
+            function buildInput(data, situation) {
+                res = { 'situation': situation }
+
+                let basic = data['mode'] == 'basic';
+                if (basic) {
+                    // console.log("Submitted in basic mode; ignoring any set controls.")
+                }
+
+                // mf
+                if (!basic && data.hasOwnProperty("mf")) {
+                    res['rot-moral-foundations-control'] = 'user';
+                    res['rot-moral-foundations'] = data['mf'];
+                } else {
+                    res['rot-moral-foundations-control'] = 'model-choice';
+                }
+
+                let pMap = {
+                    "1": "strong-for",
+                    "2": "for",
+                    "3": "discretionary",
+                    "4": "against",
+                    "5": "strong-against",
+                }
+                let jMap = {
+                    "1": "very-bad",
+                    "2": "bad",
+                    "3": "ok",
+                    "4": "good",
+                    "5": "very-good",
+                }
+
+                // pj
+                if (!basic && data.hasOwnProperty("pj")) {
+                    res['action-pressure-control'] = 'user';
+                    res['action-moral-judgment-control'] = 'user';
+                    res['action-pressure'] = pMap[data['pj'][0]];
+                    res['action-moral-judgment'] = jMap[data['pj'][1]];
+                } else {
+                    res['action-pressure-control'] = 'model-choice';
+                    res['action-moral-judgment-control'] = 'model-choice';
+                }
+
+                let aaMap = {
+                    "1": "controversial",
+                    "2": "most",
+                    "3": "all",
+                }
+
+                // aa
+                // console.log("Data! Data:");
+                // console.log(data);
+                if (basic || !data.hasOwnProperty("aa") || !data["aa"] || (data.hasOwnProperty("aa-control") && data['aa-control'] == 'model-choice')) {
+                    res['rot-agree-control'] = 'model-choice';
+                } else {
+                    res['rot-agree-control'] = 'user';
+                    res['rot-agree'] = aaMap[data['aa']];
+                }
+
+
+                return res;
+            }
+
+            function renderError(msg) {
+                $('#output').append(`
+                <div class="mw7 bg-light-red pa2 ba br4">
+                    <p class="f3">${msg}</p>
+                </div>
+                `);
+            }
+
+            function cleanAction(action) {
+                let actionCleaned = action.toLowerCase();
+                if (actionCleaned.charAt(actionCleaned.length - 1) == ".") {
+                    actionCleaned = actionCleaned.slice(0, -1);
+                }
+                return actionCleaned;
+            }
+
+            function renderBasicOutput(output) {
+                let fields = output.fields;
+                // let action = cleanAction(fields.action);
+                let j = fields["action-moral-judgment"];
+                let rot = fields["rot"];
+                $(".basic-output").append(`
+                <table class="reveal-section">
+                    <tr>
+                        <!-- "basic" -->
+                        <td>
+                            <div class="w3 h3 ba b--black-70 bw2 bg-${jColors[j]} help-simple-j-${j}"></div>
+                        </td>
+                        <td>
+                            <p class="f4 pa2 w-100 fw5">
+                                ${rot}
+                            </p>
+                        </td>
+                    </tr>
+                </table>`);
+            }
+
+
+            // do this at start (Should make start block...)
+            reattachTippys();
+
+
+            function inputColorClass(val) {
+                return val == "model-choice" ? "light-text-color" : "";
+            }
+
+            function renderInputMirror(data) {
+                let mfControl = data['rot-moral-foundations-control'];
+                let mfClass = mfControl == "model-choice" ? "advanced-only" : "";
+                let mfVal = mfControl == "model-choice" ? "model-choice" : data['rot-moral-foundations'];
+                let mfValHuman = mfHumanMap[mfVal];
+
+                let pControl = data['action-pressure-control'];
+                let pClass = pControl == "model-choice" ? "advanced-only" : "";
+                let pVal = pControl == "model-choice" ? "model-choice" : data["action-pressure"];
+                let pValHuman = pHumanMap[pVal];
+
+                let jControl = data['action-moral-judgment-control'];
+                let jClass = jControl == "model-choice" ? "advanced-only" : "";
+                let jVal = jControl == "model-choice" ? "model-choice" : data["action-moral-judgment"];
+                let jValHuman = jHumanMap[jVal];
+
+                let aaControl = data['rot-agree-control'];
+                let aaClass = aaControl == "model-choice" ? "advanced-only" : "";
+                let aaVal = aaControl == "model-choice" ? "model-choice" : data["rot-agree"];
+                let aaValHuman = aaHumanMap[aaVal];
+
+                $("#input-mirror-contents").append(`
+                <table class="collapse ba br2 b--black-10 pv1 ph2 mt2 animate__animated animate__fast animate__fadeIn">
+                    <tr class="striped--light-gray">
+                        <td class="f5 pv1 ph2">
+                            Situation
+                        </td>
+                        <td class="f5 pv1 ph2 fw5">
+                            ${data['situation']}
+                        </td>
+                    </tr>
+                    <tr class="striped--light-gray ${mfClass}">
+                        <td class="f5 pv1 ph2 help-mf">
+                            Moral Foundations
+                        </td>
+                        <td class="f5 pv1 ph2 fw5 help-mf-${mfVal} ${inputColorClass(mfVal)}">
+                            ${mfValHuman}
+                        </td>
+                    </tr>
+                    <tr class="striped--light-gray ${pClass}">
+                        <td class="f5 pv1 ph2 help-p">
+                            Cultural Pressure
+                        </td>
+                        <td class="f5 pv1 ph2">
+                            <span class="nowrap help-p-${pVal} ${inputColorClass(pVal)}">
+                                <div class="w1 h1 bg-${pColors[pVal]} dib mr1 ba"></div>
+                                <p class="f5 mt0 mb0 dib fw5">
+                                    ${pValHuman}
+                                </p>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="striped--light-gray ${jClass}">
+                        <td class="f5 pv1 ph2 help-j">
+                            Social Judgment
+                        </td>
+                        <td class="f5 pv1 ph2">
+                            <span class="nowrap help-j-${jVal} ${inputColorClass(jVal)}">
+                                <div class="w1 h1 bg-${jColors[jVal]} dib mr1 ba"></div>
+                                <p class="f5 mt0 mb0 dib fw5">
+                                    ${jValHuman}
+                                </p>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="striped--light-gray ${aaClass}">
+                        <td class="f5 pv1 ph2 help-aa">
+                            Anticipated Agreement
+                        </td>
+                        <td class="f5 pv1 ph2">
+                            <span class="nowrap help-aa-${aaVal} ${inputColorClass(aaVal)}">
+                                <div class="w1 h1 bg-${aaColors[aaVal]} dib mr1 ba"></div>
+                                <p class="f5 mt0 mb0 dib fw5">
+                                    ${aaValHuman}
+                                </p>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            `);
+            }
+
+            function renderAdvancedOutput(output) {
+                let fields = output.fields;
+                let rot = fields.rot;
+                let action = cleanAction(fields.action);
+                let j = fields["action-moral-judgment"];
+                let jHuman = jHumanMap[j];
+                let mf = fields['rot-moral-foundations'][0];
+                let mfHuman = mfHumanMap[mf];
+                let p = fields['action-pressure'];
+                let pHuman = pHumanMap[p];
+                let aa = fields['rot-agree'];
+                let aaHuman = aaHumanMap[aa];
+                let char = fields['rot-char-targeting'];
+                let h = fields['action-hypothetical'];
+                let hHuman = hHumanMap[h];
+
+                // <div class="fl w-100 tc cf mb0">
+                // </div>
+                $(".advanced-output").append(`
+                <div class="pb3 mb4" style="background-color: #F2F2F2;">
+                    <!--
+                    <div class="pa3" style="background-color: #7C7A8E;">
+
+                                <p class="small-caps tracked b white f4 mv0">
+                                    rule-of-thumb
+                                </p>
+                                <p class="b f4 f3-l lh-solid mv0 white">
+                                    ${rot}
+                                </p>
+
+                    </div>
+                    -->
+                    <div class="pa3" style="background-color: #DFDFDF;">
+
+                                <p class="small-caps tracked b light-text-color f4 mv0">
+                                    action
+                                </p>
+                                <p class="b f4 f3-l lh-solid mv0">
+                                    ${action}
+                                </p>
+
+                    </div>
+                    <div class="cf">
+                        <div class="fl w-100 w-25-ns ph3 h35-ns">
+                            <p class="ttu tracked b light-text-color f6 f5-l mb0 lh-solid help-mf">moral
+                                foundations</p>
+                            <p class="f5 f4-l mt1 mb0 lh-solid fw6 help-mf-${mf}">${mfHuman}</p>
+                        </div>
+                        <div class="fl w-100 w-25-ns ph3 h35-ns">
+                            <p class="ttu tracked b light-text-color f6 f5-l mb0 lh-solid help-p">cultural
+                                pressure</p>
+                            <span class="nowrap help-p-${p}">
+                                <div class="w1 h1 bg-${pColors[p]} dib mr1 ba"></div>
+                                <p class="f5 f4-l mt0 mb0 dib fw6">
+                                    ${pHuman}
+                                </p>
+                            </span>
+                        </div>
+                        <div class="fl w-100 w-25-ns ph3 h35-ns">
+                            <p class="ttu tracked b light-text-color f6 f5-l mb0 lh-solid help-j">social
+                                judgment</p>
+                            <span class="nowrap help-j-${j}">
+                                <div class="w1 h1 bg-${jColors[j]} dib mr1 ba"></div>
+                                <p class="f5 f4-l mt0 mb0 dib fw6">
+                                    ${jHuman}
+                                </p>
+                            </span>
+                        </div>
+                        <div class="fl w-100 w-25-ns ph3 h35-ns">
+                            <p class="ttu tracked b light-text-color f6 f5-l mb0 lh-solid help-aa">anticipated
+                                agreement
+                            </p>
+                            <span class="nowrap help-aa-${aa}">
+                                <div class="w1 h1 bg-${aaColors[aa]} dib mr1 ba"></div>
+                                <p class="f5 f4-l mt0 mb0 dib fw6">
+                                    ${aaHuman}
+                                </p>
+                            </span>
+                        </div>
+                        <div class="fl w-100 w-25-ns ph3">
+                            <p class="ttu tracked b light-text-color f6 f5-l mb0 lh-solid help-char">
+                                relevant character
+                            </p>
+                            <p class="f5 f4-l mt1 mb0 dib fw6 bg-black-70 br-pill white ph2 tc lh-solid pv1">
+                                ${char}
+                            </p>
+                        </div>
+                        <div class="fl w-100 w-25-ns ph3">
+                            <p class="ttu tracked b light-text-color f6 f5-l mb0 lh-solid help-doing">
+                                is character doing action?
+                            </p>
+                            <span class="nowrap help-h-${h}">
+                                <div class="w1 h1 bg-${hColors[h]} dib mr1 ba"></div>
+                                <p class="f5 f4-l mt0 mb0 dib fw6">
+                                    ${hHuman}
+                                </p>
+                            </span>
+                        </div>
+                    </div>
+                </div>`);
+            }
+
+            function renderOutput(responses) {
+                for (let response of responses) {
+                    if (response.output.err != null) {
+                        console.log("Got output error: " + response.output.err);
+                        console.log(response.output);
+                    } else {
+                        renderBasicOutput(response.output);
+                        renderAdvancedOutput(response.output);
+                    }
+                }
+                reattachTippys();
+            }
+
+            /**
+             * "Success" here means HTTP success (as in, got a legit 200 response) not
+             * that the parser / model was successful (I think).
+             */
+            function processSuccess(response) {
+                $("#submit").prop("disabled", false);
+
+                // console.log("Got response:");
+                // console.log(response);
+
+                // problem with input or parser or model or something
+                if (response.error) {
+                    renderError(response.error);
+                    return;
+                }
+
+                $('#output').removeClass("dn");
+                $('#loading').addClass("dn");
+
+                renderOutput(response.response);
+            }
+
+            function processError() {
+                $("#submit").prop("disabled", false);
+            }
+
+            function badSituation(errorMsg) {
+                $("#input-situation")[0].scrollIntoView();
+                tippy('#input-situation', {
+                    content: `<p class='sans-serif ma1'>${errorMsg}</p>`,
+                    animation: 'shift-away',
+                    allowHTML: true,
+                    theme: 'light',
+                    delay: [0, 800],
+                    trigger: 'manual',
+                    showOnCreate: true,
+                    placement: 'bottom',
+                });
+            }
+
+            // I/O
+            $("#input").submit(function (event) {
+                event.preventDefault();
+
+                // preprocessing before any checks. remove < and [ brackets, sub &
+                let sit = $("#input-situation").val();
+                sit = sit.replaceAll(/<|>|\[|\]/g, '').replaceAll("&", "and");
+
+                // checks (char len ones shouldn't be seen, as already enforced by <input>)
+                if (sit.length < 5) {
+                    badSituation("This situation is too short (we need at least 5 characters).")
+                    return;
+                }
+                let nWords = sit.split(" ").length
+                if (nWords < 2) {
+                    badSituation("This situation has too few words (we need at least 2 words).")
+                    return;
+                }
+                if (sit.length > 150) {
+                    badSituation("This situation is too long (we accept at most 150 characters).")
+                    return;
+                }
+                if (nWords > 30) {
+                    badSituation("This situation has too many words (we accept at most 30 words).")
+                    return;
+                }
+
+                // console.log(event);
+                $("#input-mirror-contents").empty();
+                $('.advanced-output').empty();
+                $('.basic-output').empty();
+                $('#output').addClass("dn");
+                $('#loading').removeClass("dn").addClass("animate__animated animate__fadeIn animate__fast animate__delay-1s");
+
+                let pageData = toMap("#input");
+                pageData['aa'] = $("#input-aa").val();  // have to get slider manually
+                let data = buildInput(pageData, sit);
+                // console.log(data);
+
+                // render input in output box
+                $('#input-mirror').removeClass("dn");//.addClass("reveal-section");
+                renderInputMirror(data);
+                reattachTippys();
+                updateMode();
+
+                // send request
+                $("#submit").prop("disabled", true);
+                $.ajax({
+                    type: "POST",
+                    url: "https://social-chemistry-api.apps.allenai.org/generate",
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+                    success: processSuccess,
+                    error: processError,
+                });
+
+                // event.preventDefault();
+                $("#output-col")[0].scrollIntoView();
+            });
+
+
+        });
+    </script>
+    <!-- Dataset browser script -->
+    <script>
+        let dataset = null;
+        let browserDisplayingAll = false;
+        let browserCurrentROTs = 0;
+        const rem2px = parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+        function browserDisplayOnlySelectedROT() {
+            let idx = $(".browser-rot-button.selected")[0].id.slice("browser-rot-button-".length);
+            $(".browser-rot-full").addClass("dn").removeClass("br b--black-10");
+            $(`#browser-rot-full-${idx}`).removeClass("dn");
+        }
+
+        /**
+         * Dataset browser: display all RoTs if there's room in the window.
+         */
+        function browserUpdateROTDisplay() {
+            if (rem2px == null || browserCurrentROTs == 0) {
+                return;
+            }
+
+            // keep in sync with horizontal padding of each .browser-rot-full
+            const paddingRems = 4;
+            const widthRequired = browserCurrentROTs * ((rem2px * paddingRems) + 750);
+            const canFit = $(window).width() >= widthRequired;
+            if (canFit == browserDisplayingAll) {
+                // nothing to do
+                return;
+            }
+
+            if (canFit) {
+                // display all
+                $(".rot-controls").addClass("dn");
+                // $("#browser-rot-title").addClass("tc");
+                $(".browser-rot-full").removeClass("dn").addClass("br b--black-10").last().removeClass("br b--black-10");
+            } else {
+                // display only 1
+                $(".rot-controls").removeClass("dn");
+                // $("#browser-rot-title").removeClass("tc")
+                browserDisplayOnlySelectedROT();
+            }
+
+            // update display state
+            browserDisplayingAll = canFit;
+        };
+
+        $(window).resize(browserUpdateROTDisplay);
+
+        function browserRenderROTButtons(rots) {
+            // render all, but mark active as selected
+            let active = 0;
+            for (let i = 0; i < rots.length; i++) {
+                let rot = rots[i];
+                let cls = i == active ? "selected" : "";
+                $("#browser-rot-buttons").append(`
+                <div
+                    id="browser-rot-button-${i}"
+                    class="w4 w45-ns ph2 ph3-ns pv2 mr3 mb3 f6 f5-ns ba overflow-hidden pointer hover-bg-dark-gray hover-white browser-rot-button ${cls}"
+                >
+                    <p class="ttu tracked b mv0 f7 f6-ns">rot ${i + 1}</p>
+                    <p class="mt0 lh-title">${rot.rot}</p>
+                </div>
+                `);
+            }
+
+            // attach click handles
+            $(".browser-rot-button").click(function () {
+                // mark only clicked as selected
+                $(".browser-rot-button").removeClass("selected");
+                $(this).addClass("selected");
+
+                // reveal only the selected annotation
+                browserDisplayOnlySelectedROT();
+            })
+        }
+
+        function browserAnimClass(idx) {
+            // return `vivify hitLeft bubble`;
+            return `vivify hitLeft delay-${idx * 50} bubble`;
+            // return `bubble`;
+        }
+
+        function browserRenderHexagon(parentID, label, val, animCls) {
+            $(parentID).append(`
+            <!-- Small view -->
+            <div class="dn-m dn-l pa3 mw6 ba bw2 br4 help-${label} ${animCls} shadow">
+                <p class="f6 b ttu tracked mt0 mb0 lh-solid">${label}</p>
+                <p class="f5 mt1 mb0">
+                    ${val}
+                </p>
+            </div>
+
+            <!-- "Not small" view -->
+            <div class="dn flex-ns justify-center w-100 help-${label} ${animCls}">
+                <div class="dib h4 w4 mr0 tr">
+                    <img src="left-edge-thick.svg" class="h-100" />
+                </div>
+                <div class="dib pv3 ph1 mw6 h4 bt bb b--black bw2 ml0 overflow-scroll shadow">
+                    <p class="f5 b ttu tracked mt0 mb0 lh-solid">${label}</p>
+                    <p class="f4 mt1 mb0">
+                        ${val}
+                    </p>
+                </div>
+                <div class="dib h4 w4 ml0 tl">
+                    <img src="left-edge-thick.svg" style="transform: scaleX(-1);" class="h-100" />
+                </div>
+            </div>
+            `);
+        }
+
+        // [x] action: "leaving your relationship if you think you deserve better."
+        // [x] action-agency: "agency"
+        // [x] action-agree: 3
+        // [x] action-char-involved: "char-0"
+        // [x] action-hypothetical: "probable-no"
+        // [x] action-legal: "legal"
+        // [x] action-moral-judgment: 0
+        // [x] action-pressure: 0
+        // [?] area: "confessions"
+        // [?] characters: "narrator|my relationship"
+        // [n] n-characters: 2
+        // [x] rot: "You should leave your relationship if you think you deserve better."
+        // [x] rot-agree: 3
+        // [x] rot-categorization: "social-norms|advice"
+        // [x] rot-char-targeting: "char-0"
+        // [?] rot-judgment: "you should"
+        // [x] rot-moral-foundations: "care-harm|loyalty-betrayal"
+        // [?] split: "train"
+
+        function browserAttrName(attr) {
+            return {
+                "rot-agree": ["Anticipated Agreement (RoT)", "aa"],
+                "rot-char-targeting": ["Relevant Character (RoT)", "char-rot"],
+                "rot-moral-foundations": ["Moral Foundations", "mf"],
+                "rot-categorization": ["RoT Categories", "cat"],
+                "action-agency": ["Agency", "agency"],
+                "action-moral-judgment": ["Social Judgment", "j"],
+                "action-agree": ["Anticipated Agreement (Action)", "aa-action"],
+                "action-pressure": ["Cultural Pressure", "p"],
+                "action-legal": ["Legality", "l"],
+                "action-char-involved": ["Relevant Character (Action)", "char"],
+                "action-hypothetical": ["Is character doing action?", "doing"],
+            }[attr];
+        }
+
+        function browserAttrBoxView(attrLabel, valLabel, color, human) {
+            return `
+            <span class="nowrap help-${attrLabel}-${valLabel}">
+                <div class="w1 h1 bg-${color} dib mr1 ba bw1"></div>
+                <p class="f6 f5-ns mv0 fw5 dib">
+                    ${human}
+                </p>
+            </span>
+            `;
+        }
+
+        function browserAttrChar(rot, attr) {
+            let val = rot[attr];
+            const nobody = `<p class="f6 f5-ns mv0 fw5 dib i">no one in the situation</p>`;
+            if (val == "char-none" || !val.startsWith("char-")) {
+                return nobody;
+            }
+            let idx = parseInt(val.slice("char-".length));
+            let options = rot["characters"].split("|");
+            if (idx < 0 || idx >= options.length) {
+                return nobody;
+            }
+            return `<p class="f6 f5-ns mv0 fw6 bg-black-70 white br-pill ph2 pv1 lh-solid dib">${options[idx]}</p>`;
+        }
+
+        function browserAttrBullets(attrLabel, valLabels, humans) {
+            let bullets = [];
+            for (let i = 0; i < valLabels.length; i++) {
+                bullets.push(`
+                    <li class="mt1 f6 f5-ns fw5 help-${attrLabel}-${valLabels[i]}">
+                        ${humans[i]}
+                    </li>
+                `);
+            }
+            return `
+            <ul class="mv0 pl4">
+                ${bullets.join("\n")}
+            </ul>
+            `;
+        }
+
+        function capitalize(s) {
+            return s.charAt(0).toUpperCase() + s.slice(1);
+        }
+
+        function browserAttrVal(rot, attr) {
+            let val = rot[attr] + '';
+            switch (attr) {
+                case "rot-agree": {
+                    let aaCode = aaPosCodeMap[val];
+                    return browserAttrBoxView("aa", aaCode, posColorNameMap[val], aaHumanMap[aaCode]);
+                }
+                case "rot-char-targeting": {
+                    return browserAttrChar(rot, attr);
+                }
+                case "rot-moral-foundations": {
+                    let mfCodes = val.split("|");
+                    let mfHumans = mfCodes.map(mf => mfHumanMap[mf]);
+                    return browserAttrBullets("mf", mfCodes, mfHumans);
+                }
+                case "rot-categorization": {
+                    let catCodes = val.split("|");
+                    let catHumans = catCodes.map(cat => catHumanMap[cat]);
+                    return browserAttrBullets("cat", catCodes, catHumans);
+                }
+                case "action-agency": {
+                    return browserAttrBoxView("agency", val, agencyColorNameMap[val], capitalize(val));
+                }
+                case "action-moral-judgment": {
+                    let jCode = jNegCodeMap[val];
+                    return browserAttrBoxView("j", jCode, negColorNameMap[val], jHumanMap[jCode]);
+                }
+                case "action-agree": {
+                    let aaCode = aaPosCodeMap[val];
+                    return browserAttrBoxView("aa-action", aaCode, posColorNameMap[val], aaHumanMap[aaCode]);
+                }
+                case "action-pressure": {
+                    let pCode = pNegCodeMap[val];
+                    return browserAttrBoxView("p", pCode, negColorNameMap[val], pHumanMap[pCode]);
+                }
+                case "action-legal": {
+                    return browserAttrBoxView("l", val, lColorNameMap[val], capitalize(val));
+                }
+                case "action-char-involved": {
+                    return browserAttrChar(rot, attr);
+                }
+                case "action-hypothetical": {
+                    return browserAttrBoxView("h", val, hColors[val], hHumanMap[val]);
+                }
+                default: {
+                    return `<p class="f6 f5-ns mv0 lh-solid">${val}</p>`;
+                }
+            }
+        }
+
+        function browserAttrBGColorCls(rot, attr) {
+            const val = rot[attr];
+            const bgColorMap = {
+                "neg2": "bg-washed-red",
+                "neg1": "bg-washed-orange",
+                "neutral": "bg-washed-yellow",
+                "pos1": "bg-washed-blue",
+                "pos2": "bg-lightester-blue",
+            }
+            switch (attr) {
+                case "rot-char-targeting":
+                case "rot-moral-foundations":
+                case "rot-categorization":
+                case "action-char-involved": {
+                    return "";
+                }
+                case "rot-agree":
+                case "action-agree": {
+                    return bgColorMap[posColorNameMap[val]];
+                }
+                case "action-agency": {
+                    return bgColorMap[agencyColorNameMap[val]];
+                }
+                case "action-moral-judgment":
+                case "action-pressure": {
+                    return bgColorMap[negColorNameMap[val]];
+                }
+                case "action-legal": {
+                    return bgColorMap[lColorNameMap[val]];
+                }
+                case "action-hypothetical": {
+                    return bgColorMap[hColors[val]];
+                }
+                default: {
+                    return "";
+                }
+            }
+        }
+
+        function browserRenderAttr(id, rot, attr, animCls) {
+            let bgColorCls = browserAttrBGColorCls(rot, attr);
+            let [attrName, attrLabel] = browserAttrName(attr);
+            let contents = browserAttrVal(rot, attr);
+            $(id).append(`
+            <div class="ba bw1 br4 pa2 pa3-ns mr2 mr3-ns mb2 mb3-ns mw6 ${animCls} shadow ${bgColorCls}">
+                <p class="f6 f5-ns ttu tracked b mt0 mb1 lh-solid help-${attrLabel}">${attrName}</p>
+                ${contents}
+            </div>
+            `);
+        }
+
+        function cleanAction(action) {
+            return action.charAt(0).toLowerCase() + action.slice(
+                1, action.charAt(action.length - 1) == "." ? action.length - 1 : action.length);
+        }
+
+        function browserRenderFullROTs(rots) {
+            // render all, but hide all except active one
+            let active = 0;
+            for (let i = 0; i < rots.length; i++) {
+                // append container
+                let cls = i == active ? "" : "dn";
+                // let cls = "";
+                let rawID = "browser-rot-full-" + i;
+                $("#browser-rots-full").append(
+                    `<div id="${rawID}" class="browser-rot-full ${cls} content-width ph2 ph4-ns"></div>`
+                );
+
+                // add contents inside new container
+                let id = "#" + rawID;
+                let rot = rots[i];
+                let animIdx = 0;
+
+                // rot itself
+                browserRenderHexagon(id, "rule-of-thumb", rot.rot, browserAnimClass(animIdx) + "");
+                animIdx += 1;
+
+                // rot attrs
+                let rotAttrIDRaw = `browser-rot-${i}-rot-attrs`;
+                $(id).append(`
+                    <div id="${rotAttrIDRaw}" class="flex flex-wrap items-start justify-center mt2 mt3-ns mb3"></div>
+                `)
+                let rotAttrID = "#" + rotAttrIDRaw;
+                let rotAttrs = ["rot-agree", "rot-char-targeting", "rot-moral-foundations", "rot-categorization"]
+                for (let attr of rotAttrs) {
+                    if (rot[attr] == null) {
+                        continue;
+                    }
+                    browserRenderAttr(rotAttrID, rot, attr, browserAnimClass(animIdx) + "");
+                    animIdx += 1;
+                }
+
+                // action
+                browserRenderHexagon(id, "action", cleanAction(rot.action), browserAnimClass(animIdx) + "");
+                animIdx += 1;
+
+                // action attrs
+                let actionAttrIDRaw = `browser-rot-${i}-action-attrs`;
+                $(id).append(`
+                    <div id="${actionAttrIDRaw}" class="flex flex-wrap items-start justify-center mt2 mt3-ns mb3"></div>
+                `)
+                let actionAttrID = "#" + actionAttrIDRaw;
+                let actionAttrs = [
+                    "action-agency",
+                    "action-moral-judgment",
+                    "action-agree",
+                    "action-pressure",
+                    "action-legal",
+                    "action-char-involved",
+                    "action-hypothetical",
+                ]
+                for (let attr of actionAttrs) {
+                    if (rot[attr] == null) {
+                        continue;
+                    }
+                    browserRenderAttr(actionAttrID, rot, attr, browserAnimClass(animIdx) + "");
+                    animIdx += 1;
+                }
+            }
+        }
+
+        function browserRenderSituationInfo(rot) {
+            let areaName = {
+                amitheasshole: 'r/amitheasshole',
+                confessions: 'r/confessions',
+                dearabby: 'dear abby',
+                rocstories: 'rocstories (mostafazadeh et al., 2016)',
+            }[rot.area]
+            return `
+            source: ${areaName}, split: ${rot.split}
+            `
+        }
+
+        function browserRenderResult(situation) {
+            if (dataset[situation] == null) {
+                // TODO: good error stuff
+                console.log("oops, couldn't find");
+                return;
+            }
+            let rots = dataset[situation];
+
+            // general stuff
+            $(".browser-results").removeClass("dn");
+            $("#browser-selected-situation").empty();
+            $("#browser-situation-info").empty();
+            $("#browser-rot-buttons").empty();
+            $("#browser-rots-full").empty();
+
+            console.log("Got " + rots.length + " RoTs.");
+            console.log(rots[0]);
+
+            // selected situation
+            $("#browser-selected-situation").empty().append(situation);
+
+            // situation info
+            $("#browser-situation-info").empty().append(browserRenderSituationInfo(rots[0]));
+
+            // rot buttons
+            browserRenderROTButtons(rots);
+
+            // rots themselves. we default to only rendering 1.
+            browserRenderFullROTs(rots);
+            browserDisplayingAll = false;
+
+            // recalc display
+            browserCurrentROTs = rots.length;
+            browserUpdateROTDisplay();
+
+            // tooltips
+            reattachTippys();
+        }
+
+        const ac = new autoComplete({
+            data: {
+                src: async () => {
+                    const source = await fetch("https://social-chemistry-api.apps.allenai.org/public/dataset-browser.json");
+                    const data = await source.json();
+                    dataset = data;
+
+                    // display input box
+                    $("#browser-loading").addClass("dn");
+                    $("#autoComplete").removeClass("dn");
+
+                    return Object.keys(data);
+                },
+                cache: true
+            },
+            placeHolder: "Situation",
+            threshold: 0,
+            searchEngine: "strict",
+            highlight: true,
+            maxResults: 10,
+            resultsList: {
+                render: true
+            },
+            // looks terrible?
+            // noResults: function () {
+            //     const result = document.createElement("li");
+            //     result.setAttribute("class", "no_result");
+            //     result.setAttribute("tabindex", "1");
+            //     result.innerHTML = "No situations match :-(";
+            //     document.querySelector("#autoComplete_list").appendChild(result);
+            // },
+            // onSelection: feedback => {
+            //     console.log(feedback);
+            // }
+            onSelection: function (feedback) {
+                document.querySelector("#autoComplete").blur();
+                const selection = feedback.selection.value;
+                // Clear Input
+                // document.querySelector("#autoComplete").value = "";
+                // Change placeholder with the selected value
+                document.querySelector("#autoComplete").setAttribute("placeholder", selection);
+                // console.log(feedback);
+                // console.log("Selection: '" + selection + "'");
+                browserRenderResult(selection);
+            },
+        });
+
+        // Toggle event for search input
+        // showing & hidding results list onfocus / blur
+        ["focus", "blur"].forEach(function (eventType) {
+            const resultsList = document.querySelector("#autoComplete_list");
+
+            document.querySelector("#autoComplete").addEventListener(eventType, function () {
+                if (eventType === "blur") {
+                    // Hide results list & show other elements
+                    resultsList.style.display = "none";
+                    $(".browser-results, .near-browser-section").removeClass("o-20");
+                } else if (eventType === "focus") {
+                    // Show results list & hide other elements
+                    $(".browser-results, .near-browser-section").addClass("o-20");
+                    resultsList.style.display = "block";
+                }
+            });
+        });
+
+        // document.querySelector("#autoComplete").addEventListener("autoComplete", function (event) {
+        //     console.log(event.detail);
+        // });
+
+    </script>
+
+</body>
+
+</html>
