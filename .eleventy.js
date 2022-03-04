@@ -6,7 +6,7 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 // const pluginNavigation = require("@11ty/eleventy-navigation"); // TODO
 // const pluginLinkTo = require('eleventy-plugin-link_to');  // NOTE: if path prefix added
 const markdownIt = require("markdown-it");
-// const markdownItAnchor = require("markdown-it-anchor");  // TODO
+const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
 
 module.exports = function (eleventyConfig) {
@@ -203,6 +203,26 @@ module.exports = function (eleventyConfig) {
         });
     });
 
+    // rejectAttrContains: attr's value is array, testCal is single, checks testVal *not* in
+    eleventyConfig.addNunjucksFilter("rejectAttrContains", (array, attrs, testVal) => {
+        if (typeof attrs == "string") {
+            attrs = [attrs];
+        }
+        return array.filter((obj) => {
+            // drill down the list of attrs to get our test val
+            let cur = obj;
+            for (let attr of attrs) {
+                if (!(attr in cur)) {
+                    return false;
+                }
+                cur = cur[attr];
+            }
+
+            // check inclusion
+            return (!Array.isArray(cur)) || cur.indexOf(testVal) == -1;
+        });
+    });
+
     // smart dump --- don't explode when there's a circular reference, which there is by
     // default on like all the objects.
     eleventyConfig.addNunjucksFilter('sdump', obj => {
@@ -258,20 +278,20 @@ module.exports = function (eleventyConfig) {
     // Customize Markdown library and settings:
     let markdownLibrary = markdownIt({
         html: true,
-        // If you want this, revise the GAN map gen post
+        // If you want this (`breaks` option), revise the GAN map gen post.
         // breaks: true,
         linkify: true,
         typographer: true,
-    }).use(markdownItFootnote);
-    // .use(markdownItAnchor, {
-    //     permalink: markdownItAnchor.permalink.ariaHidden({
-    //         placement: "after",
-    //         class: "direct-link",
-    //         symbol: "#",
-    //         level: [1, 2, 3, 4],
-    //     }),
-    //     slugify: eleventyConfig.getFilter("slug")
-    // });
+    }).use(markdownItFootnote)
+        .use(markdownItAnchor, {
+            permalink: markdownItAnchor.permalink.linkAfterHeader({
+                class: "dn",
+                style: 'visually-hidden',
+                assistiveText: title => `Permalink to “${title}”`,
+                visuallyHiddenClass: 'dn',
+            }),
+            slugify: eleventyConfig.getFilter("slug")
+        });
     eleventyConfig.setLibrary("md", markdownLibrary);
 
     // Override Browsersync defaults (used only with --serve)
