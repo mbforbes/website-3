@@ -310,7 +310,7 @@ a[href^="https://"]:not([href*="example.com"]):not([href*="arxiv.org"]):after { 
 /* Current: ignore nothing  */
 a[href^="http://"]:after,
 a[href^="https://"]:after {
-  content: " \2197 \FE0E";
+  content: "\00A0 \2197 \FE0E";
 }
 
 /* Inside an ordered list (1. 2. 3.), make
