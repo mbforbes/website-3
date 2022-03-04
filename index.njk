@@ -22,7 +22,7 @@ layout: "layouts/default.njk"
     {% for sketch in collections.sketch | sort(true, false, "date") | head(3) %}
         <div class="fl mr3">
             <a href="{{ sketch.url | url }}">
-            <img class="dim novmargin" src="{{ sketch.data.thumb }}" style="width: 72px; height: 72px;" />
+            <img class="dim novmargin" src="{{ sketch.data.thumb | url }}" style="width: 72px; height: 72px;" />
             </a>
         </div>
     {% endfor %}

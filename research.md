@@ -35,7 +35,7 @@ undergraduate (and beyond): [Mike Chung](https://homes.cs.washington.edu/~mjyc/)
 <ul class="list pa0">
 {% for post in collections.research | rejectAttrContains(["data", "tags"], "software") | rejectAttrContains(["data", "tags"], "news") | sort(true, false, "date") %}
 <li class="mv2">
-<a href="{{ post.url }}" class="db pv1 link">
+<a href="{{ post.url | url }}" class="db pv1 link">
 <time class="fr silver ttu ml3">{{ post.date | readableDate }} </time>
 {{ post.data.title }}
 </a>
