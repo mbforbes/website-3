@@ -7,8 +7,8 @@ image: /assets/sketches/color-world-screenshot.png
 thumb: /assets/sketches/color-world-thumb.png
 ---
 
-<script src="/assets/lib/p5-0.10.2.js"></script>
-<script src="/assets/sketches/color-world.js"></script>
+<script src="{{ "/assets/lib/p5-0.10.2.js" | url }}"></script>
+<script src="{{ "/assets/sketches/color-world.js" | url }}"></script>
 
 <style>
 
