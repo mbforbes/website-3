@@ -3,34 +3,34 @@
 <link href='{{ "/assets/css/style.css" | url }}' rel='stylesheet' type='text/css'/>
 <link href='{{ "/assets/css/syntax/prism.default.css" | url }}' rel='stylesheet' type='text/css'/>
 
-<!-- NOTE: Twitter uses name='', og uses property='' -->
+{# NOTE: Twitter uses name='', og uses property='' #}
 {% if date %}
+    {# date property indicates some kind of post, so we try to use w/ its metadata #}
     <meta content='{{ site.url }}{{ page.url }}' property='og:url'/>
     {% if image %}
-        <meta content='{{ image | url }}' property='og:image'/>
-        <meta name='twitter:image' content='{{ image | url }}'/>
+        <meta content='{{ site.url }}{{ image | url }}' property='og:image'/>
+        <meta name='twitter:image' content='{{ site.url }}{{ image | url }}'/>
         <meta name='twitter:card' content='summary_large_image'/>
     {% endif %}
     <meta name='twitter:site' content='@maxforbes'/>
-    {% if page.customexcerpt %}
-        <meta content="{{ page.customexcerpt | striptags | trim | truncate(120) }}"
-        property='og:description'/>
-        <meta name='twitter:description'
-        content="{{ page.customexcerpt | striptags | trim | truncate(120) }}"/>
+    {% if customexcerpt %}
+        <meta content="{{ customexcerpt | striptags | trim | truncate(120) }}" property='og:description'/>
+        <meta name='twitter:description' content="{{ customexcerpt | striptags | trim | truncate(120) }}"/>
     {% else %}
-        <meta content="{{ page.content | striptags | trim | truncate(120) }}" property='og:description'/>
-        <meta name='twitter:description' content="{{ page.content | striptags | trim | truncate(120) }}"/>
+        {# NOTE: Injected header links from markdown-it-anchor currently make it into desc :-( #}
+        <meta content="{{ content | striptags | trim | truncate(120) }}" property='og:description'/>
+        <meta name='twitter:description' content="{{ content | striptags | trim | truncate(120) }}"/>
     {% endif %}
     <meta content="article" property="og:type"/>
 {% else %}
+    {#  Defaults for top-level pages (home, studio, research, about) #}
     <meta content='{{ site.url }}' property='og:url'/>
     <meta content="{{ site.description }}" property='og:description'/>
     <meta content="blog" property="og:type"/>
 {% endif %}
-<!-- - -->
 
 {% if site.google_analytics %}
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    {# Global site tag (gtag.js) - Google Analytics #}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];

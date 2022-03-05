@@ -316,6 +316,17 @@ module.exports = function (eleventyConfig) {
         throwOnUndefined: true,
     });
 
+    // Replace above with below for figuring out what variables are available.
+    // Then put    <pre>{{ getContext() | sdump }}</pre>    somewhere.
+    // let Nunjucks = require("nunjucks");
+    // let nunjucksEnvironment = new Nunjucks.Environment(
+    //     new Nunjucks.FileSystemLoader("_includes")
+    // );
+    // nunjucksEnvironment.addGlobal('getContext', function () {
+    //     return this.ctx;
+    // })
+    // eleventyConfig.setLibrary("njk", nunjucksEnvironment);
+
     return {
         // Control which files Eleventy will process
         // e.g.: *.md, *.njk, *.html, *.liquid

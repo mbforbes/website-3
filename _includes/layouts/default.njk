@@ -10,7 +10,7 @@
       </div>
       <div class="w-50 tr">
         {% for link in site.links %}
-          <!-- If you're on that page, don't show as a link. -->
+          {# If you're on that page, don't show as a link. #}
           {% if title == link.name %}
             <span class="ml3 pv1">
               {{ link.name }}
@@ -27,9 +27,9 @@
     <div class="mh3 mh4-ns bt b--black-80"></div>
 
     <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
-      {% if title and not hidetitle %}
+      {% if not hidetitle %}
         <div class="mb4">
-          <!-- Date -->
+          {# Date #}
           {% if page.date and not hidedate %}
             <div class="fw600 light-silver mt1 ttu">
               {% if not "garage" in tags %}
@@ -40,14 +40,9 @@
             </div>
           {% endif %}
 
-          <!-- Title -->
+          {# Title #}
           <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
-            <!-- Kind of a hack for page title in a series of posts (e.g., sparking joy w/ python) -->
-            {% if pagetitle %}
-              {{ pagetitle }}
-            {% else %}
               {{ title }}
-            {% endif %}
           </h1>
           {% if subtitle %}
             <p class="gray subtitle f4 f3-ns">
@@ -58,7 +53,7 @@
         </div>
       {% endif %}
 
-      <!-- Series header. -->
+      {# Series header. #}
       {% if series %}
         {% include "series-top.njk" %}
       {% endif %}
@@ -67,15 +62,15 @@
         {{ content | safe }}
       </div>
 
-      <!-- Series footer. -->
+      {# Series footer. #}
       {% if series %}
         {% include "series-bottom.njk" %}
       {% endif %}
 
-      <!-- Email box. -->
+      {# Email box. #}
       {% include "email.njk" %}
 
-      <!-- Garage footer. -->
+      {# Garage footer. #}
       {% if tags and "garage" in tags %}
         {% include "garage-footer.njk" %}
       {% endif %}
@@ -91,7 +86,7 @@
     <!-- <img src="{{ site.url }}/data/img/scribble2.png" alt="scribble" class="mt4 db center" /> -->
   </footer>
 
-  <!-- The wave -->
+  {# The wave #}
   <script>
     // settings
     let periods = 0.5;
