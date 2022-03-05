@@ -103,8 +103,8 @@
 <h2 id="the-model" tabindex="-1">The Model</h2>
 <a class="dn" href="#the-model"><span class="dn">Permalink to “The Model”</span> <span aria-hidden="true">#</span></a><p>Say you you’re reading a paper that presents a new NLP<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> model. The model takes some ubiquitous neural network architecture—technical: like the LSTM or the Transformer—and bolts something onto it.</p>
 <p><img src="/website-3/assets/posts/misinterpreting-results/cool-new-model.jpg" alt=""></p>
-<p class="figcaption" markdown="1">
-_Components: wrench, hammer, half of dog._
+<p class="figcaption i">
+Components: wrench, hammer, half of dog.
 </p>
 <p>Let’s pause briefly to imagine you’re considering working on the same task presented in the paper—for example, sentiment classification, or image captioning. Which will you pick: the established model, or this new idea which is “established model + crazy thing bolted onto it?”</p>
 <p>Already, the established model has a bunch of major advantages:<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
@@ -162,19 +162,7 @@ _Components: wrench, hammer, half of dog._
       </tr>
     </tbody>
   </table>
-<!--
-<div markdown="1" class="f7 f6-ns">
-
-| model                 | score 1 | score 2 | score 3 | score 4 | score 5 | score 6 |
-| :-------------------- | ------: | ------: | ------: | ------: | ------: | ------: |
-| Even Older Prev. Work | **39.2**    | 46.3    | 50.3    | **62.9**    | -       | 140.1   |
-| Previous Work         | 39.1    | **46.5**    | **50.4**    | 62.7    | 85.9    | 140.8   |
-| Our New Model     | **39.2**    | **46.5**    | 49.8    | 62.5    | **86.1**    | **140.9**   |
-
-</div>
-
--->
-<p class="figcaption" markdown="1">
+<p class="figcaption">
 The highest numbers are bolded. (This is standard practice.)
 </p>
 <p>Now, already we’re trusting researchers to run fairly on the test set, and report the right numbers. I’m fine with this—though one paper I reviewed actually reported that they did hyperparameter tuning and model ablations on the test set 🤦‍♂️.  But let’s assume these numbers are honestly gotten and honestly transcribed.</p>
