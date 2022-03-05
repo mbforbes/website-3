@@ -8,6 +8,7 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
+const markdownItReplacements = require('markdown-it-replacements');
 
 module.exports = function (eleventyConfig) {
     // Copy some folders to the output
@@ -281,7 +282,9 @@ module.exports = function (eleventyConfig) {
         // breaks: true,
         linkify: true,
         typographer: true,
-    }).use(markdownItFootnote)
+    })
+        .use(markdownItReplacements)
+        .use(markdownItFootnote)
         .use(markdownItAnchor, {
             permalink: markdownItAnchor.permalink.linkAfterHeader({
                 class: "dn",
