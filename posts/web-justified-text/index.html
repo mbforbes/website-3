@@ -11,18 +11,18 @@
         <meta content="Don&#39;t Justify Web Text - Maxwell Forbes" property="og:title"/>
         <meta name="twitter:title" content="Don&#39;t Justify Web Text - Maxwell Forbes"/>
 
-        <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
-<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+        <link href='/assets/img/fav.png' rel='shortcut icon'>
+<link href='/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
 
 
 
     
     <meta content='https://maxwellforbes.com/posts/web-justified-text/' property='og:url'/>
     
-        <meta content='https://maxwellforbes.com/website-3/assets/posts/web-justified-text/paper-annotated.jpg' property='og:image'/>
-        <meta name='twitter:image' content='https://maxwellforbes.com/website-3/assets/posts/web-justified-text/paper-annotated.jpg'/>
+        <meta content='https://maxwellforbes.com/assets/posts/web-justified-text/paper-annotated.jpg' property='og:image'/>
+        <meta name='twitter:image' content='https://maxwellforbes.com/assets/posts/web-justified-text/paper-annotated.jpg'/>
         <meta name='twitter:card' content='summary_large_image'/>
     
     <meta name='twitter:site' content='@maxforbes'/>
@@ -45,20 +45,20 @@
 
     <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
       <div class="w-50 tl">
-        <a href="/website-3/" class="hover dim black" id="header">Maxwell Forbes</a>
+        <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
       </div>
       <div class="w-50 tr">
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+            <a class="link hover-mid-gray ml3 pv1" href="/studio">
               Studio
             </a>
           
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+            <a class="link hover-mid-gray ml3 pv1" href="/research">
               Research
             </a>
           
@@ -99,22 +99,22 @@
       <div class="markdown-body">
         <p>In print, or when typeset with a good program, justified text is beautiful. All of the academic writing in my field is set justified by default, and I think it looks lovely:</p>
 <div class="flex mv4">
-<img src="/website-3/assets/posts/web-justified-text/paper.jpg" class="sc bare mh2 flex-auto">
-<img src="/website-3/assets/posts/web-justified-text/paper-annotated.jpg" class="sc bare mh2 flex-auto">
+<img src="/assets/posts/web-justified-text/paper.jpg" class="sc bare mh2 flex-auto">
+<img src="/assets/posts/web-justified-text/paper-annotated.jpg" class="sc bare mh2 flex-auto">
 </div>
 <p>You get these really nice ultra long vertical lines, broken up into a satisfying rhythm by stuff like headers, figures, tables, and equations.</p>
 <p>Grab any book and it’s probably justified. I just took one off my bookshelf at random—<em>White,</em> by Kenya Hara:</p>
-<p><img src="/website-3/assets/posts/web-justified-text/book.jpg" alt=""></p>
+<p><img src="/assets/posts/web-justified-text/book.jpg" alt=""></p>
 <p>So, what about the web?</p>
 <h2 id="it's-the-hyphenation-dummy" tabindex="-1">It’s the Hyphenation, Dummy</h2>
 <a class="dn" href="#it's-the-hyphenation-dummy"><span class="dn">Permalink to “It’s the Hyphenation, Dummy”</span> <span aria-hidden="true">#</span></a><p>Whatever is doing your type layout has got to be able to hyphenate words. If you just slap on a <code>text-align: justify</code> CSS, you’ll get goofy spread out text:</p>
 <div class="flex mv4">
-<img src="/website-3/assets/posts/web-justified-text/web-justify.jpg" class="sc bare mh2 flex-auto">
-<img src="/website-3/assets/posts/web-justified-text/web-justify-annotated.jpg" class="sc bare mh2 flex-auto">
+<img src="/assets/posts/web-justified-text/web-justify.jpg" class="sc bare mh2 flex-auto">
+<img src="/assets/posts/web-justified-text/web-justify-annotated.jpg" class="sc bare mh2 flex-auto">
 </div>
 <p class="figcaption">I marked somewhat awkward spaces in orange, and very ugly ones in red.</p>
 <p>The last time I’d looked, hyphenation (CSS: <code>hyphens: auto</code>) wasn’t widely available. But, lo and behold, wait a few months, and it’s starting to emerge:</p>
-<p><img src="/website-3/assets/posts/web-justified-text/web-hyphen.jpg" alt=""></p>
+<p><img src="/assets/posts/web-justified-text/web-hyphen.jpg" alt=""></p>
 <p class="figcaption">Hey, much better!</p>
 <p>This is with Chrome. For, e.g., Safari on macOS and iOS, you’ve still got to use one of those janky CSS <code>-webkit-</code> prefixes. Edge apparently isn’t quite there yet entirely.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
 <h3 id="aside:-hyphenation" tabindex="-1">Aside: Hyphenation</h3>
@@ -131,12 +131,12 @@
 <h2 id="justify-+-hyphenation-on-the-web:-it's-still-not-great" tabindex="-1">Justify + Hyphenation on the Web: It’s Still not Great</h2>
 <a class="dn" href="#justify-+-hyphenation-on-the-web:-it's-still-not-great"><span class="dn">Permalink to “Justify + Hyphenation on the Web: It’s Still not Great”</span> <span aria-hidden="true">#</span></a><p>Here’s another example of justified text with and without hyphenation in Chrome (this is Chrome 89, on March 29, 2021).</p>
 <p>Justified:</p>
-<p><img src="/website-3/assets/posts/web-justified-text/web2.jpg" alt=""></p>
+<p><img src="/assets/posts/web-justified-text/web2.jpg" alt=""></p>
 <p>Justified, with hyphenation:</p>
-<p><img src="/website-3/assets/posts/web-justified-text/web2.jpg" alt=""></p>
+<p><img src="/assets/posts/web-justified-text/web2.jpg" alt=""></p>
 <p>Notice the difference? Exactly; there is none. Chrome couldn’t figure out a good way to lay this out, even with hyphenation turned on.</p>
 <p>Compare this with LaTeX,<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> which aggressively hyphenates. You will almost never see the kind of floaty word spacing like above. Instead, you’ll see dense blocks rich with hyphenation:</p>
-<p><img src="/website-3/assets/posts/web-justified-text/paper-paragraph.jpg" alt=""></p>
+<p><img src="/assets/posts/web-justified-text/paper-paragraph.jpg" alt=""></p>
 <p>In the above paragraph, of the nine lines that reach the right margin, five (over half!) are hyphenated and split.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
 <h2 id="recommendation:-don't-do-it" tabindex="-1">Recommendation: Don’t Do It</h2>
 <a class="dn" href="#recommendation:-don't-do-it"><span class="dn">Permalink to “Recommendation: Don’t Do It”</span> <span aria-hidden="true">#</span></a><p>I’m not actually in a position to recommend any design decisions to anybody. But my personal preference is still for left-aligned text on the web. If and when a major shop like the NYT, Medium, or Substack justifies their text online, it might be worth looking into.</p>
@@ -146,15 +146,15 @@
 <a class="dn" href="#gallery-of-shame-opportunity"><span class="dn">Permalink to “Gallery of Shame Opportunity”</span> <span aria-hidden="true">#</span></a><p>I’ve started collecting pages I find with justified text without hyphenation that ends up looking awkward. To, uhhh, raise awareness?</p>
 <div class="flex items-center flex-wrap mv4">
   <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
-      <img src="/website-3/assets/posts/web-justified-text/jpegxl.jpg" class="br3 br4-ns">
+      <img src="/assets/posts/web-justified-text/jpegxl.jpg" class="br3 br4-ns">
       <p class="f6"><span class="strike">From <a href="https://jpegxl.info/">jpegxl.info</a></span> hyphens have been added!</p>
   </div>
   <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
-      <img src="/website-3/assets/posts/web-justified-text/kylemcdonald.jpg" class="br3 br4-ns">
+      <img src="/assets/posts/web-justified-text/kylemcdonald.jpg" class="br3 br4-ns">
       <p class="f6">From <a href="https://kylemcdonald.net/psac/">Kyle McDonald</a></p>
   </div>
   <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
-      <img src="/website-3/assets/posts/web-justified-text/publicdelivery.jpg" class="br3 br4-ns">
+      <img src="/assets/posts/web-justified-text/publicdelivery.jpg" class="br3 br4-ns">
       <p class="f6">From <a href="https://publicdelivery.org/damian-ortega-cosmic-thing/">Public Delivery</a></p>
   </div>
 </div>
@@ -167,7 +167,7 @@
 </li>
 <li id="fn3" class="footnote-item"><p>Once I realized how dense hyphenated words are in printed text, I was surprised that it never bothers me when reading. My guess is that growing up reading books, we’re so used to parsing hyphenated words that we don’t even notice. I wonder whether this might be different for a window of generations that grows up reading text mostly online, but before the web is universally justified and hyphenated. (Or, will it ever be?) <a href="#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn4" class="footnote-item"><p>These often look OK on a desktop monitor—and I suspect that’s where they were designed—but break down when you <a href="/website-3/posts/fixing-mobile-page-layouts/">read them on your phone</a>. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+<li id="fn4" class="footnote-item"><p>These often look OK on a desktop monitor—and I suspect that’s where they were designed—but break down when you <a href="/posts/fixing-mobile-page-layouts/">read them on your phone</a>. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
@@ -198,7 +198,7 @@
         </p>
         <p class="mt0 f7 f6-ns">
             <!-- via -->
-            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+            <img src='/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
         </p>
     </form>
 </div>
@@ -210,7 +210,7 @@
   </div>
   <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
     <div class="mh3 mh4-ns bt b--silver mb1"></div>
-    <a href="/website-3/about/" class="link silver hover-blue pv1">
+    <a href="/about/" class="link silver hover-blue pv1">
       about me
     </a>
     | orig theme is

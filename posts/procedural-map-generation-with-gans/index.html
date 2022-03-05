@@ -11,18 +11,18 @@
         <meta content="Procedural City Layout Generation with GANs - Maxwell Forbes" property="og:title"/>
         <meta name="twitter:title" content="Procedural City Layout Generation with GANs - Maxwell Forbes"/>
 
-        <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
-<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+        <link href='/assets/img/fav.png' rel='shortcut icon'>
+<link href='/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
 
 
 
     
     <meta content='https://maxwellforbes.com/posts/procedural-map-generation-with-gans/' property='og:url'/>
     
-        <meta content='https://maxwellforbes.com/website-3/assets/posts/procedural-map-generation-with-gans/example_regions.jpg' property='og:image'/>
-        <meta name='twitter:image' content='https://maxwellforbes.com/website-3/assets/posts/procedural-map-generation-with-gans/example_regions.jpg'/>
+        <meta content='https://maxwellforbes.com/assets/posts/procedural-map-generation-with-gans/example_regions.jpg' property='og:image'/>
+        <meta name='twitter:image' content='https://maxwellforbes.com/assets/posts/procedural-map-generation-with-gans/example_regions.jpg'/>
         <meta name='twitter:card' content='summary_large_image'/>
     
     <meta name='twitter:site' content='@maxforbes'/>
@@ -45,20 +45,20 @@
 
     <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
       <div class="w-50 tl">
-        <a href="/website-3/" class="hover dim black" id="header">Maxwell Forbes</a>
+        <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
       </div>
       <div class="w-50 tr">
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+            <a class="link hover-mid-gray ml3 pv1" href="/studio">
               Studio
             </a>
           
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+            <a class="link hover-mid-gray ml3 pv1" href="/research">
               Research
             </a>
           
@@ -103,9 +103,9 @@
         filter: grayscale(100%);
     }
 </style>
-<link href='/website-3/assets/css/tippy-6.3.1.light.css' rel="stylesheet" type="text/css"/>
-<script defer src='/website-3/assets/lib/popper-2.9.3.min.js'></script>
-<script defer src='/website-3/assets/lib/tippy-6.3.1.umd.min.js'></script>
+<link href='/assets/css/tippy-6.3.1.light.css' rel="stylesheet" type="text/css"/>
+<script defer src='/assets/lib/popper-2.9.3.min.js'></script>
+<script defer src='/assets/lib/tippy-6.3.1.umd.min.js'></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const langs = [
@@ -131,7 +131,7 @@
     <a href="https://github.com/mbforbes/mapgen" class="f5 f4-ns b code">mapgen</a><span class="dib fr">
             <img
                 class="h1 black-and-white python"
-                src="/website-3/assets/img/langs/python.svg"/>
+                src="/assets/img/langs/python.svg"/>
         </span><p class="mv1 f5 f4-ns">Procedural map generation with GANs.</p></div>
 <p><em>Enjoy!</em></p>
 <p><em>– Max from 2021</em></p>
@@ -213,7 +213,7 @@ generating the layout for a city. Within this domain, we further restrict our
 focus to the following task: given a road network and city features (like water
 and parks), fill in the buildings inside of blocks. Figure 1 shows a visual
 depiction of our task.</p>
-<p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task_overview.jpg" alt="dataset fig 1"></p>
+<p><img src="/assets/posts/procedural-map-generation-with-gans/task_overview.jpg" alt="dataset fig 1"></p>
 <p class="figcaption">Figure 1: Task overview: given a road network, we attempt to directly fill in blocks with buildings.</p>
 <p>We split this overall task into two subtasks. In the first subtask, we extract
 individual blocks with their buildings laid out on top of them. The goal is to
@@ -227,7 +227,7 @@ generated and placed within the bounds of blocks. But because we also provide
 geographic features like water and parks in the input, a model can potentially
 take advantage of these semantic cues to generate layouts that are sensitive to
 their surroundings.</p>
-<p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/2tasks.jpg" alt="2 tasks"></p>
+<p><img src="/assets/posts/procedural-map-generation-with-gans/2tasks.jpg" alt="2 tasks"></p>
 <p class="figcaption">Figure 2: The two tasks we consider. In both cases, buildings must be generated on top of an input image. The difference is in the size of the region and the amount of geographic context provided.</p>
 <h2 id="related-work" tabindex="-1">Related Work</h2>
 <a class="dn" href="#related-work"><span class="dn">Permalink to “Related Work”</span> <span aria-hidden="true">#</span></a><h3 id="inverse-procedural-modeling-and-shape-learning" tabindex="-1">Inverse Procedural Modeling <em>and</em> Shape Learning</h3>
@@ -282,8 +282,8 @@ block. For this task, we process maps data from OpenStreetMaps in order to
 identify and extract blocks.</p>
 <h4 id="overview" tabindex="-1">Overview</h4>
 <a class="dn" href="#overview"><span class="dn">Permalink to “Overview”</span> <span aria-hidden="true">#</span></a><p>The overall processes of the block extraction is shown below in Figure 3.</p>
-<p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/datafig-1.jpg" alt="dataset fig 1">
-<img src="/website-3/assets/posts/procedural-map-generation-with-gans/datafig-2.jpg" alt="dataset fig 2"></p>
+<p><img src="/assets/posts/procedural-map-generation-with-gans/datafig-1.jpg" alt="dataset fig 1">
+<img src="/assets/posts/procedural-map-generation-with-gans/datafig-2.jpg" alt="dataset fig 2"></p>
 <p class="figcaption">Figure 3: Stages of block extraction, done for the first task. The individual steps are described in the running text.</p>
 <p>Block extraction broadly involved the following stages, each of which are
 illustrated above (Figure 3):</p>
@@ -369,7 +369,7 @@ buildings on top of them to that fixed resolution output. We then use
 Processing<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup> to render all of the blocks in bulk, creating pairs of
 (empty, populated) blocks, rendering blocks in grey and buildings in black.
 Several example blocks are shown below in Figure 4.</p>
-<p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/example_blocks.jpg" alt="example blocks"></p>
+<p><img src="/assets/posts/procedural-map-generation-with-gans/example_blocks.jpg" alt="example blocks"></p>
 <p class="figcaption">Figure 4: Four examples from the dataset for task 1: generating buildings for a block. Whereas some blocks have distinct shapes around which buildings must be placed (columns one and two), others provide almost no input but require specific outputs (columns three and four). Currently, uniform scaling per block results in a distorted appearance; this effect could be reversed in postprocessing, or future approaches could clip blocks to geographic bounds rather than scaling to a set pixel size.</p>
 <p>We scrape five different regions of Seattle and extract all blocks with at
 least one building on them, giving a total of 1100 images, which we partition
@@ -427,7 +427,7 @@ nothing (light grey) (blocks are colored this way), (2) buildings (red
 polygons), (3) roads (yellow lines), (4) water (blue polygons), (5) pedestrian
 areas (darker grey polygons), (6) pedestrian walkways (darker grey lines), (7)
 parks (green polygons). Four example renderings are shown below in Figure 5:</p>
-<p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/example_regions.jpg" alt="example regions"></p>
+<p><img src="/assets/posts/procedural-map-generation-with-gans/example_regions.jpg" alt="example regions"></p>
 <p class="figcaption">Figure 5: Four example regions in the dataset for task 2. The dataset exhibits a wide variety in the correct number of buildings in the output, as can be seen by the second column, which should be left mostly blank. Furthermore, note the presence of pedestrian footpaths around which buildings should not be generated (left and rightmost columns), the presence of buildings along the pier (third column), and the variety of block shapes around which buildings must be placed (columns one versus four).</p>
 <h4 id="scraping" tabindex="-1">Scraping</h4>
 <a class="dn" href="#scraping"><span class="dn">Permalink to “Scraping”</span> <span aria-hidden="true">#</span></a><p>The only additional complication with rendering larger map segments is that the
@@ -470,12 +470,12 @@ This can be seen in Figure 6 with the multicolor banding on the right side of
 the image. However, it is able to immediately learn to reproduce the grey
 outline of the input block, and never draws black (buildings) on top of white
 (empty space).</p>
-<p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task1-epoch1.jpg" alt="task 1 epoch 1"></p>
+<p><img src="/assets/posts/procedural-map-generation-with-gans/task1-epoch1.jpg" alt="task 1 epoch 1"></p>
 <p class="figcaption">Figure 6: Task 1, after 1 epoch (pass over training data).</p>
 <p>After nine epochs, the model is able to produce more ambitious shapes (Figure
 7), but the shapes are too densely connected and rounded to be convincing
 enough to fool a human judge.</p>
-<p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task1-epoch9.jpg" alt="task 1 epoch 9"></p>
+<p><img src="/assets/posts/procedural-map-generation-with-gans/task1-epoch9.jpg" alt="task 1 epoch 9"></p>
 <p class="figcaption">Figure 7: Task 1, after 9 epochs.</p>
 <p>By the the end of training, the model is able to generate fairly convincing
 filled-in blocks. It is interesting to note that the L1 loss does not drop
@@ -485,7 +485,7 @@ gold output (far right), it would be difficult to tell whether the generation
 (middle) is correct. In that sense, it may well fool a discriminator, human or
 neural network. However, the L1 distance from the generated image to the gold
 is terrible, as it got the buildings almost completely wrong.</p>
-<p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task1-epoch193.jpg" alt="task 1 epoch 193"></p>
+<p><img src="/assets/posts/procedural-map-generation-with-gans/task1-epoch193.jpg" alt="task 1 epoch 193"></p>
 <p class="figcaption">Figure 8: Task 1, after 193 epochs. (The model was trained for 200 epochs in total.)</p>
 <h4 id="mode-collapse" tabindex="-1">Mode collapse</h4>
 <a class="dn" href="#mode-collapse"><span class="dn">Permalink to “Mode collapse”</span> <span aria-hidden="true">#</span></a><p>One question we were interested to investigate is: does the conditional
@@ -493,7 +493,7 @@ adversarial network suffer from mode collapse in this task?</p>
 <p>During the middle of training, we observed what appeared to be mode collapse,
 as can be seen in Figure 9. The model repeatedly generates a single building
 near the bottom of the image.</p>
-<p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task1_mode_collapse.jpg" alt="task 1 possible mode collapse"></p>
+<p><img src="/assets/posts/procedural-map-generation-with-gans/task1_mode_collapse.jpg" alt="task 1 possible mode collapse"></p>
 <p class="figcaption">Figure 9: Task 1, experiencing possible mode collapse at a handful of earlier epochs.</p>
 <p>Though this effect is understandable given the potential confounding inputs
 (all grey boxes), the model exits this behavior after more training. We would
@@ -505,17 +505,17 @@ further model analysis to propose an answer to this question.</p>
 <a class="dn" href="#task-2"><span class="dn">Permalink to “Task 2”</span> <span aria-hidden="true">#</span></a><p>Similar to with task 1, the model is able to pick up on copying general
 background shapes over to the output by the end of epoch 1, though the results
 are fuzzy, and it has trouble producing buildings (Figure 10).</p>
-<p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task2-epoch1.jpg" alt="task 2 epoch 1"></p>
+<p><img src="/assets/posts/procedural-map-generation-with-gans/task2-epoch1.jpg" alt="task 2 epoch 1"></p>
 <p class="figcaption">Figure 10: Task 2, after 1 epoch.</p>
 <p>By a few dozen epochs in, the model faithfully copies over the non-building
 context, and generates buildings in largely the appropriate places. However, at
 this point it prefers larger blobs in as many spots as possible, producing cellular-looking outputs that are easily recognized as fake (Figure 11).</p>
-<p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task2-epoch44.jpg" alt="task 2 epoch 44"></p>
+<p><img src="/assets/posts/procedural-map-generation-with-gans/task2-epoch44.jpg" alt="task 2 epoch 44"></p>
 <p class="figcaption">Figure 11: Task 2, after 44 epochs.</p>
 <p>By the end of training, the model has reached generally decent performance on
 many of the inputs. Figure 12 shows the model after its final 200th epoch of
 training, generating a remarkably faithful output compared to the gold.</p>
-<p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task2-epoch200.jpg" alt="task 2 epoch 200"></p>
+<p><img src="/assets/posts/procedural-map-generation-with-gans/task2-epoch200.jpg" alt="task 2 epoch 200"></p>
 <p class="figcaption">Figure 12: Task 2, the final model after 200 epochs.</p>
 <h4 id="success-cases" tabindex="-1">Success cases</h4>
 <a class="dn" href="#success-cases"><span class="dn">Permalink to “Success cases”</span> <span aria-hidden="true">#</span></a><p>There are a few cases that the model can handle very well, shown in the three
@@ -529,7 +529,7 @@ there are few buildings. The buildings that exist near parks are also rarely on
 the parks themselves (with rare exceptions being visitor centers).</p>
 <p>The third row illustrates a seemingly trivial but interesting pattern the model
 has learned: that buildings do not go between freeway roads.</p>
-<p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task2-successes.jpg" alt="task 2 successes"></p>
+<p><img src="/assets/posts/procedural-map-generation-with-gans/task2-successes.jpg" alt="task 2 successes"></p>
 <p class="figcaption">Figure 13: Task 2, three patterns the model has learned to reproduce well.</p>
 <h4 id="failure-cases" tabindex="-1">Failure cases</h4>
 <a class="dn" href="#failure-cases"><span class="dn">Permalink to “Failure cases”</span> <span aria-hidden="true">#</span></a><p>The model is of course not without its shortcomings. Figure 14 illustrates
@@ -539,7 +539,7 @@ especially in-between curvy blocks. The second row demonstrates visual
 artifacts that make the model often easy to spot by human eyes: the white
 banding in the green park area, and the color mixtures around the long vertical
 grey lines.</p>
-<p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task2-problems.jpg" alt="task 2 failures"></p>
+<p><img src="/assets/posts/procedural-map-generation-with-gans/task2-problems.jpg" alt="task 2 failures"></p>
 <p class="figcaption">Figure 14: Task 2, two problems the model has even after training.</p>
 <h4 id="unpredictable-sparsity" tabindex="-1">Unpredictable Sparsity</h4>
 <a class="dn" href="#unpredictable-sparsity"><span class="dn">Permalink to “Unpredictable Sparsity”</span> <span aria-hidden="true">#</span></a><p>Some of the most frequent failures cases for the model were arguably not due to
@@ -550,7 +550,7 @@ in them, and so the model guesses completely wrong (first row). On the other
 hand, other road networks that appear to possibly be barren industrial areas
 near a highway are actually densely lined, and the model guesses the wrong way
 by leaving them empty (bottom row).</p>
-<p><img src="/website-3/assets/posts/procedural-map-generation-with-gans/task2-sparsity.jpg" alt="task 2 sparsity"></p>
+<p><img src="/assets/posts/procedural-map-generation-with-gans/task2-sparsity.jpg" alt="task 2 sparsity"></p>
 <p class="figcaption">Figure 15: Task 2, sparsity (or density) that is difficult to predict.</p>
 <p>It may be worth taking a careful pass over several more samples of the dataset
 to ensure that the above sparse blocks are truly empty. One possibility is that
@@ -648,7 +648,7 @@ would the model proposed in this paper.</p>
         </p>
         <p class="mt0 f7 f6-ns">
             <!-- via -->
-            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+            <img src='/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
         </p>
     </form>
 </div>
@@ -660,7 +660,7 @@ would the model proposed in this paper.</p>
   </div>
   <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
     <div class="mh3 mh4-ns bt b--silver mb1"></div>
-    <a href="/website-3/about/" class="link silver hover-blue pv1">
+    <a href="/about/" class="link silver hover-blue pv1">
       about me
     </a>
     | orig theme is

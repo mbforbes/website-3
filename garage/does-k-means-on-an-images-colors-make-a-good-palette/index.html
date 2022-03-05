@@ -11,18 +11,18 @@
         <meta content="Does k-means on an image&#39;s colors make a good palette? - Maxwell Forbes" property="og:title"/>
         <meta name="twitter:title" content="Does k-means on an image&#39;s colors make a good palette? - Maxwell Forbes"/>
 
-        <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
-<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+        <link href='/assets/img/fav.png' rel='shortcut icon'>
+<link href='/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
 
 
 
     
     <meta content='https://maxwellforbes.com/garage/does-k-means-on-an-images-colors-make-a-good-palette/' property='og:url'/>
     
-        <meta content='https://maxwellforbes.com/website-3/assets/garage/k-means-colors/example.hsv.palette-1-36.png' property='og:image'/>
-        <meta name='twitter:image' content='https://maxwellforbes.com/website-3/assets/garage/k-means-colors/example.hsv.palette-1-36.png'/>
+        <meta content='https://maxwellforbes.com/assets/garage/k-means-colors/example.hsv.palette-1-36.png' property='og:image'/>
+        <meta name='twitter:image' content='https://maxwellforbes.com/assets/garage/k-means-colors/example.hsv.palette-1-36.png'/>
         <meta name='twitter:card' content='summary_large_image'/>
     
     <meta name='twitter:site' content='@maxforbes'/>
@@ -45,20 +45,20 @@
 
     <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
       <div class="w-50 tl">
-        <a href="/website-3/" class="hover dim black" id="header">Maxwell Forbes</a>
+        <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
       </div>
       <div class="w-50 tr">
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+            <a class="link hover-mid-gray ml3 pv1" href="/studio">
               Studio
             </a>
           
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+            <a class="link hover-mid-gray ml3 pv1" href="/research">
               Research
             </a>
           
@@ -75,7 +75,7 @@
           
             <div class="fw600 light-silver mt1 ttu">
               
-                <a href="/website-3/studio/#garage" class="light-silver hover-blue">GARAGE/</a>
+                <a href="/studio/#garage" class="light-silver hover-blue">GARAGE/</a>
               
             </div>
           
@@ -94,7 +94,7 @@
 
       <div class="markdown-body">
         <p>I was trying to come up with a color palette for an illustration, and I came across this image:</p>
-<p><img src="/website-3/assets/garage/k-means-colors/inspiration.jpg" alt="bird flying with associated color palette"></p>
+<p><img src="/assets/garage/k-means-colors/inspiration.jpg" alt="bird flying with associated color palette"></p>
 <p class="figcaption">
 <a href="https://www.printmag.com/post/50-best-color-sites-graphic-designers">
 source
@@ -102,14 +102,14 @@ source
 </p>
 <p>For whatever reason, this made me wonder: how do people extract color palettes from images? Can we do this automatically?</p>
 <p>Could it perhaps be that, if we simply run k-means on the RGB colors of each pixel, we’ll recover the palette?</p>
-<p>Rather than Google for the answer, I was struck by a desire to rekindle my <a href="/website-3/garage/spirit-of-discovery/">spirit of discovery</a> and find out for myself.</p>
+<p>Rather than Google for the answer, I was struck by a desire to rekindle my <a href="/garage/spirit-of-discovery/">spirit of discovery</a> and find out for myself.</p>
 <h2 id="k-means-rgb" tabindex="-1">k-means, RGB</h2>
 <a class="dn" href="#k-means-rgb"><span class="dn">Permalink to “k-means, RGB”</span> <span aria-hidden="true">#</span></a><p>Running k-means on the RGB colors of the image with <code>k = 7</code>, I came up with:</p>
-<p><img src="/website-3/assets/garage/k-means-colors/example.rgb.palette-7.png" alt="7-color palette"></p>
+<p><img src="/assets/garage/k-means-colors/example.rgb.palette-7.png" alt="7-color palette"></p>
 <p class="figcaption">k-means on RGB pixels, <code>k = 7</code></p>
 <p>Hmm, definitely missing some of the colors we’d like, at least a red and a green.</p>
 <p>I tried with different values of <code>k</code>. Here’s 1 through 12:</p>
-<p><img src="/website-3/assets/garage/k-means-colors/example.rgb.palette-1-12.png" alt="7-color palette"></p>
+<p><img src="/assets/garage/k-means-colors/example.rgb.palette-1-12.png" alt="7-color palette"></p>
 <p class="figcaption">k-means on RGB pixels, <code>k ∈ {1 ... 12}</code></p>
 <p>The k-means implementation I’m using is pretty stable (I think the initialization may use a deterministic heuristic). We can notice that by:</p>
 <ul>
@@ -124,9 +124,9 @@ source
 <h2 id="k-means-hsv" tabindex="-1">k-means, HSV</h2>
 <a class="dn" href="#k-means-hsv"><span class="dn">Permalink to “k-means, HSV”</span> <span aria-hidden="true">#</span></a><p>Just as I finished writing the above, and was considering Googling how people do this, I realized I’d missed a totally obvious connection.</p>
 <p>I had run k-means on the pixels in RGB color space. But I had then sorted the output palette using a different color space: HSV. What if we ran k-means on the pixels in HSV?</p>
-<p><img src="/website-3/assets/garage/k-means-colors/reference.palette.jpg" alt="">
-<img src="/website-3/assets/garage/k-means-colors/example.rgb.palette-7.png" alt="">
-<img src="/website-3/assets/garage/k-means-colors/example.hsv.palette-7.png" alt=""></p>
+<p><img src="/assets/garage/k-means-colors/reference.palette.jpg" alt="">
+<img src="/assets/garage/k-means-colors/example.rgb.palette-7.png" alt="">
+<img src="/assets/garage/k-means-colors/example.hsv.palette-7.png" alt=""></p>
 <p class="figcaption">
 <span class="b">Top:</span>
 reference.
@@ -137,23 +137,23 @@ HSV k-means.
 </p>
 <p>HSV shows minor changes from RGB: just the first three colors.</p>
 <p>Here’s k-means on HSV for several <code>k</code> values:</p>
-<p><img src="/website-3/assets/garage/k-means-colors/example.hsv.palette-1-12.png" alt=""></p>
+<p><img src="/assets/garage/k-means-colors/example.hsv.palette-1-12.png" alt=""></p>
 <p class="figcaption">k-means on HSV pixels, <code>k ∈ {1 ... 12}</code></p>
 <p>Very interesting! We see a brighter green than ever appears in the RGB clusters, but only for <code>k ∈ {3, 4}</code>. A second blue appears for <code>k = 12</code>. And, no red so far.</p>
 <p>Just for fun, I tried running it up to <code>k = 36</code> to see what would happen.</p>
-<p><img src="/website-3/assets/garage/k-means-colors/example.hsv.palette-1-36.png" alt=""></p>
+<p><img src="/assets/garage/k-means-colors/example.hsv.palette-1-36.png" alt=""></p>
 <p class="figcaption">k-means on HSV pixels, <code>k ∈ {1 ... 36}</code></p>
 <p>Looks like red was just around the corner. It’s a shame we never get that brilliant green back. I still think we can do better than this, but cranking <code>k</code> way up like this would reveal one computer/human hybrid approach: the computer over-generates a large palette, then the human samples from it to make a smaller one.</p>
 <h2 id="wrapping-up" tabindex="-1">Wrapping up</h2>
-<a class="dn" href="#wrapping-up"><span class="dn">Permalink to “Wrapping up”</span> <span aria-hidden="true">#</span></a><p>I’ve got to stop working on this now and get back to my other <a href="/website-3/garage/summer-2021-website-goals/">summer goals</a>. If you’re curious, here’s my code:</p>
+<a class="dn" href="#wrapping-up"><span class="dn">Permalink to “Wrapping up”</span> <span aria-hidden="true">#</span></a><p>I’ve got to stop working on this now and get back to my other <a href="/garage/summer-2021-website-goals/">summer goals</a>. If you’re curious, here’s my code:</p>
 <style>
     .black-and-white:not(:hover) {
         filter: grayscale(100%);
     }
 </style>
-<link href='/website-3/assets/css/tippy-6.3.1.light.css' rel="stylesheet" type="text/css"/>
-<script defer src='/website-3/assets/lib/popper-2.9.3.min.js'></script>
-<script defer src='/website-3/assets/lib/tippy-6.3.1.umd.min.js'></script>
+<link href='/assets/css/tippy-6.3.1.light.css' rel="stylesheet" type="text/css"/>
+<script defer src='/assets/lib/popper-2.9.3.min.js'></script>
+<script defer src='/assets/lib/tippy-6.3.1.umd.min.js'></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const langs = [
@@ -179,7 +179,7 @@ HSV k-means.
     <a href="https://github.com/mbforbes/k-means-colors" class="f5 f4-ns b code">k-means-colors</a><span class="dib fr">
             <img
                 class="h1 black-and-white python"
-                src="/website-3/assets/img/langs/python.svg"/>
+                src="/assets/img/langs/python.svg"/>
         </span><p class="mv1 f5 f4-ns">Does k-means on an image&#39;s colors make a good palette?</p></div>
 <p>As a final thought, I was wondering whether different color spaces are linear transformations of each other, and whether k-means or the algorithm I’m using is agnostic to linear transformations. Keeping the spirit of flying fast and loose, I haven’t looked either up, but if I were to keep going, these facts would inform what approach I take next. I wonder whether there is a color embedding that would make k-means find perceptually good color palettes?</p>
 
@@ -209,7 +209,7 @@ HSV k-means.
         </p>
         <p class="mt0 f7 f6-ns">
             <!-- via -->
-            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+            <img src='/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
         </p>
     </form>
 </div>
@@ -238,7 +238,7 @@ HSV k-means.
             <td class="pv2 ph3">
                 This is an entry in
                 
-                    <a href="/website-3/garage/what-is-the-garage/" class="hover-dark-blue underline-hover">the garage</a>.
+                    <a href="/garage/what-is-the-garage/" class="hover-dark-blue underline-hover">the garage</a>.
                 
                 It may change or disappear at any point.
             </td>
@@ -284,7 +284,7 @@ HSV k-means.
     }
 
     async function renderLinks() {
-        let resp = await fetch("/website-3/assets/garage/link_graph.json");
+        let resp = await fetch("/assets/garage/link_graph.json");
         if (!resp.ok) {
             return;
         }
@@ -305,7 +305,7 @@ HSV k-means.
   </div>
   <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
     <div class="mh3 mh4-ns bt b--silver mb1"></div>
-    <a href="/website-3/about/" class="link silver hover-blue pv1">
+    <a href="/about/" class="link silver hover-blue pv1">
       about me
     </a>
     | orig theme is

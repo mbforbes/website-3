@@ -11,10 +11,10 @@
         <meta content="What is an ECS? - Maxwell Forbes" property="og:title"/>
         <meta name="twitter:title" content="What is an ECS? - Maxwell Forbes"/>
 
-        <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
-<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+        <link href='/assets/img/fav.png' rel='shortcut icon'>
+<link href='/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
 
 
 
@@ -41,20 +41,20 @@
 
     <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
       <div class="w-50 tl">
-        <a href="/website-3/" class="hover dim black" id="header">Maxwell Forbes</a>
+        <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
       </div>
       <div class="w-50 tr">
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+            <a class="link hover-mid-gray ml3 pv1" href="/studio">
               Studio
             </a>
           
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+            <a class="link hover-mid-gray ml3 pv1" href="/research">
               Research
             </a>
           
@@ -107,7 +107,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-why/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-why/" class="db pv1 link">
                             Why build an ECS? Why TypeScript?
                         </a>
                     
@@ -115,7 +115,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-implementation/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-implementation/" class="db pv1 link">
                             A TypesScript ECS in 99 Lines of Code
                         </a>
                     
@@ -123,7 +123,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-tests/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-tests/" class="db pv1 link">
                             Tests
                         </a>
                     
@@ -131,7 +131,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-entities/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-entities/" class="db pv1 link">
                             Deeper Dive: Entities
                         </a>
                     
@@ -139,7 +139,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-components/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-components/" class="db pv1 link">
                             Deeper Dive: Components
                         </a>
                     
@@ -147,7 +147,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-dirty-component-optimization/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-dirty-component-optimization/" class="db pv1 link">
                             Dirty Component Optimization
                         </a>
                     
@@ -155,7 +155,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-aspects/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-aspects/" class="db pv1 link">
                             Aspects
                         </a>
                     
@@ -163,7 +163,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-systems/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-systems/" class="db pv1 link">
                             Deeper Dive: Systems
                         </a>
                     
@@ -178,7 +178,7 @@
 
       <div class="markdown-body">
         <h2 id="preface" tabindex="-1">Preface</h2>
-<a class="dn" href="#preface"><span class="dn">Permalink to “Preface”</span> <span aria-hidden="true">#</span></a><p>This series is intended to be a simple walkthrough of building an ECS-based game engine in TypeScript. It’s based off my work on <a href="/website-3/posts/fallgate/">Fallgate</a>, a small 2D action-adventure game I built with my friend <a href="https://schmidlak.com/">Cooper</a> over about two years of evenings and weekends.</p>
+<a class="dn" href="#preface"><span class="dn">Permalink to “Preface”</span> <span aria-hidden="true">#</span></a><p>This series is intended to be a simple walkthrough of building an ECS-based game engine in TypeScript. It’s based off my work on <a href="/posts/fallgate/">Fallgate</a>, a small 2D action-adventure game I built with my friend <a href="https://schmidlak.com/">Cooper</a> over about two years of evenings and weekends.</p>
 <h2 id="so-what-is-an-ecs" tabindex="-1">So, what <em>is</em> an ECS?</h2>
 <a class="dn" href="#so-what-is-an-ecs"><span class="dn">Permalink to “So, what is an ECS?”</span> <span aria-hidden="true">#</span></a><p>ECS stands for <em>entity component system</em>. It is a design pattern used when programming games.</p>
 <p>It works this way: you have Entities, Components, and Systems. (I’ll capitalize these throughout.)</p>
@@ -201,9 +201,9 @@
 </ul>
 <h2 id="ecs-visualization" tabindex="-1">ECS Visualization</h2>
 <a class="dn" href="#ecs-visualization"><span class="dn">Permalink to “ECS Visualization”</span> <span aria-hidden="true">#</span></a><p>This ECS visualization demonstrates the core concept of Systems: <strong>selecting Entities that Contain <em>at least</em> their required Components.</strong> Under-the-hood, the visualization is powered by the ECS that we’ll build in this series.</p>
-<script defer src="/website-3/assets/lib/three-r131.min.js"></script>
-<script defer src="/website-3/assets/lib/p5-1.4.0.min.js"></script>
-<script defer src="/website-3/assets/p5js/03-ecs-diagram.js"></script>
+<script defer src="/assets/lib/three-r131.min.js"></script>
+<script defer src="/assets/lib/p5-1.4.0.min.js"></script>
+<script defer src="/assets/p5js/03-ecs-diagram.js"></script>
 <div class="mt5 mb5 dt w-100 ba">
     <div id="parent" class="dtc v-mid tc">
     </div>
@@ -236,7 +236,7 @@
             
             
                 <p class="b ttu tracked ma0 black-30 f7 f6-ns">next &rarr;</p>
-                <a href="/website-3/posts/typescript-ecs-why/" class=" ma0 link">2. Why build an ECS? Why TypeScript?</a>
+                <a href="/posts/typescript-ecs-why/" class=" ma0 link">2. Why build an ECS? Why TypeScript?</a>
             
         </div>
     </div>
@@ -265,7 +265,7 @@
         </p>
         <p class="mt0 f7 f6-ns">
             <!-- via -->
-            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+            <img src='/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
         </p>
     </form>
 </div>
@@ -277,7 +277,7 @@
   </div>
   <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
     <div class="mh3 mh4-ns bt b--silver mb1"></div>
-    <a href="/website-3/about/" class="link silver hover-blue pv1">
+    <a href="/about/" class="link silver hover-blue pv1">
       about me
     </a>
     | orig theme is

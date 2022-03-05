@@ -11,18 +11,18 @@
         <meta content="Calorie Counting × Meal Planning - Maxwell Forbes" property="og:title"/>
         <meta name="twitter:title" content="Calorie Counting × Meal Planning - Maxwell Forbes"/>
 
-        <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
-<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+        <link href='/assets/img/fav.png' rel='shortcut icon'>
+<link href='/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
 
 
 
     
     <meta content='https://maxwellforbes.com/posts/calorie-counting-meal-planning/' property='og:url'/>
     
-        <meta content='https://maxwellforbes.com/website-3/assets/posts/calorie-counting-meal-planning/header.png' property='og:image'/>
-        <meta name='twitter:image' content='https://maxwellforbes.com/website-3/assets/posts/calorie-counting-meal-planning/header.png'/>
+        <meta content='https://maxwellforbes.com/assets/posts/calorie-counting-meal-planning/header.png' property='og:image'/>
+        <meta name='twitter:image' content='https://maxwellforbes.com/assets/posts/calorie-counting-meal-planning/header.png'/>
         <meta name='twitter:card' content='summary_large_image'/>
     
     <meta name='twitter:site' content='@maxforbes'/>
@@ -45,20 +45,20 @@
 
     <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
       <div class="w-50 tl">
-        <a href="/website-3/" class="hover dim black" id="header">Maxwell Forbes</a>
+        <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
       </div>
       <div class="w-50 tr">
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+            <a class="link hover-mid-gray ml3 pv1" href="/studio">
               Studio
             </a>
           
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+            <a class="link hover-mid-gray ml3 pv1" href="/research">
               Research
             </a>
           
@@ -93,7 +93,7 @@
       
 
       <div class="markdown-body">
-        <p><img src="/website-3/assets/posts/calorie-counting-meal-planning/header.svg" alt=""></p>
+        <p><img src="/assets/posts/calorie-counting-meal-planning/header.svg" alt=""></p>
 <p>I made a really simple calorie counting × meal planning web app. It’s open-source, and you can use it <a href="https://github.com/mbforbes/food">here</a> if you’d like (not for the faint of heart). Following it worked pretty well for me—I was able to lose fat, save money, and learn to cook some new things.</p>
 <p>But hold on. Calorie counting? Meal planning? Yes, this post is about fat loss.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> This side project isn’t really on-brand for me, so I wanted to write everything out in one go. What follows is my brain dump on calorie counting, meal planning, and the resulting little app I made to help me out. While it’s not flashy or exciting, I admit it’s the only app I’ve made that I actually use on a day-to-day basis.</p>
 <h3 id="disclaimer" tabindex="-1">Disclaimer</h3>
@@ -104,7 +104,7 @@
 <h2 id="why-food" tabindex="-1">Why food?</h2>
 <a class="dn" href="#why-food"><span class="dn">Permalink to “Why food?”</span> <span aria-hidden="true">#</span></a><p>If you consume American media, it’s hard not to think that exercise is the key to achieving a fit body. On TV, you’re bombarded with videos of beautifully sweaty athletes, pumping their gleaming bodies around to the latest beats, rocking the freshest sportswear and headphones. (And right after, you’ll probably see ads for pizza, soda, and beer.) <sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
 <p>I remember seeing a graph a while ago that I can’t find, so I’ve made one that expresses the same idea:</p>
-<p><img src="/website-3/assets/posts/calorie-counting-meal-planning/diet-vs-exercise.svg" alt="Bar graph comparing calorie intake with food vs spending with exercise"></p>
+<p><img src="/assets/posts/calorie-counting-meal-planning/diet-vs-exercise.svg" alt="Bar graph comparing calorie intake with food vs spending with exercise"></p>
 <p class="figcaption i">
 With food, you control calories from roughly 1800 - 3500 per day, but with exercise, you only control 200 - 400.
 </p>
@@ -115,7 +115,7 @@ With food, you control calories from roughly 1800 - 3500 per day, but with exerc
 <p>But let’s be clear: exercise takes a back seat to food in the quest of consuming fewer calories than you burn. There’s just no contest.</p>
 <p>Is losing fat as simple as consuming fewer calories than you burn? Aside from lifting weights sometimes to keep your muscles, I think so. I might be wrong. You can read a lot about this on the internet, but consuming fewer calories than you burn seems to be an overwhelmingly reasonable approach to losing fat. The strongest case against this is the idea that your body adjusts to needing fewer calories when you feed it less—but if this is true, the effect seems to be small.</p>
 <h2 id="counting-calories" tabindex="-1">Counting calories</h2>
-<a class="dn" href="#counting-calories"><span class="dn">Permalink to “Counting calories”</span> <span aria-hidden="true">#</span></a><p><img src="/website-3/assets/posts/calorie-counting-meal-planning/bubbles.jpg" alt="A picture of San Pellegrino with a splash of aperol."></p>
+<a class="dn" href="#counting-calories"><span class="dn">Permalink to “Counting calories”</span> <span aria-hidden="true">#</span></a><p><img src="/assets/posts/calorie-counting-meal-planning/bubbles.jpg" alt="A picture of San Pellegrino with a splash of aperol."></p>
 <p class="figcaption i">
 San Pellegrino with a splash of aperol. My friend Woody correctly observed that buying water in a bottle shipped from Italy is stupid given access to clean and nearly free tap water. But I maintain it's a great treat substitute for a beer.
 </p>
@@ -130,7 +130,7 @@ San Pellegrino with a splash of aperol. My friend Woody correctly observed that 
 <h2 id="how-do-you-get-your-food" tabindex="-1">How do you get your food?</h2>
 <a class="dn" href="#how-do-you-get-your-food"><span class="dn">Permalink to “How do you get your food?”</span> <span aria-hidden="true">#</span></a><p>If you’re with me so far, food choice is paramount to losing fat. And if you’re determined to lose fat and don’t want the guesswork, counting calories gives you total control.</p>
 <p>But you’re a human being with money and time to manage. When I thought about getting my food, I really had three goals: cheap, fast, and healthy. Could I get all three at once?</p>
-<p><img src="/website-3/assets/posts/calorie-counting-meal-planning/food-venn.svg" alt="A venn diagram showing healthy, fast, and cheap meal prep options."></p>
+<p><img src="/assets/posts/calorie-counting-meal-planning/food-venn.svg" alt="A venn diagram showing healthy, fast, and cheap meal prep options."></p>
 <p class="figcaption i">
 Only meal prepping hit all three marks of cheap, fast, and healthy.
 </p>
@@ -158,7 +158,7 @@ Only meal prepping hit all three marks of cheap, fast, and healthy.
 <a class="dn" href="#satiety"><span class="dn">Permalink to “Satiety”</span> <span aria-hidden="true">#</span></a><p>But wait, it’s not all about being hungry. I found that calorie counting forced me to develop an understanding of which foods made me feel more full for longer.</p>
 <p>With no rules on what you can eat aside from hitting calorie goals<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>, you quickly discover what makes you feel full for longer. A breakfast of buttered toast left me famished by 10:45am, but with a scramble of eggs and vegetables, I’d feel comfortably full until lunchtime.</p>
 <p>Dealing with hunger, then, was kind of a natural feedback mechanism for screwing up food choices.</p>
-<p><img src="/website-3/assets/posts/calorie-counting-meal-planning/chicken-cup.jpg" alt="A cup full of chicken"></p>
+<p><img src="/assets/posts/calorie-counting-meal-planning/chicken-cup.jpg" alt="A cup full of chicken"></p>
 <p class="figcaption i">
 Sometimes you just need a cup full of chicken.
 </p>
@@ -167,7 +167,7 @@ Sometimes you just need a cup full of chicken.
 <p>Simply put, this means combining calorie counting with meal planning.</p>
 <h2 id="calorie-counting-meal-planning" tabindex="-1">Calorie counting × meal planning</h2>
 <a class="dn" href="#calorie-counting-meal-planning"><span class="dn">Permalink to “Calorie counting × meal planning”</span> <span aria-hidden="true">#</span></a><p>I originally began my meal planning with a spreadsheet. Looking up the calories for each ingredient is both hugely annoying and hugely informative. One of my earlier sheets looked like this:</p>
-<p><img src="/website-3/assets/posts/calorie-counting-meal-planning/spreadsheet-small.png" alt="A screenshot of an early calorie counting spreadsheet I used."></p>
+<p><img src="/assets/posts/calorie-counting-meal-planning/spreadsheet-small.png" alt="A screenshot of an early calorie counting spreadsheet I used."></p>
 <p class="figcaption i">
 _I don't think I had all of the colors originally._
 </p>
@@ -188,7 +188,7 @@ _I don't think I had all of the colors originally._
 <p>The final factor is money. Call me stingy, but when my calorie counting and meal planning were going pretty well with spreadsheets, it felt absurd to pay a subscription (they’re nearly all subscription-based) for an app that did almost the same thing, and left me without the control I wanted.</p>
 <h3 id="interlude:-apps-translating-japanese-menus" tabindex="-1">Interlude: apps translating Japanese menus</h3>
 <a class="dn" href="#interlude:-apps-translating-japanese-menus"><span class="dn">Permalink to “Interlude: apps translating Japanese menus”</span> <span aria-hidden="true">#</span></a><p>This is off topic but I can’t resist.</p>
-<p><img src="/website-3/assets/posts/calorie-counting-meal-planning/hot-sand.jpg" alt="Picture of bad menu translation labeling buttered toast as hot sand"></p>
+<p><img src="/assets/posts/calorie-counting-meal-planning/hot-sand.jpg" alt="Picture of bad menu translation labeling buttered toast as hot sand"></p>
 <p class="figcaption i">
 I can't believe it's not sand!
 </p>
@@ -213,13 +213,13 @@ I can't believe it's not sand!
 <p>… and that’s pretty much it. So, without further ado:</p>
 <h2 id="voila" tabindex="-1">Voila</h2>
 <a class="dn" href="#voila"><span class="dn">Permalink to “Voila”</span> <span aria-hidden="true">#</span></a><p>The main view of the web app looks like this:</p>
-<p><img src="/website-3/assets/posts/calorie-counting-meal-planning/preview-edit.png" alt=""></p>
+<p><img src="/assets/posts/calorie-counting-meal-planning/preview-edit.png" alt=""></p>
 <p>The dishes are on the right, and you drag and drop them into the meal slots for the upcoming week:</p>
-<p><img src="/website-3/assets/posts/calorie-counting-meal-planning/dnd-add-dish.gif" alt=""></p>
+<p><img src="/assets/posts/calorie-counting-meal-planning/dnd-add-dish.gif" alt=""></p>
 <p>There’s a calorie bank that looks up the components for each dish. And it’s easy to split a dish into multiple servings, allowing you to cook in bulk while still tracking calories:</p>
-<p><img src="/website-3/assets/posts/calorie-counting-meal-planning/chili-complete.png" alt=""></p>
+<p><img src="/assets/posts/calorie-counting-meal-planning/chili-complete.png" alt=""></p>
 <p>At the bottom, a grocery list is generated, along with a little meal prep checklist:</p>
-<p><img src="/website-3/assets/posts/calorie-counting-meal-planning/small-grocery-preview.png" alt=""></p>
+<p><img src="/assets/posts/calorie-counting-meal-planning/small-grocery-preview.png" alt=""></p>
 <p>The app is super rough around the edges. You have to edit data (<code>.json</code>) files by hand to add ingredients or dishes. Here’s the chili from above:</p>
 <pre class="language-json"><code class="language-json"><span class="token property">"chili"</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Chili"</span><span class="token punctuation">,</span><br>    <span class="token property">"mealHint"</span><span class="token operator">:</span> <span class="token string">"dinner"</span><span class="token punctuation">,</span><br>    <span class="token property">"ingredients"</span><span class="token operator">:</span> <span class="token punctuation">[</span><br>        <span class="token string">"1 tbsp olive oil"</span><span class="token punctuation">,</span><br>        <span class="token string">"2 lbs ground beef (90% lean)"</span><span class="token punctuation">,</span><br>        <span class="token string">"1 onion"</span><span class="token punctuation">,</span><br>        <span class="token string">"6 cloves garlic"</span><span class="token punctuation">,</span><br>        <span class="token string">"2 can diced tomatoes"</span><span class="token punctuation">,</span><br>        <span class="token string">"24 oz tomato sauce"</span><span class="token punctuation">,</span><br>        <span class="token string">"0.5 cup beef broth"</span><span class="token punctuation">,</span><br>        <span class="token string">"2 tbsp chili powder"</span><span class="token punctuation">,</span><br>        <span class="token string">"2.5 tsp cumin"</span><span class="token punctuation">,</span><br>        <span class="token string">"2 tsp paprika"</span><span class="token punctuation">,</span><br>        <span class="token string">"2 tsp cocoa powder"</span><span class="token punctuation">,</span><br>        <span class="token string">"1 tsp sugar"</span><span class="token punctuation">,</span><br>        <span class="token string">"0.5 tsp coriander"</span><span class="token punctuation">,</span><br>        <span class="token string">"30 oz kidney beans"</span><br>    <span class="token punctuation">]</span><span class="token punctuation">,</span><br>    <span class="token property">"img"</span><span class="token operator">:</span> <span class="token string">"img/chili.png"</span><span class="token punctuation">,</span><br>    <span class="token property">"recipe"</span><span class="token operator">:</span> <span class="token string">"cookingclassy.com/slow-cooker-chili/"</span><span class="token punctuation">,</span><br>    <span class="token property">"recipeServings"</span><span class="token operator">:</span> <span class="token number">5</span><br><span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
 <p>There’s no logging in, so there’s no user accounts or databases or anything. You have to run the app by starting a web server on your computer (fortunately this is just one line of code). Oh, and it’s not mobile friendly at all.</p>
@@ -312,7 +312,7 @@ I can't believe it's not sand!
         </p>
         <p class="mt0 f7 f6-ns">
             <!-- via -->
-            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+            <img src='/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
         </p>
     </form>
 </div>
@@ -324,7 +324,7 @@ I can't believe it's not sand!
   </div>
   <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
     <div class="mh3 mh4-ns bt b--silver mb1"></div>
-    <a href="/website-3/about/" class="link silver hover-blue pv1">
+    <a href="/about/" class="link silver hover-blue pv1">
       about me
     </a>
     | orig theme is

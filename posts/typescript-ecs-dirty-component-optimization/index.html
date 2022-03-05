@@ -11,10 +11,10 @@
         <meta content="Dirty Component Optimization - Maxwell Forbes" property="og:title"/>
         <meta name="twitter:title" content="Dirty Component Optimization - Maxwell Forbes"/>
 
-        <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
-<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+        <link href='/assets/img/fav.png' rel='shortcut icon'>
+<link href='/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
 
 
 
@@ -41,20 +41,20 @@
 
     <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
       <div class="w-50 tl">
-        <a href="/website-3/" class="hover dim black" id="header">Maxwell Forbes</a>
+        <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
       </div>
       <div class="w-50 tr">
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+            <a class="link hover-mid-gray ml3 pv1" href="/studio">
               Studio
             </a>
           
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+            <a class="link hover-mid-gray ml3 pv1" href="/research">
               Research
             </a>
           
@@ -99,7 +99,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-what/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-what/" class="db pv1 link">
                             What is an ECS?
                         </a>
                     
@@ -107,7 +107,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-why/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-why/" class="db pv1 link">
                             Why build an ECS? Why TypeScript?
                         </a>
                     
@@ -115,7 +115,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-implementation/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-implementation/" class="db pv1 link">
                             A TypesScript ECS in 99 Lines of Code
                         </a>
                     
@@ -123,7 +123,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-tests/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-tests/" class="db pv1 link">
                             Tests
                         </a>
                     
@@ -131,7 +131,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-entities/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-entities/" class="db pv1 link">
                             Deeper Dive: Entities
                         </a>
                     
@@ -139,7 +139,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-components/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-components/" class="db pv1 link">
                             Deeper Dive: Components
                         </a>
                     
@@ -155,7 +155,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-aspects/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-aspects/" class="db pv1 link">
                             Aspects
                         </a>
                     
@@ -163,7 +163,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-systems/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-systems/" class="db pv1 link">
                             Deeper Dive: Systems
                         </a>
                     
@@ -179,7 +179,7 @@
       <div class="markdown-body">
         <h2 id="backstory:-crates" tabindex="-1">Backstory: Crates</h2>
 <a class="dn" href="#backstory:-crates"><span class="dn">Permalink to “Backstory: Crates”</span> <span aria-hidden="true">#</span></a><p>A while into development, my co-developer Cooper made a level with a ton of objects. Specifically, crates.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
-<p><img src="/website-3/assets/posts/typescript-ecs/lot-of-crates.jpg" alt=""></p>
+<p><img src="/assets/posts/typescript-ecs/lot-of-crates.jpg" alt=""></p>
 <p class="figcaption">A similar level in the finished game. That's a lotta crates.</p>
 <p>Even though they sound like boring dumb wooden boxes, crates are interesting because they actually have a lot of functionality. Two relevant things crates support:</p>
 <ol>
@@ -196,7 +196,7 @@
 <p>The only thing different about the level was the proliferation of crates, so we figured out pretty quickly that the crates were causing the slowdown. Delete the crates, and the frame rate would be fine.</p>
 <p>Intuitively, the problem felt fixable, because the crates aren’t actually <em>doing</em> anything most of the time. So if a bunch of these unmoving objects are causing the engine to chug, it’s probably a sign of inefficiencies we can iron out in the engine code.</p>
 <p>Fortunately, I had my wits about me. Rather than blindly rushing in and optimizing, I implemented a profiling system that would let us see what was taking so long in Cooper’s Crate-topia.</p>
-<p><img src="/website-3/assets/posts/typescript-ecs/measurement-before.jpg" alt=""></p>
+<p><img src="/assets/posts/typescript-ecs/measurement-before.jpg" alt=""></p>
 <p class="figcaption">Our profiling (white bars and text) rendering on top of the game's debug view.</p>
 <p>The timings are on the right side of picture. If you look at the <strong>Overall</strong> section (top), you can see we’ve split our game loop into two parts that take all the time:</p>
 <ol>
@@ -249,7 +249,7 @@
 <p>Speaking of the <code>Position</code> Component, let’s look at how it manages its dirty state.</p>
 <pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">Position</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span><br>    <span class="token comment">// All this is just for getting/setting the (x, y) values.</span><br>    <span class="token keyword">private</span> _p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">private</span> _revealP <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">public</span> <span class="token keyword">get</span> <span class="token function">p</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Point <span class="token punctuation">{</span><br>        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_revealP<span class="token punctuation">.</span><span class="token function">copyFrom_</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_p<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">public</span> <span class="token keyword">set</span> <span class="token function">p</span><span class="token punctuation">(</span>v<span class="token operator">:</span> Point<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setP</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>x<span class="token punctuation">,</span> v<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">public</span> <span class="token function">setX</span><span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setP</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_p<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">public</span> <span class="token function">setY</span><span class="token punctuation">(</span>y<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setP</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_p<span class="token punctuation">.</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">public</span> <span class="token function">setP</span><span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>_p<span class="token punctuation">.</span><span class="token function">equalsCoords</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span>_p<span class="token punctuation">.</span><span class="token function">set_</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">dirty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">// We originally used getters and setters here so that we can control</span><br>    <span class="token comment">// the angle value with angleClamp(), which keeps the angle between</span><br>    <span class="token comment">// 0 and 360 degrees. If you're writing something like this, you</span><br>    <span class="token comment">// should document whether this value is in degrees or radians :-)</span><br>    <span class="token keyword">private</span> _angle<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">0</span><br>    <span class="token keyword">public</span> <span class="token keyword">get</span> <span class="token function">angle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span><br>        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_angle<span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">public</span> <span class="token keyword">set</span> <span class="token function">angle</span><span class="token punctuation">(</span>v_raw<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// This was to debug (and then prevent) setting angles to NaN</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isNaN</span><span class="token punctuation">(</span>v_raw<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">throw</span> <span class="token function">Error</span><span class="token punctuation">(</span><span class="token string">'Tried to set angle to NaN!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><br>        <span class="token keyword">let</span> v <span class="token operator">=</span> <span class="token function">angleClamp</span><span class="token punctuation">(</span>v_raw<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_angle <span class="token operator">!==</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span>_angle <span class="token operator">=</span> v<span class="token punctuation">;</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">dirty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
 <p class="figcaption">The <code>Position</code> Component, now with dirty Component optimization.</p>
-<p>First, as a quick throwback, you may notice two techniques that we covered in our <a href="/website-3/posts/typescript-ecs-components/"><code>Component</code> deep-dive</a>:</p>
+<p>First, as a quick throwback, you may notice two techniques that we covered in our <a href="/posts/typescript-ecs-components/"><code>Component</code> deep-dive</a>:</p>
 <ul>
 <li>that we reveal only a copy of our underlying <code>Point</code> using getters/setters</li>
 <li>that we check angles against being <code>NaN</code>before setting</li>
@@ -363,7 +363,7 @@
 <pre class="language-txt"><code class="language-txt">10/10<br>10/10<br>8/10<br>8/10</code></pre>
 <h2 id="epilogue:-what-happened-with-the-crates" tabindex="-1">Epilogue: What Happened with the Crates?</h2>
 <a class="dn" href="#epilogue:-what-happened-with-the-crates"><span class="dn">Permalink to “Epilogue: What Happened with the Crates?”</span> <span aria-hidden="true">#</span></a><p>After the dirty Component optimization—and some other improvements to collision detection, which I might cover elsewhere—we brought the <em>update</em> time for each frame from <strong>11.8ms</strong> down to <strong>1.4ms</strong>. The game now ran buttery smooth.</p>
-<p><img src="/website-3/assets/posts/typescript-ecs/measurement-after.jpg" alt=""></p>
+<p><img src="/assets/posts/typescript-ecs/measurement-after.jpg" alt=""></p>
 <p>Most importantly, the changes meant the game’s performance now depended on the number of things that <em>changed</em> every frame, not the number of things that simply <em>existed.</em> This paved the way for even bigger levels without worrying about performance.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
@@ -396,14 +396,14 @@
             
             
                 <p class="b ttu tracked ma0 black-30 f7 f6-ns">&larr; previous</p>
-                <a href="/website-3/posts/typescript-ecs-components/" class=" ma0 link">6. Deeper Dive: Components</a>
+                <a href="/posts/typescript-ecs-components/" class=" ma0 link">6. Deeper Dive: Components</a>
             
         </div>
         <div class="w-50 ma0 tr">
             
             
                 <p class="b ttu tracked ma0 black-30 f7 f6-ns">next &rarr;</p>
-                <a href="/website-3/posts/typescript-ecs-aspects/" class=" ma0 link">8. Aspects</a>
+                <a href="/posts/typescript-ecs-aspects/" class=" ma0 link">8. Aspects</a>
             
         </div>
     </div>
@@ -432,7 +432,7 @@
         </p>
         <p class="mt0 f7 f6-ns">
             <!-- via -->
-            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+            <img src='/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
         </p>
     </form>
 </div>
@@ -444,7 +444,7 @@
   </div>
   <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
     <div class="mh3 mh4-ns bt b--silver mb1"></div>
-    <a href="/website-3/about/" class="link silver hover-blue pv1">
+    <a href="/about/" class="link silver hover-blue pv1">
       about me
     </a>
     | orig theme is

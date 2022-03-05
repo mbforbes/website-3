@@ -11,10 +11,10 @@
         <meta content="Ordinary least squares, ℓ² (ridge), and ℓ¹ (lasso) linear regressions - Maxwell Forbes" property="og:title"/>
         <meta name="twitter:title" content="Ordinary least squares, ℓ² (ridge), and ℓ¹ (lasso) linear regressions - Maxwell Forbes"/>
 
-        <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
-<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+        <link href='/assets/img/fav.png' rel='shortcut icon'>
+<link href='/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
 
 
 
@@ -41,20 +41,20 @@
 
     <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
       <div class="w-50 tl">
-        <a href="/website-3/" class="hover dim black" id="header">Maxwell Forbes</a>
+        <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
       </div>
       <div class="w-50 tr">
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+            <a class="link hover-mid-gray ml3 pv1" href="/studio">
               Studio
             </a>
           
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+            <a class="link hover-mid-gray ml3 pv1" href="/research">
               Research
             </a>
           
@@ -99,9 +99,9 @@
         filter: grayscale(100%);
     }
 </style>
-<link href='/website-3/assets/css/tippy-6.3.1.light.css' rel="stylesheet" type="text/css"/>
-<script defer src='/website-3/assets/lib/popper-2.9.3.min.js'></script>
-<script defer src='/website-3/assets/lib/tippy-6.3.1.umd.min.js'></script>
+<link href='/assets/css/tippy-6.3.1.light.css' rel="stylesheet" type="text/css"/>
+<script defer src='/assets/lib/popper-2.9.3.min.js'></script>
+<script defer src='/assets/lib/tippy-6.3.1.umd.min.js'></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const langs = [
@@ -127,7 +127,7 @@
     <a href="https://github.com/mbforbes/rndjam1" class="f5 f4-ns b code">rndjam1</a><span class="dib fr">
             <img
                 class="h1 black-and-white python"
-                src="/website-3/assets/img/langs/python.svg"/>
+                src="/assets/img/langs/python.svg"/>
         </span><p class="mv1 f5 f4-ns">Regression derivations (+ basic code running on MNIST): ordinary least squares, ridge (ℓ²), and lasso (ℓ¹).</p></div>
 <p><em>Enjoy!</em></p>
 <p><em>– Max from 2021</em></p>
@@ -139,16 +139,16 @@
 <p>My final splits are then 50k/10k/10k train/val/test.</p>
 <h2 id="viewing-an-image" tabindex="-1">Viewing an image</h2>
 <a class="dn" href="#viewing-an-image"><span class="dn">Permalink to “Viewing an image”</span> <span aria-hidden="true">#</span></a><p>Here’s an MNIST image:</p>
-<p><img src="/website-3/assets/posts/regression-math/images/example_normal.jpg" alt="the first mnist datum"></p>
+<p><img src="/assets/posts/regression-math/images/example_normal.jpg" alt="the first mnist datum"></p>
 <p>Here it is expanded 10x:</p>
-<p><img src="/website-3/assets/posts/regression-math/images/example_bloated.jpg" alt="the first mnist datum, expanded"></p>
+<p><img src="/assets/posts/regression-math/images/example_bloated.jpg" alt="the first mnist datum, expanded"></p>
 <h2 id="data-loading:-csv-vs-binary-(&quot;tensor&quot;)" tabindex="-1">Data loading: CSV vs binary (“tensor”)</h2>
 <a class="dn" href="#data-loading:-csv-vs-binary-(&quot;tensor&quot;)"><span class="dn">Permalink to “Data loading: CSV vs binary (“tensor”)”</span> <span aria-hidden="true">#</span></a><p>y-axis is seconds taken to load the file; lower is better. Result: binary is
 way faster.</p>
-<p><img src="/website-3/assets/posts/regression-math/images/data_loading.png" alt="data loading speeds, csv vs binary"></p>
+<p><img src="/assets/posts/regression-math/images/data_loading.png" alt="data loading speeds, csv vs binary"></p>
 <h2 id="naive-regression-to-scalar" tabindex="-1">Naive regression to scalar</h2>
 <a class="dn" href="#naive-regression-to-scalar"><span class="dn">Permalink to “Naive regression to scalar”</span> <span aria-hidden="true">#</span></a><p>In this we regress each image to a scalar that is the number represented in
-that image. For example, we regress the image <img alt="the first MNIST datum" src="/website-3/assets/posts/regression-math/images/example_normal.jpg" class="inline ph2"> to the number <code>5</code>.</p>
+that image. For example, we regress the image <img alt="the first MNIST datum" src="/assets/posts/regression-math/images/example_normal.jpg" class="inline ph2"> to the number <code>5</code>.</p>
 <blockquote>
 <p>Disclaimer: this is a suboptimal approach. If you’re going to treat was is really a
 classification problem (like MNIST) as regression, you should regress to each
@@ -166,9 +166,9 @@ document the simple → complex progression of what I tried.</p>
 </blockquote>
 <h3 id="notation" tabindex="-1">Notation</h3>
 <a class="dn" href="#notation"><span class="dn">Permalink to “Notation”</span> <span aria-hidden="true">#</span></a><p>Definitions:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/definitions.svg" alt="definitions"></p>
+<p><img src="/assets/posts/regression-math/svg/definitions.svg" alt="definitions"></p>
 <p>Math reminders and my notation choices:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/math-reminders.svg" alt="math reminders"></p>
+<p><img src="/assets/posts/regression-math/svg/math-reminders.svg" alt="math reminders"></p>
 <blockquote>
 <p>NB: While the derivative of a function <strong>f</strong> : ℝ<sup>n</sup> → ℝ is
 <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">technically a row
@@ -179,44 +179,44 @@ explaining this.)</p>
 </blockquote>
 <h3 id="ordinary-least-squares-(ols)" tabindex="-1">Ordinary least squares (OLS)</h3>
 <a class="dn" href="#ordinary-least-squares-(ols)"><span class="dn">Permalink to “Ordinary least squares (OLS)”</span> <span aria-hidden="true">#</span></a><p><strong>Loss</strong> (average per datum):</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-loss.svg" alt="least squares loss"></p>
+<p><img src="/assets/posts/regression-math/svg/least-squares-loss.svg" alt="least squares loss"></p>
 <p>Using the average loss per datum is nice because it is invariant of the dataset
 (or (mini)batch) size, which will come into play when we do gradient
 descent. Expanding the loss function out for my noob math:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-loss-expanded.svg" alt="least squares loss expanded"></p>
+<p><img src="/assets/posts/regression-math/svg/least-squares-loss-expanded.svg" alt="least squares loss expanded"></p>
 <p>Taking the <strong>derivative</strong> of the loss function with respect to the <strong>weight
 vector</strong>:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-loss-expanded-derivative.svg" alt="least squares loss expanded derivative"></p>
+<p><img src="/assets/posts/regression-math/svg/least-squares-loss-expanded-derivative.svg" alt="least squares loss expanded derivative"></p>
 <p>We can set the gradient equal to 0 (the zero vector) and solve for the
 <strong>analytic solution</strong> (omitting second derivative check):</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-analytic-expanded.svg" alt="least squares analytic expanded"></p>
+<p><img src="/assets/posts/regression-math/svg/least-squares-analytic-expanded.svg" alt="least squares analytic expanded"></p>
 <p>Doing a little bit of algebra to clean up the gradient, we’ll get our
 <strong>gradient for gradient descent</strong>:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-gradient.svg" alt="least squares gradient"></p>
+<p><img src="/assets/posts/regression-math/svg/least-squares-gradient.svg" alt="least squares gradient"></p>
 <p>We can plot the loss as we take more gradient descent steps:</p>
-<p><img src="/website-3/assets/posts/regression-math/images/ols_gd_linear.png" alt="ols gradient descent linear plot"></p>
+<p><img src="/assets/posts/regression-math/images/ols_gd_linear.png" alt="ols gradient descent linear plot"></p>
 <p>… but it’s hard to see what’s happening. That’s because the loss starts so
 high and the y-axis is on a linear scale. A log scale is marginally more
 informative:</p>
-<p><img src="/website-3/assets/posts/regression-math/images/ols_gd_log.png" alt="ols gradient descent log plot"></p>
+<p><img src="/assets/posts/regression-math/images/ols_gd_log.png" alt="ols gradient descent log plot"></p>
 <p>To instead do <strong>coordinate descent</strong>, we optimize a single coordinate at a
 time, keeping all others fixed. We take the <strong>derivative</strong> of the loss function
 with respect to a <strong>single weight</strong>:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-derivative-single-weight.svg" alt="least squares derivative single weight"></p>
+<p><img src="/assets/posts/regression-math/svg/least-squares-derivative-single-weight.svg" alt="least squares derivative single weight"></p>
 <p>Setting the derivative equal to zero, we can solve for the optimal value for
 that single weight:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-derivative-single-weight-zero.svg" alt="least squares derivative single weight zero"></p>
+<p><img src="/assets/posts/regression-math/svg/least-squares-derivative-single-weight-zero.svg" alt="least squares derivative single weight zero"></p>
 <p>However, this is an expensive update to a single weight. We can speed this up.
 If we define the residual,</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/residual.svg" alt="residual"></p>
+<p><img src="/assets/posts/regression-math/svg/residual.svg" alt="residual"></p>
 <p>then we can rewrite the inner term above as,</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-residual-rewrite.svg" alt="least squares residual rewrite"></p>
+<p><img src="/assets/posts/regression-math/svg/least-squares-residual-rewrite.svg" alt="least squares residual rewrite"></p>
 <p>and, using <code>(t)</code> and <code>(t+1)</code> to clarify old and new values for the weight,
 rewrite the single weight optimum as:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-coord-descent.svg" alt="least squares coord descent"></p>
+<p><img src="/assets/posts/regression-math/svg/least-squares-coord-descent.svg" alt="least squares coord descent"></p>
 <p>After updating that weight, <strong>r</strong> is immediately stale, so we must update it as
 well:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/least-squares-coord-descent-r-update.svg" alt="least squares coord descent r update"></p>
+<p><img src="/assets/posts/regression-math/svg/least-squares-coord-descent-r-update.svg" alt="least squares coord descent r update"></p>
 <p>We can compute an initial <strong>r</strong> and we can precompute all of the column norms
 (the denominator) because they do not change. That means that each weight
 update involves just the <em>n</em>-dimensional vector dot product (the numerator) and
@@ -229,13 +229,13 @@ requires moving values to and from the GPU (for bookkeeping old values),
 whereas gradient descent can run entirely on the GPU. I’m not sure if I can
 remedy this. With that said, coordinate descent converges with 10x fewer
 iterations.</p>
-<p><img src="/website-3/assets/posts/regression-math/images/ols_cd.png" alt="ols coordinate descent plot"></p>
+<p><img src="/assets/posts/regression-math/images/ols_cd.png" alt="ols coordinate descent plot"></p>
 <p>But how well do we do in regressing to a scalar with OLS?</p>
-<p><img src="/website-3/assets/posts/regression-math/images/ols_acc.png" alt="ols accuracy"></p>
+<p><img src="/assets/posts/regression-math/images/ols_acc.png" alt="ols accuracy"></p>
 <p>Not very well.</p>
 <h3 id="ridge-regression-(rr)" tabindex="-1">Ridge regression (RR)</h3>
 <a class="dn" href="#ridge-regression-(rr)"><span class="dn">Permalink to “Ridge regression (RR)”</span> <span aria-hidden="true">#</span></a><p><strong>Loss:</strong></p>
-<p><img src="/website-3/assets/posts/regression-math/svg/ridge-loss.svg" alt="ridge loss"></p>
+<p><img src="/assets/posts/regression-math/svg/ridge-loss.svg" alt="ridge loss"></p>
 <blockquote>
 <p>NB: For all regularization methods (e.g., ridge and lasso), we shouldn’t be
 regularizing the weight corresponding to the bias term (I added as an extra
@@ -248,7 +248,7 @@ normalization in there for now (!).</p>
 <p><strong>Derivative:</strong></p>
 <p>(Being a bit more liberal with my hand waving of vector and matrix derivatives
 than above)</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/ridge-derivative.svg" alt="ridge derivative"></p>
+<p><img src="/assets/posts/regression-math/svg/ridge-derivative.svg" alt="ridge derivative"></p>
 <p><strong>Analytic:</strong></p>
 <blockquote>
 <p>NB: I think some solutions combine <em>n</em> into <em>λ</em> because it looks cleaner. In
@@ -256,61 +256,61 @@ order to get the analytic solution and gradient (descent) to reach the same
 solution, I needed to be consistent with how I applied <em>n</em>, so I’ve left it
 in for completeness.</p>
 </blockquote>
-<p><img src="/website-3/assets/posts/regression-math/svg/ridge-analytic.svg" alt="ridge analytic"></p>
+<p><img src="/assets/posts/regression-math/svg/ridge-analytic.svg" alt="ridge analytic"></p>
 <p><strong>Gradient:</strong></p>
 <p>(Just massaging the derivative we found a bit more.)</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/ridge-gradient.svg" alt="ridge gradient"></p>
+<p><img src="/assets/posts/regression-math/svg/ridge-gradient.svg" alt="ridge gradient"></p>
 <p><strong>Coordinate descent:</strong></p>
 <p>The derivative of the regularization term with respect to a single weight is:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/ridge-cd-0.svg" alt="ridge cd 0"></p>
+<p><img src="/assets/posts/regression-math/svg/ridge-cd-0.svg" alt="ridge cd 0"></p>
 <p>with that in mind, the derivative of the loss function with respect to a single
 weight is:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/ridge-cd-1.svg" alt="ridge cd 1"></p>
+<p><img src="/assets/posts/regression-math/svg/ridge-cd-1.svg" alt="ridge cd 1"></p>
 <p>In setting this equal to 0 and solving, I’m going to do some serious hand
 waving about “previous” versus “next” values of the weight. (I discovered what
 seems (empirically) to be the correct form by modifying late equations of the
 Lasso coordinate descent update, but I’m not sure the correct way to do the
 derivation here.) We’ll also make use of the residual
-<img src="/website-3/assets/posts/regression-math/svg/residual.svg" alt="residual">.</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/ridge-cd-2.svg" alt="ridge cd 2"></p>
+<img src="/assets/posts/regression-math/svg/residual.svg" alt="residual">.</p>
+<p><img src="/assets/posts/regression-math/svg/ridge-cd-2.svg" alt="ridge cd 2"></p>
 <p>As above, we update the residual after each weight update:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/residual-update.svg" alt="residual update"></p>
+<p><img src="/assets/posts/regression-math/svg/residual-update.svg" alt="residual update"></p>
 <h3 id="lasso" tabindex="-1">Lasso</h3>
 <a class="dn" href="#lasso"><span class="dn">Permalink to “Lasso”</span> <span aria-hidden="true">#</span></a><p><strong>Loss:</strong></p>
-<p><img src="/website-3/assets/posts/regression-math/svg/lasso-loss.svg" alt="lasso loss"></p>
+<p><img src="/assets/posts/regression-math/svg/lasso-loss.svg" alt="lasso loss"></p>
 <p><strong>Derivative:</strong></p>
-<p><img src="/website-3/assets/posts/regression-math/svg/lasso-derivative-part1.svg" alt="lasso derivative part 1"></p>
+<p><img src="/assets/posts/regression-math/svg/lasso-derivative-part1.svg" alt="lasso derivative part 1"></p>
 <p>Focusing on the final term, we’ll use the subgradient, and pick <code>0</code> (valid in
 <code>[-1, 1]</code>) for the nondifferentiable point. This means we can use <code>sgn(x)</code> as
 the “derivative” of <code>|x|</code>.</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/lasso-derivative-part2.svg" alt="lasso derivative part 2"></p>
+<p><img src="/assets/posts/regression-math/svg/lasso-derivative-part2.svg" alt="lasso derivative part 2"></p>
 <p>Substitute in to get the final term for the (sub)gradient:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/lasso-derivative-part3.svg" alt="lasso derivative part 3"></p>
+<p><img src="/assets/posts/regression-math/svg/lasso-derivative-part3.svg" alt="lasso derivative part 3"></p>
 <blockquote>
 <p>NB: There’s no soft thresholding (sparsity-encouraging) property of LASSO
 when you use gradient descent. You need something like coordinate descent to
 get that. Speaking of which…</p>
 </blockquote>
 <p><strong>Coordinate descent:</strong></p>
-<p><img src="/website-3/assets/posts/regression-math/svg/lasso-cd-1.svg" alt="lasso cd 1"></p>
-<p>setting this = 0, and again using the residual <img src="/website-3/assets/posts/regression-math/svg/residual.svg" alt="residual">,
+<p><img src="/assets/posts/regression-math/svg/lasso-cd-1.svg" alt="lasso cd 1"></p>
+<p>setting this = 0, and again using the residual <img src="/assets/posts/regression-math/svg/residual.svg" alt="residual">,
 we have:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/lasso-cd-2.svg" alt="lasso cd 2"></p>
+<p><img src="/assets/posts/regression-math/svg/lasso-cd-2.svg" alt="lasso cd 2"></p>
 <blockquote>
 <p>NB: I think that here (and below) we might really be saying that 0 is in the
 set of subgradients, rather than that it equals zero.</p>
 </blockquote>
 <p>There’s a lot going on. Let’s define two variables to clean up our equation:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/lasso-cd-3.svg" alt="lasso cd 3"></p>
+<p><img src="/assets/posts/regression-math/svg/lasso-cd-3.svg" alt="lasso cd 3"></p>
 <p>From this, we can more clearly see the solution to this 1D problem:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/lasso-cd-4.svg" alt="lasso cd 4"></p>
+<p><img src="/assets/posts/regression-math/svg/lasso-cd-4.svg" alt="lasso cd 4"></p>
 <p>This solution is exactly the soft threshold operator:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/lasso-cd-5.svg" alt="lasso cd 5"></p>
+<p><img src="/assets/posts/regression-math/svg/lasso-cd-5.svg" alt="lasso cd 5"></p>
 <p>Rewriting this into its full form:</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/lasso-cd-6.svg" alt="lasso cd 6"></p>
+<p><img src="/assets/posts/regression-math/svg/lasso-cd-6.svg" alt="lasso cd 6"></p>
 <p>As with coordinate descent above, we need to update the residual <strong>r</strong> after
 each weight update (skipping the derivation; same as above for OLS):</p>
-<p><img src="/website-3/assets/posts/regression-math/svg/residual-update.svg" alt="residual update"></p>
+<p><img src="/assets/posts/regression-math/svg/residual-update.svg" alt="residual update"></p>
 <h2 id="links" tabindex="-1">Links</h2>
 <a class="dn" href="#links"><span class="dn">Permalink to “Links”</span> <span aria-hidden="true">#</span></a><ul>
 <li><a href="https://en.wikipedia.org/wiki/Regularized_least_squares#Partial_list_of_RLS_methods">Table of regularized least squares functions (Wikipedia)</a></li>
@@ -349,7 +349,7 @@ each weight update (skipping the derivation; same as above for OLS):</p>
         </p>
         <p class="mt0 f7 f6-ns">
             <!-- via -->
-            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+            <img src='/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
         </p>
     </form>
 </div>
@@ -361,7 +361,7 @@ each weight update (skipping the derivation; same as above for OLS):</p>
   </div>
   <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
     <div class="mh3 mh4-ns bt b--silver mb1"></div>
-    <a href="/website-3/about/" class="link silver hover-blue pv1">
+    <a href="/about/" class="link silver hover-blue pv1">
       about me
     </a>
     | orig theme is

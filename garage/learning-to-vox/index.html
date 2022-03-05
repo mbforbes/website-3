@@ -11,10 +11,10 @@
         <meta content="Learning to vox - Maxwell Forbes" property="og:title"/>
         <meta name="twitter:title" content="Learning to vox - Maxwell Forbes"/>
 
-        <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
-<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+        <link href='/assets/img/fav.png' rel='shortcut icon'>
+<link href='/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
 
 
 
@@ -41,20 +41,20 @@
 
     <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
       <div class="w-50 tl">
-        <a href="/website-3/" class="hover dim black" id="header">Maxwell Forbes</a>
+        <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
       </div>
       <div class="w-50 tr">
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+            <a class="link hover-mid-gray ml3 pv1" href="/studio">
               Studio
             </a>
           
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+            <a class="link hover-mid-gray ml3 pv1" href="/research">
               Research
             </a>
           
@@ -71,7 +71,7 @@
           
             <div class="fw600 light-silver mt1 ttu">
               
-                <a href="/website-3/studio/#garage" class="light-silver hover-blue">GARAGE/</a>
+                <a href="/studio/#garage" class="light-silver hover-blue">GARAGE/</a>
               
             </div>
           
@@ -90,13 +90,13 @@
 
       <div class="markdown-body">
         <p>The software is fantastic, but challenging to learn. Even more challenging is learning the craft and improving the eye.</p>
-<p><img src="/website-3/assets/garage/learning-to-vox/27_BOF3Chicken.jpg" alt=""></p>
-<p><img src="/website-3/assets/garage/learning-to-vox/28_CeramiChickens.jpg" alt=""></p>
+<p><img src="/assets/garage/learning-to-vox/27_BOF3Chicken.jpg" alt=""></p>
+<p><img src="/assets/garage/learning-to-vox/28_CeramiChickens.jpg" alt=""></p>
 <p>Even earlier work is already posted as sketches. But I need a workshop.</p>
 <h2 id="importing" tabindex="-1">Importing</h2>
 <a class="dn" href="#importing"><span class="dn">Permalink to “Importing”</span> <span aria-hidden="true">#</span></a><p>You can just drag’n’drop  a <code>.obj</code> file into MagicaVoxel to import it.</p>
 <p>Need to paint, though. Importing material (<code>.mtl</code>) file didn’t do anything. Can import <code>.png</code> palette, but would need to construct anyway.</p>
-<p><img src="/website-3/assets/garage/learning-to-vox/29_Importing-edited.jpg" alt=""></p>
+<p><img src="/assets/garage/learning-to-vox/29_Importing-edited.jpg" alt=""></p>
 <p class="figcaption">
 <a href="https://free3d.com/3d-model/indoor-pot-plant-77983.html">
 potted plant source
@@ -105,8 +105,8 @@ potted plant source
 <h2 id="postprocessing-colors" tabindex="-1">Postprocessing Colors</h2>
 <a class="dn" href="#postprocessing-colors"><span class="dn">Permalink to “Postprocessing Colors”</span> <span aria-hidden="true">#</span></a><p>Realized this a bit ago. Phone is great for this.</p>
 <div class="flex mv4">
-<img src="/website-3/assets/garage/learning-to-vox/29_Importing.jpg" class="bare mh2 w-50 flex-auto">
-<img src="/website-3/assets/garage/learning-to-vox/29_Importing-edited.jpg" class="bare mh2 w-50 flex-auto">
+<img src="/assets/garage/learning-to-vox/29_Importing.jpg" class="bare mh2 w-50 flex-auto">
+<img src="/assets/garage/learning-to-vox/29_Importing-edited.jpg" class="bare mh2 w-50 flex-auto">
 </div>
 <h2 id="layer-vs-outline" tabindex="-1">Layer vs Outline</h2>
 <a class="dn" href="#layer-vs-outline"><span class="dn">Permalink to “Layer vs Outline”</span> <span aria-hidden="true">#</span></a><p>I think Layer doesn’t determine draw order, but Outline does.</p>
@@ -137,18 +137,18 @@ potted plant source
 <a class="dn" href="#terrain"><span class="dn">Permalink to “Terrain”</span> <span aria-hidden="true">#</span></a><p>Turns out Perlin noise is great, much nicer than what I can do by hand. Run shader <code>tergen</code> (or <code>tergen2</code> for selected area only).</p>
 <p>Open Q: How to nicely generate terrain that spans multiple models (a “model” being 256³ voxels max)? Current approach was to try to do some hybrid of copying + re-generating + linking up manually, which was a royal pain and looks just OK. (But maybe at this point I’m hitting over-reliance on tools and should be okay with hand-clicking monotony.)</p>
 <h2 id="underwater" tabindex="-1">Underwater</h2>
-<a class="dn" href="#underwater"><span class="dn">Permalink to “Underwater”</span> <span aria-hidden="true">#</span></a><p><img src="/website-3/assets/garage/learning-to-vox/30_Underwater.jpg" alt=""></p>
+<a class="dn" href="#underwater"><span class="dn">Permalink to “Underwater”</span> <span aria-hidden="true">#</span></a><p><img src="/assets/garage/learning-to-vox/30_Underwater.jpg" alt=""></p>
 <p>I experimented with the grass shader to make some underwater… uh… grass? Kelp? The kelp right on the boundary look weird—should make water extend 1 vox beyond.</p>
 <p>Learned about <a href="#layer-vs-outline">layers and object order</a> in order to have water overlay without having to actually flood whole scene w/ water (and then delete every time changing base model). tl;dr: layer helpful for quickly enabling/disabling, but outline order determines render order.</p>
 <p>Realized that completely flat terrain is weird, next draft tried to make varied terrain.</p>
 <div class="flex mv4">
-<img src="/website-3/assets/garage/learning-to-vox/31_Underwater-2.jpg" class="bare mh2 w-50 flex-auto">
-<img src="/website-3/assets/garage/learning-to-vox/31_Underwater-2-nowater.jpg" class="bare mh2 w-50 flex-auto">
+<img src="/assets/garage/learning-to-vox/31_Underwater-2.jpg" class="bare mh2 w-50 flex-auto">
+<img src="/assets/garage/learning-to-vox/31_Underwater-2-nowater.jpg" class="bare mh2 w-50 flex-auto">
 </div>
 <p>Drawing ground terrain by hand. Hard to see—no water version.</p>
 <p>Challenge now using grass shader: it wants to place on flat surface. <a href="#project-3d-objects-to-ground">Workaround</a> by placing in air, then repeatedly running “drop” shader from lowest to highest color.</p>
 <p>Realized doing terrain by hand is kind of silly since there’s a shader that’s great at this.</p>
-<p><img src="/website-3/assets/garage/learning-to-vox/32_Underwater-3.jpg" alt=""></p>
+<p><img src="/assets/garage/learning-to-vox/32_Underwater-3.jpg" alt=""></p>
 <p>The <a href="#terrain">terrain shaders</a> are great at doing nice terrain. (Frustratingly, even this one still doesn’t show it well; the water really obscures it.) But doing larger varied terrain like this involved terrible manual stitching, and still looks meh. Probably need different colors too.</p>
 <p>I’m still frustrated by the look of the water. I tried many different combinations of:</p>
 <ul>
@@ -161,8 +161,8 @@ potted plant source
 <p>I also realized, when considering working on this more, that filling even a moderately sized scene like this (it’s 4 models), is a massive amount of work. The colors, foliage, and terrain details alone would be a big undertaking. I want to work on smaller models and case studies first; it would feel like a slog to try filling it right now, and I want to have fun.</p>
 <h2 id="character:-ryu-(bof-iii)" tabindex="-1">Character: Ryu (BoF III)</h2>
 <a class="dn" href="#character:-ryu-(bof-iii)"><span class="dn">Permalink to “Character: Ryu (BoF III)”</span> <span aria-hidden="true">#</span></a><p>Look at this terrifying thing</p>
-<p><img src="/website-3/assets/garage/learning-to-vox/33_Ryu-Too-Big.jpeg" alt=""></p>
-<p><img src="/website-3/assets/garage/learning-to-vox/33_Ryu-Too-Big-zoom.jpeg" alt=""></p>
+<p><img src="/assets/garage/learning-to-vox/33_Ryu-Too-Big.jpeg" alt=""></p>
+<p><img src="/assets/garage/learning-to-vox/33_Ryu-Too-Big-zoom.jpeg" alt=""></p>
 <p>I think I made him too big for the amount of detail I’m actually comfortable doing.</p>
 
       </div>
@@ -191,7 +191,7 @@ potted plant source
         </p>
         <p class="mt0 f7 f6-ns">
             <!-- via -->
-            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+            <img src='/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
         </p>
     </form>
 </div>
@@ -229,7 +229,7 @@ potted plant source
             <td class="pv2 ph3">
                 This is an entry in
                 
-                    <a href="/website-3/garage/what-is-the-garage/" class="hover-dark-blue underline-hover">the garage</a>.
+                    <a href="/garage/what-is-the-garage/" class="hover-dark-blue underline-hover">the garage</a>.
                 
                 It may change or disappear at any point.
             </td>
@@ -275,7 +275,7 @@ potted plant source
     }
 
     async function renderLinks() {
-        let resp = await fetch("/website-3/assets/garage/link_graph.json");
+        let resp = await fetch("/assets/garage/link_graph.json");
         if (!resp.ok) {
             return;
         }
@@ -296,7 +296,7 @@ potted plant source
   </div>
   <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
     <div class="mh3 mh4-ns bt b--silver mb1"></div>
-    <a href="/website-3/about/" class="link silver hover-blue pv1">
+    <a href="/about/" class="link silver hover-blue pv1">
       about me
     </a>
     | orig theme is

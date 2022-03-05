@@ -11,10 +11,10 @@
         <meta content="Aspects - Maxwell Forbes" property="og:title"/>
         <meta name="twitter:title" content="Aspects - Maxwell Forbes"/>
 
-        <link href='/website-3/assets/img/fav.png' rel='shortcut icon'>
-<link href='/website-3/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/style.css' rel='stylesheet' type='text/css'/>
-<link href='/website-3/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
+        <link href='/assets/img/fav.png' rel='shortcut icon'>
+<link href='/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/style.css' rel='stylesheet' type='text/css'/>
+<link href='/assets/css/syntax/prism.default.css' rel='stylesheet' type='text/css'/>
 
 
 
@@ -41,20 +41,20 @@
 
     <nav class="mh3 mh4-ns pv3 flex" aria-label="Main">
       <div class="w-50 tl">
-        <a href="/website-3/" class="hover dim black" id="header">Maxwell Forbes</a>
+        <a href="/" class="hover dim black" id="header">Maxwell Forbes</a>
       </div>
       <div class="w-50 tr">
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/studio">
+            <a class="link hover-mid-gray ml3 pv1" href="/studio">
               Studio
             </a>
           
         
           
           
-            <a class="link hover-mid-gray ml3 pv1" href="/website-3/research">
+            <a class="link hover-mid-gray ml3 pv1" href="/research">
               Research
             </a>
           
@@ -99,7 +99,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-what/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-what/" class="db pv1 link">
                             What is an ECS?
                         </a>
                     
@@ -107,7 +107,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-why/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-why/" class="db pv1 link">
                             Why build an ECS? Why TypeScript?
                         </a>
                     
@@ -115,7 +115,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-implementation/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-implementation/" class="db pv1 link">
                             A TypesScript ECS in 99 Lines of Code
                         </a>
                     
@@ -123,7 +123,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-tests/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-tests/" class="db pv1 link">
                             Tests
                         </a>
                     
@@ -131,7 +131,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-entities/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-entities/" class="db pv1 link">
                             Deeper Dive: Entities
                         </a>
                     
@@ -139,7 +139,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-components/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-components/" class="db pv1 link">
                             Deeper Dive: Components
                         </a>
                     
@@ -147,7 +147,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-dirty-component-optimization/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-dirty-component-optimization/" class="db pv1 link">
                             Dirty Component Optimization
                         </a>
                     
@@ -163,7 +163,7 @@
             
                 <li class="">
                     
-                        <a href="/website-3/posts/typescript-ecs-systems/" class="db pv1 link">
+                        <a href="/posts/typescript-ecs-systems/" class="db pv1 link">
                             Deeper Dive: Systems
                         </a>
                     
@@ -238,7 +238,7 @@
 <h3 id="3.-removing-entitys" tabindex="-1">3. Removing <code>Entity</code>s</h3>
 <a class="dn" href="#3.-removing-entitys"><span class="dn">Permalink to “3. Removing Entitys”</span> <span aria-hidden="true">#</span></a><p>Getting rid of an <code>Entity</code> now means letting the <code>System</code> know we’ve removed the <code>Aspect</code> by calling <code>onRemove()</code> so it can do any cleanup.</p>
 <blockquote>
-<p>Aside: I’m omitting the extra logic we added for the <a href="/website-3/posts/typescript-ecs-dirty-component-optimization">dirty Component optimization</a>; it’s included in the complete code listing linked below.</p>
+<p>Aside: I’m omitting the extra logic we added for the <a href="/posts/typescript-ecs-dirty-component-optimization">dirty Component optimization</a>; it’s included in the complete code listing linked below.</p>
 </blockquote>
 <pre class="language-ts"><code class="language-ts"><span class="token comment">// Before:</span><br><span class="token keyword">private</span> <span class="token function">destroyEntity</span><span class="token punctuation">(</span>entity<span class="token operator">:</span> Entity<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>entities<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>system<span class="token punctuation">,</span> entities<span class="token punctuation">]</span> <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// Remove Entity from System (if applicable).</span><br>        entities<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// no-op if doesn't have it</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
 <pre class="language-ts"><code class="language-ts"><span class="token comment">// After:</span><br><span class="token keyword">private</span> <span class="token function">destroyEntity</span><span class="token punctuation">(</span>entity<span class="token operator">:</span> Entity<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>entities<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>system<span class="token punctuation">,</span> entities<span class="token punctuation">]</span> <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>systems<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// Remove Entity from System (if applicable).</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span>entities<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token keyword">let</span> aspect <span class="token operator">=</span> entities<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>            entities<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span><br>            system<span class="token punctuation">.</span><span class="token function">onRemove</span><span class="token punctuation">(</span>aspect<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
@@ -299,7 +299,7 @@
 <p>I think there’s a good argument to be made for only using <code>Component</code>s to store all data. To me, this is a perfectly acceptable design decision because it avoids the complexity of introducing a new concept (the <code>Aspect</code>) to the engine.</p>
 <p>The advantage of storing single <code>System</code>-specific data in <code>Aspect</code>s is that other <code>System</code>s don’t need to bother with even looking at that data. Since <code>Component</code>s can be accessed by all <code>System</code>s, their state is “global,” in a sense. Squirreling some state away in <code>Aspect</code>s was a way of keeping <strong><code>System</code>-local</strong> state for <code>Entity</code>s that persisted between frames.</p>
 <h2 id="code-listing" tabindex="-1">Code Listing</h2>
-<a class="dn" href="#code-listing"><span class="dn">Permalink to “Code Listing”</span> <span aria-hidden="true">#</span></a><p>Here’s the <a href="https://gist.github.com/mbforbes/be6583042eb9a16091f0af98662fb2e6">full code listing so far</a>, which includes the <a href="/website-3/posts/typescript-ecs-dirty-component-optimization">dirty Component optimization</a> and <code>Aspect</code>s.</p>
+<a class="dn" href="#code-listing"><span class="dn">Permalink to “Code Listing”</span> <span aria-hidden="true">#</span></a><p>Here’s the <a href="https://gist.github.com/mbforbes/be6583042eb9a16091f0af98662fb2e6">full code listing so far</a>, which includes the <a href="/posts/typescript-ecs-dirty-component-optimization">dirty Component optimization</a> and <code>Aspect</code>s.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
@@ -323,14 +323,14 @@
             
             
                 <p class="b ttu tracked ma0 black-30 f7 f6-ns">&larr; previous</p>
-                <a href="/website-3/posts/typescript-ecs-dirty-component-optimization/" class=" ma0 link">7. Dirty Component Optimization</a>
+                <a href="/posts/typescript-ecs-dirty-component-optimization/" class=" ma0 link">7. Dirty Component Optimization</a>
             
         </div>
         <div class="w-50 ma0 tr">
             
             
                 <p class="b ttu tracked ma0 black-30 f7 f6-ns">next &rarr;</p>
-                <a href="/website-3/posts/typescript-ecs-systems/" class=" ma0 link">9. Deeper Dive: Systems</a>
+                <a href="/posts/typescript-ecs-systems/" class=" ma0 link">9. Deeper Dive: Systems</a>
             
         </div>
     </div>
@@ -359,7 +359,7 @@
         </p>
         <p class="mt0 f7 f6-ns">
             <!-- via -->
-            <img src='/website-3/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
+            <img src='/assets/img/TinyLetter_Wordmark.png' style="height: 22px;"/>
         </p>
     </form>
 </div>
@@ -371,7 +371,7 @@
   </div>
   <footer class="mt5 f6 f5-ns mw7 center tc pt2 pb4 silver">
     <div class="mh3 mh4-ns bt b--silver mb1"></div>
-    <a href="/website-3/about/" class="link silver hover-blue pv1">
+    <a href="/about/" class="link silver hover-blue pv1">
       about me
     </a>
     | orig theme is
