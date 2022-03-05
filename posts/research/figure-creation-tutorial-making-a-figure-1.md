@@ -126,8 +126,13 @@ My other goal, since we had settled on _Social Chemistry_ as the name for our wo
 
 ![]({{ "/assets/posts/figure-creation-tutorial-figure-1/chemistry-diagrams.jpg" | url }})
 
-<p class="figcaption" markdown="1">
-Example of structural formulas used in chemistry. **Left:** legit example from Wikipedia ([source](https://en.wikipedia.org/wiki/File:Cobalamin_skeletal.svg)). **Right:** illustration, which also has circuitry-like embellishments ([source](https://www.pngfind.com/mpng/mToimT_clipart-free-library-euclidean-molecule-and-hexagonal-molecule/) from aggregator; original source unknown). I drew visual styles and color inspiration from the illustrated version.
+<p class="figcaption">
+Example of structural formulas used in chemistry.
+<span class="b">Left:</span>
+legit example from Wikipedia (<a href="https://en.wikipedia.org/wiki/File:Cobalamin_skeletal.svg">source</a>).
+<span class="b">Right:</span>
+illustration, which also has circuitry-like embellishments (<a href="https://www.pngfind.com/mpng/mToimT_clipart-free-library-euclidean-molecule-and-hexagonal-molecule/">source</a> from aggregator; original source unknown).
+I drew visual styles and color inspiration from the illustrated version.
 </p>
 
 ### v5
@@ -213,8 +218,8 @@ The smallest text in your figures should be around the font size of footnotes. I
 
 ![]({{ "/assets/posts/figure-creation-tutorial-figure-1/tachyons-colors.jpg" | url }})
 
-<p class="figcaption" markdown="1">
-Curated color palette from [Tachyons](https://tachyons.io/docs/themes/skins/).
+<p class="figcaption">
+Curated color palette from <a href="https://tachyons.io/docs/themes/skins/">Tachyons</a>.
 </p>
 
 If you're used to thinking that red should be `#FF0000`, you can immediately up your aesthetic game by starting from a curated palette, like the basic one above from [Tachyons](https://tachyons.io/docs/themes/skins/). If you're using colors to describe a scale, either with sequential values or unrelated categories, consider starting from [ColorBrewer](https://colorbrewer2.org/). If you're making a gradient, check out the collection at [uiGradients](https://uigradients.com/).

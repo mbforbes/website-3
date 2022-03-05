@@ -33,7 +33,7 @@ you go, deeper and deeper, way down.[^officespace]
 ## Interlude
 
 ![A photo of the torso of a woman with a while blouse and a long grey skirt on a white background. The picture is clean, soft, and minimal.]({{ "/assets/posts/paralysis/mermaid.jpg" | url }})
-<p class="figcaption attribution" markdown="1">
+<p class="figcaption attribution">
 [<a href="http://www.thisisglamorous.com/2012/10/style-inspiration-at-office-wool-skirt.html/">image source</a>]
 </p>
 
@@ -151,7 +151,7 @@ produce creatively, then it's not the point.
 
 ![The harsh, repeating lines of the outside of a brutalist parking structure.]({{ "/assets/posts/paralysis/deltas.jpg" | url }})
 
-<p class="figcaption attribution" markdown="1">
+<p class="figcaption attribution">
 [<a href="https://robcartwrightphotography.wordpress.com/2012/08/08/triangles-tuesday-17-july-365-360-day-359">image source</a>]
 </p>
 

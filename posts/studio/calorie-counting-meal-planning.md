@@ -29,8 +29,8 @@ I remember seeing a graph a while ago that I can’t find, so I’ve made one th
 
 ![Bar graph comparing calorie intake with food vs spending with exercise]({{ "/assets/posts/calorie-counting-meal-planning/diet-vs-exercise.svg" | url }})
 
-<p class="figcaption" markdown="1">
-_With food, you control calories from roughly 1800 - 3500 per day, but with exercise, you only control 200 - 400._
+<p class="figcaption i">
+With food, you control calories from roughly 1800 - 3500 per day, but with exercise, you only control 200 - 400.
 </p>
 
 
@@ -50,8 +50,8 @@ Is losing fat as simple as consuming fewer calories than you burn? Aside from li
 
 ![A picture of San Pellegrino with a splash of aperol.]({{ "/assets/posts/calorie-counting-meal-planning/bubbles.jpg" | url }})
 
-<p class="figcaption" markdown="1">
-_San Pellegrino with a splash of aperol. My friend Woody correctly observed that buying water in a bottle shipped from Italy is stupid given access to clean and nearly free tap water. But I maintain it's a great treat substitute for a beer._
+<p class="figcaption i">
+San Pellegrino with a splash of aperol. My friend Woody correctly observed that buying water in a bottle shipped from Italy is stupid given access to clean and nearly free tap water. But I maintain it's a great treat substitute for a beer.
 </p>
 
 
@@ -79,8 +79,8 @@ But you’re a human being with money and time to manage. When I thought about g
 
 ![A venn diagram showing healthy, fast, and cheap meal prep options.]({{ "/assets/posts/calorie-counting-meal-planning/food-venn.svg" | url }})
 
-<p class="figcaption" markdown="1">
-_Only meal prepping hit all three marks of cheap, fast, and healthy._
+<p class="figcaption i">
+Only meal prepping hit all three marks of cheap, fast, and healthy.
 </p>
 
 
@@ -119,8 +119,8 @@ Dealing with hunger, then, was kind of a natural feedback mechanism for screwing
 
 ![A cup full of chicken]({{ "/assets/posts/calorie-counting-meal-planning/chicken-cup.jpg" | url }})
 
-<p class="figcaption" markdown="1">
-_Sometimes you just need a cup full of chicken._
+<p class="figcaption i">
+Sometimes you just need a cup full of chicken.
 </p>
 
 ## The method
@@ -134,7 +134,7 @@ Simply put, this means combining calorie counting with meal planning.
 I originally began my meal planning with a spreadsheet. Looking up the calories for each ingredient is both hugely annoying and hugely informative. One of my earlier sheets looked like this:
 
 ![A screenshot of an early calorie counting spreadsheet I used.]({{ "/assets/posts/calorie-counting-meal-planning/spreadsheet-small.png" | url }})
-<p class="figcaption" markdown="1">
+<p class="figcaption i">
 _I don't think I had all of the colors originally._
 </p>
 
@@ -174,8 +174,8 @@ This is off topic but I can’t resist.
 
 ![Picture of bad menu translation labeling buttered toast as hot sand]({{ "/assets/posts/calorie-counting-meal-planning/hot-sand.jpg" | url }})
 
-<p class="figcaption" markdown="1">
-_I can't believe it's not sand!_
+<p class="figcaption i">
+I can't believe it's not sand!
 </p>
 
 

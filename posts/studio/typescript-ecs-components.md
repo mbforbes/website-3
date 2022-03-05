@@ -351,7 +351,7 @@ class Position extends Component {
 }
 ```
 
-<p class="figcaption" markdown="1">I also added `setX()` and `setY()` functions that behave as you'd expect.</p>
+<p class="figcaption">I also added <code>setX()</code> and <code>setY()</code> functions that behave as you'd expect.</p>
 
 If you're not familiar with getters/setters, they automatically run under-the-hood when you try to get or set a value, like:
 

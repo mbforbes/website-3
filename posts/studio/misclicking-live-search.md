@@ -16,13 +16,13 @@ On my phone, I want to open Google Maps. So I swipe down and start typing “map
 
 ![]({{ "/assets/posts/misclicking-live-search/searches-1.jpg" | url }})
 
-<p class="figcaption" markdown="1">Ah good, there it is, just let me...</p>
+<p class="figcaption">Ah good, there it is, just let me...</p>
 
 As I finish typing “maps,” I notice where Google Maps is, so I start moving my big stupid slow finger to press it. But right before I touch the screen:
 
 ![]({{ "/assets/posts/misclicking-live-search/searches-2.jpg" | url }})
 
-<p class="figcaption" markdown="1">I end up opening the settings page for Apple Maps, rather than the actual app for Google Maps.</p>
+<p class="figcaption">I end up opening the settings page for Apple Maps, rather than the actual app for Google Maps.</p>
 
 This happened all the time when I had an iPhone 6. It was a shockingly bad experience right on the surface of multiple Apple products.
 

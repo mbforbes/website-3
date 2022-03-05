@@ -94,18 +94,18 @@ I've started collecting pages I find with justified text without hyphenation tha
 
   <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
       <img src="{{ "/assets/posts/web-justified-text/jpegxl.jpg" | url }}" class="br3 br4-ns">
-      <p class="f6" markdown="1">~~From [jpegxl.info](https://jpegxl.info/)~~ hyphens have been added!</p>
+      <p class="f6"><span class="strike">From <a href="https://jpegxl.info/">jpegxl.info</a></span> hyphens have been added!</p>
   </div>
 
   <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
       <img src="{{ "/assets/posts/web-justified-text/kylemcdonald.jpg" | url }}" class="br3 br4-ns">
-      <p class="f6" markdown="1">From [Kyle McDonald](https://kylemcdonald.net/psac/)</p>
+      <p class="f6">From <a href="https://kylemcdonald.net/psac/">Kyle McDonald</a></p>
   </div>
 
 
   <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
       <img src="{{ "/assets/posts/web-justified-text/publicdelivery.jpg" | url }}" class="br3 br4-ns">
-      <p class="f6" markdown="1">From [Public Delivery](https://publicdelivery.org/damian-ortega-cosmic-thing/)</p>
+      <p class="f6">From <a href="https://publicdelivery.org/damian-ortega-cosmic-thing/">Public Delivery</a></p>
   </div>
 
 </div>

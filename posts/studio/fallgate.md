@@ -44,8 +44,8 @@ Here are two of the tracks I composed for Fallgate. The rest can be found in the
          type="audio/mp3">
 </audio>
 
-<p class="audiocaption" markdown="1">
-_Castle Theme from Fallgate_
+<p class="audiocaption i">
+Castle Theme from Fallgate
 </p>
 
 <audio preload="auto" controls>
@@ -53,8 +53,8 @@ _Castle Theme from Fallgate_
          type="audio/mp3">
 </audio>
 
-<p class="audiocaption" markdown="1">
-_Winter Theme from Fallgate_
+<p class="audiocaption i">
+Winter Theme from Fallgate
 </p>
 
 ## Making Fallgate

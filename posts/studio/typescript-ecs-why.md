@@ -24,7 +24,7 @@ Here's an example of one such big company (Blizzard) using ECS to build a promin
 
 <iframe class="db center mw-100 mv4" width="560" height="315" src="https://www.youtube-nocookie.com/embed/W3aieHjyNvw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p class="figcaption" markdown="1">No need to watch this now, just squirrel it away if you're interested.</p>
+<p class="figcaption">No need to watch this now, just squirrel it away if you're interested.</p>
 
 
 So, is it true that ECS is only good for big teams?

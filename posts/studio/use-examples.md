@@ -22,8 +22,8 @@ One talk really sticks out to me in its great use of examples.
 	<iframe  src="https://www.youtube.com/embed/Mw0h9WmBlsw" frameborder="0" class="aspect-ratio--object" allowfullscreen></iframe>
 </div>
 
-<p class="tr gray" markdown="1">
-_Making Fluid and Powerful Animations For Skullgirls<br />(Mariel Cartwright, 2014)_
+<p class="tr gray i">
+Making Fluid and Powerful Animations For Skullgirls<br />(Mariel Cartwright, 2014)
 </p>
 
 

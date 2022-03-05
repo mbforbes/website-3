@@ -20,7 +20,7 @@ Need to paint, though. Importing material (`.mtl`) file didn't do anything. Can 
 
 ![]({{ "/assets/garage/learning-to-vox/29_Importing-edited.jpg" | url }})
 
-<p class="figcaption" markdown="1">
+<p class="figcaption">
 <a href="https://free3d.com/3d-model/indoor-pot-plant-77983.html">
 potted plant source
 </a>

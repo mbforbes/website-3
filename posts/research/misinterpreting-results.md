@@ -23,8 +23,8 @@ Say you you're reading a paper that presents a new NLP[^nlp] model. The model ta
 
 ![]({{ "/assets/posts/misinterpreting-results/cool-new-model.jpg" | url }})
 
-<p class="figcaption" markdown="1">
-_Components: wrench, hammer, half of dog._
+<p class="figcaption i">
+Components: wrench, hammer, half of dog.
 </p>
 
 Let’s pause briefly to imagine you’re considering working on the same task presented in the paper—for example, sentiment classification, or image captioning. Which will you pick: the established model, or this new idea which is “established model + crazy thing bolted onto it?”
@@ -95,20 +95,7 @@ This new paper offers you better performance. For example, it detects sentiment 
     </tbody>
   </table>
 
-<!--
-<div markdown="1" class="f7 f6-ns">
-
-| model                 | score 1 | score 2 | score 3 | score 4 | score 5 | score 6 |
-| :-------------------- | ------: | ------: | ------: | ------: | ------: | ------: |
-| Even Older Prev. Work | **39.2**    | 46.3    | 50.3    | **62.9**    | -       | 140.1   |
-| Previous Work         | 39.1    | **46.5**    | **50.4**    | 62.7    | 85.9    | 140.8   |
-| Our New Model     | **39.2**    | **46.5**    | 49.8    | 62.5    | **86.1**    | **140.9**   |
-
-</div>
-
--->
-
-<p class="figcaption" markdown="1">
+<p class="figcaption">
 The highest numbers are bolded. (This is standard practice.)
 </p>
 

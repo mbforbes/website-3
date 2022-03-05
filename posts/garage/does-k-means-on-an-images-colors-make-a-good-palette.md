@@ -56,7 +56,7 @@ I had run k-means on the pixels in RGB color space. But I had then sorted the ou
 ![]({{ "/assets/garage/k-means-colors/example.rgb.palette-7.png" | url }})
 ![]({{ "/assets/garage/k-means-colors/example.hsv.palette-7.png" | url }})
 
-<p class="figcaption" markdown="1">
+<p class="figcaption">
 <span class="b">Top:</span>
 reference.
 <span class="b">Middle:</span>

@@ -13,7 +13,7 @@ A while into development, my co-developer Cooper made a level with a ton of obje
 
 ![]({{ "/assets/posts/typescript-ecs/lot-of-crates.jpg" | url }})
 
-<p class="figcaption" markdown="1">A similar level in the finished game. That's a lotta crates.</p>
+<p class="figcaption">A similar level in the finished game. That's a lotta crates.</p>
 
 Even though they sound like boring dumb wooden boxes, crates are interesting because they actually have a lot of functionality. Two relevant things crates support:
 
@@ -37,7 +37,7 @@ Fortunately, I had my wits about me. Rather than blindly rushing in and optimizi
 
 ![]({{ "/assets/posts/typescript-ecs/measurement-before.jpg" | url }})
 
-<p class="figcaption" markdown="1">Our profiling (white bars and text) rendering on top of the game's debug view.</p>
+<p class="figcaption">Our profiling (white bars and text) rendering on top of the game's debug view.</p>
 
 The timings are on the right side of picture. If you look at the **Overall** section (top), you can see we've split our game loop into two parts that take all the time:
 
@@ -80,7 +80,7 @@ Remember that our Component class has been about as minimal as possible so far:
 abstract class Component { }
 ```
 
-<p class="figcaption" markdown="1">Our previous `Component` implementation.</p>
+<p class="figcaption">Our previous <code>Component</code> implementation.</p>
 
 To start things off, I added two things to the base `Component` class:
 
@@ -107,7 +107,7 @@ abstract class Component {
 }
 ```
 
-<p class="figcaption" markdown="1">Our new `Component` implementation for the dirty Component optimization.</p>
+<p class="figcaption">Our new <code>Component</code> implementation for the dirty Component optimization.</p>
 
 You might ask, "why have two methods when we only need one?" And to that, I say, whoops, I think I over-engineered this one. I thought I might (a) want to override the implementation of `dirty()` in a specific Component to do more stuff, or (b) want to add more code in the `dirty()` of this base `Component` class. But I probably should have followed the YAGNI (you ain't gonna need it) rule, and just crossed that bridge when the need arose.
 
@@ -137,7 +137,7 @@ class CollisionShape extends Component {
 }
 ```
 
-<p class="figcaption" markdown="1">A snippet of the `CollisionShape` Component, which holds data about a polygon that participates in collision detection.</p>
+<p class="figcaption">A snippet of the <code>CollisionShape</code> Component, which holds data about a polygon that participates in collision detection.</p>
 
 The properties of a `CollisionShape` never change once it is created. This was an invariant that worked for our game, because we didn't have any objects that changed shape. As such, the only time a `CollisionShape`'s data meaningfully changed was when it was disabled.
 
@@ -191,7 +191,7 @@ class Position extends Component {
 }
 ```
 
-<p class="figcaption" markdown="1">The `Position` Component, now with dirty Component optimization.</p>
+<p class="figcaption">The <code>Position</code> Component, now with dirty Component optimization.</p>
 
 First, as a quick throwback, you may notice two techniques that we covered in our [`Component` deep-dive]({{ "/posts/typescript-ecs-components/" | url }}):
 - that we reveal only a copy of our underlying `Point` using getters/setters
@@ -215,7 +215,7 @@ abstract class System {
 }
 ```
 
-<p class="figcaption" markdown="1">Our previous `System` implementation.</p>
+<p class="figcaption">Our previous <code>System</code> implementation.</p>
 
 We will make two changes here:
 
@@ -246,7 +246,7 @@ abstract class System {
 }
 ```
 
-<p class="figcaption" markdown="1">The new `System` base class that supports dirty Component optimization. Note how both additions can be ignored for Systems that don't wish to support it.</p>
+<p class="figcaption">The new <code>System</code> base class that supports dirty Component optimization. Note how both additions can be ignored for Systems that don't wish to support it.</p>
 
 You may be wondering why we made the design decision mentioned in the comment on `dirtyComponents`: _"Components here need *not* be tracked by `componentsRequired`."_ I'll show why with an example.
 
@@ -280,7 +280,7 @@ class AnimationRenderer extends System {
 }
 ```
 
-<p class="figcaption" markdown="1">The `AnimationRenderer` System is interested in a much larger set of dirty Components than it selects for in its update.</p>
+<p class="figcaption">The <code>AnimationRenderer</code> System is interested in a much larger set of dirty Components than it selects for in its update.</p>
 
 The `componentsRequired` says: anything that has a `Position` and is `Animatable`, I want to know about it so I can render it.
 
@@ -448,7 +448,7 @@ class ECS {
 }
 ```
 
-<p class="figcaption" markdown="1">Code changes to our `ECS` to support dirty Component optimization.</p>
+<p class="figcaption">Code changes to our <code>ECS</code> to support dirty Component optimization.</p>
 
 > **Note: Adding Systems during gamplay.** In Fallgate, I never added Systems later on during the game. They were all added upfront, before any Entities or Components were made. If you wanted to add Systems dynamically during gameplay, and wanted dirty Component optimization to work correctly for them, you'd need to also make sure the System runs once on all of its matching Entities. Otherwise, it would miss everything that already exists. You might do this, for example, by marking all Entities that match a System as dirty whenever a System is added. Later, we'll make an `onAdd()` function for when an Entity is first tracked by a System; you could do it there.
 
@@ -485,7 +485,7 @@ class Health extends Component {
 }
 ```
 
-<p class="figcaption" markdown="1">The `Health` Component stores two numbers, but calls `dirty()` whenever either changes. There's probably a more elegant way to do this in TypeScript 😅</p>
+<p class="figcaption">The <code>Health</code> Component stores two numbers, but calls <code>dirty()</code> whenever either changes. There's probably a more elegant way to do this in TypeScript 😅</p>
 
 We'll make a `LatestHealthLogger` System that logs the latest value of an Entity's `Health` Component.
 
@@ -504,7 +504,7 @@ class LatestHealthLogger extends System {
 }
 ```
 
-<p class="figcaption" markdown="1">Notice that the `LatestHealthLogger` ignores its full set of `entities` and only iterates over the `dirty` ones!</p>
+<p class="figcaption">Notice that the <code>LatestHealthLogger</code> ignores its full set of <code>entities</code> and only iterates over the <code>dirty<code/> ones!</p>
 
 
 Now, we can run a little function to test it out.
