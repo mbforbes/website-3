@@ -14,6 +14,7 @@ module.exports = function (eleventyConfig) {
     // Copy some folders to the output
     eleventyConfig.addPassthroughCopy("assets");
     eleventyConfig.addPassthroughCopy("social-chemistry");
+    eleventyConfig.addPassthroughCopy("CNAME");
 
     // Add plugins
     //   eleventyConfig.addPlugin(pluginRss); // TODO
