@@ -7,7 +7,7 @@ What I've been up to:
 
 - I rewrote my website from Jekyll/Liquid into Eleventy/Nunjucks. It was somewhat painful and tedious, but I'm excited now because I feel much more comfortable building new additions onto it. I hope to write a post about the misery of template languages.
 
-- Seeking a join task + calendar app. I have a semi-coherent draft of a post written about this.
+- Seeking a joint task + calendar app. I have a semi-coherent draft of a post written about this.
 
 - Several days reading the IRS tax code. I might have Stockholm syndrome, but it seems pretty well-written?
 
