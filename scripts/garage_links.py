@@ -59,7 +59,6 @@ def get_url(path: str) -> str:
         if res.startswith(p):
             res = "/posts/" + res[len(p) :]
 
-    print(res)
     return res
 
 
