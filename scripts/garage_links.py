@@ -38,12 +38,29 @@ datepath_slug_finder = re.compile(r"\/\d+-\d+-\d+-(\S+)\.md")
 
 
 def get_url(path: str) -> str:
-    """Local path to URL, quite easy since URL is just subdir + filename.
+    """Local path to URL, pretty easy since URL is usually subdir + filename without ext.
 
-    posts/posts/foo.md
-    ->    posts/foo/
+    posts/sketches/foo.md
+    ->   /sketches/foo/
+
+    Only thing is we now have multiple folders (for ease of tagging) that map to
+    /posts/:
+
+    posts/studio/foo.md
+    ->   /posts/foo/
+
+    posts/research/foo.md
+    ->   /posts/foo/
+
     """
-    return ".".join(path[len("posts") :].split(".")[:-1]) + "/"
+    res = ".".join(path[len("posts") :].split(".")[:-1]) + "/"
+    post_prefix_list = ["/studio/", "/research/"]
+    for p in post_prefix_list:
+        if res.startswith(p):
+            res = "/posts/" + res[len(p) :]
+
+    print(res)
+    return res
 
 
 title_finder = re.compile(r"^title: (.*)$", re.MULTILINE)
@@ -71,6 +88,9 @@ def main() -> None:
     globs = ["posts/**/*"]
     exts = ["md", "njk"]
     skip_prefix = "/software/"  # hacky; could do multi globs intstead or regex or ...
+    # NOTE: Ensuring URL ends with "/" to avoid assets, which blows up the size of the
+    # link graph like 5x. However, that means it also doesn't support linking to
+    # sections, like "/post/foo/#bar". So if you want to support that, change the regex.
     link_finder = re.compile(r"{{\s*\"(\S+/)\"\s*\|\s*url\s*}}")
     out_path = "assets/garage/link_graph.json"
 
@@ -86,7 +106,7 @@ def main() -> None:
                 continue
             contents = read(path)
             res[url]["title"] = title(path, contents)
-            res[url]["url"] = get_url(path)
+            res[url]["url"] = url
             outgoing = re.findall(link_finder, contents)
             res[url]["outgoing"].update(outgoing)
             for o in outgoing:

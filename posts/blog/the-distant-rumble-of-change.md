@@ -13,7 +13,7 @@ I'll back up a tiny bit for some context.
 
 Inspired by [Iron Blogger SF](https://iron-blogger-sf.com/), a few Seattleites and I are working on getting weekly posts done by 6am Mondays, else you owe $5 to the beer pool.
 
-For my first week, I was able to push out the rest of [Every PhD is Different]({{ "/posts/research/every-phd-is-different/" | url }}).
+For my first week, I was able to push out the rest of [Every PhD is Different]({{ "/posts/every-phd-is-different/" | url }}).
 
 This week... I tried, I really did! I spent many more hours than I anticipated trying to get a fragment shader running on simple 2D drawings. I picked p5.js, which is generally good, but hides just enough of what's going on under the hood that when I step out of a tutorial and shit inevitably hits the fan, it's painful to debug.
 

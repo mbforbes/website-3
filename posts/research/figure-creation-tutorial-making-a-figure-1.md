@@ -112,7 +112,7 @@ Though we didn't keep it, I think it's helpful to try these minimalist reduction
 
 **v4** expands on **v3** in a different direction. Rather than emphasize the _multiple character_ and _multiple perspective_ angles we saw in **v1** and **v2**, we introduce more _attributes_ in **v4**: cultural pressure (<span class="bg-red b white ph2 pv1 br1">against</span>) and anticipated agreement (<span class="bg-green b white ph2 pv1 br1">&gt; 99%</span>). This starts to hint at the density of the annotations we collect (we have over ten attributes per rule-of-thumb).
 
-At this point---if not before---it's good to share some drafts with collaborators. I'm usually so zoomed into the details of a project that it's tough to see the bigger picture. Collaborators who [aren't as tightly involved]({{ "/posts/every-phd-is-different#1-collaborators/" | url }}) can be a huge help _because_ they don't remember as much about the project. You can use them to simulate someone coming to the paper fresh.
+At this point---if not before---it's good to share some drafts with collaborators. I'm usually so zoomed into the details of a project that it's tough to see the bigger picture. Collaborators who [aren't as tightly involved]({{ "/posts/every-phd-is-different/" | url }}) can be a huge help _because_ they don't remember as much about the project. You can use them to simulate someone coming to the paper fresh.
 
 ## Rethinking the Design
 
