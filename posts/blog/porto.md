@@ -16,7 +16,7 @@ image: /assets/blog/porto/cat.jpeg
     }
 </style>
 
-<img class="bare full-width" src="{{ "/assets/blog/porto/porto-pano.jpg" | url }}">
+<img class="bare full-width" src="{{ "/assets/blog/porto/porto-pano-2.jpg" | url }}">
 
 ## Port
 
