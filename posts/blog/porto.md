@@ -1,6 +1,7 @@
 ---
 title: "Porto: Port, Park, Cobblestone Collection, Cat"
 date: 2022-04-17
+image: /assets/blog/porto/cat.jpeg
 ---
 
 <style>
