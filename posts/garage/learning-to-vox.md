@@ -1,7 +1,7 @@
 ---
 title: Learning to vox
 date: 2021-11-07
-updated: 2021-12-30
+updated: 2022-04-27
 ---
 
 The software is fantastic, but challenging to learn. Even more challenging is learning the craft and improving the eye.
@@ -119,3 +119,53 @@ Look at this terrifying thing
 ![]({{ "/assets/garage/learning-to-vox/33_Ryu-Too-Big-zoom.jpeg" | url }})
 
 I think I made him too big for the amount of detail I'm actually comfortable doing.
+
+## Projection
+
+Spent a ton of time a while back trying to finally really understand the difference between different projections to render a 3D scene onto a 2D image. Ultra common ones being:
+
+- perspective --- all (light) lines to a point
+- orthographic --- all lines parallel to a plane
+- isometric --- special case of orthographic, all axes equal
+
+Wikipedia has great diagrams and way more info.
+
+What's funny is that I often still have a hard time telling which is used. E.g., I just finished playing Tunic, and I can't tell whether it's a perspective or orthographic projection.
+
+Here's a recent test scene trying both ways.
+
+<div class="flex mv4">
+<img src="{{ "/assets/garage/learning-to-vox/36_Wood-shelf-room-2-iso.jpeg" | url }}" class="bare mh2 w-50 flex-auto">
+<img src="{{ "/assets/garage/learning-to-vox/36_Wood-shelf-room-2-perspective.jpeg" | url }}" class="bare mh2 w-50 flex-auto">
+</div>
+
+I'm also curious which the voxel community favors.
+
+## Lighting
+
+Lighting is everything.
+
+I changed some other stuff here (some more objects, floor texture, some thicknesses), but largely it's the materials and light and camera settings.
+
+<div class="flex mv4">
+<img src="{{ "/assets/garage/learning-to-vox/36_Wood-shelf-room-1.jpeg" | url }}" class="bare mh2 w-50 flex-auto">
+<img src="{{ "/assets/garage/learning-to-vox/36_Wood-shelf-room-2-perspective.jpeg" | url }}" class="bare mh2 w-50 flex-auto">
+</div>
+
+There's much more here than I'd realized. Bolding most important stuff I hadn't been using.
+
+- Light
+    - **Sun _and_ Sky**
+    - Enabling sampling params
+    - Ground and BG are your friend, maybe even edge or grid for some effects
+- Composition
+    - Additional light source, e.g., from above
+    - Multiple light sources
+    - Shadows
+    - **Embracing direct emission (e.g., not hiding behind glass), and tweaking emission material params (along w/, e.g., bloom) a lot**
+- Material
+    - Emission, reflection, transparency, cloud
+    - **Been noticing a lot more shininess in materials in games, I think some reflection really goes a long way**
+- Camera
+    - Film exposure (brighten everything)
+    - **Bloom (brighten + blur brights)**
