@@ -164,6 +164,58 @@ potted plant source
 <p><img src="/assets/garage/learning-to-vox/33_Ryu-Too-Big.jpeg" alt=""></p>
 <p><img src="/assets/garage/learning-to-vox/33_Ryu-Too-Big-zoom.jpeg" alt=""></p>
 <p>I think I made him too big for the amount of detail I’m actually comfortable doing.</p>
+<h2 id="projection" tabindex="-1">Projection</h2>
+<a class="dn" href="#projection"><span class="dn">Permalink to “Projection”</span> <span aria-hidden="true">#</span></a><p>Spent a ton of time a while back trying to finally really understand the difference between different projections to render a 3D scene onto a 2D image. Ultra common ones being:</p>
+<ul>
+<li>perspective — all (light) lines to a point</li>
+<li>orthographic — all lines parallel to a plane</li>
+<li>isometric — special case of orthographic, all axes equal</li>
+</ul>
+<p>Wikipedia has great diagrams and way more info.</p>
+<p>What’s funny is that I often still have a hard time telling which is used. E.g., I just finished playing Tunic, and I can’t tell whether it’s a perspective or orthographic projection.</p>
+<p>Here’s a recent test scene trying both ways.</p>
+<div class="flex mv4">
+<img src="/assets/garage/learning-to-vox/36_Wood-shelf-room-2-iso.jpeg" class="bare mh2 w-50 flex-auto">
+<img src="/assets/garage/learning-to-vox/36_Wood-shelf-room-2-perspective.jpeg" class="bare mh2 w-50 flex-auto">
+</div>
+<p>I’m also curious which the voxel community favors.</p>
+<h2 id="lighting" tabindex="-1">Lighting</h2>
+<a class="dn" href="#lighting"><span class="dn">Permalink to “Lighting”</span> <span aria-hidden="true">#</span></a><p>Lighting is everything.</p>
+<p>I changed some other stuff here (some more objects, floor texture, some thicknesses), but largely it’s the materials and light and camera settings.</p>
+<div class="flex mv4">
+<img src="/assets/garage/learning-to-vox/36_Wood-shelf-room-1.jpeg" class="bare mh2 w-50 flex-auto">
+<img src="/assets/garage/learning-to-vox/36_Wood-shelf-room-2-perspective.jpeg" class="bare mh2 w-50 flex-auto">
+</div>
+<p>There’s much more here than I’d realized. Bolding most important stuff I hadn’t been using.</p>
+<ul>
+<li>Light
+<ul>
+<li><strong>Sun <em>and</em> Sky</strong></li>
+<li>Enabling sampling params</li>
+<li>Ground and BG are your friend, maybe even edge or grid for some effects</li>
+</ul>
+</li>
+<li>Composition
+<ul>
+<li>Additional light source, e.g., from above</li>
+<li>Multiple light sources</li>
+<li>Shadows</li>
+<li><strong>Embracing direct emission (e.g., not hiding behind glass), and tweaking emission material params (along w/, e.g., bloom) a lot</strong></li>
+</ul>
+</li>
+<li>Material
+<ul>
+<li>Emission, reflection, transparency, cloud</li>
+<li><strong>Been noticing a lot more shininess in materials in games, I think some reflection really goes a long way</strong></li>
+</ul>
+</li>
+<li>Camera
+<ul>
+<li>Film exposure (brighten everything)</li>
+<li><strong>Bloom (brighten + blur brights)</strong></li>
+</ul>
+</li>
+</ul>
 
       </div>
 
@@ -217,7 +269,7 @@ potted plant source
                     updated
                 </td>
                 <td class="pv2 ph3 ttu">
-                    30 Dec 2021
+                    27 Apr 2022
                 </td>
             </tr>
         
