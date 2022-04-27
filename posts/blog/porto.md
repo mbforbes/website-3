@@ -4,20 +4,6 @@ date: 2022-04-17
 image: /assets/blog/porto/cat.jpeg
 ---
 
-<style>
-    .full-width {
-        width: calc(100vw);
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        max-width: none;
-    }
-</style>
-
-<img class="bare full-width" src="{{ "/assets/blog/porto/porto-pano-2.jpg" | url }}">
-
 ## Port
 
 Port, where wine's fermentation is stopped early by adding a bunch of brandy. Sugars remain (it is sweet), and of course the brandy is there too (it is strong).
@@ -35,15 +21,13 @@ In <span class="i">Sandeman's</span> cellars. These barrels are small—maximum 
 </p>
 
 
-NB: This is probably all wrong and incomplete.
-
 ## Park
 
 New favorite park on the planet, _Parque da Cidade do Porto._
 
 This might have been a "water in the desert" situation after being packed in with hoards of tourists and cars in a gazillion cobblestone streets for two weeks, but damn if this place wasn't amazing.
 
-<img class="bare full-width" src="{{ "/assets/blog/porto/park-pano.jpg" | url }}">
+<img class="bare full-width" src="{{ "/assets/blog/porto/park-pano.jpeg" | url }}">
 
 Ponds, fields, wooded areas, paths, overlooks, shade, sun, quiet, and space.
 
@@ -77,3 +61,15 @@ Bottom-right is actually wood masquerading as cobblestone. Used in cellars for t
 As advertised, here is a feline I found.
 
 ![]({{ "/assets/blog/porto/cat.jpeg" | url }})
+
+<style>
+    .full-width {
+        width: calc(100vw);
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        max-width: none;
+    }
+</style>
