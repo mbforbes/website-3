@@ -1,7 +1,7 @@
 ---
 title: Seville and Málaga
 date: 2022-04-27
-image: TODO
+image: /assets/blog/seville/plaza.jpeg
 ---
 
 ## Seville
