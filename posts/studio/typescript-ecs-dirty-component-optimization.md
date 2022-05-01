@@ -504,7 +504,7 @@ class LatestHealthLogger extends System {
 }
 ```
 
-<p class="figcaption">Notice that the <code>LatestHealthLogger</code> ignores its full set of <code>entities</code> and only iterates over the <code>dirty<code/> ones!</p>
+<p class="figcaption">Notice that the <code>LatestHealthLogger</code> ignores its full set of <code>entities</code> and only iterates over the <code>dirty</code> ones!</p>
 
 
 Now, we can run a little function to test it out.

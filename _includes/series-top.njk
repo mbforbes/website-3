@@ -1,6 +1,6 @@
-<div class="ba b--black-80 mv5">
-    <p class="bg-black-80 white mv0 pv2 ph3 b">
-        <span class="fr ttu tracked dib white-60 f6 f5-ns">series</span>
+<div class="ba border-color mv5 series-top">
+    <p class="off-bg-color mv0 pv2 ph3 b">
+        <span class="fr ttu lightest-text-color tracked dib f7 f6-ns">series</span>
         {{ series }}
     </p>
 
@@ -14,7 +14,7 @@
                             {{ seriesPostData.title }}
                         </span>
                     {% else %}
-                        <a href="{{ seriesPostData.page.url | url }}" class="db pv1 link">
+                        <a href="{{ seriesPostData.page.url | url }}" class="db pv1">
                             {{ seriesPostData.title }}
                         </a>
                     {% endif %}

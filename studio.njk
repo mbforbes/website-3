@@ -21,7 +21,7 @@ layout: "layouts/default.njk"
             {% for post in seriesObj.posts %}
                 <li class="mv1">
                     <a href="{{ post.url | url }}" class="db pv1 link">
-                        <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
+                        <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }}</time>
                         {{ post.data.title }}
                     </a>
                 </li>
@@ -38,7 +38,7 @@ layout: "layouts/default.njk"
 <h2>Projects<a name="projects"></a></h2>
 {% for post in collections.project %}
 <a href="{{ post.url | url }}" class="db pv1 link">
-    <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
+    <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }}</time>
     {{ post.data.title }}
 </a>
 {% endfor %}
@@ -72,7 +72,7 @@ You might also be interested in checking out my <a href="{{ "/research/#software
 <h2>Blog</h2>
 {% for post in collections.blog | sort(true, false, "date") %}
 <a href="{{ post.url | url }}" class="db pv1 link">
-    <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
+    <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }}</time>
     {{ post.data.title }}
 </a>
 {% endfor %}
@@ -96,7 +96,7 @@ The following is an index of all the current entires in the garage.
     <li class="mv2">
         <a href="{{ post.url | url }}" class="db pv1 link">
             {# TODO: make latest of {date, updated} #}
-            <time class="fr silver ttu ml3">{{ post.date | readableDate }}</time>
+            <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }}</time>
             {{ post.data.title }}
         </a>
     </li>

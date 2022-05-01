@@ -1,7 +1,7 @@
-<p class="tr ttu black-30 fw6 f6 f5-ns mt5 mb0">garage entry metadata</p>
-<table class="mv0 collapse ba br2 b--black-10 pv2 ph3 f6 f5-ns black-50 w-100">
+<p class="tr ttu lightest-text-color fw6 f6 f5-ns mt5 mb0">garage entry metadata</p>
+<table class="mv0 collapse ba br2 table-row-border-color pv2 ph3 f6 f5-ns lighter-text-color w-100">
     <tbody id="garage-metadata">
-        <tr class="striped--near-white">
+        <tr class="striped-row">
             <td class="pv2 ph3 ttu fw6">
                 started
             </td>
@@ -11,7 +11,7 @@
         </tr>
 
         {% if updated %}
-            <tr class="striped--near-white">
+            <tr class="striped-row">
                 <td class="pv2 ph3 ttu fw6">
                     updated
                 </td>
@@ -21,7 +21,7 @@
             </tr>
         {% endif %}
 
-        <tr class="striped--near-white">
+        <tr class="striped-row">
             <td class="pv2 ph3 ttu fw6">
                 disclaimer
             </td>
@@ -38,10 +38,10 @@
     </tbody>
 </table>
 
-<!-- Comments! -->
-<script src="https://utteranc.es/client.js" repo="mbforbes/website-comments" issue-term="pathname" theme="github-light"
+<!-- Comments! JK lol -->
+{# <script src="https://utteranc.es/client.js" repo="mbforbes/website-comments" issue-term="pathname" theme="github-light"
     crossorigin="anonymous" async>
-    </script>
+    </script> #}
 
 <!-- Link graph! -->
 <script async>
@@ -59,7 +59,7 @@
             return;
         }
         let row = document.createElement("tr");
-        row.classList.add("striped--near-white");
+        row.classList.add("striped-row");
         row.innerHTML = `
         <tr class="striped--light-gray">
             <td class="pv2 ph3 ttu fw6">

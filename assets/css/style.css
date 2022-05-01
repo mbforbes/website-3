@@ -1,50 +1,203 @@
-.bg-super-white {
-  background: #f9f9f9;
+:root {
+    /* tachyons: near-black (txt), blue (link) dark-blue (visited) */
+    --bg-color: #fff;
+    --off-bg-color: #f4f4f4;
+    --bg-image: none;
+    --text-color: #111;
+    --link-color: #357edd;
+    --link-text-decoration: none;
+    --hover-link-color: #1d457a;
+    --visited-link-color: #00449E;
+    --lighter-text-color: #555;
+    --lightest-text-color: #999;
+    --heavy-border-color: #333;
+    --border-color: #ccc;
+    --table-row-border-color: #e1e1e1;
+    --hover-img-url: url(/assets/img/line3-blue-for-light.png);
+}
+
+[data-theme="dark"] {
+    /* Not sure I want things this blue. */
+    /* --bg-color: #161625; */
+    --bg-color: #1e1e1e;
+    --off-bg-color: #282828;
+    --bg-image: none;
+    --text-color: #fff;
+    --link-color: #4f8af8;
+    --link-text-decoration: none;
+    --hover-link-color: #83adfc;
+    --visited-link-color: #4f8af8;
+    --lighter-text-color: #bbb;
+    --lightest-text-color: #808080;
+    --heavy-border-color: #fff;
+    --border-color: #888;
+    --table-row-border-color: #343434;
+    --hover-img-url: url(/assets/img/line3-blue-for-dark.png);
+}
+
+[data-theme="vaporwave"] {
+    --bg-color: transparent;
+    --off-bg-color: rgba(255, 255, 255, 0.1);
+    --bg-image: linear-gradient(45deg,
+            hsl(240deg 100% 20%) 0%,
+            hsl(289deg 100% 21%) 23%,
+            hsl(315deg 100% 27%) 39%,
+            hsl(329deg 100% 36%) 51%,
+            hsl(337deg 100% 43%) 61%,
+            hsl(357deg 91% 59%) 69%,
+            hsl(17deg 100% 59%) 77%,
+            hsl(34deg 100% 53%) 83%,
+            hsl(45deg 100% 50%) 91%,
+            hsl(55deg 100% 50%) 100%);
+    --text-color: #fff;
+    --link-color: #fff;
+    --link-text-decoration: underline;
+    --hover-link-color: #fff;
+    --visited-link-color: #fff;
+    --lighter-text-color: #fff;
+    --lightest-text-color: #fff;
+    --heavy-border-color: #fff;
+    --border-color: #fff;
+    --table-row-border-color: #fff;
+    --hover-img-url: url(/assets/img/line3-light.png);
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: var(--bg-image);
+    color: var(--text-color);
+    /* transition: background-color 1s, color 1s; */
+}
+
+/* Prevent link (e.g., top "Maxwell Forbes") from changing color. */
+.textcolor {
+    color: var(--text-color);
+    transition: color 1s;
+}
+
+.off-bg-color {
+    background-color: var(--off-bg-color);
+}
+
+.lighter-text-color {
+    color: var(--lighter-text-color);
+}
+
+.lightest-text-color {
+    color: var(--lightest-text-color);
+}
+
+/* Color theme icon */
+
+.color-scheme-icon {
+    height: 1em;
+    margin-bottom: -0.15em;
+}
+
+.color-scheme-icon g {
+    fill: var(--lightest-text-color);
+}
+
+.color-scheme-icon:hover {
+    cursor: pointer;
+}
+
+.color-scheme-icon:hover g {
+    fill: var(--text-color);
+}
+
+.color-scheme-icon,
+[data-theme="dark"] #color-scheme-icon-light,
+[data-theme="vaporwave"] #color-scheme-icon-light {
+    display: none;
+}
+
+#color-scheme-icon-light {
+    display: inline-block;
+}
+
+[data-theme="dark"] #color-scheme-icon-dark {
+    display: inline-block;
+}
+
+[data-theme="vaporwave"] #color-scheme-icon-vaporwave {
+    display: inline-block;
+}
+
+/* Tinyletter */
+
+.tinyletter {
+    height: 1.3em;
+    background-image: url(/assets/img/tinyletter.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* height: 22px; */
+}
+
+[data-theme="dark"] .tinyletter,
+[data-theme="vaporwave"] .tinyletter {
+    background-image: url(/assets/img/tinyletter-light.png);
+}
+
+.heavy-border-color {
+    border-color: var(--heavy-border-color);
+}
+
+.border-color {
+    border-color: var(--border-color);
+}
+
+.table-row-border-color {
+    border-color: var(--table-row-border-color);
 }
 
 .top-50 {
-  top: 50%
+    top: 50%
+}
+
+.link {
+    /* border-bottom: 1px solid transparent; */
 }
 
 .link:hover {
-  background: url(/assets/img/line.png) repeat-x left bottom;
+    /* background: url(/assets/img/line3-blue-for-light.png) repeat-x left bottom; */
+    background: var(--hover-img-url) repeat-x left bottom;
+    /* border-bottom: 1px solid var(--text-color); */
 }
 
 /* Markdown styles */
 
-/* Scribble defaults */
 /* Making a's everywhere!
 
 Previously was:
-  .markdown-body a {
+    .markdown-body a {
 */
 a {
-  text-decoration: none;
-  /* tachyons blue */
-  color: #357edd;
+    text-decoration: var(--link-text-decoration);
+    color: var(--link-color);
 }
 
 .markdown-body a:visited {
-  /* tachyons dark-blue */
-  color: #00449E;
+    color: var(--visited-link-color);
 }
 
 .markdown-body pre {
-  margin: 0;
-  overflow: auto;
+    margin: 0;
+    overflow: auto;
 }
 
 .markdown-body :not(pre) code {
-  background-color: #f4f4f4;
-  padding: 0.25rem 0.25rem;
+    background-color: var(--off-bg-color);
+    padding: 0.25rem 0.25rem;
 }
 
-/* Editing scribble defaults: this used to be the same as blockquote.
-   Starting more on left.  */
+/* Editing scribble (mu-an) defaults: this used to be the same as blockquote.
+     Starting more on left.    */
 /* .markdown-body pre code, */
 .markdown-body>blockquote {
-  /* TODO: check and maybe reenable for blockquotes */
-  padding: 0.1rem 1rem;
+    /* TODO: check and maybe reenable for blockquotes */
+    padding: 0.1rem 1rem;
 }
 
 /* NOTE: Since removing overflow prevention from the <main> element,
@@ -56,11 +209,11 @@ a {
    a huge hassle and would probably require javascript. */
 @media screen and (min-width: 58rem) {
 
-  .markdown-body pre code,
-  .markdown-body>blockquote {
-    padding: .5rem 5rem;
-    margin: 2.5em -5rem;
-  }
+    .markdown-body pre code,
+    .markdown-body>blockquote {
+        padding: .5rem 5rem;
+        margin: 2.5em -5rem;
+    }
 }
 
 
@@ -70,134 +223,125 @@ Previously was
   .markdown-body > hr {
 */
 hr {
-  /* margin       : 2em -5rem; */
-  margin-top: 2em;
-  margin-bottom: 2em;
-  border: 0;
-  border-bottom: 1px dotted #CCC;
+    /* margin             : 2em -5rem; */
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border: 0;
+    border-bottom: 1px dotted var(--border-color);
 }
 
 .markdown-body blockquote {
-  background: #f9f9f9;
-  /* TODO - Why isn't this showing up in top-level blockquotes?
-   Even adding a specific rule to them (above) doesn't help... */
-  border-left: .2rem solid #ccc;
-  /* padding-left      : 3.8rem; */
+    background: var(--off-bg-color);
+    /* TODO - Why isn't this showing up in top-level blockquotes?
+     Even adding a specific rule to them (above) doesn't help... */
+    border-left: .2rem solid var(--border-color);
+    /* padding-left            : 3.8rem; */
 }
 
 
 .markdown-body li blockquote {
-  /* background     : #f9f9f9; */
-  /* padding-left: 3.8rem; */
-  padding: 1rem 2rem;
+    /* background         : #f9f9f9; */
+    /* padding-left: 3.8rem; */
+    padding: 1rem 2rem;
 }
-
-/* end of Scribble defaults */
-
 
 /* My extensions */
 /* --- */
 
-.sitetitle a,
-.sitetitle a:visited {
-  /* font-size: 1rem; */
-  color: #333;
-  text-decoration: none;
-}
-
-.sitetitle a:hover {
-  color: #000;
-}
-
 /* Subtitle */
 p.subtitle {
-  margin-top: -.5rem;
-  /* font-variant: small-caps; */
-  /* font-size   : 1rem; */
+    margin-top: -.5rem;
+    /* font-variant: small-caps; */
+    /* font-size     : 1rem; */
 }
 
-.markdown-body a:hover {
-  color: #1d457a;
+.markdown-body a:hover,
+.series-top a:hover,
+.series-bottom a:hover,
+.hover-link-color:hover {
+    color: var(--hover-link-color);
 }
 
-.markdown-body a:hover:not(.link) {
-  text-decoration: underline;
+.markdown-body a:hover:not(.link),
+.series-top a:hover:not(.link),
+.series-bottom a:hover:not(.link) {
+    text-decoration: underline;
 }
 
 /* With a wide window, make text more centered. */
 @media (min-width: 766px) {
-  main.paddingOverride {
-    /* padding-left : 5rem; */
-    /* padding-right: 5rem; */
-  }
+    main.paddingOverride {
+        /* padding-left : 5rem; */
+        /* padding-right: 5rem; */
+    }
 }
 
 .markdown-body>audio {
-  width: 100%;
+    width: 100%;
 }
 
 /* More space before non-first section headers */
 .markdown-body h2:first-of-type {
-  margin-top: 2em;
+    margin-top: 2em;
 }
 
 .markdown-body h2:not(:first-of-type) {
-  margin-top: 3em;
+    margin-top: 3em;
 }
 
 .markdown-body h3 {
-  margin-top: 2em;
-  margin-bottom: 0.5em;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
 }
 
 .markdown-body h4 {
-  margin-top: 2em;
-  /* Any <p> will have a bigger margin than this, so doesn't really matter */
-  margin-bottom: 0em;
+    margin-top: 2em;
+    /* Any <p> will have a bigger margin than this, so doesn't really matter */
+    margin-bottom: 0em;
 }
 
 /* objects are for svg. tachyons adds this to img by default */
 .markdown-body object {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 /* Add the "bare" class to images to not get this default behavior. */
 .markdown-body img:not(.bare) {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Note: Need to check sketch previews on studio page. */
 .markdown-body img:not(.novmargin),
 .markdown-body object,
 .markdown-body pre {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 
 /* Images inline (like email address looking like it's text. */
 .markdown-body img.inline {
-  display: inline;
-  margin-top: 0;
-  margin-bottom: 0;
+    display: inline;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 
 .markdown-body img.left {
-  margin-left: 3px;
+    margin-left: 3px;
 }
 
 /* Audio itself */
 .markdown-body audio {
-  margin-top: 1em;
+    margin-top: 1em;
 }
 
 /* Audio caption */
 .markdown-body p.audiocaption {
-  margin-top: 2px;
-  margin-bottom: 1em;
+    margin-top: 2px;
+    margin-bottom: 1em;
 }
 
 
@@ -207,25 +351,25 @@ f1: font-size: 3rem;
 f2: font-size: 2.25rem;
 f3: font-size: 1.5rem;
 f4: font-size: 1.25rem;
-f5  font-size: 1rem;
-f6  font-size: 0.875rem;
-f7  font-size: 0.75rem;
+f5: font-size: 1rem;
+f6: font-size: 0.875rem;
+f7: font-size: 0.75rem;
 */
 
 /* Image caption. Use class figcaption. */
 .markdown-body .figcaption {
-  margin-top: -1.5rem;
-  text-align: center;
-  color: #555;
-  margin-bottom: 3em;
-  /* f6 (for not-small (-ns) this gets f5) */
-  font-size: 0.875rem;
+    margin-top: -1.5rem;
+    text-align: center;
+    color: var(--lighter-text-color);
+    margin-bottom: 3em;
+    /* f6 (for not-small (-ns) this gets f5) */
+    font-size: 0.875rem;
 }
 
 /* Footnotes (in posts) */
 .footnotes {
-  /* f6 (for not-small (-ns) this gets f5) */
-  font-size: 0.875rem;
+    /* f6 (for not-small (-ns) this gets f5) */
+    font-size: 0.875rem;
 }
 
 /* Elements within the .footnotes div will have this limited width. This is done so the
@@ -233,7 +377,7 @@ f7  font-size: 0.75rem;
 the body, but the actual footnote text can be narrower (to wrap sooner, because it's a
 smaller font). */
 .footnotes>* {
-  /* max-width: 34em; */
+    /* max-width: 34em; */
 }
 
 
@@ -241,63 +385,64 @@ smaller font). */
 caption (matching full-width image), or <p> element for text body-limited caption (for
 text-width image*/
 .markdown-body .figcaption.attribution {
-  text-align: right;
-  color: #555;
+    text-align: right;
+    color: var(--lighter-text-color);
 }
 
 .markdown-body .attribution a {
-  color: #555;
+    color: var(--lighter-text-color);
 }
 
 .markdown-body .attribution a:hover {
-  color: #357edd;
+    color: var(--link-color);
 }
 
 
 .markdown-body blockquote blockquote {
-  border-left: none;
-  font-style: italic;
+    border-left: none;
+    font-style: italic;
 }
 
 /* Table styles! */
 
 .markdown-body table:not(.tablecustomfont) {
-  /* f5 - overridden to f4 when not small */
-  font-size: 1rem;
+    /* f5 - overridden to f4 when not small */
+    font-size: 1rem;
 }
 
 .markdown-body table {
-  width: 100%;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-  /* padding     : 0.5em; */
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
-  border-collapse: collapse;
+    width: 100%;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    /* padding         : 0.5em; */
+    border-top: 1px solid var(--heavy-border-color);
+    border-bottom: 1px solid var(--heavy-border-color);
+    border-collapse: collapse;
 }
 
 .markdown-body table th {
-  font-variant: small-caps;
-  /* border-bottom: 1px solid #e1e1e1; */
-  padding: 5px;
-  background-color: #f4f4f4;
+    font-variant: small-caps;
+    padding: 5px;
+    background-color: var(--off-bg-color);
 }
 
 .markdown-body table td {
-  padding: 5px;
+    padding: 5px;
 }
 
-.markdown-body table tbody tr {
-  border-top: 1px solid #e1e1e1;
+.markdown-body table tbody tr,
+.striped-row {
+    border-top: 1px solid var(--table-row-border-color);
 }
 
-.markdown-body table tbody tr:nth-child(even) {
-  background-color: #f4f4f4;
+.markdown-body table tbody tr:nth-child(even),
+.striped-row:nth-child(even) {
+    background-color: var(--off-bg-color);
 }
 
 .markdown-body pre code {
-  /* f6. -> f5 when not-small. */
-  font-size: 0.875rem;
+    /* f6. -> f5 when not-small. */
+    font-size: 0.875rem;
 }
 
 
@@ -307,71 +452,71 @@ text-width image*/
 /* a[href^="http://"]:not([href*="example.com"]):not([href*="arxiv.org"]):after,
 a[href^="https://"]:not([href*="example.com"]):not([href*="arxiv.org"]):after { */
 
-/* Current: ignore nothing  */
+/* Current: ignore nothing    */
 a[href^="http://"]:after,
 a[href^="https://"]:after {
-  content: "\00A0 \2197 \FE0E";
+    content: "\00A0 \2197 \FE0E";
 }
 
 /* Inside an ordered list (1. 2. 3.), make
-  - the second level use letters (a. b. c.)
-  - the third level use roman numerals (i. ii. iii.)
- */
+    - the second level use letters (a. b. c.)
+    - the third level use roman numerals (i. ii. iii.)
+*/
 ol ol {
-  list-style-type: lower-alpha;
+    list-style-type: lower-alpha;
 }
 
 ol ol ol {
-  list-style-type: lower-roman;
+    list-style-type: lower-roman;
 }
 
 /* In garage links */
 #garage-metadata .inbound ul {
-  list-style-type: "⇠ ";
+    list-style-type: "⇠ ";
 }
 
 #garage-metadata .outbound ul {
-  list-style-type: "⇢ ";
+    list-style-type: "⇢ ";
 }
 
 /* Comments */
 .utterances {
-  margin-top: 4rem;
+    margin-top: 4rem;
 }
 
 /* This is the -ns (not small) media query (at least currently) */
 @media screen and (min-width: 30em) {
 
-  .markdown-body .figcaption {
-    /* f5 */
-    font-size: 1rem;
-  }
+    .markdown-body .figcaption {
+        /* f5 */
+        font-size: 1rem;
+    }
 
-  .footnotes {
-    /* f5 */
-    font-size: 1rem;
-  }
+    .footnotes {
+        /* f5 */
+        font-size: 1rem;
+    }
 
-  .markdown-body table:not(.tablecustomfont) {
-    /* f4 */
-    font-size: 1.25rem;
-  }
+    .markdown-body table:not(.tablecustomfont) {
+        /* f4 */
+        font-size: 1.25rem;
+    }
 
-  /* Grow table padding. */
-  .markdown-body table th {
-    /* vertical, horizontal */
-    padding: .5rem 1rem;
-  }
+    /* Grow table padding. */
+    .markdown-body table th {
+        /* vertical, horizontal */
+        padding: .5rem 1rem;
+    }
 
-  .markdown-body table td {
-    /* vertical, horizontal */
-    padding: .5rem 1rem;
-  }
+    .markdown-body table td {
+        /* vertical, horizontal */
+        padding: .5rem 1rem;
+    }
 
-  .markdown-body pre code {
-    /* f5 */
-    font-size: 1rem;
-  }
+    .markdown-body pre code {
+        /* f5 */
+        font-size: 1rem;
+    }
 
 }
 
