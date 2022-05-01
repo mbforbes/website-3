@@ -1,18 +1,22 @@
-/* PrismJS 1.27.0
+/* PrismJS 1.28.0
 https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+bash+csharp+diff+javadoclike+jsdoc+json+json5+processing+python+ruby+typescript+yaml */
-code[class*=language-], pre[class*=language-] {
+/* Modifications:
+ * - no font size (we set ourselves)
+ * - no margin (we set ourselves)
+ * - line height 1.25
+*/
+code[class*=language-],
+pre[class*=language-] {
     color: #000;
     background: 0 0;
     text-shadow: 0 1px #fff;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    /* Managing font-size ourselves... */
     /* font-size: 1em; */
     text-align: left;
     white-space: pre;
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
-    /* Managing line-height ourselves... */
     line-height: 1.25;
     -moz-tab-size: 4;
     -o-tab-size: 4;
@@ -23,18 +27,26 @@ code[class*=language-], pre[class*=language-] {
     hyphens: none
 }
 
-code[class*=language-] ::-moz-selection, code[class*=language-]::-moz-selection, pre[class*=language-] ::-moz-selection, pre[class*=language-]::-moz-selection {
+code[class*=language-] ::-moz-selection,
+code[class*=language-]::-moz-selection,
+pre[class*=language-] ::-moz-selection,
+pre[class*=language-]::-moz-selection {
     text-shadow: none;
     background: #b3d4fc
 }
 
-code[class*=language-] ::selection, code[class*=language-]::selection, pre[class*=language-] ::selection, pre[class*=language-]::selection {
+code[class*=language-] ::selection,
+code[class*=language-]::selection,
+pre[class*=language-] ::selection,
+pre[class*=language-]::selection {
     text-shadow: none;
     background: #b3d4fc
 }
 
 @media print {
-    code[class*=language-], pre[class*=language-] {
+
+    code[class*=language-],
+    pre[class*=language-] {
         text-shadow: none
     }
 }
@@ -45,7 +57,8 @@ pre[class*=language-] {
     overflow: auto
 }
 
-:not(pre)>code[class*=language-], pre[class*=language-] {
+:not(pre)>code[class*=language-],
+pre[class*=language-] {
     background: #f5f2f0
 }
 
@@ -55,7 +68,10 @@ pre[class*=language-] {
     white-space: normal
 }
 
-.token.cdata, .token.comment, .token.doctype, .token.prolog {
+.token.cdata,
+.token.comment,
+.token.doctype,
+.token.prolog {
     color: #708090
 }
 
@@ -67,32 +83,53 @@ pre[class*=language-] {
     opacity: .7
 }
 
-.token.boolean, .token.constant, .token.deleted, .token.number, .token.property, .token.symbol, .token.tag {
+.token.boolean,
+.token.constant,
+.token.deleted,
+.token.number,
+.token.property,
+.token.symbol,
+.token.tag {
     color: #905
 }
 
-.token.attr-name, .token.builtin, .token.char, .token.inserted, .token.selector, .token.string {
+.token.attr-name,
+.token.builtin,
+.token.char,
+.token.inserted,
+.token.selector,
+.token.string {
     color: #690
 }
 
-.language-css .token.string, .style .token.string, .token.entity, .token.operator, .token.url {
+.language-css .token.string,
+.style .token.string,
+.token.entity,
+.token.operator,
+.token.url {
     color: #9a6e3a;
     background: hsla(0, 0%, 100%, .5)
 }
 
-.token.atrule, .token.attr-value, .token.keyword {
+.token.atrule,
+.token.attr-value,
+.token.keyword {
     color: #07a
 }
 
-.token.class-name, .token.function {
+.token.class-name,
+.token.function {
     color: #dd4a68
 }
 
-.token.important, .token.regex, .token.variable {
+.token.important,
+.token.regex,
+.token.variable {
     color: #e90
 }
 
-.token.bold, .token.important {
+.token.bold,
+.token.important {
     font-weight: 700
 }
 

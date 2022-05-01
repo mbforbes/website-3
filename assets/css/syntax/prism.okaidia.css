@@ -1,0 +1,123 @@
+/* PrismJS 1.28.0
+https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+bash+csharp+diff+javadoclike+jsdoc+json+json5+processing+python+ruby+typescript+yaml */
+/* Modifications:
+ * - no font size (we set ourselves)
+ * - no margin (we set ourselves)
+ * - line height 1.25
+ * - manually added dark mode query selector everywhere
+*/
+[data-theme="dark"] code[class*=language-],
+[data-theme="dark"] pre[class*=language-] {
+    color: #f8f8f2;
+    background: 0 0;
+    text-shadow: 0 1px rgba(0, 0, 0, .3);
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    /* font-size: 1em; */
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.25;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none
+}
+
+[data-theme="dark"] pre[class*=language-] {
+    padding: 1em;
+    /* margin: .5em 0; */
+    overflow: auto;
+    border-radius: .3em
+}
+
+[data-theme="dark"] :not(pre)>code[class*=language-],
+[data-theme="dark"] pre[class*=language-] {
+    background: #272822
+}
+
+[data-theme="dark"] :not(pre)>code[class*=language-] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal
+}
+
+[data-theme="dark"] .token.cdata,
+[data-theme="dark"] .token.comment,
+[data-theme="dark"] .token.doctype,
+[data-theme="dark"] .token.prolog {
+    color: #8292a2
+}
+
+[data-theme="dark"] .token.punctuation {
+    color: #f8f8f2
+}
+
+[data-theme="dark"] .token.namespace {
+    opacity: .7
+}
+
+[data-theme="dark"] .token.constant,
+[data-theme="dark"] .token.deleted,
+[data-theme="dark"] .token.property,
+[data-theme="dark"] .token.symbol,
+[data-theme="dark"] .token.tag {
+    color: #f92672
+}
+
+[data-theme="dark"] .token.boolean,
+[data-theme="dark"] .token.number {
+    color: #ae81ff
+}
+
+[data-theme="dark"] .token.attr-name,
+[data-theme="dark"] .token.builtin,
+[data-theme="dark"] .token.char,
+[data-theme="dark"] .token.inserted,
+[data-theme="dark"] .token.selector,
+[data-theme="dark"] .token.string {
+    color: #a6e22e
+}
+
+[data-theme="dark"] .language-css .token.string,
+[data-theme="dark"] .style .token.string,
+[data-theme="dark"] .token.entity,
+[data-theme="dark"] .token.operator,
+[data-theme="dark"] .token.url,
+[data-theme="dark"] .token.variable {
+    color: #f8f8f2;
+    background: inherit;
+}
+
+[data-theme="dark"] .token.atrule,
+[data-theme="dark"] .token.attr-value,
+[data-theme="dark"] .token.class-name,
+[data-theme="dark"] .token.function {
+    color: #e6db74
+}
+
+[data-theme="dark"] .token.keyword {
+    color: #66d9ef
+}
+
+[data-theme="dark"] .token.important,
+[data-theme="dark"] .token.regex {
+    color: #fd971f
+}
+
+[data-theme="dark"] .token.bold,
+[data-theme="dark"] .token.important {
+    font-weight: 700
+}
+
+[data-theme="dark"] .token.italic {
+    font-style: italic
+}
+
+[data-theme="dark"] .token.entity {
+    cursor: help
+}
