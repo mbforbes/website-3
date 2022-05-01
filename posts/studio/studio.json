@@ -1,4 +1,0 @@
-{
-    "permalink": "/posts/{{ page.fileSlug }}/",
-    "tags": "studio"
-}
