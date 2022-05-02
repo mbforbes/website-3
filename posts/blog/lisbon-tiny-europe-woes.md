@@ -2,11 +2,21 @@
 title: Lisbon, and the Tiny Woes of a Generic Europe
 date: 2022-04-10
 image: /assets/blog/lisbon/bridge-frame.jpeg
+customexcerpt: Without knowing locals or speaking the language, it feels like you can go a mile wide but will remain an inch deep.
 ---
 
-![]({{ "/assets/blog/lisbon/bridge-frame.jpeg" | url }})
+<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<img class="content-width" src="{{ "/assets/blog/lisbon/lisbon-map.jpg" | url }}">
+</div>
+
+<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+Made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
+</p>
+
 
 My last memories of Europe are strong and fond. I spent a year in Zurich, Switzerland as a student in college. I made so many friends—both locals and transplants—studied and worked in the city at various times, and did my damndest to learn the local language.[^lang]
+
+![]({{ "/assets/blog/lisbon/bridge-frame.jpeg" | url }})
 
 [^lang]: For those of you familiar with Swiss German, this is a complex undertaking. I really just learned high (AKA “standard” AKA “Germany”) German and reveled in the few Swiss words I picked up.
 

@@ -61,15 +61,3 @@ Bottom-right is actually wood masquerading as cobblestone. Used in cellars for t
 As advertised, here is a feline I found.
 
 ![]({{ "/assets/blog/porto/cat.jpeg" | url }})
-
-<style>
-    .full-width {
-        width: calc(100vw);
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        max-width: none;
-    }
-</style>
