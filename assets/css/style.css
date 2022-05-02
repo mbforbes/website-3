@@ -380,17 +380,33 @@ smaller font). */
     /* max-width: 34em; */
 }
 
+.full-width {
+    width: calc(100vw);
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: none;
+}
+
+.content-width {
+    width: 704px;
+}
+
 
 /* Image source note. Use class attribution. Pair with "attribution" element for far-right
 caption (matching full-width image), or <p> element for text body-limited caption (for
 text-width image*/
 .markdown-body .figcaption.attribution {
     text-align: right;
-    color: var(--lighter-text-color);
+    color: var(--lightest-text-color);
+    /* f7 (for not-small (-ns) this gets f6) */
+    font-size: 0.75rem;
 }
 
 .markdown-body .attribution a {
-    color: var(--lighter-text-color);
+    color: var(--lightest-text-color);
 }
 
 .markdown-body .attribution a:hover {
@@ -491,6 +507,12 @@ ol ol ol {
         /* f5 */
         font-size: 1rem;
     }
+
+    .markdown-body .figcaption.attribution {
+        /* f6 */
+        font-size: 0.875rem;
+    }
+
 
     .footnotes {
         /* f5 */
