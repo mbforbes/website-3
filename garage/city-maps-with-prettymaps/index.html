@@ -5,11 +5,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Home - Maxwell Forbes</title>
+        <title>City maps with prettymaps - Maxwell Forbes</title>
         
-        <meta content="Home - Maxwell Forbes" property="title"/>
-        <meta content="Home - Maxwell Forbes" property="og:title"/>
-        <meta name="twitter:title" content="Home - Maxwell Forbes"/>
+        <meta content="City maps with prettymaps - Maxwell Forbes" property="title"/>
+        <meta content="City maps with prettymaps - Maxwell Forbes" property="og:title"/>
+        <meta name="twitter:title" content="City maps with prettymaps - Maxwell Forbes"/>
 
         <link rel="shortcut icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
@@ -22,9 +22,15 @@
 
 
     
-    <meta content='https://maxwellforbes.com' property='og:url'/>
-    <meta content="Hello it is I, Max" property='og:description'/>
-    <meta content="blog" property="og:type"/>
+    <meta content='https://maxwellforbes.com/garage/city-maps-with-prettymaps/' property='og:url'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        
+        <meta content="Styling for Multiple Cities Permalink to “Styling for Multiple Cities” #The prettymaps gallery has many beautiful maps..." property='og:description'/>
+        <meta name='twitter:description' content="Styling for Multiple Cities Permalink to “Styling for Multiple Cities” #The prettymaps gallery has many beautiful maps..."/>
+    
+    <meta content="article" property="og:type"/>
 
 
 
@@ -140,107 +146,165 @@ setColorScheme();
 
     <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
       
+        <div class="mb4">
+          
+          
+            <div class="fw600 lightest-text-color mt1 ttu">
+              
+                <a href="/studio/#garage" class="lightest-text-color hover-blue">GARAGE/</a>
+              
+            </div>
+          
+
+          
+          <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              City maps with prettymaps
+          </h1>
+          
+
+        </div>
+      
 
       
       
 
       <div class="markdown-body">
-        
-<h2>Latest from the studio</h2>
-
-<ul class="list pa0">
-    
-    <li class="mv2">
-      <a href="/garage/city-maps-with-prettymaps/" class="db pv1 link">
-        <time class="fr lightest-text-color ttu ml3">02 May 2022 </time>
-        City maps with prettymaps
-      </a>
-    </li>
-  
-    <li class="mv2">
-      <a href="/blog/nerja-granada/" class="db pv1 link">
-        <time class="fr lightest-text-color ttu ml3">01 May 2022 </time>
-        Nerja, Granada
-      </a>
-    </li>
-  
-    <li class="mv2">
-      <a href="/blog/seville-malaga/" class="db pv1 link">
-        <time class="fr lightest-text-color ttu ml3">27 Apr 2022 </time>
-        Seville and Málaga
-      </a>
-    </li>
-  
+        <h2 id="styling-for-multiple-cities" tabindex="-1">Styling for Multiple Cities</h2>
+<a class="dn" href="#styling-for-multiple-cities"><span class="dn">Permalink to “Styling for Multiple Cities”</span> <span aria-hidden="true">#</span></a><p>The prettymaps gallery has many beautiful maps</p>
+<p>TODO: embed</p>
+<p>However, there’s a drawback with many of these styles: after the initial visual impression has worn off, there isn’t much that actually distinguishes one map from another. E.g., the Barcelona map is largely just a grid.</p>
+<p>If using a single map style for multiple cities which renders a small chunk of each city, it will be hard to tell them apart.</p>
+<p>We can alleviate this by handcrafting beautiful maps for each city. This would be the best-looking solution, but—for me—it’s not worth the time to do that for every city that I visit. (Plus, it’d take significant practice to get close to as good as those.)</p>
+<p>My plan to alleviate this:</p>
+<ol>
+<li>
+<p>Use full city boundaries rather than tiny circle/square snippets. This will make each map unique because we’ll see the shape of each city.</p>
+</li>
+<li>
+<p>Use a palette themed by each country. (TBD whether this one will work out.)</p>
+</li>
+</ol>
+<p>TODO: show lisbon snippet vs whole thing</p>
+<h2 id="faster-feedback" tabindex="-1">Faster Feedback</h2>
+<a class="dn" href="#faster-feedback"><span class="dn">Permalink to “Faster Feedback”</span> <span aria-hidden="true">#</span></a><p>The iteration process is extremely slow out-of-the-box. Running the code takes 2–5 minutes. The time to draw the plot is only 20 seconds.</p>
+<p>There is a <code>cache/</code> directory that gets filled with files, but strangely, repeated runs aren’t any faster.</p>
+<p>Fortunately, you can manually save and pass back in the map data, as long as it hasn’t changed at all (i.e., you don’t want any additional layers). This reduces the iteration time to 20s. Not amazing, given how much there is to tweak, but way better than ~2.5m.</p>
+<h2 id="so-much-to-style" tabindex="-1">So Much to Style</h2>
+<a class="dn" href="#so-much-to-style"><span class="dn">Permalink to “So Much to Style”</span> <span aria-hidden="true">#</span></a><p>Even at 20 seconds per iteration, there is a lot to do.</p>
+<p>This is one of those cases where something looks beautiful, and you try to make a tweak, and suddenly everything looks terrible.</p>
+<p>TODO: embed grid of trial and error for lisbon</p>
+<h2 id="more-layers" tabindex="-1">More Layers</h2>
+<a class="dn" href="#more-layers"><span class="dn">Permalink to “More Layers”</span> <span aria-hidden="true">#</span></a><p>Many areas of the maps are simply blank.</p>
+<p>TODO: point to early porto draft w/ empty areas</p>
+<p>I think this is because OpenStreetMaps has a bunch of different layers that crop up in different cities. (Also: regional differences in marking? Maybe not.) The existing code samples I’ve seen only grab a handful.</p>
+<p>I actually found it a bit tricky to figure out how to draw more. I was initially just changing the drawing parameters, but then I realized that more layers actually need to be fetched.</p>
+<p>The layer names are confusing as well. Tags, rather than being a list of values, are <em>key: value</em> pairs.</p>
+<p>What I’m doing now is going through areas of the map that are blank, and clicking around on OpenStreetMap to find out what layers are there, then adding them to the fetching code.</p>
+<p>This adds another complication: re-fetching layers means back to extremely slow iteration time, because our layer cache is now invalid.</p>
+<p>I sped up iterating on new layers by changing the caching from “exact match” to “fetch any layers that you’re missing.” This works pretty well, though there was one extra complication: I was often adding tags to existing layers (e.g., adding “meadow” OSM tag to the general “greenery” layer). I just delete layers after they come out of the cache, and then the whole thing gets re-fetched.</p>
+<blockquote>
+<p>It feels like it’d be so much more efficient to just fetch <em>everything</em>, then iterate on selection and drawing. Not sure whether it’s worth trying to figure out that depth of code modification…</p>
+</blockquote>
+<p>Each new city had new blank areas that needed to be manually investigated. Hopefully I’ll eventually have enough general coverage this won’t happen.</p>
+<p>Layers that helped:</p>
+<ul>
+<li>meadow</li>
+<li>cemetery</li>
+<li>general land use (residential)</li>
+<li>schools</li>
+<li>railways</li>
+<li>airport strips (taxiways, runways)</li>
+<li>“scrub” lol</li>
+<li>golf courses</li>
+<li>industrial land use</li>
+<li>farmland</li>
+<li>orchards</li>
 </ul>
-
-<div class="cf mb1">
-    
-        <div class="fl mr3">
-            <a href="/sketches/wood-shelf-room/">
-            <img class="dim novmargin" src="/assets/sketches/wood-shelf-room-iso-thumb.jpeg" style="width: 72px; height: 72px;" />
-            </a>
-        </div>
-    
-        <div class="fl mr3">
-            <a href="/sketches/red-wine/">
-            <img class="dim novmargin" src="/assets/sketches/red-wine-thumb.jpeg" style="width: 72px; height: 72px;" />
-            </a>
-        </div>
-    
-        <div class="fl mr3">
-            <a href="/sketches/chicken/">
-            <img class="dim novmargin" src="/assets/sketches/chicken-thumb.jpeg" style="width: 72px; height: 72px;" />
-            </a>
-        </div>
-    
-</div>
-
-<p class="tr f6 f5-ns lightest-text-color mt1">
-... see more in the
-<a class="b" href="/studio/">Studio</a>
-</p>
-
-
-<h2>Latest research</h2>
-
-<ul class="list pa0">
-
-    <li class="mv2">
-        
-            <span class="db pv1">
-                <time class="fr lightest-text-color ttu ml3">24 Feb 2022 </time>
-                Our <a href="https://arxiv.org/pdf/2107.01294.pdf">Scarecrow paper</a>, about humans scrutinizing GPT-3 generations, will appear at ACL 2022.
-
-            </span>
-        
-    </li>
-
-    <li class="mv2">
-        
-            <span class="db pv1">
-                <time class="fr lightest-text-color ttu ml3">13 Dec 2021 </time>
-                I defended my dissertation. Hooray! Turns out PhDs take a while. Good times.
-
-            </span>
-        
-    </li>
-
-    <li class="mv2">
-        
-            <span class="db pv1">
-                <time class="fr lightest-text-color ttu ml3">14 Oct 2021 </time>
-                We released the Delphi project into the wild. Check out the <a href="https://arxiv.org/abs/2110.07574">paper</a>, <a href="https://delphi.allenai.org/">demo</a>, and followup <a href="https://blog.allenai.org/towards-machine-ethics-and-norms-d64f2bdde6a3">blog post</a>.
-
-            </span>
-        
-    </li>
-
+<h2 id="appreciating-modifiable-code" tabindex="-1">Appreciating Modifiable Code</h2>
+<a class="dn" href="#appreciating-modifiable-code"><span class="dn">Permalink to “Appreciating Modifiable Code”</span> <span aria-hidden="true">#</span></a><p>There’s some pareto-optimality of both (a) less code, and (b) simple code that makes it easy to understand and modify.</p>
+<p>Take two cases I was looking at in the prettymaps lib.</p>
+<p>Here’s a bad one: a gigantic “one-liner”</p>
+<pre class="language-python"><code class="language-python">streets <span class="token operator">=</span> unary_union<span class="token punctuation">(</span><br>    <span class="token punctuation">[</span><br>        <span class="token comment"># Dilate streets of each highway type == 'highway' using width 'w'</span><br>        MultiLineString<span class="token punctuation">(</span><br>            streets<span class="token punctuation">[</span><br>                <span class="token punctuation">[</span>highway <span class="token keyword">in</span> value <span class="token keyword">for</span> value <span class="token keyword">in</span> streets<span class="token punctuation">[</span>layer<span class="token punctuation">]</span><span class="token punctuation">]</span><br>                <span class="token operator">&amp;</span> <span class="token punctuation">(</span>streets<span class="token punctuation">.</span>geometry<span class="token punctuation">.</span><span class="token builtin">type</span> <span class="token operator">==</span> <span class="token string">"LineString"</span><span class="token punctuation">)</span><br>            <span class="token punctuation">]</span><span class="token punctuation">.</span>geometry<span class="token punctuation">.</span>tolist<span class="token punctuation">(</span><span class="token punctuation">)</span><br>            <span class="token operator">+</span> <span class="token builtin">list</span><span class="token punctuation">(</span><br>                <span class="token builtin">reduce</span><span class="token punctuation">(</span><br>                    <span class="token keyword">lambda</span> x<span class="token punctuation">,</span> y<span class="token punctuation">:</span> x <span class="token operator">+</span> y<span class="token punctuation">,</span><br>                    <span class="token punctuation">[</span><br>                        <span class="token builtin">list</span><span class="token punctuation">(</span>lines<span class="token punctuation">)</span><br>                        <span class="token keyword">for</span> lines <span class="token keyword">in</span> streets<span class="token punctuation">[</span><br>                            <span class="token punctuation">[</span>highway <span class="token keyword">in</span> value <span class="token keyword">for</span> value <span class="token keyword">in</span> streets<span class="token punctuation">[</span>layer<span class="token punctuation">]</span><span class="token punctuation">]</span><br>                            <span class="token operator">&amp;</span> <span class="token punctuation">(</span>streets<span class="token punctuation">.</span>geometry<span class="token punctuation">.</span><span class="token builtin">type</span> <span class="token operator">==</span> <span class="token string">"MultiLineString"</span><span class="token punctuation">)</span><br>                        <span class="token punctuation">]</span><span class="token punctuation">.</span>geometry<br>                    <span class="token punctuation">]</span><span class="token punctuation">,</span><br>                    <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><br>                <span class="token punctuation">)</span><br>            <span class="token punctuation">)</span><br>        <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">buffer</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span><br>        <span class="token keyword">for</span> highway<span class="token punctuation">,</span> w <span class="token keyword">in</span> width<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token punctuation">]</span><br><span class="token punctuation">)</span></code></pre>
+<p>Here’s a chunk I had a much easier time reading.</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Use backup if provided</span><br><span class="token keyword">if</span> backup <span class="token keyword">is</span> <span class="token keyword">not</span> <span class="token boolean">None</span><span class="token punctuation">:</span><br>    layers <span class="token operator">=</span> backup<br><span class="token comment"># Otherwise, fetch layers</span><br><span class="token keyword">else</span><span class="token punctuation">:</span><br>    <span class="token comment"># (some code omitted)</span><br><br>    <span class="token comment"># Fetch layers</span><br>    layers <span class="token operator">=</span> <span class="token punctuation">{</span><br>        layer<span class="token punctuation">:</span> get_layer<span class="token punctuation">(</span><br>            layer<span class="token punctuation">,</span> <span class="token operator">**</span>base_kwargs<span class="token punctuation">,</span> <span class="token operator">**</span><span class="token punctuation">(</span>kwargs <span class="token keyword">if</span> <span class="token builtin">type</span><span class="token punctuation">(</span>kwargs<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token builtin">dict</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><br>        <span class="token punctuation">)</span><br>        <span class="token keyword">for</span> layer<span class="token punctuation">,</span> kwargs <span class="token keyword">in</span> layers<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment"># Apply transformation to layers (translate &amp; scale)</span><br>    layers <span class="token operator">=</span> transform<span class="token punctuation">(</span>layers<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> scale_x<span class="token punctuation">,</span> scale_y<span class="token punctuation">,</span> rotation<span class="token punctuation">)</span><br><br>    <span class="token comment"># Apply postprocessing step to layers</span><br>    <span class="token keyword">if</span> postprocessing <span class="token keyword">is</span> <span class="token keyword">not</span> <span class="token boolean">None</span><span class="token punctuation">:</span><br>        layers <span class="token operator">=</span> postprocessing<span class="token punctuation">(</span>layers<span class="token punctuation">)</span></code></pre>
+<p>There’s still some things that I’d change about the second segment, the main one being that the <code>layers</code> variable is first used as an input argument, then becomes the output data, and it does this at different points in different branches. But, still, the code is super readable and I can relatively quickly make changes.</p>
+<h2 id="timeouts" tabindex="-1">Timeouts</h2>
+<a class="dn" href="#timeouts"><span class="dn">Permalink to “Timeouts”</span> <span aria-hidden="true">#</span></a><p>When trying to fetch data for Washington, D.C., I repeatedly ran into timeouts trying to fetch the fifth of eleven layers:</p>
+<pre class="language-txt"><code class="language-txt">Traceback (most recent call last):<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/urllib3/connectionpool.py", line 449, in _make_request<br>    six.raise_from(e, None)<br>  File "&lt;string>", line 3, in raise_from<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/urllib3/connectionpool.py", line 444, in _make_request<br>    httplib_response = conn.getresponse()<br>  File "/Users/max/.pyenv/versions/3.10.1/lib/python3.10/http/client.py", line 1374, in getresponse<br>    response.begin()<br>  File "/Users/max/.pyenv/versions/3.10.1/lib/python3.10/http/client.py", line 318, in begin<br>    version, status, reason = self._read_status()<br>  File "/Users/max/.pyenv/versions/3.10.1/lib/python3.10/http/client.py", line 279, in _read_status<br>    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")<br>  File "/Users/max/.pyenv/versions/3.10.1/lib/python3.10/socket.py", line 705, in readinto<br>    return self._sock.recv_into(b)<br>TimeoutError: timed out<br><br>During handling of the above exception, another exception occurred:<br><br>Traceback (most recent call last):<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/requests/adapters.py", line 440, in send<br>    resp = conn.urlopen(<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/urllib3/connectionpool.py", line 785, in urlopen<br>    retries = retries.increment(<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/urllib3/util/retry.py", line 550, in increment<br>    raise six.reraise(type(error), error, _stacktrace)<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/urllib3/packages/six.py", line 770, in reraise<br>    raise value<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/urllib3/connectionpool.py", line 703, in urlopen<br>    httplib_response = self._make_request(<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/urllib3/connectionpool.py", line 451, in _make_request<br>    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/urllib3/connectionpool.py", line 340, in _raise_timeout<br>    raise ReadTimeoutError(<br>urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='overpass-api.de', port=80): Read timed out. (read timeout=180)<br><br>During handling of the above exception, another exception occurred:<br><br>Traceback (most recent call last):<br>  File "/Users/max/repos/prettymaps/city-boundary.py", line 82, in &lt;module><br>    layers = plot(<br>  File "/Users/max/repos/prettymaps/prettymaps/draw.py", line 245, in plot<br>    new_output_layers[layer] = get_layer(<br>  File "/Users/max/repos/prettymaps/prettymaps/fetch.py", line 398, in get_layer<br>    return get_geometries(**kwargs)<br>  File "/Users/max/repos/prettymaps/prettymaps/fetch.py", line 188, in get_geometries<br>    geometries = ox.geometries_from_polygon(<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/osmnx/geometries.py", line 263, in geometries_from_polygon<br>    response_jsons = downloader._osm_geometries_download(polygon, tags)<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/osmnx/downloader.py", line 493, in _osm_geometries_download<br>    response_json = overpass_request(data={"data": query_str})<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/osmnx/downloader.py", line 667, in overpass_request<br>    response = requests.post(url, data=data, timeout=settings.timeout, headers=headers)<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/requests/api.py", line 117, in post<br>    return request('post', url, data=data, json=json, **kwargs)<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/requests/api.py", line 61, in request<br>    return session.request(method=method, url=url, **kwargs)<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/requests/sessions.py", line 529, in request<br>    resp = self.send(prep, **send_kwargs)<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/requests/sessions.py", line 645, in send<br>    r = adapter.send(request, **kwargs)<br>  File "/Users/max/.pyenv/versions/prettymaps/lib/python3.10/site-packages/requests/adapters.py", line 532, in send<br>    raise ReadTimeout(e, request=request)<br>requests.exceptions.ReadTimeout: HTTPConnectionPool(host='overpass-api.de', port=80): Read timed out. (read timeout=180)</code></pre>
+<p>Seeing <code>read timeout=180</code> reminds me of a rant I read recently, and agree with, how all timeouts should have units on them. (Is that seconds???)</p>
+<p>Anyway, checking into the library code, <code>ox.geometries_from_polygon()</code> has the following note:</p>
+<blockquote>
+<p>You can configure the Overpass server timeout, memory allocation, and other custom settings via <code>ox.config()</code>.</p>
+</blockquote>
+<p>Here I think <code>ox</code> is the import rename convention for <code>osmnx</code>. We can check the doc for <code>ox.config</code>, which has about a hundred parameters:</p>
+<pre class="language-txt"><code class="language-txt">timeout : int<br>    the timeout interval for the HTTP request and for API to use while running the query</code></pre>
+<p>Come on, what’s it take for a guy to get a unit in here? Anyway, let’s double it.</p>
+<pre class="language-python"><code class="language-python">ox<span class="token punctuation">.</span>config<span class="token punctuation">(</span>timeout<span class="token operator">=</span><span class="token number">360</span><span class="token punctuation">)</span></code></pre>
+<p>This seems to have worked!</p>
+<h2 id="muting-so-many-warnings" tabindex="-1">Muting so many warnings</h2>
+<a class="dn" href="#muting-so-many-warnings"><span class="dn">Permalink to “Muting so many warnings”</span> <span aria-hidden="true">#</span></a><p>There are a bunch of deprecation warnings from one library’s use of another library. This clogs up the output and I’m not going to fix them. I found a great tiny library called <code>shutup</code>, where you can</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> shutup<br>shutup<span class="token punctuation">.</span>please<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>… and it does some trickery with python’s internal warning mechanism to swallow warnings that come after.</p>
+<p>It seems important to do this at the top of a file, <em>before other libraries are even imported (!)</em> for it to work.</p>
+<h2 id="country-flag-colors" tabindex="-1">Country Flag Colors</h2>
+<a class="dn" href="#country-flag-colors"><span class="dn">Permalink to “Country Flag Colors”</span> <span aria-hidden="true">#</span></a><p>Working on Washington, D.C. The USA’s <a href="https://www.flagcolorcodes.com/usa">flag colors</a> are hilariously called “Old Glory Red” and “Old Glory Blue.”</p>
+<p>TODO: insert previews of them</p>
+<p>This made a decent map</p>
+<p>TODO: insert map</p>
+<p>… but I wonder if they’d be better a bit softer. I bumped up lightness and saturation</p>
+<p>TODO: new colors</p>
+<p>These are OK. Might be a bit too bright, even. The map styles in the lib’s gallery are a bit more muted, kind of print-like. May be better to stick to that.</p>
+<p>Meanwhile, I think I screwed up the z-order so some bigger areas are blotting out others. I can’t see them on OSM, but the color is there.</p>
+<p>TODO: insert DC-3.</p>
+<p>Waaay better.</p>
+<h2 id="no-water" tabindex="-1">No Water</h2>
+<a class="dn" href="#no-water"><span class="dn">Permalink to “No Water”</span> <span aria-hidden="true">#</span></a><p>There’s a lot of water in Seville that OSM knows about, my mine are coming up dry for some reason.</p>
+<ul>
+<li>
+<p>Appears no data is in the layer, it gets saved as empty (and re-fetched each time)</p>
+</li>
+<li>
+<p>Trying to plot only water gives weird drawing artifacts</p>
+</li>
+<li>
+<p>Seriously trying VS Code’s python debugger for the first time, getting a ton of stack traces with no known origin in the code but things seem fine? My guess is matplotlib and some kind of “backend” (a matplotlib term) issue.</p>
+</li>
+<li>
+<p>There’s a hardcoded “coastline” layer name in the code; grabbing that and adding to the plot does nothing. (Update: from searching in attempts to fix this, seems like a more <a href="https://github.com/marceloprates/prettymaps/pull/47">involved feature</a>, including downloading a separate data file. But this doesn’t seem like what I want, because it’s not about coastline and oceans, it’s simple water multipolygons in the map area!)</p>
+</li>
+<li>
+<p>Was able to debug up until polygons w/ “water” tags had their geometries intersected w/ the provided perimeter, then they all became empty. This is weird because (a) I thought we were fetching things inside the perimeter, (b) there are definitely some water polygons fully in the Seville boundary in OSM.</p>
+<p>I tried commenting out that intersection code, but still nothing shows up. So that might mean that the retrieved geometry is actually somehow outside the desired area. Bizarre. Why is only water failing here?</p>
+<p>I tried rendering Seattle, which has a lot of water, and that is mostly working (the lake seems to work, but not the coastline, as expected).</p>
+<p>This is especially weird because all the water in Seville seems broken, even little ponds in parks.</p>
+</li>
 </ul>
-
-<p class="tr f6 f5-ns lightest-text-color mt1">
-... see more in
-<a class="b" href="/research/">Research</a>
-</p>
+<p>I updated my layers to include more tags, though really only <code>&quot;water&quot;: True</code> should be necessary.</p>
+<pre class="language-python"><code class="language-python"><span class="token string">"water"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><br>    <span class="token string">"tags"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><br>        <span class="token string">"waterway"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span><br>        <span class="token string">"water"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span><br>        <span class="token string">"harbour"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span><br>        <span class="token string">"marina"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span><br>        <span class="token string">"bay"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span><br>        <span class="token string">"river"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span><br>    <span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
+<p>Trying to draw a park in Seville…</p>
+<p>TODO: insert park</p>
+<p>…other weird behavior using the exact same drawing code:</p>
+<ul>
+<li>unlike broader seville, now bits of water do get drawn</li>
+<li>~also unlike broader seville, now buildings aren’t being drawn.~ (Update: The park miraculously (I guess) completely avoids an area with buildings that’s fully enclosed by it, so this is actually okay.)</li>
+</ul>
+<p>OK, so is this a zoom thing? Something else? I wonder whether I can get a district that has water.</p>
+<p>Plotting the larger district that encompasses the park (<em>Distrito Norte</em>) also results in no water!</p>
+<p>TODO: insert distrito norte</p>
+<p>I found <a href="https://github.com/marceloprates/prettymaps/issues/46">another issue</a> the describes partial water bodies being rendered. It seems as if the issue is my own—it pinpoints the line of code that I was running into, where polygons disappear after being intersected with the perimeter. That might be the buggy aspect, then.</p>
+<p>Unfortunately, none of the three alternatives proposed there work for me. <em>Distrito Norte</em> remains waterless.</p>
+<p>I can ignore the intersection computation, but I must manually extract geometry objects. The resulting map seems ot have a lot of water, which is awesome, but it’s all zoomed way out, and the water is now disconnected from the land.</p>
+<p>Introducing radius back does nothing, seemingly; probably more code tweaks needed.</p>
+<p>DAMN this issue is spicy.</p>
+<p>May have been code changes to examine:</p>
+<ul>
+<li><a href="https://github.com/marceloprates/prettymaps/pull/48">https://github.com/marceloprates/prettymaps/pull/48</a></li>
+<li><a href="https://github.com/marceloprates/prettymaps/pull/54">https://github.com/marceloprates/prettymaps/pull/54</a></li>
+</ul>
+<h2 id="things-always-take-much-longer-than-they-seem" tabindex="-1">Things always take much longer than they seem</h2>
+<a class="dn" href="#things-always-take-much-longer-than-they-seem"><span class="dn">Permalink to “Things always take much longer than they seem”</span> <span aria-hidden="true">#</span></a><p>This is important to remember when planning your own tasks, but it’s especially important to remember when appreciating the work of others.</p>
+<p>For example, I’m basically replicating an existing style, of an existing library, and just adapting it slightly to my needs. And it still took a lot of work, with so many little problems cropping up!</p>
+<p>When things actually go as quickly as they “ought to,” it’s kind of shocking (and delightful).</p>
 
       </div>
 
@@ -270,6 +334,97 @@ setColorScheme();
 
 
       
+      
+        <p class="tr ttu lightest-text-color fw6 f6 f5-ns mt5 mb0">garage entry metadata</p>
+<table class="mv0 collapse ba br2 table-row-border-color pv2 ph3 f6 f5-ns lighter-text-color w-100">
+    <tbody id="garage-metadata">
+        <tr class="striped-row">
+            <td class="pv2 ph3 ttu fw6">
+                started
+            </td>
+            <td class="pv2 ph3 ttu">
+                02 May 2022
+            </td>
+        </tr>
+
+        
+            <tr class="striped-row">
+                <td class="pv2 ph3 ttu fw6">
+                    updated
+                </td>
+                <td class="pv2 ph3 ttu">
+                    03 May 2022
+                </td>
+            </tr>
+        
+
+        <tr class="striped-row">
+            <td class="pv2 ph3 ttu fw6">
+                disclaimer
+            </td>
+            <td class="pv2 ph3">
+                This is an entry in
+                
+                    <a href="/garage/what-is-the-garage/" class="hover-dark-blue underline-hover">the garage</a>.
+                
+                It may change or disappear at any point.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Comments! JK lol -->
+
+
+<!-- Link graph! -->
+<script async>
+    function addRow(name, graph, keys) {
+        let links = [];
+        for (let key of keys) {
+            if (!(key in graph)) {
+                console.warn("Skipping " + key + ", not found in link graph.")
+                continue;
+            }
+            
+            links.push(`<li><a href="${graph[key].url}" class="hover-dark-blue underline-hover">${graph[key].title}<a/></li>`);
+        }
+        if (links.length == 0) {
+            return;
+        }
+        let row = document.createElement("tr");
+        row.classList.add("striped-row");
+        row.innerHTML = `
+        <tr class="striped--light-gray">
+            <td class="pv2 ph3 ttu fw6">
+                ${name}
+            </td>
+            <td class="pv2 ph3 ${name}">
+                <ul class="pl3 mv0">
+                    ${links.join("\n")}
+                </ul>
+            </td>
+        </tr>
+        `
+        document.getElementById("garage-metadata").appendChild(row);
+    }
+
+    async function renderLinks() {
+        let resp = await fetch("/assets/garage/link_graph.json");
+        if (!resp.ok) {
+            return;
+        }
+        let graph = await resp.json();
+        let current = "/garage/city-maps-with-prettymaps/";
+        if (!(current in graph)) {
+            return;
+        }
+        addRow("inbound", graph, graph[current].incoming);
+        addRow("outbound", graph, graph[current].outgoing);
+
+    }
+    renderLinks();
+</script>
+
       
     </main>
   </div>
