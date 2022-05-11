@@ -131,7 +131,7 @@ This big fella on the road.
 
 ![]({{ "/assets/blog/porto/bull.jpeg" | url }})
 
-Huge shock on the way back---fire! Hard to see much from this photo. On both sides of the road, sky lit up, smoke filling the sky. Thought we were doomed.
+Huge shock on the way back---fire! Hard to see much from this photo. Ablaze on both sides of the road, horizon lit up, smoke filling sky. Thought we were doomed.
 
 ![]({{ "/assets/blog/porto/fire.jpeg" | url }})
 
