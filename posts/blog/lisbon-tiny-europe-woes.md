@@ -10,7 +10,7 @@ customexcerpt: Without knowing locals or speaking the language, it feels like yo
 </div>
 
 <p class="full-width pr2 pr3-ns figcaption attribution mb5">
-Made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
+Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 </p>
 
 
