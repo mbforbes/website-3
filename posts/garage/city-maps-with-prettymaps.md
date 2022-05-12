@@ -1,9 +1,11 @@
 ---
 title: City maps with prettymaps
 date: 2022-05-02
-updated: 2022-05-03
+updated: 2022-05-10
 tags: devlog
 ---
+
+This is my devlog for working with the [prettymaps library](https://github.com/marceloprates/prettymaps/) to try to generate maps for cities that I visit. I ran into a lot of problems with water and train lines. As yet, unresolved.
 
 ## Styling for Multiple Cities
 
@@ -333,6 +335,96 @@ May have been code changes to examine:
 
 - https://github.com/marceloprates/prettymaps/pull/48
 - https://github.com/marceloprates/prettymaps/pull/54
+
+
+Adding logging. Renaming all `geometry` and `perimeter` vars to track their changes. They change type (Geo DataFrame and kinds of (Multi)Polygon(s)) and projection and contents across mutations.
+
+Seeing things like
+
+```txt
+Geometries before projection: 123
+Geometries after projection: 123
+Geometries after intersection: 123
+  points:     0
+  lines:      0
+  polys:      123
+  multipolys: 0
+Geometries after grouping: 0
+Geometries after union: 0
+```
+
+This makes it look like the grouping is a problem, but I think the geometries are empty after intersection.
+
+Looking at the perimeter, it was defined differently than I expected: it was using a point + radius rather than a shape! I think this is based on how I was passing the query in.
+
+What's so bizarre is looking at what was retrieved, even by a reasonable radius that should end up in the computed final perimeter, is then becoming empty. Going to try switching to passing the perimeter in and seeing whether we can go from there. (Check func we call in `draw.py`)
+
+Spent a bunch of time trying to figure out how to meaningfully inspect Polygons. These damn things have too many damn objects inside them, and nothing has a nice string representation! The docs are like oh ya, say you can make them just give a couple numbers like `[1, 2]`, hehe, and then you try to inspect them and they're just like nope it's an object what you want?
+
+```python
+# grab a geometry object we'll be working with
+>>> g = geometries_retrieved.iloc[2].geometry
+# what is it?
+>>> g
+<shapely.geometry.polygon.Polygon object at 0x137e63940>
+# great. what are its, idk, points?
+>>> g.coords
+NotImplementedError
+>>> g.xy
+NotImplementedError
+# super helpful. So, a couple things that give any kind of data:
+>>> g.length
+0.10079323200991505
+>>> g.bounds
+(-6.0302708, 37.4404153, -6.007053, 37.4498529)
+# but that's the bounding region. where are the points?
+>>> g.envelope
+<shapely.geometry.polygon.Polygon object at 0x142367f10>
+# great, another polygon?
+>>> g.exterior
+<shapely.geometry.polygon.LinearRing object at 0x142367eb0>
+# ok, another object...
+>>> g.exterior.boundary
+<shapely.geometry.multipoint.MultiPoint object at 0x137e61b40>
+# you have got to be kidding me
+# you know what, maybe i'll just go with `length` and `bounds` for now
+```
+
+Anyway, regardless, what's happening best I can tell at this point is that things aren't overlapping after the intersection. Via some more recent logging checking `sum(geometries_projected.length > 0)`:
+
+```txt
+Non-empty Geometries after projection: 138
+Non-empty Geometries after intersection: 0
+```
+
+Plus keeping all and drawing, way off to right.
+
+- Also, have been looking at [this diff](https://github.com/marceloprates/prettymaps/commit/5930ba70ad4f2a6472b3baa4fd3fb4b628ce40e4
+), which both erased some fixes from a previous commit and "simplified" some operations with different geometry types that I am suspicious could be buggy.
+
+Giving up. Water seems to work elsewhere. I just have no idea why Seville is failing. It's gonna be dry.
+
+## Unicode troubles
+
+Today I discovered `ó` and `ó` are not the same character because my save path logic was failing.
+
+I checked out this [Unicode Inspector](https://apps.timwhitlock.info/unicode/inspect?s=%C3%B3o%CC%81) to see that:
+
+TODO: insert from Desktop
+
+As cool as I felt having non-ASCII characters in my file paths, looks like it's going to be more trouble than it's worth if I can't type them consistently.
+
+There's a Python module I remember using in my text slinging days that finds the closest ASCII representation of a string. It's called [`Unidecode`](https://pypi.org/project/Unidecode/). So useful. One of those situations where
+
+- **Linguistics:** Noooo, those characters aren't even the same thing at all, it doesn't make any sense to swap vowels just so you can write them incorrectly in your own language's alphabet
+
+- **Computers:** Sorry, gotta go brrrrr
+
+## Railways and airplane runways / taxiways gone
+
+I can't get them back. I'm adding all the same tags, in all kinds of combinations and drawing styles, and they just aren't showing up.
+
+Man, this is one of the most frustrating code libraries I've used in recent memory.
 
 ## Things always take much longer than they seem
 
