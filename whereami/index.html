@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>I am here</title>
+
+    <link href='/assets/css/tachyons.min.css' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
+
+<style>
+    .text-label {
+        color: #ff00aa;
+    }
+</style>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <body class="vh-100">
+
+    <div id="map" class="vh-100">Map</div>
+    
+
+    <script src="/assets/lib/anime-3.2.1.min.js"></script>
+    <script>
+    let place = "Donostia, Spain";
+    let tkn = "cx.rlW1VwbvoJWzo3WvMKZvYPWuVwbvL2jlpaZ4ZKIyZTIdoQAvpaEdZmA1oTI1AvW9._6Noh4y1gHAjBgJNTSDAVD";
+
+    let map = L.map('map');
+    tkn = tkn.replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);});
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=' + tkn, {
+        id: 'mapbox/dark-v10',
+        attribution:  'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(map);
+
+    async function fetchAsync (url) {
+        let response = await fetch(url);
+        let data = await response.json();
+        // console.log(data);
+        let coord = data.features[0].center.reverse();
+        let circle = L.circle(coord, {
+            color: '#ff00aa',
+            fillColor: '#ff00aa',
+            fillOpacity: 0.5,
+            radius: 20000
+        }).addTo(map);
+        map.setView(coord, 5);
+
+        // var myIcon = L.divIcon({html: place, className: 'b text-label sans-serif tc pt2 w4'});
+        // L.marker(coord, {icon: myIcon}).addTo(map);
+
+        console.log(circle);
+        c = circle;
+
+        anime({
+            targets: [circle],
+            // translateX: 1,
+            // translateY: 4,
+            easing: 'easeInOutSine',
+            duration: 3500,
+            delay: 200,
+            loop: true,
+            // direction: "alternate",
+            update: function(anim) {
+                // updates++;
+                // progressLogEl.value = 'progress : '+Math.round(anim.progress)+'%';
+                // updateLogEl.value = 'updates : '+updates;
+                circle.setRadius(anim.progress * 2000);
+                circle.setStyle({
+                  fillOpacity: 0.7 - anim.progress/100,
+                  opacity: 0.9 - anim.progress/100,
+                });
+              }
+        });
+    }
+
+    
+    fetchAsync("https://api.mapbox.com/geocoding/v5/mapbox.places/" + place + ".json?limit=1&types=place%2Cpostcode%2Caddress&access_token=" + tkn)
+
+    
+    </script>
+
+  </body>
+</html>
