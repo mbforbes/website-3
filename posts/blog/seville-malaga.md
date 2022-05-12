@@ -4,6 +4,18 @@ date: 2022-04-27
 image: /assets/blog/seville/plaza.jpeg
 ---
 
+
+<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<img class="content-width" src="{{ "/assets/blog/seville/seville-spain-28-perimeter.jpg" | url }}">
+</div>
+
+<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
+<!-- There's <a href="/garage/city-maps-with-prettymaps/#no-water">supposed to be water</a> flowing through that empty area. -->
+</p>
+
+
+
 ## Seville
 
 ![]({{ "/assets/blog/seville/plaza.jpeg" | url }})
@@ -43,6 +55,14 @@ _Tinto de verano:_
 
 
 ## Málaga[^english]
+
+<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<img class="content-width" src="{{ "/assets/blog/malaga/malaga-spain-2-perimeter.jpg" | url }}">
+</div>
+
+<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
+</p>
 
 [^english]: I'm trying to write the English version of place names (e.g., Seville instead of _Sevilla_), but it seems like Málaga doesn't have one.
 

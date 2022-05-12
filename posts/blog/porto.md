@@ -4,6 +4,17 @@ date: 2022-04-17
 image: /assets/blog/porto/cat.jpeg
 ---
 
+<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<img class="content-width" src="{{ "/assets/blog/porto/porto-portugal-7-perimeter.jpg" | url }}">
+</div>
+
+<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
+</p>
+
+![]({{ "/assets/blog/porto/porto.jpeg" | url }})
+
+
 ## Port
 
 Port, where wine's fermentation is stopped early by adding a bunch of brandy. Sugars remain (it is sweet), and of course the brandy is there too (it is strong).
@@ -61,3 +72,9 @@ Bottom-right is actually wood masquerading as cobblestone. Used in cellars for t
 As advertised, here is a feline I found.
 
 ![]({{ "/assets/blog/porto/cat.jpeg" | url }})
+
+## Bonus: Tiles
+
+Beautiful tile work in Portugal.
+
+![]({{ "/assets/blog/porto/tiles.jpeg" | url }})

@@ -6,7 +6,7 @@ customexcerpt: Without knowing locals or speaking the language, it feels like yo
 ---
 
 <div style="background-color: #FCEEE1" class="full-width mt5 mb4">
-<img class="content-width" src="{{ "/assets/blog/lisbon/lisbon-map.jpg" | url }}">
+<img class="content-width" src="{{ "/assets/blog/lisbon/lisbon-portugal-23-perimeter.jpg" | url }}">
 </div>
 
 <p class="full-width pr2 pr3-ns figcaption attribution mb5">

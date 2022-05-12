@@ -6,6 +6,17 @@ image: /assets/blog/granada/ah3.jpeg
 
 ## Nerja
 
+<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<img class="content-width" src="{{ "/assets/blog/nerja/nerja-spain-6-r3000.jpg" | url }}">
+</div>
+
+<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
+</p>
+
+
+Beach vibes. So many Brits here signs outside bars like "Liverpool match at 15:00."
+
 ![]({{ "/assets/blog/nerja/town.jpeg" | url }})
 
 ![]({{ "/assets/blog/nerja/rock.jpeg" | url }})
@@ -16,6 +27,15 @@ image: /assets/blog/granada/ah3.jpeg
 
 ## Granada
 
+<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<img class="content-width" src="{{ "/assets/blog/granada/granada-spain-1-perimeter.jpg" | url }}">
+</div>
+
+<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
+</p>
+
+
 ![]({{ "/assets/blog/granada/city.jpeg" | url }})
 
 <div class="flex mv4">
@@ -25,6 +45,8 @@ image: /assets/blog/granada/ah3.jpeg
 
 
 ![]({{ "/assets/blog/granada/tree.jpeg" | url }})
+
+How much of the Alhambra is original vs rebuilt to be like the original? Does it matter? Would it matter if it was entirely designed and constructed in the modern era?
 
 ![]({{ "/assets/blog/granada/ah1.jpeg" | url }})
 
