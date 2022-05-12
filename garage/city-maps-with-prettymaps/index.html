@@ -27,8 +27,8 @@
     <meta name='twitter:site' content='@maxforbes'/>
     
         
-        <meta content="Styling for Multiple Cities Permalink to “Styling for Multiple Cities” #The prettymaps gallery has many beautiful maps..." property='og:description'/>
-        <meta name='twitter:description' content="Styling for Multiple Cities Permalink to “Styling for Multiple Cities” #The prettymaps gallery has many beautiful maps..."/>
+        <meta content="This is my devlog for working with the prettymaps library to try to generate maps for cities that I visit. I ran into a..." property='og:description'/>
+        <meta name='twitter:description' content="This is my devlog for working with the prettymaps library to try to generate maps for cities that I visit. I ran into a..."/>
     
     <meta content="article" property="og:type"/>
 
@@ -169,7 +169,8 @@ setColorScheme();
       
 
       <div class="markdown-body">
-        <h2 id="styling-for-multiple-cities" tabindex="-1">Styling for Multiple Cities</h2>
+        <p>This is my devlog for working with the <a href="https://github.com/marceloprates/prettymaps/">prettymaps library</a> to try to generate maps for cities that I visit. I ran into a lot of problems with water and train lines. As yet, unresolved.</p>
+<h2 id="styling-for-multiple-cities" tabindex="-1">Styling for Multiple Cities</h2>
 <a class="dn" href="#styling-for-multiple-cities"><span class="dn">Permalink to “Styling for Multiple Cities”</span> <span aria-hidden="true">#</span></a><p>The prettymaps gallery has many beautiful maps</p>
 <p>TODO: embed</p>
 <p>However, there’s a drawback with many of these styles: after the initial visual impression has worn off, there isn’t much that actually distinguishes one map from another. E.g., the Barcelona map is largely just a grid.</p>
@@ -301,6 +302,38 @@ setColorScheme();
 <li><a href="https://github.com/marceloprates/prettymaps/pull/48">https://github.com/marceloprates/prettymaps/pull/48</a></li>
 <li><a href="https://github.com/marceloprates/prettymaps/pull/54">https://github.com/marceloprates/prettymaps/pull/54</a></li>
 </ul>
+<p>Adding logging. Renaming all <code>geometry</code> and <code>perimeter</code> vars to track their changes. They change type (Geo DataFrame and kinds of (Multi)Polygon(s)) and projection and contents across mutations.</p>
+<p>Seeing things like</p>
+<pre class="language-txt"><code class="language-txt">Geometries before projection: 123<br>Geometries after projection: 123<br>Geometries after intersection: 123<br>  points:     0<br>  lines:      0<br>  polys:      123<br>  multipolys: 0<br>Geometries after grouping: 0<br>Geometries after union: 0</code></pre>
+<p>This makes it look like the grouping is a problem, but I think the geometries are empty after intersection.</p>
+<p>Looking at the perimeter, it was defined differently than I expected: it was using a point + radius rather than a shape! I think this is based on how I was passing the query in.</p>
+<p>What’s so bizarre is looking at what was retrieved, even by a reasonable radius that should end up in the computed final perimeter, is then becoming empty. Going to try switching to passing the perimeter in and seeing whether we can go from there. (Check func we call in <code>draw.py</code>)</p>
+<p>Spent a bunch of time trying to figure out how to meaningfully inspect Polygons. These damn things have too many damn objects inside them, and nothing has a nice string representation! The docs are like oh ya, say you can make them just give a couple numbers like <code>[1, 2]</code>, hehe, and then you try to inspect them and they’re just like nope it’s an object what you want?</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># grab a geometry object we'll be working with</span><br><span class="token operator">>></span><span class="token operator">></span> g <span class="token operator">=</span> geometries_retrieved<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span>geometry<br><span class="token comment"># what is it?</span><br><span class="token operator">>></span><span class="token operator">></span> g<br><span class="token operator">&lt;</span>shapely<span class="token punctuation">.</span>geometry<span class="token punctuation">.</span>polygon<span class="token punctuation">.</span>Polygon <span class="token builtin">object</span> at <span class="token number">0x137e63940</span><span class="token operator">></span><br><span class="token comment"># great. what are its, idk, points?</span><br><span class="token operator">>></span><span class="token operator">></span> g<span class="token punctuation">.</span>coords<br>NotImplementedError<br><span class="token operator">>></span><span class="token operator">></span> g<span class="token punctuation">.</span>xy<br>NotImplementedError<br><span class="token comment"># super helpful. So, a couple things that give any kind of data:</span><br><span class="token operator">>></span><span class="token operator">></span> g<span class="token punctuation">.</span>length<br><span class="token number">0.10079323200991505</span><br><span class="token operator">>></span><span class="token operator">></span> g<span class="token punctuation">.</span>bounds<br><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">6.0302708</span><span class="token punctuation">,</span> <span class="token number">37.4404153</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">6.007053</span><span class="token punctuation">,</span> <span class="token number">37.4498529</span><span class="token punctuation">)</span><br><span class="token comment"># but that's the bounding region. where are the points?</span><br><span class="token operator">>></span><span class="token operator">></span> g<span class="token punctuation">.</span>envelope<br><span class="token operator">&lt;</span>shapely<span class="token punctuation">.</span>geometry<span class="token punctuation">.</span>polygon<span class="token punctuation">.</span>Polygon <span class="token builtin">object</span> at <span class="token number">0x142367f10</span><span class="token operator">></span><br><span class="token comment"># great, another polygon?</span><br><span class="token operator">>></span><span class="token operator">></span> g<span class="token punctuation">.</span>exterior<br><span class="token operator">&lt;</span>shapely<span class="token punctuation">.</span>geometry<span class="token punctuation">.</span>polygon<span class="token punctuation">.</span>LinearRing <span class="token builtin">object</span> at <span class="token number">0x142367eb0</span><span class="token operator">></span><br><span class="token comment"># ok, another object...</span><br><span class="token operator">>></span><span class="token operator">></span> g<span class="token punctuation">.</span>exterior<span class="token punctuation">.</span>boundary<br><span class="token operator">&lt;</span>shapely<span class="token punctuation">.</span>geometry<span class="token punctuation">.</span>multipoint<span class="token punctuation">.</span>MultiPoint <span class="token builtin">object</span> at <span class="token number">0x137e61b40</span><span class="token operator">></span><br><span class="token comment"># you have got to be kidding me</span><br><span class="token comment"># you know what, maybe i'll just go with `length` and `bounds` for now</span></code></pre>
+<p>Anyway, regardless, what’s happening best I can tell at this point is that things aren’t overlapping after the intersection. Via some more recent logging checking <code>sum(geometries_projected.length &gt; 0)</code>:</p>
+<pre class="language-txt"><code class="language-txt">Non-empty Geometries after projection: 138<br>Non-empty Geometries after intersection: 0</code></pre>
+<p>Plus keeping all and drawing, way off to right.</p>
+<ul>
+<li>Also, have been looking at <a href="https://github.com/marceloprates/prettymaps/commit/5930ba70ad4f2a6472b3baa4fd3fb4b628ce40e4">this diff</a>, which both erased some fixes from a previous commit and “simplified” some operations with different geometry types that I am suspicious could be buggy.</li>
+</ul>
+<p>Giving up. Water seems to work elsewhere. I just have no idea why Seville is failing. It’s gonna be dry.</p>
+<h2 id="unicode-troubles" tabindex="-1">Unicode troubles</h2>
+<a class="dn" href="#unicode-troubles"><span class="dn">Permalink to “Unicode troubles”</span> <span aria-hidden="true">#</span></a><p>Today I discovered <code>ó</code> and <code>ó</code> are not the same character because my save path logic was failing.</p>
+<p>I checked out this <a href="https://apps.timwhitlock.info/unicode/inspect?s=%C3%B3o%CC%81">Unicode Inspector</a> to see that:</p>
+<p>TODO: insert from Desktop</p>
+<p>As cool as I felt having non-ASCII characters in my file paths, looks like it’s going to be more trouble than it’s worth if I can’t type them consistently.</p>
+<p>There’s a Python module I remember using in my text slinging days that finds the closest ASCII representation of a string. It’s called <a href="https://pypi.org/project/Unidecode/"><code>Unidecode</code></a>. So useful. One of those situations where</p>
+<ul>
+<li>
+<p><strong>Linguistics:</strong> Noooo, those characters aren’t even the same thing at all, it doesn’t make any sense to swap vowels just so you can write them incorrectly in your own language’s alphabet</p>
+</li>
+<li>
+<p><strong>Computers:</strong> Sorry, gotta go brrrrr</p>
+</li>
+</ul>
+<h2 id="railways-and-airplane-runways-taxiways-gone" tabindex="-1">Railways and airplane runways / taxiways gone</h2>
+<a class="dn" href="#railways-and-airplane-runways-taxiways-gone"><span class="dn">Permalink to “Railways and airplane runways / taxiways gone”</span> <span aria-hidden="true">#</span></a><p>I can’t get them back. I’m adding all the same tags, in all kinds of combinations and drawing styles, and they just aren’t showing up.</p>
+<p>Man, this is one of the most frustrating code libraries I’ve used in recent memory.</p>
 <h2 id="things-always-take-much-longer-than-they-seem" tabindex="-1">Things always take much longer than they seem</h2>
 <a class="dn" href="#things-always-take-much-longer-than-they-seem"><span class="dn">Permalink to “Things always take much longer than they seem”</span> <span aria-hidden="true">#</span></a><p>This is important to remember when planning your own tasks, but it’s especially important to remember when appreciating the work of others.</p>
 <p>For example, I’m basically replicating an existing style, of an existing library, and just adapting it slightly to my needs. And it still took a lot of work, with so many little problems cropping up!</p>
@@ -353,7 +386,7 @@ setColorScheme();
                     updated
                 </td>
                 <td class="pv2 ph3 ttu">
-                    03 May 2022
+                    10 May 2022
                 </td>
             </tr>
         
