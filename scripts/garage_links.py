@@ -46,7 +46,7 @@ def get_url(path: str) -> str:
     Only thing is we now have multiple folders (for ease of tagging) that map to
     /posts/:
 
-    posts/studio/foo.md
+    posts/writing/foo.md
     ->   /posts/foo/
 
     posts/research/foo.md
@@ -54,7 +54,7 @@ def get_url(path: str) -> str:
 
     """
     res = ".".join(path[len("posts") :].split(".")[:-1]) + "/"
-    post_prefix_list = ["/studio/", "/research/"]
+    post_prefix_list = ["/writing/", "/research/"]
     for p in post_prefix_list:
         if res.startswith(p):
             res = "/posts/" + res[len(p) :]
@@ -86,7 +86,8 @@ def main() -> None:
     # settings
     globs = ["posts/**/*"]
     exts = ["md", "njk"]
-    skip_prefix = "/software/"  # hacky; could do multi globs intstead or regex or ...
+    # hacky; could do multi globs instead or regex or ...
+    skip_prefixes = ["/software/", "/news/"]
     # NOTE: Ensuring URL ends with "/" to avoid assets, which blows up the size of the
     # link graph like 5x. However, that means it also doesn't support linking to
     # sections, like "/post/foo/#bar". So if you want to support that, change the regex.
@@ -101,7 +102,7 @@ def main() -> None:
             if not path.split(".")[-1] in exts:
                 continue
             url = get_url(path)
-            if url.startswith(skip_prefix):
+            if any([url.startswith(p) for p in skip_prefixes]):
                 continue
             contents = read(path)
             res[url]["title"] = title(path, contents)
