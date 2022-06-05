@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>favicon</title>
-    <defs>
-        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
-            <stop stop-color="#F5AF19" offset="0%"></stop>
-            <stop stop-color="#F12711" offset="100%"></stop>
-        </linearGradient>
-    </defs>
     <g id="favicon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <circle id="Oval" fill="url(#linearGradient-1)" cx="35" cy="35" r="35"></circle>
-        <g id="M" transform="translate(14.000000, 23.000000)" fill="#FFFFFF" fill-rule="nonzero">
-            <polygon id="Path" points="0 0 12.39 0 20.9475 15.0084746 21.0525 15.0084746 29.6625 0 42 0 42 23 33.81 23 33.81 5.36016949 33.705 5.36016949 23.94 23 17.6925 23 8.295 5.36016949 8.19 5.36016949 8.19 23 0 23"></polygon>
+        <rect id="Rectangle" stroke="#FFFFFF" fill="#F36B15" x="19.5" y="22.5" width="49" height="43"></rect>
+        <path d="M51.2868778,5.5 L68.7686347,22.5 L19.7091962,22.5 L2.23117659,5.5 L51.2868778,5.5 Z" id="Polygon" stroke="#FFFFFF" fill="#F49217"></path>
+        <path d="M2.5,5.20518126 L19.5,22.1668223 L19.5,64.7943918 L2.5,47.8242443 L2.5,5.20518126 Z" id="Polygon-Copy" stroke="#FFFFFF" fill="#F25613"></path>
+        <g id="M" transform="translate(30.000000, 32.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <polygon id="Path" points="0 0 8.555 0 14.46375 15.6610169 14.53625 15.6610169 20.48125 0 29 0 29 24 23.345 24 23.345 5.59322034 23.2725 5.59322034 16.53 24 12.21625 24 5.7275 5.59322034 5.655 5.59322034 5.655 24 0 24"></polygon>
         </g>
     </g>
 </svg>
