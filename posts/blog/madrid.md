@@ -1,5 +1,5 @@
 ---
-title: Madrid
+title: Madrid, Cities Big and Small
 date: 2022-06-05
 image: /assets/blog/madrid/madrid-spain-4-perimeter.jpg
 ---
