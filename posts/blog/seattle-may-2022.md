@@ -1,7 +1,7 @@
 ---
 title: "Seattle: Nature Vibes, New Coffee, Largely Photoless"
 date: 2022-06-12
-image: /assets/blog/seattle-2022-05/turtle.jpg
+image: /assets/blog/seattle-2022-05/turtle.jpeg
 ---
 
 <div style="background-color: #FCEEE1" class="full-width mt5 mb4">
