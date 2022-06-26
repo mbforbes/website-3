@@ -1,7 +1,7 @@
 ---
 title: "Athens and Naxos"
 date: 2022-06-26
-# image:
+image: /assets/blog/athens/parthenon.jpeg
 ---
 
 _Note: I remain woefully behind, so fewer words for a couple posts._
