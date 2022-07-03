@@ -135,7 +135,7 @@ I originally began my meal planning with a spreadsheet. Looking up the calories 
 
 ![A screenshot of an early calorie counting spreadsheet I used.]({{ "/assets/posts/calorie-counting-meal-planning/spreadsheet-small.png" | url }})
 <p class="figcaption i">
-_I don't think I had all of the colors originally._
+I don't think I had all of the colors originally.
 </p>
 
 I think it’s helpful to have an early phase of looking up calories on your own, especially if you’re thinking about eventually using a service that does it for you. I can’t imagine anyone would like to count calories or pay for a meal planning subscription forever. But doing it manually for a few days or weeks gives you all kinds of surprising moments, as I mentioned above about Dairy Queen vs eggs. For the first time, you have an apples-to-apples tool to compare apples and oranges.[^10] More importantly, having a basic background understanding of calorie counts will serve you in the tens of thousands of decisions you make for the rest of your life. After all, we eat every day.
