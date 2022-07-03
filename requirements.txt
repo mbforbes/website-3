@@ -4,3 +4,7 @@ tqdm
 rich
 mbforbes_python_utils
 requests
+types-requests
+python-frontmatter
+mistune
+beautifulsoup4
