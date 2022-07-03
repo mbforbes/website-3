@@ -44,7 +44,7 @@ Even better, why don't we look at the last three years?
 
 ![]({{ "/assets/posts/weatherspread/belgrade-3.jpg" | url }})
 
-Ahh, fantastic! So it looks like there's a hance we'd have a good chunk of warm weather (albeit with some rain: the small bars extending below). But there's also a chance we could hit a week of 90s or even 100℉ weather! It's a risk.
+There's a chance we'd have a good chunk of warm weather (albeit with some rain: the small blue bars extending below). But there's also a chance we could hit a week of 90s or even 100℉ weather. It's a risk.
 
 If we might want to move our trip a month or two out, we can plot multiple months and compare them.
 
