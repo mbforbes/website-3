@@ -36,7 +36,7 @@ layout: "layouts/default.njk"
 {% endfor %}
 
 <h2>Projects<a name="projects"></a></h2>
-{% for post in collections.project %}
+{% for post in collections.project | sort(true, false, "date") %}
 <a href="{{ post.url | url }}" class="db pv1 link">
     <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }}</time>
     {{ post.data.title }}
