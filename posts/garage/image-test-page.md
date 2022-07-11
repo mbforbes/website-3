@@ -1,6 +1,7 @@
 ---
 title: Image test page
 date: 2022-07-10
+updated: 2022-07-11
 ---
 
 I want to experiment with wider layouts, so want to have HTML/CSS formulas for breaking out of the normal content flow.
@@ -121,6 +122,18 @@ For a desired 3x pixel density (width px: src 3k, disp 1k), its width needs to b
 </div>
 <p class="figcaption">ph3</p>
 
+## Max-width (centered) wider img, horizontal margins only on ~m+ sizes
+
+Desired behavior:
+- small (phone): no H margins (want to see as much of photo as possible)
+- medium: some H margins
+- large: bigger than photo, so margins don't matter
+
+<div class="full-width ph1-m ph3-l">
+<img src="/assets/garage/image-test-page/1000x500@3x.png" alt="1000x500" style="width: 1000px;">
+</div>
+<p class="figcaption">ph1-m ph3-l</p>
+
 
 ## Three images arranged wider than text
 
@@ -184,7 +197,7 @@ To get the images to stay closer to the center, you make the images `bare` and a
 </div>
 <p class="figcaption">justify-center + ph2; divs w/ ⅓, ph1, max-width (on divs); imgs bare</p>
 
-Turning up the padding is fine. Be careful going down the rabbit hole of trying to get consistent horizontal page margins, though. Because of symmetric padding on the image `<div>`s (which we need so the images are the same size and they aren't shifted L or R on the page), combined with overall padding, we end up in 0.5 Tachyon units (I think).
+Turning up the padding is fine. ~~Be careful going down the rabbit hole of trying to get consistent horizontal page margins, though. Because of symmetric padding on the image `<div>`s (which we need so the images are the same size and they aren't shifted L or R on the page), combined with overall padding, we end up in 0.5 Tachyon units (I think).~~ LOL went down rabbit hole. Turns out switching to margins makes this somehow all work beautifully, and don't even need `calc()` in the `max-width`s, because we're not affecting the image sizes now. (Next example still uses padding; house style uses margins.)
 
 <div class="full-width flex justify-center ph3">
 <div class="w-third ph2" style="max-width: calc(300px + 1rem);">
@@ -201,8 +214,110 @@ Turning up the padding is fine. Be careful going down the rabbit hole of trying 
 
 Regardless, we now have something that looks and works fine for 3 max-width'd imgs w/ some margins.
 
+Seeking a "house style" below:
+
+<div class="full-width flex justify-center">
+<div class="w-third ml1-m ml3-l" style="max-width: 300px;">
+<img class="bare" src="/assets/garage/image-test-page/300x400@3x.png" alt="300x400" style="">
+</div>
+<div class="w-third mh1" style="max-width: 300px;">
+<img class="bare" src="/assets/garage/image-test-page/300x400@3x.png" alt="300x400" style="">
+</div>
+<div class="w-third mr1-m mr3-l" style="max-width: 300px;">
+<img class="bare" src="/assets/garage/image-test-page/300x400@3x.png" alt="300x400" style="">
+</div>
+</div>
+<p class="figcaption">
+Margin 1 between images always. Page border is: nothing (small), 1 (m), 3 (l).
+</p>
+
+Testing this third house-style w/ larger images
+
+<div class="full-width flex justify-center">
+<div class="w-third ml1-m ml3-l" style="max-width: 512px;">
+<img class="bare" src="/assets/garage/image-test-page/512x683@3x.png" alt="512x683" style="">
+</div>
+<div class="w-third mh1" style="max-width: 512px;">
+<img class="bare" src="/assets/garage/image-test-page/512x683@3x.png" alt="512x683" style="">
+</div>
+<div class="w-third mr1-m mr3-l" style="max-width: 512px;">
+<img class="bare" src="/assets/garage/image-test-page/512x683@3x.png" alt="512x683" style="">
+</div>
+</div>
+<p class="figcaption">
+Margin 1 between images always. Page border is: nothing (small), 1 (m), 3 (l).
+</p>
+
+
+## Portrait and landscape w/ "house style"
+
+The following isn't working:
+
+<div class="full-width flex justify-center">
+<div class="w-third ml1-m ml3-l mr1" style="max-width: 704px;">
+<img class="bare" src="/assets/garage/image-test-page/704x939@3x.png" alt="704x939" style="">
+</div>
+<div class="w-two-thirds mr1-m mr3-l" style="max-width: 1252px;">
+<img class="bare" src="/assets/garage/image-test-page/1252x939@3x.png" alt="1252x939" style="">
+</div>
+</div>
+<p class="figcaption">
+Broken portrait & landscape (first image shrinks before & too much). Margin 1 between images always. Page border is: nothing (small), 1 (m), 3 (l).
+</p>
+
+While margins are fine, and the heights all match up at full size, but the height of the first image is shrinking before the second.
+
+Wild enough, removing the `<div>` third/two-third widths fixed.
+
+<div class="full-width flex justify-center">
+<div class="ml1-m ml3-l mr1" style="max-width: 704px;">
+<img class="bare" src="/assets/garage/image-test-page/704x939@3x.png" alt="704x939" style="">
+</div>
+<div class="mr1-m mr3-l" style="max-width: 1252px;">
+<img class="bare" src="/assets/garage/image-test-page/1252x939@3x.png" alt="1252x939" style="">
+</div>
+</div>
+<p class="figcaption">
+Fixed portrait & landscape. Margin 1 between images always. Page border is: nothing (small), 1 (m), 3 (l).
+</p>
+
+## Mixed sizes with house style
+
+<div class="full-width flex justify-center">
+<div class="ml1-m ml3-l mr1" style="max-width: 704px;">
+<img class="bare" src="/assets/garage/image-test-page/704x939@3x.png" alt="704x939" style="">
+</div>
+<div class="mr1-m mr3-l" style="max-width: 939px;">
+<img class="bare" src="/assets/garage/image-test-page/939x939@3x.png" alt="939x939" style="">
+</div>
+</div>
+
+Incredibly, this just works as well. My takeaway is to export things to be the same height and then let flexbox's basic layout take it away.
+
+## Rewrapping
+
+Simply adding `flex-wrap` to the container gives us a simple wrap, where elements are wrapped as soon as the row can't fit both at full size. We can add `novmargin` to the images and `mv4` to the container if we want them to wrap closely (moving the vertical margin to the overall block).
+
+<div class="full-width flex justify-center flex-wrap mv4">
+<div class="ml1-m ml3-l mr1" style="max-width: 704px;">
+<img class="bare novmargin" src="/assets/garage/image-test-page/704x939@3x.png" alt="704x939" style="">
+</div>
+<div class="mr1-m mr3-l" style="max-width: 939px;">
+<img class="bare novmargin" src="/assets/garage/image-test-page/939x939@3x.png" alt="939x939" style="">
+</div>
+</div>
+<p class="figcaption">
+Rewrapping w/ house style, but doing immediate when smaller than full size.
+</p>
+
+Ideally, I'd want to be able to choose to wrap only when they've shrunk to a certain size. In other words, we don't need the photos to be full size, but there might be a significantly smaller display size (like if it would only be 200px wide or something) for which we'd rather wrap.
+
+This might be possible using `display: grid` and `grid-template-columns: ...`, but TBD still. A couple resources:
+
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items#single-dimensional_layout_explained
+- https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns
+
 ## TBD
 
-- non-max-width'd 1/3 imgs with bigger margins (need to div-wrap too?)
-- mixed styles (e.g., one portrait, one landscape); should just work?
 - re-wrapping (could be helpful, maybe not worth effort if overly complicated)
+- ~~non-max-width'd 1/3 imgs with bigger margins (need to div-wrap too?)~~ --- _not needed RN; will always have a max width_
