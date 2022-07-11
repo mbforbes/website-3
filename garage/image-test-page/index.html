@@ -247,6 +247,17 @@ setColorScheme();
 <img src="/assets/garage/image-test-page/1000x500@3x.png" alt="1000x500" style="width: 1000px;">
 </div>
 <p class="figcaption">ph3</p>
+<h2 id="max-width-(centered)-wider-img-horizontal-margins-only-on-~m+-sizes" tabindex="-1">Max-width (centered) wider img, horizontal margins only on ~m+ sizes</h2>
+<a class="dn" href="#max-width-(centered)-wider-img-horizontal-margins-only-on-~m+-sizes"><span class="dn">Permalink to “Max-width (centered) wider img, horizontal margins only on ~m+ sizes”</span> <span aria-hidden="true">#</span></a><p>Desired behavior:</p>
+<ul>
+<li>small (phone): no H margins (want to see as much of photo as possible)</li>
+<li>medium: some H margins</li>
+<li>large: bigger than photo, so margins don’t matter</li>
+</ul>
+<div class="full-width ph1-m ph3-l">
+<img src="/assets/garage/image-test-page/1000x500@3x.png" alt="1000x500" style="width: 1000px;">
+</div>
+<p class="figcaption">ph1-m ph3-l</p>
 <h2 id="three-images-arranged-wider-than-text" tabindex="-1">Three images arranged wider than text</h2>
 <a class="dn" href="#three-images-arranged-wider-than-text"><span class="dn">Permalink to “Three images arranged wider than text”</span> <span aria-hidden="true">#</span></a><p>These each take up exactly 1/3:</p>
 <div class="full-width flex">
@@ -296,7 +307,7 @@ setColorScheme();
 </div>
 </div>
 <p class="figcaption">justify-center + ph2; divs w/ ⅓, ph1, max-width (on divs); imgs bare</p>
-<p>Turning up the padding is fine. Be careful going down the rabbit hole of trying to get consistent horizontal page margins, though. Because of symmetric padding on the image <code>&lt;div&gt;</code>s (which we need so the images are the same size and they aren’t shifted L or R on the page), combined with overall padding, we end up in 0.5 Tachyon units (I think).</p>
+<p>Turning up the padding is fine. <s>Be careful going down the rabbit hole of trying to get consistent horizontal page margins, though. Because of symmetric padding on the image <code>&lt;div&gt;</code>s (which we need so the images are the same size and they aren’t shifted L or R on the page), combined with overall padding, we end up in 0.5 Tachyon units (I think).</s> LOL went down rabbit hole. Turns out switching to margins makes this somehow all work beautifully, and don’t even need <code>calc()</code> in the <code>max-width</code>s, because we’re not affecting the image sizes now. (Next example still uses padding; house style uses margins.)</p>
 <div class="full-width flex justify-center ph3">
 <div class="w-third ph2" style="max-width: calc(300px + 1rem);">
 <img class="bare" src="/assets/garage/image-test-page/300x400@3x.png" alt="300x400" style="">
@@ -310,11 +321,95 @@ setColorScheme();
 </div>
 <p class="figcaption">justify-center + ph3; divs w/ ⅓, ph2, max-width (on divs); imgs bare</p>
 <p>Regardless, we now have something that looks and works fine for 3 max-width’d imgs w/ some margins.</p>
+<p>Seeking a “house style” below:</p>
+<div class="full-width flex justify-center">
+<div class="w-third ml1-m ml3-l" style="max-width: 300px;">
+<img class="bare" src="/assets/garage/image-test-page/300x400@3x.png" alt="300x400" style="">
+</div>
+<div class="w-third mh1" style="max-width: 300px;">
+<img class="bare" src="/assets/garage/image-test-page/300x400@3x.png" alt="300x400" style="">
+</div>
+<div class="w-third mr1-m mr3-l" style="max-width: 300px;">
+<img class="bare" src="/assets/garage/image-test-page/300x400@3x.png" alt="300x400" style="">
+</div>
+</div>
+<p class="figcaption">
+Margin 1 between images always. Page border is: nothing (small), 1 (m), 3 (l).
+</p>
+<p>Testing this third house-style w/ larger images</p>
+<div class="full-width flex justify-center">
+<div class="w-third ml1-m ml3-l" style="max-width: 512px;">
+<img class="bare" src="/assets/garage/image-test-page/512x683@3x.png" alt="512x683" style="">
+</div>
+<div class="w-third mh1" style="max-width: 512px;">
+<img class="bare" src="/assets/garage/image-test-page/512x683@3x.png" alt="512x683" style="">
+</div>
+<div class="w-third mr1-m mr3-l" style="max-width: 512px;">
+<img class="bare" src="/assets/garage/image-test-page/512x683@3x.png" alt="512x683" style="">
+</div>
+</div>
+<p class="figcaption">
+Margin 1 between images always. Page border is: nothing (small), 1 (m), 3 (l).
+</p>
+<h2 id="portrait-and-landscape-w-&quot;house-style&quot;" tabindex="-1">Portrait and landscape w/ “house style”</h2>
+<a class="dn" href="#portrait-and-landscape-w-&quot;house-style&quot;"><span class="dn">Permalink to “Portrait and landscape w/ “house style””</span> <span aria-hidden="true">#</span></a><p>The following isn’t working:</p>
+<div class="full-width flex justify-center">
+<div class="w-third ml1-m ml3-l mr1" style="max-width: 704px;">
+<img class="bare" src="/assets/garage/image-test-page/704x939@3x.png" alt="704x939" style="">
+</div>
+<div class="w-two-thirds mr1-m mr3-l" style="max-width: 1252px;">
+<img class="bare" src="/assets/garage/image-test-page/1252x939@3x.png" alt="1252x939" style="">
+</div>
+</div>
+<p class="figcaption">
+Broken portrait & landscape (first image shrinks before & too much). Margin 1 between images always. Page border is: nothing (small), 1 (m), 3 (l).
+</p>
+<p>While margins are fine, and the heights all match up at full size, but the height of the first image is shrinking before the second.</p>
+<p>Wild enough, removing the <code>&lt;div&gt;</code> third/two-third widths fixed.</p>
+<div class="full-width flex justify-center">
+<div class="ml1-m ml3-l mr1" style="max-width: 704px;">
+<img class="bare" src="/assets/garage/image-test-page/704x939@3x.png" alt="704x939" style="">
+</div>
+<div class="mr1-m mr3-l" style="max-width: 1252px;">
+<img class="bare" src="/assets/garage/image-test-page/1252x939@3x.png" alt="1252x939" style="">
+</div>
+</div>
+<p class="figcaption">
+Fixed portrait & landscape. Margin 1 between images always. Page border is: nothing (small), 1 (m), 3 (l).
+</p>
+<h2 id="mixed-sizes-with-house-style" tabindex="-1">Mixed sizes with house style</h2>
+<a class="dn" href="#mixed-sizes-with-house-style"><span class="dn">Permalink to “Mixed sizes with house style”</span> <span aria-hidden="true">#</span></a><div class="full-width flex justify-center">
+<div class="ml1-m ml3-l mr1" style="max-width: 704px;">
+<img class="bare" src="/assets/garage/image-test-page/704x939@3x.png" alt="704x939" style="">
+</div>
+<div class="mr1-m mr3-l" style="max-width: 939px;">
+<img class="bare" src="/assets/garage/image-test-page/939x939@3x.png" alt="939x939" style="">
+</div>
+</div>
+<p>Incredibly, this just works as well. My takeaway is to export things to be the same height and then let flexbox’s basic layout take it away.</p>
+<h2 id="rewrapping" tabindex="-1">Rewrapping</h2>
+<a class="dn" href="#rewrapping"><span class="dn">Permalink to “Rewrapping”</span> <span aria-hidden="true">#</span></a><p>Simply adding <code>flex-wrap</code> to the container gives us a simple wrap, where elements are wrapped as soon as the row can’t fit both at full size. We can add <code>novmargin</code> to the images and <code>mv4</code> to the container if we want them to wrap closely (moving the vertical margin to the overall block).</p>
+<div class="full-width flex justify-center flex-wrap mv4">
+<div class="ml1-m ml3-l mr1" style="max-width: 704px;">
+<img class="bare novmargin" src="/assets/garage/image-test-page/704x939@3x.png" alt="704x939" style="">
+</div>
+<div class="mr1-m mr3-l" style="max-width: 939px;">
+<img class="bare novmargin" src="/assets/garage/image-test-page/939x939@3x.png" alt="939x939" style="">
+</div>
+</div>
+<p class="figcaption">
+Rewrapping w/ house style, but doing immediate when smaller than full size.
+</p>
+<p>Ideally, I’d want to be able to choose to wrap only when they’ve shrunk to a certain size. In other words, we don’t need the photos to be full size, but there might be a significantly smaller display size (like if it would only be 200px wide or something) for which we’d rather wrap.</p>
+<p>This might be possible using <code>display: grid</code> and <code>grid-template-columns: ...</code>, but TBD still. A couple resources:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items#single-dimensional_layout_explained">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items#single-dimensional_layout_explained</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns">https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns</a></li>
+</ul>
 <h2 id="tbd" tabindex="-1">TBD</h2>
 <a class="dn" href="#tbd"><span class="dn">Permalink to “TBD”</span> <span aria-hidden="true">#</span></a><ul>
-<li>non-max-width’d 1/3 imgs with bigger margins (need to div-wrap too?)</li>
-<li>mixed styles (e.g., one portrait, one landscape); should just work?</li>
 <li>re-wrapping (could be helpful, maybe not worth effort if overly complicated)</li>
+<li><s>non-max-width’d 1/3 imgs with bigger margins (need to div-wrap too?)</s> — <em>not needed RN; will always have a max width</em></li>
 </ul>
 
       </div>
@@ -358,6 +453,15 @@ setColorScheme();
             </td>
         </tr>
 
+        
+            <tr class="striped-row">
+                <td class="pv2 ph3 ttu fw6">
+                    updated
+                </td>
+                <td class="pv2 ph3 ttu">
+                    11 Jul 2022
+                </td>
+            </tr>
         
 
         <tr class="striped-row">
