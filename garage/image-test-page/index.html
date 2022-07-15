@@ -170,12 +170,41 @@ setColorScheme();
 
       <div class="markdown-body">
         <p>I want to experiment with wider layouts, so want to have HTML/CSS formulas for breaking out of the normal content flow.</p>
-<h2 id="small-centered" tabindex="-1">Small, centered</h2>
+<h2 id="house-styles" tabindex="-1">House styles</h2>
+<a class="dn" href="#house-styles"><span class="dn">Permalink to “House styles”</span> <span aria-hidden="true">#</span></a><p>Copy-paste-able snippets for image arrangements.</p>
+<h3 id="one-image" tabindex="-1">One image</h3>
+<a class="dn" href="#one-image"><span class="dn">Permalink to “One image”</span> <span aria-hidden="true">#</span></a><div class="full-width ph1-m ph3-l">
+<img src="/assets/garage/image-test-page/1000x500@3x.png" style="max-height: 500px;">
+</div>
+<h3 id="two-images" tabindex="-1">Two images</h3>
+<a class="dn" href="#two-images"><span class="dn">Permalink to “Two images”</span> <span aria-hidden="true">#</span></a><div class="full-width flex justify-center mv5">
+<div class="ml1-m ml3-l mr1">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/704x939@3x.png" style="max-height: 939px;">
+</div>
+<div class="mr1-m mr3-l">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/939x939@3x.png" style="max-height: 939px;">
+</div>
+</div>
+<h3 id="three-images" tabindex="-1">Three images</h3>
+<a class="dn" href="#three-images"><span class="dn">Permalink to “Three images”</span> <span aria-hidden="true">#</span></a><div class="full-width flex justify-center mv5">
+<div class="ml1-m ml3-l">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
+</div>
+<div class="mh1">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
+</div>
+<div class="mr1-m mr3-l">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
+</div>
+</div>
+<h2 id="workbook" tabindex="-1">Workbook</h2>
+<a class="dn" href="#workbook"><span class="dn">Permalink to “Workbook”</span> <span aria-hidden="true">#</span></a><p>My process of working through getting the house styles.</p>
+<h3 id="small-centered" tabindex="-1">Small, centered</h3>
 <a class="dn" href="#small-centered"><span class="dn">Permalink to “Small, centered”</span> <span aria-hidden="true">#</span></a><p>This image should be smaller than the main page flow, so should be centered.</p>
 <p><img src="/assets/garage/image-test-page/256x256.png" alt="256"></p>
 <p>The next one should also be smaller and centered.</p>
 <p><img src="/assets/garage/image-test-page/500x500.png" alt="500"></p>
-<h2 id="pixel-density" tabindex="-1">Pixel density</h2>
+<h3 id="pixel-density" tabindex="-1">Pixel density</h3>
 <a class="dn" href="#pixel-density"><span class="dn">Permalink to “Pixel density”</span> <span aria-hidden="true">#</span></a><p>This image should display at 256. The source is 768. For displays that use higher pixel densities (e.g., retina displays, most phones), it should be crisp.</p>
 <img src="/assets/garage/image-test-page/768x768-d256.png" alt="768-d256" width="256">
 <p>To compare two side-by-side, the following images are both displayed at 256 x 256 pixels, but their source images are:</p>
@@ -208,7 +237,7 @@ setColorScheme();
 <p class="figcaption">@4x</p>
 </div>
 </div>
-<h2 id="text-width-image-pixel-density" tabindex="-1">Text width image, pixel density</h2>
+<h3 id="text-width-image-pixel-density" tabindex="-1">Text width image, pixel density</h3>
 <a class="dn" href="#text-width-image-pixel-density"><span class="dn">Permalink to “Text width image, pixel density”</span> <span aria-hidden="true">#</span></a><p>Even without manually specifying a width (as we did in the above pixel density test), we expect the page width clamping to have the same effect, and higher pixel count images to be crisper.</p>
 <p>The current full width of the layout is 704px.</p>
 <p>The following image is 704 x 704 px, rendered at that size on the page.</p>
@@ -217,10 +246,10 @@ setColorScheme();
 <p><img src="/assets/garage/image-test-page/704x704@3x.png" alt="704"></p>
 <p>Excellent.</p>
 <p>We could go to 4x for future-proofing, but I think there is diminishing returns, even with devices.</p>
-<h2 id="full-width-image" tabindex="-1">Full-width image</h2>
+<h3 id="full-width-image" tabindex="-1">Full-width image</h3>
 <a class="dn" href="#full-width-image"><span class="dn">Permalink to “Full-width image”</span> <span aria-hidden="true">#</span></a><p>This image will take up the full width of the page no matter what size the image or the page is. (My screen only goes up to 1680px width.) It will have no horizontal margins.</p>
 <img class="bare full-width" src="/assets/garage/image-test-page/1680x945@3x.png" alt="1680x945">
-<h2 id="full-width-image-with-horizontal-margins" tabindex="-1">Full-width image, with horizontal margins</h2>
+<h3 id="full-width-image-with-horizontal-margins" tabindex="-1">Full-width image, with horizontal margins</h3>
 <a class="dn" href="#full-width-image-with-horizontal-margins"><span class="dn">Permalink to “Full-width image, with horizontal margins”</span> <span aria-hidden="true">#</span></a><p>See next section for technique notes. (These images aren’t width-limited, so they may go past 1500px width.)</p>
 <div class="full-width ph2">
 <img class="" src="/assets/garage/image-test-page/1500x300@3x.png" alt="1500x300">
@@ -234,20 +263,20 @@ setColorScheme();
 <img class="" src="/assets/garage/image-test-page/1500x300@3x.png" alt="1500x300">
 <p class="figcaption">ph4</p>
 </div>
-<h2 id="wider-than-text-width-centered-image" tabindex="-1">Wider-than-text width centered image</h2>
+<h3 id="wider-than-text-width-centered-image" tabindex="-1">Wider-than-text width centered image</h3>
 <a class="dn" href="#wider-than-text-width-centered-image"><span class="dn">Permalink to “Wider-than-text width centered image”</span> <span aria-hidden="true">#</span></a><p>While the page width is ≤ the image width, this image will take up the full width of the page with no horizontal margin. Once the page is wider than the image, it will be centered in the page with equal horizontal margins.</p>
 <div class="full-width">
 <img src="/assets/garage/image-test-page/1000x500@3x.png" alt="1000x500" style="width: 1000px;">
 </div>
 <p>We achieve the breakout by using the <code>.full-width</code> CSS class designed for full-width images, but we instead put it on a parent <code>&lt;div&gt;</code> to the image. This <code>&lt;div&gt;</code> then takes up the full screen width, and the image is free to position inside it.</p>
 <p>For a desired 3x pixel density (width px: src 3k, disp 1k), its width needs to be manually limited, or it will, by default, be displayed at its true “size” and a lower pixel density. This can be accomplished with the attribute <code>width=&quot;1000&quot;</code> or <code>style=&quot;width: 1000px;&quot;</code></p>
-<h2 id="wider-than-text-width-centered-image-horizontal-margins" tabindex="-1">Wider-than-text width centered image, horizontal margins</h2>
+<h3 id="wider-than-text-width-centered-image-horizontal-margins" tabindex="-1">Wider-than-text width centered image, horizontal margins</h3>
 <a class="dn" href="#wider-than-text-width-centered-image-horizontal-margins"><span class="dn">Permalink to “Wider-than-text width centered image, horizontal margins”</span> <span aria-hidden="true">#</span></a><p>… as needed as the page shrinks.</p>
 <div class="full-width ph3">
 <img src="/assets/garage/image-test-page/1000x500@3x.png" alt="1000x500" style="width: 1000px;">
 </div>
 <p class="figcaption">ph3</p>
-<h2 id="max-width-(centered)-wider-img-horizontal-margins-only-on-~m+-sizes" tabindex="-1">Max-width (centered) wider img, horizontal margins only on ~m+ sizes</h2>
+<h3 id="max-width-(centered)-wider-img-horizontal-margins-only-on-~m+-sizes" tabindex="-1">Max-width (centered) wider img, horizontal margins only on ~m+ sizes</h3>
 <a class="dn" href="#max-width-(centered)-wider-img-horizontal-margins-only-on-~m+-sizes"><span class="dn">Permalink to “Max-width (centered) wider img, horizontal margins only on ~m+ sizes”</span> <span aria-hidden="true">#</span></a><p>Desired behavior:</p>
 <ul>
 <li>small (phone): no H margins (want to see as much of photo as possible)</li>
@@ -258,7 +287,7 @@ setColorScheme();
 <img src="/assets/garage/image-test-page/1000x500@3x.png" alt="1000x500" style="width: 1000px;">
 </div>
 <p class="figcaption">ph1-m ph3-l</p>
-<h2 id="three-images-arranged-wider-than-text" tabindex="-1">Three images arranged wider than text</h2>
+<h3 id="three-images-arranged-wider-than-text" tabindex="-1">Three images arranged wider than text</h3>
 <a class="dn" href="#three-images-arranged-wider-than-text"><span class="dn">Permalink to “Three images arranged wider than text”</span> <span aria-hidden="true">#</span></a><p>These each take up exactly 1/3:</p>
 <div class="full-width flex">
 <img class="w-third" src="/assets/garage/image-test-page/512x683@3x.png" alt="512x683" style="">
@@ -351,7 +380,19 @@ Margin 1 between images always. Page border is: nothing (small), 1 (m), 3 (l).
 <p class="figcaption">
 Margin 1 between images always. Page border is: nothing (small), 1 (m), 3 (l).
 </p>
-<h2 id="portrait-and-landscape-w-&quot;house-style&quot;" tabindex="-1">Portrait and landscape w/ “house style”</h2>
+<p>Simplifying from later findings; I think we don’t need <code>w-third</code> at all.</p>
+<div class="full-width flex justify-center">
+<div class="ml1-m ml3-l" style="max-width: 512px;">
+<img class="bare" src="/assets/garage/image-test-page/512x683@3x.png">
+</div>
+<div class="mh1" style="max-width: 512px;">
+<img class="bare" src="/assets/garage/image-test-page/512x683@3x.png">
+</div>
+<div class="mr1-m mr3-l" style="max-width: 512px;">
+<img class="bare" src="/assets/garage/image-test-page/512x683@3x.png">
+</div>
+</div>
+<h3 id="portrait-and-landscape-w-&quot;house-style&quot;" tabindex="-1">Portrait and landscape w/ “house style”</h3>
 <a class="dn" href="#portrait-and-landscape-w-&quot;house-style&quot;"><span class="dn">Permalink to “Portrait and landscape w/ “house style””</span> <span aria-hidden="true">#</span></a><p>The following isn’t working:</p>
 <div class="full-width flex justify-center">
 <div class="w-third ml1-m ml3-l mr1" style="max-width: 704px;">
@@ -377,7 +418,7 @@ Broken portrait & landscape (first image shrinks before & too much). Margin 1 be
 <p class="figcaption">
 Fixed portrait & landscape. Margin 1 between images always. Page border is: nothing (small), 1 (m), 3 (l).
 </p>
-<h2 id="mixed-sizes-with-house-style" tabindex="-1">Mixed sizes with house style</h2>
+<h3 id="mixed-sizes-with-house-style" tabindex="-1">Mixed sizes with house style</h3>
 <a class="dn" href="#mixed-sizes-with-house-style"><span class="dn">Permalink to “Mixed sizes with house style”</span> <span aria-hidden="true">#</span></a><div class="full-width flex justify-center">
 <div class="ml1-m ml3-l mr1" style="max-width: 704px;">
 <img class="bare" src="/assets/garage/image-test-page/704x939@3x.png" alt="704x939" style="">
@@ -387,7 +428,19 @@ Fixed portrait & landscape. Margin 1 between images always. Page border is: noth
 </div>
 </div>
 <p>Incredibly, this just works as well. My takeaway is to export things to be the same height and then let flexbox’s basic layout take it away.</p>
-<h2 id="rewrapping" tabindex="-1">Rewrapping</h2>
+<h3 id="other-little-tricks" tabindex="-1">Other little tricks</h3>
+<a class="dn" href="#other-little-tricks"><span class="dn">Permalink to “Other little tricks”</span> <span aria-hidden="true">#</span></a><ul>
+<li>
+<p>make images <code>db</code> (i.e., <code>display: block</code>) so that divs don’t leave little bits of extra space apparently <a href="https://stackoverflow.com/questions/19212352/div-height-based-on-child-image-height-adds-few-extra-pixels-at-the-bottom">for descender elements</a></p>
+</li>
+<li>
+<p>accordingly, then add <code>mv1</code> when doing grids for vertical spacing</p>
+</li>
+<li>
+<p>… and relatedly, don’t forget to add <code>novmargin</code> to the images so that the margins can be controlled with the containing <code>&lt;div&gt;</code>s</p>
+</li>
+</ul>
+<h3 id="rewrapping" tabindex="-1">Rewrapping</h3>
 <a class="dn" href="#rewrapping"><span class="dn">Permalink to “Rewrapping”</span> <span aria-hidden="true">#</span></a><p>Simply adding <code>flex-wrap</code> to the container gives us a simple wrap, where elements are wrapped as soon as the row can’t fit both at full size. We can add <code>novmargin</code> to the images and <code>mv4</code> to the container if we want them to wrap closely (moving the vertical margin to the overall block).</p>
 <div class="full-width flex justify-center flex-wrap mv4">
 <div class="ml1-m ml3-l mr1" style="max-width: 704px;">
@@ -403,10 +456,10 @@ Rewrapping w/ house style, but doing immediate when smaller than full size.
 <p>Ideally, I’d want to be able to choose to wrap only when they’ve shrunk to a certain size. In other words, we don’t need the photos to be full size, but there might be a significantly smaller display size (like if it would only be 200px wide or something) for which we’d rather wrap.</p>
 <p>This might be possible using <code>display: grid</code> and <code>grid-template-columns: ...</code>, but TBD still. A couple resources:</p>
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items#single-dimensional_layout_explained">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items#single-dimensional_layout_explained</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns">https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items#single-dimensional_layout_explained">item wrapping</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns">grid template cols</a></li>
 </ul>
-<h2 id="tbd" tabindex="-1">TBD</h2>
+<h3 id="tbd" tabindex="-1">TBD</h3>
 <a class="dn" href="#tbd"><span class="dn">Permalink to “TBD”</span> <span aria-hidden="true">#</span></a><ul>
 <li>re-wrapping (could be helpful, maybe not worth effort if overly complicated)</li>
 <li><s>non-max-width’d 1/3 imgs with bigger margins (need to div-wrap too?)</s> — <em>not needed RN; will always have a max width</em></li>
@@ -459,7 +512,7 @@ Rewrapping w/ house style, but doing immediate when smaller than full size.
                     updated
                 </td>
                 <td class="pv2 ph3 ttu">
-                    11 Jul 2022
+                    14 Jul 2022
                 </td>
             </tr>
         
