@@ -1,12 +1,53 @@
 ---
 title: Image test page
 date: 2022-07-10
-updated: 2022-07-11
+updated: 2022-07-14
 ---
 
 I want to experiment with wider layouts, so want to have HTML/CSS formulas for breaking out of the normal content flow.
 
-## Small, centered
+## House styles
+
+Copy-paste-able snippets for image arrangements.
+
+### One image
+
+<div class="full-width ph1-m ph3-l">
+<img src="/assets/garage/image-test-page/1000x500@3x.png" style="max-height: 500px;">
+</div>
+
+### Two images
+
+<div class="full-width flex justify-center mv5">
+<div class="ml1-m ml3-l mr1">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/704x939@3x.png" style="max-height: 939px;">
+</div>
+<div class="mr1-m mr3-l">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/939x939@3x.png" style="max-height: 939px;">
+</div>
+</div>
+
+### Three images
+
+<div class="full-width flex justify-center mv5">
+<div class="ml1-m ml3-l">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
+</div>
+<div class="mh1">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
+</div>
+<div class="mr1-m mr3-l">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
+</div>
+</div>
+
+
+
+## Workbook
+
+My process of working through getting the house styles.
+
+### Small, centered
 
 This image should be smaller than the main page flow, so should be centered.
 
@@ -16,7 +57,7 @@ The next one should also be smaller and centered.
 
 ![500](/assets/garage/image-test-page/500x500.png)
 
-## Pixel density
+### Pixel density
 
 This image should display at 256. The source is 768. For displays that use higher pixel densities (e.g., retina displays, most phones), it should be crisp.
 
@@ -56,7 +97,7 @@ I use 3x for all higher-pixel-density images on this page simply because that's 
 </div>
 
 
-## Text width image, pixel density
+### Text width image, pixel density
 
 Even without manually specifying a width (as we did in the above pixel density test), we expect the page width clamping to have the same effect, and higher pixel count images to be crisper.
 
@@ -74,13 +115,13 @@ Excellent.
 
 We could go to 4x for future-proofing, but I think there is diminishing returns, even with devices.
 
-## Full-width image
+### Full-width image
 
 This image will take up the full width of the page no matter what size the image or the page is. (My screen only goes up to 1680px width.) It will have no horizontal margins.
 
 <img class="bare full-width" src="/assets/garage/image-test-page/1680x945@3x.png" alt="1680x945">
 
-## Full-width image, with horizontal margins
+### Full-width image, with horizontal margins
 
 See next section for technique notes. (These images aren't width-limited, so they may go past 1500px width.)
 
@@ -100,7 +141,7 @@ See next section for technique notes. (These images aren't width-limited, so the
 </div>
 
 
-## Wider-than-text width centered image
+### Wider-than-text width centered image
 
 While the page width is ≤ the image width, this image will take up the full width of the page with no horizontal margin. Once the page is wider than the image, it will be centered in the page with equal horizontal margins.
 
@@ -112,7 +153,7 @@ We achieve the breakout by using the `.full-width` CSS class designed for full-w
 
 For a desired 3x pixel density (width px: src 3k, disp 1k), its width needs to be manually limited, or it will, by default, be displayed at its true "size" and a lower pixel density. This can be accomplished with the attribute `width="1000"` or `style="width: 1000px;"`
 
-## Wider-than-text width centered image, horizontal margins
+### Wider-than-text width centered image, horizontal margins
 
 ... as needed as the page shrinks.
 
@@ -122,7 +163,7 @@ For a desired 3x pixel density (width px: src 3k, disp 1k), its width needs to b
 </div>
 <p class="figcaption">ph3</p>
 
-## Max-width (centered) wider img, horizontal margins only on ~m+ sizes
+### Max-width (centered) wider img, horizontal margins only on ~m+ sizes
 
 Desired behavior:
 - small (phone): no H margins (want to see as much of photo as possible)
@@ -135,7 +176,7 @@ Desired behavior:
 <p class="figcaption">ph1-m ph3-l</p>
 
 
-## Three images arranged wider than text
+### Three images arranged wider than text
 
 These each take up exactly 1/3:
 
@@ -248,8 +289,22 @@ Testing this third house-style w/ larger images
 Margin 1 between images always. Page border is: nothing (small), 1 (m), 3 (l).
 </p>
 
+Simplifying from later findings; I think we don't need `w-third` at all.
 
-## Portrait and landscape w/ "house style"
+<div class="full-width flex justify-center">
+<div class="ml1-m ml3-l" style="max-width: 512px;">
+<img class="bare" src="/assets/garage/image-test-page/512x683@3x.png">
+</div>
+<div class="mh1" style="max-width: 512px;">
+<img class="bare" src="/assets/garage/image-test-page/512x683@3x.png">
+</div>
+<div class="mr1-m mr3-l" style="max-width: 512px;">
+<img class="bare" src="/assets/garage/image-test-page/512x683@3x.png">
+</div>
+</div>
+
+
+### Portrait and landscape w/ "house style"
 
 The following isn't working:
 
@@ -281,7 +336,7 @@ Wild enough, removing the `<div>` third/two-third widths fixed.
 Fixed portrait & landscape. Margin 1 between images always. Page border is: nothing (small), 1 (m), 3 (l).
 </p>
 
-## Mixed sizes with house style
+### Mixed sizes with house style
 
 <div class="full-width flex justify-center">
 <div class="ml1-m ml3-l mr1" style="max-width: 704px;">
@@ -294,7 +349,15 @@ Fixed portrait & landscape. Margin 1 between images always. Page border is: noth
 
 Incredibly, this just works as well. My takeaway is to export things to be the same height and then let flexbox's basic layout take it away.
 
-## Rewrapping
+### Other little tricks
+
+- make images `db` (i.e., `display: block`) so that divs don't leave little bits of extra space apparently [for descender elements](https://stackoverflow.com/questions/19212352/div-height-based-on-child-image-height-adds-few-extra-pixels-at-the-bottom)
+
+- accordingly, then add `mv1` when doing grids for vertical spacing
+
+- ... and relatedly, don't forget to add `novmargin` to the images so that the margins can be controlled with the containing `<div>`s
+
+### Rewrapping
 
 Simply adding `flex-wrap` to the container gives us a simple wrap, where elements are wrapped as soon as the row can't fit both at full size. We can add `novmargin` to the images and `mv4` to the container if we want them to wrap closely (moving the vertical margin to the overall block).
 
@@ -314,10 +377,10 @@ Ideally, I'd want to be able to choose to wrap only when they've shrunk to a cer
 
 This might be possible using `display: grid` and `grid-template-columns: ...`, but TBD still. A couple resources:
 
-- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items#single-dimensional_layout_explained
-- https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns
+- [item wrapping](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items#single-dimensional_layout_explained)
+- [grid template cols](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns)
 
-## TBD
+### TBD
 
 - re-wrapping (could be helpful, maybe not worth effort if overly complicated)
 - ~~non-max-width'd 1/3 imgs with bigger margins (need to div-wrap too?)~~ --- _not needed RN; will always have a max width_
