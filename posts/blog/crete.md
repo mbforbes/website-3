@@ -1,6 +1,6 @@
 ---
 title: Crete
-date: 2022-07-14
+date: 2022-07-15
 image: /assets/blog/crete/cover-water.jpeg
 ---
 
