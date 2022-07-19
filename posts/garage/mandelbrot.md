@@ -22,10 +22,10 @@ I finally read about the Mandelbrot set and tried implementing it.
 <script defer src="{{ "/assets/lib/three-r131.min.js" | url }}"></script>
 <script defer src="{{ "/assets/lib/p5-1.4.0.min.js" | url }}"></script>
 <script defer src="{{ "/assets/p5js/05-mandelbrot.js" | url }}"></script>
-<div id="parent" class="mt5 mb5 tc custom-full-width">
+<div id="parent" class="fig tc custom-full-width">
 </div>
 <p class="figcaption">
-Not an image. Generated live in your browser.
+Above image generated live in your browser at page load.
 </p>
 
 
@@ -49,7 +49,7 @@ Next, implementation with a shader, fast enough to run in real time. Click to zo
     const CODE_RESOURCE_PREFIX = "/assets/p5js/"
 </script>
 <script defer src="{{ "/assets/p5js/06-mandelbrot-shader/06-mandelbrot-shader.js" | url }}"></script>
-<div id="parent2" class="mt5 mb5 tc custom-full-width">
+<div id="parent2" class="fig tc custom-full-width">
 </div>
 <p class="figcaption">
 Red tent achieved by computing colors in HSL, keeping hue and saturation constant to pick the desired color, and setting the lightness to the Mandelbrot breakout iteration.

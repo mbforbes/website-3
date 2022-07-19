@@ -18,11 +18,11 @@ Let’s jump right to some examples.
 
 One talk really sticks out to me in its great use of examples.
 
-<div class="aspect-ratio aspect-ratio--16x9 narrow">
+<div class="aspect-ratio aspect-ratio--16x9 narrow fig">
 	<iframe  src="https://www.youtube.com/embed/Mw0h9WmBlsw" frameborder="0" class="aspect-ratio--object" allowfullscreen></iframe>
 </div>
 
-<p class="tr gray i">
+<p class="figcaption">
 Making Fluid and Powerful Animations For Skullgirls<br />(Mariel Cartwright, 2014)
 </p>
 

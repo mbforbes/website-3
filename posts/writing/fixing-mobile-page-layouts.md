@@ -98,7 +98,7 @@ Does the page look like a desktop site zoomed way out? You might need to tell we
 
 In action, this makes the following change:
 
-<div class="flex items-center mv4">
+<div class="flex items-center">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
 <div class="mh2 mh3-ns" style="flex-grow: 1">
   <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100">
@@ -114,7 +114,7 @@ Now the text renders into a more reasonable area. This makes the font look bigge
 
 Over-wide elements are easy to miss even from your phone, because your phone might mask them with a horizontal scroll bar. If you accidentally scroll right, though, you'll fly off the content.
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide-diagnose-1.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide-diagnose-2.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
 </div>
@@ -123,7 +123,7 @@ Over-wide elements are easy to miss even from your phone, because your phone mig
 
 Once you notice this happens, you can pinch to zoom out and survey the mess. Some element is probably too wide. Find the culprit.
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide2-before.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide-before-annotated.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
 </div>
@@ -141,7 +141,7 @@ pre {
 
 This solves it. Here's the before and after.
 
-<div class="flex items-center mv4">
+<div class="flex items-center">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide-before.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
 <div class="mh2 mh3-ns" style="flex-grow: 1">
   <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100">
@@ -151,7 +151,7 @@ This solves it. Here's the before and after.
 
 No more scroll bar, and the width is correct. This section is a bit weird because of overly wide indentation. Here's the same result on body text.
 
-<div class="flex items-center mv4">
+<div class="flex items-center">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide2-before.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
 <div class="mh2 mh3-ns" style="flex-grow: 1">
   <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100">
@@ -193,7 +193,7 @@ There are a few bits of low hanging fruit that will make a page go from function
 
 We can apply all these changes to our running example.
 
-<div class="flex items-center mv4">
+<div class="flex items-center">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/4-body.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
 <div class="mh2 mh3-ns" style="flex-grow: 1">
   <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100">
@@ -217,7 +217,7 @@ Furthermore, sometimes the browser simulators are just plain wrong. In fact, our
 
 Click on any picture to jump to the walkthrough for fixing the mobile layout on that page.
 
-<div class="flex items-center flex-wrap mv4">
+<div class="flex items-center flex-wrap">
 
   <div class="w-third w-25-ns tc ph1 ph2-ns mb1 mb2-ns">
     <a href="#gitbestpractices">
@@ -269,7 +269,7 @@ Now, I can't be too hard on the designer.[^designer] First, the page is from 201
 
 Second, it's actually kind of hard to tell this was going to happen. Normally, I would guess that they simply didn't test it using developer tools. But if you ask Chrome and Safari what the page should look like on an iPhone X, they both say, "just fine:"
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-chrome.jpg" | url }}" class="pr2 pr3-ns flex-auto">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-safari.jpg" | url }}" class="flex-auto">
 </div>
@@ -310,7 +310,7 @@ For the final tweaks ([fix #3](#typography)), we apply:
 
 Apply them all, here's the before/after.
 
-<div class="flex items-center mv4">
+<div class="flex items-center">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
 <div class="mh2 mh3-ns" style="flex-grow: 1">
   <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100">
@@ -334,7 +334,7 @@ If we wanted to, one last thing I'd tweak is the indentation, which is so comica
 
 This page is called [Poisson's Equation is the Most Powerful Tool not yet in your Toolbox](https://mattferraro.dev/posts/poissons-equation). The page's viewport seems good, but you can accidentally scroll to the right, revealing a bigger page and likely overly wide elements ([fix #2](#over-wide)).
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-start.png" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-start-out.png" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
 </div>
@@ -344,7 +344,7 @@ This page is called [Poisson's Equation is the Most Powerful Tool not yet in you
 
 If we scroll down, we can see the worst offenders are, again, over-wide `<pre>` regions for code. They are already the correct width, but when their content overflows, it spills out.
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-overwide.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-pre-box.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
 </div>
@@ -360,7 +360,7 @@ pre {
 
 ... but rendered math is still an issue. Like the `<pre>` chunks, they're also set to a good width, but spill out.
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-pre-done-annotated.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-math-box.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>
@@ -383,7 +383,7 @@ If I were to add finishing touches, the two things I'd tweak would be the code a
 
 The font size for code blocks is bigger than it needs to be ([fix #3](#typography)) and lacks syntax highlighting. If we make those two changes and then reduce the indentation from four to two spaces, we can even fit all the code without any scrolling---we just need to wrap two of the comments.
 
-<div class="flex items-center mv4">
+<div class="flex items-center">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-extra-code.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
 <div class="mh2 mh3-ns" style="flex-grow: 1">
   <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100">
@@ -403,7 +403,7 @@ As I mentioned above, Apple's browser seems to go out of its way to hide scroll 
 
 In short, I couldn't robustly figure this out. Using the `::-webkit-scrollbar` CSS selector, I could get really big chonky ones to always appear on Chrome, but not using Safari on my phone. [Mozilla says this feature isn't standardized yet](https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar), but that it should work on Safari and all iOS browsers 🤷‍♂️
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-want-scrollbars.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-big-scrollbars.png" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>
@@ -416,7 +416,7 @@ In short, I couldn't robustly figure this out. Using the `::-webkit-scrollbar` C
 
 This page is called [F# Is The Best Coding Language Today](https://danielbmarkham.com/fsharp-is-the-best-programming-language-today/). Once again, a good viewport, but an over-wide `<pre>` code block. Jeez, what is it with these code blocks?
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/f-sharp-orig.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/f-sharp-orig-code.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>
@@ -440,7 +440,7 @@ max-width: 100%;
 font-size: 14px;
 ```
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/f-sharp-fixed.png" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/f-sharp-fixed-code.png" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>
@@ -460,7 +460,7 @@ Nothing else major here, but I would wrap the comments in the code earlier so we
 
 This page is called [Automated Hydroponic System Build](https://kylegabriel.com/projects/2020/06/automated-hydroponic-system-build.html). In a crazy turn of events, 🚨 _it's not code in a `<pre>` block this time!_ 🚨 This page actually contains pretty huge chunks of code, but they all obey the body width. What's the issue, then?
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/hydroponic-start.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/hydroponic-problem.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>
@@ -479,7 +479,7 @@ I checked out the source, and saw each comment has `class="comment-body"`. So if
 
 ... then everything is groovy.
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/hydroponic-start-fixed.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/hydroponic-problem-fixed.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>
@@ -490,7 +490,7 @@ I checked out the source, and saw each comment has `class="comment-body"`. So if
 
 This page is called [What are Diffusion Models?](https://lilianweng.github.io/lil-log/2021/07/11/diffusion-models.html) This time, it's pesky math again, stretching a good viewport too wide.
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/diffusion-start.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/diffusion-problem.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>
@@ -505,7 +505,7 @@ We can tell MathJax to stay in its lane ([fix #2](#over-wide)) by adding the CSS
 
 ... and the page is back in its box.
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/diffusion-start-fixed.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="{{ "/assets/posts/fixing-mobile-page-layouts/diffusion-problem-fixed.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>

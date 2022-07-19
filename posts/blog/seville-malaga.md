@@ -5,11 +5,11 @@ image: /assets/blog/seville/plaza.jpeg
 ---
 
 
-<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<div style="background-color: #FCEEE1" class="full-width">
 <img class="content-width" src="{{ "/assets/blog/seville/seville-spain-28-perimeter.jpg" | url }}">
 </div>
 
-<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+<p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 <!-- There's <a href="/garage/city-maps-with-prettymaps/#no-water">supposed to be water</a> flowing through that empty area. -->
 </p>
@@ -56,11 +56,11 @@ _Tinto de verano:_
 
 ## Málaga[^english]
 
-<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<div style="background-color: #FCEEE1" class="full-width">
 <img class="content-width" src="{{ "/assets/blog/malaga/malaga-spain-2-perimeter.jpg" | url }}">
 </div>
 
-<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+<p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 </p>
 
@@ -86,7 +86,7 @@ The average fruit or vegetable that we've tried from the supermarket has equalle
 
 [^size]: Here's a crackpot theory about produce size that I haven't even Googled: bigger produce is simply waterier. I have no evidence for this, other than that winemakers seem to talk about tortured grapes (i.e., from dry years) being more concentrated with flavor. There are probably other things going on too, like different varieties (varietals?) (i.e., species?) of produce. Also, they were way riper in the stores---like about-to-get-destroyed-by-mold-and-fruit-flies ripe. But could it be that, somehow, one fruit has a fixed amount of flavor, which becomes more spread when it is grown to be larger? As I write that out, it doesn't really make sense, so maybe disregard this. Anyway, if it's true, and if USA produce is bigger because of GMOs, then maybe I should change my attitude about GMOs from "who cares?" to "well they taste worse so maybe that's bad?"
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/blog/malaga/produce.jpeg" | url }}" class="bare mh2 flex-auto">
 <img src="{{ "/assets/blog/malaga/chickens.jpeg" | url }}" class="bare mh2 flex-auto">
 </div>
@@ -112,14 +112,14 @@ It's spooky, and I don't know if it's because I'm getting older or something els
 
 ![]({{ "/assets/blog/malaga/bamboo.jpeg" | url }})
 
-<div class="flex mt4 mb3">
+<div class="flex">
 <img src="{{ "/assets/blog/malaga/hot-dog-tree.jpeg" | url }}" class="bare mh2 flex-auto">
 <img src="{{ "/assets/blog/malaga/hot-dog-tree-fingers.jpeg" | url }}" class="bare mh2 flex-auto">
 </div>
 
 <p class="figcaption">Check out this <a href="https://en.wikipedia.org/wiki/Everything_Everywhere_All_at_Once">hot dog fingers</a> tree.</p>
 
-<div class="flex mt4 mb3">
+<div class="flex">
 <img src="{{ "/assets/blog/malaga/colorful-plant.jpeg" | url }}" class="bare mh2 flex-auto">
 <img src="{{ "/assets/blog/malaga/green-plant.jpeg" | url }}" class="bare mh2 flex-auto">
 </div>
@@ -128,7 +128,7 @@ It's spooky, and I don't know if it's because I'm getting older or something els
 
 One thing I was curious about in Málaga was the river (canal?) that should flow through the city is completely dried up. And it looks like its been that way for a while, given the amount of vegetation in some spots. There was even an impromptu stake park somewhere in there---brilliant.
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/blog/malaga/riverbed-dirt.jpeg" | url }}" class="bare mh2 flex-auto">
 <img src="{{ "/assets/blog/malaga/riverbed-green.jpeg" | url }}" class="bare mh2 flex-auto">
 </div>

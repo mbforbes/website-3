@@ -13,11 +13,11 @@ We mainly stayed in the Spanish side.
 
 ## Bilbao
 
-<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<div style="background-color: #FCEEE1" class="full-width">
 <img class="content-width" src="{{ "/assets/blog/bilbao/bilbao-spain-1.jpg" | url }}">
 </div>
 
-<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+<p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 </p>
 
@@ -60,11 +60,11 @@ The good news is, if you're interested in the main sights of a place I mention, 
 
 ## Donostia
 
-<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<div style="background-color: #FCEEE1" class="full-width">
 <img class="content-width" src="{{ "/assets/blog/donostia/donostia-spain-custom.jpg" | url }}">
 </div>
 
-<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+<p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 </p>
 
@@ -98,11 +98,11 @@ Spanish Basque felt very Basque-forward---almost every sign, plaque, and even ad
 
 ## Getaria
 
-<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<div style="background-color: #FCEEE1" class="full-width">
 <img class="content-width" src="{{ "/assets/blog/getaria/getaria-spain-6-r1250.jpg" | url }}">
 </div>
 
-<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+<p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 </p>
 
@@ -120,7 +120,7 @@ The most striking part of the landscape here was the rocky greenery right next t
 
 ## Cider and Wine
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/blog/donostia/apples.jpeg" | url }}" class="bare mh2 flex-auto">
 <img src="{{ "/assets/blog/donostia/grapes.jpeg" | url }}" class="bare mh2 flex-auto">
 </div>
@@ -154,11 +154,11 @@ However, it seems like in practice, Spain may behave a lot like a federal republ
 
 ## Bayonne
 
-<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<div style="background-color: #FCEEE1" class="full-width">
 <img class="content-width" src="{{ "/assets/blog/bayonne/bayonne-france-1-perimeter.jpg" | url }}">
 </div>
 
-<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+<p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 </p>
 

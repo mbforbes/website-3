@@ -8,7 +8,7 @@ image: /assets/posts/web-justified-text/paper-annotated.jpg
 
 In print, or when typeset with a good program, justified text is beautiful. All of the academic writing in my field is set justified by default, and I think it looks lovely:
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/posts/web-justified-text/paper.jpg" | url }}" class="sc bare mh2 flex-auto">
 <img src="{{ "/assets/posts/web-justified-text/paper-annotated.jpg" | url }}" class="sc bare mh2 flex-auto">
 </div>
@@ -25,7 +25,7 @@ So, what about the web?
 
 Whatever is doing your type layout has got to be able to hyphenate words. If you just slap on a `text-align: justify` CSS, you’ll get goofy spread out text:
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/posts/web-justified-text/web-justify.jpg" | url }}" class="sc bare mh2 flex-auto">
 <img src="{{ "/assets/posts/web-justified-text/web-justify-annotated.jpg" | url }}" class="sc bare mh2 flex-auto">
 </div>
@@ -90,21 +90,21 @@ Or better yet, just align left.
 
 I've started collecting pages I find with justified text without hyphenation that ends up looking awkward. To, uhhh, raise awareness?
 
-<div class="flex items-center flex-wrap mv4">
+<div class="flex items-center flex-wrap fig">
 
   <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
-      <img src="{{ "/assets/posts/web-justified-text/jpegxl.jpg" | url }}" class="br3 br4-ns">
+      <img src="{{ "/assets/posts/web-justified-text/jpegxl.jpg" | url }}" class="br3 br4-ns novmargin">
       <p class="f6"><span class="strike">From <a href="https://jpegxl.info/">jpegxl.info</a></span> hyphens have been added!</p>
   </div>
 
   <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
-      <img src="{{ "/assets/posts/web-justified-text/kylemcdonald.jpg" | url }}" class="br3 br4-ns">
+      <img src="{{ "/assets/posts/web-justified-text/kylemcdonald.jpg" | url }}" class="br3 br4-ns novmargin">
       <p class="f6">From <a href="https://kylemcdonald.net/psac/">Kyle McDonald</a></p>
   </div>
 
 
   <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
-      <img src="{{ "/assets/posts/web-justified-text/publicdelivery.jpg" | url }}" class="br3 br4-ns">
+      <img src="{{ "/assets/posts/web-justified-text/publicdelivery.jpg" | url }}" class="br3 br4-ns novmargin">
       <p class="f6">From <a href="https://publicdelivery.org/damian-ortega-cosmic-thing/">Public Delivery</a></p>
   </div>
 

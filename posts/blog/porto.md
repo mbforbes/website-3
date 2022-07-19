@@ -4,11 +4,11 @@ date: 2022-04-17
 image: /assets/blog/porto/cat.jpeg
 ---
 
-<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<div style="background-color: #FCEEE1" class="full-width">
 <img class="content-width" src="{{ "/assets/blog/porto/porto-portugal-7-perimeter.jpg" | url }}">
 </div>
 
-<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+<p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 </p>
 
@@ -57,7 +57,7 @@ I have discovered that cobblestone is a genre rather than a thing. Behold.
 <img src="{{ "/assets/blog/porto/c5.jpeg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
 <img src="{{ "/assets/blog/porto/c6.jpeg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
 </div>
-<div class="flex mb4">
+<div class="flex figbot">
 <img src="{{ "/assets/blog/porto/c7.jpeg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
 <img src="{{ "/assets/blog/porto/c8.jpeg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
 <img src="{{ "/assets/blog/porto/c9.jpeg" | url }}" class="bare novmargin mh1 mv1 flex-auto">

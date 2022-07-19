@@ -6,7 +6,7 @@ date: 2021-11-16
 <script defer src="{{ "/assets/lib/three-r131.min.js" | url }}"></script>
 <script defer src="{{ "/assets/lib/p5-1.4.0.min.js" | url }}"></script>
 <script defer src="{{ "/assets/p5js/04-ways-of-looking.js" | url }}"></script>
-<div class="mt5 dt w-100">
+<div class="fig dt w-100">
     <div id="parent" class="dtc v-mid tc">
     </div>
 </div>

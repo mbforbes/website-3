@@ -15,7 +15,7 @@ Apple's recent trackpads have a feature where you can press harder on them and g
 
 Apple has given it a bunch of [uses in their own apps](https://support.apple.com/en-us/HT204352), but I would guess you only ever use it accidentally. The only way I've ever used Force click intentionally is to look up a word. I remember to do this about, uhh, twice a year.
 
-<video width="572" autoplay muted loop playsinline class="ba bw1 center db mv4 mw-100">
+<video width="572" autoplay muted loop playsinline class="ba bw1 center db mw-100 fig">
   <source src="{{ "/assets/posts/force-click/force-click-word.mp4" | url }}" type="video/mp4">
 </video>
 <p class="figcaption">Demo of Force click on text.</p>

@@ -34,7 +34,7 @@ This ECS visualization demonstrates the core concept of Systems: **selecting Ent
 <script defer src="{{ "/assets/lib/three-r131.min.js" | url }}"></script>
 <script defer src="{{ "/assets/lib/p5-1.4.0.min.js" | url }}"></script>
 <script defer src="{{ "/assets/p5js/03-ecs-diagram.js" | url }}"></script>
-<div class="mt5 mb5 dt w-100 ba">
+<div class="fig dt w-100 ba">
     <div id="parent" class="dtc v-mid tc">
     </div>
 </div>

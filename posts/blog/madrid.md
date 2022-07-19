@@ -6,11 +6,11 @@ image: /assets/blog/madrid/madrid-spain-4-perimeter.jpg
 
 _I fell behind posting! Check out my [current location tracker](/whereami) if you want to see where I am. Hoping to catch up soon, and perhaps add "when I was there" dates to these posts; right now they're just "when I posted the blog entry."_
 
-<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<div style="background-color: #FCEEE1" class="full-width">
 <img class="content-width" src="{{ "/assets/blog/madrid/madrid-spain-4-perimeter.jpg" | url }}">
 </div>
 
-<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+<p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 </p>
 

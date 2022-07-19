@@ -57,7 +57,7 @@ Game programming has a stimulating feedback loop. When I built a new system for 
 
 On the other hand, programming for NLP research, I spend most of my time pushing big sludge piles of text data around. I scrape, annotate, clean, format, chunk, and batch text. I pour through text and find mountains of badly encoded files, non-linguistic junk like HTML, and of course, scads of idiots’ Internet blatherings—like this blog post! From a purely time-based perspective, I spend shockingly few hours actually building those cool neural network models everyone is excited about. And when I do, the models themselves were only a few dozen lines of code.[^3]
 
-<div class="flex mv4">
+<div class="flex">
 <div class="w-50">
 <img src="{{ "/assets/posts/spark-joy-python/game-before.gif" | url }}">
 </div>
@@ -71,7 +71,7 @@ Figure 1: Game programming before and after.
 </p>
 
 
-<div class="flex mv4">
+<div class="flex">
 <div class="w-50">
 <img src="{{ "/assets/posts/spark-joy-python/nlp.gif" | url }}">
 </div>

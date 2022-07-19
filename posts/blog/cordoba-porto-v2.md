@@ -8,11 +8,11 @@ Late post this week. Too many photos, bear with me. If I don't post now I'll fal
 
 ## Córdoba
 
-<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<div style="background-color: #FCEEE1" class="full-width">
 <img class="content-width" src="{{ "/assets/blog/cordoba/cordoba-spain-6-r3500.jpg" | url }}">
 </div>
 
-<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+<p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 </p>
 
@@ -50,7 +50,7 @@ Completely accidentally, we came during the May festival.
 
 ![]({{ "/assets/blog/cordoba/cross.jpeg" | url }})
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/blog/cordoba/mayo-night.jpeg" | url }}" class="bare mh2 flex-auto">
 <img src="{{ "/assets/blog/cordoba/mayo-day.jpeg" | url }}" class="bare mh2 flex-auto">
 </div>
@@ -82,11 +82,11 @@ Back in Porto for a bit. Couple day trips to write about.
 
 ### Douro Wine Valley
 
-<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<div style="background-color: #FCEEE1" class="full-width">
 <img class="content-width" src="{{ "/assets/blog/porto/douro-portugal-2-perimeter.jpg" | url }}">
 </div>
 
-<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+<p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 </p>
 
@@ -107,11 +107,11 @@ The Douro river was historically used to send barrels of port to Porto. Now it's
 
 ###  Peneda-Gerês National Park
 
-<div style="background-color: #FCEEE1" class="full-width mt5 mb4">
+<div style="background-color: #FCEEE1" class="full-width">
 <img class="content-width" src="{{ "/assets/blog/porto/peneda-geres-national-park-portugal-4-perimeter.jpg" | url }}">
 </div>
 
-<p class="full-width pr2 pr3-ns figcaption attribution mb5">
+<p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 </p>
 

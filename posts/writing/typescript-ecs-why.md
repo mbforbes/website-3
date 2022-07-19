@@ -22,7 +22,7 @@ Game engine architectures seem to be a mini religious war in programming, much l
 
 Here's an example of one such big company (Blizzard) using ECS to build a prominent game (Overwatch):
 
-<iframe class="db center mw-100 mv4" width="560" height="315" src="https://www.youtube-nocookie.com/embed/W3aieHjyNvw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe class="db center mw-100 fig" width="560" height="315" src="https://www.youtube-nocookie.com/embed/W3aieHjyNvw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <p class="figcaption">No need to watch this now, just squirrel it away if you're interested.</p>
 

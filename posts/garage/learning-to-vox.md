@@ -31,7 +31,7 @@ potted plant source
 
 Realized this a bit ago. Phone is great for this.
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/garage/learning-to-vox/29_Importing.jpg" | url }}" class="bare mh2 w-50 flex-auto">
 <img src="{{ "/assets/garage/learning-to-vox/29_Importing-edited.jpg" | url }}" class="bare mh2 w-50 flex-auto">
 </div>
@@ -84,7 +84,7 @@ Learned about [layers and object order](#layer-vs-outline) in order to have wate
 
 Realized that completely flat terrain is weird, next draft tried to make varied terrain.
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/garage/learning-to-vox/31_Underwater-2.jpg" | url }}" class="bare mh2 w-50 flex-auto">
 <img src="{{ "/assets/garage/learning-to-vox/31_Underwater-2-nowater.jpg" | url }}" class="bare mh2 w-50 flex-auto">
 </div>
@@ -134,7 +134,7 @@ What's funny is that I often still have a hard time telling which is used. E.g.,
 
 Here's a recent test scene trying both ways.
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/garage/learning-to-vox/36_Wood-shelf-room-2-iso.jpeg" | url }}" class="bare mh2 w-50 flex-auto">
 <img src="{{ "/assets/garage/learning-to-vox/36_Wood-shelf-room-2-perspective.jpeg" | url }}" class="bare mh2 w-50 flex-auto">
 </div>
@@ -147,7 +147,7 @@ Lighting is everything.
 
 I changed some other stuff here (some more objects, floor texture, some thicknesses), but largely it's the materials and light and camera settings.
 
-<div class="flex mv4">
+<div class="flex">
 <img src="{{ "/assets/garage/learning-to-vox/36_Wood-shelf-room-1.jpeg" | url }}" class="bare mh2 w-50 flex-auto">
 <img src="{{ "/assets/garage/learning-to-vox/36_Wood-shelf-room-2-perspective.jpeg" | url }}" class="bare mh2 w-50 flex-auto">
 </div>

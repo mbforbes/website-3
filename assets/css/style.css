@@ -312,12 +312,21 @@ p.subtitle {
     margin-right: auto;
 }
 
-/* Note: Need to check sketch previews on studio page. */
+/* = mv5 */
 .markdown-body img:not(.novmargin),
 .markdown-body object,
-.markdown-body pre {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+.markdown-body pre,
+.markdown-body .fig {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.markdown-body .figtop {
+    margin-top: 4rem;
+}
+
+.markdown-body .figbot {
+    margin-bottom: 4rem;
 }
 
 
@@ -358,10 +367,10 @@ f7: font-size: 0.75rem;
 
 /* Image caption. Use class figcaption. */
 .markdown-body .figcaption {
-    margin-top: -1.5rem;
+    margin-top: -3.5rem;
     text-align: center;
     color: var(--lighter-text-color);
-    margin-bottom: 3em;
+    margin-bottom: 5rem;
     /* f6 (for not-small (-ns) this gets f5) */
     font-size: 0.875rem;
 }

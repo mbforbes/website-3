@@ -8,8 +8,4 @@ thumb: /assets/sketches/bar-table-thumb.jpg
 
 ![]({{ "/assets/sketches/bar-table.png" | url }})
 
-<div class="mt4"></div>
-
 ![]({{ "/assets/sketches/bar-table-actual.jpg" | url }})
-
-<div class="mt4"></div>

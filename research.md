@@ -27,7 +27,7 @@ Contact me at: <img height="22" class="inline" src="{{ "/assets/img/my-email.png
 I am lucky to have collaborated with some amazing undergraduate students during my PhD: [Yao Dou](https://yao-dou.github.io/), [Jeff Da](https://jeffda.com/), and [Pooja Sethi](https://poojasethi.github.io/).
 
 I am eternally grateful to the wonderful graduate students who mentored me when I was an
-undergraduate (and beyond): [Mike Chung](https://homes.cs.washington.edu/~mjyc/),
+undergraduate (and beyond): [Mike Chung](https://mjyc.github.io/),
 [Kenton Lee](http://kentonl.com/) and [Yoav Artzi](https://yoavartzi.com/).
 
 ## Notes
