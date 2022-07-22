@@ -12,13 +12,22 @@ Copy-paste-able snippets for image arrangements.
 
 ### One image
 
+<div class="full-width flex justify-center ph1-m ph3-l fig">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/1000x500@3x.png" style="max-height: 500px;">
+</div>
+
+<!-- NB: This could be:
+
 <div class="full-width ph1-m ph3-l">
 <img src="/assets/garage/image-test-page/1000x500@3x.png" style="max-height: 500px;">
 </div>
 
+... but using the above so that the <img ...> snippet is exactly the same for all layouts.
+ -->
+
 ### Two images
 
-<div class="full-width flex justify-center mv5">
+<div class="full-width flex justify-center fig">
 <div class="ml1-m ml3-l mr1">
 <img class="db bare novmargin" src="/assets/garage/image-test-page/704x939@3x.png" style="max-height: 939px;">
 </div>
@@ -29,7 +38,7 @@ Copy-paste-able snippets for image arrangements.
 
 ### Three images
 
-<div class="full-width flex justify-center mv5">
+<div class="full-width flex justify-center fig">
 <div class="ml1-m ml3-l">
 <img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
 </div>

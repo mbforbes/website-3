@@ -5,11 +5,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ title }} - {{ site.title }}</title>
+        <title>{{ title }}{{ ": " + subtitle if subtitle else ""  }} - {{ site.title }}</title>
         {# NOTE: Twitter uses name='', og uses property='' #}
-        <meta content="{{ title }} - {{ site.title }}" property="title"/>
-        <meta content="{{ title }} - {{ site.title }}" property="og:title"/>
-        <meta name="twitter:title" content="{{ title }} - {{ site.title }}"/>
+        <meta content="{{ title }}{{ ": " + subtitle if subtitle else ""  }} - {{ site.title }}" property="title"/>
+        <meta content="{{ title }}{{ ": " + subtitle if subtitle else ""  }} - {{ site.title }}" property="og:title"/>
+        <meta name="twitter:title" content="{{ title }}{{ ": " + subtitle if subtitle else ""  }} - {{ site.title }}"/>
 
         {% include "head.njk" %}
     </head>
