@@ -176,17 +176,9 @@ setColorScheme();
 <a class="dn" href="#one-image"><span class="dn">Permalink to “One image”</span> <span aria-hidden="true">#</span></a><div class="full-width flex justify-center ph1-m ph3-l fig">
 <img class="db bare novmargin" src="/assets/garage/image-test-page/1000x500@3x.png" style="max-height: 500px;">
 </div>
-<!-- NB: This could be:
-
-<div class="full-width ph1-m ph3-l">
-<img src="/assets/garage/image-test-page/1000x500@3x.png" style="max-height: 500px;">
-</div>
-
-... but using the above so that the <img ...> snippet is exactly the same for all layouts.
- -->
 <h3 id="two-images" tabindex="-1">Two images</h3>
-<a class="dn" href="#two-images"><span class="dn">Permalink to “Two images”</span> <span aria-hidden="true">#</span></a><div class="full-width flex justify-center fig">
-<div class="ml1-m ml3-l mr1">
+<a class="dn" href="#two-images"><span class="dn">Permalink to “Two images”</span> <span aria-hidden="true">#</span></a><div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
 <img class="db bare novmargin" src="/assets/garage/image-test-page/704x939@3x.png" style="max-height: 939px;">
 </div>
 <div class="mr1-m mr3-l">
@@ -194,17 +186,25 @@ setColorScheme();
 </div>
 </div>
 <h3 id="three-images" tabindex="-1">Three images</h3>
-<a class="dn" href="#three-images"><span class="dn">Permalink to “Three images”</span> <span aria-hidden="true">#</span></a><div class="full-width flex justify-center fig">
+<a class="dn" href="#three-images"><span class="dn">Permalink to “Three images”</span> <span aria-hidden="true">#</span></a><div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
 <div class="ml1-m ml3-l">
 <img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
 </div>
-<div class="mh1">
+<div class="mh1-ns mv1 mv0-ns">
 <img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
 </div>
 <div class="mr1-m mr3-l">
 <img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
 </div>
 </div>
+<!-- NB: The one image style could be
+
+<div class="full-width ph1-m ph3-l">
+<img src="/assets/garage/image-test-page/1000x500@3x.png" style="max-height: 500px;">
+</div>
+
+... but using the above so that the <img ...> snippet is exactly the same for all layouts.
+ -->
 <h2 id="workbook" tabindex="-1">Workbook</h2>
 <a class="dn" href="#workbook"><span class="dn">Permalink to “Workbook”</span> <span aria-hidden="true">#</span></a><p>My process of working through getting the house styles.</p>
 <h3 id="small-centered" tabindex="-1">Small, centered</h3>
@@ -449,8 +449,8 @@ Fixed portrait & landscape. Margin 1 between images always. Page border is: noth
 </li>
 </ul>
 <h3 id="rewrapping" tabindex="-1">Rewrapping</h3>
-<a class="dn" href="#rewrapping"><span class="dn">Permalink to “Rewrapping”</span> <span aria-hidden="true">#</span></a><p>Simply adding <code>flex-wrap</code> to the container gives us a simple wrap, where elements are wrapped as soon as the row can’t fit both at full size. We can add <code>novmargin</code> to the images and <code>mv4</code> to the container if we want them to wrap closely (moving the vertical margin to the overall block).</p>
-<div class="full-width flex justify-center flex-wrap mv4">
+<a class="dn" href="#rewrapping"><span class="dn">Permalink to “Rewrapping”</span> <span aria-hidden="true">#</span></a><p>Simply adding <code>flex-wrap</code> to the container gives us a simple wrap, where elements are wrapped as soon as the row can’t fit both at full size. We can add <code>novmargin</code> to the images and <code>fig</code> to the container if we want them to wrap closely (moving the vertical margin to the overall block).</p>
+<div class="full-width flex justify-center flex-wrap fig">
 <div class="ml1-m ml3-l mr1" style="max-width: 704px;">
 <img class="bare novmargin" src="/assets/garage/image-test-page/704x939@3x.png" alt="704x939" style="">
 </div>
@@ -467,11 +467,28 @@ Rewrapping w/ house style, but doing immediate when smaller than full size.
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items#single-dimensional_layout_explained">item wrapping</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns">grid template cols</a></li>
 </ul>
-<h3 id="tbd" tabindex="-1">TBD</h3>
-<a class="dn" href="#tbd"><span class="dn">Permalink to “TBD”</span> <span aria-hidden="true">#</span></a><ul>
-<li>re-wrapping (could be helpful, maybe not worth effort if overly complicated)</li>
-<li><s>non-max-width’d 1/3 imgs with bigger margins (need to div-wrap too?)</s> — <em>not needed RN; will always have a max width</em></li>
-</ul>
+<p>… or, wait, maybe we can just use a media query to only add <code>flex-wrap</code>! Going from the house style below. Also needed to do margin adjustments: inter-pic margin is right only when not wrapped, and bottom when wrapped.</p>
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/704x939@3x.png" style="max-height: 939px;">
+</div>
+<div class="mr1-m mr3-l">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/939x939@3x.png" style="max-height: 939px;">
+</div>
+</div>
+<p>This isn’t perfect, because I think once the page width is less than even 600px or so, the photo get a bit too small, and this only wraps &lt; 480px. But realistically, this will fix the other major viewing use case (phones), and all the media queries work exactly together, so I think it’s worth it.</p>
+<p>Doing for 3 imgs too:</p>
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
+</div>
+<div class="mh1-ns mv1 mv0-ns">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
+</div>
+<div class="mr1-m mr3-l">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
+</div>
+</div>
 
       </div>
 
