@@ -250,7 +250,7 @@ setColorScheme();
 <a class="dn" href="#1.-set-the-viewport"><span class="dn">Permalink to “1. Set the Viewport”</span> <span aria-hidden="true">#</span></a><p>Does the page look like a desktop site zoomed way out? You might need to tell web browsers to render the web page at the actual device’s width.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> Add this HTML tag:</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span><br>  <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span><br>  <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span></code></pre>
 <p>In action, this makes the following change:</p>
-<div class="flex items-center mv4">
+<div class="flex items-center">
 <img src="/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" class="sc w-40 bare br4 br5-ns">
 <div class="mh2 mh3-ns" style="flex-grow: 1">
   <img src="/assets/posts/fixing-mobile-page-layouts/arrow.svg" class="w-100">
@@ -261,13 +261,13 @@ setColorScheme();
 <p><a name="over-wide"></a></p>
 <h3 id="2.-scroll-over-wide-elements" tabindex="-1">2. Scroll Over-Wide Elements</h3>
 <a class="dn" href="#2.-scroll-over-wide-elements"><span class="dn">Permalink to “2. Scroll Over-Wide Elements”</span> <span aria-hidden="true">#</span></a><p>Over-wide elements are easy to miss even from your phone, because your phone might mask them with a horizontal scroll bar. If you accidentally scroll right, though, you’ll fly off the content.</p>
-<div class="flex mv4">
+<div class="flex">
 <img src="/assets/posts/fixing-mobile-page-layouts/overwide-diagnose-1.jpg" class="sc bare mh2 br4 br5-ns flex-auto">
 <img src="/assets/posts/fixing-mobile-page-layouts/overwide-diagnose-2.jpg" class="sc bare mh2 br4 br5-ns flex-auto">
 </div>
 <p class="figcaption">&rarr; Agh!</p>
 <p>Once you notice this happens, you can pinch to zoom out and survey the mess. Some element is probably too wide. Find the culprit.</p>
-<div class="flex mv4">
+<div class="flex">
 <img src="/assets/posts/fixing-mobile-page-layouts/overwide2-before.jpg" class="sc bare mh2 br4 br5-ns flex-auto">
 <img src="/assets/posts/fixing-mobile-page-layouts/overwide-before-annotated.jpg" class="sc bare mh2 br4 br5-ns flex-auto">
 </div>
@@ -275,7 +275,7 @@ setColorScheme();
 <p>Ah ha. In this case, it’s text in <code>&lt;pre&gt;</code> blocks. We can add some simple CSS to limit their width.</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">pre</span> <span class="token punctuation">{</span><br>    <span class="token property">max-width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>    <span class="token property">overflow-x</span><span class="token punctuation">:</span> scroll<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
 <p>This solves it. Here’s the before and after.</p>
-<div class="flex items-center mv4">
+<div class="flex items-center">
 <img src="/assets/posts/fixing-mobile-page-layouts/overwide-before.jpg" class="sc w-40 bare br4 br5-ns">
 <div class="mh2 mh3-ns" style="flex-grow: 1">
   <img src="/assets/posts/fixing-mobile-page-layouts/arrow.svg" class="w-100">
@@ -283,7 +283,7 @@ setColorScheme();
 <img src="/assets/posts/fixing-mobile-page-layouts/overwide-after.jpg" class="sc w-40 bare br4 br5-ns">
 </div>
 <p>No more scroll bar, and the width is correct. This section is a bit weird because of overly wide indentation. Here’s the same result on body text.</p>
-<div class="flex items-center mv4">
+<div class="flex items-center">
 <img src="/assets/posts/fixing-mobile-page-layouts/overwide2-before.jpg" class="sc w-40 bare br4 br5-ns">
 <div class="mh2 mh3-ns" style="flex-grow: 1">
   <img src="/assets/posts/fixing-mobile-page-layouts/arrow.svg" class="w-100">
@@ -317,7 +317,7 @@ If we instead let wide elements spill outside the body area when there is room o
 </li>
 </ol>
 <p>We can apply all these changes to our running example.</p>
-<div class="flex items-center mv4">
+<div class="flex items-center">
 <img src="/assets/posts/fixing-mobile-page-layouts/4-body.jpg" class="sc w-40 bare br4 br5-ns">
 <div class="mh2 mh3-ns" style="flex-grow: 1">
   <img src="/assets/posts/fixing-mobile-page-layouts/arrow.svg" class="w-100">
@@ -331,7 +331,7 @@ If we instead let wide elements spill outside the body area when there is room o
 <p>Furthermore, sometimes the browser simulators are just plain wrong. In fact, our running example is exactly one such case. I describe this more in the <a href="#gitbestpractices">walkthrough below</a>.</p>
 <h2 id="walkthroughs" tabindex="-1">Walkthroughs</h2>
 <a class="dn" href="#walkthroughs"><span class="dn">Permalink to “Walkthroughs”</span> <span aria-hidden="true">#</span></a><p>Click on any picture to jump to the walkthrough for fixing the mobile layout on that page.</p>
-<div class="flex items-center flex-wrap mv4">
+<div class="flex items-center flex-wrap">
   <div class="w-third w-25-ns tc ph1 ph2-ns mb1 mb2-ns">
     <a href="#gitbestpractices">
       <img src="/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" class="sc br3 br4-ns dim">
@@ -367,7 +367,7 @@ If we instead let wide elements spill outside the body area when there is room o
 <img src="/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" class="sc small br5">
 <p>Now, I can’t be too hard on the designer.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> First, the page is from 2012—ancient Internet history.</p>
 <p>Second, it’s actually kind of hard to tell this was going to happen. Normally, I would guess that they simply didn’t test it using developer tools. But if you ask Chrome and Safari what the page should look like on an iPhone X, they both say, “just fine:”</p>
-<div class="flex mv4">
+<div class="flex">
 <img src="/assets/posts/fixing-mobile-page-layouts/before-chrome.jpg" class="pr2 pr3-ns flex-auto">
 <img src="/assets/posts/fixing-mobile-page-layouts/before-safari.jpg" class="flex-auto">
 </div>
@@ -391,7 +391,7 @@ If we instead let wide elements spill outside the body area when there is room o
 </li>
 </ol>
 <p>Apply them all, here’s the before/after.</p>
-<div class="flex items-center mv4">
+<div class="flex items-center">
 <img src="/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" class="sc w-40 bare br4 br5-ns">
 <div class="mh2 mh3-ns" style="flex-grow: 1">
   <img src="/assets/posts/fixing-mobile-page-layouts/arrow.svg" class="w-100">
@@ -406,20 +406,20 @@ If we instead let wide elements spill outside the body area when there is room o
 <p><a name="poisson"></a></p>
 <h2 id="poisson's-equation" tabindex="-1">Poisson’s Equation</h2>
 <a class="dn" href="#poisson's-equation"><span class="dn">Permalink to “Poisson’s Equation”</span> <span aria-hidden="true">#</span></a><p>This page is called <a href="https://mattferraro.dev/posts/poissons-equation">Poisson’s Equation is the Most Powerful Tool not yet in your Toolbox</a>. The page’s viewport seems good, but you can accidentally scroll to the right, revealing a bigger page and likely overly wide elements (<a href="#over-wide">fix #2</a>).</p>
-<div class="flex mv4">
+<div class="flex">
 <img src="/assets/posts/fixing-mobile-page-layouts/poisson-start.png" class="sc bare mh2 br4 br5-ns flex-auto">
 <img src="/assets/posts/fixing-mobile-page-layouts/poisson-start-out.png" class="sc bare mh2 br4 br5-ns flex-auto">
 </div>
 <p class="figcaption">Left: the default view on pageload. Right: Zooming out to the page's true width after noticing horizontal scrollbars.</p>
 <p>If we scroll down, we can see the worst offenders are, again, over-wide <code>&lt;pre&gt;</code> regions for code. They are already the correct width, but when their content overflows, it spills out.</p>
-<div class="flex mv4">
+<div class="flex">
 <img src="/assets/posts/fixing-mobile-page-layouts/poisson-overwide.jpg" class="sc bare mh2 br4 br5-ns flex-auto">
 <img src="/assets/posts/fixing-mobile-page-layouts/poisson-pre-box.jpg" class="sc bare mh2 br4 br5-ns flex-auto">
 </div>
 <p>We can fix these,</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">pre</span> <span class="token punctuation">{</span><br>    <span class="token property">overflow-x</span><span class="token punctuation">:</span> scroll<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
 <p>… but rendered math is still an issue. Like the <code>&lt;pre&gt;</code> chunks, they’re also set to a good width, but spill out.</p>
-<div class="flex mv4">
+<div class="flex">
 <img src="/assets/posts/fixing-mobile-page-layouts/poisson-pre-done-annotated.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="/assets/posts/fixing-mobile-page-layouts/poisson-math-box.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>
@@ -430,7 +430,7 @@ If we instead let wide elements spill outside the body area when there is room o
 <h3 id="extra-credit:-code-and-scrollbars" tabindex="-1">Extra credit: code and scrollbars</h3>
 <a class="dn" href="#extra-credit:-code-and-scrollbars"><span class="dn">Permalink to “Extra credit: code and scrollbars”</span> <span aria-hidden="true">#</span></a><p>If I were to add finishing touches, the two things I’d tweak would be the code and math.</p>
 <p>The font size for code blocks is bigger than it needs to be (<a href="#typography">fix #3</a>) and lacks syntax highlighting. If we make those two changes and then reduce the indentation from four to two spaces, we can even fit all the code without any scrolling—we just need to wrap two of the comments.</p>
-<div class="flex items-center mv4">
+<div class="flex items-center">
 <img src="/assets/posts/fixing-mobile-page-layouts/poisson-extra-code.jpg" class="sc w-40 bare br4 br5-ns">
 <div class="mh2 mh3-ns" style="flex-grow: 1">
   <img src="/assets/posts/fixing-mobile-page-layouts/arrow.svg" class="w-100">
@@ -445,7 +445,7 @@ If we instead let wide elements spill outside the body area when there is room o
 <p>But when we <em>do</em> have content that needs scrolling, I think it’s good to <em>show</em> people that scrolling is available. In other words, to show them when an element has the scrolling <strong>affordance</strong>. Showing content that’s cut off is a hint, but this isn’t reliable unless calculated explicitly, as the content might be cut off in a way that doesn’t reveal there’s more to see.</p>
 <p>As I mentioned above, Apple’s browser seems to go out of its way to hide scroll bars. Even when they appear because you accidentally found something scrollable, they vanish a bit later. Can we make sure that our extra wide content has scroll bars them?</p>
 <p>In short, I couldn’t robustly figure this out. Using the <code>::-webkit-scrollbar</code> CSS selector, I could get really big chonky ones to always appear on Chrome, but not using Safari on my phone. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar">Mozilla says this feature isn’t standardized yet</a>, but that it should work on Safari and all iOS browsers 🤷‍♂️</p>
-<div class="flex mv4">
+<div class="flex">
 <img src="/assets/posts/fixing-mobile-page-layouts/poisson-want-scrollbars.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="/assets/posts/fixing-mobile-page-layouts/poisson-big-scrollbars.png" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>
@@ -453,7 +453,7 @@ If we instead let wide elements spill outside the body area when there is room o
 <p><a name="fsharp"></a></p>
 <h2 id="f" tabindex="-1">F#</h2>
 <a class="dn" href="#f"><span class="dn">Permalink to “F#”</span> <span aria-hidden="true">#</span></a><p>This page is called <a href="https://danielbmarkham.com/fsharp-is-the-best-programming-language-today/">F# Is The Best Coding Language Today</a>. Once again, a good viewport, but an over-wide <code>&lt;pre&gt;</code> code block. Jeez, what is it with these code blocks?</p>
-<div class="flex mv4">
+<div class="flex">
 <img src="/assets/posts/fixing-mobile-page-layouts/f-sharp-orig.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="/assets/posts/fixing-mobile-page-layouts/f-sharp-orig-code.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>
@@ -469,7 +469,7 @@ If we instead let wide elements spill outside the body area when there is room o
 </ol>
 <p>Because of 2., I only made minimal tweaks in the browser’s developer tools to fix things (<a href="#over-wide">fix #2</a>).</p>
 <pre class="language-css"><code class="language-css"><span class="token comment">/* Attached these to the &lt;figure> element,<br>   the literal root of figurative evil. */</span><br><span class="token property">max-width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br><span class="token comment">/* Once again, you'd want to tweak font<br>   sizes for desktop vs mobile. */</span><br><span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span></code></pre>
-<div class="flex mv4">
+<div class="flex">
 <img src="/assets/posts/fixing-mobile-page-layouts/f-sharp-fixed.png" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="/assets/posts/fixing-mobile-page-layouts/f-sharp-fixed-code.png" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>
@@ -480,7 +480,7 @@ If we instead let wide elements spill outside the body area when there is room o
 <p><a name="hydroponic"></a></p>
 <h2 id="hydroponic" tabindex="-1">Hydroponic</h2>
 <a class="dn" href="#hydroponic"><span class="dn">Permalink to “Hydroponic”</span> <span aria-hidden="true">#</span></a><p>This page is called <a href="https://kylegabriel.com/projects/2020/06/automated-hydroponic-system-build.html">Automated Hydroponic System Build</a>. In a crazy turn of events, 🚨 <em>it’s not code in a <code>&lt;pre&gt;</code> block this time!</em> 🚨 This page actually contains pretty huge chunks of code, but they all obey the body width. What’s the issue, then?</p>
-<div class="flex mv4">
+<div class="flex">
 <img src="/assets/posts/fixing-mobile-page-layouts/hydroponic-start.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="/assets/posts/fixing-mobile-page-layouts/hydroponic-problem.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>
@@ -489,21 +489,21 @@ If we instead let wide elements spill outside the body area when there is room o
 <p>I checked out the source, and saw each comment has <code>class=&quot;comment-body&quot;</code>. So if we simply add the CSS:</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">.comment-body</span> <span class="token punctuation">{</span><br>    <span class="token property">overflow-wrap</span><span class="token punctuation">:</span> break-word<br><span class="token punctuation">}</span></code></pre>
 <p>… then everything is groovy.</p>
-<div class="flex mv4">
+<div class="flex">
 <img src="/assets/posts/fixing-mobile-page-layouts/hydroponic-start-fixed.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="/assets/posts/fixing-mobile-page-layouts/hydroponic-problem-fixed.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>
 <p><a name="diffusion"></a></p>
 <h2 id="diffusion-models" tabindex="-1">Diffusion Models</h2>
 <a class="dn" href="#diffusion-models"><span class="dn">Permalink to “Diffusion Models”</span> <span aria-hidden="true">#</span></a><p>This page is called <a href="https://lilianweng.github.io/lil-log/2021/07/11/diffusion-models.html">What are Diffusion Models?</a> This time, it’s pesky math again, stretching a good viewport too wide.</p>
-<div class="flex mv4">
+<div class="flex">
 <img src="/assets/posts/fixing-mobile-page-layouts/diffusion-start.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="/assets/posts/fixing-mobile-page-layouts/diffusion-problem.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>
 <p>We can tell MathJax to stay in its lane (<a href="#over-wide">fix #2</a>) by adding the CSS:</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">.MathJax_Display</span> <span class="token punctuation">{</span><br>    <span class="token property">overflow-x</span><span class="token punctuation">:</span> scroll<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
 <p>… and the page is back in its box.</p>
-<div class="flex mv4">
+<div class="flex">
 <img src="/assets/posts/fixing-mobile-page-layouts/diffusion-start-fixed.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 <img src="/assets/posts/fixing-mobile-page-layouts/diffusion-problem-fixed.jpg" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
 </div>
