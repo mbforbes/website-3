@@ -189,7 +189,7 @@ Our second favorite thing was visiting a long decommissioned, gutted hotel.
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-roof.jpeg" | url }}" style="max-height: 939px;">
 </div>
 
-Top fav thing may or may not have been utilizing the local huge inflated floating obstacle course.
+Top fav thing may or may not have been utilizing the local huge inflated floating obstacle course (not pictured).
 
 ### Brief Linguistic Interlude
 
