@@ -17,8 +17,8 @@ image: /assets/blog/croatia/prim-roof.jpeg
 
 We arrived in Dubrovnik and immediately realized with sinking hearts: the entire walled city is a tourist Disneyland. It's one huge attraction. With ultra-inflated prices to boot. (You know it's bad if restaurants list prices in foreign currencies for your convenience.)
 
-<div class="full-width flex justify-center fig">
-<div class="ml1-m ml3-l mr1">
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-chair.jpeg" | url }}" style="max-height: 939px;">
 </div>
 <div class="mr1-m mr3-l">
@@ -50,8 +50,8 @@ One of the free things you can do is swim in the coves and beaches around town.
 
 You can also hike up the hill nearby the old town for some lovely views.
 
-<div class="full-width flex justify-center figtop mb1">
-<div class="ml1-m ml3-l mr1">
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center figtop mb1">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-flag.jpeg" | url }}" style="max-height: 939px;">
 </div>
 <div class="mr1-m mr3-l">
@@ -75,8 +75,8 @@ One thing I have been surprised to find myself interested in while traveling is:
 Here is something I never appreciated about hikes: if they go up high, there is a good view at the end. I always assumed this just sort of happens naturally. But cresting this hill <span class="i">(Velika and Mala Petka Forest Park)</span>, there was no view. Nearly all directions were blocked by infrastructure or growth. I realized that someone like a forest department probably has to actually plan for viewpoint equipment (platforms, stairs, guard rails) and ecological maintenance (tasteful but non-destructive pruning) and natural beauty lobbying (vs, say, the power or comms depts.) for cases when a view doesn't just throw itself at you.
 </p>
 
-<div class="full-width flex justify-center fig">
-<div class="ml1-m ml3-l mr1">
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-smirk.jpeg" | url }}" style="max-height: 939px;">
 </div>
 <div class="mr1-m mr3-l">
@@ -131,16 +131,16 @@ So that's the geography. Re: who is there, we came before peak season really hit
 <div class="full-width flex justify-center ph1-m ph3-l figtop">
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-pano.jpeg" | url }}" style="max-height: 939px;">
 </div>
-<div class="full-width flex justify-center mv1">
-<div class="ml1-m ml3-l mr1">
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center mv1">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-tower.jpeg" | url }}" style="max-height: 939px;">
 </div>
 <div class="mr1-m mr3-l">
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-sunset.jpeg" | url }}" style="max-height: 939px;">
 </div>
 </div>
-<div class="full-width flex justify-center figbot">
-<div class="ml1-m ml3-l mr1">
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center figbot">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-burek.jpeg" | url }}" style="max-height: 939px;">
 </div>
 <div class="mr1-m mr3-l">
@@ -149,17 +149,17 @@ So that's the geography. Re: who is there, we came before peak season really hit
 </div>
 
 <p class="figcaption">
-<span class="b">Left:</span>
+<span class="b">Second-last:</span>
 Börek, a flaky dough filled with, e.g., meat or cheese, became an
 instant obsession.
-<span class="b">Right:</span>
+<span class="b">Last:</span>
 There's kind of a Rorschachian beauty in guessing the purpose of novel infrastructure in foreign places.
 </p>
 
 Our second favorite thing was visiting a long decommissioned, gutted hotel.
 
-<div class="full-width flex justify-center figtop">
-<div class="ml1-m ml3-l mr1">
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center figtop">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-stair.jpeg" | url }}" style="max-height: 939px;">
 </div>
 <div class="mr1-m mr3-l">
@@ -171,8 +171,8 @@ Our second favorite thing was visiting a long decommissioned, gutted hotel.
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-interior.jpeg" | url }}" style="max-height: 939px;">
 </div>
 
-<div class="full-width flex justify-center mv1">
-<div class="ml1-m ml3-l mr1">
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center mv1">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-art.jpeg" | url }}" style="max-height: 939px;">
 </div>
 <div class="mr1-m mr3-l">
@@ -203,8 +203,8 @@ This is cool, because it adds a new middle layer to the "language / dialect" lin
 
 ### Bonus: me + 2 animal pals
 
-<div class="full-width flex justify-center fig">
-<div class="ml1-m ml3-l mr1">
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-bug.jpeg" | url }}" style="max-height: 939px;">
 </div>
 <div class="mr1-m mr3-l">
@@ -228,16 +228,17 @@ I liked Zagreb. It was cheap and interesting, and we had an easy time getting ar
 The only odd thing was nearly everywhere we went, every time of day and every day of the week, the streets were quite barren.
 
 
-<div class="full-width flex justify-center figtop mb1">
-<div class="ml1-m ml3-l mr1">
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center figtop">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-yellow-building.jpeg" | url }}" style="max-height: 939px;">
 </div>
 <div class="mr1-m mr3-l">
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-church.jpeg" | url }}" style="max-height: 939px;">
 </div>
 </div>
-<div class="full-width flex justify-center mv1">
-<div class="ml1-m ml3-l mr1">
+
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center mv1">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-hall.jpeg" | url }}" style="max-height: 939px;">
 </div>
 <div class="mr1-m mr3-l">
@@ -245,8 +246,8 @@ The only odd thing was nearly everywhere we went, every time of day and every da
 </div>
 </div>
 
-<div class="full-width flex justify-center figbot">
-<div class="ml1-m ml3-l mr1">
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center figbot">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-bar.jpeg" | url }}" style="max-height: 939px;">
 </div>
 <div class="mr1-m mr3-l">
@@ -255,14 +256,14 @@ The only odd thing was nearly everywhere we went, every time of day and every da
 </div>
 
 <p class="figcaption">
-<span class="b">Left:</span>
+<span class="b">Second-last:</span>
 OK, hear me out: <span class="i">Regular Bar</span> is a great name for a bar.
-<span class="b">Right:</span>
+<span class="b">Last:</span>
 This says, in German, <span class="i">used clothing sold at the cheapest prices.</span> German, you might ask? Didn't we just have a whole linguistic interlude on Serbo-Croatian? Right, but recall that before WWI, this was part of Austria-Hungary. But still, why German? Wasn't Croatian a widely spoken & <a href="https://en.wikipedia.org/wiki/Austria-Hungary">official language</a> of AH? Here's where I really ought to read a history book, but from hearsay: German, the language of power, was used for matters of greater business and authority. So, here we are, over 100 years later, and the façade of this building still has a thrift shop sign carved in German letters. This is the kind of stuff historical stuff I like.
 </p>
 
-<div class="full-width flex justify-center fig">
-<div class="ml1-m ml3-l mr1">
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
 <img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-god-dead.jpeg" | url }}" style="max-height: 939px;">
 </div>
 <div class="mr1-m mr3-l">
@@ -271,10 +272,8 @@ This says, in German, <span class="i">used clothing sold at the cheapest prices.
 </div>
 
 <p class="figcaption">
-<span class="b">Left:</span>
 God is dead; this summer, eat the maestro chicken burger.
-<span class="b">Right:</span>
-Toaster with, to me, the beauty of brutalist (lack of) flair.
+And a toaster with, to me, the beauty of brutalist (lack of) flair.
 </p>
 
 #### Attributions

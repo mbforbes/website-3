@@ -16,19 +16,10 @@ Copy-paste-able snippets for image arrangements.
 <img class="db bare novmargin" src="/assets/garage/image-test-page/1000x500@3x.png" style="max-height: 500px;">
 </div>
 
-<!-- NB: This could be:
-
-<div class="full-width ph1-m ph3-l">
-<img src="/assets/garage/image-test-page/1000x500@3x.png" style="max-height: 500px;">
-</div>
-
-... but using the above so that the <img ...> snippet is exactly the same for all layouts.
- -->
-
 ### Two images
 
-<div class="full-width flex justify-center fig">
-<div class="ml1-m ml3-l mr1">
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
 <img class="db bare novmargin" src="/assets/garage/image-test-page/704x939@3x.png" style="max-height: 939px;">
 </div>
 <div class="mr1-m mr3-l">
@@ -38,11 +29,11 @@ Copy-paste-able snippets for image arrangements.
 
 ### Three images
 
-<div class="full-width flex justify-center fig">
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
 <div class="ml1-m ml3-l">
 <img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
 </div>
-<div class="mh1">
+<div class="mh1-ns mv1 mv0-ns">
 <img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
 </div>
 <div class="mr1-m mr3-l">
@@ -50,6 +41,15 @@ Copy-paste-able snippets for image arrangements.
 </div>
 </div>
 
+
+<!-- NB: The one image style could be
+
+<div class="full-width ph1-m ph3-l">
+<img src="/assets/garage/image-test-page/1000x500@3x.png" style="max-height: 500px;">
+</div>
+
+... but using the above so that the <img ...> snippet is exactly the same for all layouts.
+ -->
 
 
 ## Workbook
@@ -368,9 +368,9 @@ Incredibly, this just works as well. My takeaway is to export things to be the s
 
 ### Rewrapping
 
-Simply adding `flex-wrap` to the container gives us a simple wrap, where elements are wrapped as soon as the row can't fit both at full size. We can add `novmargin` to the images and `mv4` to the container if we want them to wrap closely (moving the vertical margin to the overall block).
+Simply adding `flex-wrap` to the container gives us a simple wrap, where elements are wrapped as soon as the row can't fit both at full size. We can add `novmargin` to the images and `fig` to the container if we want them to wrap closely (moving the vertical margin to the overall block).
 
-<div class="full-width flex justify-center flex-wrap mv4">
+<div class="full-width flex justify-center flex-wrap fig">
 <div class="ml1-m ml3-l mr1" style="max-width: 704px;">
 <img class="bare novmargin" src="/assets/garage/image-test-page/704x939@3x.png" alt="704x939" style="">
 </div>
@@ -389,7 +389,29 @@ This might be possible using `display: grid` and `grid-template-columns: ...`, b
 - [item wrapping](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items#single-dimensional_layout_explained)
 - [grid template cols](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns)
 
-### TBD
+... or, wait, maybe we can just use a media query to only add `flex-wrap`! Going from the house style below. Also needed to do margin adjustments: inter-pic margin is right only when not wrapped, and bottom when wrapped.
 
-- re-wrapping (could be helpful, maybe not worth effort if overly complicated)
-- ~~non-max-width'd 1/3 imgs with bigger margins (need to div-wrap too?)~~ --- _not needed RN; will always have a max width_
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/704x939@3x.png" style="max-height: 939px;">
+</div>
+<div class="mr1-m mr3-l">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/939x939@3x.png" style="max-height: 939px;">
+</div>
+</div>
+
+This isn't perfect, because I think once the page width is less than even 600px or so, the photo get a bit too small, and this only wraps < 480px. But realistically, this will fix the other major viewing use case (phones), and all the media queries work exactly together, so I think it's worth it.
+
+Doing for 3 imgs too:
+
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
+</div>
+<div class="mh1-ns mv1 mv0-ns">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
+</div>
+<div class="mr1-m mr3-l">
+<img class="db bare novmargin" src="/assets/garage/image-test-page/512x683@3x.png" style="max-height: 683px;">
+</div>
+</div>
