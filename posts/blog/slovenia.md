@@ -183,7 +183,7 @@ Anyway, here are some photos of walking around what Google informs me are the "J
 
 ## Food + Drink Interlude
 
-Since there are a lot of nature photos in this one I thought I'd be good to break stuff up with my sparkling consumption commentary.
+Since there are a lot of nature photos in this one I thought it'd be good to break stuff up with my sparkling consumption commentary.
 
 ![]({{ "/assets/blog/slovenia/turkish-coffee.moz80.jpg" | url }})
 

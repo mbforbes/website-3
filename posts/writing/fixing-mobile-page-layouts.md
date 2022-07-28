@@ -27,12 +27,6 @@ image: /assets/posts/fixing-mobile-page-layouts/header.jpg
 .small {
   width: 300px;
 }
-
-
-.big {
-  width: 400px;
-}
-
 </style>
 
 <svg viewBox="0 0 1200 675" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
