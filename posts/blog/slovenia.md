@@ -328,4 +328,10 @@ The back contains information in what I think are Polish, Hungarian, Czech, Slov
 
 - **Neighbors:** Speaking of neighboring countries, if your geography isn't super hot, reminder that Slovenia borders Italy (W), Austria (N), Hungary (E), and Croatia (S). It's cool that you can see the influence in stuff like food and language. Esp. in border regions, the cultures blur and you're reminded that country lines are somewhat arbitrary.
 
+---
+
+#### Attributions
+
+The maps were made by me, using code based off of <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. The underlying map data is &copy; OpenStreetMap contributors.
+
 <script src="https://player.vimeo.com/api/player.js"></script>
