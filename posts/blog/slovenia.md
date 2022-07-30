@@ -12,30 +12,30 @@ I regret to inform you, dear reader, that Slovenia is, in fact, utterly and tota
 ## Ljubljana
 
 <div style="background-color: #FCEEE1" class="full-width fig">
-<img class="content-width" src="{{ "/assets/blog/slovenia/ljubljana-slovenia-1-perimeter.moz80.jpg" | url }}">
+<img class="content-width" src="{{ "/assets/blog/slovenia/ljubljana-slovenia-5-perimeter.moz80.jpg" | url }}">
 </div>
 
 <div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-pano.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-pano.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 For such a small city (pop. ~300k), Slovenia's capital has an envious density of beautiful architecture and leisure infrastructure. Walking along the river that runs through town, there are about a million outdoor cafes packed with people. It's a lovely city to stroll and bike around.
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figtop mb1">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-pink.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-pink.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-river.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-river.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figbot">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-clock-tower.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-clock-tower.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-city.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-city.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
@@ -43,10 +43,10 @@ Puppet shows were a popular storytelling form here. I'm not usually into this ki
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-puppet-2.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-puppet-2.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-puppet.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-puppet.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
@@ -63,18 +63,18 @@ One interesting aspect I never thought of post-communism: lack of people with "o
 [^power]: I am sure there are exceptions. Who ended up with power? Who got land? But still, the concept is interesting.
 
 <div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-night.moz80.jpg" | url }}" style="max-height: 626px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-night.moz80.jpg" | url }}" style="max-height: min(100vh, 626px);">
 </div>
 
 
 ## Bled
 
 <div style="background-color: #FCEEE1" class="full-width fig">
-<img class="content-width" src="{{ "/assets/blog/slovenia/bled-slovenia-1-perimeter.moz80.jpg" | url }}">
+<img class="content-width" src="{{ "/assets/blog/slovenia/bled-slovenia-5-perimeter.moz80.jpg" | url }}">
 </div>
 
 <div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/bled-overlook.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/bled-overlook.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 Bled is this famous lake with a tiny island in the middle with a church on it. I do not have The Picture of this---maybe because we didn't pay to go in the castle, or maybe you need a drone? Anyway, google "lake bled" if interested.
@@ -83,18 +83,18 @@ You can just go to the beach for free (+ parking) and have a fantastic, exhausti
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figtop mb1">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/bled-three-lookers.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/bled-three-lookers.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/bled-cliff.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/bled-cliff.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figbot">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/bled-island.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/bled-island.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/bled-tower.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/bled-tower.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
@@ -103,7 +103,7 @@ You can just go to the beach for free (+ parking) and have a fantastic, exhausti
 ## Look At These Ski Jumps
 
 <div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/ski-jump-mountains.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/ski-jump-mountains.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 <p class="figcaption">
@@ -113,7 +113,7 @@ Sorry, not in this photo. Just some establishing scenery. Ski jumps upcoming.
 Pit stop. Hey, what do you think they do with ski jumps when it's off season?
 
 <div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/ski-jump-wide.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/ski-jump-wide.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 If you answered, "they spray water on the turf and skiers just blast off them like it's normal," then you were righter than I. Behold grainy midair proof:
@@ -128,13 +128,13 @@ We were informed by an ex-semi-pro skier that it's basically young light guys/ga
 The big one on the left was the world's biggest for a while. That whole grass strip is just the landing pad. You can barely see the start of the run peeking out through the trees. You can walk up it to experience appreciating ski lifts in real time.
 
 <div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/ski-jump-lookers.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/ski-jump-lookers.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 ## Bovec
 
 <div style="background-color: #FCEEE1" class="full-width fig">
-<img class="content-width" src="{{ "/assets/blog/slovenia/bovec-slovenia-1-perimeter.moz80.jpg" | url }}">
+<img class="content-width" src="{{ "/assets/blog/slovenia/bovec-slovenia-3-perimeter.moz80.jpg" | url }}">
 </div>
 
 Bovec is this mountainous region in NW Slovenia that seems to be 98% occupied by German / Austrian adventure tourists. Here is some b-roll establishing footage:
@@ -151,10 +151,10 @@ Anyway, here are some photos of walking around what Google informs me are the "J
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figtop">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/short-hike-out.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/short-hike-out.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/selfie.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/selfie.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
@@ -166,18 +166,18 @@ Anyway, here are some photos of walking around what Google informs me are the "J
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center mv1">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/short-hike-berry.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/short-hike-berry.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/short-hike-pond.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/short-hike-pond.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figbot">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/short-hike-rocks.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/short-hike-rocks.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/short-hike-julie.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/short-hike-julie.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
@@ -193,10 +193,10 @@ I had not realized it, but I'd never had <span class="b">Turkish coffee</span> b
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-hot-horse-menu.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-hot-horse-menu.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-food.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-food.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
@@ -215,10 +215,10 @@ I did eat a bunch of ćevapčići. Sausages w/ flatbread, accompanied by grilled
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-fill-wine.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-fill-wine.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-pizza.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-pizza.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
@@ -237,10 +237,10 @@ One nice side effect of bordering Italy is there is some amazing Italian food. T
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-cocktail.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-cocktail.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-cocktail-2.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/lj-cocktail-2.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
@@ -255,7 +255,7 @@ The drinks were still quite good.
 ## Mangart
 
 <div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-pano.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-pano.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 Local mountain. First time using those steel ropes to truly scale cliff walls. Good times.
@@ -264,15 +264,15 @@ After a few hours and literally every group we passed speaking German, I began t
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figtop">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-sign.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-sign.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-bor-passes.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-bor-passes.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
 <div class="full-width flex justify-center ph1-m ph3-l mv1">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-mist.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-mist.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 <!-- video: julie climbing -->
@@ -281,15 +281,15 @@ After a few hours and literally every group we passed speaking German, I began t
 </div>
 
 <div class="full-width flex justify-center ph1-m ph3-l mv1">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-moss.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-moss.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center mv1">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-cliff-wall.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-cliff-wall.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-ridge.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-ridge.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
@@ -299,7 +299,7 @@ After a few hours and literally every group we passed speaking German, I began t
 </div>
 
 <div class="full-width flex justify-center ph1-m ph3-l figbot">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-range.moz80.jpg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/mangart-range.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 
@@ -313,10 +313,10 @@ The back contains information in what I think are Polish, Hungarian, Czech, Slov
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/softener-front.moz80.jpg" | url }}" style="max-height: 626px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/softener-front.moz80.jpg" | url }}" style="max-height: min(100vh, 626px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/softener-back.moz80.jpg" | url }}" style="max-height: 626px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/slovenia/softener-back.moz80.jpg" | url }}" style="max-height: min(100vh, 626px);">
 </div>
 </div>
 
