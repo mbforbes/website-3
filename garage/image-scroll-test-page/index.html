@@ -5,11 +5,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Home - Maxwell Forbes</title>
+        <title>Image scroll test page - Maxwell Forbes</title>
         
-        <meta content="Home - Maxwell Forbes" property="title"/>
-        <meta content="Home - Maxwell Forbes" property="og:title"/>
-        <meta name="twitter:title" content="Home - Maxwell Forbes"/>
+        <meta content="Image scroll test page - Maxwell Forbes" property="title"/>
+        <meta content="Image scroll test page - Maxwell Forbes" property="og:title"/>
+        <meta name="twitter:title" content="Image scroll test page - Maxwell Forbes"/>
 
         <link rel="shortcut icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
@@ -22,9 +22,15 @@
 
 
     
-    <meta content='https://maxwellforbes.com' property='og:url'/>
-    <meta content="Hello it is I, Max" property='og:description'/>
-    <meta content="blog" property="og:type"/>
+    <meta content='https://maxwellforbes.com/garage/image-scroll-test-page/' property='og:url'/>
+    
+    <meta name='twitter:site' content='@maxforbes'/>
+    
+        
+        <meta content="Attempting resolution of issue seen in recent photo blog posts: scrolling down, or even back up, results in Chrome..." property='og:description'/>
+        <meta name='twitter:description' content="Attempting resolution of issue seen in recent photo blog posts: scrolling down, or even back up, results in Chrome..."/>
+    
+    <meta content="article" property="og:type"/>
 
 
 
@@ -140,107 +146,43 @@ setColorScheme();
 
     <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
       
+        <div class="mb4">
+          
+          
+            <div class="fw600 lightest-text-color mt1 ttu">
+              
+                <a href="/studio/#garage" class="lightest-text-color hover-blue">GARAGE/</a>
+              
+            </div>
+          
+
+          
+          <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              Image scroll test page
+          </h1>
+          
+
+        </div>
+      
 
       
       
 
       <div class="markdown-body">
-        
-<h2>Latest from the studio</h2>
-
-<ul class="list pa0">
-    
-    <li class="mv2">
-      <a href="/garage/image-size-test-page/" class="db pv1 link">
-        <time class="fr lightest-text-color ttu ml3">29 Jul 2022 </time>
-        Image size test page
-      </a>
-    </li>
-  
-    <li class="mv2">
-      <a href="/blog/slovenia/" class="db pv1 link">
-        <time class="fr lightest-text-color ttu ml3">28 Jul 2022 </time>
-        Slovenia
-      </a>
-    </li>
-  
-    <li class="mv2">
-      <a href="/garage/image-scroll-test-page/" class="db pv1 link">
-        <time class="fr lightest-text-color ttu ml3">28 Jul 2022 </time>
-        Image scroll test page
-      </a>
-    </li>
-  
+        <p>Attempting resolution of issue seen in recent photo blog posts: scrolling down, <em>or even back up</em>, results in Chrome re-decoding images in CPU raster jobs, which takes time and leaves the viewer with a white screen.</p>
+<p>This does not happen for at least one photo-heavy website I have visited. I do not understand why.</p>
+<h2 id="when-does-it-happen" tabindex="-1">When does it happen?</h2>
+<a class="dn" href="#when-does-it-happen"><span class="dn">Permalink to “When does it happen?”</span> <span aria-hidden="true">#</span></a><ul>
+<li>Happens if a bunch (~30) images are embedded normally</li>
+<li>Does not happen if the same image is repeated (~50x)</li>
+<li>Happens if images are all given fake widths + heights (e.g., 1000 x 1000).</li>
+<li>Happens <em>at first</em> if images are all given small fake widths + heights (e.g., 100 x 100), then after several rounds of scrolling up and down, everything stays loaded</li>
+<li>Happens if all widths and heights are provided, width capped and height used (imgs distorted)</li>
+<li>Happens if all widths and heights are provided, width capped and height set to auto (imgs now undistorted)</li>
+<li>Happens if images are all shrunk to 2/3 height (~50% size). It is alleviated, but I think the decoding simply finishes faster.</li>
+<li>Happens if all widths and heights are provided, images allowed to be full size (no W or H cap), and they’re 50% size.</li>
 </ul>
-
-<div class="cf mb1">
-    
-        <div class="fl mr3">
-            <a href="/sketches/wood-shelf-room/">
-            <img class="dim novmargin" src="/assets/sketches/wood-shelf-room-iso-thumb.jpeg" style="width: 72px; height: 72px;" />
-            </a>
-        </div>
-    
-        <div class="fl mr3">
-            <a href="/sketches/red-wine/">
-            <img class="dim novmargin" src="/assets/sketches/red-wine-thumb.jpeg" style="width: 72px; height: 72px;" />
-            </a>
-        </div>
-    
-        <div class="fl mr3">
-            <a href="/sketches/chicken/">
-            <img class="dim novmargin" src="/assets/sketches/chicken-thumb.jpeg" style="width: 72px; height: 72px;" />
-            </a>
-        </div>
-    
-</div>
-
-<p class="tr f6 f5-ns lightest-text-color mt1">
-... see more in the
-<a class="b" href="/studio/">Studio</a>
-</p>
-
-
-<h2>Latest research</h2>
-
-<ul class="list pa0">
-
-    <li class="mv2">
-        
-            <span class="db pv1">
-                <time class="fr lightest-text-color ttu ml3">24 Feb 2022 </time>
-                Our <a href="https://arxiv.org/pdf/2107.01294.pdf">Scarecrow paper</a>, about humans scrutinizing GPT-3 generations, will appear at ACL 2022.
-
-            </span>
-        
-    </li>
-
-    <li class="mv2">
-        
-            <span class="db pv1">
-                <time class="fr lightest-text-color ttu ml3">13 Dec 2021 </time>
-                I defended my dissertation. Hooray! Turns out PhDs take a while. Good times.
-
-            </span>
-        
-    </li>
-
-    <li class="mv2">
-        
-            <span class="db pv1">
-                <time class="fr lightest-text-color ttu ml3">14 Oct 2021 </time>
-                We released the Delphi project into the wild. Check out the <a href="https://arxiv.org/abs/2110.07574">paper</a>, <a href="https://delphi.allenai.org/">demo</a>, and followup <a href="https://blog.allenai.org/towards-machine-ethics-and-norms-d64f2bdde6a3">blog post</a>.
-
-            </span>
-        
-    </li>
-
-</ul>
-
-<p class="tr f6 f5-ns lightest-text-color mt1">
-... see more in
-<a class="b" href="/research/">Research</a>
-</p>
+<pre class="language-bash"><code class="language-bash"><span class="token comment"># when testing, embed images here w/</span><br>python scripts/image_size_test.py <span class="token operator">|</span> pbcopy</code></pre>
 
       </div>
 
@@ -270,6 +212,97 @@ setColorScheme();
 
 
       
+      
+        <p class="tr ttu lightest-text-color fw6 f6 f5-ns mt5 mb0">garage entry metadata</p>
+<table class="mv0 collapse ba br2 table-row-border-color pv2 ph3 f6 f5-ns lighter-text-color w-100">
+    <tbody id="garage-metadata">
+        <tr class="striped-row">
+            <td class="pv2 ph3 ttu fw6">
+                started
+            </td>
+            <td class="pv2 ph3 ttu">
+                28 Jul 2022
+            </td>
+        </tr>
+
+        
+            <tr class="striped-row">
+                <td class="pv2 ph3 ttu fw6">
+                    updated
+                </td>
+                <td class="pv2 ph3 ttu">
+                    30 Jul 2022
+                </td>
+            </tr>
+        
+
+        <tr class="striped-row">
+            <td class="pv2 ph3 ttu fw6">
+                disclaimer
+            </td>
+            <td class="pv2 ph3">
+                This is an entry in
+                
+                    <a href="/garage/what-is-the-garage/" class="hover-dark-blue underline-hover">the garage</a>.
+                
+                It may change or disappear at any point.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Comments! JK lol -->
+
+
+<!-- Link graph! -->
+<script async>
+    function addRow(name, graph, keys) {
+        let links = [];
+        for (let key of keys) {
+            if (!(key in graph)) {
+                console.warn("Skipping " + key + ", not found in link graph.")
+                continue;
+            }
+            
+            links.push(`<li><a href="${graph[key].url}" class="hover-dark-blue underline-hover">${graph[key].title}<a/></li>`);
+        }
+        if (links.length == 0) {
+            return;
+        }
+        let row = document.createElement("tr");
+        row.classList.add("striped-row");
+        row.innerHTML = `
+        <tr class="striped--light-gray">
+            <td class="pv2 ph3 ttu fw6">
+                ${name}
+            </td>
+            <td class="pv2 ph3 ${name}">
+                <ul class="pl3 mv0">
+                    ${links.join("\n")}
+                </ul>
+            </td>
+        </tr>
+        `
+        document.getElementById("garage-metadata").appendChild(row);
+    }
+
+    async function renderLinks() {
+        let resp = await fetch("/assets/garage/link_graph.json");
+        if (!resp.ok) {
+            return;
+        }
+        let graph = await resp.json();
+        let current = "/garage/image-scroll-test-page/";
+        if (!(current in graph)) {
+            return;
+        }
+        addRow("inbound", graph, graph[current].incoming);
+        addRow("outbound", graph, graph[current].outgoing);
+
+    }
+    renderLinks();
+</script>
+
       
     </main>
   </div>
