@@ -2,27 +2,27 @@
 title: Croatia
 subtitle: Land of Wondrous Coastline and Brutalist Toaster
 date: 2022-07-22
-image: /assets/blog/croatia/prim-roof.jpeg
+image: /assets/blog/croatia/prim-roof.moz80.jpg
 ---
 
 ## Dubrovnik
 
 <div style="background-color: #FCEEE1" class="full-width fig">
-<img class="content-width" src="{{ "/assets/blog/croatia/dubrovnik-croatia-12-perimeter.jpg" | url }}">
+<img class="content-width" src="{{ "/assets/blog/croatia/dubrovnik-croatia-12-perimeter.moz80.jpg" | url }}">
 </div>
 
 <div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-city.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-city.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 We arrived in Dubrovnik and immediately realized with sinking hearts: the entire walled city is a tourist Disneyland. It's one huge attraction. With ultra-inflated prices to boot. (You know it's bad if restaurants list prices in foreign currencies for your convenience.)
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-chair.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-chair.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-inlet.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-inlet.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
@@ -32,7 +32,7 @@ We arrived in Dubrovnik and immediately realized with sinking hearts: the entire
 
 
 <div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-walls.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-walls.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <p class="figcaption">
 Part of the attraction is that, apparently, a featured location in <span class="i">Game of Thrones</span> is a heavily CGI enhanced version of Dubrovnik. I haven't seen Game of Thrones, but here's a <a href="https://www.youtube.com/watch?v=rUldAQ2Haqo">great video</a> where someone photoshops pictures they took of Dubrovnik into scenes from GoT. As you might imagine, this whole situation means the city is riddled with Game of Thrones Walking Tours and Game of Thrones Official-ish Merchandise.
@@ -45,21 +45,21 @@ We immediately set a plan in action: cook our own food, and do as much as we can
 One of the free things you can do is swim in the coves and beaches around town.
 
 <div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-cove.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-cove.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 You can also hike up the hill nearby the old town for some lovely views.
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figtop mb1">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-flag.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-flag.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-island.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-island.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 <div class="full-width flex justify-center ph1-m ph3-l figbot">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-pano.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-pano.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 <p class="figcaption">
@@ -69,7 +69,7 @@ One thing I have been surprised to find myself interested in while traveling is:
 ... or tromp around this other forest park in the city.
 
 <div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-hike.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-hike.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <p class="figcaption">
 Here is something I never appreciated about hikes: if they go up high, there is a good view at the end. I always assumed this just sort of happens naturally. But cresting this hill <span class="i">(Velika and Mala Petka Forest Park)</span>, there was no view. Nearly all directions were blocked by infrastructure or growth. I realized that someone like a forest department probably has to actually plan for viewpoint equipment (platforms, stairs, guard rails) and ecological maintenance (tasteful but non-destructive pruning) and natural beauty lobbying (vs, say, the power or comms depts.) for cases when a view doesn't just throw itself at you.
@@ -77,10 +77,10 @@ Here is something I never appreciated about hikes: if they go up high, there is 
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-smirk.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-smirk.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-turtle.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/dub-turtle.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
@@ -91,15 +91,15 @@ I think this is the only time I have seen a statue truly just smirking. I almost
 ## ⛴ → Split
 
 <div class="full-width flex justify-center ph1-m ph3-l figtop">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/boat-sign.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/boat-sign.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 <div class="full-width flex justify-center ph1-m ph3-l mv1">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/boat-water-texture.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/boat-water-texture.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 <div class="full-width flex justify-center ph1-m ph3-l figbot">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/boat-pastel.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/boat-pastel.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 <p class="figcaption">
@@ -109,11 +109,11 @@ Really like the water texture on that second one. Almost looks like leather.
 ## Primošten
 
 <div style="background-color: #FCEEE1" class="full-width fig">
-<img class="content-width" src="{{ "/assets/blog/croatia/primosten-croatia-16-r750.jpg" | url }}">
+<img class="content-width" src="{{ "/assets/blog/croatia/primosten-croatia-16-r750.moz80.jpg" | url }}">
 </div>
 
 <div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-city.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-city.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 <p class="figcaption">
@@ -129,22 +129,22 @@ It turns out, the island city is more like Dubrovnik's old town, in that it's go
 So that's the geography. Re: who is there, we came before peak season really hit, but even still, this was clearly a resort town. Menus in English and German, vacationers filling the restaurants and beaches. Apparently more Polish tourists than usual. I guess the Croatian coast thrives off tourism, so everywhere you go will be more or less like this. Another humbling aspect of traveling is repeatedly being wrong in this assumption: if I'd never heard of a place, others won't have either.
 
 <div class="full-width flex justify-center ph1-m ph3-l figtop">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-pano.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-pano.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center mv1">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-tower.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-tower.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-sunset.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-sunset.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figbot">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-burek.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-burek.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-ramp.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-ramp.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
@@ -160,33 +160,33 @@ Our second favorite thing was visiting a long decommissioned, gutted hotel.
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figtop">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-stair.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-stair.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-hall.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-hall.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
 <div class="full-width flex justify-center ph1-m ph3-l mv1">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-interior.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-interior.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center mv1">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-art.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-art.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-tourists.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-tourists.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
 <div class="full-width flex justify-center ph1-m ph3-l mv1">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-bowl.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-bowl.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 
 <div class="full-width flex justify-center ph1-m ph3-l figbot">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-roof.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-roof.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 
 Top fav thing may or may not have been utilizing the local huge inflated floating obstacle course (not pictured).
@@ -205,10 +205,10 @@ This is cool, because it adds a new middle layer to the "language / dialect" lin
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-bug.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-bug.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-owl.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/prim-owl.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
@@ -219,7 +219,7 @@ According to expert bird man, hands and fingers are potential threads so receive
 ## Zagreb
 
 <div style="background-color: #FCEEE1" class="full-width fig">
-<img class="content-width" src="{{ "/assets/blog/croatia/zagreb-croatia-4-perimeter.jpg" | url }}">
+<img class="content-width" src="{{ "/assets/blog/croatia/zagreb-croatia-4-perimeter.moz80.jpg" | url }}">
 </div>
 
 
@@ -230,28 +230,28 @@ The only odd thing was nearly everywhere we went, every time of day and every da
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figtop">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-yellow-building.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-yellow-building.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-church.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-church.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center mv1">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-hall.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-hall.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-plant-ghost.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-plant-ghost.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figbot">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-bar.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-bar.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-german.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-german.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
@@ -264,10 +264,10 @@ This says, in German, <span class="i">used clothing sold at the cheapest prices.
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-god-dead.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-god-dead.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-toaster.jpeg" | url }}" style="max-height: 939px;">
+<img class="db bare novmargin" src="{{ "/assets/blog/croatia/zag-toaster.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
