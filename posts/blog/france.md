@@ -2,7 +2,7 @@
 title: France
 subtitle: Ho ho hooo
 date: 2022-08-07
-image: TODO
+image: /assets/blog/france/aix-country-walking.moz80.jpg
 ---
 
 We spent three weeks visiting cities we hadn't seen before in France. (Okay, plus Paris.)
@@ -435,7 +435,8 @@ It's more like a particularly good formula of cheesy bread.
 Domino's USA (source: <a href="https://www.facebook.com/Dominos/photos/a.34325539956/10151649060119957/?type=3">Domino's</a>)
 </p>
 
-Europe Domino's on the other hand seems to be trying to go more "classic pizza." Julie's hypothesis is that people here are used to pizza looking a certain way, and the thing on the top wouldn't be pizza to them. So instead you end up with:
+Europe Domino's on the other hand seems to be trying to go more "classic pizza."
+One hypothesis is that people here are used to pizza looking a certain way, and the thing on the top wouldn't be pizza to them. So instead you end up with:
 
 ![]({{ "/assets/blog/france/dominos-uk.moz80.jpg" | url }})
 
@@ -595,7 +596,7 @@ The city is beautiful---w/ the river Rhône running right through it---and it's 
 
 <p class="figcaption">
 <span class="b dn di-ns">Right:</span>
-Good food thing.
+Quenelle Lyonnaise, a doughy white fish thing baked in this cream sauce.
 </p>
 
 
