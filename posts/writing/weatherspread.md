@@ -4,6 +4,7 @@ subtitle: Historical temperature distributions
 date: 2022-07-03
 tags: project
 image: /assets/posts/weatherspread/weatherspread.png
+customexcerpt: When you're figuring out where to go, or when to go there, remember that a great shadow force will shape your experience. The weather.
 ---
 
 <object id="cover" type="image/svg+xml" data="{{ "/assets/posts/weatherspread/weatherspread.svg" | url }}"></object>

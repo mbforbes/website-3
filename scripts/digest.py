@@ -2,7 +2,7 @@
 
 Steps:
 - edit date_start, date_end, display_month
-- edit preamble
+- edit preamble (opt)
 - edit postamble
 - run `python scripts/digest.py | pbcopy`
 
@@ -18,26 +18,32 @@ import mistune
 
 from common import get_posts, Post
 
-date_start = date(2022, 4, 4)
-date_end = date(2022, 6, 30)
-display_month = "July"
+date_start = date(2022, 7, 1)
+date_end = date(2022, 7, 31)
+display_month = "August"
 
 subject = f"Max Forbes | {display_month} 2022 Digest"
 
 preamble = """
 <p>Hi everyone,</p>
 
-<p>This is a summary of what I've published in the last few months at my website. (My last email digest was at the start of April!)</p>
+<p>This is a summary of what I've published in the last month at my website.</p>
 """
 
 postamble = """
 <h2>News</h2>
 
-<p>I'm still on the road. If you want to see where I am, I made a page that I try to keep updated:
-<a href="https://maxwellforbes.com/whereami/">where am I</a>.
+<p>I'm in Scotland right now. I'm still keeping my
+<a href="https://maxwellforbes.com/whereami/">where am I</a>
+page updated, but it will be more approximate as we're on a road trip through
+the highlands.
 </p>
 
-<p>Traveling for a few months so far has been great, though a bit exhausting. We are hoping to slow down our pace soon.</p>
+<p>I tried to catch up with my blog in July. I'm still a bit behind (OK, like over a month), but I'm optimistic about catching up in August.</p>
+
+<p>A big focus for me in July was redesigning more of the blog to better display photos.
+You'll see some test pages about this in the Garage, and the blog posts from Crete onwards show bigger photos in new arrangements.
+I hope you enjoy them.</p>
 
 <br>
 
@@ -45,6 +51,15 @@ postamble = """
 Yours,<br>
 Max
 </p>
+"""
+
+garage_notice = """
+<p>
+The Garage is an experiment in
+<a href="https://maxwellforbes.com/garage/what-is-the-garage/">working with the garage door up</a>.
+These are smaller experiments and notes.
+</p>
+<br />
 """
 
 # filter by date and sort into categories
@@ -120,6 +135,11 @@ def get_excerpt(post: Post) -> str:
     soup = BeautifulSoup(mistune.html(post["contents"]), "html.parser")
     els = soup.find_all(["p", "li"])
     buf = []
+
+    # enable to manually check a post
+    # if post["frontmatter"]["title"] == "weatherspread":
+    #     code.interact(local=dict(globals(), **locals()))
+
     for el in els:
         if len(el.attrs) > 0:
             continue
@@ -187,6 +207,8 @@ renderers = defaultdict(lambda: render_post, {"sketches": render_sketch})
 buf = [preamble]
 for category, posts in collections.items():
     buf.append(f"<h2>{category.capitalize()}</h2>")
+    if category == "garage":
+        buf.append(garage_notice)
     if category == "sketches":
         buf.append("<div style='overflow: auto;'>")
     for post in sorted(posts, key=lambda x: x["frontmatter"]["date"]):

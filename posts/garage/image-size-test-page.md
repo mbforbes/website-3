@@ -2,6 +2,7 @@
 title: Image size test page
 date: 2022-07-29
 updated: 2022-07-30
+customexcerpt: Due to preliminary pixel density tests in the image layout test page, I've been exporting my images assuming an @3x device pixel ratio and a moderately large screen (939 CSSpx height).
 ---
 
 Due to preliminary pixel density tests in the [Image layout test page]({{ "/garage/image-layout-test-page/" | url }}), I've been exporting my images assuming an @3x device pixel ratio and a moderately large screen (939 CSSpx height). My exported size has been **3756 × 2817** (landscape). However, this may have been overkill.

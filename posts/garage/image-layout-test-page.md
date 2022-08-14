@@ -463,7 +463,7 @@ Determination for `max-height`:
 - `min(100vh, 939px)` --- general purposes. let images be seen in full, and also keep things at least @2x. wider displays will have photo sets nicely centered in the middle
 - `939px` --- portrait images we want as bigger/establishing. this way smaller desktops will have it display larger (than the viewport height), and we're keeping things crisp for ipads rather than having them blow up huge.
 
-### Varying Widths [WIP]
+### Varying Widths: Region Filling
 
 Ugh, the thing I didn't want to address.
 
@@ -477,31 +477,211 @@ I'm still torn philosophically on limiting photos to viewport heights. I think I
 
 I am pretty confident limiting side-by-side images to narrower widths is bad, though. They are already nearly too small at full-screen with full width access; much smaller and it's basically pointless to have them.
 
-Assuming I do end up with consecutive varying photo row widths, the main thing I can try is some background.
+Assuming I do end up with consecutive varying photo row widths, the main thing I can try is some background. Below contains a graveyard (in comments) of approaches, with one that finally worked:
+- ❌ SVG-generated fractal noise (colors too random)
+- ❌ BG gradient (manual + didn't look good)
+- ❌ BG gradient + alpha (manual, still didn't look good)
+- ❌ BG image, as addl. element, CSS blurred (could not get horizontal edges crisp)
+- ❌ BG image, as parent. element, opacity w/ `background-blend-mode` (could not get blurring, didn't look good without)
+- ✅ **BG image, as addl., element, blurred w/ SVG filter ([hat-tip](https://stackoverflow.com/a/48095387)) (looks good, can re-use image, crisp edges). Implemented below:**
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figtop">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/mountains.moz80.jpg" style="max-height: 100vh;">
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/mountains.moz80.jpg" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: 100vh;">
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
+<!-- BG SVG generated noise -->
 <!-- Note the added <div> in order to maintain page-BG-color margins. -->
-<div class="full-width  ph1-m ph3-l mv1">
-<div class="bg-black-70 w-100 h-100 flex justify-center">
+<!-- SVG here: used z-index and position: absolute to get it behind, but it won't respect parent padding, even if I add inherit padding stuff from stackoverflow :-() -->
+<!-- <div class="full-width ph1-m ph3-l mv1">
+<div class="w-100 h-100 flex justify-center" style="">
+<svg style="z-index: -1; position: absolute; padding-left: inherit; padding-right: inherit; left: 0; right: 0;" class="w-100 h-100">
+<filter id='noise' x='0%' y='0%' width='100%' height='100%'>
+<feTurbulence baseFrequency="0.01" type="fractalNoise" />
+</filter>
+<rect x="0" y="0" width="100%" height="100%" filter="url(#noise)" fill="none"></rect>
+</svg>
 <img class="db bare novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: 100vh;">
 </div>
+</div> -->
+
+<!-- BG gradient -->
+<!-- NOTE: to get more fx like blur and limited opacity, need another <div> or it applies to the image as well. But then we end up with the same breaking-out-of-padding problem as above :-( -->
+<!-- <div class="full-width ph1-m ph3-l mv1">
+<div class="w-100 h-100 flex justify-center">
+<div class="absolute w-100 h-100" style="background-image: linear-gradient(
+  45deg,
+  hsl(216deg 83% 69%) 0%,
+  hsl(202deg 90% 58%) 21%,
+  hsl(194deg 100% 46%) 30%,
+  hsl(189deg 100% 44%) 39%,
+  hsl(182deg 100% 39%) 46%,
+  hsl(174deg 100% 38%) 54%,
+  hsl(158deg 52% 52%) 61%,
+  hsl(129deg 41% 61%) 69%,
+  hsl(90deg 41% 59%) 79%,
+  hsl(63deg 42% 56%) 100%
+); z-index: -1; opacity: 50%; filter: blur(5px); padding: inherit;">
 </div>
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: 100vh;">
+</div>
+</div> -->
+
+<!-- BG color w/ alpha -->
+<!-- Boring fx but not breaking out. Added alpha which tones down BG colors. -->
+<!-- <div class="full-width ph1-m ph3-l mv1">
+<div class="w-100 h-100 flex justify-center" style="background-image: linear-gradient(
+  45deg,
+  hsla(216deg, 83%, 69%, 0.3) 0%,
+  hsla(202deg, 90%, 58%, 0.3) 21%,
+  hsla(194deg, 100%, 46%, 0.3) 30%,
+  hsla(189deg, 100%, 44%, 0.3) 39%,
+  hsla(182deg, 100%, 39%, 0.3) 46%,
+  hsla(174deg, 100%, 38%, 0.3) 54%,
+  hsla(158deg, 52%, 52%, 0.3) 61%,
+  hsla(129deg, 41%, 61%, 0.3) 69%,
+  hsla(90deg, 41%, 59%, 0.3) 79%,
+  hsla(63deg, 42%, 56%, 0.3) 100%
+);">
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: 100vh;">
+</div>
+</div> -->
+
+<!-- BG image -->
+<!-- NOTE: to get more fx like blur and limited opacity, need another <div> or it applies to the image as well. But then we end up with the same breaking-out-of-padding problem as above :-( -->
+<!-- <div class="full-width ph1-m ph3-l mv1">
+<div class="w-100 h-100 flex justify-center">
+<div class="absolute w-100 h-100" style="background-image: url(/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg); z-index: -1; filter: blur(15px); opacity: 70%; padding: inherit; background-size: contain;">
+</div>
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: 100vh;">
+</div>
+</div> -->
+
+<!-- BG image, single DIV (parent) -->
+<!-- <div class="full-width ph1-m ph3-l mv1" style="background-image: url(/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg); background-color: #FFFFFF77; background-blend-mode: screen; background-clip: content-box; background-size: contain;">
+<img class="novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: 100vh;">
+</div> -->
+
+<!-- BG image, single DIV (parent), plus pseudo element (totally broken) -->
+<!-- <style>
+.parent {
+    background-image: url(/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg);
+    background-clip: content-box;
+    background-size: contain;
+    overflow: hidden;
+}
+.parent:before {
+    content: "";
+    position: absolute;
+    width : 100%;
+    height: 100%;
+    background: inherit;
+    z-index: 1;
+    filter: blur(15px);
+
+    /* background-color: #FFFFFF77; */
+    /* background-blend-mode: screen; */
+    /* position: absolute; */
+    /* width: 100%; */
+    /* height: 100%; */
+    /* background: inherit; */
+    /* z-index: -1; */
+    /* filter: blur(15px); */
+}
+</style>
+<div class="full-width ph1-m ph3-l mv1 parent" style="">
+<img class="novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: 100vh; z-index: 2;">
+</div> -->
+
+<!-- BG image -->
+<svg class='hideSvgSoThatItSupportsFirefox dn'>
+  <filter id='sharpBlur'>
+    <feGaussianBlur stdDeviation='15'></feGaussianBlur>
+    <feColorMatrix type='matrix' values='1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 9 0'></feColorMatrix>
+    <feComposite in2='SourceGraphic' operator='in'></feComposite>
+  </filter>
+</svg>
+
+<style>
+.svgBlur { filter: url("#sharpBlur"); }
+.custom-bg {
+    background-image: url(/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg);
+    /* background-position: center; */
+    background-size: contain;
+    /* background-size: cover; */
+    /* background-size: 100%; */
+    /* filter: blur(15px); */
+    background-clip: content-box;
+    opacity: 50%;
+
+    width: 100%;
+    height: 100%;
+    padding: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+</style>
+<!-- NOTE: to get more fx like blur and limited opacity, need another <div> or it applies to the image as well. But then we end up with the same breaking-out-of-padding problem as above :-( -->
+<div class="full-width ph1-m ph3-l mv1" style="overflow: hidden;">
+<div class="custom-bg svgBlur" style="/*max-width: calc(704px + 1252px + 0.25rem);*/"></div>
+<img class="novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: min(100vh, 939px); filter: none;">
+</div>
+
 
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figbot">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/mountains.moz80.jpg" style="max-height: 100vh;">
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/mountains.moz80.jpg" style="max-height: min(100vh, 939px);">
 </div>
 <div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: 100vh;">
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: min(100vh, 939px);">
 </div>
 </div>
 
-TODO: try investigating BG textures
+However, now a new challenge arises: it's too wide.
+
+### Varying Widths: Width Matching [draft]
+
+Because the photos are now all viewport height-limited, it's possible for even side-by-side images to not take up the full width. This means that our new burred image background gets 100% page width when it shouldn't.
+
+Reading a bit about CSS Flexbox, it seems like it really only thinks row-by-row. When there's a new flex row, it doesn't know about the content above it. This seems to be a problem because I explicitly want my rows to be of equal width. CSS Grid is recommended for 2D layouts.
+
+However, thinking a bit more, my constraints are kind of odd:
+- the target width should be determined dynamically by the contents of the rows
+- the target width will be the largest combined content width
+- all rows will achieve this target width
+- for rows whose content fills less than the target width
+    - the columns inside should spread to fill the remaining space proportionally
+    - the content should be centered
+    - the backgrounds will have blurred/semi-transparent versions of the images
+- all items become 1 per row for smaller displays
+- ideally, none of this uses JavaScript
+- ideally, this is achieved with minimal manual markup
+
+... phew.
+
+I can see why you'd want to simply design on a fixed-width grid.
+
+<div style="display: grid; grid-template-columns: 1fr max-content 1fr; grid-template-rows: auto auto; grid-gap: 0.25rem;">
+<!-- row 1 -->
+<div></div>
+<div class="bg-pink flex" style="justify-content: center;">
+<div class="w3 h3 bg-red"></div>
+</div>
+<div></div>
+<!-- row 2 -->
+<div></div>
+<div class="flex" style="justify-content: center;">
+<div class="w3 h3 bg-red mr1"></div>
+<div class="w3 h3 bg-red"></div>
+</div>
+<div></div>
+</div>
