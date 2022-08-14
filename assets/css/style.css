@@ -182,6 +182,26 @@ a {
     color: var(--visited-link-color);
 }
 
+/* Removing space that gets inserted before nested bullets. E.g.,
+
+- foo
+    - bar
+    - baz
+
+... becomes
+
+- foo
+
+    - bar
+    -baz
+
+... because for some reason, "foo" is getting wrapped in a <p></p> but the
+rest aren't.
+*/
+li>p {
+    margin-bottom: 0px;
+}
+
 .markdown-body pre {
     margin: 0;
     overflow: auto;
