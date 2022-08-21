@@ -19,5 +19,5 @@ posts/travel/2022-france/
 blog w/ dates
 
 /blog/2022/blah-blah
-/blog/2022-08-07-blah-blah
+**/blog/2022-08-07-blah-blah**
 /blog/2022/08-07-blah-blah
