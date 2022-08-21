@@ -5,11 +5,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Making Plots Pretty - Maxwell Forbes</title>
+        <title>On Neon White - Maxwell Forbes</title>
         
-        <meta content="Making Plots Pretty - Maxwell Forbes" property="title"/>
-        <meta content="Making Plots Pretty - Maxwell Forbes" property="og:title"/>
-        <meta name="twitter:title" content="Making Plots Pretty - Maxwell Forbes"/>
+        <meta content="On Neon White - Maxwell Forbes" property="title"/>
+        <meta content="On Neon White - Maxwell Forbes" property="og:title"/>
+        <meta name="twitter:title" content="On Neon White - Maxwell Forbes"/>
 
         <link rel="shortcut icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
@@ -22,13 +22,13 @@
 
 
     
-    <meta content='https://maxwellforbes.com/posts/making-plots-pretty/' property='og:url'/>
+    <meta content='https://maxwellforbes.com/garage/on-neon-white/' property='og:url'/>
     
     <meta name='twitter:site' content='@maxforbes'/>
     
         
-        <meta content="Preface Permalink to “Preface” #Back in 2014, I gave this talk to my robotics lab on how to make good looking plots /..." property='og:description'/>
-        <meta name='twitter:description' content="Preface Permalink to “Preface” #Back in 2014, I gave this talk to my robotics lab on how to make good looking plots /..."/>
+        <meta content="I never play FPSes, and I never (anymore) try to 100% games. So why I am I so hooked on Neon White, and achieving all..." property='og:description'/>
+        <meta name='twitter:description' content="I never play FPSes, and I never (anymore) try to 100% games. So why I am I so hooked on Neon White, and achieving all..."/>
     
     <meta content="article" property="og:type"/>
 
@@ -151,14 +151,14 @@ setColorScheme();
           
             <div class="fw600 lightest-text-color mt1 ttu">
               
-                24 Apr 2014
+                <a href="/studio/#garage" class="lightest-text-color hover-blue">GARAGE/</a>
               
             </div>
           
 
           
           <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
-              Making Plots Pretty
+              On Neon White
           </h1>
           
 
@@ -169,152 +169,118 @@ setColorScheme();
       
 
       <div class="markdown-body">
-        <h2 id="preface" tabindex="-1">Preface</h2>
-<a class="dn" href="#preface"><span class="dn">Permalink to “Preface”</span> <span aria-hidden="true">#</span></a><p><em>Back in 2014, I gave this talk to my robotics lab on how to make good looking plots / figures. I’m posting it now in 2021. It’s fun to remember how far back my obsession with making figures goes.</em></p>
-<p><em>If you’re interested in using this material, the Keynote file is available in a GitHub repository:</em></p>
-<style>
-    .black-and-white:not(:hover) {
-        filter: grayscale(100%);
-    }
-</style>
-<link href='/assets/css/tippy-6.3.1.light.css' rel="stylesheet" type="text/css"/>
-<script defer src='/assets/lib/popper-2.9.3.min.js'></script>
-<script defer src='/assets/lib/tippy-6.3.1.umd.min.js'></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const langs = [
-            'Python',
-            'TypeScript',
-            'Bash',
-            'Java',
-            'HTML',
-            'JavaScript',
-            'Ruby',
-            'PHP'
-        ];
-        for (let lang of langs) {
-            let lower = lang.toLowerCase();
-            tippy(`.${lower}`, {
-                content: `Written in ${lang}`,
-                theme: 'light'
-            });
-        }
-    });
-</script>
-<div class="pl3 bl bw1 mb4">
-    <a href="https://github.com/mbforbes/making-plots-pretty" class="f5 f4-ns b code">making-plots-pretty</a><p class="mv1 f5 f4-ns">A 2014 lab talk I gave on how to make good looking plots and figures.</p></div>
-<p><em>Enjoy!</em></p>
-<p><em>– Max from 2021</em></p>
-<h2 id="slides" tabindex="-1">Slides</h2>
-<a class="dn" href="#slides"><span class="dn">Permalink to “Slides”</span> <span aria-hidden="true">#</span></a><p><img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.001.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.002.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.003.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.004.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.005.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.006.jpg" alt=""></p>
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.007.jpg) -->
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.008.jpg) -->
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.009.jpg) -->
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.010.jpg) -->
-<p><img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.011.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.012.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.013.jpg" alt=""></p>
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.014.jpg) -->
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.015.jpg) -->
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.016.jpg) -->
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.017.jpg) -->
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.018.jpg) -->
-<p><img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.019.jpg" alt=""></p>
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.020.jpg) -->
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.021.jpg) -->
-<p><img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.022.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.023.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.024.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.025.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.026.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.027.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.028.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.029.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.030.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.031.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.032.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.033.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.034.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.035.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.036.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.037.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.038.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.039.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.040.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.041.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.042.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.043.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.044.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.045.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.046.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.047.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.048.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.049.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.050.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.051.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.052.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.053.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.054.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.055.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.056.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.057.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.058.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.059.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.060.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.061.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.062.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.063.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.064.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.065.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.066.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.067.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.068.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.069.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.070.jpg" alt=""></p>
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.071.jpg) -->
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.072.jpg) -->
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.073.jpg) -->
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.074.jpg) -->
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.075.jpg) -->
-<p><img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.076.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.077.jpg" alt="">
-<img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.078.jpg" alt=""></p>
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.079.jpg) -->
-<p><img src="/assets/posts/making-plots-pretty/MakingPlotsPretty.080.jpg" alt=""></p>
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.081.jpg) -->
-<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.082.jpg) -->
-<h2 id="acknowledgments" tabindex="-1">Acknowledgments</h2>
-<a class="dn" href="#acknowledgments"><span class="dn">Permalink to “Acknowledgments”</span> <span aria-hidden="true">#</span></a><p>Thanks to the following folks whose resources I used either as examples of pretty things, or to make my own (somewhat) pretty things.</p>
+        <p>I never play FPSes, and I never (anymore) try to 100% games. So why I am I so hooked on Neon White, and achieving all the things for every level?</p>
+<h2 id="the-basics" tabindex="-1">The Basics</h2>
+<a class="dn" href="#the-basics"><span class="dn">Permalink to “The Basics”</span> <span aria-hidden="true">#</span></a><p>Neon White is a brilliant combination of several game mechanics:</p>
 <ul>
-<li><a href="http://pages.cs.wisc.edu/~bilge/">Bilge Mutlu</a></li>
-<li><a href="http://www.olgabotvinnik.com/">Ola Botvinnik</a> (esp <a href="http://olgabot.github.io/prettyplotlib/">PrettyPlotLib</a>)</li>
-<li><a href="http://www.geog.psu.edu/people/brewer-cynthia">Cynthia Brewer</a> (esp <a href="http://colorbrewer2.org/">Colorbrewer</a>)</li>
-<li><a href="http://matplotlib.org/">John Hunter &amp; The Matplotlib Team</a></li>
-<li><a href="http://blogs.mathworks.com/loren/">Loren Shure</a> (esp <a href="http://blogs.mathworks.com/loren/2007/12/11/making-pretty-graphs/">this blog post</a>)</li>
-<li><a href="http://penandpants.com/">Matt Davis</a> (esp <a href="https://github.com/jiffyclub/brewer2mpl">brewer2mpl</a>)</li>
+<li>FPS</li>
+<li>platformer (yes, in first person)</li>
+<li>puzzle game</li>
 </ul>
-<h2 id="postscript" tabindex="-1">Postscript</h2>
-<a class="dn" href="#postscript"><span class="dn">Permalink to “Postscript”</span> <span aria-hidden="true">#</span></a><p><em>(Max from 2021 again here)</em></p>
-<p>I couldn’t get other plot configurations or libraries to work, so I packaged my own set of plot modifications into a function and released it.</p>
-<div class="pl3 bl bw1 mb4">
-    <a href="https://github.com/mbforbes/beautyplot" class="f5 f4-ns b code">beautyplot</a><span class="dib fr">
-            <img
-                class="h1 novmargin mt1 black-and-white python"
-                src="/assets/img/langs/python.svg"/>
-        </span><p class="mv1 f5 f4-ns">My own attempt at a little library to make bar plots prettier</p></div>
-<p>Please don’t use it. The standard configurations and libraries are assuredly the way to go. Even my guide for setting up this library (changing <code>PYTHONPATH</code>) is bad. I think a great modern alternative to this genre of libraries is <a href="https://seaborn.pydata.org/">Seaborn</a>.</p>
-<p>At the same time, I thought it would be fun to include here because it shows how many axes of growth there are in developing even little tools like this:</p>
+<p>and you might add</p>
 <ul>
-<li>configuration (e.g., why I couldn’t get the existing approaches to work)</li>
-<li>breadth (e.g., I only supported bar plots)</li>
-<li>aesthetics (e.g., I don’t think graying out many axis markers is actually helpful)</li>
-<li>packaging (e.g., my setup instructions are all wrong)</li>
+<li>speed…runner? time attack game?</li>
 </ul>
+<p>Briefly: you collect guns with cards, and you have to decide how to use them. You have two options for each gun:</p>
+<ol>
+<li>shoot</li>
+<li>“discard” = gain special movement, like a midair hop, dash, or grappling hook</li>
+</ol>
+<p>This choice gives the game its puzzle qualities.</p>
+<p>What makes the game special is how it feels. At its best—which is often—The game flows the way a great 3D Sonic game should: fast, fluid, buttery smooth. You feel like you’re absolutely tearing up the course.</p>
+<p>This is accentuated by the fact that everything is a time-attack. Your goal in each level is to finish it as quickly as possible. A level has three target times to beat, and you instantly see friends’ times if you’re on WiFi. (Lookin’ at you, Callan.)</p>
+<p>Each level has two mechanics to spice it up:</p>
+<ol>
+<li>A skip, which is usually <s>required</s> very helpful to hit the best target time</li>
+<li>A single collectable, hidden in an obscure location that requires you puzzle your way there, but for which time is irrelevant</li>
+</ol>
+<p>The levels are bite-sized, which makes it satisfying to progress through them. And to retry them, which you will be doing constantly.</p>
+<h2 id="clever-things" tabindex="-1">Clever Things</h2>
+<a class="dn" href="#clever-things"><span class="dn">Permalink to “Clever Things”</span> <span aria-hidden="true">#</span></a><p>The reason I wanted to write this because of little things I noticed that I liked.</p>
+<p><strong>Level Progress.</strong> For each level, your goal is to beat the best target time, and collect the collectible. But this is rewarded in clever ways.</p>
+<ul>
+<li>Simply beating the level at all gives you a bronze medal. There is no target time to get the bronze medal.</li>
+<li>After completing the level once, you unlock the collectible. If you want that, you can simply play the level again to get it.</li>
+<li>Reaching better target times (silver, gold, “ace”) unlocks more aspects of the level that fit perfectly with how well you did:
+<ul>
+<li>To get a <strong>silver</strong> time, you have to reasonably understand how the level works. This unlocks <em>ghost playback,</em> to help you get a gold time.</li>
+<li>To get <strong>gold</strong>, you have to have a solid run. No major mistakes. Achieving gold unlocks the <em>level hint,</em> which is <s>nearly always required</s> very helpful to get the “ace” time.</li>
+<li>After you get <strong>ace</strong>, you can see the global leaderboard. Having achieved all the gameplay objectives, you can now hyperoptimize your run if you’re the competitive type. (At least, that’s what the game says—the global leaderboard has never worked for me. But the logic makes sense.)</li>
+</ul>
+</li>
+</ul>
+<p>Now, to finally get to the clever part: <strong>simply completing the level makes slow progress towards these unlocks.</strong> So, if you were really banging your head against a course, you will still make progress every time you finish it, and eventually unlock more tools and hints to help you master it.</p>
+<p>The way this is presented is brilliant as well: instead of it feeling like pity points, completing a level is worded like an accomplishment: “insight unlocked.” (Insight is the standard “unlock currency.”) So you are rewarded for playing and trying, and you’re always making forward progress. But you’re also rewarded for skill, because if you hit a good time, you immediately unlock the rewards at that level.</p>
+<p><strong>“Sidequests.”</strong> In progressing character stories, you sometimes need to play a challenge level. This is called a “sidequest,” which is a brilliant choice of naming. Rather than feeling like a pain or gatekeeping progress, sidequests feel like a character-appropriate challenge I get to embark on.</p>
+<p><strong>Sidequests mirror character personalities.</strong> This may be a tenuous high school-English-esque analysis, but I can see connections between  the level designs for different character sidequests and the relationship at stake. I can imagine that the sidequest is a gameplay representation of some unseen conversation.</p>
+<ul>
+<li>
+<p>w/ <em>Violet,</em> there’s an obvious aesthetic connection (spikes in the level and her prickly personality + Hot Topic fashion). But there’s a slightly more nuanced take: conversations with her feel like mistakes aren’t easily afforded. They end abruptly when you say the wrong thing.</p>
+</li>
+<li>
+<p>w/ <em>Red,</em> conversations often feel like she isn’t giving you much to work with. You are left diving from topic to topic, flailing about and trying not to land on your face. In turn, Red’s sidequests seem to involve a lot of floating, midair consecutive jumps, and very few platforms to stand on.</p>
+</li>
+<li>
+<p>w/ <em>Yellow,</em> you’re unable to use card discards (i.e., special movement abilities). This one may be the biggest stretch, but I could see an analogy here w/ the lack of conversational tools available to you when talking to the women characters. There’s no sexual tension to harness, so you end up traversing the same ground through simpler means. (This is perhaps stretched thin because White, the main character, seems completely incapable of productively using romantic energy in any conversation, but hey.)</p>
+</li>
+</ul>
+<p><strong>Complementary motivations</strong></p>
+<ul>
+<li>The hidden level collectibles let you progress individual characters’ storylines. These feel important and core to the game, so I collect all of them.</li>
+<li>Sidequests develop deeper technical skills that transfer perfectly to normal gameplay. They actually feel like useful training rather than just challenges I have to slog through. (Usually.)</li>
+<li>Achieving faster level times (gold or better) in enough levels is necessary to progress the main game.</li>
+</ul>
+<p><strong>You can go back and replay any old levels for a better time / getting the collectible whenever you want.</strong> This is good.</p>
+<p><strong>Economy of animations.</strong> Most of the dialog is delivered through single character sprites. These sprites</p>
+<ul>
+<li>move (wobble, jump, zip around)</li>
+<li>get anime-esque emotion sprites overlaid (hearts, sweat lines)</li>
+<li>get character faces overlaid (this is rare, and they’re also static and re-used)</li>
+</ul>
+<p>For other animations, like leveling up a relationship, there’s shockingly few animated sprites, but it still manages to look satisfying.</p>
+<ul>
+<li>an item sprite moves across the screen in a satisfying pattern</li>
+<li>the character sprite pulses and moves</li>
+<li>a decorative sprite appears</li>
+<li>there’s a full-screen effect, like a flash or wipe (I think)</li>
+<li>similarly richly accented progress bars, all elements coming onscreen/offscreen, little sound effect flourishes</li>
+</ul>
+<p>It’s a great case study in really, really milking a few assets that you’ve got.</p>
+<p><strong>Smart control defaults.</strong> Neon White is maybe the only game I’ve ever played that puts all the controls on the four triggers by default. It’s smart, and definitely feels like the right move given you’re using both sticks constantly for detailed movement. But it feels bold, because those I think are less “approachable” as buttons compared to the face ones (i.e., A / B / X / Y), as odd as that sounds. I’m glad they took the step.</p>
+<p><strong>Super customizable movement settings.</strong> Even though I never changed any settings from the defaults, I liked how thorough they are with giving you options. Stuff like mapping your look speeds, to the field-of-view, to amount of auto-aim, to gyroscopic aiming and tweaks. The fact that it’s all there signaled to me, “hey, we really want this to feel right to you.” The fact that I haven’t had to tweak it also means they did a good job with the defaults.</p>
+<p><strong>Great game feel.</strong> You run fast. You jump extremely far. You float extremely slowly. You can move a hilarious amount while floating—waaaaay out and back. It’s completely unrealistic in exactly the right ways to feel good.</p>
+<p><strong>Great feel for many powerups.</strong> I’m going to call them “powerups” since “gun discards” just feels strange to write. I’m impressed with several of them</p>
+<ul>
+<li>that the horizontal dash (blue card) vs aimable fireball (red card) both work well and feel appropriate</li>
+<li>explosions do a good job of propelling you upwards (which is where you want to go) rather than just away from them</li>
+<li>the grappling hook (light blue), along with the momentum you get afterwards, feels delicious</li>
+</ul>
+<h2 id="nits" tabindex="-1">Nits</h2>
+<a class="dn" href="#nits"><span class="dn">Permalink to “Nits”</span> <span aria-hidden="true">#</span></a><p>This really feels like an indie game, with rough edges and some funky bits. I think this gives it some charm. Still, a few tiny things I’d suggest.</p>
+<p><strong>Slow motion as an accessibility option.</strong> I think a combination of me not being twelve, and not ever playing twitch reflex games (e.g., FPSes), means there are a few sections that get really brutal. I initially thought auto-aim would solve this. But auto-aim isn’t quite right, because it will often be when I’m doing the platforming.</p>
+<p>Some later challenge segments (sidequests) require you to do a string of midair maneuvers. E.g., over a pit full of spikes (which, if you touch, will make you retry the level from the beginning), you will need to do all of this in each room:</p>
+<ul>
+<li>enter the room falling, from having executed a midair dash (via gun discard)</li>
+<li>pick up another weapon</li>
+<li>aim at enemies</li>
+<li>shoot them</li>
+<li>re-aim towards where you need to go</li>
+<li>… and execute a midair dash to leave</li>
+</ul>
+<p>This can sometimes just be a bit too much for little old me. When you know what you want to do, but can’t because you can’t react quickly enough, you end up needing to replay a stupid thing dozens of times to get it right. (More on this below.)</p>
+<p>I think what would solve this is letting you slow down time for really challenging quick maneuvers like this. I think it would keep the cool feel of the game, because you’re still doing wild Matrix-like maneuvers, but it would give those of us that aren’t FPS veterans a bit more time to aim.</p>
+<p><strong>A few levels need checkpoints or to be shorter.</strong> Almost all the levels are long enough to feel challenging but short enough to be satisfying. But there are a few that are absolutely grueling and miserable.</p>
+<p>E.g., consider the midair sequence described just above. Sometimes, you will need to do this a dozen or more times consecutively, without failing, in order to finish a level.</p>
+<p>I think for some people, battling these kind of levels gives satisfaction. And I think if you’re improving your route or fixing obvious mistakes, I agree—and that’s how the game usually feels.</p>
+<p>But some courses truly just demand a flawless execution of a specific difficult sequence. I particularly noticed this with Violet’s later sidequest levels. When the level is over a minute, and you need to start over with a single mistake, it’s frustrating. I never felt satisfied when finishing these levels, just relieved it was over.</p>
+<p>Since the game is so satisfying to just <em>play,</em> I don’t think it needs to milk levels like these for another kind of satisfaction. Let masochists compete on the leaderboards.</p>
+<p>The game has no checkpoints. Rather than implementing them, I think such levels can just be shortened.</p>
+<p><strong>Level reloads should be faster.</strong> This is going to sound petty. But reloading a level takes about five to seven seconds on the Switch.</p>
+<p>When you’re replaying a level over, and over, and over, after every tiny little mistake on a grueling course, sometimes waiting for longer than you even played feels frustrating. If you could go from death to playing the next run in ~2 seconds, I think this would do wonders with polishing the big last rough edge of gameplay feel.</p>
+<p><strong>Writing and voice acting is poor.</strong> When I first started the game, the writing felt quite bad.</p>
+<p>I’m not sure whether it warms up a bit later, or if I just got used to it. At this point I’m surprised how much I do want to know what’s going to happen in the plot. But the dialogs are largely painful to wade through.</p>
+<p>I felt similarly about the voice acting. I’ve also warmed up to a few of the characters, but some, like the Believers, are immersion-spoilingly over-read.</p>
+<p>Honestly, I think this can all be chalked up to the rough charm of an indie game, but it’s too bad, because with good writing and polishing some of the line reading (e.g., something like Hades), the game could be elevated to “recommend without reservations to friends” status.</p>
 
       </div>
 
@@ -344,6 +310,88 @@ setColorScheme();
 
 
       
+      
+        <p class="tr ttu lightest-text-color fw6 f6 f5-ns mt5 mb0">garage entry metadata</p>
+<table class="mv0 collapse ba br2 table-row-border-color pv2 ph3 f6 f5-ns lighter-text-color w-100">
+    <tbody id="garage-metadata">
+        <tr class="striped-row">
+            <td class="pv2 ph3 ttu fw6">
+                started
+            </td>
+            <td class="pv2 ph3 ttu">
+                17 Aug 2022
+            </td>
+        </tr>
+
+        
+
+        <tr class="striped-row">
+            <td class="pv2 ph3 ttu fw6">
+                disclaimer
+            </td>
+            <td class="pv2 ph3">
+                This is an entry in
+                
+                    <a href="/garage/what-is-the-garage/" class="hover-dark-blue underline-hover">the garage</a>.
+                
+                It may change or disappear at any point.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Comments! JK lol -->
+
+
+<!-- Link graph! -->
+<script async>
+    function addRow(name, graph, keys) {
+        let links = [];
+        for (let key of keys) {
+            if (!(key in graph)) {
+                console.warn("Skipping " + key + ", not found in link graph.")
+                continue;
+            }
+            
+            links.push(`<li><a href="${graph[key].url}" class="hover-dark-blue underline-hover">${graph[key].title}<a/></li>`);
+        }
+        if (links.length == 0) {
+            return;
+        }
+        let row = document.createElement("tr");
+        row.classList.add("striped-row");
+        row.innerHTML = `
+        <tr class="striped--light-gray">
+            <td class="pv2 ph3 ttu fw6">
+                ${name}
+            </td>
+            <td class="pv2 ph3 ${name}">
+                <ul class="pl3 mv0">
+                    ${links.join("\n")}
+                </ul>
+            </td>
+        </tr>
+        `
+        document.getElementById("garage-metadata").appendChild(row);
+    }
+
+    async function renderLinks() {
+        let resp = await fetch("/assets/garage/link_graph.json");
+        if (!resp.ok) {
+            return;
+        }
+        let graph = await resp.json();
+        let current = "/garage/on-neon-white/";
+        if (!(current in graph)) {
+            return;
+        }
+        addRow("inbound", graph, graph[current].incoming);
+        addRow("outbound", graph, graph[current].outgoing);
+
+    }
+    renderLinks();
+</script>
+
       
     </main>
   </div>
