@@ -1,0 +1,8 @@
+{
+    "permalink": "/posts/{{ page.fileSlug }}/",
+    "tags": [
+        "travel",
+        "writing",
+        "studio"
+    ]
+}
