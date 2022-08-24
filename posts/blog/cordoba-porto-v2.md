@@ -83,7 +83,7 @@ Back in Porto for a bit. Couple day trips to write about.
 ### Douro Wine Valley
 
 <div style="background-color: #FCEEE1" class="full-width">
-<img class="content-width" src="{{ "/assets/blog/porto/douro-portugal-2-perimeter.jpg" | url }}">
+<img class="content-width" src="{{ "/assets/posts/2022-porto-v2/douro-portugal-2-perimeter.moz80.jpg" | url }}">
 </div>
 
 <p class="full-width pr2 pr3-ns figcaption attribution">
@@ -92,23 +92,23 @@ Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marc
 
 Huge wine region, ~1--2hr drive east out of Porto. Wine grown on terraces. Historically only port, but more "normal" (AKA "table") wine these days too.
 
-![]({{ "/assets/blog/porto/douro-valley.jpeg" | url }})
+![]({{ "/assets/posts/2022-porto-v2/douro-valley.moz80.jpg" | url }})
 
 I learned vines can grow over a hundred years old. Peak production might be when they're around fifty (±thirty?) years old. As they get very old, the flavor gets better, but they tend to produce less. E.g., some getting as old as one hundred twenty (!).
 
 
-![]({{ "/assets/blog/porto/douro-vines.jpeg" | url }})
+![]({{ "/assets/posts/2022-porto-v2/douro-vines.moz80.jpg" | url }})
 
 An insect called phylloxera came from America in the late 1800s and decimated vines everywhere. Almost none survived. This was a big deal for them.
 
-![]({{ "/assets/blog/porto/douro-river.jpeg" | url }})
+![]({{ "/assets/posts/2022-porto-v2/douro-river.moz80.jpg" | url }})
 
 The Douro river was historically used to send barrels of port to Porto. Now it's got a bunch of dams, so no more. (Some wildly tall locks, though, so I guess it'd be possible, just slow.)
 
 ###  Peneda-Gerês National Park
 
 <div style="background-color: #FCEEE1" class="full-width">
-<img class="content-width" src="{{ "/assets/blog/porto/peneda-geres-national-park-portugal-4-perimeter.jpg" | url }}">
+<img class="content-width" src="{{ "/assets/posts/2022-porto-v2/peneda-geres-national-park-portugal-4-perimeter.moz80.jpg" | url }}">
 </div>
 
 <p class="full-width pr2 pr3-ns figcaption attribution">
@@ -117,22 +117,22 @@ Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marc
 
 Another day trip from Porto. Also couple hours way, north / northeast. Pretty park, might be _the_ big nature reserve in Portugal. Seems like hiking's not big here? If so, shame---pretty country.
 
-![]({{ "/assets/blog/porto/park-big.jpeg" | url }})
+![]({{ "/assets/posts/2022-porto-v2/park-big.moz80.jpg" | url }})
 
 Strong heather presence.
 
-![]({{ "/assets/blog/porto/park-heather.jpeg" | url }})
+![]({{ "/assets/posts/2022-porto-v2/park-heather.moz80.jpg" | url }})
 
 Old (unused?) damn. Swam in the lagoons beneath it.
 
-![]({{ "/assets/blog/porto/park-dam.jpeg" | url }})
+![]({{ "/assets/posts/2022-porto-v2/park-dam.moz80.jpg" | url }})
 
 This big fella on the road.
 
-![]({{ "/assets/blog/porto/bull.jpeg" | url }})
+![]({{ "/assets/posts/2022-porto-v2/bull.moz80.jpg" | url }})
 
 Huge shock on the way back---fire! Hard to see much from this photo. Ablaze on both sides of the road, horizon lit up, smoke filling sky. Thought we were doomed.
 
-![]({{ "/assets/blog/porto/fire.jpeg" | url }})
+![]({{ "/assets/posts/2022-porto-v2/fire.moz80.jpg" | url }})
 
 Everyone just drove past. Couldn't even find anything on the news (admittedly, probably bad at searching in Portuguese). Controlled burn?
