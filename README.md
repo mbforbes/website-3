@@ -6,18 +6,20 @@ Third (personal) website.
 npm run serve
 ```
 
-thinking about URL and/or folder updates.
+## Redirects
 
+Just documenting this. Two techniques for two purposes: (1) moved URLs, (2) invented URLs for tweakers like me.
 
-travel section of writing
+1. `redirect_from`
+    - https://brianm.me/posts/eleventy-redirect-from/
+2. `redirect_to`
+    - uses same HTML
+    - check redirects/ folder
 
-**/posts/2022-france/**
-posts/2022/france/
-/posts/travel/2022/france/
-posts/travel/2022-france/
+## WIP
 
-blog w/ dates
+- travel section
+    - **/posts/2022-france/**
 
-/blog/2022/blah-blah
-**/blog/2022-08-07-blah-blah**
-/blog/2022/08-07-blah-blah
+- blog filenames
+    - **2022-08-07-blah-blah**
