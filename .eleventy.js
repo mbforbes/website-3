@@ -369,19 +369,26 @@ Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marc
 </p>`;
     });
 
+    /**
+     * Simply pass null as one of the arguments to omit one of the captions.
+     */
     eleventyConfig.addNunjucksShortcode("doubleCaption", (first, second) => {
-        return `<p class="figcaption">
-<span class="b">
+        let buf = "";
+        if (first) {
+            buf += `<span class="b">
 <span class="dn-ns">Top:</span>
 <span class="dn di-ns">Left:</span>
 </span>
-${first}
-<span class="b">
+${first}`;
+        }
+        if (second) {
+            buf += `<span class="b">
 <span class="dn-ns">Bottom:</span>
 <span class="dn di-ns">Right:</span>
 </span>
-${second}
-</p>`;
+${second}`;
+        }
+        return `<p class="figcaption">${buf}</p>`;
     });
 
 
