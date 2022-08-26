@@ -568,7 +568,26 @@ ol ol ol {
         /* f5 */
         font-size: 1rem;
     }
+}
 
+/* For blurred BG images to stretch image real estate */
+.svgBlur {
+    filter: url("#sharpBlur");
+}
+
+.bgImageReady {
+    /* background-position: center; */
+    background-size: contain;
+    /* background-size: cover; */
+    /* background-size: 100%; */
+    background-clip: content-box;
+    opacity: 50%;
+
+    width: 100%;
+    height: 100%;
+    padding: inherit;
+    position: absolute;
+    z-index: -1;
 }
 
 /* --- */

@@ -12,45 +12,44 @@ Copy-paste-able snippets for image arrangements.
 
 ### One image
 
-<div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/1000x500@3x.png" style="max-height: min(100vh, 500px);">
-</div>
+{% img "/assets/garage/image-test-pages/939x939@3x.png" %}
 
 ### Two images
 
-<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
-<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/704x939@3x.png" style="max-height: min(100vh, 939px);">
-</div>
-<div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px);">
-</div>
-</div>
+{% img [[
+  "/assets/garage/image-test-pages/704x939@3x.png",
+  "/assets/garage/image-test-pages/704x939@3x.png"
+]] %}
 
 ### Three images
 
-<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
-<div class="ml1-m ml3-l">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/512x683@3x.png" style="max-height: min(100vh, 683px);">
-</div>
-<div class="mh1-ns mv1 mv0-ns">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/512x683@3x.png" style="max-height: min(100vh, 683px);">
-</div>
-<div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/512x683@3x.png" style="max-height: min(100vh, 683px);">
-</div>
-</div>
+{% img [[
+  "/assets/garage/image-test-pages/704x939@3x.png",
+  "/assets/garage/image-test-pages/704x939@3x.png",
+  "/assets/garage/image-test-pages/704x939@3x.png"
+]] %}
+
+### Multiple rows
+
+{% img [
+  "/assets/garage/image-test-pages/939x939@3x.png",
+  [
+    "/assets/garage/image-test-pages/704x939@3x.png",
+    "/assets/garage/image-test-pages/704x939@3x.png"
+  ]
+] %}
 
 
-<!-- NB: The one image style could be
+### Specify Height
 
-<div class="full-width ph1-m ph3-l">
-<img src="/assets/garage/image-test-pages/1000x500@3x.png" style="max-height: 500px;">
-</div>
+{% img {path: "/assets/garage/image-test-pages/1000x500@3x.png", maxHeight: "500px"} %}
 
-... but using the above so that the <img ...> snippet is exactly the same for all layouts.
- -->
+### Blur stretch singles
 
+{% img [
+  "/assets/garage/image-test-pages/704x939@3x.png",
+  "/assets/garage/image-test-pages/939x939@3x.png"
+], true %}
 
 ## Workbook
 
@@ -597,43 +596,25 @@ Assuming I do end up with consecutive varying photo row widths, the main thing I
 <img class="novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: 100vh; z-index: 2;">
 </div> -->
 
-<!-- BG image -->
-<svg class='hideSvgSoThatItSupportsFirefox dn'>
+<!-- BG image (this now inserted into every page) -->
+<!-- <svg class='hideSvgSoThatItSupportsFirefox dn'>
   <filter id='sharpBlur'>
     <feGaussianBlur stdDeviation='15'></feGaussianBlur>
     <feColorMatrix type='matrix' values='1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 9 0'></feColorMatrix>
     <feComposite in2='SourceGraphic' operator='in'></feComposite>
   </filter>
-</svg>
+</svg> -->
 
-<style>
-.svgBlur { filter: url("#sharpBlur"); }
-.custom-bg {
-    background-image: url(/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg);
-    /* background-position: center; */
-    background-size: contain;
-    /* background-size: cover; */
-    /* background-size: 100%; */
-    /* filter: blur(15px); */
-    background-clip: content-box;
-    opacity: 50%;
+<!-- Check svgBlur and bgImageReady CSS classes in style.css -->
 
-    width: 100%;
-    height: 100%;
-    padding: inherit;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-}
+<div class="full-width flex justify-center ph1-m ph3-l mv1">
+<div class="bgImageReady svgBlur" style="background-image: url(/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg)"></div>
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: min(100vh, 939px);">
+</div>
 
-</style>
-<!-- NOTE: to get more fx like blur and limited opacity, need another <div> or it applies to the image as well. But then we end up with the same breaking-out-of-padding problem as above :-( -->
-<div class="full-width ph1-m ph3-l mv1" style="overflow: hidden;">
-<div class="custom-bg svgBlur" style="/*max-width: calc(704px + 1252px + 0.25rem);*/"></div>
-<img class="novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: min(100vh, 939px); filter: none;">
+<div class="full-width flex justify-center ph1-m ph3-l mv1">
+<div class="bgImageReady svgBlur" style="background-image: url(/assets/garage/image-test-pages/704x939@3x.png)"></div>
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/704x939@3x.png" style="max-height: min(100vh, 939px);">
 </div>
 
 

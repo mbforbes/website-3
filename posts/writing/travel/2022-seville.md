@@ -5,19 +5,9 @@ image: /assets/posts/2022-seville/plaza.moz80.jpg
 redirect_from: /blog/seville-malaga/
 ---
 
-<div style="background-color: #FCEEE1" class="full-width">
-<img class="content-width" src="{{ "/assets/posts/2022-seville/seville-spain-28-perimeter.moz80.jpg" | url }}">
-</div>
+{% cityMap "/assets/posts/2022-seville/seville-spain-28-perimeter.moz80.jpg" %}
 
-<p class="full-width pr2 pr3-ns figcaption attribution">
-Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
-<!-- There's <a href="/garage/city-maps-with-prettymaps/#no-water">supposed to be water</a> flowing through that empty area. -->
-</p>
-
-
-<div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="{{ "/assets/posts/2022-seville/plaza.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
-</div>
+{% img "/assets/posts/2022-seville/plaza.moz80.jpg" %}
 
 A lovely feature of Spanish cities seems to be big public plazas you can go and hang out in. Art and water features make them pleasant.
 
@@ -31,17 +21,11 @@ It's also completely taken over by tourists and people selling them trinkets and
 
 A bunch of Spanish public parks emphasize paved paths. You walk around bits of delicately manicured trees and some water features. Not my cup of tea to hang out in (just not enough living matter), but pretty.
 
-<div class="full-width flex justify-center ph1-m ph3-l figtop">
-<img class="db bare novmargin" src="{{ "/assets/posts/2022-seville/building.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
-</div>
-
-<div class="full-width flex justify-center ph1-m ph3-l mv1">
-<img class="db bare novmargin" src="{{ "/assets/posts/2022-seville/fountain.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
-</div>
-
-<div class="full-width flex justify-center ph1-m ph3-l figbot">
-<img class="db bare novmargin" src="{{ "/assets/posts/2022-seville/font.moz80.jpg" | url }}" style="max-height: min(100vh, 939px);">
-</div>
+{% img [
+    "/assets/posts/2022-seville/building.moz80.jpg",
+    "/assets/posts/2022-seville/fountain.moz80.jpg",
+    "/assets/posts/2022-seville/font.moz80.jpg"
+], true %}
 
 <p class="figcaption">I love the lettering here.</p>
 

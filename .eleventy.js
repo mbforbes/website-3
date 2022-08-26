@@ -230,6 +230,145 @@ module.exports = function (eleventyConfig) {
         return util.inspect(obj)
     });
 
+
+    // Note on URL filters:
+    // I use:
+    //     eleventyConfig.getFilter("url")(url)
+    // in the shortcodes.
+    // But, I never actually deploy to a different base (prefix)...
+    // In 2.0, this will be replaced with a custom implementation
+    // that mimics <base> (new HTML element) by rewriting URLs:
+    //     https://www.11ty.dev/docs/plugins/html-base/
+    // it would, honestly, be really nice to strip out the janky
+    //     "{{ "foo" | url }}"
+    // everywhere and just replace it with
+    //     "foo"
+
+    /**
+     * img can be a str or obj
+     */
+    function imgSpecToHTML(img) {
+        let path;
+        let maxHeight = "939px";
+        if (typeof img === "string") {
+            path = img;
+        } else {
+            path = img.path;
+            maxHeight = img.maxHeight || maxHeight;
+        }
+        path = eleventyConfig.getFilter("url")(path);
+        return [path, `<img class="db bare novmargin" src="${path}" style="max-height: min(100vh, ${maxHeight});">`];
+    }
+
+    function oneBigImage(imgSpec, marginClasses, blurStretchSingles) {
+        let [imgPath, imgHTML] = imgSpecToHTML(imgSpec);
+        let bgDiv = "";
+        if (blurStretchSingles) {
+            bgDiv = `<div class="bgImageReady svgBlur" style="background-image: url(${imgPath})"></div>`;
+        }
+
+        // NOTE: the one image style could be
+        // <div class="full-width ph1-m ph3-l">
+        // <img src="foo" style="max-height: 500px;">
+        // </div>
+        // but using this so the <img ...> snippet is the same for all layouts.
+        return `<div class="full-width flex justify-center ph1-m ph3-l ${marginClasses}">${bgDiv}${imgHTML}</div>`;
+    }
+
+    function twoBigImages(imgSpecs, marginClasses) {
+        return `<div class="full-width flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">${imgSpecToHTML(imgSpecs[0])[1]}</div>
+<div class="mr1-m mr3-l">${imgSpecToHTML(imgSpecs[1])[1]}</div>
+</div>`;
+    }
+
+    function threeBigImages(imgSpecs, marginClasses) {
+        return `<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l">${imgSpecToHTML(imgSpecs[0])[1]}</div>
+<div class="mh1-ns mv1 mv0-ns">${imgSpecToHTML(imgSpecs[1])[1]}</div>
+<div class="mr1-m mr3-l">${imgSpecToHTML(imgSpecs[2])[1]}</div>
+</div>`;
+    }
+
+    function getMarginClasses(i, n_rows) {
+        if (n_rows == 1) return 'fig';
+        if (i == 0) return 'figtop mb1'
+        if (i == n_rows - 1) return 'mt1 figbot';
+        return 'mv1';
+    }
+
+    /**
+     * API:
+     *
+     * "img"                                   single image
+     * ["img"]                                 single image
+     * [["img"]]                               single image
+     * [["img1", "img2"]]                      side by side
+     * ["img1", "img2"]                        single image, single image
+     * ["img1", ["img2", "img3"]]              single image, side by side
+     * [["img1", "img2"], ["img3", "img4"]]    side by side, side by side
+     *
+     * Each string can be replaced by an object to specify more options.
+     *
+     * {path: "img", maxHeight: "500px"}       single image
+     * [[                                      side by side
+     *     {path: "img", maxHeight: "500px"},
+     *     {path: "img", maxHeight: "500px"}
+     * ]]
+     * etc.
+     *
+     * Second arg is to add BG image blur stretch for single img(s) to full width.
+     *
+     * Example:
+     * {% img [
+     *     ["img1", "img2"],
+     *     ["img3", "img4"],
+     *     "baz",
+     *     {path: "foo", size: "bar"},
+     *     [{path: "foo2", size: "bar2"},{path: "foo3", size: "bar3"}]
+     * ], true %}
+     */
+    eleventyConfig.addNunjucksShortcode("img", (imgs, blurStretchSingles = false) => {
+        if (!Array.isArray(imgs)) {
+            imgs = [imgs];
+        }
+
+        // go row-by-row. top and bottom get big margins, inter-rows are m1.
+        let buf = '';
+        for (let i = 0; i < imgs.length; i++) {
+            let row = imgs[i];
+            let m = getMarginClasses(i, imgs.length);
+            if (!Array.isArray(row)) {
+                row = [row];
+            }
+            switch (row.length) {
+                case 1:
+                    buf += oneBigImage(row[0], m, blurStretchSingles);
+                    break;
+                case 2:
+                    buf += twoBigImages(row, m);
+                    break;
+                case 3:
+                    buf += threeBigImages(row, m);
+                    break;
+                default:
+                    buf += 'UNSUPPORTED IMG ROW ARRAY LENGTH: ' + row.length;
+                    break;
+            }
+        }
+
+        return buf;
+    });
+
+    eleventyConfig.addNunjucksShortcode("cityMap", (path) => {
+        return `<div style="background-color: #FCEEE1" class="full-width">
+<img class="content-width" src="${eleventyConfig.getFilter("url")(path)}">
+</div>
+<p class="full-width pr2 pr3-ns figcaption attribution">
+Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
+</p>`;
+    });
+
     // ---------------------------------------------------------------------------------
     // (Universal) filters from the eleventy starter template. Can remove if not using.
 
