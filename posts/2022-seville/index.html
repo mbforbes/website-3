@@ -119,6 +119,14 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', eve
 setColorScheme();
 
         </script>
+        <!-- Hidden SVG for applying blur filters -->
+        <svg class='hideSvgSoThatItSupportsFirefox dn'>
+        <filter id='sharpBlur'>
+            <feGaussianBlur stdDeviation='15'></feGaussianBlur>
+            <feColorMatrix type='matrix' values='1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 9 0'></feColorMatrix>
+            <feComposite in2='SourceGraphic' operator='in'></feComposite>
+        </filter>
+        </svg>
 
         
 
@@ -179,26 +187,15 @@ setColorScheme();
 </div>
 <p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
-<!-- There's <a href="/garage/city-maps-with-prettymaps/#no-water">supposed to be water</a> flowing through that empty area. -->
 </p>
-<div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="/assets/posts/2022-seville/plaza.moz80.jpg" style="max-height: min(100vh, 939px);">
-</div>
+<div class="full-width flex justify-center ph1-m ph3-l fig"><img class="db bare novmargin" src="/assets/posts/2022-seville/plaza.moz80.jpg" style="max-height: min(100vh, 939px);"></div>
 <p>A lovely feature of Spanish cities seems to be big public plazas you can go and hang out in. Art and water features make them pleasant.</p>
 <p>Seville’s big plaza has gorgeous architecture around it, and it—the plaza—is massive.</p>
 <p>It’s also completely taken over by tourists and people selling them trinkets and horse carriage rides. I think the locals have found smaller plazas to hang out in.</p>
 <p><img src="/assets/posts/2022-seville/bridge.moz80.jpg" alt=""></p>
 <p class="figcaption"><a href="https://en.wikipedia.org/wiki/Alamillo_Bridge">Cool bridge.</a></p>
 <p>A bunch of Spanish public parks emphasize paved paths. You walk around bits of delicately manicured trees and some water features. Not my cup of tea to hang out in (just not enough living matter), but pretty.</p>
-<div class="full-width flex justify-center ph1-m ph3-l figtop">
-<img class="db bare novmargin" src="/assets/posts/2022-seville/building.moz80.jpg" style="max-height: min(100vh, 939px);">
-</div>
-<div class="full-width flex justify-center ph1-m ph3-l mv1">
-<img class="db bare novmargin" src="/assets/posts/2022-seville/fountain.moz80.jpg" style="max-height: min(100vh, 939px);">
-</div>
-<div class="full-width flex justify-center ph1-m ph3-l figbot">
-<img class="db bare novmargin" src="/assets/posts/2022-seville/font.moz80.jpg" style="max-height: min(100vh, 939px);">
-</div>
+<div class="full-width flex justify-center ph1-m ph3-l figtop mb1"><div class="bgImageReady svgBlur" style="background-image: url(/assets/posts/2022-seville/building.moz80.jpg)"></div><img class="db bare novmargin" src="/assets/posts/2022-seville/building.moz80.jpg" style="max-height: min(100vh, 939px);"></div><div class="full-width flex justify-center ph1-m ph3-l mv1"><div class="bgImageReady svgBlur" style="background-image: url(/assets/posts/2022-seville/fountain.moz80.jpg)"></div><img class="db bare novmargin" src="/assets/posts/2022-seville/fountain.moz80.jpg" style="max-height: min(100vh, 939px);"></div><div class="full-width flex justify-center ph1-m ph3-l mt1 figbot"><div class="bgImageReady svgBlur" style="background-image: url(/assets/posts/2022-seville/font.moz80.jpg)"></div><img class="db bare novmargin" src="/assets/posts/2022-seville/font.moz80.jpg" style="max-height: min(100vh, 939px);"></div>
 <p class="figcaption">I love the lettering here.</p>
 <p>Now, <em>tino de verano:</em></p>
 <p><img src="/assets/posts/2022-seville/tinto-de-verano.moz80.jpg" alt=""></p>

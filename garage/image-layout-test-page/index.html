@@ -115,6 +115,14 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', eve
 setColorScheme();
 
         </script>
+        <!-- Hidden SVG for applying blur filters -->
+        <svg class='hideSvgSoThatItSupportsFirefox dn'>
+        <filter id='sharpBlur'>
+            <feGaussianBlur stdDeviation='15'></feGaussianBlur>
+            <feColorMatrix type='matrix' values='1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 9 0'></feColorMatrix>
+            <feComposite in2='SourceGraphic' operator='in'></feComposite>
+        </filter>
+        </svg>
 
         
 
@@ -174,38 +182,27 @@ setColorScheme();
 <h2 id="house-styles" tabindex="-1">House styles</h2>
 <a class="dn" href="#house-styles"><span class="dn">Permalink to “House styles”</span> <span aria-hidden="true">#</span></a><p>Copy-paste-able snippets for image arrangements.</p>
 <h3 id="one-image" tabindex="-1">One image</h3>
-<a class="dn" href="#one-image"><span class="dn">Permalink to “One image”</span> <span aria-hidden="true">#</span></a><div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/1000x500@3x.png" style="max-height: min(100vh, 500px);">
-</div>
+<a class="dn" href="#one-image"><span class="dn">Permalink to “One image”</span> <span aria-hidden="true">#</span></a><div class="full-width flex justify-center ph1-m ph3-l fig"><img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px);"></div>
 <h3 id="two-images" tabindex="-1">Two images</h3>
 <a class="dn" href="#two-images"><span class="dn">Permalink to “Two images”</span> <span aria-hidden="true">#</span></a><div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
-<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/704x939@3x.png" style="max-height: min(100vh, 939px);">
-</div>
-<div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px);">
-</div>
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns"><img class="db bare novmargin" src="/assets/garage/image-test-pages/704x939@3x.png" style="max-height: min(100vh, 939px);"></div>
+<div class="mr1-m mr3-l"><img class="db bare novmargin" src="/assets/garage/image-test-pages/704x939@3x.png" style="max-height: min(100vh, 939px);"></div>
 </div>
 <h3 id="three-images" tabindex="-1">Three images</h3>
 <a class="dn" href="#three-images"><span class="dn">Permalink to “Three images”</span> <span aria-hidden="true">#</span></a><div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
-<div class="ml1-m ml3-l">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/512x683@3x.png" style="max-height: min(100vh, 683px);">
+<div class="ml1-m ml3-l"><img class="db bare novmargin" src="/assets/garage/image-test-pages/704x939@3x.png" style="max-height: min(100vh, 939px);"></div>
+<div class="mh1-ns mv1 mv0-ns"><img class="db bare novmargin" src="/assets/garage/image-test-pages/704x939@3x.png" style="max-height: min(100vh, 939px);"></div>
+<div class="mr1-m mr3-l"><img class="db bare novmargin" src="/assets/garage/image-test-pages/704x939@3x.png" style="max-height: min(100vh, 939px);"></div>
 </div>
-<div class="mh1-ns mv1 mv0-ns">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/512x683@3x.png" style="max-height: min(100vh, 683px);">
+<h3 id="multiple-rows" tabindex="-1">Multiple rows</h3>
+<a class="dn" href="#multiple-rows"><span class="dn">Permalink to “Multiple rows”</span> <span aria-hidden="true">#</span></a><div class="full-width flex justify-center ph1-m ph3-l figtop mb1"><img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px);"></div><div class="full-width flex flex-wrap flex-nowrap-ns justify-center mt1 figbot">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns"><img class="db bare novmargin" src="/assets/garage/image-test-pages/704x939@3x.png" style="max-height: min(100vh, 939px);"></div>
+<div class="mr1-m mr3-l"><img class="db bare novmargin" src="/assets/garage/image-test-pages/704x939@3x.png" style="max-height: min(100vh, 939px);"></div>
 </div>
-<div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="/assets/garage/image-test-pages/512x683@3x.png" style="max-height: min(100vh, 683px);">
-</div>
-</div>
-<!-- NB: The one image style could be
-
-<div class="full-width ph1-m ph3-l">
-<img src="/assets/garage/image-test-pages/1000x500@3x.png" style="max-height: 500px;">
-</div>
-
-... but using the above so that the <img ...> snippet is exactly the same for all layouts.
- -->
+<h3 id="specify-height" tabindex="-1">Specify Height</h3>
+<a class="dn" href="#specify-height"><span class="dn">Permalink to “Specify Height”</span> <span aria-hidden="true">#</span></a><div class="full-width flex justify-center ph1-m ph3-l fig"><img class="db bare novmargin" src="/assets/garage/image-test-pages/1000x500@3x.png" style="max-height: min(100vh, 500px);"></div>
+<h3 id="blur-stretch-singles" tabindex="-1">Blur stretch singles</h3>
+<a class="dn" href="#blur-stretch-singles"><span class="dn">Permalink to “Blur stretch singles”</span> <span aria-hidden="true">#</span></a><div class="full-width flex justify-center ph1-m ph3-l figtop mb1"><div class="bgImageReady svgBlur" style="background-image: url(/assets/garage/image-test-pages/704x939@3x.png)"></div><img class="db bare novmargin" src="/assets/garage/image-test-pages/704x939@3x.png" style="max-height: min(100vh, 939px);"></div><div class="full-width flex justify-center ph1-m ph3-l mt1 figbot"><div class="bgImageReady svgBlur" style="background-image: url(/assets/garage/image-test-pages/939x939@3x.png)"></div><img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px);"></div>
 <h2 id="workbook" tabindex="-1">Workbook</h2>
 <a class="dn" href="#workbook"><span class="dn">Permalink to “Workbook”</span> <span aria-hidden="true">#</span></a><p>My process of working through getting the house styles.</p>
 <h3 id="small-centered" tabindex="-1">Small, centered</h3>
@@ -651,42 +648,22 @@ Capping @ view height, portrait.
 <div class="full-width ph1-m ph3-l mv1 parent" style="">
 <img class="novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: 100vh; z-index: 2;">
 </div> -->
-<!-- BG image -->
-<svg class='hideSvgSoThatItSupportsFirefox dn'>
+<!-- BG image (this now inserted into every page) -->
+<!-- <svg class='hideSvgSoThatItSupportsFirefox dn'>
   <filter id='sharpBlur'>
     <feGaussianBlur stdDeviation='15'></feGaussianBlur>
     <feColorMatrix type='matrix' values='1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 9 0'></feColorMatrix>
     <feComposite in2='SourceGraphic' operator='in'></feComposite>
   </filter>
-</svg>
-<style>
-.svgBlur { filter: url("#sharpBlur"); }
-.custom-bg {
-    background-image: url(/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg);
-    /* background-position: center; */
-    background-size: contain;
-    /* background-size: cover; */
-    /* background-size: 100%; */
-    /* filter: blur(15px); */
-    background-clip: content-box;
-    opacity: 50%;
-
-    width: 100%;
-    height: 100%;
-    padding: inherit;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-}
-
-</style>
-<!-- NOTE: to get more fx like blur and limited opacity, need another <div> or it applies to the image as well. But then we end up with the same breaking-out-of-padding problem as above :-( -->
-<div class="full-width ph1-m ph3-l mv1" style="overflow: hidden;">
-<div class="custom-bg svgBlur" style="/*max-width: calc(704px + 1252px + 0.25rem);*/"></div>
-<img class="novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: min(100vh, 939px); filter: none;">
+</svg> -->
+<!-- Check svgBlur and bgImageReady CSS classes in style.css -->
+<div class="full-width flex justify-center ph1-m ph3-l mv1">
+<div class="bgImageReady svgBlur" style="background-image: url(/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg)"></div>
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/mangart-moss.h1878.moz80.jpg" style="max-height: min(100vh, 939px);">
+</div>
+<div class="full-width flex justify-center ph1-m ph3-l mv1">
+<div class="bgImageReady svgBlur" style="background-image: url(/assets/garage/image-test-pages/704x939@3x.png)"></div>
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/704x939@3x.png" style="max-height: min(100vh, 939px);">
 </div>
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figbot">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
