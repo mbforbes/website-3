@@ -1,6 +1,9 @@
 ---
 title: Seville
 date: 2022-04-27
+travel_start: 2022-04-18
+travel_end: 2022-04-21
+updated: 2022-08-25
 image: /assets/posts/2022-seville/plaza.moz80.jpg
 redirect_from: /blog/seville-malaga/
 ---

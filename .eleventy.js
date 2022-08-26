@@ -369,6 +369,24 @@ Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marc
 </p>`;
     });
 
+    eleventyConfig.addNunjucksShortcode("doubleCaption", (first, second) => {
+        return `<p class="figcaption">
+<span class="b">
+<span class="dn-ns">Top:</span>
+<span class="dn di-ns">Left:</span>
+</span>
+${first}
+<span class="b">
+<span class="dn-ns">Bottom:</span>
+<span class="dn di-ns">Right:</span>
+</span>
+${second}
+</p>`;
+    });
+
+
+
+
     // ---------------------------------------------------------------------------------
     // (Universal) filters from the eleventy starter template. Can remove if not using.
 

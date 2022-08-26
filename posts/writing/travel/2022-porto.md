@@ -2,22 +2,16 @@
 title: Porto
 subtitle: Port, Pastries, and an Amazing Park
 date: 2022-04-17
-updated: 2022-08-23
+travel_start: 2022-04-11
+travel_end: 2022-04-18
+updated: 2022-08-26
 image: /assets/posts/2022-porto/cat.moz80.jpg
 redirect_from: /blog/porto/
 ---
 
-<div style="background-color: #FCEEE1" class="full-width">
-<img class="content-width" src="{{ "/assets/posts/2022-porto/porto-portugal-7-perimeter.moz80.jpg" | url }}">
-</div>
+{% cityMap "/assets/posts/2022-porto/porto-portugal-7-perimeter.moz80.jpg" %}
 
-<p class="full-width pr2 pr3-ns figcaption attribution">
-Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
-</p>
-
-<div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="/assets/posts/2022-porto/porto.moz80.jpg"" style="max-height: min(100vh, 939px);">
-</div>
+{% img "/assets/posts/2022-porto/porto.moz80.jpg" %}
 
 Porto was, like Lisbon, completely flooded with tourists. But its bigger streets and more open public spaces left us more breathing room. (Usually.)
 
@@ -38,25 +32,17 @@ Kinds:
 - Ruby (red, some oak'ing) --- drink with cheese, meat, chocolate
 - Tawny (brown, super oaked) --- spiced and oak-y, as digestif, or w/ salted cheeses or baking spice desserts
 
-The differences in oak'ing were, surprisingly, easily visible. Take, for example, the small barrels, which provide lots of surface area for tawny ports to be super oaked up:
+The differences in oak'ing were, surprisingly, easily visible. Small barrels provide lots of surface area for tawny ports to be super oaked up. But for ruby ports, they use these gigantic wooden monsters so less is in contact.
 
-<div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="/assets/posts/2022-porto/few-barrels.moz80.jpg"" style="max-height: min(100vh, 939px);">
-</div>
+{% img [[
+    "/assets/posts/2022-porto/few-barrels.moz80.jpg",
+    "/assets/posts/2022-porto/big-barrel.moz80.jpg"
+]] %}
 
-<p class="figcaption">
-These barrels are small—maximum oakitude for the tawnys.
-</p>
-
-For the ruby ports, on the other hand, there were these massive things:
-
-<div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="/assets/posts/2022-porto/big-barrel.moz80.jpg"" style="max-height: min(100vh, 939px);">
-</div>
-
-<p class="figcaption">
-Complete with some kind of old school volume-measuring tech via that big tube and markings. Julie for scale.
-</p>
+{% doubleCaption
+    "Small barrels—maximum oakitude for the tawnys.",
+    "Ruby gigantor vat, complete with some kind of old school volume-measuring tech via long vertical tube + markings. Julie for scale."
+%}
 
 Port's export history was rooted in some entrepreneuring English guy, and even now almost all the main brands (e.g., Sandeman, Taylor) are British names. Huh.
 
@@ -72,25 +58,22 @@ Somehow port already staining my fingers, etc.
 
 These egg tart things are _quite good_ for $0.35 the grocery store, or absolutely unbelievably stupidly heavenly delicious for $1.05 at a boutique like _Manteigaria._
 
-![]({{ "/assets/posts/2022-porto/breakfast.moz80.jpg" | url }})
+{% img [[
+    "/assets/posts/2022-porto/breakfast.moz80.jpg",
+    "/assets/posts/2022-porto/max-eee.moz80.jpg"
+]] %}
 
-<p class="figcaption">
-While warm, the tops can be dusted with cinnamon & powdered sugar. I do recommend this.
-</p>
+{% doubleCaption
+    "While warm, the tops can be dusted with cinnamon & powdered sugar. I do recommend this.",
+    "EEE = Espresso + Egg tart Enlightenment."
+%}
 
-![]({{ "/assets/posts/2022-porto/max-eee.moz80.jpg" | url }})
-
-<p class="figcaption">
-EEE = Espresso + Egg tart Enlightenment.
-</p>
 
 ## Park
 
 New favorite park on the planet, _Parque da Cidade do Porto._
 
-<div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="/assets/posts/2022-porto/park-trees.moz80.jpg"" style="max-height: min(100vh, 939px);">
-</div>
+{% img "/assets/posts/2022-porto/park-trees.moz80.jpg" %}
 
 This might have been a "water in the desert" situation after being packed in with hoards of tourists and cars in a gazillion cobblestone streets for two weeks, but damn if this place wasn't amazing.
 
@@ -114,9 +97,7 @@ At the end of our walk through the park, we ended up at a beach / wharf.
 
 I like walking to places in cities that people don't usually go. Even if there's nothing remarkable there. It feels like, ah, finally, now I can get a taste of what some part of life here is actually like.
 
-<div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="/assets/posts/2022-porto/wharf.moz80.jpg"" style="max-height: min(100vh, 939px);">
-</div>
+{% img "/assets/posts/2022-porto/wharf.moz80.jpg" %}
 
 <p class="figcaption">
 Maybe nobody was there because, honestly, it was quite windy and sand kept blowing in our eyes.
@@ -133,14 +114,10 @@ The food wasn't "gastro" (i.e., teensy portions, unidentifiable), but instead it
 
 I only have pictures of our drinks, which were both creative and quite good.
 
-<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
-<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin" src="/assets/posts/2022-porto/chama-yellow.moz80.jpg" style="max-height: min(100vh, 939px);">
-</div>
-<div class="mr1-m mr3-l">
-<img class="db bare novmargin" src="/assets/posts/2022-porto/chama-red.moz80.jpg" style="max-height: min(100vh, 939px);">
-</div>
-</div>
+{% img [[
+    "/assets/posts/2022-porto/chama-yellow.moz80.jpg",
+    "/assets/posts/2022-porto/chama-red.moz80.jpg"
+]] %}
 
 
 If you ever visit Porto, this is my one recommendation. You do need a reservation.
@@ -180,6 +157,4 @@ Here is a feline I found.
 
 Beautiful tile work in Portugal.
 
-<div class="full-width flex justify-center ph1-m ph3-l fig">
-<img class="db bare novmargin" src="/assets/posts/2022-porto/tiles.moz80.jpg"" style="max-height: min(100vh, 939px);">
-</div>
+{% img "/assets/posts/2022-porto/tiles.moz80.jpg" %}
