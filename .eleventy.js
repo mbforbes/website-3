@@ -245,9 +245,23 @@ module.exports = function (eleventyConfig) {
     //     "foo"
 
     /**
-     * img can be a str or obj
+     * @param img can be a str or obj.
+     * - if obj and image, expects keys path (req) maxHeight (opt, default "939px")
+     * - if obj and video, expect keys vimeoInfo (req), videoStyle (req), bgImgPath (opt, for blurStretchSingles)
+     *
+     * @returns [bgImgPath || "", HTML]
      */
     function imgSpecToHTML(img) {
+        // video
+        if (img.vimeoInfo) {
+            let bgImgPath = "";
+            if (img.bgImgPath) {
+                bgImgPath = eleventyConfig.getFilter("url")(img.bgImgPath);
+            }
+            return [bgImgPath, `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" style="${img.videoStyle}"></iframe>`]
+        }
+
+        // image
         let path;
         let maxHeight = "939px";
         if (typeof img === "string") {
@@ -261,10 +275,10 @@ module.exports = function (eleventyConfig) {
     }
 
     function oneBigImage(imgSpec, marginClasses, blurStretchSingles) {
-        let [imgPath, imgHTML] = imgSpecToHTML(imgSpec);
+        let [bgImgPath, imgHTML] = imgSpecToHTML(imgSpec);
         let bgDiv = "";
-        if (blurStretchSingles) {
-            bgDiv = `<div class="bgImageReady svgBlur" style="background-image: url(${imgPath})"></div>`;
+        if (blurStretchSingles && bgImgPath != "") {
+            bgDiv = `<div class="bgImageReady svgBlur" style="background-image: url(${bgImgPath})"></div>`;
         }
 
         // NOTE: the one image style could be
@@ -317,6 +331,9 @@ module.exports = function (eleventyConfig) {
      * ]]
      * etc.
      *
+     * Video can be specified:
+     * { vimeoInfo: "733916865?h=fd53e75a74", videoStyle: "width: 100%; aspect-ratio: 16 / 9; max-width: 1252px;"}
+     *
      * Second arg is to add BG image blur stretch for single img(s) to full width.
      *
      * Example:
@@ -325,6 +342,7 @@ module.exports = function (eleventyConfig) {
      *     ["img3", "img4"],
      *     "baz",
      *     {path: "foo", size: "bar"},
+     *     {vimeoInfo: "733917188?h=25f2f93194", videoStyle: "width: 100%; aspect-ratio: 2;"},
      *     [{path: "foo2", size: "bar2"},{path: "foo3", size: "bar3"}]
      * ], true %}
      */
