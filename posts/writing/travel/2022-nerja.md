@@ -1,6 +1,6 @@
 ---
 title: Nerja
-date: 2022-05-01
+date: 2022-04-27
 travel_start: 2022-04-24
 travel_end: 2022-04-27
 image: /assets/posts/2022-nerja/town.moz80.jpg

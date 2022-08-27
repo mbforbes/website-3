@@ -1,7 +1,7 @@
 ---
 title: Lisbon
 subtitle: And the Tiny Woes of a Generic Europe
-date: 2022-04-10
+date: 2022-04-11
 travel_start: 2022-04-04
 travel_end: 2022-04-11
 image: /assets/posts/2022-lisbon/bridge-frame.moz80.jpg

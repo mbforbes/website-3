@@ -1,6 +1,6 @@
 ---
 title: Málaga
-date: 2022-04-27
+date: 2022-04-24
 travel_start: 2022-04-21
 travel_end: 2022-04-24
 image: /assets/posts/2022-malaga/city.moz80.jpg
