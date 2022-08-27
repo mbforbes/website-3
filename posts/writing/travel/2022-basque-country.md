@@ -1,9 +1,11 @@
 ---
-title: "Basque Country"
-date: 2022-05-17
-image: /assets/blog/bayonne/wall.jpeg
+title: Basque Country
+date: 2022-05-16
+travel_start: 2022-05-08
+travel_end: 2022-05-16
+image: /assets/posts/2022-bayonne/wall.moz80.jpg
+redirect_from: /blog/basque-country/
 ---
-
 
 Basque is a culture, language, and cultural region spanning a chunk of northern Spain and southwest France.
 
@@ -13,30 +15,24 @@ We mainly stayed in the Spanish side.
 
 ## Bilbao
 
-<div style="background-color: #FCEEE1" class="full-width">
-<img class="content-width" src="{{ "/assets/blog/bilbao/bilbao-spain-1.jpg" | url }}">
-</div>
 
-<p class="full-width pr2 pr3-ns figcaption attribution">
-Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
-</p>
+{% cityMap "/assets/posts/2022-bilbao/bilbao-spain-1.moz80.jpg" %}
 
-![]({{ "/assets/blog/bilbao/city.jpeg" | url }})
+{% img "/assets/posts/2022-bilbao/city.moz80.jpg" %}
 
-Bilbao is a true gem. It's immediately charming. It scores ridiculously high on three key areas:
-1. beauty (it's like walking through some kind of European fairy tale town)
-2. lack of tourists (we encountered very few anywhere)
-3. great food (Basque Country is known for food)
+Bilbao is a true gem. It's immediately charming. It scores ridiculously high on three axes:
+1. Beauty (it's like walking through some kind of European fairy tale town)
+2. Lack of tourists (we encountered very few anywhere)
+3. Great food (Basque Country is known for food)
 
 To boot, it's decently cheap --- not quite as cheap as in Andalusia, but much cheaper than somewhere like Zurich.
 
-![]({{ "/assets/blog/bilbao/river-day.jpeg" | url }})
-
-![]({{ "/assets/blog/bilbao/river-night.jpeg" | url }})
-
-![]({{ "/assets/blog/bilbao/glass.jpeg" | url }})
-
-![]({{ "/assets/blog/bilbao/art.jpeg" | url }})
+{% img [
+     "/assets/posts/2022-bilbao/river-day.moz80.jpg",
+     "/assets/posts/2022-bilbao/river-night.moz80.jpg",
+     "/assets/posts/2022-bilbao/glass.moz80.jpg",
+     "/assets/posts/2022-bilbao/art.moz80.jpg"
+], true %}
 
 To me, someplace like Granada seems perfect if you're a college student and want to be able to eat and drink your fill for $5. If you're at least 30-something (or just an old soul) and interested in food, nature, and getting away from the crowds, check out Bilbao. I bet it will be absolutely ruined (by us tourists) within ten years.
 
@@ -60,29 +56,25 @@ The good news is, if you're interested in the main sights of a place I mention, 
 
 ## Donostia
 
-<div style="background-color: #FCEEE1" class="full-width">
-<img class="content-width" src="{{ "/assets/blog/donostia/donostia-spain-custom.jpg" | url }}">
-</div>
+{% cityMap "/assets/posts/2022-donostia/donostia-spain-custom.moz80.jpg" %}
 
-<p class="full-width pr2 pr3-ns figcaption attribution">
-Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
-</p>
-
-![]({{ "/assets/blog/donostia/beach.jpeg" | url }})
+{% img "/assets/posts/2022-donostia/beach.moz80.jpg" %}
 
 Called San Sebastián in Spanish, I really think Donostia could have captured my heart if we hit better weather and spent more time in the city. We planned so many day trips outside of it that, despite spending about five days in Donostia, I don't feel like I got to know it much at all.
 
 A bit more sprawling than Bilbao, Donostia still had Basque charm.
 
-![]({{ "/assets/blog/donostia/apartment.jpeg" | url }})
+{% img "/assets/posts/2022-donostia/apartment.moz80.jpg" %}
 
 <p class="figcaption">
 Like, imagine this level of architecture just for your apartment building.
 </p>
 
-![]({{ "/assets/blog/donostia/clothes.jpeg" | url }})
+{% img [
+    "/assets/posts/2022-donostia/clothes.moz80.jpg",
+    "/assets/posts/2022-donostia/night.moz80.jpg"
+], true %}
 
-![]({{ "/assets/blog/donostia/night.jpeg" | url }})
 
 ## The Basque Language
 
@@ -98,34 +90,40 @@ Spanish Basque felt very Basque-forward---almost every sign, plaque, and even ad
 
 ## Getaria
 
-<div style="background-color: #FCEEE1" class="full-width">
-<img class="content-width" src="{{ "/assets/blog/getaria/getaria-spain-6-r1250.jpg" | url }}">
-</div>
-
-<p class="full-width pr2 pr3-ns figcaption attribution">
-Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
-</p>
+{% cityMap "/assets/posts/2022-getaria/getaria-spain-6-r1250.moz80.jpg" %}
 
 A tiny fishing village that I think is actually a tourism village now. We took a half day trip there, then enjoyed a coastal walk over to the nearby town of Zarautz, where we caught the slow winding forest train back to Donostia.
 
-![]({{ "/assets/blog/getaria/walk.jpeg" | url }})
+![]({{ "/assets/posts/2022-getaria/walk.moz80.jpg" | url }})
 
-![]({{ "/assets/blog/getaria/green.jpeg" | url }})
+![]({{ "/assets/posts/2022-getaria/green.moz80.jpg" | url }})
 
-![]({{ "/assets/blog/getaria/boat.jpeg" | url }})
+![]({{ "/assets/posts/2022-getaria/boat.moz80.jpg" | url }})
 
 The most striking part of the landscape here was the rocky greenery right next to sandy beaches. Tough to capture it in a way that preserves its strikingness, especially in the cloudy lighting we had.
 
-![]({{ "/assets/blog/getaria/green-sand.jpeg" | url }})
+{% img "/assets/posts/2022-getaria/green-sand.moz80.jpg" %}
+
+Two random oddities on the walk:
+
+{% img [[
+    "/assets/posts/2022-getaria/sign.moz80.jpg",
+    "/assets/posts/2022-getaria/table.moz80.jpg"
+]] %}
+
+{% doubleCaption
+    "What do you think these signs mean? My best guess: you just left a tunnel; are your high beams off?",
+    "At first I thought this is maybe for some kind of extreme ping pong encouraging wacky bounces. My friend Harnoor correctly identified: <a href='https://en.wikipedia.org/wiki/Teqball'>Teqball!</a>"
+%}
 
 ## Cider and Wine
 
-<div class="flex">
-<img src="{{ "/assets/blog/donostia/apples.jpeg" | url }}" class="bare mh2 flex-auto">
-<img src="{{ "/assets/blog/donostia/grapes.jpeg" | url }}" class="bare mh2 flex-auto">
-</div>
+{% img [[
+    "/assets/posts/2022-donostia/apples.moz80.jpg",
+    "/assets/posts/2022-donostia/grapes.moz80.jpg"
+]] %}
 
-On back-to-back days, we toured a cider maker and a winery, both of whom described their process. I've gone to tours of both before, but never realized how similar the processes are!
+On back-to-back days, we toured a cider maker and a winery. I've gone to tours of both before, but never realized how similar their processes are:
 
 - Picking and sorting fruit
 - Washing it
@@ -154,15 +152,9 @@ However, it seems like in practice, Spain may behave a lot like a federal republ
 
 ## Bayonne
 
-<div style="background-color: #FCEEE1" class="full-width">
-<img class="content-width" src="{{ "/assets/blog/bayonne/bayonne-france-1-perimeter.jpg" | url }}">
-</div>
+{% cityMap "/assets/posts/2022-bayonne/bayonne-france-1-perimeter.moz80.jpg" %}
 
-<p class="full-width pr2 pr3-ns figcaption attribution">
-Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
-</p>
-
-![]({{ "/assets/blog/bayonne/bridge.jpeg" | url }})
+{% img "/assets/posts/2022-bayonne/bridge.moz80.jpg" %}
 
 I've always heard people tell stories about the French being unwilling to speak to you in English, even if their English is far, far better than your French.
 
@@ -170,9 +162,9 @@ I'd been spoiled, perhaps, only visiting Paris. But I can now confirm this is tr
 
 To be clear, no hard feelings at all---hey, I'm coming to your country, it's my own fault for not speaking your language. Boy it is tough though.
 
-![]({{ "/assets/blog/bayonne/wall.jpeg" | url }})
+![]({{ "/assets/posts/2022-bayonne/wall.moz80.jpg" | url }})
 
-![]({{ "/assets/blog/bayonne/sky.jpeg" | url }})
+![]({{ "/assets/posts/2022-bayonne/sky.moz80.jpg" | url }})
 
 Speaking of languages, I'm hoping to ramp up the language learning again for future destinations.
 
