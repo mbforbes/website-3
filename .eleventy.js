@@ -391,6 +391,35 @@ ${second}`;
         return `<p class="figcaption">${buf}</p>`;
     });
 
+    /**
+     * Simply pass null as any of the arguments to omit that captions.
+     */
+    eleventyConfig.addNunjucksShortcode("tripleCaption", (first, second, third) => {
+        let buf = "";
+        if (first) {
+            buf += `<span class="b">
+<span class="dn-ns">Top:</span>
+<span class="dn di-ns">Left:</span>
+</span>
+${first}`;
+        }
+        if (second) {
+            buf += `<span class="b">
+<span class="dn-ns">Middle:</span>
+<span class="dn di-ns">Center:</span>
+</span>
+${second}`;
+        }
+        if (third) {
+            buf += `<span class="b">
+<span class="dn-ns">Bottom:</span>
+<span class="dn di-ns">Right:</span>
+</span>
+${third}`;
+        }
+        return `<p class="figcaption">${buf}</p>`;
+    });
+
 
 
 
