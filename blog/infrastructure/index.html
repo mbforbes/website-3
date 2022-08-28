@@ -5,11 +5,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Home - Maxwell Forbes</title>
+        <title>Infrastructure - Maxwell Forbes</title>
         
-        <meta content="Home - Maxwell Forbes" property="title"/>
-        <meta content="Home - Maxwell Forbes" property="og:title"/>
-        <meta name="twitter:title" content="Home - Maxwell Forbes"/>
+        <meta content="Infrastructure - Maxwell Forbes" property="title"/>
+        <meta content="Infrastructure - Maxwell Forbes" property="og:title"/>
+        <meta name="twitter:title" content="Infrastructure - Maxwell Forbes"/>
 
         <link rel="shortcut icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
@@ -23,9 +23,19 @@
 <meta name='twitter:site' content='@maxforbes'/>
 
     
-    <meta content='https://maxwellforbes.com' property='og:url'/>
-    <meta content="Hello it is I, Max" property='og:description'/>
-    <meta content="blog" property="og:type"/>
+    <meta content='https://maxwellforbes.com/blog/infrastructure/' property='og:url'/>
+    
+        <meta content='https://maxwellforbes.com/assets/blog/infrastructure/tram.moz80.jpg' property='og:image'/>
+        <meta name='twitter:image' content='https://maxwellforbes.com/assets/blog/infrastructure/tram.moz80.jpg'/>
+        <meta name='twitter:card' content='summary_large_image'/>
+    
+    
+        
+        <meta content="The Recurrent Agony of Naming Things Permalink to “The Recurrent Agony of Naming Things” #I feel guilty naming this post..." property='og:description'/>
+        <meta name='twitter:description' content="The Recurrent Agony of Naming Things Permalink to “The Recurrent Agony of Naming Things” #I feel guilty naming this post..."/>
+    
+    <meta content="article" property="og:type"/>
+
 
 
 
@@ -149,107 +159,130 @@ setColorScheme();
 
     <main class="tl relative ph3 ph4-ns pt4 pb2 paddingOverride">
       
+        <div class="mb4">
+          
+          
+            <div class="fw600 lightest-text-color mt1 ttu">
+              
+                28 Aug 2022
+              
+            </div>
+          
+
+          
+          <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
+              Infrastructure
+          </h1>
+          
+
+        </div>
+      
 
       
       
 
       <div class="markdown-body">
-        
-<h2>Latest from the studio</h2>
-
-<ul class="list pa0">
-    
-    <li class="mv2">
-      <a href="/blog/infrastructure/" class="db pv1 link">
-        <time class="fr lightest-text-color ttu ml3">28 Aug 2022 </time>
-        Infrastructure
-      </a>
-    </li>
-  
-    <li class="mv2">
-      <a href="/blog/writing-vs-blogging/" class="db pv1 link">
-        <time class="fr lightest-text-color ttu ml3">21 Aug 2022 </time>
-        Writing vs Blogging
-      </a>
-    </li>
-  
-    <li class="mv2">
-      <a href="/garage/on-neon-white/" class="db pv1 link">
-        <time class="fr lightest-text-color ttu ml3">17 Aug 2022 </time>
-        On Neon White
-      </a>
-    </li>
-  
+        <p><img src="/assets/blog/infrastructure/tram.moz80.jpg" alt=""></p>
+<h2 id="the-recurrent-agony-of-naming-things" tabindex="-1">The Recurrent Agony of Naming Things</h2>
+<a class="dn" href="#the-recurrent-agony-of-naming-things"><span class="dn">Permalink to “The Recurrent Agony of Naming Things”</span> <span aria-hidden="true">#</span></a><p>I feel guilty naming this post “infrastructure” because it’s such a good word. I love infrastructure, both physical and digital. And this is my one blog post I get about it.</p>
+<p>By that I mean: if you look at the URL above, it should be (omitting my domain):</p>
+<ul>
+<li><code>/blog/infrastructure/</code></li>
 </ul>
-
-<div class="cf mb1">
-    
-        <div class="fl mr3">
-            <a href="/sketches/wood-shelf-room/">
-            <img class="dim novmargin" src="/assets/sketches/wood-shelf-room-iso-thumb.jpeg" style="width: 72px; height: 72px;" />
-            </a>
-        </div>
-    
-        <div class="fl mr3">
-            <a href="/sketches/red-wine/">
-            <img class="dim novmargin" src="/assets/sketches/red-wine-thumb.jpeg" style="width: 72px; height: 72px;" />
-            </a>
-        </div>
-    
-        <div class="fl mr3">
-            <a href="/sketches/chicken/">
-            <img class="dim novmargin" src="/assets/sketches/chicken-thumb.jpeg" style="width: 72px; height: 72px;" />
-            </a>
-        </div>
-    
+<p>This means if I ever want to write a blog post about infrastructure again, I’ll have to name it something else.</p>
+<p>This kind of thing continuously gives me bite sized dread.</p>
+<p>I originally picked URLs to work this way because I like clean URLs. My least favorite URLs look like:</p>
+<ul>
+<li><code>/blog/2022/08/28/infrastructure-the-recurrent-ago-4ba239fe9ca/</code></li>
+</ul>
+<p>I don’t like these because I like URLs to have a human-navigable interface about them. With URLs like that one,</p>
+<ul>
+<li>The final segment has that ugly hash at the end (<code>4ba239fe9ca</code>)</li>
+<li>The final segment also has not only the title (<code>infrastructure</code>) but an arbitrary first few characters of the post (<code>-the-recurrent-ago</code>)</li>
+<li>The segments (separated by <code>/</code>) to me read like directories. But:
+<ul>
+<li>How silly is it to have a full directory for each day? (<code>/2022/08/28/</code>) Like, you’re probably not going to post multiple things per day.</li>
+<li>Plus, in my experience, if you start pealing off <code>/</code> chunks of the path, you won’t land on actual webpages. So, for example, <code>/blog/2022/08/</code> wouldn’t actually take you to a collection of August 2022’s blog posts.</li>
+</ul>
+</li>
+</ul>
+<p>To avoid all of the above bits of URL ugliness, I went with the simplest URL scheme when making this site:</p>
+<ul>
+<li><code>/blog/{title}/</code></li>
+</ul>
+<p>But last week, the burden of permanently choosing and losing blog names was too much. It got to me.</p>
+<p>So, I tried changing it.</p>
+<p>On my website, pages are generated from file names. So for last weeks’s post, rather than calling it</p>
+<ul>
+<li><code>writing-vs-blogging.md</code></li>
+</ul>
+<p>… I called it</p>
+<ul>
+<li><code>2022-08-21-writing-vs-blogging.md</code></li>
+</ul>
+<p>… in the hopes that it would generate a URL that looked like</p>
+<ul>
+<li><code>/blog/2022-08-21-writing-vs-blogging/</code></li>
+</ul>
+<p>This would, at least, avoid the ugliness issues above (no extra words, no hash, no useless <code>/</code> segments), and let me reuse blog post titles if I wanted to.</p>
+<p>But, lo and behold, the site generator framework helpfully recognized this as a way for me to date the blog post, and then stripped it off, dated the post that way, and kept the URL at:</p>
+<ul>
+<li><code>/blog/writing-vs-blogging/</code></li>
+</ul>
+<p>Now, of course I could fight this. It would have been trivial to take one more step and manually set the title.</p>
+<p>But I took it as a sign. Don’t agonize over losing words. Use them. There are infinite sentences out there to use for blog post titles. It is OK. You can even do <code>/infrastructure-2-electric-boogaloo/</code> if you ever want. It is fine.</p>
+<h2 id="actually-in-one-way-of-looking-this-whole-blog-post-is-about-naming-things" tabindex="-1">Actually, In One Way of Looking, This Whole Blog Post is About Naming Things</h2>
+<a class="dn" href="#actually-in-one-way-of-looking-this-whole-blog-post-is-about-naming-things"><span class="dn">Permalink to “Actually, In One Way of Looking, This Whole Blog Post is About Naming Things”</span> <span aria-hidden="true">#</span></a><p>Funny how that happens.</p>
+<p>Let’s talk about what else I did on my website this week.</p>
+<h2 id="i-made-new-top-level-urls" tabindex="-1">I Made New Top-Level URLs</h2>
+<a class="dn" href="#i-made-new-top-level-urls"><span class="dn">Permalink to “I Made New Top-Level URLs”</span> <span aria-hidden="true">#</span></a><p>It had bothered me that my website used paths like:</p>
+<ul>
+<li><code>/blog/{title}/</code></li>
+<li><code>/garage/{title}/</code></li>
+<li><code>/posts/{title}/</code></li>
+<li><code>/sketches/{title}/</code></li>
+</ul>
+<p>…for individual posts, but none of these URLs worked if you stripped off the post name:</p>
+<ul>
+<li><code>/blog/</code></li>
+<li><code>/garage/</code></li>
+<li><code>/posts/</code></li>
+<li><code>/sketches/</code></li>
+</ul>
+<p>I finally fixed that. I setup redirects that take you to the relevant section of the Studio page for each of those paths. They work! Check them out:</p>
+<ul>
+<li><a href="/blog/">/blog/</a></li>
+<li><a href="/garage/">/garage/</a></li>
+<li><a href="/posts/">/posts/</a> (just goes to homepage, relevant story below)</li>
+<li><a href="/sketches/">/sketches/</a></li>
+</ul>
+<p>As a small aside, one thing I absolutely promised myself when I made my latest website was that I would STOP CATEGORIZING THINGS. Everything would just be <code>/post/{name}/</code> and that was that. Categorization is the root of all evil. (The reason is that if you ever want to do something that’s difficult to categorize, you will hesitate, and that is BAD, because that might be an indication you’re doing something interesting.)</p>
+<p>Needless to say, I’ve utterly failed at this. Not only do I now have all the above URL paths which are different top-level categories, but I’ve categorized my posts into single mutually exclusive compartments like “Design,” “Programming,” and so on.</p>
+<p>Speaking of which.</p>
+<h2 id="i-made-all-my-travel-blog-posts-become-&quot;actual&quot;-posts-in-a-new-&quot;travel&quot;-tag" tabindex="-1">I Made All My Travel Blog Posts Become “Actual” Posts In a New “Travel” Tag</h2>
+<a class="dn" href="#i-made-all-my-travel-blog-posts-become-&quot;actual&quot;-posts-in-a-new-&quot;travel&quot;-tag"><span class="dn">Permalink to “I Made All My Travel Blog Posts Become “Actual” Posts In a New “Travel” Tag”</span> <span aria-hidden="true">#</span></a><p>So in the <a href="/studio/">Studio</a> page, there’s now a “Travel” section under “Writing” where they all live.</p>
+<p>All the old blog URLs redirect to them (because of course, the massive user base of my website just couldn’t possibly handle it if my old URLs went broken).</p>
+<p>This felt more fitting because they weren’t blog posts anymore. Not really. A blog is the crap you’re reading right now.</p>
+<p>I also used this change to split up some posts. Since my old format was a blog, there were some funny combinations based on where I’d happened to have been in the last week. So there’d be like “Cordoba &amp; Porto v2” (further confused by the fact that nothing in it was about Porto). Now it’s more split up by location. I also chopped up the massive France post into constituent cities. I did keep some aggregations—e.g., Croatia is one post rather than Dubrovnik, Primošten, and Zagreb. It’s annoying to be inconsistent just because it means it’s another thing I have to decide rather than do algorithmically. But I think it’s for the better. I think some stretches of travel make sense as one narrative.</p>
+<h2 id="the-big-thing-i-did-was-i-made-code-to-generate-image-layouts-rather-than-writing-the-html-by-hand" tabindex="-1">The Big Thing I Did Was I Made Code To Generate Image Layouts Rather Than Writing The HTML By Hand</h2>
+<a class="dn" href="#the-big-thing-i-did-was-i-made-code-to-generate-image-layouts-rather-than-writing-the-html-by-hand"><span class="dn">Permalink to “The Big Thing I Did Was I Made Code To Generate Image Layouts Rather Than Writing The HTML By Hand”</span> <span aria-hidden="true">#</span></a><p>This was so satisfying. It was like long-needed code refactoring. Except even easier because rather than turning bad code into good code, I turned copy-pasted HTML into code that generated it.</p>
+<p>What I did was make a custom “shortcode” that vomits out the HTML to arrange images into rows and columns.</p>
+<p>This is best shown. So for example, if I write the following:</p>
+<pre class="language-txt"><code class="language-txt">{% img [<br>    "/assets/posts/2022-slovenia/mangart-moss.moz80.jpg",<br>    [<br>        "/assets/posts/2022-france/lyon-city-church.moz80.jpg",<br>        "/assets/posts/2022-bilbao/art.moz80.jpg"<br>    ]<br>], true %}</code></pre>
+<p>Then it will spit out the following carefully-constructed HTML:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>full-width flex justify-center ph1-m ph3-l figtop mb1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bgImageReady svgBlur<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>/assets/posts/2022-slovenia/mangart-moss.moz80.jpg<span class="token punctuation">)</span></span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>db bare novmargin<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/posts/2022-slovenia/mangart-moss.moz80.jpg<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">max-height</span><span class="token punctuation">:</span> <span class="token function">min</span><span class="token punctuation">(</span>100vh<span class="token punctuation">,</span> 939px<span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>full-width flex flex-wrap flex-nowrap-ns justify-center mt1 figbot<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ml1-m ml3-l mr1-ns mb1 mb0-ns<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>db bare novmargin<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/posts/2022-france/lyon-city-church.moz80.jpg<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">max-height</span><span class="token punctuation">:</span> <span class="token function">min</span><span class="token punctuation">(</span>100vh<span class="token punctuation">,</span> 939px<span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mr1-m mr3-l<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>db bare novmargin<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/posts/2022-bilbao/art.moz80.jpg<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">max-height</span><span class="token punctuation">:</span> <span class="token function">min</span><span class="token punctuation">(</span>100vh<span class="token punctuation">,</span> 939px<span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>… which then gets displayed like this on a webpage:</p>
+<div class="full-width flex justify-center ph1-m ph3-l figtop mb1"><div class="bgImageReady svgBlur" style="background-image: url(/assets/posts/2022-slovenia/mangart-moss.moz80.jpg)"></div><img class="db bare novmargin" src="/assets/posts/2022-slovenia/mangart-moss.moz80.jpg" style="max-height: min(100vh, 939px);"></div><div class="full-width flex flex-wrap flex-nowrap-ns justify-center mt1 figbot">
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns"><img class="db bare novmargin" src="/assets/posts/2022-france/lyon-city-church.moz80.jpg" style="max-height: min(100vh, 939px);"></div>
+<div class="mr1-m mr3-l"><img class="db bare novmargin" src="/assets/posts/2022-bilbao/art.moz80.jpg" style="max-height: min(100vh, 939px);"></div>
 </div>
-
-<p class="tr f6 f5-ns lightest-text-color mt1">
-... see more in the
-<a class="b" href="/studio/">Studio</a>
-</p>
-
-
-<h2>Latest research</h2>
-
-<ul class="list pa0">
-
-    <li class="mv2">
-        
-            <span class="db pv1">
-                <time class="fr lightest-text-color ttu ml3">24 Feb 2022 </time>
-                Our <a href="https://arxiv.org/pdf/2107.01294.pdf">Scarecrow paper</a>, about humans scrutinizing GPT-3 generations, will appear at ACL 2022.
-
-            </span>
-        
-    </li>
-
-    <li class="mv2">
-        
-            <span class="db pv1">
-                <time class="fr lightest-text-color ttu ml3">13 Dec 2021 </time>
-                I defended my dissertation. Hooray! Turns out PhDs take a while. Good times.
-
-            </span>
-        
-    </li>
-
-    <li class="mv2">
-        
-            <span class="db pv1">
-                <time class="fr lightest-text-color ttu ml3">14 Oct 2021 </time>
-                We released the Delphi project into the wild. Check out the <a href="https://arxiv.org/abs/2110.07574">paper</a>, <a href="https://delphi.allenai.org/">demo</a>, and followup <a href="https://blog.allenai.org/towards-machine-ethics-and-norms-d64f2bdde6a3">blog post</a>.
-
-            </span>
-        
-    </li>
-
-</ul>
-
-<p class="tr f6 f5-ns lightest-text-color mt1">
-... see more in
-<a class="b" href="/research/">Research</a>
-</p>
+<p>The little <code>true</code> at the end says to add a blurred image background to single images to stretch their width if need be. This isn’t worth going into, other than that it took an unbelievable amount of time to figure out how to get working.</p>
+<p>This really was the culmination of a lot of work to get images to display big and nice, which I’ve covered in varying levels of brevity in some garage entries like the <a href="/garage/image-layout-test-page/">Image layout test page</a> and <a href="/garage/mo-photos-mo-problems/">Mo photos mo problems</a>. It even works to embed videos.</p>
+<p>There remain more tweaks to be done. E.g., someday I’d like to get all images stretched out so the grid is always a full-screen width. But it’s good enough for now.</p>
+<p>This work has made the travel posts way more pleasing to look at behind the scenes, because rather than huge gross of piles of repeated HTML there are just little lists of photos.</p>
+<h2 id="epilogue" tabindex="-1">Epilogue</h2>
+<a class="dn" href="#epilogue"><span class="dn">Permalink to “Epilogue”</span> <span aria-hidden="true">#</span></a><p>Max C mentioned how analytical my writing is, and wow I’m acutely aware of that writing this. Hey it’s fun.</p>
+<p>Also it’s way past the ol bedtime gotta sleep. Just made it to Bosnia today, I’m amped to write about Serbia but I’ve got a month of Scotland to catch up on first. Spending a lot of time reading Wikipedia today. So much interesting extremely recent history in the Balkans. E.g., did you know Bosnia &amp; Herzegovina has <em>three</em> presidents at all times now?!</p>
 
       </div>
 
