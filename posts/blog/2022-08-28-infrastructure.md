@@ -92,6 +92,12 @@ All the old blog URLs redirect to them (because of course, the massive user base
 
 This felt more fitting because they weren't blog posts anymore. Not really. A blog is the crap you're reading right now.
 
+I also prefixed the posts with year names. This felt more fitting, especially as a post instead of a blog (more of a first-class thing now).
+- `/blog/slovenia/` (old)
+- `/posts/2022-slovenia/` (new)
+
+It's a bit uglier to have the year in the URL, but I like the implication that it's _that one take_ of a place rather than my _definitive guide_ or something. Additional motivations for including a year: (a) I'm curious to try writing retrospectives about places visited a while back; (b) I noticed revisiting places that my impressions are different this time around.
+
 I also used this change to split up some posts. Since my old format was a blog, there were some funny combinations based on where I'd happened to have been in the last week. So there'd be like "Cordoba & Porto v2" (further confused by the fact that nothing in it was about Porto). Now it's more split up by location. I also chopped up the massive France post into constituent cities. I did keep some aggregations---e.g., Croatia is one post rather than Dubrovnik, Primošten, and Zagreb. It's annoying to be inconsistent just because it means it's another thing I have to decide rather than do algorithmically. But I think it's for the better. I think some stretches of travel make sense as one narrative.
 
 ## The Big Thing I Did Was I Made Code To Generate Image Layouts Rather Than Writing The HTML By Hand
