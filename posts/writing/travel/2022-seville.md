@@ -32,11 +32,11 @@ A bunch of Spanish public parks emphasize paved paths. You walk around bits of d
 
 <p class="figcaption">I love the lettering here.</p>
 
-Now, _tino de verano:_
+Now, _tinto de verano:_
 
 ![]({{ "/assets/posts/2022-seville/tinto-de-verano.moz80.jpg" | url }})
 
-<p class="figcaption">Aside: I am learning of a growling list of subjects that iPhone's portrait mode botches. The back half of the glass has been turned into "background" and blurred.</p>
+<p class="figcaption">Aside: I am learning of a growing list of subjects that iPhone's portrait mode botches. The back half of the glass has been turned into "background" and blurred.</p>
 
 Tinto de verano:
 

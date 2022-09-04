@@ -297,7 +297,7 @@ module.exports = function (eleventyConfig) {
     }
 
     function threeBigImages(imgSpecs, marginClasses) {
-        return `<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
+        return `<div class="full-width flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
 <div class="ml1-m ml3-l">${imgSpecToHTML(imgSpecs[0])[1]}</div>
 <div class="mh1-ns mv1 mv0-ns">${imgSpecToHTML(imgSpecs[1])[1]}</div>
 <div class="mr1-m mr3-l">${imgSpecToHTML(imgSpecs[2])[1]}</div>
