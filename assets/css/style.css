@@ -242,13 +242,24 @@ li>p {
 Previously was
   .markdown-body > hr {
 */
-hr {
-    /* margin             : 2em -5rem; */
+
+.markdown-body hr:not(.footnotes-sep) {
+    margin-top: 4em;
+    margin-bottom: 4em;
+    width: 2em;
+    border-style: dotted none none;
+    border-width: 7px;
+    border-color: var(--border-color);
+}
+
+.markdown-body hr.footnotes-sep {
     margin-top: 2em;
     margin-bottom: 2em;
+    /* margin             : 2em -5rem; */
     border: 0;
     border-bottom: 1px dotted var(--border-color);
 }
+
 
 .markdown-body blockquote {
     background: var(--off-bg-color);
@@ -333,7 +344,7 @@ p.subtitle {
 }
 
 /* = mv5 */
-.markdown-body img:not(.novmargin),
+.markdown-body img:not(.novmargin, .leaflet-tile),
 .markdown-body object,
 .markdown-body pre,
 .markdown-body .fig {
@@ -588,6 +599,55 @@ ol ol ol {
     padding: inherit;
     position: absolute;
     z-index: -1;
+}
+
+.leafletMap {
+    width: 600px;
+    aspect-ratio: 1;
+    max-width: 100%;
+    border-radius: 50%;
+    /* leaflet's bg is #ddd; we change so that when we remove opacity from toner style map, white areas don't become more gray. thanks to
+    https://stackoverflow.com/questions/51869394/how-can-i-set-leaflet-map-background-to-be-white */
+    background-color: white;
+}
+
+.keyBox {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-width: 2px;
+    border-style: solid;
+    margin-bottom: -0.12em;
+    margin-left: 16px;
+}
+
+/* leaflet-inspired 0.2-opacity bg colors */
+.bg-02-purple {
+    background-color: #5E2CA533;
+}
+
+.bg-02-hot-pink {
+    background-color: #FF41B433;
+}
+
+.bg-02-yellow {
+    background-color: #FFD70033;
+}
+
+.bg-02-red {
+    background-color: #FF413633;
+}
+
+.bg-02-blue {
+    background-color: #357EDD33;
+}
+
+.bg-02-green {
+    background-color: #19A97433;
+}
+
+.bg-02-orange {
+    background-color: #FF630033;
 }
 
 /* --- */
