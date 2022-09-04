@@ -20,7 +20,7 @@ from common import get_posts, Post
 
 date_start = date(2022, 7, 1)
 date_end = date(2022, 7, 31)
-display_month = "August"
+display_month = "September"
 
 subject = f"Max Forbes | {display_month} 2022 Digest"
 

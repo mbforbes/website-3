@@ -2,6 +2,14 @@ let allBoundaryData = {};
 let centroidData = {};
 
 async function renderMap(elId, countryForCentroid) {
+    // remove any placeholder img
+    for (let child of document.getElementById(elId).children) {
+        // my stupid stylesheet overrules tachyon's display none (dn) with
+        // my ":not(bare)" display definition, so adding bare and dn...
+        child.classList.add("bare");
+        child.classList.add("dn");
+    }
+
     const centroidItem = centroidData.find(c => c.long_name == countryForCentroid);
 
     // replace "toner" here with "terrain" or "watercolor"
@@ -16,6 +24,7 @@ async function renderMap(elId, countryForCentroid) {
         zoomSnap: 0.25,
         scrollWheelZoom: false,
         attributionControl: false,
+        dragging: false,
     });
     map.addLayer(layer);
 
