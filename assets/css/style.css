@@ -609,6 +609,7 @@ ol ol ol {
     /* leaflet's bg is #ddd; we change so that when we remove opacity from toner style map, white areas don't become more gray. thanks to
     https://stackoverflow.com/questions/51869394/how-can-i-set-leaflet-map-background-to-be-white */
     background-color: white;
+    z-index: 1;
 }
 
 .keyBox {
