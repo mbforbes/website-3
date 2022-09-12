@@ -1,7 +1,7 @@
 ---
 title: Edinburgh
 subtitle: Land of Abundant Greenery and Nearly Permanent Gloom
-date: 2022-07-31
+date: 2022-09-05
 travel_start: 2022-07-17
 travel_end: 2022-07-31
 image: /assets/posts/2022-edinburgh/church-angle.moz80.jpg

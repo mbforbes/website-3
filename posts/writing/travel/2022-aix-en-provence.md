@@ -1,7 +1,7 @@
 ---
 title: Aix-en-Provence
 subtitle: Plus Marseille Day Trip
-date: 2022-07-09
+date: 2022-08-07
 travel_start: 2022-07-04
 travel_end: 2022-07-09
 image: /assets/posts/2022-france/aix-country-walking.moz80.jpg

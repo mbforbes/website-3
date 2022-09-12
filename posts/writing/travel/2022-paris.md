@@ -1,6 +1,6 @@
 ---
 title: Paris
-date: 2022-07-17
+date: 2022-08-07
 travel_start: 2022-07-13
 travel_end: 2022-07-17
 image: /assets/posts/2022-france/paris-art-museum.moz80.jpg

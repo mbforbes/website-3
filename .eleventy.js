@@ -52,22 +52,24 @@ module.exports = function (eleventyConfig) {
         let seriesInfo = {};
         for (let post of arr) {
             let series = post.data.series;
+            // We sort by the `travel_end` field if it's there, because that's how posts will be displayed.
+            let postDate = post.data.travel_end || post.date;
             if (!series || series == "") {
                 items.push({
                     kind: "post",
-                    date: post.date,
+                    date: postDate,
                     post: post,
                 })
             } else {
                 if (!seriesInfo[series]) {
                     seriesInfo[series] = {
-                        date: post.date,
+                        date: postDate,
                         posts: [post],
                     }
                 } else {
                     // series' date should be the latest post date
-                    if (seriesInfo[series].date < post.date) {
-                        seriesInfo[series].date = post.date;
+                    if (seriesInfo[series].date < postDate) {
+                        seriesInfo[series].date = postDate;
                     }
                     seriesInfo[series].posts.push(post);
                 }

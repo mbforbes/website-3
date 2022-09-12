@@ -11,7 +11,7 @@ layout: "layouts/default.njk"
     {% for post in collections.studio | rejectAttrContains(["data", "tags"], "software") | sort(true, false, "date") | head(3) %}
     <li class="mv2">
       <a href="{{ post.url | url }}" class="db pv1 link">
-        <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }} </time>
+        <time class="fr lightest-text-color ttu ml3">{{ post.data.travel_end | default(post.date) | readableDate }} </time>
         {{ post.data.title }}
       </a>
     </li>

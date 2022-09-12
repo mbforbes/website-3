@@ -33,7 +33,7 @@
           {% if page.date and not hidedate %}
             <div class="fw600 lightest-text-color mt1 ttu">
               {% if not "garage" in tags %}
-                {{ page.date | readableDate }}
+                {{ travel_end | default(page.date) | readableDate }}
               {% else %}
                 <a href="{{ "/studio/#garage" | url }}" class="lightest-text-color hover-blue">GARAGE/</a>
               {% endif %}

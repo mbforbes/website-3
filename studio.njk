@@ -21,7 +21,7 @@ layout: "layouts/default.njk"
             {% for post in seriesObj.posts %}
                 <li class="mv1">
                     <a href="{{ post.url | url }}" class="db pv1 link">
-                        <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }}</time>
+                        <time class="fr lightest-text-color ttu ml3">{{ post.data.travel_end | default(post.date) | readableDate }}</time>
                         {{ post.data.title }}
                     </a>
                 </li>
