@@ -1,16 +1,17 @@
 """Monthly digest
 
 Steps:
-- edit date_start, date_end, display_month
-- edit preamble (opt)
-- edit postamble
+- edit DATE_START, DATE_END
+- edit PREAMBLE (opt)
+- edit POSTAMBLE
 - run `python scripts/digest.py | pbcopy`
 
 """
 
 import code
 from collections import defaultdict
-from datetime import date, datetime
+from datetime import date
+import re
 from typing import Optional
 
 from bs4 import BeautifulSoup
@@ -18,32 +19,28 @@ import mistune
 
 from common import get_posts, Post
 
-date_start = date(2022, 7, 1)
-date_end = date(2022, 7, 31)
-display_month = "September"
+DATE_START = date(2022, 8, 1)
+DATE_END = date(2022, 8, 31)
+# DISPLAY_MONTH = "September"
+# SUBJECT = f"Max Forbes | {DISPLAY_MONTH} 2022 Digest"
 
-subject = f"Max Forbes | {display_month} 2022 Digest"
-
-preamble = """
+PREAMBLE = """
 <p>Hi everyone,</p>
 
-<p>This is a summary of what I've published in the last month at my website.</p>
+<p>Late digest this month! This is a summary of what I published in August over at my website.</p>
 """
 
-postamble = """
+POSTAMBLE = """
 <h2>News</h2>
 
-<p>I'm in Scotland right now. I'm still keeping my
-<a href="https://maxwellforbes.com/whereami/">where am I</a>
-page updated, but it will be more approximate as we're on a road trip through
-the highlands.
+<p>
+I migrated travel writing out of the blog. Travel posts now live in their own area
+in the "Studio" section of the website. And the blog is now fully dedicated to drivel.
 </p>
 
-<p>I tried to catch up with my blog in July. I'm still a bit behind (OK, like over a month), but I'm optimistic about catching up in August.</p>
+<p>I must report that despite my August ambitions, I remain woefully behind with travel writing. Still chugging along though.</p>
 
-<p>A big focus for me in July was redesigning more of the blog to better display photos.
-You'll see some test pages about this in the Garage, and the blog posts from Crete onwards show bigger photos in new arrangements.
-I hope you enjoy them.</p>
+<p>We have been visiting some interesting places I have never been before: the Balkans, Middle East, and soon Western Asia. Things are good. I hope this note finds you well.</p>
 
 <br>
 
@@ -53,56 +50,55 @@ Max
 </p>
 """
 
-garage_notice = """
+GARAGE_NOTICE = """
 <p>
 The Garage is an experiment in
 <a href="https://maxwellforbes.com/garage/what-is-the-garage/">working with the garage door up</a>.
-These are smaller experiments and notes.
+These are small notes, unpolished thoughts, or work in progress.
 </p>
 <br />
 """
 
-# filter by date and sort into categories
-collections = defaultdict(lambda: [])
-for post in get_posts():
-    if (
-        post["frontmatter"]["date"] < date_start
-        or post["frontmatter"]["date"] > date_end
-    ):
-        continue
-    # print(post["path"])
-    # print(post["url"])
-    # print(post["frontmatter"])
-    # print()
-
-    category = post["url"].split("/")[1]
-    collections[category].append(post)
-
-    # exit(0)
-
-img_width = 250
-domain = "https://maxwellforbes.com"
+EXCERPT_CHARS = 128
+IMG_WIDTH = 250
+DOMAIN = "https://maxwellforbes.com"
 
 
-def date_html(post_date: date) -> str:
-    return f"""<span style="font-weight: bold; color: #cccccc">{post_date.strftime("%B %-d, %Y")}</span>"""
+def get_date_html(display_date: date) -> str:
+    return f"""<span style="font-weight: bold; color: #cccccc">{display_date.strftime("%B %-d, %Y")}</span>"""
+
+
+def get_publish_date_html(publish_date: date) -> str:
+    """This is used only when there's both a display and publish date.
+    It shows the publish date in addition.
+    """
+    return f"""<span style="color: #cccccc"> (published {publish_date.strftime("%-m/%-d/%y")})</span>"""
 
 
 def render_image(
-    post_url: str, image_url: str, title: str, post_date: date, excerpt: Optional[str]
+    post_url: str,
+    image_url: str,
+    title: str,
+    display_date: date,
+    publish_date: date,
+    excerpt: Optional[str],
 ):
+    if display_date == publish_date:
+        date_html = get_date_html(display_date)
+    else:
+        date_html = get_date_html(display_date) + get_publish_date_html(publish_date)
     return f"""
 <table style="border: none;">
 	<tbody>
 		<tr>
 			<td style="padding-right: 10px;">
-                <a href="{domain + post_url}">
-                    <img class="tl-email-image" src="{domain + image_url}" style="width: {img_width}px;" />
+                <a href="{DOMAIN + post_url}">
+                    <img class="tl-email-image" src="{DOMAIN + image_url}" style="width: {IMG_WIDTH}px;" />
                 </a>
             </td>
 			<td>
-                {date_html(post_date)}<br>
-                <a href="{domain + post_url}">
+                {date_html}<br>
+                <a href="{DOMAIN + post_url}">
                     <b>{title}</b>
                 </a>
                 { '<p>' + excerpt + '</p>' if excerpt is not None else ''}
@@ -117,14 +113,11 @@ def render_sketch(post: Post):
     post_url, image_url = post["url"], post["frontmatter"]["image"]
     return f"""
     <div style="float: left;">
-        <a href="{domain + post_url}">
-            <img class="tl-email-image" src="{domain + image_url}" style="width: {img_width}px; margin: 10px;" />
+        <a href="{DOMAIN + post_url}">
+            <img class="tl-email-image" src="{DOMAIN + image_url}" style="width: {IMG_WIDTH}px; margin: 10px;" />
         </a>
     </div>
     """
-
-
-excerpt_chars = 128
 
 
 def get_excerpt(post: Post) -> str:
@@ -137,7 +130,7 @@ def get_excerpt(post: Post) -> str:
     buf = []
 
     # enable to manually check a post
-    # if post["frontmatter"]["title"] == "weatherspread":
+    # if post["frontmatter"]["title"] == "Writing vs Blogging":
     #     code.interact(local=dict(globals(), **locals()))
 
     for el in els:
@@ -150,13 +143,17 @@ def get_excerpt(post: Post) -> str:
             continue
         if txt.startswith("<img"):
             continue
+        if txt.startswith("{%"):
+            continue
+        if txt.startswith("[^"):
+            continue
         buf.append(txt)
 
     text = " ".join(buf)
     words = text.split(" ")
     res = words[0]
     for word in words[1:]:
-        if len(res) >= excerpt_chars:
+        if len(res) >= EXCERPT_CHARS:
             res += "&#x2026;"  # …
             break
         res += " " + word
@@ -170,17 +167,35 @@ def get_excerpt(post: Post) -> str:
     return res
 
 
-def render_text(post_url: str, title: str, post_date: date, excerpt: str) -> str:
+def render_text(post_url: str, title: str, display_date: date, excerpt: str) -> str:
     return f"""
     <p>
-        <a href="{domain + post_url}">
+        <a href="{DOMAIN + post_url}">
             <b>{title}</b>
-        </a>&nbsp;&nbsp;&nbsp;{date_html(post_date)}
+        </a>&nbsp;&nbsp;&nbsp;{get_date_html(display_date)}
     </p>
     <p>
         {excerpt}
     </p>
 """
+
+
+def get_display_date(post: Post) -> date:
+    if "travel_end" in post["frontmatter"]:
+        return post["frontmatter"]["travel_end"]
+    return get_publish_date(post)
+
+
+def get_publish_date(post: Post) -> date:
+    if "date" in post["frontmatter"]:
+        return post["frontmatter"]["date"]
+    matches = re.findall(r"\d\d\d\d-\d\d-\d\d", post["path"])
+    if len(matches) != 1:
+        raise ValueError(
+            "No date in frontmatter, and couldn't determine from path for: "
+            + post["path"]
+        )
+    return date(*(int(x) for x in matches[0].split("-")))
 
 
 def render_post(post: Post) -> str:
@@ -189,40 +204,73 @@ def render_post(post: Post) -> str:
             post["url"],
             post["frontmatter"]["image"],
             post["frontmatter"]["title"],
-            post["frontmatter"]["date"],
+            get_display_date(post),
+            get_publish_date(post),
             get_excerpt(post),
         )
     else:
         return render_text(
             post["url"],
             post["frontmatter"]["title"],
-            post["frontmatter"]["date"],
+            get_display_date(post),
             get_excerpt(post),
         )
 
 
-renderers = defaultdict(lambda: render_post, {"sketches": render_sketch})
-
-# render all posts
-buf = [preamble]
-for category, posts in collections.items():
-    buf.append(f"<h2>{category.capitalize()}</h2>")
-    if category == "garage":
-        buf.append(garage_notice)
-    if category == "sketches":
-        buf.append("<div style='overflow: auto;'>")
-    for post in sorted(posts, key=lambda x: x["frontmatter"]["date"]):
-        buf.append(renderers[category](post))
-        if category != "sketches":
-            buf.append("<br>")
-    if category == "sketches":
-        buf.append("</div><br>")
-    buf.append("<br><br>")
-
-buf.append(postamble)
+RENDERERS = defaultdict(lambda: render_post, {"sketches": render_sketch})
 
 
-print("\n".join(buf))
+def main():
+    # filter by date and sort into categories
+    collections = defaultdict(lambda: [])
+    for post in get_posts():
+        publish_date = get_publish_date(post)
+        if publish_date < DATE_START or publish_date > DATE_END:
+            continue
+        # print(post["path"])
+        # print(post["url"])
+        # print(post["frontmatter"])
+        # print()
 
-# contents = [p for p in collections["blog"] if p["url"] == "/blog/porto/"][0]["contents"]
-# code.interact(local=dict(globals(), **locals()))
+        category = post["url"].split("/")[1]
+        collections[category].append(post)
+
+        # exit(0)
+
+    cat_order = defaultdict(
+        lambda: 10,
+        {
+            "posts": 1,
+            "sketches": 2,
+            "blog": 3,
+            "garage": 4,
+        },
+    )
+
+    # render all posts
+    buf = [PREAMBLE]
+    for category in sorted(collections.keys(), key=lambda c: cat_order[c]):
+        posts = collections[category]
+        buf.append(f"<h2>{category.capitalize()}</h2>")
+        if category == "garage":
+            buf.append(GARAGE_NOTICE)
+        if category == "sketches":
+            buf.append("<div style='overflow: auto;'>")
+        for post in sorted(posts, key=lambda p: get_publish_date(p)):
+            buf.append(RENDERERS[category](post))
+            if category != "sketches":
+                buf.append("<br>")
+        if category == "sketches":
+            buf.append("</div><br>")
+        buf.append("<br><br>")
+
+    buf.append(POSTAMBLE)
+
+    print("\n".join(buf))
+
+    # contents = [p for p in collections["blog"] if p["url"] == "/blog/porto/"][0]["contents"]
+    # code.interact(local=dict(globals(), **locals()))
+
+
+if __name__ == "__main__":
+    main()

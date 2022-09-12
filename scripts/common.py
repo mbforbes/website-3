@@ -1,5 +1,7 @@
 import code
 from glob import glob
+import os
+import re
 from typing import List, Dict, Any
 
 import frontmatter
@@ -22,6 +24,9 @@ def get_url(path: str) -> str:
     Only thing is we now have multiple folders (for ease of tagging) that map to
     /posts/:
 
+    posts/writing/travel/foo.md
+    ->   /posts/foo/
+
     posts/writing/foo.md
     ->   /posts/foo/
 
@@ -29,13 +34,21 @@ def get_url(path: str) -> str:
     ->   /posts/foo/
 
     """
-    res = ".".join(path[len("posts") :].split(".")[:-1]) + "/"
-    post_prefix_list = ["/writing/", "/research/"]
-    for p in post_prefix_list:
-        if res.startswith(p):
-            res = "/posts/" + res[len(p) :]
+    # remove ext, and might have date in filename that gets stripped off
+    dirname, filename = os.path.split(path)
+    postname = os.path.splitext(filename)[0] + "/"
+    if len(re.findall(r"^\d\d\d\d-\d\d-\d\d-", postname)) == 1:
+        postname = postname[len("XXXX-XX-XX-") :]
 
-    return res
+    # we remove "posts" from the dir, then add it back (as "/posts") later if it
+    # actually is a "post" (i.e., all studio writing and research posts)
+    postdir = dirname[len("posts") :]
+    post_prefix_list = ["/writing/travel", "/writing", "/research"]
+    for p in post_prefix_list:
+        if postdir.startswith(p):
+            postdir = "/posts" + postdir[len(p) :]
+
+    return os.path.join(postdir, postname)
 
 
 def get_posts(
@@ -44,7 +57,7 @@ def get_posts(
     skip_url_prefixes=["/software/", "/news/"],
 ) -> List[Post]:
     posts: List[Post] = []
-    for path in glob(glob_pattern):
+    for path in glob(glob_pattern, recursive=True):
         if not path.split(".")[-1] in exts:
             continue
         url = get_url(path)

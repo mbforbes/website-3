@@ -7,6 +7,7 @@ image: /assets/blog/writing-vs-blogging/tree-path-green.moz80.jpg
 
 Meeting some new folks and talking about our travels, I mentioned I wrote a blog.
 I only then realized this is lightly embarrassing.[^realize]
+
 [^realize]: I'd never thought of myself as "writing a blog" or "blogging" I guess because I don't think of my website as a blog, really. It's just that the blog section is more active these days. The website is this infinite burden I refuse to give up.
 
 But when one of the others recounted briefly writing a blog, I realized I wasn't getting the benefits I should be.

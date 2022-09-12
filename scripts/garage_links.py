@@ -44,6 +44,8 @@ def main() -> None:
     # NOTE: Ensuring URL ends with "/" to avoid assets, which blows up the size of the
     # link graph like 5x. However, that means it also doesn't support linking to
     # sections, like "/post/foo/#bar". So if you want to support that, change the regex.
+    # NOTE: Still accidentally had assets with map data. Removing below. Now maybe can
+    # change back and allow section links. Do this at some point maybe.
     link_finder = re.compile(r"{{\s*\"(\S+/)\"\s*\|\s*url\s*}}")
     out_path = "assets/garage/link_graph.json"
 
@@ -54,7 +56,11 @@ def main() -> None:
         url = post["url"]
         res[url]["title"] = post["frontmatter"]["title"]
         res[url]["url"] = url
-        outgoing = re.findall(link_finder, post["contents"])
+        outgoing = [
+            p
+            for p in re.findall(link_finder, post["contents"])
+            if not p.startswith("/assets/")
+        ]
         res[url]["outgoing"].update(outgoing)
         for o in outgoing:
             res[o]["incoming"].add(url)
