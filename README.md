@@ -1,14 +1,16 @@
 # website-3
 
-Third (personal) website.
+Third iteration of my (personal) website. Live at: **https://maxwellforbes.com**
 
 ```bash
 npm run serve
 ```
 
-## Redirects
+## Docs
 
-Just documenting this. Two techniques for two purposes: (1) moved URLs, (2) invented URLs for tweakers like me.
+### Redirects
+
+Two techniques for two purposes: (1) moved URLs, (2) invented URLs for tweakers like me.
 
 1. `redirect_from`
     - https://brianm.me/posts/eleventy-redirect-from/
@@ -16,9 +18,9 @@ Just documenting this. Two techniques for two purposes: (1) moved URLs, (2) inve
     - uses same HTML
     - check redirects/ folder
 
-## Weird double dates
+### Weird double dates
 
-Documenting this. Right now there's two notions of date:
+Right now there's two notions of date:
 - `travel_end`
 - `date` (always publish date)
 
@@ -38,19 +40,8 @@ Probably nobody will ever care about 2., but 1. might hamper discoverability. (T
 Ideally, I'd like to show both. Maybe both on the index page and on the individual posts. This might go along with reformatting post headers and frontmatter a little bit eventually. There's a bunch of stuff (local maps, regional maps, cover images, travel rating/date metadata) that doesn't cleanly fit in. And all h levels are a bit meager. (Custom travel header? New header that can have aspects remove gracefully?)
 
 
-## WIP
+## TODO
 
-- travel section
-    - **/posts/2022-france/**
-
-- don't forget
-    - image macros (want to fully figure out first?)
-    - consistent attributions
-    - start / end dates
-    - (adjust some old publish dates to just be end dates? or just display end date on index?)
-    - maybe: metadata on travel post
-    - maybe: next/prev browser (by post or travel date?)
-
-
-- blog filenames
-    - **2022-08-07-blah-blah**
+- next/prev browser (by post or travel date?)
+- metadata on travel post
+- blog filenames (2022-08-07-blah-blah)
