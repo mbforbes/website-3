@@ -1,6 +1,5 @@
 ---
 title: Climate and Schedule
-image: /assets/blog/writing-vs-blogging/tree-path-green.moz80.jpg
 ---
 
 A couple little notes so I don't owe Max C $5 this week. Gotta feed the blog machine.
