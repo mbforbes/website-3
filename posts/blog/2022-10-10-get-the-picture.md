@@ -1,6 +1,7 @@
 ---
 title: Get the Picture
 subtitle: Seoul
+image: /assets/blog/get-the-picture/filming.moz80.jpg
 ---
 
 ![]({{ "/assets/blog/get-the-picture/proj.moz80.jpg" | url }})
