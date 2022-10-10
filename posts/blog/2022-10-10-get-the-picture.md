@@ -52,7 +52,7 @@ This inevitably means that anything that's polished will have people film it. An
 
 If you're making high-budget corporate art, you can't make it look crappy. You gotta polish that thing to way past an inch of its life. You have to kill it with polish, drown any bitter meaning out of it until it's nothing but a nice light show, with sections titled "Joy for Reason" or "Power to Progress" or "Technology for Life" (I'm not making these up).
 
-Does this mean that if you want people to engage with your art, you can't polish it or else they might film it? That it has to look bad? Does this explain the dozens of eye-rollingly 2005-looking media installations I've suffered the last umpteen art museums I visited in Europe---that the whole production is _intentionally_ bad, because if it was to good people would immediately banish it to Instagram as yet another _Infinity Mirror Rooms?_
+Does this mean that if you want people to engage with your art, you can't polish it or else they might film it? That it has to look bad? Does this explain the dozens of eye-rollingly 2005-looking media installations I've suffered the last umpteen art museums I visited in Europe---that the whole production is _intentionally_ bad, because if it was too good people would immediately banish it to Instagram as yet another _Infinity Mirror Rooms?_
 
 ![]({{ "/assets/blog/get-the-picture/green.moz80.jpg" | url }})
 
