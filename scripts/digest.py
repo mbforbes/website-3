@@ -19,28 +19,25 @@ import mistune
 
 from common import get_posts, Post
 
-DATE_START = date(2022, 8, 1)
-DATE_END = date(2022, 8, 31)
+DATE_START = date(2022, 9, 1)
+DATE_END = date(2022, 9, 30)
 # DISPLAY_MONTH = "September"
 # SUBJECT = f"Max Forbes | {DISPLAY_MONTH} 2022 Digest"
 
 PREAMBLE = """
 <p>Hi everyone,</p>
 
-<p>Late digest this month! This is a summary of what I published in August over at my website.</p>
+<p>This is a summary of what I published in the last month over at my website.</p>
 """
 
 POSTAMBLE = """
 <h2>News</h2>
 
 <p>
-I migrated travel writing out of the blog. Travel posts now live in their own area
-in the "Studio" section of the website. And the blog is now fully dedicated to drivel.
+We are in Korea now for about a month, enjoying the cooler weather and seeing some familiar faces.
 </p>
 
-<p>I must report that despite my August ambitions, I remain woefully behind with travel writing. Still chugging along though.</p>
-
-<p>We have been visiting some interesting places I have never been before: the Balkans, Middle East, and soon Western Asia. Things are good. I hope this note finds you well.</p>
+<p>I hope this note finds you well.</p>
 
 <br>
 

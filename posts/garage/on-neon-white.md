@@ -120,6 +120,8 @@ The game has no checkpoints. Rather than implementing them, I think such levels 
 
 **Level reloads should be faster.** This is going to sound petty. But reloading a level takes about five to seven seconds on the Switch.
 
+> "If restarting a level in Neon White necessitated a loading screen, the game would be near-unplayable." -- Jacob Geller's review (for PC) on Polygon
+
 When you're replaying a level over, and over, and over, after every tiny little mistake on a grueling course, sometimes waiting for longer than you even played feels frustrating. If you could go from death to playing the next run in ~2 seconds, I think this would do wonders with polishing the big last rough edge of gameplay feel.
 
 **Writing and voice acting is poor.** When I first started the game, the writing felt quite bad.

@@ -65,6 +65,13 @@ def main() -> None:
         for o in outgoing:
             res[o]["incoming"].add(url)
 
+    # sanity check
+    for value in res.values():
+        if value["url"] in value["outgoing"]:
+            print("⚠️ WARNING:", value["url"], 'contains itself in "outgoing"')
+        if value["url"] in value["incoming"]:
+            print("⚠️ WARNING:", value["url"], 'contains itself in "incoming"')
+
     res_out = {
         k: {
             "title": v["title"],
