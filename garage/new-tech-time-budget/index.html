@@ -5,11 +5,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Omitting negative results precludes thinking in reverse - Maxwell Forbes</title>
+        <title>New tech time budget - Maxwell Forbes</title>
         
-        <meta content="Omitting negative results precludes thinking in reverse - Maxwell Forbes" property="title"/>
-        <meta content="Omitting negative results precludes thinking in reverse - Maxwell Forbes" property="og:title"/>
-        <meta name="twitter:title" content="Omitting negative results precludes thinking in reverse - Maxwell Forbes"/>
+        <meta content="New tech time budget - Maxwell Forbes" property="title"/>
+        <meta content="New tech time budget - Maxwell Forbes" property="og:title"/>
+        <meta name="twitter:title" content="New tech time budget - Maxwell Forbes"/>
 
         <link rel="shortcut icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
@@ -23,12 +23,12 @@
 <meta name='twitter:site' content='@maxforbes'/>
 
     
-    <meta content='https://maxwellforbes.com/garage/omitting-negative-results-precludes-thinking-in-reverse/' property='og:url'/>
+    <meta content='https://maxwellforbes.com/garage/new-tech-time-budget/' property='og:url'/>
     
     
         
-        <meta content="In science—or at least in machine learning—we have a culture of rewarding positive results and omitting (or..." property='og:description'/>
-        <meta name='twitter:description' content="In science—or at least in machine learning—we have a culture of rewarding positive results and omitting (or..."/>
+        <meta content="Starting a new project, each new technology you use adds a time cost for figuring out how it works. You really notice..." property='og:description'/>
+        <meta name='twitter:description' content="Starting a new project, each new technology you use adds a time cost for figuring out how it works. You really notice..."/>
     
     <meta content="article" property="og:type"/>
 
@@ -167,7 +167,7 @@ setColorScheme();
 
           
           <h1 class="ttu tracked f3 f2-ns mt0 lh-title cb mb2">
-              Omitting negative results precludes thinking in reverse
+              New tech time budget
           </h1>
           
 
@@ -178,7 +178,36 @@ setColorScheme();
       
 
       <div class="markdown-body">
-        <p>In science—or at least in machine learning—we have a culture of rewarding positive results and omitting (or <a href="/posts/misinterpreting-results/">misinterpreting</a>) negative results. This is a shame, because it makes it impossible to <a href="/garage/thinking-in-reverse/">think in reverse</a>. We lack a catalog of the myriad failed ideas our colleagues tried.</p>
+        <p>Starting a new project, each new technology you use adds a time cost for figuring out how it works.</p>
+<p>You really notice this when you don’t have a lot of time to work on personal projects. Because when you start a new project—if it’s been long enough since your last one—you’ll feel so out-of-date with everything that you’ll feel compelled to make half a dozen new technology choices. The worst case version of this is that you then spend all your time getting up to speed with the new tech, run out of steam, and never finish anything.</p>
+<p>I am envious of people who have a stack they’re really comfortable with and in which they can just try out new ideas. I’ve never stuck on one tech stack or even area long enough to develop that. You could say it’s a prerequisite to get <a href="/garage/producing-lots-of-work/">lots of practice</a>.</p>
+<hr>
+<p>A recent example: I’m starting a new project for fun that will probably use a web browser (HTML/CSS/JavaScript, maybe some shaders/WebGL) as a frontend. I tried making a few small switches:</p>
+<ol>
+<li>
+<p><strong>npm → yarn</strong> — no prob (just a couple bits of Googling, haven’t used anything but the basics and it’s been the same)</p>
+</li>
+<li>
+<p><strong><a href="https://tachyons.io/">Tachyons</a> → Tailwind CSS</strong> — ehh, this is OK, though the Tailwind setup involves installing their CLI tool, making their own special config file, adding stuff to a CSS file, running (and presumably re-running) a build script, and then linking to this in your file. I temporarily skipped this and went right for the development version of dumping a one-liner in my HTML header (which they ominously discourage) and am now struggling with the normal “learn the differences” adoption cost.</p>
+</li>
+<li>
+<p><strong>CSS Flexbox → CSS Grid</strong> — getting things laid out in CSS, a traditional pastime of mine that is pareto-optimally most annoying <em>and</em> on which I spend the most time, I’m now at my limit, my enthusiasm has been burned through quickly, and I want to blast back to something I’m more familiar with.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+</li>
+</ol>
+<hr>
+<p>All of this (handling new tech time sinks) is manageable if you can commit to something and work at it bit-by-bit daily. I really notice it as a problem when: it’s the evening, I have lots of energy and nothing to do and am alone, and want to get into <a href="https://alex.miller.garden/notes/mad-scientist-mode/">mad scientist mode</a> and hack on something for fun, just to make something small in a couple hours and call it done. But I think and realize I don’t have enough comfort in any technology stack to do it. Then I just watch YouTube.</p>
+<hr>
+<p>Related work:</p>
+<ul>
+<li><a href="https://boringtechnology.club/">Choose Boring Technology</a> — similar idea, but for different reasons (longterm operational cost in company)</li>
+</ul>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Like PixiJS, which I loved using in <a href="/posts/fallgate/">Fallgate</a>, but is now v5 instead of v3, so I feared they finished fragmenting the whole thing into little pieces like they were threatening to do, and in the front page of their docs, the first link is a dead one that just goes to “TODO.” This is the price of not staying current. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
       </div>
 
@@ -195,7 +224,7 @@ setColorScheme();
                 started
             </td>
             <td class="pv2 ph3 ttu">
-                20 Jul 2021
+                15 Oct 2022
             </td>
         </tr>
 
@@ -257,7 +286,7 @@ setColorScheme();
             return;
         }
         let graph = await resp.json();
-        let current = "/garage/omitting-negative-results-precludes-thinking-in-reverse/";
+        let current = "/garage/new-tech-time-budget/";
         if (!(current in graph)) {
             return;
         }
