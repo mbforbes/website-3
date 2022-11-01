@@ -54,6 +54,13 @@ Anyway, here I am doing what an anonymous source has termed my "crazy eyes," att
 Somehow port already staining my fingers, etc.
 </p>
 
+{% img {vimeoInfo: "742250250?h=464f81adf4", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}, false, false %}
+
+<p class="figcaption">
+Locals
+</p>
+
+
 ## _Pastel de Nata_
 
 These egg tart things are _quite good_ for $0.35 the grocery store, or absolutely unbelievably stupidly heavenly delicious for $1.05 at a boutique like _Manteigaria._

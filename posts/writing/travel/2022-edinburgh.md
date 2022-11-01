@@ -171,7 +171,7 @@ This is the broad picture. Plenty of complications exist, which I'll broadly cat
 
 **Attributions:** The maps are drawn using [Leaflet](https://leafletjs.com/); Map tiles by [Stamen Design](https://stamen.com/), under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). Map data by [OpenStreetMap](https://www.openstreetmap.org/), under [ODbL](https://www.openstreetmap.org/copyright). The data I used to draw the colored overlays are from several sources: [Country centroids](https://github.com/mihai-craita/countries_center_box); [UK and Ireland](https://datahub.io/core/geo-countries#data); [Scotland and N Ireland](https://github.com/Crunch-io/geodata); and [England and Wales](https://martinjc.github.io/UK-GeoJSON/).
 
-**See also:** [This map](https://www.britannica.com/story/whats-the-difference-between-great-britain-and-the-united-kingdom) by Encyclopedia Britannica. I emailed them to see if I could put the map in this blog post and they never replied.
+**See also:** [This map](https://www.britannica.com/story/whats-the-difference-between-great-britain-and-the-united-kingdom) by Encyclopedia Britannica. I emailed them to see if I could put the map in this blog post and they ~~never replied~~ said I'd have to pay them, so naturally I instead spent a gazillion hours making my own.
 
 This concludes our geographic interlude. Next stop is Edinburgh's big old castle.
 
@@ -250,6 +250,8 @@ Here's what baffled me: there are **private parks** here. Like right in the midd
 I found what looked like a really nice park super close to the city center but I couldn't see a way in. I couldn't imagine it being not open to the public, so I walked around the whole thing. (It is quite big.)
 
 ![]({{ "/assets/posts/2022-edinburgh/private-park-location.moz80.jpg" | url }})
+
+<p class="figcaption">Map source: OpenStreetMap</p>
 
 Even when I saw signs mentioning applying for a set of keys, I assumed that was for like, special events, and not everyday use.
 

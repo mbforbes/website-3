@@ -276,30 +276,33 @@ module.exports = function (eleventyConfig) {
         return [path, `<img class="db bare novmargin" src="${path}" style="max-height: min(100vh, ${maxHeight});">`];
     }
 
-    function oneBigImage(imgSpec, marginClasses, blurStretchSingles) {
+    function oneBigImage(imgSpec, marginClasses, blurStretchSingles, fullWidth) {
         let [bgImgPath, imgHTML] = imgSpecToHTML(imgSpec);
         let bgDiv = "";
         if (blurStretchSingles && bgImgPath != "") {
             bgDiv = `<div class="bgImageReady svgBlur" style="background-image: url(${bgImgPath})"></div>`;
         }
+        let fwClass = fullWidth ? "full-width " : "";
 
         // NOTE: the one image style could be
         // <div class="full-width ph1-m ph3-l">
         // <img src="foo" style="max-height: 500px;">
         // </div>
         // but using this so the <img ...> snippet is the same for all layouts.
-        return `<div class="full-width flex justify-center ph1-m ph3-l ${marginClasses}">${bgDiv}${imgHTML}</div>`;
+        return `<div class="${fwClass}flex justify-center ph1-m ph3-l ${marginClasses}">${bgDiv}${imgHTML}</div>`;
     }
 
-    function twoBigImages(imgSpecs, marginClasses) {
-        return `<div class="full-width flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
+    function twoBigImages(imgSpecs, marginClasses, fullWidth) {
+        let fwClass = fullWidth ? "full-width " : "";
+        return `<div class="${fwClass}flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
 <div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">${imgSpecToHTML(imgSpecs[0])[1]}</div>
 <div class="mr1-m mr3-l">${imgSpecToHTML(imgSpecs[1])[1]}</div>
 </div>`;
     }
 
-    function threeBigImages(imgSpecs, marginClasses) {
-        return `<div class="full-width flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
+    function threeBigImages(imgSpecs, marginClasses, fullWidth) {
+        let fwClass = fullWidth ? "full-width " : "";
+        return `<div class="${fwClass}flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
 <div class="ml1-m ml3-l">${imgSpecToHTML(imgSpecs[0])[1]}</div>
 <div class="mh1-ns mv1 mv0-ns">${imgSpecToHTML(imgSpecs[1])[1]}</div>
 <div class="mr1-m mr3-l">${imgSpecToHTML(imgSpecs[2])[1]}</div>
@@ -347,8 +350,10 @@ module.exports = function (eleventyConfig) {
      *     {vimeoInfo: "733917188?h=25f2f93194", videoStyle: "width: 100%; aspect-ratio: 2;"},
      *     [{path: "foo2", size: "bar2"},{path: "foo3", size: "bar3"}]
      * ], true %}
+     *
+     * Third arg is whether to make full width. Can pass false to not stretch.
      */
-    eleventyConfig.addNunjucksShortcode("img", (imgs, blurStretchSingles = false) => {
+    eleventyConfig.addNunjucksShortcode("img", (imgs, blurStretchSingles = false, fullWidth = true) => {
         if (!Array.isArray(imgs)) {
             imgs = [imgs];
         }
@@ -363,13 +368,13 @@ module.exports = function (eleventyConfig) {
             }
             switch (row.length) {
                 case 1:
-                    buf += oneBigImage(row[0], m, blurStretchSingles);
+                    buf += oneBigImage(row[0], m, blurStretchSingles, fullWidth);
                     break;
                 case 2:
-                    buf += twoBigImages(row, m);
+                    buf += twoBigImages(row, m, fullWidth);
                     break;
                 case 3:
-                    buf += threeBigImages(row, m);
+                    buf += threeBigImages(row, m, fullWidth);
                     break;
                 default:
                     buf += 'UNSUPPORTED IMG ROW ARRAY LENGTH: ' + row.length;
