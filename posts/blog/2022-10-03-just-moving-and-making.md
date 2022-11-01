@@ -1,7 +1,10 @@
 ---
 title: Just Moving and Making
 subtitle: Hello from what I now know to be Istanbul's fancier airport
+image: /assets/blog/just-moving-and-making/shell.moz80.jpg
 ---
+
+![]({{ "/assets/blog/just-moving-and-making/shell.moz80.jpg" | url }})
 
 This is the first time I've used the "post before 6am Monday" to its extreme. (That's our deadline for weekly posts.) It's 3:39am when I'm writing this. (Ed: publishing at 4:31.)
 
