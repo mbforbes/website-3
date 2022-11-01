@@ -19,8 +19,8 @@ import mistune
 
 from common import get_posts, Post
 
-DATE_START = date(2022, 9, 1)
-DATE_END = date(2022, 9, 30)
+DATE_START = date(2022, 10, 1)
+DATE_END = date(2022, 10, 31)
 # DISPLAY_MONTH = "September"
 # SUBJECT = f"Max Forbes | {DISPLAY_MONTH} 2022 Digest"
 
@@ -34,10 +34,12 @@ POSTAMBLE = """
 <h2>News</h2>
 
 <p>
-We are in Korea now for about a month, enjoying the cooler weather and seeing some familiar faces.
+Still traveling! We'll spend November in Vietnam and The Philippines.
 </p>
 
-<p>I hope this note finds you well.</p>
+<p>
+At this point I'll stop making promises about when I'll finally catch up with my travel writing. When I finally do, you'll of course see it here.
+</p>
 
 <br>
 
