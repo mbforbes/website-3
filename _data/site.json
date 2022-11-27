@@ -17,6 +17,10 @@
         {
             "name": "Research",
             "url": "/research"
+        },
+        {
+            "name": "About",
+            "url": "/about"
         }
     ],
     "jsonfeed": {

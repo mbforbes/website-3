@@ -9,12 +9,13 @@ layout: "layouts/default.njk"
 {% set writingTags = ["travel", "design", "programming", "creating & thinking", "health"] %}
 {# {% set writingTags = ["programming"] %} #}
 {% for tag in writingTags %}
-    <h3>{{ tag | title }}</h3>
+
+    <h3>{{ tag | title }}<a name="{{ tag | lower }}"></a></h3>
     <ul class="list pa0 mt0">
         {# Type is {name: post[]}[], where name is "" for no series. #}
         {% for seriesObj in collections[tag] | dateSeriesGroupBy %}
             {% if seriesObj.series != "" %}
-                <li class="b mb1 mt4">{{ seriesObj.series }}</li>
+                <li class="mb1 mt4 f5 fw6 ttu tracked">{{ seriesObj.series }}</li>
                 <ol class="mb4">
             {% endif %}
 
@@ -68,8 +69,7 @@ You might also be interested in checking out my <a href="{{ "/research/#software
 {% endfor %}
 </div>
 
-<a name="blog"></a>
-<h2>Blog</h2>
+<h2>Blog<a name="blog"></a></h2>
 {% for post in collections.blog | sort(true, false, "date") %}
 <a href="{{ post.url | url }}" class="db pv1 link">
     <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }}</time>

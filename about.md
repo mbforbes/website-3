@@ -1,8 +1,14 @@
 ---
-title: About me
+title: About
 hidedate: true
 layout: "layouts/default.njk"
 ---
+
+## Now
+
+As of November 2022, I'm traveling indefinitely and writing about where I go.
+These [travel essays](/studio/#travel) alternate between blocks of crappy iPhone photos and stories of things that confused me.
+I also end up writing a [blog post](/blog/) roughly weekly, occasionally tending to to my [notes](/garage/), and preparing a monthly website digest (subscribe at the bottom of any page).
 
 ## Testimonials
 
@@ -31,12 +37,17 @@ I miss the [GeoCities days](http://www.hypnospace.net/), when personal pages wer
 
 - [**Callan Berry**](https://mumblecity.com/) • comic artist and designer; hilarious and personable; seems to always know full plots to games and movies before they're out.
 
+<!-- Cooper's website is gone :-( -->
+<!--
 - [**Cooper Smith**](https://schmidlak.com/) • pixel artist, drummer, retro game
   enthusiast, and policy analyst; meticulous and sincere; the best candidate for our
   band name was "Urban Toast."
+-->
 
 - [**Steve Geluso**](http://5tephen.com/) • teacher and freelance developer; courageous
   and down-to-earth; I once witnessed him pull a taco out of his pocket.
+
+- [**Shelby Wilson**](https://shelby.cool/) • frontend developer and artist; brilliant and gentle; Shelby is web 4.0 while you're still trying to figure out web 1
 
 ## Internet people I am a fan of
 

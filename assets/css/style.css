@@ -6,13 +6,20 @@
     --text-color: #111;
     --link-color: #357edd;
     --link-text-decoration: none;
+    --button-color: #357edd;
+    --button-border-color: #357edd;
+    --button-hover-color: #1d457a;
     --hover-link-color: #1d457a;
     --visited-link-color: #00449E;
     --lighter-text-color: #555;
-    --lightest-text-color: #999;
+    --lightest-text-color: #777;
     --heavy-border-color: #333;
     --border-color: #ccc;
     --table-row-border-color: #e1e1e1;
+    --fade-bg-image: linear-gradient(rgba(5, 5, 38, 0.02) 0%,
+            rgba(255, 255, 255, 0) 50%,
+            rgba(255, 255, 255, 0) 80%,
+            rgba(5, 5, 38, 0.02) 100%);
     --hover-img-url: url(/assets/img/line3-blue-for-light.png);
 }
 
@@ -25,6 +32,9 @@
     --text-color: #fff;
     --link-color: #4f8af8;
     --link-text-decoration: none;
+    --button-color: #4f8af8;
+    --button-border-color: #4f8af8;
+    --button-hover-color: #83adfc;
     --hover-link-color: #83adfc;
     --visited-link-color: #4f8af8;
     --lighter-text-color: #bbb;
@@ -32,6 +42,10 @@
     --heavy-border-color: #fff;
     --border-color: #888;
     --table-row-border-color: #343434;
+    --fade-bg-image: linear-gradient(rgba(5, 5, 38, 0.12) 0%,
+            rgba(255, 255, 255, 0) 50%,
+            rgba(255, 255, 255, 0) 80%,
+            rgba(5, 5, 38, 0.12) 100%);
     --hover-img-url: url(/assets/img/line3-blue-for-dark.png);
 }
 
@@ -52,6 +66,9 @@
     --text-color: #fff;
     --link-color: #fff;
     --link-text-decoration: underline;
+    --button-color: rgba(1, 1, 1, 0);
+    --button-border-color: #fff;
+    --button-hover-color: rgba(0, 0, 0, 1);
     --hover-link-color: #fff;
     --visited-link-color: #fff;
     --lighter-text-color: #fff;
@@ -59,6 +76,10 @@
     --heavy-border-color: #fff;
     --border-color: #fff;
     --table-row-border-color: #fff;
+    --fade-bg-image: linear-gradient(rgba(5, 5, 38, 0.12) 0%,
+            rgba(255, 255, 255, 0) 50%,
+            rgba(255, 255, 255, 0) 80%,
+            rgba(5, 5, 38, 0.12) 100%);
     --hover-img-url: url(/assets/img/line3-light.png);
 }
 
@@ -73,6 +94,21 @@ body {
 .textcolor {
     color: var(--text-color);
     transition: color 1s;
+}
+
+.fade-bg {
+    background-image: var(--fade-bg-image);
+}
+
+.emailButton {
+    border: 1px solid var(--button-border-color);
+    background-color: var(--button-color);
+    color: white;
+}
+
+.emailButton:hover {
+    border: 1px solid var(--button-hover-color);
+    background-color: var(--button-hover-color);
 }
 
 .off-bg-color {
@@ -281,7 +317,7 @@ Previously was
 
 /* Subtitle */
 p.subtitle {
-    margin-top: -.5rem;
+    margin-top: -3.5rem;
     /* font-variant: small-caps; */
     /* font-size     : 1rem; */
 }
@@ -311,16 +347,44 @@ p.subtitle {
     width: 100%;
 }
 
-/* More space before non-first section headers */
-.markdown-body h2:first-of-type {
-    margin-top: 2em;
-}
+/* Current type sizes (defaults, I think):
+   NOTE: Depends on window size, I think
+   (`em` units in user agent stylesheet)
+    ---------------
+    h2  30.0px  700
+    h3  23.4px  700
+    h4  20.0px  700
+    ---------------
 
-.markdown-body h2:not(:first-of-type) {
+Tachyons:
+    ---------------
+    .f1   3rem       48px
+    .f2   2.25rem    36px
+    .f3   1.5rem     24px
+    .f4   1.25rem
+    .f5   1rem
+    .f6   .875rem
+    .f7   .75rem
+    ---------------
+
+    Probably want to downgrade sizes for diff screen types.
+*/
+
+/* Enable to reduce  space before first section header, combined with
+  changing next rule to select `h2:not(:first-of-type)` rather than `h2`
+*/
+/* .markdown-body h2:first-of-type {
+    margin-top: 2em;
+} */
+
+.markdown-body h2 {
+    font-size: 2.25rem;
     margin-top: 3em;
+    overflow-wrap: break-word;
 }
 
 .markdown-body h3 {
+    font-size: 1.5rem;
     margin-top: 2em;
     margin-bottom: 0.5em;
 }
@@ -650,6 +714,25 @@ ol ol ol {
 .bg-02-orange {
     background-color: #FF630033;
 }
+
+@keyframes bob {
+    0% {
+        transform: translatey(-5px);
+    }
+
+    50% {
+        transform: translatey(5px);
+    }
+
+    100% {
+        transform: translatey(-5px);
+    }
+}
+
+.bob {
+    animation: bob 3s ease-in-out infinite;
+}
+
 
 /* --- */
 /* end of my extensions */
