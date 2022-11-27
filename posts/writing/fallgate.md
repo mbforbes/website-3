@@ -8,7 +8,7 @@ image: /assets/posts/fallgate/title.jpg
 
 ![A screenshot of the game Fallgate]({{ "/assets/posts/fallgate/title.jpg" | url }})
 
-Fallgate is a game my friend [Cooper](http://schmidlak.com/) and I made as a
+Fallgate is a game my friend Cooper and I made as a
 hobby project. It is a pixel-art action-adventure game about questing through a
 forest, vanquishing blops and eating doughnuts.
 
@@ -135,7 +135,7 @@ about it.
 
 ---
 
-Thanks to [Cooper Smith](https://schmidlak.com/) for reading drafts of this. (And making the game with me!)
+Thanks to Cooper Smith for reading drafts of this. (And making the game with me!)
 
 [^engine]: If you're ambitious, curious, or foolish, you'll start by designing and building an oven (game engine) yourself.
 

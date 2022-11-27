@@ -9,7 +9,7 @@ seriesOrder: 1
 
 ## Preface
 
-This series is intended to be a simple walkthrough of building an ECS-based game engine in TypeScript. It's based off my work on [Fallgate]({{ "/posts/fallgate/" | url }}), a small 2D action-adventure game I built with my friend [Cooper](https://schmidlak.com/) over about two years of evenings and weekends.
+This series is intended to be a simple walkthrough of building an ECS-based game engine in TypeScript. It's based off my work on [Fallgate]({{ "/posts/fallgate/" | url }}), a small 2D action-adventure game I built with my friend Cooper over about two years of evenings and weekends.
 
 ## So, what _is_ an ECS?
 

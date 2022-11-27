@@ -33,29 +33,35 @@ It's very important what others think about you.
 
 I miss the [GeoCities days](http://www.hypnospace.net/), when personal pages were the rage. Behold, some friends with websites:
 
-- [**Alex Miller**](http://spacefiller.space/) • digital visual artist; curious and warm; loves trying all the drinks from Japanese vending machines.
+- [**Alex Miller**](https://alex.miller.garden/) • digital visual artist; curious and warm; loves trying all the drinks from Japanese vending machines.
+
+- [**Ally Gale**][https://allygale.online/] • developer and lindy hopper; vivacious and thoughtful; exploring abandoned places since before geocaching was cool.
 
 - [**Callan Berry**](https://mumblecity.com/) • comic artist and designer; hilarious and personable; seems to always know full plots to games and movies before they're out.
 
-<!-- Cooper's website is gone :-( -->
+<!-- Cooper's website is gone :-( Leaving here for now in memoriam. -->
 <!--
 - [**Cooper Smith**](https://schmidlak.com/) • pixel artist, drummer, retro game
   enthusiast, and policy analyst; meticulous and sincere; the best candidate for our
   band name was "Urban Toast."
 -->
 
+- [**Max Cerami**](https://maxcerami.wordpress.com/) • mechanical engineer and artist; creative and empathetic; who is the real Max?
+
+- [**Shelby Wilson**](https://shelby.cool/) • frontend developer and artist; brilliant and gentle; Shelby is web 4.0 while you're still trying to figure out web 1.
+
 - [**Steve Geluso**](http://5tephen.com/) • teacher and freelance developer; courageous
   and down-to-earth; I once witnessed him pull a taco out of his pocket.
-
-- [**Shelby Wilson**](https://shelby.cool/) • frontend developer and artist; brilliant and gentle; Shelby is web 4.0 while you're still trying to figure out web 1
 
 ## Internet people I am a fan of
 
 - [**Bret Victor**](http://worrydream.com/) • interaction and abstraction
 
+- [**Hundred Rabbits**](https://100r.co/site/home.html) • physical and digital minimalism from first principles, extensively documented
+
 - [**Mu-An Chiou**](http://muan.co/) • rhythm, space, movement, color
 
-- [**Steven Wittens**](http://acko.net/) • insane 3d animations
+- [**Steven Wittens**](http://acko.net/) • 3D sorcery
 
 ## More of me
 
