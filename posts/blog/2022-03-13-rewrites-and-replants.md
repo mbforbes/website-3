@@ -1,6 +1,5 @@
 ---
 title: Rewrites and replants
-date: 2022-03-13
 ---
 
 What I've been up to:

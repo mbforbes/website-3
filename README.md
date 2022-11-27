@@ -42,7 +42,6 @@ Ideally, I'd like to show both. Maybe both on the index page and on the individu
 
 ## TODO
 
-- [ ] blog filename rename (2022-08-07-blah-blah)
 - [ ] new analytics
 - [ ] wider code
 - [ ] big cover header

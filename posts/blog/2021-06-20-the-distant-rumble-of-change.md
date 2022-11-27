@@ -1,6 +1,5 @@
 ---
 title: The Distant Rumble of Change
-date: 2021-06-20
 ---
 
 Even just writing a "blog post" and calling it a "blog post" feels like a cop-out. But this is actually exactly what I signed up for: a kick in the rear to get _something_ out of the door.

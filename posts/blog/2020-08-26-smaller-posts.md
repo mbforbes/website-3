@@ -1,6 +1,5 @@
 ---
 title: Smaller Posts
-date: 2020-08-26
 ---
 
 ![]({{ "/assets/blog/smaller-posts/siciliano.jpg" | url }})
