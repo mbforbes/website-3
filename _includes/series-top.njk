@@ -1,3 +1,8 @@
+{% set seriesPostDatas = collections.all | attr("data") | selectAttrEquals("series", series) | sort(false, false, "seriesOrder") %}
+
+{# Only show this navigator if > 1 post in the series #}
+{% if seriesPostDatas | length > 1 %}
+
 <div class="ba border-color mv5 series-top">
     <p class="off-bg-color mv0 pv2 ph3 b">
         <span class="fr ttu lightest-text-color tracked dib f7 f6-ns">series</span>
@@ -5,7 +10,6 @@
     </p>
 
     <div class="pa3">
-        {% set seriesPostDatas = collections.all | attr("data") | selectAttrEquals("series", series) | sort(false, false, "seriesOrder") %}
         <ol class="ma0">
             {% for seriesPostData in seriesPostDatas %}
                 <li class="">
@@ -24,3 +28,5 @@
 
     </div>
 </div>
+
+{% endif %}

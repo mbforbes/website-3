@@ -42,8 +42,6 @@ Ideally, I'd like to show both. Maybe both on the index page and on the individu
 
 ## TODO
 
-- [ ] hide series if only one post
-- [ ] do we want TOC?
 - [ ] remove dead links
 - [ ] blog filename rename (2022-08-07-blah-blah)
 - [ ] new analytics
@@ -57,6 +55,7 @@ Ideally, I'd like to show both. Maybe both on the index page and on the individu
 - [ ] fix svg text w/ dark mode
     - [ ] calorie counting + meal planning
     - [ ] linear regression post
+- [ ] do we want TOC?
 - [ ] the great blockquote fixup
     - note: esp on mobile, and esp double quotes. probably find set of test cases.
     - [ ] plus extend for aside, etc.
