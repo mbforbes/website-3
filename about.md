@@ -35,7 +35,7 @@ I miss the [GeoCities days](http://www.hypnospace.net/), when personal pages wer
 
 - [**Alex Miller**](https://alex.miller.garden/) • digital visual artist; curious and warm; loves trying all the drinks from Japanese vending machines.
 
-- [**Ally Gale**][https://allygale.online/] • developer and lindy hopper; vivacious and thoughtful; exploring abandoned places since before geocaching was cool.
+- [**Ally Gale**](https://allygale.online/) • developer and lindy hopper; vivacious and thoughtful; exploring abandoned places since before geocaching was cool.
 
 - [**Callan Berry**](https://mumblecity.com/) • comic artist and designer; hilarious and personable; seems to always know full plots to games and movies before they're out.
 
