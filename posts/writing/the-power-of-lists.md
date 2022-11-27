@@ -2,6 +2,7 @@
 title: The Power of Lists
 subtitle: Complete Enumeration
 date: 2021-09-13
+updated: 2022-11-27
 tags: design
 image: /assets/posts/power-of-lists/power-of-lists-header.jpg
 ---
@@ -11,6 +12,7 @@ image: /assets/posts/power-of-lists/power-of-lists-header.jpg
 I often find it extremely helpful when people simply enumerate all of the options for something.
 
 Here are some examples.
+
 
 ## Reserved Keywords in TypeScript
 
@@ -22,6 +24,7 @@ As a reply, someone simply posted a list:
 
 I have used this list many times.
 
+
 ## Grimgrains Ingredients and Recipes
 
 [Grimgrains](https://grimgrains.com/), the Hundred Rabbits' cooking blog, opens with a complete list of ingredients, followed by a complete list of recipes.
@@ -29,6 +32,7 @@ I have used this list many times.
 ![]({{ "/assets/posts/power-of-lists/grimgrains-ingredients.jpg" | url }})
 
 ![]({{ "/assets/posts/power-of-lists/grimgrains-recipes.jpg" | url }})
+
 
 ## PyTorch Installation and Tensor Types
 
@@ -48,6 +52,11 @@ While ordinarily a bane of my existence,[^graphing] Matplotlib's documentation s
 [^graphing]: No shade on Matplotlib. You can tell it's trying really hard, and I think graph-making is just actually really complicated to program.
 
 ![]({{ "/assets/posts/power-of-lists/matplotlib-colors.jpg" | url }})
+
+
+## Tachyons Components and Colors
+
+{% include "stub.njk" %}
 
 ## Missing: `pandas.Series.agg`
 

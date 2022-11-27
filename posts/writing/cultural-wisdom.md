@@ -7,8 +7,7 @@ tags: "creating & thinking"
 Let me take a crack at defining what I mean by _cultural wisdom_ right at the start.
 
 <div class="pa4 pa5-ns ba bw4 table-row-border-color shadow-1 mv5">
-<p class="f3 b mb0">Cultural wisdom</p>
-<hr class="b--solid mv1 heavy-border-color">
+<p class="f4 fw6 mb1">Cultural wisdom</p>
 <p class="mt0 f5">Wisdom you get for free just by adhering to cultural norms. You don’t have to be personally wise. You don’t have to even realize it's going on.</p>
 </div>
 

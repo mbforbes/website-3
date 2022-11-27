@@ -6,7 +6,7 @@ tags: "creating & thinking"
 image: /assets/posts/use-examples/examples-wide-v2.png
 ---
 
-![]({{ "/assets/posts/use-examples/examples-v2.svg" | url }})
+<img src="{{"/assets/posts/use-examples/examples-v2.svg" | url}}" class="w-100" />
 
 Examples vastly improve communication.
 
