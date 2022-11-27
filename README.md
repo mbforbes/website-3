@@ -42,6 +42,22 @@ Ideally, I'd like to show both. Maybe both on the index page and on the individu
 
 ## TODO
 
-- next/prev browser (by post or travel date?)
-- metadata on travel post
-- blog filenames (2022-08-07-blah-blah)
+- [ ] hide series if only one post
+- [ ] do we want TOC?
+- [ ] remove dead links
+- [ ] blog filename rename (2022-08-07-blah-blah)
+- [ ] new analytics
+- [ ] wider code
+- [ ] big cover header
+    - [ ] desktop design
+    - [ ] color themes
+    - [ ] mobile
+- [ ] unified post view for studio
+- [ ] incoming / outgoing links on all pages?
+- [ ] fix svg text w/ dark mode
+    - [ ] calorie counting + meal planning
+    - [ ] linear regression post
+- [ ] the great blockquote fixup
+    - note: esp on mobile, and esp double quotes. probably find set of test cases.
+    - [ ] plus extend for aside, etc.
+        - (how to markup? leaving markdown annoying: footnotes, etc.)

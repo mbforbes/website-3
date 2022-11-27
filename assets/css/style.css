@@ -248,29 +248,6 @@ li>p {
     padding: 0.25rem 0.25rem;
 }
 
-/* Editing scribble (mu-an) defaults: this used to be the same as blockquote.
-     Starting more on left.    */
-/* .markdown-body pre code, */
-.markdown-body>blockquote {
-    /* TODO: check and maybe reenable for blockquotes */
-    padding: 0.1rem 1rem;
-}
-
-/* NOTE: Since removing overflow prevention from the <main> element,
-   I had to be more careful about the excessive padding (the below used
-   to be applied all the time). Unfortunately, now we do this for large
-   screens only. Would love to enable again for small screens---full width
-   gray background looks great---but the calculations of breaking out of
-   the box and lining things up correctly (i.e., code w/ non-code text) was
-   a huge hassle and would probably require javascript. */
-@media screen and (min-width: 58rem) {
-
-    .markdown-body pre code,
-    .markdown-body>blockquote {
-        padding: .5rem 5rem;
-        margin: 2.5em -5rem;
-    }
-}
 
 
 /* Making hrs everywhere do this!
@@ -297,7 +274,12 @@ Previously was
 }
 
 
-.markdown-body blockquote {
+.markdown-body blockquote blockquote {
+    border-left: none;
+    font-style: italic;
+}
+
+blockquote {
     background: var(--off-bg-color);
     /* TODO - Why isn't this showing up in top-level blockquotes?
      Even adding a specific rule to them (above) doesn't help... */
@@ -305,15 +287,36 @@ Previously was
     /* padding-left            : 3.8rem; */
 }
 
-
 .markdown-body li blockquote {
     /* background         : #f9f9f9; */
     /* padding-left: 3.8rem; */
     padding: 1rem 2rem;
 }
 
-/* My extensions */
-/* --- */
+/* Editing scribble (mu-an) defaults: this used to be the same as blockquote.
+     Starting more on left.    */
+/* .markdown-body pre code, */
+.markdown-body>blockquote {
+    /* TODO: check and maybe reenable for blockquotes */
+    padding: 0.1rem 1rem;
+}
+
+/* NOTE: Since removing overflow prevention from the <main> element,
+   I had to be more careful about the excessive padding (the below used
+   to be applied all the time). Unfortunately, now we do this for large
+   screens only. Would love to enable again for small screens---full width
+   gray background looks great---but the calculations of breaking out of
+   the box and lining things up correctly (i.e., code w/ non-code text) was
+   a huge hassle and would probably require javascript. */
+@media screen and (min-width: 58rem) {
+
+    .markdown-body pre code,
+    .markdown-body>blockquote {
+        padding: .5rem 5rem;
+        margin: 2.5em -5rem;
+    }
+}
+
 
 /* Subtitle */
 p.subtitle {
@@ -517,11 +520,6 @@ text-width image*/
     color: var(--link-color);
 }
 
-
-.markdown-body blockquote blockquote {
-    border-left: none;
-    font-style: italic;
-}
 
 /* Table styles! */
 
@@ -732,9 +730,3 @@ ol ol ol {
 .bob {
     animation: bob 3s ease-in-out infinite;
 }
-
-
-/* --- */
-/* end of my extensions */
-
-/* end Markdown styles */
