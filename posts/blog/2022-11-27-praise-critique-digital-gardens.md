@@ -1,7 +1,10 @@
 ---
 title: In Praise And Critique of Digital Gardens
 subtitle: Should I Grow One?
+image: /assets/blog/praise-critique-digital-gardens/45-Farm-road-d7.moz80.jpg
 ---
+
+![]({{ "/assets/blog/praise-critique-digital-gardens/45-Farm-road-d7.moz80.jpg" | url }})
 
 ## Notes (Zettelkasten)
 
