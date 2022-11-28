@@ -59,13 +59,11 @@ You might also be interested in checking out my <a href="{{ "/research/#software
 
 <h2>Sketches<a name="sketches"></a></h2>
 
-<div class="cf">
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));">
 {% for sketch in collections.sketch | sort(true, false, "date") %}
-    <div class="fl mr2 mb2 mr3-ns mb3-ns">
-        <a href="{{ sketch.url | url }}">
-            <img class="dim novmargin" src="{{ sketch.data.thumb | url }}" style="width: 72px; height: 72px;"/>
-        </a>
-    </div>
+    <a href="{{ sketch.url | url }}">
+        <img class="dim novmargin" src="{{ sketch.data.thumb | url }}" />
+    </a>
 {% endfor %}
 </div>
 
