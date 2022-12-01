@@ -6,6 +6,7 @@ date: 2022-12-01
 travel_start: 2022-07-31
 travel_end: 2022-08-03
 image: /assets/posts/2022-scotland/07-leith-castle.moz80.jpg
+customexcerpt: We took a two week roadtrip through Scotland. We got soaked and the food sucked, but the nature was awesome. 10/10.
 ---
 
 <!-- image graveyard

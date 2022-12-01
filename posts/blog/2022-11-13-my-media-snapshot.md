@@ -1,6 +1,9 @@
 ---
 title: My Media Snapshot
+image: /assets/blog/my-media-snapshot/hanoi-towers.moz80.jpg
 ---
+
+![]({{ "/assets/blog/my-media-snapshot/hanoi-towers.moz80.jpg" | url }})
 
 I'm keeping lots of notes while traveling. But I'm trying not to write about travel in the blog (i.e., what you're reading now). So what to write about? It's hard to pick, since when you're traveling, travel is so much of your life.
 
@@ -24,7 +27,7 @@ Looking for something new to play, I pulled a game off my backlog called **[Cros
 
 ---
 
-I'm also slowing chewing my way through [Last Call BBS](https://www.zachtronics.com/last-call-bbs/).[^coop] This one is setup like a retro fictional Windows ~98-esque box with a handful of retro-aesthetic puzzle games. They're good---well designed, intricate, and really make you think. (They also stylistically omit instruction manuals, or have instructions in Japanese, which lends the experience kind of a [Tunic](https://tunicgame.com/)-like "figure out the game" nostalgia.)
+I'm also slowing chewing my way through **[Last Call BBS](https://www.zachtronics.com/last-call-bbs/)**.[^coop] This one is setup like a retro fictional Windows ~98-esque box with a handful of retro-aesthetic puzzle games. They're good---well designed, intricate, and really make you think. (They also stylistically omit instruction manuals, or have instructions in Japanese, which lends the experience kind of a [Tunic](https://tunicgame.com/)-like "figure out the game" nostalgia.)
 
 [^coop]: Thanks to Cooper for Last Call BBS!
 
@@ -40,7 +43,7 @@ Aside from entertainment, it's a good way for me to keep my finger on the pulse 
 
 ---
 
-I also finally got [How Minds Change](https://www.davidmcraney.com/howmindschangehome) after waiting months in the library queue, read one chapter, and promptly stopped. Now only a bit of time till it's due back. Ugh. I have faith it will be good, but after hearing many golden nuggets when [McRaney appeared on the Deconstructing Yourself Podcast](https://art19.com/shows/deconstructing-yourself/episodes/3b3119f3-fca8-49d2-91bb-f4960172d93e), I worry the longer narrative will be a slower and drier path. I hope I pick it back up in time.
+I also finally got **[How Minds Change](https://www.davidmcraney.com/howmindschangehome)** after waiting months in the library queue, read one chapter, and promptly stopped. Now only a bit of time till it's due back. Ugh. I have faith it will be good, but after hearing many golden nuggets when [McRaney appeared on the Deconstructing Yourself Podcast](https://art19.com/shows/deconstructing-yourself/episodes/3b3119f3-fca8-49d2-91bb-f4960172d93e), I worry the longer narrative will be a slower and drier path. I hope I pick it back up in time.
 
 ---
 
