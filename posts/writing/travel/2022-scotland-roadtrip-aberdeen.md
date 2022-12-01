@@ -242,7 +242,7 @@ The garden is extensive and grows a gigantic array of crops and flowers. These a
 
 Since we came just a few days before the royals would arrive, the produce was in full harvest.
 
-This triggered something unexpected, which was a pang of longing for homemaking. We'd been on the road for several months at this point. At our apartment in Seattle, without the logistical inclination for pets (briefly: space, travel, and allergies), we'd taken to moderately-extensive plant parenting. This meant yearly repotting, weekly watering, and nearly daily admiring and gossping about our thirty-ish plants, all of whom we gave names by which we referred to them exclusively.
+This triggered something unexpected, which was a pang of longing for homemaking. We'd been on the road for several months at this point. At our apartment in Seattle, without the logistical inclination for pets (briefly: space, travel, and allergies), we'd taken to moderately-extensive plant parenting. This meant yearly repotting, weekly watering, and nearly daily admiring and gossiping about our thirty-ish plants, all of whom we gave names by which we referred to them exclusively.
 
 ![]({{ "/assets/posts/2022-scotland/plant-babies.moz80.jpg" | url }})
 
