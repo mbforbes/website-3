@@ -51,6 +51,10 @@ Copy-paste-able snippets for image arrangements.
   "/assets/garage/image-test-pages/939x939@3x.png"
 ], true %}
 
+### Blur stretch doubles
+
+This is possible, but didn't always look that good, and would require more tweaking for images to resize aspect ratio-ally appropriately. See notes in `.eleventy.js` @ the `twoBigImages` function.
+
 ## Workbook
 
 My process of working through getting the house styles.

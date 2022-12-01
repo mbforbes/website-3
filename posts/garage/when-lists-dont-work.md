@@ -8,5 +8,6 @@ date: 2022-11-27
 This is one note I'd like to just turn into a normal post.
 
 - Webrings
+- https://macmenubar.com/
 
 Why? Something about lack of clear criteria for inclusion. E.g., imagine an API listing that merged all python libraries.

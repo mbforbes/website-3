@@ -260,7 +260,7 @@ module.exports = function (eleventyConfig) {
             if (img.bgImgPath) {
                 bgImgPath = eleventyConfig.getFilter("url")(img.bgImgPath);
             }
-            return [bgImgPath, `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" style="${img.videoStyle}"></iframe>`]
+            return [bgImgPath, `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" style="max-height: 100vh; ${img.videoStyle}"></iframe>`]
         }
 
         // image
@@ -293,10 +293,28 @@ module.exports = function (eleventyConfig) {
     }
 
     function twoBigImages(imgSpecs, marginClasses, fullWidth) {
+        let [bgImgPath1, imgHTML1] = imgSpecToHTML(imgSpecs[0]);
+        let [bgImgPath2, imgHTML2] = imgSpecToHTML(imgSpecs[1]);
+
+        // NOTE: This was experimenting with blur stretch effect on side-by-side images.
+        // + add "relative" to class list on each containing <div>
+        // + add ${bgDivX} just before each ${imgHTMLX}
+        // + first attempt, fixed widths on each img div "w-100 w-50-ns" and "center" on the image HTML.
+        //   Challenge is we don't actually want images to take up 50% each because if they're not exactly
+        //   the same size (aspect ratio?) they ought to scale differently and take up less or more than 50%
+        //   of the width when the page shrinks and both are no longer full size. If we set each to 50% width,
+        //   then one will end up with extra space below/above it, as their heights won't match.
+        // let bgDiv1 = "", bgDiv2 = "";
+        // let blurStretchSingles = true;
+        // if (blurStretchSingles && bgImgPath1 != "" && bgImgPath2 != "") {
+        //     bgDiv1 = `<div class="bgImageReady svgBlur" style="background-image: url(${bgImgPath1})"></div>`;
+        //     bgDiv2 = `<div class="bgImageReady svgBlur" style="background-image: url(${bgImgPath2})"></div>`;
+        // }
+
         let fwClass = fullWidth ? "full-width " : "";
         return `<div class="${fwClass}flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
-<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">${imgSpecToHTML(imgSpecs[0])[1]}</div>
-<div class="mr1-m mr3-l">${imgSpecToHTML(imgSpecs[1])[1]}</div>
+<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">${imgHTML1}</div>
+<div class="mr1-m mr3-l">${imgHTML2}</div>
 </div>`;
     }
 

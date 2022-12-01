@@ -20,7 +20,7 @@ I run this website because I'm too afraid to use Twitter.
     <li class="mv2">
       <a href="{{ post.url | url }}" class="db pv1 link">
         <time class="fr lightest-text-color ttu ml3">{{ post.data.travel_end | default(post.date) | readableDate }} </time>
-        {{ post.data.title }}
+        {{ (post.data.series + ": " if post.data.series else "") + post.data.title }}
       </a>
     </li>
   {% endfor %}
