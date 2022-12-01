@@ -403,7 +403,7 @@ Tachyons:
     max-width: 100%;
 }
 
-/* Add the "bare" class to images to not get this default behavior. */
+/* Add the "bare" class to images to avoid this behavior. */
 .markdown-body img:not(.bare) {
     display: block;
     margin-left: auto;
@@ -661,17 +661,6 @@ ol ol ol {
     padding: inherit;
     position: absolute;
     z-index: -1;
-}
-
-.leafletMap {
-    width: 600px;
-    aspect-ratio: 1;
-    max-width: 100%;
-    border-radius: 50%;
-    /* leaflet's bg is #ddd; we change so that when we remove opacity from toner style map, white areas don't become more gray. thanks to
-    https://stackoverflow.com/questions/51869394/how-can-i-set-leaflet-map-background-to-be-white */
-    background-color: white;
-    z-index: 1;
 }
 
 .keyBox {

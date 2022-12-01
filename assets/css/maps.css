@@ -1,0 +1,58 @@
+/* Custom CSS styling for maps. */
+
+.leafletMap {
+    width: 600px;
+    aspect-ratio: 1;
+    max-width: 100%;
+    border-radius: 50%;
+    /* leaflet's bg is #ddd; we change so that when we remove opacity from toner style map, white areas don't become more gray. thanks to
+    https://stackoverflow.com/questions/51869394/how-can-i-set-leaflet-map-background-to-be-white */
+    background-color: white;
+    z-index: 1;
+}
+
+/* TODO: remove dupe. */
+
+.map {
+    width: 600px;
+    aspect-ratio: 1;
+    max-width: 100%;
+    border-radius: 50%;
+    /* leaflet's bg is #ddd; we change so that when we remove opacity from toner
+       style map, white areas don't become more gray. thanks to
+       https://stackoverflow.com/questions/51869394/how-can-i-set-leaflet-map-background-to-be-white */
+    background-color: white;
+    /* margin-bottom: 200px; */
+    /* Safari needs z-index (!) for border radius to work. */
+    z-index: 1;
+}
+
+.mapOutlineContext {
+    opacity: 0.4;
+}
+
+.mapMarker {
+    opacity: 0;
+}
+
+.mapPath {
+    opacity: 0.0;
+    transform: translate(-3px, -7px);
+}
+
+.mapPlace {
+    opacity: 0.0;
+}
+
+/* This may be post-specific, so could pull into them. */
+.mapPlaceActive {
+    background-color: #FF6300;
+    color: white;
+}
+
+#mapLabelOverlay {
+    bottom: -20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 2;
+}
