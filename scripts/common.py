@@ -55,10 +55,13 @@ def get_posts(
     glob_pattern="posts/**/*",
     exts=["md", "njk"],
     skip_url_prefixes=["/software/", "/news/"],
+    skip_underscore_file_prefix=True,
 ) -> List[Post]:
     posts: List[Post] = []
     for path in glob(glob_pattern, recursive=True):
         if not path.split(".")[-1] in exts:
+            continue
+        if skip_underscore_file_prefix and os.path.basename(path).startswith("_"):
             continue
         url = get_url(path)
         if any([url.startswith(p) for p in skip_url_prefixes]):

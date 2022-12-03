@@ -19,8 +19,8 @@ import mistune
 
 from common import get_posts, Post
 
-DATE_START = date(2022, 10, 1)
-DATE_END = date(2022, 10, 31)
+DATE_START = date(2022, 11, 1)
+DATE_END = date(2022, 12, 1)
 # DISPLAY_MONTH = "September"
 # SUBJECT = f"Max Forbes | {DISPLAY_MONTH} 2022 Digest"
 
@@ -34,11 +34,19 @@ POSTAMBLE = """
 <h2>News</h2>
 
 <p>
-Still traveling! We'll spend November in Vietnam and The Philippines.
+Hot off the press --- I finally finished another travel blog post! It's about the first leg of our Scotland roadtrip, and it's in the listing above.
 </p>
 
 <p>
-At this point I'll stop making promises about when I'll finally catch up with my travel writing. When I finally do, you'll of course see it here.
+I've been enjoying doing some website redesigns the last few days.
+I improved the title and heading typography, and cleaned up the navigation and footer.
+Those changes are already live.
+I'm looking forward to designing a few more sections, and by 2023 just about the whole thing should have a new coat of paint.
+</p>
+
+<p>
+We are finishing up our time in the Philippines and headed next to Singapore.
+A significant portion of my being is now DEET.
 </p>
 
 <br>
@@ -198,11 +206,16 @@ def get_publish_date(post: Post) -> date:
 
 
 def render_post(post: Post) -> str:
+    title = (
+        post["frontmatter"]["series"] + ": " + post["frontmatter"]["title"]
+        if "series" in post["frontmatter"]
+        else post["frontmatter"]["title"]
+    )
     if "image" in post["frontmatter"]:
         return render_image(
             post["url"],
             post["frontmatter"]["image"],
-            post["frontmatter"]["title"],
+            title,
             get_display_date(post),
             get_publish_date(post),
             get_excerpt(post),
@@ -210,7 +223,7 @@ def render_post(post: Post) -> str:
     else:
         return render_text(
             post["url"],
-            post["frontmatter"]["title"],
+            title,
             get_display_date(post),
             get_excerpt(post),
         )
