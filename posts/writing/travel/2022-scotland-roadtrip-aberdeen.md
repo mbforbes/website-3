@@ -1,5 +1,6 @@
 ---
 series: Scotland Roadtrip
+seriesOrder: 1
 title: "Part I: Aberdeen, British Royalty, and Expensive Castles"
 subtitle: Now I Get Why They Invented Golf
 date: 2022-12-01
@@ -31,45 +32,10 @@ customexcerpt: We took a two week roadtrip through Scotland. We got soaked and t
     - [ ] scotland-storr-walk         (skye)
  -->
 
-<link href='{{ "/assets/css/leaflet.css" | url }}' rel='stylesheet' type='text/css'/>
-<link href='{{ "/assets/css/maps.css" | url }}' rel='stylesheet' type='text/css'/>
-
-<script type="text/javascript" src="/assets/lib/leaflet-1.9.2-custom.js"></script>
-<script type="text/javascript" src="/assets/lib/tile.stamen-1.3.0.js"></script>
-<script type="text/javascript" src="/assets/lib/anime-3.2.1.min.js"></script>
-<script type="text/javascript" src="/assets/lib/leaflet.curve.js"></script>
-<script>
-    // Vars here change during deploy env (personal website).
-    let libDir = "{{ "/assets/mapData/" | url }}";
-    let postDir = "{{ "/assets/posts/2022-scotland/" | url }}";
-    let activeList = ["Aberdeen"];
-</script>
-<script src="/assets/posts/2022-scotland/scotland.js"></script>
-
 We took a two week roadtrip through Scotland. We got soaked and the food sucked, but the nature was awesome. 10/10.
 
-<div class="full-width flex flex-wrap flex-nowrap-l justify-center fig pv5 fade-bg">
-    <!-- Left -->
-    <div class="ph3 pb5 pb3-l w-100 w-50-l">
-        <!-- Need relative positioning for overlay positioning -->
-        <div class="relative">
-            <div id="mapContext" class="map center">
-                <img src="/assets/posts/2022-scotland/scotland-map-context-screenshot.png">
-            </div>
-            <div id="mapLabelOverlay"
-                class="ph3 pv2 bg-white sans-serif mid-gray shadow-4 br2 dib absolute flex items-center">
-                <span class="f2 mr2">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
-                <span class="f3 b dib">Scotland</span>
-            </div>
-        </div>
-    </div>
-    <!-- Right -->
-    <div class="ph3 w-100 w-50-l">
-        <div id="mapTravel" class="map center">
-            <img src="/assets/posts/2022-scotland/scotland-map-travel-aberdeen-screenshot.png">
-        </div>
-    </div>
-</div>
+{% set activePlace = "Aberdeen" %}
+{% include "scotland-maps.njk" %}
 
 ## Edinburgh
 
