@@ -6,7 +6,7 @@ layout: "layouts/default.njk"
 
 ## Now
 
-As of November 2022, I'm traveling indefinitely and writing about where I go.
+As of December 2022, I'm traveling indefinitely and writing about where I go.
 These [travel essays](/studio/#travel) alternate between blocks of crappy iPhone photos and stories of things that confused me.
 I also end up writing a [blog post](/blog/) roughly weekly, occasionally tending to to my [notes](/garage/), and preparing a monthly website digest (subscribe at the bottom of any page).
 
