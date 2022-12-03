@@ -2,6 +2,7 @@
 title: In Praise And Critique of Digital Gardens
 subtitle: Should I Grow One?
 image: /assets/blog/praise-critique-digital-gardens/45-Farm-road-d7.moz80.jpg
+customexcerpt: A digital garden may be the solution to creative friction. But is it worth the cost?
 ---
 
 ![]({{ "/assets/blog/praise-critique-digital-gardens/45-Farm-road-d7.moz80.jpg" | url }})
