@@ -22,14 +22,6 @@ customexcerpt: We took a two week roadtrip through Scotland. We got soaked and t
     - [x] scotland-field              (abr)
     - [x] scotland-aberdeen-clouds    (abr)
     - [x] scotland-slains-beach       (abr)
-    - [ ] scotland-lochness-woods     (inverness)
-    - [ ] scotland-speed-sign         (inverness)
-    - [ ] scotland-drive              (oban (why not))
-    - [ ] scotland-julie-feed-2       (skye)
-    - [ ] scotland-julie-feed-attempt (skye)
-    - [ ] scotland-julie-pony         (skye)
-    - [ ] scotland-storr-rain         (skye)
-    - [ ] scotland-storr-walk         (skye)
  -->
 
 We took a two week roadtrip through Scotland. We got soaked and the food sucked, but the nature was awesome. 10/10.

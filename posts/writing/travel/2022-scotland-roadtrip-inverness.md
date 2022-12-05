@@ -6,6 +6,7 @@ date: 2022-12-03
 travel_start: 2022-08-03
 travel_end: 2022-08-06
 image: /assets/posts/2022-scotland/16-to-skye-castle-in.moz80.jpg
+customexcerpt: With Loch Ness so famous because of its Monster, it had not occurred to me that it might actually turn out to be a completely boring normal lake until we were standing in front of it.
 ---
 
 <!-- Image graveyard:
