@@ -38,11 +38,11 @@ customexcerpt: Isle of Skye is one of those places that is dramatic when you're 
     "/assets/posts/2022-scotland/17-skye-hill.moz80.jpg"
 ], true %}
 
-Isle of Skye is one of those places that is dramatic when you're there but totally doesn't photograph well. You are totally surrounded by these ultra-tapered grassy hills with shifting layers of moderately ominous clouds.
+Isle of Skye is one of those places that is dramatic when you're there but totally doesn't photograph well. You are surrounded by these ultra-tapered grassy hills with shifting layers of moderately ominous clouds.
 
 I have never been anywhere like it. A couple valleys we entered I involuntarily said "holy shit" and craned my neck wildly around.
 
-The good part about it photographing poorly is that it's hard for me to spoil what it's like for you
+The good part about it photographing poorly is that it's hard for me to spoil what it's like for you.
 
 {% img [
     "/assets/posts/2022-scotland/24-hp-hill.moz80.jpg",
