@@ -3,7 +3,7 @@ series: Scotland Roadtrip
 seriesOrder: 3
 title: "Part III: Isle of Skye"
 subtitle: I Wrote This Whole Post Without Using The Word "Rugged" Once
-date: 2022-12-04
+date: 2022-12-06
 travel_start: 2022-08-06
 travel_end: 2022-08-10
 image: /assets/posts/2022-scotland/24-hp-train.moz80.jpg
