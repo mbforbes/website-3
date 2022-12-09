@@ -100,6 +100,7 @@ Here are some Jerries screaming about how nice the sunset is in 4K.
 ## Interlude: UK _vs_ Great Britain
 
 <link rel="stylesheet" href="{{ "/assets/css/leaflet.css" | url }}" />
+<link rel="stylesheet" href="{{ "/assets/css/maps.css" | url }}" />
 <script type="text/javascript" src="{{ "/assets/lib/leaflet-1.8.0.js" | url }}"></script>
 <script type="text/javascript" src="{{ "/assets/lib/tile.stamen-1.3.0.js" | url }}"></script>
 <script type="text/javascript" src="{{ "/assets/lib/anime-3.2.1.min.js" | url }}"></script>
