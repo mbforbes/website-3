@@ -6,6 +6,7 @@ date: 2022-12-09
 travel_start: 2022-08-10
 travel_end: 2022-08-13
 image: /assets/posts/2022-scotland/27-hike-pond.moz80.jpg
+customexcerpt: "Hiking here is appropriately called \"hill walking.\""
 ---
 
 <!-- Image graveyard:
