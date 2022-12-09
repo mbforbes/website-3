@@ -43,6 +43,7 @@ Ideally, I'd like to show both. Maybe both on the index page and on the individu
 ## TODO
 
 - [ ] new analytics
+- [ ] image sizes ok (& feasible) to add? bg placeholder?
 - [ ] wider code
 - [ ] big cover header
     - [ ] desktop design
