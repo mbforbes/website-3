@@ -47,7 +47,7 @@ But this never seemed to happen. Notes stayed as notes---low friction, fun to wr
 
 [^myself]: Though I maintain that I write primarily for myself, this is never completely true when you're posting online. Despite my best efforts, it's always a bit disappointing when nobody reads the thing you poured dozens of hours into.
 
-Could the digital garden be the solution to my woes? I could transform my entire site into growing posts, all visible in their work-in-progress glory. It would take some ontology reshuffling, but it could remove the biggest friction barrier to my posting. The pursuit of quality, [forever present]({{ "/posts/appropriate-quality/" | url }}) and [long paralyzing]({{ "/posts/paralysis/" | url }})... could it be vanquished by making it a first-class citizen.
+Could the digital garden be the solution to my woes? I could transform my entire site into growing posts, all visible in their work-in-progress glory. It would take some ontology reshuffling, but it could remove the biggest friction barrier to my posting. The pursuit of quality, [forever present]({{ "/posts/appropriate-quality/" | url }}) and [long paralyzing]({{ "/posts/paralysis/" | url }})... could it be vanquished by making it a first-class citizen?
 
 ## The Problem with Digital Gardens
 

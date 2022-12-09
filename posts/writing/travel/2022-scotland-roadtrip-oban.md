@@ -5,7 +5,7 @@ title: "Part IV: Oban, Fingal’s Cave, and Car Troubles"
 date: 2022-12-09
 travel_start: 2022-08-10
 travel_end: 2022-08-13
-image: /assets/posts/2022-scotland/27-hike-pond.moz80.jpg"
+image: /assets/posts/2022-scotland/27-hike-pond.moz80.jpg
 ---
 
 <!-- Image graveyard:
