@@ -26,7 +26,6 @@ customexcerpt: "Hiking here is appropriately called \"hill walking.\""
     - [x] scotland-drive              (oban (why not))
 -->
 
-<!-- TODO: travel map placeholder image -->
 {% set activePlace = "Oban" %}
 {% include "scotland-maps.njk" %}
 
