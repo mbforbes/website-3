@@ -531,6 +531,13 @@ ${third}`;
             }),
             slugify: eleventyConfig.getFilter("slug")
         });
+    markdownLibrary.renderer.rules.footnote_block_open = () => (
+        '<section class="footnotes">\n' +
+        '<p class="footnotes-label">Footnotes</p>\n' +
+        '<hr class="footnotes-sep" />\n' +
+        '<ol class="footnotes-list">\n'
+    );
+
     eleventyConfig.setLibrary("md", markdownLibrary);
 
     // Override Browsersync defaults (used only with --serve)

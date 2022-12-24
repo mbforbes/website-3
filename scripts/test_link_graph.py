@@ -8,7 +8,7 @@ from rich.progress import track
 
 HOST = "http://localhost:8080"
 HOME_TITLE = "<title>Home - Maxwell Forbes</title>"
-LINK_GRAPH_PATH = "assets/garage/link_graph.json"
+LINK_GRAPH_PATH = "_data/link_graph.json"
 
 C = Console()
 link_graph = json.loads(read(LINK_GRAPH_PATH))

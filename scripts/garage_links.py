@@ -10,7 +10,7 @@ To run before each commit, make a file at .git/hooks/pre-commit with the content
 
     # Update links
     python scripts/garage_links.py
-    git add assets/garage/link_graph.json
+    git add _data/link_graph.json
 """
 
 import argparse
@@ -47,7 +47,7 @@ def main() -> None:
     # NOTE: Still accidentally had assets with map data. Removing below. Now maybe can
     # change back and allow section links. Do this at some point maybe.
     link_finder = re.compile(r"{{\s*\"(\S+/)\"\s*\|\s*url\s*}}")
-    out_path = "assets/garage/link_graph.json"
+    out_path = "_data/link_graph.json"
 
     res: Dict[str, Entry] = defaultdict(
         lambda: {"title": "", "url": "", "incoming": set(), "outgoing": set()}

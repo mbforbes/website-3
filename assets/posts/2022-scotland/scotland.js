@@ -183,6 +183,7 @@ async function renderOverlay(map, country, className, color, fillOpacity = null)
 async function main() {
     // manual centroid because nobody thinks scotland is a country
     let centroid = [57.056274, -4.272138];
+    // TODO: query the actual map element. (Ideally we'd also adjust zoom on the fly for resizes...)
     const closeMapZoom = window.innerWidth < 600 ? 5.5 : 6.5;
     await loadBoundaries(['Scotland']);
     const photos = await loadLocations("2022-scotland-photo-locations-shuffled.json");
@@ -244,7 +245,7 @@ async function main() {
 
     // mapContext: zoomed out
     const startZoom = closeMapZoom - 3;
-    const finalZoom = closeMapZoom - 2;
+    // const finalZoom = closeMapZoom - 2;
     let mapContext = await renderMap("mapContext", centroid, startZoom);
     await renderOverlay(mapContext, 'Scotland', "mapOutlineContext", "#357EDD", 0.6);
 
@@ -262,28 +263,35 @@ async function main() {
             endDelay: 250,
             opacity: 1.0,
         });
-        setInterval(() => {
-            let nextZoom = mapContext.getZoom() == finalZoom ? startZoom : finalZoom;
-            // setZoom apparently has animation duration hardcoded,
-            // see https://gis.stackexchange.com/a/228391
-            // Changing the hardcoded time as suggested doesn't do anything.
-            // mapContext.setZoom(nextZoom, {
-            //     animate: true,
-            //     duration: 2,
-            // });
-            // console.log("Zooming to ", nextZoom);
-            // NOTE: I had to monkeypatch a piece of the flyTo method because it
-            // totally ignores the `easeLinearity` parameter that it says it takes,
-            // so all easing was (ugly) linear. See the author's comment in this
-            // SO answer: https://stackoverflow.com/a/54628530
-            // This is still bad, as it's horribly shaky.
-            mapContext.flyTo(centroid, nextZoom, {
-                animate: true,
-                duration: 1,
-            });
-            // mapContext.invalidateSize();
-            // mapCtrl.prevZoom = nextZoom;
-        }, 5000);
+        // NOTE: Leaflet has no caching, so this results in endless image
+        // downloads! I checked out homebrew caching solutions but the few I
+        // found had demos that were broken and/or seemed like a pain to setup
+        // (packing + GitHub issues about setup errors). Plus, it still looks
+        // terrible because of the jitteriness, tiles loading, and lack of
+        // smooth transitions between tiles and outline resolutions. So, just
+        // disabling this whole thing for now. Sad.
+        // setInterval(() => {
+        //     let nextZoom = mapContext.getZoom() == finalZoom ? startZoom : finalZoom;
+        //     // setZoom apparently has animation duration hardcoded,
+        //     // see https://gis.stackexchange.com/a/228391
+        //     // Changing the hardcoded time as suggested doesn't do anything.
+        //     // mapContext.setZoom(nextZoom, {
+        //     //     animate: true,
+        //     //     duration: 2,
+        //     // });
+        //     // console.log("Zooming to ", nextZoom);
+        //     // NOTE: I had to monkeypatch a piece of the flyTo method because it
+        //     // totally ignores the `easeLinearity` parameter that it says it takes,
+        //     // so all easing was (ugly) linear. See the author's comment in this
+        //     // SO answer: https://stackoverflow.com/a/54628530
+        //     // This is still bad, as it's horribly shaky.
+        //     mapContext.flyTo(centroid, nextZoom, {
+        //         animate: true,
+        //         duration: 1,
+        //     });
+        //     // mapContext.invalidateSize();
+        //     // mapCtrl.prevZoom = nextZoom;
+        // }, 5000);
     }
 }
 

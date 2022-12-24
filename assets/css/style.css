@@ -2,8 +2,11 @@
     /* tachyons: near-black (txt), blue (link) dark-blue (visited) */
     --bg-color: #fff;
     --off-bg-color: #f4f4f4;
+    --alt-bg-color: #e2e5e9;
+    /* --alt-bg-color: #fff; */
     --bg-image: none;
     --text-color: #111;
+    --alt-text-color: #1e2b3a;
     --link-color: #357edd;
     --link-text-decoration: none;
     --button-color: #357edd;
@@ -21,6 +24,7 @@
             rgba(255, 255, 255, 0) 80%,
             rgba(5, 5, 38, 0.02) 100%);
     --hover-img-url: url(/assets/img/line3-blue-for-light.png);
+    --alt-border: none;
 }
 
 [data-theme="dark"] {
@@ -28,8 +32,10 @@
     /* --bg-color: #161625; */
     --bg-color: #1e1e1e;
     --off-bg-color: #282828;
+    --alt-bg-color: #141414;
     --bg-image: none;
     --text-color: #fff;
+    --alt-text-color: #fff;
     --link-color: #4f8af8;
     --link-text-decoration: none;
     --button-color: #4f8af8;
@@ -52,6 +58,7 @@
 [data-theme="vaporwave"] {
     --bg-color: transparent;
     --off-bg-color: rgba(255, 255, 255, 0.1);
+    --alt-bg-color: transparent;
     --bg-image: linear-gradient(45deg,
             hsl(240deg 100% 20%) 0%,
             hsl(289deg 100% 21%) 23%,
@@ -64,6 +71,7 @@
             hsl(45deg 100% 50%) 91%,
             hsl(55deg 100% 50%) 100%);
     --text-color: #fff;
+    --alt-text-color: #fff;
     --link-color: #fff;
     --link-text-decoration: underline;
     --button-color: rgba(1, 1, 1, 0);
@@ -81,6 +89,7 @@
             rgba(255, 255, 255, 0) 80%,
             rgba(5, 5, 38, 0.12) 100%);
     --hover-img-url: url(/assets/img/line3-light.png);
+    --alt-border: 1px solid white;
 }
 
 body {
@@ -109,6 +118,12 @@ body {
 .emailButton:hover {
     border: 1px solid var(--button-hover-color);
     background-color: var(--button-hover-color);
+}
+
+.alt-bg {
+    background-color: var(--alt-bg-color);
+    color: var(--alt-text-color);
+    border: var(--alt-border);
 }
 
 .off-bg-color {
@@ -265,14 +280,6 @@ Previously was
     border-color: var(--border-color);
 }
 
-.markdown-body hr.footnotes-sep {
-    margin-top: 2em;
-    margin-bottom: 2em;
-    /* margin             : 2em -5rem; */
-    border: 0;
-    border-bottom: 1px dotted var(--border-color);
-}
-
 
 .markdown-body blockquote blockquote {
     border-left: none;
@@ -326,24 +333,14 @@ p.subtitle {
 }
 
 .markdown-body a:hover,
-.series-top a:hover,
-.series-bottom a:hover,
-.hover-link-color:hover {
+.hover-link-color:hover,
+.normal-links a:hover {
     color: var(--hover-link-color);
 }
 
 .markdown-body a:hover:not(.link),
-.series-top a:hover:not(.link),
-.series-bottom a:hover:not(.link) {
+.normal-links a:hover {
     text-decoration: underline;
-}
-
-/* With a wide window, make text more centered. */
-@media (min-width: 766px) {
-    main.paddingOverride {
-        /* padding-left : 5rem; */
-        /* padding-right: 5rem; */
-    }
 }
 
 .markdown-body>audio {
@@ -475,16 +472,17 @@ f7: font-size: 0.75rem;
 
 /* Footnotes (in posts) */
 .footnotes {
-    /* f6 (for not-small (-ns) this gets f5) */
+    margin-top: 16rem;
+    /* f6 (f5-ns) */
     font-size: 0.875rem;
+    margin-bottom: -12rem;
 }
 
-/* Elements within the .footnotes div will have this limited width. This is done so the
-.footnotes still stretches to the full width, so its border stretches the full width of
-the body, but the actual footnote text can be narrower (to wrap sooner, because it's a
-smaller font). */
-.footnotes>* {
-    /* max-width: 34em; */
+.footnotes-label {
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
 }
 
 .full-width {
@@ -588,12 +586,12 @@ ol ol ol {
     list-style-type: lower-roman;
 }
 
-/* In garage links */
-#garage-metadata .inbound ul {
+/* Within site links */
+.inbound ul {
     list-style-type: "⇠ ";
 }
 
-#garage-metadata .outbound ul {
+.outbound ul {
     list-style-type: "⇢ ";
 }
 
@@ -606,23 +604,23 @@ ol ol ol {
 @media screen and (min-width: 30em) {
 
     .markdown-body .figcaption {
-        /* f5 */
+        /* f5-ns */
         font-size: 1rem;
     }
 
     .markdown-body .figcaption.attribution {
-        /* f6 */
+        /* f6-ns */
         font-size: 0.875rem;
     }
 
 
     .footnotes {
-        /* f5 */
+        /* f5-ns */
         font-size: 1rem;
     }
 
     .markdown-body table:not(.tablecustomfont) {
-        /* f4 */
+        /* f4-ns */
         font-size: 1.25rem;
     }
 
@@ -638,7 +636,7 @@ ol ol ol {
     }
 
     .markdown-body pre code {
-        /* f5 */
+        /* f5-ns */
         font-size: 1rem;
     }
 }

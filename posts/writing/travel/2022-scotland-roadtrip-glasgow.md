@@ -108,7 +108,7 @@ It's stupid, but I have always gotten irrationally annoyed at those speed monito
 
 ## Epilogue: Beware Scottish Currency
 
-I am still in denial of this, but I think I need to accept it. I am out 65￡ (~$80) because the bills they give you in Scotland aren't legal tender, not even in Scotland.
+I am still in denial of this, but I think I need to accept it. I am out £65 (~$80) because the bills they give you in Scotland aren't legal tender, not even in Scotland.
 
 This sounds impossible, right? The UK is one of the most developed countries, with one of the strongest currencies, on the planet. There is no way that the Pound sterling, AKA British pound, is totally bogus when you happen to get them from an ATM in Scotland, right? Scotland, a place that is so hardcore part of the UK that no lists of countries I come across even count Scotland as its own country? Right?!
 

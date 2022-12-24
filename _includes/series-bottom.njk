@@ -3,28 +3,32 @@
 {# Only show this navigator if > 1 post in the series #}
 {% if nSeries > 1 %}
 
-<div class="ba border-color mv5 series-bottom">
-    <p class="off-bg-color lighter-text-color mv0 pv2 ph3 b">
-        <span class="fr ttu tracked dib lightest-text-color f7 f6-ns">series</span>
-        {{ series }}
-    </p>
 
-    <div class="pa3 flex">
-        <div class="w-50 ma0">
+<div class="mw7 center ph3 ph4-ns mv5 f6 f5-ns normal-links">
+
+    <p class="b ttu tracked mb1 mt5">
+        {{ series }} series
+    </p>
+    <hr>
+
+    <div class="flex mt3">
+        <div class="w-40 ma0">
             {% set prevPost = collections.all | attr("data") | selectAttrEquals("series", series) | selectAttrEquals("seriesOrder", seriesOrder - 1) | first %}
             {% if prevPost %}
-                <p class="b ttu tracked ma0 lightest-text-color f7 f6-ns">&larr; previous</p>
-                <a href="{{ prevPost.page.url | url }}" class=" ma0 link">{{ prevPost.seriesOrder }}. {{prevPost.title }}</a>
+                <p class="b ttu ma0 lightest-text-color f7 f6-ns">&larr; previous</p>
+                <a href="{{ prevPost.page.url | url }}" class=" ma0">{{ prevPost.seriesOrder }}. {{prevPost.title }}</a>
             {% endif %}
         </div>
-        <div class="w-50 ma0 tr">
+        <div class="w-20"></div>
+        <div class="w-40 ma0 tr">
             {% set nextPost = collections.all | attr("data") | selectAttrEquals("series", series) | selectAttrEquals("seriesOrder", seriesOrder + 1) | first %}
             {% if nextPost %}
-                <p class="b ttu tracked ma0 lightest-text-color f7 f6-ns">next &rarr;</p>
-                <a href="{{ nextPost.page.url | url }}" class=" ma0 link">{{ nextPost.seriesOrder }}. {{nextPost.title }}</a>
+                <p class="b ttu ma0 lightest-text-color f7 f6-ns">next &rarr;</p>
+                <a href="{{ nextPost.page.url | url }}" class=" ma0">{{ nextPost.seriesOrder }}. {{nextPost.title }}</a>
             {% endif %}
         </div>
     </div>
 </div>
+
 
 {% endif %}

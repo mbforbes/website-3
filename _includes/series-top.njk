@@ -3,14 +3,13 @@
 {# Only show this navigator if > 1 post in the series #}
 {% if seriesPostDatas | length > 1 %}
 
-<div class="ba border-color mv5 series-top">
-    <p class="off-bg-color mv0 pv2 ph3 b">
-        <span class="fr ttu lightest-text-color tracked dib f7 f6-ns">series</span>
-        {{ series }}
-    </p>
+<div class="mb3 alt-bg">
+    <div class="mw7 center tl ph3 ph4-ns pv4 pv5-l normal-links">
+        <p class="b ttu tracked lh-solid mt1 f4">
+            {{ series }} series
+        </p>
 
-    <div class="pa3">
-        <ol class="ma0">
+        <ol class="ma0 f5">
             {% for seriesPostData in seriesPostDatas %}
                 <li class="">
                     {% if seriesPostData.title == title %}
@@ -25,7 +24,6 @@
                 </li>
             {% endfor %}
         </ol>
-
     </div>
 </div>
 

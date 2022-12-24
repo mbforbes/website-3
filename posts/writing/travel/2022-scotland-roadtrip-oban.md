@@ -159,7 +159,7 @@ But as it was, up in the park and on a Sunday, we quickly discovered that cars h
 
 [^aaa]: Apparently, because we were in a rental car, none of the major roadside companies were allowed to do anything to it, even fix a flat tire. This produced a funny dependency loop because Hertz was utterly MIA (see footnote 1).
 
-Finally, after a dozen calls and transfers and messages and failed online systems, we reached a small dispatcher in England, who found a local repair shop in Glasgow, who agreed to send a guy out for 300£ (≈$365) to drive a couple hours to us in what was now horrendous traffic and replace the tire.
+Finally, after a dozen calls and transfers and messages and failed online systems, we reached a small dispatcher in England, who found a local repair shop in Glasgow, who agreed to send a guy out for £300 (≈$365) to drive a couple hours to us in what was now horrendous traffic and replace the tire.
 
 {% img "/assets/posts/2022-scotland/26-flat-tire.moz80.jpg", true %}
 

@@ -1,0 +1,57 @@
+<script>
+// settings
+let periods = 0.5;
+let baseDelay = 1; // s
+let charDelay = 0.1; // s
+let duration = 0.70; // s
+let startW = 400; // w
+let mag = 400; // +/- w
+let refresh = 0.016667; // s
+
+// computed vals
+let frames = duration / refresh;
+
+// state
+let updaters = [];
+let frameNs = [];
+
+function fontWeighter(idx) {
+    frameNs[idx] += 1;
+    let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
+    let w = Math.round(startW + mag * Math.sin(x));
+    document
+    .getElementById("header")
+    .children[idx]
+    .style
+    .fontWeight = w;
+    if (frameNs[idx] >= frames) {
+    clearInterval(updaters[idx]);
+    }
+}
+
+function wave() {
+    // replace the string w/ elements. i write it as a string to start because i
+    // couldn't get vscode's html formatter (using one for nunjucks) to not split
+    // span elements each onto their own lines, which caused spaces between each
+    // letter.
+    let header = document.getElementById("header");
+    let name = header.innerText;
+    let els = [];
+    for (let i = 0; i < name.length; i++) {
+    let el = document.createElement("span");
+    el.innerText = name[i];
+    els.push(el);
+    }
+    header.innerText = '';
+    header.append(...els);
+
+    for (let i = 0; i < els.length; i++) {
+    frameNs.push(0);
+    setTimeout(() => {
+        updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+    }, (baseDelay + charDelay * i) * 1000);
+    }
+}
+
+wave();
+</script>

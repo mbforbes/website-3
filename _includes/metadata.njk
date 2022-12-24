@@ -1,0 +1,48 @@
+<div class="mw7 center ph3 ph4-ns mv5 f6 f5-ns normal-links">
+
+    <p class="b ttu tracked mb1">
+        post info
+    </p>
+    <hr class="">
+
+    {% macro row(key, value, valueCellClass="") %}
+        <tr>
+            <td class="pb1 b ttu lightest-text-color pl0 pr3 v-base f7 f6-ns">
+                {{ key }}
+            </td>
+            <td class="pb1 v-base {{ valueCellClass | default("")  }}">
+                {{ value | safe }}
+            </td>
+        </tr>
+    {% endmacro %}
+
+    {% macro linkRow(kind, links) %}
+        {% set value = "" %}
+        {% for link in links %}
+            {% set value = value + "<li><a href='" + link_graph[link].url | url + "'>" + link_graph[link].title + "</a></li>" %}
+        {% endfor %}
+        {% set value = "<ul class='pl3 mv0'>" + value + "</ul>" %}
+        {{ row(kind, value, kind | lower) }}
+    {% endmacro %}
+
+    <table id="metadata-table">
+        <tbody>
+            {% if travel_start and travel_end %}
+            {{ row("Traveled", (travel_start | readableDate) + " &mdash; " + (travel_end | readableDate))}}
+            {% endif %}
+            {{ row("Published", page.date | readableDate) }}
+            {% if updated %}
+                {{ row("Updated", updated | readableDate) }}
+            {% endif %}
+            {% if tags and "garage" in tags %}
+                {{ row("Disclaimer", "This is an entry in the <a href='" + ("/garage/what-is-the-garage/" | url) + "'>garage</a>. It may change or disappear at any point.") }}
+            {% endif %}
+            {% if link_graph[page.url].incoming | length > 0 %}
+                {{ linkRow("Inbound", link_graph[page.url].incoming) }}
+            {% endif %}
+            {% if link_graph[page.url].outgoing | length > 0 %}
+                {{ linkRow("Outbound", link_graph[page.url].outgoing) }}
+            {% endif %}
+        </tbody>
+    </table>
+</div>
