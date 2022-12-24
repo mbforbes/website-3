@@ -44,12 +44,6 @@
     opacity: 0.0;
 }
 
-/* This may be post-specific, so could pull into them. */
-.mapPlaceActive {
-    background-color: #FF6300;
-    color: white;
-}
-
 #mapLabelOverlay {
     bottom: -20px;
     left: 50%;
