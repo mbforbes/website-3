@@ -403,13 +403,20 @@ module.exports = function (eleventyConfig) {
         return buf;
     });
 
-    eleventyConfig.addNunjucksShortcode("cityMap", (path) => {
-        return `<div style="background-color: #FCEEE1" class="full-width">
-<img class="content-width" src="${eleventyConfig.getFilter("url")(path)}">
-</div>
-<p class="full-width pr2 pr3-ns figcaption attribution">
+    /**
+     * attribution (bool, default: true) --- whether to add attribution <p> below
+     * mt = margin-top (bool, default: true) --- whether to add figtop (mt5)
+     * mb = margin-bottom (bool, default: true) --- whether to add figbot (mb5)
+     */
+    eleventyConfig.addNunjucksShortcode("cityMap", (path, attribution = true, mt = true, mb = true) => {
+        let figClasses = mt && mb ? "fig" : (mt && !mb ? "figtop" : (mb && !mt ? "figbot" : ""));
+        let base = `<div style="background-color: #FCEEE1" class="full-width ${figClasses}">
+<img class="content-width novmargin" src="${eleventyConfig.getFilter("url")(path)}">
+</div>`
+        let attr = `<p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 </p>`;
+        return attribution ? base + attr : base;
     });
 
     /**
@@ -539,6 +546,24 @@ ${third}`;
     );
 
     eleventyConfig.setLibrary("md", markdownLibrary);
+
+    /**
+     * Markdown renderer as nunjucks filter.
+     * Thanks to https://www.npmjs.com/package/nunjucks-markdown-filter (MIT license) for inspiration.
+     */
+    eleventyConfig.addFilter("md", (value, stripPara) => {
+        stripPara = stripPara !== false;
+        try {
+            let result = markdownLibrary.render(value).trim();
+            if (stripPara) {
+                result = result.replace(/^<p>|<\/p>$/g, '');
+            }
+            return result;
+        } catch (e) {
+            console.error('Error processing markdown:', e);
+            return value;
+        }
+    });
 
     // Override Browsersync defaults (used only with --serve)
     eleventyConfig.setBrowserSyncConfig({

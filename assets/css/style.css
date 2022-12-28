@@ -510,11 +510,14 @@ text-width image*/
     font-size: 0.75rem;
 }
 
-.markdown-body .attribution a {
+/* The next two are also used in metadata (post info). */
+
+.attribution a {
     color: var(--lightest-text-color);
+    /* color: inherit; */
 }
 
-.markdown-body .attribution a:hover {
+.attribution a:hover {
     color: var(--link-color);
 }
 
@@ -603,6 +606,11 @@ ol ol ol {
 /* This is the -ns (not small) media query (at least currently) */
 @media screen and (min-width: 30em) {
 
+    /*  max-width 50% not-small */
+    .mw-50-ns {
+        max-width: 50%;
+    }
+
     .markdown-body .figcaption {
         /* f5-ns */
         font-size: 1rem;
@@ -612,7 +620,6 @@ ol ol ol {
         /* f6-ns */
         font-size: 0.875rem;
     }
-
 
     .footnotes {
         /* f5-ns */

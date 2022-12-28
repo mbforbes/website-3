@@ -4,7 +4,7 @@
 <style>
 /* Post-specific. */
 .mapPlaceActive {
-    background-color: #FF6300;
+    background-color: #FF4136;
     color: white;
 }
 </style>
@@ -16,30 +16,31 @@
 <script>
     // Vars here change during deploy env (personal website).
     let libDir = "{{ "/assets/mapData/" | url }}";
-    let postDir = "{{ "/assets/posts/2022-scotland/" | url }}";
-    let activeList = ["{{ activePlace }}"];
+    let postDir = "{{ "/assets/posts/2022-london/" | url }}";
+    let activeList = ["London"];
 </script>
-<script src="/assets/posts/2022-scotland/scotland.js"></script>
+<script src="/assets/posts/2022-london/london.js"></script>
 
-<div class="full-width flex flex-wrap flex-nowrap-l justify-center fig pv5 fade-bg">
+<!-- Need relative positioning for overlay positioning -->
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center figtop mb0 pt5 pb2"
+    style="background-color: #FCEEE1;">
     <!-- Left -->
-    <div class="ph3 pb5 pb3-l w-100 w-50-l">
-        <!-- Need relative positioning for overlay positioning -->
+    <div class="ph3 pb4 pb3-l w-100 w-auto-ns mw-50-ns">
         <div class="relative">
             <div id="mapContext" class="map center">
-                <img src="/assets/posts/2022-scotland/scotland-map-context-screenshot.png">
+                <img src="/assets/posts/2022-london/england-map-context-screenshot.png">
             </div>
             <div id="mapLabelOverlay"
-                class="ph3 pv2 bg-white o-90 sans-serif mid-gray shadow-4 br2 dib absolute flex items-center">
-                <span class="f2 mr2">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
-                <span class="f3 b dib">Scotland</span>
+                class="ph2 ph3-l pv1 pv2-l bg-white o-90 sans-serif mid-gray shadow-4 br2 dib absolute flex items-center">
+                <span class="f3 f2-l mr2">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+                <span class="f4 f3-l b dib">England</span>
             </div>
         </div>
     </div>
     <!-- Right -->
-    <div class="ph3 w-100 w-50-l">
+    <div class="ph3 w-100 w-auto-ns mw-50-ns">
         <div id="mapTravel" class="map center">
-            <img src="/assets/posts/2022-scotland/scotland-map-travel-{{ activePlace | lower | replace(' ', '-') }}-screenshot.png">
+            <img src="/assets/posts/2022-london/england-map-travel-london-screenshot.png">
         </div>
     </div>
 </div>

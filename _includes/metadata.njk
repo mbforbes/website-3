@@ -43,6 +43,9 @@
             {% if link_graph[page.url].outgoing | length > 0 %}
                 {{ linkRow("Outbound", link_graph[page.url].outgoing) }}
             {% endif %}
+            {% if attributions %}
+                {{ row("Attributions", attributions | md, "attribution") }}
+            {% endif %}
         </tbody>
     </table>
 </div>
