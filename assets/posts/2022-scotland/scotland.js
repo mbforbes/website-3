@@ -19,7 +19,7 @@ async function renderMap(elId, centroid, startZoom) {
     // toner
     // toner-lite
     // toner-background
-    let layer = new L.StamenTileLayer("toner-background");
+    let layer = new L.StamenTileLayer("toner-background", { detectRetina: true });
     let map = new L.Map(elId, {
         // center: new L.LatLng(46.786845, 2.715824),
         center: new L.LatLng(centroid[0], centroid[1]),
