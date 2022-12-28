@@ -75,8 +75,13 @@ We headed to the clothing store, someplace called Browns. We get in and a team o
 
 We head up to the second floor, which is where it starts to get truly weird.
 A sixty-something man stands at the top of the stairway, wearing a suit with that unique combination of expensive material but bizarre style that signals designer fashion.
-He is blocking us from entering any of the rooms with clothes in them. He asks us what we want.
-We explain the piece Julie would like to try on, and he informs us they don't carry it in the store, and stairs at us. It is extremely clear we are expected to get out. I am offended in a way I don't think I've ever felt before and don't understand,[^belong] so out of some weird desire for defiance I ask, "well, can we have a look around then?" He says, "of course," and gestures in dismissively. I try to enjoy myself flicking through a rack of strange colors and fabrics without price tags that are apparently dresses, but Julie soon smartly tells me there's no point really and we exit.
+He is blocking us from entering any of the rooms with clothes in them.
+He asks us what we want.
+We explain the piece Julie would like to try on, and he informs us they don't carry it in the store, and stares at us.
+
+It is extremely clear we are expected to get out. I am offended in a way I don't think I've ever felt before and don't understand,[^belong] so out of some weird desire for defiance I ask, "well, can we have a look around then?"
+He says, "of course," and gestures in dismissively.
+I try to enjoy myself flicking through a rack of strange colors and fabrics without price tags that are apparently dresses, but Julie soon smartly tells me there's no point really and we exit.
 
 [^belong]: Two similar experiences have boosted my empathy for marginalized people. The first was this, being told without words that I wasn't of the right social class to be a in a store and everyone would prefer it if I leave. The second---which happened in other countries---was being followed around in stores or art museums, staff making sure they always had an eye on me. I have to admit, on paper this stuff seems just annoying, but onces it happens to you, you realize it feels truly gross. Imagine it happening all the time where you live.
 
@@ -86,7 +91,9 @@ This whole experience left me feeling bleak. The wealth we'd spent half a day wa
 
 {% img "/assets/posts/2022-london/fancy-brick-row-homes.moz80.jpg", true %}
 
-The rest of our explorations in London would be much more welcoming and pleasant. One of the friends we went up laughed when we told her where we went that day. We really had somehow chosen exactly the poshest places to wander through.
+The rest of our explorations in London would be much more welcoming and pleasant.
+One of the friends we met laughed when we told her where we went that day.
+We really had somehow chosen exactly the poshest places to wander through.
 
 But even though we didn't encounter such obvious class boundaries again,[^gates] I couldn't shake the uncomfortable feeling the entire rest of our time there that everyone was sizing me up and putting me into a box. (And that my box was lousy.)
 
