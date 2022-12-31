@@ -83,7 +83,7 @@ It is extremely clear we are expected to get out. I am offended in a way I don't
 He says, "of course," and gestures in dismissively.
 I try to enjoy myself flicking through a rack of strange colors and fabrics without price tags that are apparently dresses, but Julie soon smartly tells me there's no point really and we exit.
 
-[^belong]: Two similar experiences have boosted my empathy for marginalized people. The first was this, being told without words that I wasn't of the right social class to be a in a store and everyone would prefer it if I leave. The second---which happened in other countries---was being followed around in stores or art museums, staff making sure they always had an eye on me. I have to admit, on paper this stuff seems just annoying, but onces it happens to you, you realize it feels truly gross. Imagine it happening all the time where you live.
+[^belong]: It was empathy-boosting to have two such "not belonging" experiences. The first was this, being told without words that I wasn't of the right social class to be a in a store and everyone would prefer it if I leave. The second---which happened in other countries---was being followed around in stores or art museums, staff making sure they always had an eye on me. I have to admit, on paper this stuff seems just annoying, but onces it happens to you, you realize it feels truly gross. Imagine it happening all the time where you live.
 
 I had recently read that there's a clear and ancient class stratification of British society, though I didn't dig into any details.
 
