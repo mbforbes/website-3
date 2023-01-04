@@ -16,7 +16,7 @@ async function renderMap(elId, countryForCentroid) {
     // toner
     // toner-lite
     // toner-background
-    var layer = new L.StamenTileLayer("toner-background");
+    var layer = new L.StamenTileLayer("toner-background", { detectRetina: true });
     let map = new L.Map(elId, {
         // center: new L.LatLng(46.786845, 2.715824),
         center: new L.LatLng(parseFloat(centroidItem.center_lat), parseFloat(centroidItem.center_lng)),
@@ -37,7 +37,6 @@ async function loadCentroids() {
     // centroid attribution: https://github.com/mihai-craita/countries_center_box
     let response = await fetch(libDir + "country-centroids.json")
     centroidData = await response.json();
-
 }
 
 async function loadBoundaries(countries) {
