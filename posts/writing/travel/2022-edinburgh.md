@@ -115,7 +115,7 @@ To start, let's look at geography without political boundaries. The complete set
 
 > Note: If you're a regular visitor and don't see any maps below, please hard-refresh the page (`⌘`+`Shift`+`R` on Mac, `Ctrl`+`Shift`+`R` Win/Linux).
 
-<div id="mapGeo" class="leafletMap fig center">
+<div id="mapGeo" class="leafletMap mapBig bg-white fig center">
 <img src="{{ "/assets/posts/2022-edinburgh/map-geo-screenshot.png" | url }}" />
 </div>
 <div class="figcaption">
@@ -130,7 +130,7 @@ I'm already cheating a bit; sometimes (Great) Britain is just the one big island
 
 Now it gets messy. Ireland is broken up into two countries: _Republic of Ireland_ and _Northern Ireland_. And Great Britain is broken up into three countries: England, Wales, and Scotland.
 
-<div id="mapCountry" class="leafletMap fig center">
+<div id="mapCountry" class="leafletMap mapBig bg-white fig center">
 <img src="{{ "/assets/posts/2022-edinburgh/map-countries-screenshot.png" | url }}" />
 </div>
 <div class="figcaption">
@@ -151,7 +151,7 @@ Already, there's something I didn't realize: that England, Scotland, and Wales a
 
 Anyway, yes, it turns out you can have countries within countries. The way that Wikipedia at least handles this is calling the UK, fully known as _The United Kingdom of Great Britain and Northern Ireland,_ a "sovereign country."
 
-<div id="mapPolitical" class="leafletMap fig center">
+<div id="mapPolitical" class="leafletMap mapBig bg-white fig center">
 <img src="{{ "/assets/posts/2022-edinburgh/map-sovereign-screenshot.png" | url }}" />
 </div>
 <div class="figcaption">
