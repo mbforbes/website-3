@@ -70,7 +70,7 @@ We stayed in a caravan.[^fc] Honestly, it was bigger and nicer than several plac
 ], true %}
 
 <p class="figcaption">
-You really realize how much you're city kids when you can't feed the goats and don't know whether you can pet the pony.
+You really realize how much you're city kids when you can't feed the sheep and don't know whether you can pet the pony.
 </p>
 
 While we were out in the boonies, creature comforts like 20 Imperial fl oz craft IPAs were only a ~10m drive down the highway.
