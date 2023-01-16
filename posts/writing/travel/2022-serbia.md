@@ -52,11 +52,16 @@ No line was safe.
 - People cut in the boarding line
 - People cut in the passport control line
 
-Most of this is harmless. But there's something about traveling amid flight cancellations where your temperature starts to raise. Kind of like road rage. Maybe it's because you spend a lot of your time waiting in lines.[^traffic]
+Most of this is harmless. But there's something about traveling amid flight cancellations where your temperature starts to rise. Kind of like road rage. Maybe it's because you spend a lot of your time waiting in lines.[^traffic]
 
 [^traffic]: Actually, that's one thing traffic has in common with travel: waiting in lines when you don't want to. The situations where you have to wait in a line are relatively rare in modern day. It seems like we get more easily upset in them.
 
-I started to get a sixth sense of when someone was not going to wait in the line. They would show up, do a long horrified look at the line, and then look at where they wanted to go (the front). Pause for a brief internal dilemma. Then, walk right up to the front. There, they'd look for someone in an official capacity but who wasn't actively processing the line (this is key) and start talking. Sometimes this worked, but other times they'd use the transition to kind of wedge themselves into the front.
+I started to get a sixth sense of when someone was not going to wait in the queue.
+They would show up, do a long horrified look at the line, and then look at where they wanted to go (the front).
+Pause for a brief internal dilemma.
+Then, walk right up to the head of it.
+There, they'd look for someone in an official capacity but who wasn't actively processing the line (this is key) and start talking.
+Sometimes this worked, but other times they'd use the transition to kind of wedge themselves into a special talk-to-me-next secondary line they'd invent.
 
 I started rooting for the rare occasions they would get kicked to the back of the line. I would cheer silently, and quickly thereafter question the point of my own existence.
 
@@ -105,7 +110,7 @@ Months after visiting Belgrade, I found its perfect pithy descriptor: **50 shade
 
 It's a city that feels like it's clinging to the faint smell of some kind of glory, but it hasn't quite found the recipe again. Like all big enough places, there are multitudes: chipped tiles and funny colored windows, gambling dens and soccer jerseys, third wave ice cream parlors and countless bakeries slinging cheese pies.
 
-But mostly, yes, they had poured concrete here like there was no tomorrow.
+But mostly, they really had poured concrete here like there was no tomorrow.
 
 Here's a brief vibe reel:
 
@@ -158,20 +163,23 @@ Everywhere, you see both Latin and Cyrillic. Billboards, store names, street sig
     "/assets/posts/2022-serbia/b-church-inside.moz80.jpg"
 ], true %}
 
-Towering outside, and inside a ceiling bursting with drawings and gold. But then... there’s all this empty space. Nobody’s using it for anything. And there’s this wall of construction, a big cord going across, random objects. And in the back, piles of material, scaffolding.
+Towering on the outside. Inside, a ceiling bursting with drawings and gold plating. But then... there’s all this empty space. Nobody’s using it for anything. And there’s this wall of construction, a big cord going across, random objects. And on the outside, scaffolding and piles of material.
 
 {% img [[
     "/assets/posts/2022-serbia/b-chruch-inside-construction-tall.moz80.jpg",
     "/assets/posts/2022-serbia/b-church-outside-construction-tall.moz80.jpg"
 ]], true %}
 
-It’s this half-orderly stuff: fences that don’t quite reach anywhere, and people don’t really care about them. Rules a bit more like suggestions.
+It’s this half-orderly stuff that caught my eye.
+Fences that don’t quite reach anywhere, and people don’t really care about them.
+Many things functioning but unfinished.
+Rules a bit more like suggestions.
 
 ![]({{ "/assets/posts/2022-serbia/b-church-park.moz80.jpg" | url }})
 
 <p class="figcaption">The park is kind of like, "fuck it, we're tired of building, let's just go."</p>
 
-Outside, signs proudly feature Putin contributing a little piece to the building at an opening ceremony. This is a little indicator of what makes politics in this region so complex. Serbia is nearly alone in Europe in its long and deep allegiance with Russia, complicating relations with its neighbors. Serbia, for example, was the only European country (besides Belarus, of course) that didn't impose sanctions on Russia after they invaded Ukraine. And Russia stonewalled all attempts at coming up with a diplomatic solution to Kosovo in '07. Etc ad nauseam.
+Outside, signs proudly feature Putin contributing a little piece to the building at an opening ceremony. This is a little indicator of what makes politics in this region so complex. Serbia is nearly alone in Europe in its long and deep allegiance with Russia, souring relations with its neighbors. Serbia, for example, was the only European country (besides Belarus, of course) that didn't impose sanctions on Russia after they invaded Ukraine. And back when Serbia was clawing even harder at Kosovo in '07, Russia stonewalled all UN attempts to come up with a diplomatic solution. Etc ad nauseam.
 
 ### Repair and Disrepair
 
@@ -179,16 +187,16 @@ Outside, signs proudly feature Putin contributing a little piece to the building
 
 "There are no puddles in Switzerland."
 
-So said a Swiss friend. I had never thought about puddles before as a failing of infrastructure. But when he was visiting me in Seattle, he noticed them and told me.
+So once proclaimed a Swiss friend. I had never thought about puddles before as a failing of infrastructure. But when he was visiting me in Seattle, he noticed them and told me.
 
-Coming to Belgrade form London, I naturally noticed
+Coming to Belgrade form London, I naturally observed:
 
 - puddles
 - people selling wares on top of their car hoods
 - trash littered about
 - concrete chunks strewn around
 - abandoned buildings, smashed windows, graffiti
-- abandoned construction, rebar sticking out of the first story of poured concrete
+- abandoned construction, rebar sticking out of the first story of poured cement
 - poles open with their wires visible
 - buildings that have become rubble
 - the rustiest street trams I had ever seen[^prize]
@@ -224,7 +232,7 @@ But the story of ruins and rubble isn't true, of course. The truth is somewhere 
     "/assets/posts/2022-serbia/b-dot-building.moz80.jpg"
 ], true %}
 
-Sometimes you would see both failed construction and newness in the same place. Belgrade's train station is perpetually half-built, years overdue. Tracks shoot into a great concrete ceiling that has the vague hopes of a second story sticking out of it.
+Sometimes you would see both failed construction and newness in the same place. Belgrade's train station is perpetually half-built, years overdue. Tracks plunge into a great concrete ceiling that has the vague hopes of a second story sticking out of it.
 
 ![]({{ "/assets/posts/2022-serbia/b-train-station.moz80.jpg" | url }})
 
@@ -261,7 +269,9 @@ Serendipitously, what appears to be a gigantic military poster hangs on a wall a
 It's good to do _something_ that locals do. Lets you peek into a slice of life, even just a little. For us, this is rock climbing. We seek out a local indoor bouldering gym wherever we can.
 
 There was a little girl in the gym, running around while her Serbian dad trained. Eventually, she got bored and went to watch a movie in the locker room. The movie was in English.
-Reminded me of the media language effect: places with better education systems don't correlate with better English. Because in places that produce lots of media in their own tongue (e.g., France, Japan), kids don't have to grow up on foreign films and TV.[^claim]
+Reminded me of the media language effect:[^mle] simply having a better education system doesn't automatically correlate with better English skills. Because in places that produce lots of media in their own tongue (e.g., France, Japan), kids don't have to grow up on foreign films and TV.[^claim]
+
+[^mle]: This thing I'm calling "the media language effect" may be a well-known thing in whatever field studies this (anthropology? linguistics?), or it may be I invented the idea and it's actually totally false if you look at the data. Can't remember, haven't got the time to Google right now.
 
 [^claim]: Not claiming anything here about "everyone _should_ learn English" or anything like that. Just an observation as a wandering monolingual idiot seeing who I can talk to.
 
@@ -304,7 +314,7 @@ There were three ingredients that made it extra special. First, despite it being
 
 [^yugobrut]: [The Avala Tower](https://en.wikipedia.org/wiki/Avala_Tower) could potentially take the cake for Belgrade's coolest building, but it's a 30-minute drive out of the city so I'm not counting it. That tower was featured in MoMA's awesome exhibition, _[Toward a Concrete Utopia: Architecture in Yugoslavia, 1948–1980](https://www.moma.org/calendar/exhibitions/3931)._
 
-Second, even though it's still a functional apartment building, the area around it is destroyed.
+Second, even though it's still a functional apartment building, the area around it is all but destroyed.
 
 {% img [
     "/assets/posts/2022-serbia/b-tower-surrounding.moz80.jpg",
@@ -321,7 +331,7 @@ We asked a guy inside whether we could go up to the restaurant at the top. He sa
 
 ### Food and Drink
 
-Not pictured, but we had the best ćevapi (grilled sausages w/ flat bread) to date in Belgrade. And the dinner feast cost under $2.50 each.
+Not pictured, but we had the best ćevapi (grilled sausages w/ flat bread) to date in Belgrade. And that feast of a dinner cost under $2.50 each.
 
 Visiting cocktail bars in new cities is fun. We encountered strong opinions and minimal herby potions in [Ljubljana]({{ "/posts/2022-slovenia/#food-+-drink-interlude" | url }}). The bar we visited in Belgrade was willing to build more elaborate rum-based tropical drinks.[^balance] The best part of the place was the big framed picture of Tito---former beloved head of former beloved Yugoslavia.
 
@@ -337,7 +347,7 @@ Simple foods like börek and coffee were wonderfully cheap and delicious.
 
 ![]({{ "/assets/posts/2022-serbia/n-food.moz80.jpg" | url }})
 
-<p class="figcaption">This is actually from Novi Sad. Cool restaurant called <a href="https://plavafrajla.rs/?lang=en">Plava Frajla</a> proudly features the Vojvodina region, the north part of Serbia. Hearty food that seems to have Germanic influence. Their menu has plentiful asides telling you about the food history and culture.</p>
+<p class="figcaption">This is actually from Novi Sad. A cool restaurant called <a href="https://plavafrajla.rs/?lang=en">Plava Frajla</a> proudly features the Vojvodina region, the north part of Serbia. Hearty food that seems to have Germanic influence. Their menu has plentiful asides telling you about the food history and culture.</p>
 
 ### Little Observations
 
@@ -422,35 +432,35 @@ Setting into town, there were a handful of brightly painted buildings I obedient
     "/assets/posts/2022-serbia/s-church-wide.moz80.jpg"
 ], true %}
 
-But we weren't here for the buildings. We were here for the wine.
+But we weren't here for the buildings. This town's fame is wine. It's like the Napa Valley of Serbia, I guess.
 
-We climbed up into the hills and barren roads of the town. This town's fame is wine. It's like the Napa Valley of Serbia, I guess.
-
-But luck was not on our side.
+We climbed up into the hills and barren roads of the town, seeking a place to pay for some local pours. But luck was not on our side.
 
 {% img "/assets/posts/2022-serbia/s-street.moz80.jpg", true %}
 
-We wandered from winery to winery, and were turned away at each one. We didn't have a reservation. Hoards of senior citizens had mopped up all the slots. We seemed to be the only ones in the town who hadn't arrived on a tour bus with a booking already set. It was hot, and we were running dangerously close to closing hour.
+Wandering from winery to winery, we were turned away at each one. We didn't have a reservation. Hoards of senior citizens had mopped up all the slots. We seemed to be the only ones in the town who hadn't arrived on a tour bus with a booking already set. It was hot, and we were running dangerously close to closing hour.
 
 We finally wandered into Wine Cellar Petrovic (Подрум вина Петровић). Nobody else was there, and the owner---son of the founder---told us that it was because they were under renovation.
 
-But then he said, hey, come check out the place. He showed us where they kept the vats of wine, poured us a few glasses of each. Talked about their processes, his family's history. Gave us a tour of the new tasting rooms they were building. Asked us about where we were from. After spending a good forty minutes with him, I tried to pay him when we said goodbye. He wouldn't take anything.
+But then he said, hey, come check out the place. He showed us where they kept the vats of wine, poured us a few glasses of each. Talked about their processes, his family's history. Gave us a tour of the new tasting rooms they were building. Asked us about where we were from.
+
+After spending a good forty minutes with him, I tried to pay him when we said goodbye. He wouldn't take anything.
 
 {% img "/assets/posts/2022-serbia/s-wine.moz80.jpg", true %}
 
-This was some serious generosity and hospitality to two random foreigners who walk into your place. The least I can do is give them a plug: if you end up in Sremski Karlovci, check out Petrovic. Their remodel should be done by the time you visit. There's no way he would remember us, but tell him thanks from two Americans who he showed warmth when they were far from home.
+This was some serious generosity to two random foreigners who walk into your place. The least I can do is give them a plug: if you end up in Sremski Karlovci, check out Petrovic. Their remodel should be done by the time you visit. There's no way he would remember us, but tell him thanks from two Americans to whom he showed touching hospitality warmth when they were hot and tired and wanted Cab. Sav.
 
 ![]({{ "/assets/posts/2022-serbia/vending.moz80.jpg" | url }})
 
-<p class="figcaption">One last thing. Got scammed by this damned vending machine waiting for the train to Belgrade. Parched, I put in about $10 to get change so I could buy a Pocari Sweat (Japanese Gatorade) from the machine next to it. Turns out the sign on it says it gives maximum $0.75 of change. My only hope is that someone eventually came and drank all the free coffees I'd pumped it with.</p>
+<p class="figcaption">One last thing. Got scammed by this damned vending machine waiting for the train to Belgrade. Parched, I put in about $10 to get change so I could buy a Pocari Sweat (Japanese Gatorade) from the machine next to it. Turns out the sign on it says it gives maximum $0.75 of change. The last thing I wanted while dehydrated at 6pm was twelve hot coffees. My only hope is that someone eventually came and drank all the free beverages I'd pumped it with.</p>
 
 ## To Bosnia
 
 {% img "/assets/posts/2022-serbia/b-fly.moz80.jpg", true %}
 
-We boarded a prop plane for Sarajevo.
+After a week in Serbia, we boarded a prop plane for Sarajevo.
 
-Our final view Belgrade gave a lovely summary of common landscapes of ex-Yugoslavia:
+Our final view of Belgrade summarized common landscapes of ex-Yugoslavia:
 - great sectors of commie blocks
-- ... nestled by old homes with orange roofs
-- ... all nestled by a tree-lined wide river.
+- ... bordered by old homes with clay shingled roofs
+- ... all nestled in the bend of a tree-lined wide river.
