@@ -520,7 +520,7 @@ One of the cooler features of the site was that, at a certain spot, the river ca
 
 ### Bunski Kanal
 
-We continued on to an ares that sounded boring on paper but was actually pretty neat to see. It's a place where two rivers join, with a shrubby marshland connecting the banks where one spills over into the other.
+We continued on to an area that sounded boring on paper but was actually pretty neat to see. It's a place where two rivers join, with a shrubby marshland connecting the banks where one spills over into the other.
 
 {% img [
     "/assets/posts/2022-bosnia/m-04-rivers.moz80.jpg"
