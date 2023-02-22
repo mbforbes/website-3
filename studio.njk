@@ -22,7 +22,7 @@ layout: "layouts/default.njk"
             {% for post in seriesObj.posts %}
                 <li class="mv1">
                     <a href="{{ post.url | url }}" class="db pv1 link">
-                        <time class="fr lightest-text-color ttu ml3">{{ post.data.travel_end | default(post.date) | readableDate }}</time>
+                        <time class="fr lightest-text-color ml3">{{ post.data.travel_end | default(post.date) | readableDate }}</time>
                         {{ post.data.title }}
                     </a>
                 </li>
@@ -39,7 +39,7 @@ layout: "layouts/default.njk"
 <h2>Projects<a name="projects"></a></h2>
 {% for post in collections.project | sort(true, false, "date") %}
 <a href="{{ post.url | url }}" class="db pv1 link">
-    <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }}</time>
+    <time class="fr lightest-text-color ml3">{{ post.date | readableDate }}</time>
     {{ post.data.title }}
 </a>
 {% endfor %}
@@ -70,10 +70,23 @@ You might also be interested in checking out my <a href="{{ "/research/#software
 <h2>Blog<a name="blog"></a></h2>
 {% for post in collections.blog | sort(true, false, "date") %}
 <a href="{{ post.url | url }}" class="db pv1 link">
-    <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }}</time>
+    <time class="fr lightest-text-color ml3">{{ post.date | readableDate }}</time>
     {{ post.data.title }}
 </a>
 {% endfor %}
+
+<h2>µblog<a name="microblog"></a></h2>
+<p>
+    <a href="/microblog/">See all.</a>
+</p>
+{% set post = collections.microblog | sort(true, false, "date") | first %}
+<div class="pl3 pv1 bl bw1 mb4">
+    <p class="f6 f5-ns lightest-text-color">
+        Latest: {{ post.date | readableDate }}
+    </p>
+    <p class="f5 f4-ns lighter-text-color">{{- post.templateContent  | replace("<p>", "") | replace("</p>", "") | safe  -}}</p>
+</div>
+
 
 
 <h2>Garage<a name="garage"></a></h2>
@@ -94,7 +107,7 @@ The following is an index of all the current entires in the garage.
     <li class="mv2">
         <a href="{{ post.url | url }}" class="db pv1 link">
             {# TODO: make latest of {date, updated} #}
-            <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }}</time>
+            <time class="fr lightest-text-color ml3">{{ post.date | readableDate }}</time>
             {{ post.data.title }}
         </a>
     </li>

@@ -20,7 +20,7 @@ I run this website because I'm too afraid to use Twitter.
     <li class="mv2">
       <a href="{{ post.url | url }}" class="db pv1 link">
         {# NOTE: Not using post.data.travel_end because otherwise main page has old dates at top #}
-        <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }} </time>
+        <time class="fr lightest-text-color ml3">{{ post.date | readableDate }} </time>
         {{ (post.data.series + ": " if post.data.series else "") + post.data.title }}
       </a>
     </li>
@@ -50,12 +50,12 @@ I run this website because I'm too afraid to use Twitter.
     <li class="mv2">
         {% if "news" in post.data.tags %}
             <span class="db pv1">
-                <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }} </time>
+                <time class="fr lightest-text-color ml3">{{ post.date | readableDate }} </time>
                 {{ post.templateContent | replace("<p>", "") | replace("</p>", "") | safe }}
             </span>
         {% else %}
             <a href="{{ post.url | url }}" class="db pv1 link">
-                <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }} </time>
+                <time class="fr lightest-text-color ml3">{{ post.date | readableDate }} </time>
                 {{ post.data.title }}
             </a>
         {% endif %}

@@ -280,6 +280,13 @@ Previously was
     border-color: var(--border-color);
 }
 
+.microblogpost {
+    border-bottom: 1px solid white;
+}
+
+.microblogpost:last-of-type {
+    border: none;
+}
 
 .markdown-body blockquote blockquote {
     border-left: none;
