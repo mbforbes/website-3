@@ -259,7 +259,8 @@ def main():
             "posts": 1,
             "sketches": 2,
             "blog": 3,
-            "garage": 4,
+            # Not including garage in digest.
+            # "garage": 4,
         },
     )
 

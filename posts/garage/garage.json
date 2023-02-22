@@ -1,7 +1,6 @@
 {
     "tags": [
-        "garage",
-        "studio"
+        "garage"
     ],
     "permalink": "/garage/{{ page.fileSlug }}/"
 }
