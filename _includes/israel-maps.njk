@@ -1,0 +1,46 @@
+<link href='{{ "/assets/css/leaflet.css" | url }}' rel='stylesheet' type='text/css'/>
+<link href='{{ "/assets/css/maps.css" | url }}' rel='stylesheet' type='text/css'/>
+
+<script type="text/javascript" src="/assets/lib/leaflet-1.9.2-custom.js"></script>
+<script type="text/javascript" src="/assets/lib/tile.stamen-1.3.0.js"></script>
+<script type="text/javascript" src="/assets/lib/anime-3.2.1.min.js"></script>
+<script type="text/javascript" src="/assets/lib/leaflet.curve.js"></script>
+<script>
+    // Vars here change during deploy env (personal website).
+    let libDir = "{{ "/assets/mapData/" | url }}";
+    let postDir = "{{ "/assets/posts/2022-israel/" | url }}";
+    let activeList = [""];
+</script>
+<script src="/assets/posts/2022-israel/israel.js"></script>
+
+<!-- Need relative positioning for overlay positioning -->
+<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig mb0 pv5 fade-bg">
+    <!-- Left -->
+    <div class="ph3 pb4 pb3-l w-100 w-auto-ns mw-50-ns">
+        <div class="relative">
+            <div id="mapContext" class="leafletMap bg-white mapSmall center">
+                <!-- TODO: placeholder -->
+                <!-- <img src="img/scotland-map-context-screenshot.png"> -->
+            </div>
+            <div id="mapLabelOverlay"
+                class="ph2 ph3-l pv1 bg-white o-90 sans-serif mid-gray shadow-4 br2 dib absolute lh-solid">
+                <div class="flex items-center">
+                    <span class="f3 f2-l mr3">🇮🇱</span>
+                    <span class="f4 f3-l b dib tc">Israel</span>
+                </div>
+                <!-- <div style="flex-basis: 100%; height: 0"></div> -->
+                <div class="flex items-center">
+                    <span class="f3 f2-l mr3">🇵🇸</span>
+                    <span class="f4 f3-l b dib tc">Palestine</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Right -->
+    <div class="ph3 w-100 w-auto-ns mw-50-ns">
+        <div id="mapTravel" class="leafletMap bg-white mapSmall center">
+            <!-- TODO: placeholder -->
+            <!-- <img src="img/scotland-map-travel-aberdeen-screenshot.png"> -->
+        </div>
+    </div>
+</div>

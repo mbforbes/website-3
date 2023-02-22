@@ -273,28 +273,37 @@ module.exports = function (eleventyConfig) {
             maxHeight = img.maxHeight || maxHeight;
         }
         path = eleventyConfig.getFilter("url")(path);
-        return [path, `<img class="db bare novmargin" src="${path}" style="max-height: min(100vh, ${maxHeight});">`];
+
+        // let pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
+        let pathDisplay = "";
+        return [path, `<img class="db bare novmargin" src="${path}" style="max-height: min(100vh, ${maxHeight});">${pathDisplay}`];
     }
 
-    function oneBigImage(imgSpec, marginClasses, blurStretchSingles, fullWidth) {
+    function oneBigImage(imgSpec, marginClasses, blurStretchSingles, fullWidth, ph = true) {
         let [bgImgPath, imgHTML] = imgSpecToHTML(imgSpec);
         let bgDiv = "";
         if (blurStretchSingles && bgImgPath != "") {
             bgDiv = `<div class="bgImageReady svgBlur" style="background-image: url(${bgImgPath})"></div>`;
         }
-        let fwClass = fullWidth ? "full-width " : "";
+        let fwClass = fullWidth ? "full-width" : "";
+        // If it's not full-width, then we want them to be aligned with the text margins,
+        // not have extra padding. Vanilla embedded align with text margins, too.
+        let phClass = (fullWidth && ph) ? "ph1-m ph3-l" : "";
 
         // NOTE: the one image style could be
         // <div class="full-width ph1-m ph3-l">
         // <img src="foo" style="max-height: 500px;">
         // </div>
         // but using this so the <img ...> snippet is the same for all layouts.
-        return `<div class="${fwClass}flex justify-center ph1-m ph3-l ${marginClasses}">${bgDiv}${imgHTML}</div>`;
+        return `<div class="${fwClass} flex justify-center ${phClass} ${marginClasses}">${bgDiv}${imgHTML}</div>`;
     }
 
     function twoBigImages(imgSpecs, marginClasses, fullWidth) {
         let [bgImgPath1, imgHTML1] = imgSpecToHTML(imgSpecs[0]);
         let [bgImgPath2, imgHTML2] = imgSpecToHTML(imgSpecs[1]);
+
+        let mlClass = fullWidth ? "ml1-m ml3-l" : "";
+        let mrClass = fullWidth ? "mr1-m mr3-l" : "";
 
         // NOTE: This was experimenting with blur stretch effect on side-by-side images.
         // + add "relative" to class list on each containing <div>
@@ -313,8 +322,8 @@ module.exports = function (eleventyConfig) {
 
         let fwClass = fullWidth ? "full-width " : "";
         return `<div class="${fwClass}flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
-<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">${imgHTML1}</div>
-<div class="mr1-m mr3-l">${imgHTML2}</div>
+<div class="${mlClass} mr1-ns mb1 mb0-ns">${imgHTML1}</div>
+<div class="${mrClass}">${imgHTML2}</div>
 </div>`;
     }
 
@@ -417,6 +426,12 @@ module.exports = function (eleventyConfig) {
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 </p>`;
         return attribution ? base + attr : base;
+    });
+
+    eleventyConfig.addNunjucksShortcode("cityPic", (path) => {
+        // With getMarginClasses(...), we're pretending it's the last img of a set.
+        // Right now this gets us `mt1 figbot`.
+        return oneBigImage(path, getMarginClasses(1, 2), true, true, false)
     });
 
     /**

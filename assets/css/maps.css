@@ -8,6 +8,18 @@
     z-index: 1;
 }
 
+.leafletMapWide {
+    aspect-ratio: 2;
+    max-width: 100%;
+    border-radius: 25%;
+    /* Safari needs z-index (!) for border radius to work. */
+    z-index: 1;
+}
+
+.mapWide {
+    width: 800px;
+}
+
 .mapBig {
     width: 600px;
 }

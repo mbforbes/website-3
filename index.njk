@@ -16,10 +16,11 @@ I run this website because I'm too afraid to use Twitter.
 <h2>Latest from the studio</h2>
 
 <ul class="list pa0">
-    {% for post in collections.studio | rejectAttrContains(["data", "tags"], "software") | sort(true, false, "date") | head(3) %}
+    {% for post in collections.studio | rejectAttrContains(["data", "tags"], "software") | rejectAttrContains(["data", "tags"], "redirect") | sort(true, false, "date") | head(3) %}
     <li class="mv2">
       <a href="{{ post.url | url }}" class="db pv1 link">
-        <time class="fr lightest-text-color ttu ml3">{{ post.data.travel_end | default(post.date) | readableDate }} </time>
+        {# NOTE: Not using post.data.travel_end because otherwise main page has old dates at top #}
+        <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }} </time>
         {{ (post.data.series + ": " if post.data.series else "") + post.data.title }}
       </a>
     </li>
