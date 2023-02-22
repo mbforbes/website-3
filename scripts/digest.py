@@ -19,34 +19,38 @@ import mistune
 
 from common import get_posts, Post
 
-DATE_START = date(2022, 11, 1)
-DATE_END = date(2022, 12, 1)
+DATE_START = date(2022, 12, 2)
+DATE_END = date(2023, 2, 1)
 # DISPLAY_MONTH = "September"
 # SUBJECT = f"Max Forbes | {DISPLAY_MONTH} 2022 Digest"
 
 PREAMBLE = """
 <p>Hi everyone,</p>
 
-<p>This is a summary of what I published in the last month over at my website.</p>
+<p>This is a summary of what I published in the last two months over at my website. (I missed sending the January digest.)</p>
+
+<br />
 """
 
 POSTAMBLE = """
 <h2>News</h2>
 
 <p>
-Hot off the press --- I finally finished another travel blog post! It's about the first leg of our Scotland roadtrip, and it's in the listing above.
+After about six winter weeks in Seattle, we're headed out on the road again in a few days. We're
+going to Taiwan for a couple months. I'm really looking forward to it.
 </p>
 
 <p>
-I've been enjoying doing some website redesigns the last few days.
-I improved the title and heading typography, and cleaned up the navigation and footer.
-Those changes are already live.
-I'm looking forward to designing a few more sections, and by 2023 just about the whole thing should have a new coat of paint.
+I'm still catching up with travel posts from last year.
+The Bosnia post (included in this digest) was long and text-heavy, but going forward,
+I'm planing to lighten them up considerably.
+Mainly photos and a few bits of commentary.
+(This is the only way I'll actually catch up.)
+Oh, and of course, maps!
 </p>
 
 <p>
-We are finishing up our time in the Philippines and headed next to Singapore.
-A significant portion of my being is now DEET.
+As always, don't hesitate to reply to this email, even if you'd just like to say a simple hello.
 </p>
 
 <br>
@@ -95,15 +99,15 @@ def render_image(
     else:
         date_html = get_date_html(display_date) + get_publish_date_html(publish_date)
     return f"""
-<table style="border: none;">
+<table style="border: none; width: 100%" width="100%">
 	<tbody>
 		<tr>
-			<td style="padding-right: 10px;">
+			<td style="width: 40%; padding-right: 10px;" width="40%">
                 <a href="{DOMAIN + post_url}">
-                    <img class="tl-email-image" src="{DOMAIN + image_url}" style="width: {IMG_WIDTH}px;" />
+                    <img class="tl-email-image" src="{DOMAIN + image_url}" style="width: 100%;" />
                 </a>
             </td>
-			<td>
+			<td style="width: 60%; padding-left: 10px;" width="60%">
                 {date_html}<br>
                 <a href="{DOMAIN + post_url}">
                     <b>{title}</b>
