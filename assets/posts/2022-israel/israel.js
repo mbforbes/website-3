@@ -354,6 +354,4 @@ async function main() {
     }).observe(document.getElementById("mapNeighbors"));
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    main();
-});
+main();

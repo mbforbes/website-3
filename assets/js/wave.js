@@ -1,4 +1,4 @@
-<script>
+
 // settings
 let periods = 0.5;
 let baseDelay = 1; // s
@@ -20,12 +20,12 @@ function fontWeighter(idx) {
     let x = (frameNs[idx] / frames) * periods * 2 * Math.PI;
     let w = Math.round(startW + mag * Math.sin(x));
     document
-    .getElementById("header")
-    .children[idx]
-    .style
-    .fontWeight = w;
+        .getElementById("header")
+        .children[idx]
+        .style
+        .fontWeight = w;
     if (frameNs[idx] >= frames) {
-    clearInterval(updaters[idx]);
+        clearInterval(updaters[idx]);
     }
 }
 
@@ -38,20 +38,19 @@ function wave() {
     let name = header.innerText;
     let els = [];
     for (let i = 0; i < name.length; i++) {
-    let el = document.createElement("span");
-    el.innerText = name[i];
-    els.push(el);
+        let el = document.createElement("span");
+        el.innerText = name[i];
+        els.push(el);
     }
     header.innerText = '';
     header.append(...els);
 
     for (let i = 0; i < els.length; i++) {
-    frameNs.push(0);
-    setTimeout(() => {
-        updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
-    }, (baseDelay + charDelay * i) * 1000);
+        frameNs.push(0);
+        setTimeout(() => {
+            updaters.push(setInterval(fontWeighter.bind(null, i), refresh * 1000));
+        }, (baseDelay + charDelay * i) * 1000);
     }
 }
 
 wave();
-</script>
