@@ -44,7 +44,7 @@ image: /assets/posts/fixing-mobile-page-layouts/header.jpg
 
 Some webpages are too damn hard to read on my phone, like this one:
 
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" | url }}" class="sc small br5">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" | url }}" class="sc small br5" loading="lazy" decoding="async" />
 
 <p class="figcaption">Squint harder</p>
 
@@ -93,11 +93,11 @@ Does the page look like a desktop site zoomed way out? You might need to tell we
 In action, this makes the following change:
 
 <div class="flex items-center">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" | url }}" class="sc w-40 bare br4 br5-ns" loading="lazy" decoding="async" />
 <div class="mh2 mh3-ns" style="flex-grow: 1">
-  <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100">
+  <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100" loading="lazy" decoding="async" />
 </div>
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/1-meta.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/1-meta.jpg" | url }}" class="sc w-40 bare br4 br5-ns" loading="lazy" decoding="async" />
 </div>
 
 Now the text renders into a more reasonable area. This makes the font look bigger and the lines wrap much earlier. But the page still has a problem that's making the text only take up half the page. Something is too wide.
@@ -109,8 +109,8 @@ Now the text renders into a more reasonable area. This makes the font look bigge
 Over-wide elements are easy to miss even from your phone, because your phone might mask them with a horizontal scroll bar. If you accidentally scroll right, though, you'll fly off the content.
 
 <div class="flex">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide-diagnose-1.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide-diagnose-2.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide-diagnose-1.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto" loading="lazy" decoding="async" />
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide-diagnose-2.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto" loading="lazy" decoding="async" />
 </div>
 
 <p class="figcaption">&rarr; Agh!</p>
@@ -118,8 +118,8 @@ Over-wide elements are easy to miss even from your phone, because your phone mig
 Once you notice this happens, you can pinch to zoom out and survey the mess. Some element is probably too wide. Find the culprit.
 
 <div class="flex">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide2-before.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide-before-annotated.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide2-before.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto" loading="lazy" decoding="async" />
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide-before-annotated.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto" loading="lazy" decoding="async" />
 </div>
 
 <p class="figcaption">Left: zoomed out. Right: the problem child.</p>
@@ -136,21 +136,21 @@ pre {
 This solves it. Here's the before and after.
 
 <div class="flex items-center">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide-before.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide-before.jpg" | url }}" class="sc w-40 bare br4 br5-ns" loading="lazy" decoding="async" />
 <div class="mh2 mh3-ns" style="flex-grow: 1">
-  <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100">
+  <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100" loading="lazy" decoding="async" />
 </div>
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide-after.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide-after.jpg" | url }}" class="sc w-40 bare br4 br5-ns" loading="lazy" decoding="async" />
 </div>
 
 No more scroll bar, and the width is correct. This section is a bit weird because of overly wide indentation. Here's the same result on body text.
 
 <div class="flex items-center">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide2-before.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide2-before.jpg" | url }}" class="sc w-40 bare br4 br5-ns" loading="lazy" decoding="async" />
 <div class="mh2 mh3-ns" style="flex-grow: 1">
-  <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100">
+  <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100" loading="lazy" decoding="async" />
 </div>
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide2-after.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/overwide2-after.jpg" | url }}" class="sc w-40 bare br4 br5-ns" loading="lazy" decoding="async" />
 </div>
 
 
@@ -158,7 +158,7 @@ No more scroll bar, and the width is correct. This section is a bit weird becaus
 
 This article is only about making pages look better on mobile. I try not to _break_ anything for larger screens, but naively applying some of these changes will make desktop layouts more cramped.
 
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/device-diagram.svg" | url }}" class="w-100">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/device-diagram.svg" | url }}" class="w-100" loading="lazy" decoding="async" />
 
 <p class="figcaption">
   <span class="b">Left:</span>
@@ -188,11 +188,11 @@ There are a few bits of low hanging fruit that will make a page go from function
 We can apply all these changes to our running example.
 
 <div class="flex items-center">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/4-body.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/4-body.jpg" | url }}" class="sc w-40 bare br4 br5-ns" loading="lazy" decoding="async" />
 <div class="mh2 mh3-ns" style="flex-grow: 1">
-  <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100">
+  <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100" loading="lazy" decoding="async" />
 </div>
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/5-done.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/5-done.jpg" | url }}" class="sc w-40 bare br4 br5-ns" loading="lazy" decoding="async" />
 </div>
 
 <a name="phone"></a>
@@ -215,31 +215,31 @@ Click on any picture to jump to the walkthrough for fixing the mobile layout on 
 
   <div class="w-third w-25-ns tc ph1 ph2-ns mb1 mb2-ns">
     <a href="#gitbestpractices">
-      <img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" | url }}" class="sc br3 br4-ns dim">
+      <img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" | url }}" class="sc br3 br4-ns dim" loading="lazy" decoding="async" />
     </a>
   </div>
 
   <div class="w-third w-25-ns tc ph1 ph2-ns mb1 mb2-ns">
     <a href="#poisson">
-      <img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-start-out.png" | url }}" class="sc br3 br4-ns dim">
+      <img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-start-out.png" | url }}" class="sc br3 br4-ns dim" loading="lazy" decoding="async" />
     </a>
   </div>
 
   <div class="w-third w-25-ns tc ph1 ph2-ns mb1 mb2-ns">
     <a href="#fsharp">
-      <img src="{{ "/assets/posts/fixing-mobile-page-layouts/f-sharp-orig.jpg" | url }}" class="sc br3 br4-ns dim">
+      <img src="{{ "/assets/posts/fixing-mobile-page-layouts/f-sharp-orig.jpg" | url }}" class="sc br3 br4-ns dim" loading="lazy" decoding="async" />
     </a>
   </div>
 
   <div class="w-third w-25-ns tc ph1 ph2-ns mb1 mb2-ns">
     <a href="#hydroponic">
-      <img src="{{ "/assets/posts/fixing-mobile-page-layouts/hydroponic-start.jpg" | url }}" class="sc br3 br4-ns dim">
+      <img src="{{ "/assets/posts/fixing-mobile-page-layouts/hydroponic-start.jpg" | url }}" class="sc br3 br4-ns dim" loading="lazy" decoding="async" />
     </a>
   </div>
 
   <div class="w-third w-25-ns tc ph1 ph2-ns mb1 mb2-ns">
     <a href="#diffusion">
-      <img src="{{ "/assets/posts/fixing-mobile-page-layouts/diffusion-start.jpg" | url }}" class="sc br3 br4-ns dim">
+      <img src="{{ "/assets/posts/fixing-mobile-page-layouts/diffusion-start.jpg" | url }}" class="sc br3 br4-ns dim" loading="lazy" decoding="async" />
     </a>
   </div>
 
@@ -255,7 +255,7 @@ Click on any picture to jump to the walkthrough for fixing the mobile layout on 
 
 This is the site that I used as the running example for the first section. This page is called [Commit Often, Perfect Later, Publish Once: Git Best Practices](https://sethrobertson.github.io/GitBestPractices/). The page looks like this on my phone:
 
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" | url }}" class="sc small br5">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" | url }}" class="sc small br5" loading="lazy" decoding="async" />
 
 Now, I can't be too hard on the designer.[^designer] First, the page is from 2012---ancient Internet history.
 
@@ -264,8 +264,8 @@ Now, I can't be too hard on the designer.[^designer] First, the page is from 201
 Second, it's actually kind of hard to tell this was going to happen. Normally, I would guess that they simply didn't test it using developer tools. But if you ask Chrome and Safari what the page should look like on an iPhone X, they both say, "just fine:"
 
 <div class="flex">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-chrome.jpg" | url }}" class="pr2 pr3-ns flex-auto">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-safari.jpg" | url }}" class="flex-auto">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-chrome.jpg" | url }}" class="pr2 pr3-ns flex-auto" loading="lazy" decoding="async" />
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-safari.jpg" | url }}" class="flex-auto" loading="lazy" decoding="async" />
 </div>
 
 This is annoying, because it means we have to debug on the phone itself. No problem, just download the page, whip up a `python -m http.server`, find the laptop's local IP address with `ifconfig | grep 192`, and point the ol' telephone to `192.168.0.xxx:8000`. We're in.
@@ -305,11 +305,11 @@ For the final tweaks ([fix #3](#typography)), we apply:
 Apply them all, here's the before/after.
 
 <div class="flex items-center">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/before-ios.jpg" | url }}" class="sc w-40 bare br4 br5-ns" loading="lazy" decoding="async" />
 <div class="mh2 mh3-ns" style="flex-grow: 1">
-  <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100">
+  <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100" loading="lazy" decoding="async" />
 </div>
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/5-done.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/5-done.jpg" | url }}" class="sc w-40 bare br4 br5-ns" loading="lazy" decoding="async" />
 </div>
 
 Hooray, super readable!
@@ -318,7 +318,7 @@ Hooray, super readable!
 
 If we wanted to, one last thing I'd tweak is the indentation, which is so comically large as to end up taking up nearly half the screen width (really only glaring on an actual phone, AKA ([fix #4](#phone)):
 
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/6-extra-credit.jpg" | url }}" class="sc small br5">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/6-extra-credit.jpg" | url }}" class="sc small br5" loading="lazy" decoding="async" />
 
 ... but eh, I'd say we've done enough for one evening. Let's call it an exercise for the reader.
 
@@ -329,8 +329,8 @@ If we wanted to, one last thing I'd tweak is the indentation, which is so comica
 This page is called [Poisson's Equation is the Most Powerful Tool not yet in your Toolbox](https://mattferraro.dev/posts/poissons-equation). The page's viewport seems good, but you can accidentally scroll to the right, revealing a bigger page and likely overly wide elements ([fix #2](#over-wide)).
 
 <div class="flex">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-start.png" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-start-out.png" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-start.png" | url }}" class="sc bare mh2 br4 br5-ns flex-auto" loading="lazy" decoding="async" />
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-start-out.png" | url }}" class="sc bare mh2 br4 br5-ns flex-auto" loading="lazy" decoding="async" />
 </div>
 
 <p class="figcaption">Left: the default view on pageload. Right: Zooming out to the page's true width after noticing horizontal scrollbars.</p>
@@ -339,8 +339,8 @@ This page is called [Poisson's Equation is the Most Powerful Tool not yet in you
 If we scroll down, we can see the worst offenders are, again, over-wide `<pre>` regions for code. They are already the correct width, but when their content overflows, it spills out.
 
 <div class="flex">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-overwide.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-pre-box.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-overwide.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto" loading="lazy" decoding="async" />
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-pre-box.jpg" | url }}" class="sc bare mh2 br4 br5-ns flex-auto" loading="lazy" decoding="async" />
 </div>
 
 
@@ -355,8 +355,8 @@ pre {
 ... but rendered math is still an issue. Like the `<pre>` chunks, they're also set to a good width, but spill out.
 
 <div class="flex">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-pre-done-annotated.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-math-box.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-pre-done-annotated.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-math-box.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
 </div>
 
 The math chunks are all in `<div>`s with the CSS class `math`, so we can just add another selector to our rule:
@@ -369,7 +369,7 @@ pre, .math {
 
 And with that, we've tamed the over-wide elements and the page displays nicely.
 
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-fixed.png" | url }}" class="sc small br5">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-fixed.png" | url }}" class="sc small br5" loading="lazy" decoding="async" />
 
 ### Extra credit: code and scrollbars
 
@@ -378,11 +378,11 @@ If I were to add finishing touches, the two things I'd tweak would be the code a
 The font size for code blocks is bigger than it needs to be ([fix #3](#typography)) and lacks syntax highlighting. If we make those two changes and then reduce the indentation from four to two spaces, we can even fit all the code without any scrolling---we just need to wrap two of the comments.
 
 <div class="flex items-center">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-extra-code.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-extra-code.jpg" | url }}" class="sc w-40 bare br4 br5-ns" loading="lazy" decoding="async" />
 <div class="mh2 mh3-ns" style="flex-grow: 1">
-  <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100">
+  <img src="{{ "/assets/posts/fixing-mobile-page-layouts/arrow.svg" | url }}" class="w-100" loading="lazy" decoding="async" />
 </div>
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-extra-code-fixed.jpg" | url }}" class="sc w-40 bare br4 br5-ns">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-extra-code-fixed.jpg" | url }}" class="sc w-40 bare br4 br5-ns" loading="lazy" decoding="async" />
 </div>
 
 > _Aside: This was another place where it was instrumental to check on my physical phone ([fix #4](#phone)). Only there did I notice the code font was so large, and only there could I verify that it was still readable after reducing the font size._
@@ -398,8 +398,8 @@ As I mentioned above, Apple's browser seems to go out of its way to hide scroll 
 In short, I couldn't robustly figure this out. Using the `::-webkit-scrollbar` CSS selector, I could get really big chonky ones to always appear on Chrome, but not using Safari on my phone. [Mozilla says this feature isn't standardized yet](https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar), but that it should work on Safari and all iOS browsers 🤷‍♂️
 
 <div class="flex">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-want-scrollbars.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-big-scrollbars.png" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-want-scrollbars.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/poisson-big-scrollbars.png" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
 </div>
 
 <p class="figcaption">Left: no scrollbars still on my phone. Right: I could get big ugly ones on Chrome on my desktop.</p>
@@ -411,8 +411,8 @@ In short, I couldn't robustly figure this out. Using the `::-webkit-scrollbar` C
 This page is called [F# Is The Best Coding Language Today](https://danielbmarkham.com/fsharp-is-the-best-programming-language-today/). Once again, a good viewport, but an over-wide `<pre>` code block. Jeez, what is it with these code blocks?
 
 <div class="flex">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/f-sharp-orig.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/f-sharp-orig-code.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/f-sharp-orig.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/f-sharp-orig-code.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
 </div>
 
 <p class="figcaption">Left: After loading the page, noticing it's got a horizontal scroll bar, and zooming out. Right: The culprit code block.</p>
@@ -435,8 +435,8 @@ font-size: 14px;
 ```
 
 <div class="flex">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/f-sharp-fixed.png" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/f-sharp-fixed-code.png" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/f-sharp-fixed.png" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/f-sharp-fixed-code.png" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
 </div>
 
 <p class="figcaption">Fixed view of the top of the page (left), and the code block (right).</p>
@@ -455,8 +455,8 @@ Nothing else major here, but I would wrap the comments in the code earlier so we
 This page is called [Automated Hydroponic System Build](https://kylegabriel.com/projects/2020/06/automated-hydroponic-system-build.html). In a crazy turn of events, 🚨 _it's not code in a `<pre>` block this time!_ 🚨 This page actually contains pretty huge chunks of code, but they all obey the body width. What's the issue, then?
 
 <div class="flex">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/hydroponic-start.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/hydroponic-problem.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/hydroponic-start.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/hydroponic-problem.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
 </div>
 
 An overly long URL, yeeted into the comments by none other than the author himself. Bummer.
@@ -474,8 +474,8 @@ I checked out the source, and saw each comment has `class="comment-body"`. So if
 ... then everything is groovy.
 
 <div class="flex">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/hydroponic-start-fixed.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/hydroponic-problem-fixed.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/hydroponic-start-fixed.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/hydroponic-problem-fixed.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
 </div>
 
 <a name="diffusion"></a>
@@ -485,8 +485,8 @@ I checked out the source, and saw each comment has `class="comment-body"`. So if
 This page is called [What are Diffusion Models?](https://lilianweng.github.io/lil-log/2021/07/11/diffusion-models.html) This time, it's pesky math again, stretching a good viewport too wide.
 
 <div class="flex">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/diffusion-start.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/diffusion-problem.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/diffusion-start.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/diffusion-problem.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
 </div>
 
 We can tell MathJax to stay in its lane ([fix #2](#over-wide)) by adding the CSS:
@@ -500,8 +500,8 @@ We can tell MathJax to stay in its lane ([fix #2](#over-wide)) by adding the CSS
 ... and the page is back in its box.
 
 <div class="flex">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/diffusion-start-fixed.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
-<img src="{{ "/assets/posts/fixing-mobile-page-layouts/diffusion-problem-fixed.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto">
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/diffusion-start-fixed.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
+<img src="{{ "/assets/posts/fixing-mobile-page-layouts/diffusion-problem-fixed.jpg" | url }}" class="sc bare mh2 br4 br5-ns w-50 flex-auto" loading="lazy" decoding="async" />
 </div>
 
 <script src="{{ "/assets/lib/anime-3.2.1.min.js" | url }}"></script>

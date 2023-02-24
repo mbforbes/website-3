@@ -27,7 +27,7 @@ customexcerpt: We took a two week roadtrip through Scotland. We got soaked and t
 We took a two week roadtrip through Scotland. We got soaked and the food sucked, but the nature was awesome. 10/10.
 
 {% set activePlace = "Aberdeen" %}
-{% include "scotland-maps.njk" %}
+{% include "maps/scotland-maps.njk" %}
 
 ## Edinburgh
 

@@ -28,7 +28,7 @@ attributions: The two animated maps showing Serbia use map tiles by [Stamen Desi
 /assets/posts/2022-serbia/s-church-tall.moz80.jpg
  -->
 
-{% include "serbia-maps.njk" %}
+{% include "maps/serbia-maps.njk" %}
 
 I liked Serbia a lot.
 - Almost no tourists

@@ -18,17 +18,15 @@ Google AI, working with [Christine Kaeser-Chen](https://twitter.com/kaeserchen) 
 [Serge Belongie](http://blogs.cornell.edu/techfaculty/serge-belongie/).
 I was regularly a research intern at the Allen Institute for AI.
 
+<!--
+
+Hello intrepid source explorer! Here's some more fun bio for you:
+
 Before jumping fully into NLP, I worked on robotics and robotics+NLP, with [Raj Rao](https://www.rajeshpnrao.com/), [Maya Cakmak](https://homes.cs.washington.edu/~mcakmak/), and [Luke Zettlemoyer](https://www.cs.washington.edu/people/faculty/lsz), from about 2012--2015. From 2014--2015, I spent a year as a full time software engineer at Google, working on the [now-infamous](https://k8s.af/) datacenter operating system called [Kubernetes](https://kubernetes.io/) (and [GKE](https://cloud.google.com/kubernetes-engine)).
 
+ -->
+
 Contact me at: <img height="22" class="inline" src="{{ "/assets/img/my-email.png" | url }}">
-
-## Mentoring
-
-I am lucky to have collaborated with some amazing undergraduate students during my PhD: [Yao Dou](https://yao-dou.github.io/), [Jeff Da](https://jeffda.com/), and [Pooja Sethi](https://poojasethi.github.io/).
-
-I am eternally grateful to the wonderful graduate students who mentored me when I was an
-undergraduate (and beyond): [Mike Chung](https://mjyc.github.io/),
-[Kenton Lee](http://kentonl.com/) and [Yoav Artzi](https://yoavartzi.com/).
 
 ## Notes
 
@@ -43,14 +41,6 @@ undergraduate (and beyond): [Mike Chung](https://mjyc.github.io/),
 {% endfor %}
 </ul>
 
-## Software
-
-{% include "programming-language-tooltips.njk" %}
-
-{% set software = collections.software | selectAttrContains(["data", "tags"], "research") | rejectAttrNested(["data", "omit"]) %}
-{% for item in software %}
-{%- include "software-long.njk" -%}
-{% endfor %}
 
 ## Publications
 
@@ -185,3 +175,20 @@ _AAAI Fall Symposium Series on Human-Robot Interaction 2014_<br/>
 **Maxwell Forbes**, Michael Chung, Maya Cakmak, Luke Zettlemoyer, Rajesh P. N. Rao<br />
 _ACM/IEEE International Conference on Human-Robot Interaction (HRI) Workshop on Asymmetric Interactions 2014_<br/>
 [[slides]({{ "/assets/research/forbes2014grounding-slides.pdf" | url }})]
+
+## Software
+
+{% include "programming-language-tooltips.njk" %}
+
+{% set software = collections.software | selectAttrContains(["data", "tags"], "research") | rejectAttrNested(["data", "omit"]) %}
+{% for item in software %}
+{%- include "software-long.njk" -%}
+{% endfor %}
+
+## Mentoring
+
+I am lucky to have collaborated with some amazing undergraduate students during my PhD: [Yao Dou](https://yao-dou.github.io/), [Jeff Da](https://jeffda.com/), and [Pooja Sethi](https://poojasethi.github.io/).
+
+I am eternally grateful to the wonderful graduate students who mentored me when I was an
+undergraduate (and beyond): [Mike Chung](https://mjyc.github.io/),
+[Kenton Lee](http://kentonl.com/) and [Yoav Artzi](https://yoavartzi.com/).

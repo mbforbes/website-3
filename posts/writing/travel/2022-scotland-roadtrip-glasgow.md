@@ -28,7 +28,7 @@ customexcerpt: "I had high hopes for Glasgow. Modern city, seemed to have good p
  -->
 
 {% set activePlace = "Glasgow" %}
-{% include "scotland-maps.njk" %}
+{% include "maps/scotland-maps.njk" %}
 
 Making it down at last from Trossachs National Park, we said goodbye to our trusty-ish steed and settled in for four days in Glasgow.
 

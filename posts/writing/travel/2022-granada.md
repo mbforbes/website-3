@@ -26,17 +26,18 @@ How much of the Alhambra is original vs rebuilt to be like the original? Does it
     "/assets/posts/2022-granada/ah3.moz80.jpg"
 ], true %}
 
-
-<div class="flex">
-<img src="{{ "/assets/posts/2022-granada/c1.moz80.jpg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
-<img src="{{ "/assets/posts/2022-granada/c2.moz80.jpg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
-<img src="{{ "/assets/posts/2022-granada/c3.moz80.jpg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
-</div>
-<div class="flex figbot">
-<img src="{{ "/assets/posts/2022-granada/c4.moz80.jpg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
-<img src="{{ "/assets/posts/2022-granada/c5.moz80.jpg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
-<img src="{{ "/assets/posts/2022-granada/c6.moz80.jpg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
-</div>
+{% img [
+    [
+        "/assets/posts/2022-granada/c1.moz80.jpg",
+        "/assets/posts/2022-granada/c2.moz80.jpg",
+        "/assets/posts/2022-granada/c3.moz80.jpg"
+    ],
+    [
+        "/assets/posts/2022-granada/c4.moz80.jpg",
+        "/assets/posts/2022-granada/c5.moz80.jpg",
+        "/assets/posts/2022-granada/c6.moz80.jpg"
+    ]
+], false, false %}
 
 <p class="figcaption">
 Cobblestone collection continues

@@ -27,7 +27,7 @@ customexcerpt: "Hiking here is appropriately called \"hill walking.\""
 -->
 
 {% set activePlace = "Oban" %}
-{% include "scotland-maps.njk" %}
+{% include "maps/scotland-maps.njk" %}
 
 This episode includes water and rocks and a tiny disaster as our car luck finally ran dry.
 

@@ -16,7 +16,9 @@ attributions: The custom animated maps use map tiles by [Stamen Design](http://m
 "/assets/posts/2022-israel/IMG_7009.moz80.jpg",
  -->
 
-{% include "israel-maps.njk" %}
+{% include "maps/israel-maps.njk" %}
+
+As a preface, I'm going to omit any discussion of the Israel and Palestine conflict. It's widely known, and covered extensively elsewhere countless people immensely more qualified than me to talk about it. Here's [Wikipedia on it](https://en.wikipedia.org/wiki/Israeli%E2%80%93Palestinian_conflict) if you want to get a brief refresher.
 
 ## Istanbul Airport Overnight
 
@@ -241,7 +243,7 @@ Inspired by this, I made a little animated map highlighting which modern day cou
 <div class="full-width flex justify-center fig mb0 pv4 pv5-l fade-bg">
     <div class="ph3 w-100">
         <div id="mapNeighbors" class="leafletMapWide bg-white mapWide center">
-            <img src="/assets/posts/2022-israel/israel-map-mediterranean.png" loading="lazy">
+            <img src="/assets/posts/2022-israel/israel-map-mediterranean.png" loading="lazy" decoding="async" />
         </div>
     </div>
 </div>
@@ -267,8 +269,6 @@ The most fascinating aspect to the whole _Israel as rightful home of the Jewish 
 {% img [
     "/assets/posts/2022-israel/IMG_6752.moz80.jpg"
 ], true %}
-
-As a preface, I'm going to omit any discussion of the Israel and Palestine conflict. It's widely known, and covered extensively elsewhere by a gazillion people immensely more qualified than me to talk about it. Here's [Wikipedia on it](https://en.wikipedia.org/wiki/Israeli%E2%80%93Palestinian_conflict) if you want to get a brief refresher.
 
 So, for context, we took a three-stop tour to areas around Jerusalem:
 1. The En Gedi Nature Reserve

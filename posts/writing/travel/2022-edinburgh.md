@@ -107,7 +107,7 @@ Here are some Jerries screaming about how nice the sunset is in 4K.
 <script type="text/javascript">
 let libDir = "{{ "/assets/mapData/" | url }}";
 </script>
-<script type="text/javascript" src="{{ "/assets/posts/2022-edinburgh/uk-vs-gb.js" | url }}"></script>
+<script type="text/javascript" src="{{ "/assets/posts/2022-edinburgh/uk-vs-gb.js" | url }}" defer></script>
 
 I have always used _UK,_ _Great Britain,_ and _England_ interchangeably. I finally decided to learn the distinctions.
 
@@ -116,7 +116,7 @@ To start, let's look at geography without political boundaries. The complete set
 > Note: If you're a regular visitor and don't see any maps below, please hard-refresh the page (`⌘`+`Shift`+`R` on Mac, `Ctrl`+`Shift`+`R` Win/Linux).
 
 <div id="mapGeo" class="leafletMap mapBig bg-white fig center">
-<img src="{{ "/assets/posts/2022-edinburgh/map-geo-screenshot.png" | url }}" />
+<img src="{{ "/assets/posts/2022-edinburgh/map-geo-screenshot.png" | url }}" loading="lazy" decoding="async" />
 </div>
 <div class="figcaption">
 <span class="b">British Isles</span>:
@@ -131,7 +131,7 @@ I'm already cheating a bit; sometimes (Great) Britain is just the one big island
 Now it gets messy. Ireland is broken up into two countries: _Republic of Ireland_ and _Northern Ireland_. And Great Britain is broken up into three countries: England, Wales, and Scotland.
 
 <div id="mapCountry" class="leafletMap mapBig bg-white fig center">
-<img src="{{ "/assets/posts/2022-edinburgh/map-countries-screenshot.png" | url }}" />
+<img src="{{ "/assets/posts/2022-edinburgh/map-countries-screenshot.png" | url }}" loading="lazy" decoding="async" />
 </div>
 <div class="figcaption">
 <span class="b">Countries</span>:
@@ -152,7 +152,7 @@ Already, there's something I didn't realize: that England, Scotland, and Wales a
 Anyway, yes, it turns out you can have countries within countries. The way that Wikipedia at least handles this is calling the UK, fully known as _The United Kingdom of Great Britain and Northern Ireland,_ a "sovereign country."
 
 <div id="mapPolitical" class="leafletMap mapBig bg-white fig center">
-<img src="{{ "/assets/posts/2022-edinburgh/map-sovereign-screenshot.png" | url }}" />
+<img src="{{ "/assets/posts/2022-edinburgh/map-sovereign-screenshot.png" | url }}" loading="lazy" decoding="async" />
 </div>
 <div class="figcaption">
 <span class="b">Sovereign Countries</span>:

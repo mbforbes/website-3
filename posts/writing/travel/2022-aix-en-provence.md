@@ -58,30 +58,26 @@ For example, if you're trying to pay the bill in Spanish, you learn that you do 
 
 If you ask Google Translate how to say "the bill" or "the check," it will tell you:
 
-<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig">
-<div class="ml1-m ml3-l mr1-ns mb1 mb0-ns">
-<img class="db bare novmargin ba b--black-10" src="{{ "/assets/posts/2022-france/gt-the-bill.moz80.jpg" | url }}" style="max-height: min(100vh, 319px);">
-</div>
-<div class="mr1-m mr3-l">
-<img class="db bare novmargin ba b--black-10" src="{{ "/assets/posts/2022-france/gt-the-check.moz80.jpg" | url }}" style="max-height: min(100vh, 319px);">
-</div>
-</div>
+{% img [[
+    {path: "/assets/posts/2022-france/gt-the-bill.moz80.jpg", maxHeight: "319px", extraClasses: "ba b--black-10"},
+    {path: "/assets/posts/2022-france/gt-the-check.moz80.jpg", maxHeight: "319px", extraClasses: "ba b--black-10"}
+]] %}
 
 You need to add "please" on there for it to understand what your intent is:
 
-<img class="ba b--black-10" src="{{ "/assets/posts/2022-france/gt-the-bill-please.moz80.jpg" | url }}" style="max-height: min(100vh, 319px);">
+{% img {path: "/assets/posts/2022-france/gt-the-bill-please.moz80.jpg", maxHeight: "319px", extraClasses: "ba b--black-10"}, false, false %}
 
 Here's one from France. We saw this bus painted with a huge _le car._
 
-<img src="{{ "/assets/posts/2022-france/aix-le-car.moz80.jpg" | url }}" style="max-height: min(100vh, 500px);">
+{% img {path: "/assets/posts/2022-france/aix-le-car.moz80.jpg", maxHeight: "500px"}, false, false %}
 
 What does that mean?
 
-<img class="ba b--black-10" src="{{ "/assets/posts/2022-france/gt-le-car.moz80.jpg" | url }}" style="max-height: min(100vh, 319px);">
+{% img {path: "/assets/posts/2022-france/gt-le-car.moz80.jpg", maxHeight: "319px", extraClasses: "ba b--black-10"}, false, false %}
 
 Yes, very intuitive France, thanks. But try going the other way:
 
-<img class="ba b--black-10" src="{{ "/assets/posts/2022-france/gt-the-bus.moz80.jpg" | url }}" style="max-height: min(100vh, 319px);">
+{% img {path: "/assets/posts/2022-france/gt-the-bus.moz80.jpg", maxHeight: "319px", extraClasses: "ba b--black-10"}, false, false %}
 
 Wonderful.
 
@@ -91,7 +87,7 @@ You seem to need to come up with specific incantations to see them.
 If you provide "the bus"---which you might think to do for languages like Spanish or French that love having words like "the" before nouns---it won't give you any other options.
 But, if you just write "bus," then below, you'll see other options:
 
-<img class="ba b--black-10" src="{{ "/assets/posts/2022-france/gt-bus.moz80.jpg" | url }}" style="max-height: min(100vh, 598px);">
+{% img {path: "/assets/posts/2022-france/gt-bus.moz80.jpg", maxHeight: "598px", extraClasses: "ba b--black-10"}, false, false %}
 
 The frequencies are a great touch (though unfortunately they don't show up on the iPhone app).
 

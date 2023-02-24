@@ -267,17 +267,19 @@ module.exports = function (eleventyConfig) {
         // image
         let path;
         let maxHeight = "939px";
+        let extraClasses = "";
         if (typeof img === "string") {
             path = img;
         } else {
             path = img.path;
             maxHeight = img.maxHeight || maxHeight;
+            extraClasses = img.extraClasses || extraClasses;
         }
         path = eleventyConfig.getFilter("url")(path);
 
         // let pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
         let pathDisplay = "";
-        return [path, `<img class="db bare novmargin" src="${path}" style="max-height: min(100vh, ${maxHeight});" loading="lazy" decoding="async" />${pathDisplay}`];
+        return [path, `<img class="db bare novmargin ${extraClasses}" src="${path}" style="max-height: min(100vh, ${maxHeight});" loading="lazy" decoding="async" />${pathDisplay}`];
     }
 
     function oneBigImage(imgSpec, marginClasses, blurStretchSingles, fullWidth, ph = true) {
@@ -330,10 +332,12 @@ module.exports = function (eleventyConfig) {
 
     function threeBigImages(imgSpecs, marginClasses, fullWidth) {
         let fwClass = fullWidth ? "full-width " : "";
+        let mlClass = fullWidth ? "ml1-m ml3-l" : "";
+        let mrClass = fullWidth ? "mr1-m mr3-l" : "";
         return `<div class="${fwClass}flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
-<div class="ml1-m ml3-l">${imgSpecToHTML(imgSpecs[0])[1]}</div>
+<div class="${mlClass}">${imgSpecToHTML(imgSpecs[0])[1]}</div>
 <div class="mh1-ns mv1 mv0-ns">${imgSpecToHTML(imgSpecs[1])[1]}</div>
-<div class="mr1-m mr3-l">${imgSpecToHTML(imgSpecs[2])[1]}</div>
+<div class="${mrClass}">${imgSpecToHTML(imgSpecs[2])[1]}</div>
 </div>`;
     }
 

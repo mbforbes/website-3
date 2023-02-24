@@ -26,7 +26,7 @@ Map of RS territory, c. 1993
 https://en.wikipedia.org/wiki/Republika_Srpska_(1992%E2%80%931995)#/media/File:RS_1993.png
 -->
 
-{% include "bosnia-maps.njk" %}
+{% include "maps/bosnia-maps.njk" %}
 
 I've been anticipating writing this post with the specific mixture of eagerness and dread that comes whenever I take on something that feels important.
 I learned more about Bosnia than anywhere else I visited, and I've felt compelled to share more about it.

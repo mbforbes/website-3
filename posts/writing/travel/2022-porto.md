@@ -133,25 +133,26 @@ If you ever visit Porto, this is my one recommendation. You do need a reservatio
 
 I have discovered that cobblestone is a genre rather than a thing. Behold.
 
-
-<div class="flex">
-<img src="{{ "/assets/posts/2022-porto/c1.moz80.jpg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
-<img src="{{ "/assets/posts/2022-porto/c2.moz80.jpg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
-<img src="{{ "/assets/posts/2022-porto/c3.moz80.jpg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
-</div>
-<div class="flex">
-<img src="{{ "/assets/posts/2022-porto/c4.moz80.jpg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
-<img src="{{ "/assets/posts/2022-porto/c5.moz80.jpg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
-<img src="{{ "/assets/posts/2022-porto/c6.moz80.jpg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
-</div>
-<div class="flex figbot">
-<img src="{{ "/assets/posts/2022-porto/c7.moz80.jpg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
-<img src="{{ "/assets/posts/2022-porto/c8.moz80.jpg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
-<img src="{{ "/assets/posts/2022-porto/c9.moz80.jpg" | url }}" class="bare novmargin mh1 mv1 flex-auto">
-</div>
+{% img [
+    [
+        "/assets/posts/2022-porto/c1.moz80.jpg",
+        "/assets/posts/2022-porto/c2.moz80.jpg",
+        "/assets/posts/2022-porto/c3.moz80.jpg"
+    ],
+    [
+        "/assets/posts/2022-porto/c4.moz80.jpg",
+        "/assets/posts/2022-porto/c5.moz80.jpg",
+        "/assets/posts/2022-porto/c6.moz80.jpg"
+    ],
+    [
+        "/assets/posts/2022-porto/c7.moz80.jpg",
+        "/assets/posts/2022-porto/c8.moz80.jpg",
+        "/assets/posts/2022-porto/c9.moz80.jpg"
+    ]
+], false, false %}
 
 <p class="figcaption">
-Bottom-right is actually wood masquerading as cobblestone. Used in cellars for temperature and physical softness, I think.
+Last one (mobile) / bottom-right (desktop) is actually wood masquerading as cobblestone. Used in cellars for temperature and physical softness, I think.
 </p>
 
 ## Cat

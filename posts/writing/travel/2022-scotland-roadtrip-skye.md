@@ -30,7 +30,7 @@ customexcerpt: Isle of Skye is one of those places that is dramatic when you're 
 -->
 
 {% set activePlace = "Isle of Skye" %}
-{% include "scotland-maps.njk" %}
+{% include "maps/scotland-maps.njk" %}
 
 ## Entering Skye
 

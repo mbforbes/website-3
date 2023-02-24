@@ -62,7 +62,7 @@ You might also be interested in checking out my <a href="{{ "/research/#software
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));">
 {% for sketch in collections.sketch | sort(true, false, "date") %}
     <a href="{{ sketch.url | url }}">
-        <img class="dim novmargin" src="{{ sketch.data.thumb | url }}" />
+        <img class="dim novmargin" src="{{ sketch.data.thumb | url }}" loading="lazy" decoding="async" />
     </a>
 {% endfor %}
 </div>

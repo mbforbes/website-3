@@ -32,7 +32,7 @@ customexcerpt: With Loch Ness so famous because of its Monster, it had not occur
  -->
 
 {% set activePlace = "Inverness" %}
-{% include "scotland-maps.njk" %}
+{% include "maps/scotland-maps.njk" %}
 
 
 ## Inverness

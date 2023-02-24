@@ -155,4 +155,17 @@ I'm thrilled with this, and excited to push the change. This is yet another time
 
 I am paying for two things I haven't refactored or automated: my map scripts are all separate (despite being nearly the same code), and I have to manually make the screenshot previews for each interactive map.
 
-TODO: do this.
+- [x] fix rogue `<img>` tags throughout the site (add `loading="lazy"` and `decoding="async"`)
+    - also, consolidated some into house styles 😎
+- [x] move included maps into folder
+- [ ] `defer` all recent maps scripts (fix in source repo first)
+    - [x] uk-vs-gb (sneaky one)
+    - [ ] scotland roadtrip
+    - [ ] london
+    - [ ] serbia
+    - [ ] bosnia
+    - [ ] bosnia-extra
+- [ ] add all missing placeholder images
+    - [ ] bosnia
+    - [ ] bosnia-extra
+    - [ ] serbia

@@ -14,7 +14,7 @@ attributions: The two animated maps showing England use map tiles by [Stamen Des
 "/assets/posts/2022-london/hipster-cafe.moz80.jpg"
  -->
 
-{% include "london-maps.njk" %}
+{% include "maps/london-maps.njk" %}
 
 {% cityMap "/assets/posts/2022-london/london-england-1-perimeter.moz80.jpg", false, false %}
 
