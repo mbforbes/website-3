@@ -241,8 +241,7 @@ Inspired by this, I made a little animated map highlighting which modern day cou
 <div class="full-width flex justify-center fig mb0 pv4 pv5-l fade-bg">
     <div class="ph3 w-100">
         <div id="mapNeighbors" class="leafletMapWide bg-white mapWide center">
-            <!-- TODO: placeholder -->
-            <!-- <img src="img/scotland-map-context-screenshot.png"> -->
+            <img src="/assets/posts/2022-israel/israel-map-mediterranean.png" loading="lazy">
         </div>
     </div>
 </div>

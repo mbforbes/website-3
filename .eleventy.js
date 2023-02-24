@@ -8,6 +8,7 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
+const markdownItLazyLoading = require('markdown-it-image-lazy-loading');
 const markdownItReplacements = require('markdown-it-replacements');
 
 module.exports = function (eleventyConfig) {
@@ -260,7 +261,7 @@ module.exports = function (eleventyConfig) {
             if (img.bgImgPath) {
                 bgImgPath = eleventyConfig.getFilter("url")(img.bgImgPath);
             }
-            return [bgImgPath, `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" style="max-height: 100vh; ${img.videoStyle}"></iframe>`]
+            return [bgImgPath, `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" loading="lazy" style="max-height: 100vh; ${img.videoStyle}"></iframe>`]
         }
 
         // image
@@ -276,14 +277,14 @@ module.exports = function (eleventyConfig) {
 
         // let pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
         let pathDisplay = "";
-        return [path, `<img class="db bare novmargin" src="${path}" style="max-height: min(100vh, ${maxHeight});">${pathDisplay}`];
+        return [path, `<img class="db bare novmargin" src="${path}" style="max-height: min(100vh, ${maxHeight});" loading="lazy" decoding="async" />${pathDisplay}`];
     }
 
     function oneBigImage(imgSpec, marginClasses, blurStretchSingles, fullWidth, ph = true) {
         let [bgImgPath, imgHTML] = imgSpecToHTML(imgSpec);
         let bgDiv = "";
         if (blurStretchSingles && bgImgPath != "") {
-            bgDiv = `<div class="bgImageReady svgBlur" style="background-image: url(${bgImgPath})"></div>`;
+            bgDiv = `<div class="bgImageReady svgBlur" style="background-image: none;" data-background-image="url(${bgImgPath})"></div>`;
         }
         let fwClass = fullWidth ? "full-width" : "";
         // If it's not full-width, then we want them to be aligned with the text margins,
@@ -420,7 +421,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addNunjucksShortcode("cityMap", (path, attribution = true, mt = true, mb = true) => {
         let figClasses = mt && mb ? "fig" : (mt && !mb ? "figtop" : (mb && !mt ? "figbot" : ""));
         let base = `<div style="background-color: #FCEEE1" class="full-width ${figClasses}">
-<img class="content-width novmargin" src="${eleventyConfig.getFilter("url")(path)}">
+<img class="content-width novmargin" src="${eleventyConfig.getFilter("url")(path)}" loading="lazy" decoding="async" />
 </div>`
         let attr = `<p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
@@ -544,6 +545,9 @@ ${third}`;
     })
         .use(markdownItReplacements)
         .use(markdownItFootnote)
+        .use(markdownItLazyLoading, {
+            decoding: true,
+        })
         .use(markdownItAnchor, {
             permalink: markdownItAnchor.permalink.linkAfterHeader({
                 class: "dn",

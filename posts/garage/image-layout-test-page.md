@@ -670,3 +670,103 @@ I can see why you'd want to simply design on a fixed-width grid.
 </div>
 <div></div>
 </div>
+
+### Explicit image sizes: basics
+
+An age-old confusion of mine. Learning in the hopes I can use this to get lazy loading to work.
+
+**Takeaway:** CSS instructions take priority over attribute dimensions with both are given.
+
+> NB: Here I'm using "pixels" to mean (a) CSS pixels when referring to the display, (b) true image pixels when referring to the image size.
+
+No dimensions given; displays at original size:
+<img src="/assets/garage/image-test-pages/256x256.png">
+<p class="figcaption">{{ '`<img src="/assets/garage/image-test-pages/256x256.png">`' | md | safe }}</p>
+
+Attribute dimensions match image dimensions; same:
+<img width="256" height="256" src="/assets/garage/image-test-pages/256x256.png">
+<p class="figcaption">{{ '`<img width="256" height="256" src="/assets/garage/image-test-pages/256x256.png">`' | md | safe }}</p>
+
+Attribute dimensions do not match image dimensions; displays attribute dimensions:
+<img width="100" height="100" src="/assets/garage/image-test-pages/256x256.png">
+<p class="figcaption">{{ '`<img width="100" height="100" src="/assets/garage/image-test-pages/256x256.png">`' | md | safe }}</p>
+
+Attribute dimensions do not match image dimensions, and do not match aspect ratio; displays attribute dimensions:
+<img width="150" height="100" src="/assets/garage/image-test-pages/256x256.png">
+<p class="figcaption">{{ '`<img width="150" height="100" src="/assets/garage/image-test-pages/256x256.png">`' | md | safe }}</p>
+
+Attribute dimensions do not match image dimensions, but CSS style does; displays CSS style dimensions:
+
+<img style="width: 256px; height: 256px;" width="100" height="100" src="/assets/garage/image-test-pages/256x256.png">
+<p class="figcaption">{{ '`<img style="width: 256px; height: 256px;" width="100" height="100" src="/assets/garage/image-test-pages/256x256.png">`' | md | safe }}</p>
+
+Attribute dimensions match neither image dimensions nor aspect ratio, but CSS style matches original (both dimensions and aspect ratio); displays CSS style dimensions:
+
+<img style="width: 256px; height: 256px;" width="150" height="100" src="/assets/garage/image-test-pages/256x256.png">
+<p class="figcaption">{{ '`<img style="width: 256px; height: 256px;" width="150" height="100" src="/assets/garage/image-test-pages/256x256.png">`' | md | safe }}</p>
+
+Both attribute dimensions and CSS styles are different than original; displays CSS style dimensions:
+
+<img style="width: 400px; height: 400px;" width="100" height="100" src="/assets/garage/image-test-pages/256x256.png">
+<p class="figcaption">{{ '`<img style="width: 400px; height: 400px;" width="100" height="100" src="/assets/garage/image-test-pages/256x256.png">`' | md | safe }}</p>
+
+CSS styles are different than original, but attribute dimensions match original; displays CSS style dimensions:
+
+<img style="width: 400px; height: 400px;" width="256" height="256" src="/assets/garage/image-test-pages/256x256.png">
+<p class="figcaption">{{ '`<img style="width: 400px; height: 400px;" width="256" height="256" src="/assets/garage/image-test-pages/256x256.png">`' | md | safe }}</p>
+
+CSS style specifies non-pixel width (`100%`) and no height, while attribute dimensions match original; displays CSS width, but attribute height:
+
+<img style="width: 100%;" width="256" height="256" src="/assets/garage/image-test-pages/256x256.png">
+<p class="figcaption">{{ '`<img style="width: 100%;" width="256" height="256" src="/assets/garage/image-test-pages/256x256.png">`' | md | safe }}</p>
+
+CSS style specifies non-pixel width (`100%`) `auto` height, while attribute dimensions match original; displays CSS width, and height to match correct aspect ratio:
+
+<img style="width: 100%; height: auto" width="256" height="256" src="/assets/garage/image-test-pages/256x256.png">
+<p class="figcaption">{{ '`<img style="width: 100%; height: auto" width="256" height="256" src="/assets/garage/image-test-pages/256x256.png">`' | md | safe }}</p>
+
+### Explicit image sizes: into house styles
+
+Now, to go more flexible. This uses the house style, which breaks out of the normal margins using the following container.
+
+```html
+<div class="full-width flex justify-center ph1-m ph3-l fig">
+  <!-- image goes here -->
+</div>
+```
+
+Here's a normal house-style image, whose dimensions are 2,718 x 2,718.
+
+<div class="full-width flex justify-center ph1-m ph3-l fig">
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px);">
+</div>
+
+<p class="figcaption">{{ '`<img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px);">`' | md | safe  }}</p>
+
+But if we add the size attributes with the true image size, it goes too wide or too narrow, always taking up `100%` width!
+
+<div class="full-width flex justify-center ph1-m ph3-l fig">
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px);" width="2718" height="2718">
+</div>
+
+<p class="figcaption">{{ '`<img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px);" width="2718" height="2718">`' | md | safe  }}</p>
+
+Can we fix it? If we add `width: auto` to the CSS, it fixes the case of it going too wide, but it will still go too narrow. In other words, when the image is width-limited, it won't then shrink the height.
+
+<div class="full-width flex justify-center ph1-m ph3-l fig">
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px); width: auto;" width="2718" height="2718">
+</div>
+
+<p class="figcaption">{{ '`<img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px); width: auto;" width="2718" height="2718">
+`' | md | safe  }}</p>
+
+WIP:
+- `aspect-ratio` alone (w/o width spec) doesn't fix anything vs original
+- `width: auto` and `aspect-ratio` doesn't improve over `width: auto`
+- `object-fit: contain` almost works, ugh so close. it adds vertical whitespace above and below the image when it's small (e.g., try 1/3 screen size). i guess it's maintaining some kind of "box" that's full size while resizing the image in it.
+  - also can't get rid of `100vh` in the `max-height` though, even though `object-fit: contain` should height limit as well (?)
+- `width: auto; height: auto` works! but... is this really going to allow lazy loading now?
+
+<div class="full-width flex justify-center ph1-m ph3-l fig">
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px); width: auto; height: auto;" width="2718" height="2718">
+</div>
