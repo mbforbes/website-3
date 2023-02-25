@@ -197,7 +197,7 @@ async function main() {
     ];
 
     // mapTrip: the traveling route
-    console.log("Using travel map with zoom:", closeMapZoom);
+    // console.log("Using travel map with zoom:", closeMapZoom);
     let mapTrip = await renderMap("mapTravel", centroid, closeMapZoom);
     await renderOverlay(mapTrip, 'Scotland', "mapOutlineTravel", "#357EDD");
     await addLocations(mapTrip, photos, "mapMarker");
@@ -295,6 +295,4 @@ async function main() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    main();
-});
+main();

@@ -9,17 +9,17 @@
 }
 </style>
 
-<script type="text/javascript" src="/assets/lib/leaflet-1.9.3.min.js"></script>
-<script type="text/javascript" src="/assets/lib/tile.stamen-1.3.0.js"></script>
-<script type="text/javascript" src="/assets/lib/anime-3.2.1.min.js"></script>
-<script type="text/javascript" src="/assets/lib/leaflet.curve-0.9.1.min.js"></script>
+<script type="text/javascript" src="/assets/lib/leaflet-1.9.3.min.js" defer></script>
+<script type="text/javascript" src="/assets/lib/tile.stamen-1.3.0.js" defer></script>
+<script type="text/javascript" src="/assets/lib/leaflet.curve-0.9.1.min.js" defer></script>
+<script type="text/javascript" src="/assets/lib/anime-3.2.1.min.js" defer></script>
 <script>
     // Vars here change during deploy env (personal website).
     let libDir = "{{ "/assets/mapData/" | url }}";
     let postDir = "{{ "/assets/posts/2022-london/" | url }}";
     let activeList = ["London"];
 </script>
-<script src="/assets/posts/2022-london/london.js"></script>
+<script src="/assets/posts/2022-london/london.js" defer></script>
 
 <!-- Need relative positioning for overlay positioning -->
 <div class="full-width flex flex-wrap flex-nowrap-ns justify-center figtop mb0 pt5 pb2"
@@ -28,7 +28,7 @@
     <div class="ph3 pb4 pb3-l w-100 w-auto-ns mw-50-ns">
         <div class="relative">
             <div id="mapContext" class="leafletMap mapSmall center" >
-                <img src="/assets/posts/2022-london/england-map-context-screenshot.png">
+                <img src="/assets/posts/2022-london/england-map-context-screenshot.png" />
             </div>
             <div id="mapLabelOverlay"
                 class="ph2 ph3-l pv1 bg-white o-90 sans-serif mid-gray shadow-4 br2 dib absolute flex items-center lh-title">
@@ -40,7 +40,7 @@
     <!-- Right -->
     <div class="ph3 w-100 w-auto-ns mw-50-ns">
         <div id="mapTravel" class="leafletMap mapSmall center">
-            <img src="/assets/posts/2022-london/england-map-travel-london-screenshot.png">
+            <img src="/assets/posts/2022-london/england-map-travel-london-screenshot.png" />
         </div>
     </div>
 </div>

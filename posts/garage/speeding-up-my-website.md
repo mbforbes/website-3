@@ -1,15 +1,34 @@
 ---
-title: Speeding up DOMContentLoaded
+title: Speeding up my website
 date: 2023-02-23
 ---
 
-## context: big webpages
+Summary: 100MB &rarr; 5MB initial load, drastically improved interactive times (roughly ~10s &rarr; ~1s).
+
+## Longer summary: repenting for my big webpages
 
 I've become what I despise. I am now someone who makes 100MB+ webpages.
 
-My travel blog posts, despite living on my meticulously hand-coded website, are weighing in at ~115MB. Too many photos. And worse, now that I switched to Cloudflare (to get around GitHub Pages' 1GB website size limit), it's slow to load. Pages hang.
+My travel blog posts, despite living on my meticulously hand-coded website, are weighing in at ~115MB. Too many photos. And worse, now that I switched to Cloudflare Pages (to get around GitHub Pages' 1GB website size limit),[^wifi] it's slow to load. Pages hang.
 
-I want to improve that.
+[^wifi]: It might also be that I am somewhere with crappy wifi. Can't fully blame Cloudflare. But things also seemed slower before I came to crappy wifi-land, so I think it's also Cloudflare too.
+
+I wanted to improve this. And, In a rare success story for me and web development, I did.
+- Page weight at first load dropped from ~100MB to ~5MB
+- The page interactivity is way faster (roughly ~10s &rarr; ~1s on moderate connections)
+
+After a lot of flailing about, I got this by:
+1. Making all scripts `defer` so they run after the page is interactive
+2. Adding small JPEG previews to JavaScript interactive maps at the top of the page
+3. Lazy loading all other images with `loading="lazy"`
+4. Lazy loading my embedded video (Vimeo; `<iframe>`) with `loading="lazy"`
+4. Manually lazy loading images used as CSS backgrounds (there were a lot of them) with some JavaScript
+
+My takeaways from trying to measure these things were:
+- Measuring page weight is easy and extremely helpful (via the _Network_ tab in a browser's Dev Tools)
+- Measuring load speed is difficult. I used two numbers, TTI (time to interactive) and `DOMContentLoaded`. The first is more useful but more difficult to measure. Both end up having extremely high variance, and I ended up ignoring both and optimizing for obvious things.
+
+The journey follows. (All messy / unedited since this is a garage post.)
 
 ## `DOMContentLoaded`: `async`, no actually `defer`
 
@@ -25,9 +44,9 @@ Measuring my site speed on a local server using throttling in Chrome dev tools t
 
     - But now the page is broken because they have dependencies! E.g., one script has to depend on others to load first.
 
-    - Can switch these to `defer`. This is very tempting. Then, the scripts run after the document is parsed, but before `DOMContentLoaded` is fired. This means that the page becomes interactive early---much before 5.41s---but the `DOMContentLoaded` time goes back up to 5.41s. This would mostly solve the problem, but it would make measuring speed more difficult, as then there would be no obvious number for when the page is ready. Furthermore, it seems that there are potentially problems w/ [Firefox not executing fully in-order](https://stackoverflow.com/questions/32413279/defer-scripts-and-execution-order-on-browsers), though this may be fixed, since [MDN says they will be](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-defer).
+    - Can switch these to `defer`. This is very tempting. Then, the scripts run after the document is parsed, but before `DOMContentLoaded` is fired. This means that the page becomes interactive early---much before 5.41s---but the `DOMContentLoaded` time goes back up to 5.41s. This would mostly solve the problem, but it would make measuring speed more difficult, as then there would be no obvious number for when the page is ready. Furthermore, it seems that there are potentially problems w/ [Firefox not executing fully in-order](https://stackoverflow.com/questions/32413279/defer-scripts-and-execution-order-on-browsers), though this may be fixed, since [MDN says they will be executed fully in-order](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-defer).
 
-    - Tried `async` issues for now to see whether this is viable:
+    - Tried resolving `async` issues for now to see whether this is viable:
 
         - Bundled two libs together (leaflet and leaflet-curve)
 
@@ -79,7 +98,18 @@ async function waitForLoaded() {
 waitForLoaded();
 ```
 
-I'll see orders like:
+What I want to see is something like:
+
+```txt
+This before/after DOM.
+This before/after leaflet
+(leaflet resolving)
+This before/after anime
+(anime resolving)
+Done
+```
+
+But instead, I'll see partially complete (never `Done`) orders like:
 
 ```txt
 This after DOM.
@@ -109,7 +139,7 @@ Annoyingly, this (TTI) seems to be kind of a heuristic metric made up by Chrome,
 
 I can kind of simulate this w/ my website in the wild because it's extremely slow to load here. (I don't know whether the slowness is Cloudflare in general, or because I'm in Taiwan.) I was worried that Cloudflare will start caching stuff and make successive runs artificially faster, but given the extreme variance in measurements I'm about to describe, this doesn't seem to be an issue.
 
-Lighthouse says a page **without** `defer` had 20s TTI. Then, a different page **with** `defer` took 3s, 44s, and 15s on successive runs. The same page.
+Lighthouse says a page **without** `defer` had **20s** TTI. Then, a different page **with** `defer` took **3s, 44s, and 15s** on successive runs. The same page.
 
 This is so wildly all over the place it's hard to get any kind of information from it. Fortunately, I can tell from my own browsing experience and other general things reported by Lighthouse that there are some low hanging fruit I should fix.
 
@@ -145,7 +175,7 @@ First, I want to understand something I've never understood: when you provide ex
 
 Time to head to the old [Image layout test page](/garage/image-layout-test-page/).
 
-I wrapped that up, and learned you can use CSS to override the sizes you provide. But I'm not sure they really help in that case.
+I wrapped that up, and learned you can use CSS to override the sizes you provide. But I think the answer was more (b) than (a), and since my CSS layouts are so complicated, I don't think providing explicit attribute sizes helps at all.
 
 Regardless, I did a whole exploration of lazy loading in the [Image lazy load test page](/garage/image-lazy-load-test-page), and with incredible success. We got the weight of the page from **99MB** down to **5MB**
 
@@ -158,14 +188,14 @@ I am paying for two things I haven't refactored or automated: my map scripts are
 - [x] fix rogue `<img>` tags throughout the site (add `loading="lazy"` and `decoding="async"`)
     - also, consolidated some into house styles 😎
 - [x] move included maps into folder
-- [ ] `defer` all recent maps scripts (fix in source repo first)
+- [x] `defer` all recent maps scripts (fix in source repo first)
     - [x] uk-vs-gb (sneaky one)
-    - [ ] scotland roadtrip
-    - [ ] london
-    - [ ] serbia
-    - [ ] bosnia
-    - [ ] bosnia-extra
-- [ ] add all missing placeholder images
-    - [ ] bosnia
-    - [ ] bosnia-extra
-    - [ ] serbia
+    - [x] scotland roadtrip
+    - [x] london
+    - [x] serbia
+    - [x] bosnia
+    - [x] bosnia-extra
+- [x] add all missing placeholder images
+    - [x] serbia
+    - [x] bosnia
+    - [x] bosnia-extra

@@ -130,7 +130,7 @@ async function addLines2(map, coords, className) {
 
         // latlngs.push(latlng1, midpointLatLng, latlng2);
 
-        console.log("Adding line");
+        // console.log("Adding line");
         let curvedPath = L.curve(
             [
                 'M', latlng1,
@@ -301,6 +301,4 @@ async function main2() {
     }).observe(document.getElementById("mapNeighbors"));
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    main2();
-});
+main2();

@@ -127,7 +127,7 @@ async function addLines(map, coords, className) {
 
         // latlngs.push(latlng1, midpointLatLng, latlng2);
 
-        console.log("Adding line");
+        // console.log("Adding line");
         let curvedPath = L.curve(
             [
                 'M', latlng1,
@@ -243,11 +243,9 @@ async function main() {
         mapTrip.fitBounds(tripBounds);
     }).observe(document.getElementById("mapTravel"));
     new ResizeObserver((_, __) => {
-        console.log("ResizeObserver: context");
+        // console.log("ResizeObserver: context");
         mapContext.fitBounds(contextBounds);
     }).observe(document.getElementById("mapContext"));
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    main();
-});
+main();

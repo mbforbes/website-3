@@ -377,6 +377,10 @@ Tachyons:
     Probably want to downgrade sizes for diff screen types.
 */
 
+h1 {
+    overflow-wrap: break-word;
+}
+
 /* Enable to reduce  space before first section header, combined with
   changing next rule to select `h2:not(:first-of-type)` rather than `h2`
 */

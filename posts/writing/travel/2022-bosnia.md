@@ -44,8 +44,7 @@ I'm going to give you the briefest of summaries here. What I'm writing is an ama
 <div class="full-width flex justify-center fig mb0 pv5 fade-bg">
     <div class="ph3 pb4 pb3-l w-100 w-auto-ns mw-50-ns">
         <div id="mapNeighbors" class="leafletMap bg-white mapBig center">
-            <!-- TODO: placeholder -->
-            <!-- <img src="img/scotland-map-context-screenshot.png"> -->
+            <img src="/assets/posts/2022-bosnia/bosnia-map-neighbors.png" loading="lazy" decoding="async" />
         </div>
     </div>
 </div>
@@ -465,8 +464,7 @@ This immediate juxtaposition of war remnants and modern tourism would be a theme
 <div class="full-width flex justify-center fig mb0 pv5 fade-bg">
     <div class="ph3 w-100 w-auto-ns mw-50-ns">
         <div id="mapHerzegovina" class="leafletMap bg-white mapBig center">
-            <!-- TODO: placeholder -->
-            <!-- <img src="img/scotland-map-travel-aberdeen-screenshot.png"> -->
+            <img src="/assets/posts/2022-bosnia/bosnia-map-herzegovina.png" loading="lazy" decoding="async" />
         </div>
     </div>
 </div>
@@ -600,4 +598,4 @@ After a night back in Sarajevo, the driver who dropped us off at the airport sai
 We did have one hell of a commute after this.
 
 <!-- Stuff for addl. maps -->
-<script src="/assets/posts/2022-bosnia/bosnia-extra.js"></script>
+<script src="/assets/posts/2022-bosnia/bosnia-extra.js" defer></script>
