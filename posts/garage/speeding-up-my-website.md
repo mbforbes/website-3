@@ -199,3 +199,11 @@ I am paying for two things I haven't refactored or automated: my map scripts are
     - [x] serbia
     - [x] bosnia
     - [x] bosnia-extra
+
+## Epilogue
+
+I probably wouldn't have built all this stuff if I hadn't experienced the slowness myself because of my crappy Internet connection. As a software engineer, there's really something to being forced to use stuff you build with an old device and slow data.
+
+In the back of my mind, I'm still considering using source sets for my images. Lighthouse complains constantly that my images are too big. It wants me to serve potato images. But so far, the effort of producing several sizes and formats of images hasn't been worth it. For it to be worth the effort, I'd have to be _really_ interested in optimizing for:
+- small devices and crappy Internet, or
+- large devices, crappy Internet, and interested in viewing low res photos
