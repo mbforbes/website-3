@@ -3,32 +3,29 @@
 
 {% block setupScript %}
 <script>
-    // Vars here change during deploy env (personal website).
-    const POST_DIR = "{{ "/assets/posts/2022-serbia/" | url }}";
-    const MAP_DATA_DIR =  "{{ "/assets/mapData/" | url }}";
-
-    // Vars here for context and travel maps.
-    const MAP_COUNTRY_NAME = "Serbia";
-    const MAP_THEME_COLOR = "#FF4136";
-    const MAP_CONTEXT_PADDING = 2.25;
-    const MAP_TRIP_PADDING = 0.05;
-    const MAP_TRIP_PLACES = [
-        [44.8167, 20.4667, "Belgrade", "right", "in"],
-        [45.2644, 19.8317, "Novi Sad", "right", "in"],
-    ];
-
-    // Optional
-    const MAP_ACTIVE_LIST = [""];
-    const MAP_COUNTRY_EXTRA_NAME = null;
-    const MAP_COUNTRY_EXTRA_COLOR = null;
-
-    // Neighbors map (also optional)
-    const MAP_NEIGHBORS_LIST = null;
-    const MAP_NEIGHBORS_BOUNDS = null;
-    const MAP_NEIGHBORS_END_TIMELINE_OFFSET = null;
+    const MAP_CONFIG = {
+        core: {
+            mapDataDir: "{{ "/assets/mapData/" | url }}",
+        },
+        // Settings common to context and travel maps
+        subjectCountries: [
+            { name: "Serbia", "color": "#FF4136" },
+        ],
+        context: {
+            padding: 2.25,
+        },
+        trip: {
+            padding: 0.05,
+            places: [
+                [44.8167, 20.4667, "Belgrade", "right", "in"],
+                [45.2644, 19.8317, "Novi Sad", "right", "in"],
+            ],
+            placeColor: "#FF4136",
+        },
+    };
 </script>
 {% endblock %}
 
 {% block contextPreview %}<img src="/assets/posts/2022-serbia/serbia-map-context.png" />{% endblock %}
 {% block contextOverlay %}{{ overlays.overlay("🇷🇸", "Serbia") }}{% endblock %}
-{% block travelPreview %}<img src="/assets/posts/2022-serbia/serbia-map-travel.png" />{% endblock %}
+{% block tripPreview %}<img src="/assets/posts/2022-serbia/serbia-map-travel.png" />{% endblock %}

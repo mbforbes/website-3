@@ -1,7 +1,7 @@
-{% macro insertMap(mapClasses, previewIMG) %}
+{% macro insertMap(mapID, mapClasses, previewIMG) %}
 <div class="full-width flex justify-center fig mb0 pv4 pv5-l fade-bg">
     <div class="ph3 w-100">
-        <div id="mapNeighbors" class="bg-white center {{ mapClasses }}">
+        <div id="{{ mapID }}" class="bg-white center {{ mapClasses }}">
             <img src="{{ previewIMG }}" loading="lazy" decoding="async" />
         </div>
     </div>

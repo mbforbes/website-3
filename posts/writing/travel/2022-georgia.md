@@ -205,7 +205,7 @@ I was most engrossed by the license plates. See, the road up to Kazbegi is so na
 [^hours]: If conditions are bad, the trucks can get stopped for more than hours. One driver told us he had a cousin who was stuck for two weeks. He was worried about him, and drove up the country to bring him supplies. When he got there, he found his cousin hanging with a bunch of other truck drivers, who invited them to come drink and eat with them. It turns out they were so well prepared for a long delay that they were having a blast hanging out, grilling meat and drinking beers. (I mean, now that I write that, maybe they weren't having a _blast_ being stuck for weeks, but you get the idea.)
 
 {% import "maps/map-neighbors.njk" as mapNeighbors %}
-{{ mapNeighbors.insertMap("leafletMap mapBig", "/assets/posts/2022-georgia/georgia-map-neighbors.png") }}
+{{ mapNeighbors.insertMap("mapNeighbors", "leafletMap mapBig", "/assets/posts/2022-georgia/georgia-map-neighbors.png") }}
 
 Georgia is a main transport route into Russia. I saw license plates from all the countries on that map, plus Bulgaria. For some reason, seeing Iranian and Russian license plates was especially cool for me. The USA having such poor relations with those countries gives them kind of a mythical, forbidden status in my mind.[^istanbul]
 
@@ -273,6 +273,8 @@ But once I could manage a few consecutive hours away from the bathroom, we were 
 <p class="figcaption">Monastery not pictured. You can see it on a hilltop in the first photo of the Rooms Hotel. Right after the text where I wrote "killer brunch buffet included." God I sound like a tool.</p>
 
 While we were there, Putin's announced his draft. Immediately, hundreds of thousands of men fled Russia. Where did they go? Well, since the EU is closed off to Russians, there are a few main exit points: Georgia, Kazakhstan, and Mongola. And in Kazbegi we were just under 7 miles from the Russian border with Georgia.
+
+{{ mapNeighbors.insertMap("mapRussiaExits", "leafletMapWide mapWide", "/assets/posts/2022-georgia/georgia-map-russia-exits.png") }}
 
 So, we saw them coming in. Cars, by the dozens. We'd pass a parking lot full of Russian plates. The hotel filled up, and clumps of Russians were hanging out in town by the convenience store and the main highway exit. When we'd go back to Tbilisi in a few days, the bars we went to were filled with Russians. Even the hikes got more crowded than normal with young men who seemed a bit out of place.
 

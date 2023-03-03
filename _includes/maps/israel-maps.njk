@@ -3,59 +3,65 @@
 
 {% block setupScript %}
 <script type="text/javascript">
-    // Vars here change during deploy env (personal website).
-    const POST_DIR = "{{ "/assets/posts/2022-israel/" | url }}";
-    const MAP_DATA_DIR =  "{{ "/assets/mapData/" | url }}";
-
-    // Vars here for context and travel maps.
-    const MAP_COUNTRY_NAME = "Israel";
-    const MAP_THEME_COLOR = "#357EDD";
-    const MAP_CONTEXT_PADDING = 2.50;
-    const MAP_TRIP_PADDING = 0.00;
-    const MAP_TRIP_PLACES = [
-        [31.7833, 35.2167, "Jerusalem", "right", "in"],
-        [32.0800, 34.7800, "Tel Aviv", "left", "in"],
-        [32.8000, 34.9833, "Haifa", "right", "in"],
-    ];
-
-    // Optional
-    const MAP_ACTIVE_LIST = [""];
-    const MAP_COUNTRY_EXTRA_NAME = "Palestine";
-    const MAP_COUNTRY_EXTRA_COLOR = "#19A974";
-
-    // Neighbors map (also optional)
-    const MAP_NEIGHBORS_LIST = [
-        ["Spain", [40.450525, -1.849750], "left"],
-        ["France", [45.470435, 2.950101], "bottom"],
-        ["Italy", "auto", "left"],
-        ["Malta", "auto", "bottom"],
-        ["Slovenia", "auto", "top"],
-        ["Croatia", [44.900480, 13.931407], "left"],
-        ["Bosnia and Herzegovina", [44.758474, 17.867489], "right"],
-        ["Montenegro", [42.864174, 19.212634], "left"],
-        ["Albania", "auto", "right"],
-        ["Greece", "auto", "bottom"],
-        ["Turkey", "auto", "left"],
-        ["Cyprus", "auto", "left"],
-        ["Northern Cyprus", "auto", "top"],
-        ["Syria", "auto", "top"],
-        ["Lebanon", "auto", "right"],
-        ["Israel", "auto", "left"],
-        ["Palestine", "auto", "right"],
-        ["Egypt", "auto", "top"],
-        ["Libya", "auto", "top"],
-        ["Tunisia", "auto", "left"],
-        ["Algeria", "auto", "top"],
-        ["Morocco", [31.851849, -6.272384], "left"],
-    ];
-    const MAP_NEIGHBORS_BOUNDS = [
-        [32.173904, -11.762316],
-        [42.677251, 40.897252],
-    ];
-    const MAP_NEIGHBORS_END_TIMELINE_OFFSET = '-=4200';
+    const MAP_CONFIG = {
+        core: {
+            mapDataDir: "{{ "/assets/mapData/" | url }}",
+        },
+        // Settings common to context and travel maps
+        subjectCountries: [
+            { name: "Israel", "color": "#357EDD" },
+            { name: "Palestine", "color": "#19A974" },
+        ],
+        context: {
+            padding: 2.50,
+        },
+        trip: {
+            padding: 0.00,
+            places: [
+                [31.7833, 35.2167, "Jerusalem", "right", "in"],
+                [32.0800, 34.7800, "Tel Aviv", "left", "in"],
+                [32.8000, 34.9833, "Haifa", "right", "in"],
+            ],
+            placeColor: "#357EDD",
+        },
+        neighborsMaps: [
+            {
+                elID: "mapNeighbors",  // default
+                countries: [
+                    ["Spain", [40.450525, -1.849750], "left"],
+                    ["France", [45.470435, 2.950101], "bottom"],
+                    ["Italy", "auto", "left"],
+                    ["Malta", "auto", "bottom"],
+                    ["Slovenia", "auto", "top"],
+                    ["Croatia", [44.900480, 13.931407], "left"],
+                    ["Bosnia and Herzegovina", [44.758474, 17.867489], "right"],
+                    ["Montenegro", [42.864174, 19.212634], "left"],
+                    ["Albania", "auto", "right"],
+                    ["Greece", "auto", "bottom"],
+                    ["Turkey", "auto", "left"],
+                    ["Cyprus", "auto", "left"],
+                    ["Northern Cyprus", "auto", "top"],
+                    ["Syria", "auto", "top"],
+                    ["Lebanon", "auto", "right"],
+                    ["Israel", "auto", "left"],
+                    ["Palestine", "auto", "right"],
+                    ["Egypt", "auto", "top"],
+                    ["Libya", "auto", "top"],
+                    ["Tunisia", "auto", "left"],
+                    ["Algeria", "auto", "top"],
+                    ["Morocco", [31.851849, -6.272384], "left"],
+                ],
+                bounds: [
+                    [32.173904, -11.762316],
+                    [42.677251, 40.897252],
+                ],
+                endTimelineOffset: '-=4200',
+            },
+        ],
+    };
 </script>
 {% endblock %}
 
 {% block contextPreview %}<img src="/assets/posts/2022-israel/israel-map-context.png" />{% endblock %}
 {% block contextOverlay %}{{ overlays.doubleOverlay("🇮🇱", "Israel", "🇵🇸", "Palestine") }}{% endblock %}
-{% block travelPreview %}<img src="/assets/posts/2022-israel/israel-map-travel.png" />{% endblock %}
+{% block tripPreview %}<img src="/assets/posts/2022-israel/israel-map-travel.png" />{% endblock %}

@@ -1,52 +1,79 @@
 /**
  * Core map functions, also builds context and trip maps.
  *
- * External vars expected (w/ example vals):
+ * Config expected (w/ example vals):
  *
- * Deploy config:
- * -------------
- * const POST_DIR = "/lib/";     // currently unused; for photo location data
- * const MAP_DATA_DIR = "/lib/"; // for country geojsons
- *
- * Core customization:
- * -------------------
- * const MAP_COUNTRY_NAME = "Georgia";
- * const MAP_THEME_COLOR = "#FF4136";
- * const MAP_CONTEXT_PADDING = 4.00;
- * const MAP_TRIP_PADDING = 0.05;
- * const MAP_TRIP_PLACES = [
- *     [41.714963, 44.828851, "Tbilisi", "right", "in"],
- *     [42.658347, 44.640784, "Kazbegi", "right", "in"],
- * ];
- *
- * Optional:
- * ---------
- * const MAP_ACTIVE_LIST = [""]; // for highlighting place on route (often unused)
- * const MAP_COUNTRY_EXTRA_NAME = null; // for an additional country
- * const MAP_COUNTRY_EXTRA_COLOR = null; // for an additional country color
- *
- * Neighbors (also optional):
- * const MAP_NEIGHBORS_LIST = [
- *     ["Russia", [44.190508, 44.189828], "top"],
- *     ["Georgia", [41.783452, 44.092452], "top"],
- *     ["Armenia", "auto", "top"],
- *     ["Iran", [37.565770, 46.501972], "top"],
- *     ["Turkey", [39.500450, 41.625810], "top"],
- *     ["Azerbaijan", "auto", "top"],
- * ];
- * const MAP_NEIGHBORS_BOUNDS = [
- *     [44.032123, 38.837827],
- *     [37.859427, 50.012896],
- * ];
- * const MAP_NEIGHBORS_END_TIMELINE_OFFSET = '-=2200';
+ * const MAP_CONFIG = {
+ *       core: {
+ *           mapDataDir: "/lib/",
+ *       },
+ *       // Settings common to context and travel maps
+ *       subjectCountries: [
+ *           { name: "Georgia", "color": "#FF4136" },
+ *       ],
+ *       context: {
+ *           padding: 4.00,
+ *       },
+ *       trip: {
+ *           padding: 0.05,
+ *           places: [
+ *               [41.714963, 44.828851, "Tbilisi", "right", "in"],
+ *               [42.658347, 44.640784, "Kazbegi", "right", "in"],
+ *           ],
+ *           placeColor: "#FF4136",
+ *           active: [],  // unused
+ *           locationsPath: null, // unused
+ *       },
+ *       neighborsMaps: [
+ *           {
+ *               elID: "mapNeighbors",  // default
+ *               countries: [
+ *                   ["Russia", [44.190508, 44.189828], "top"],
+ *                   ["Georgia", [41.783452, 44.092452], "top"],
+ *                   ["Armenia", "auto", "top"],
+ *                   ["Iran", [37.565770, 46.501972], "top"],
+ *                   ["Turkey", [39.500450, 41.625810], "top"],
+ *                   ["Azerbaijan", "auto", "top"],
+ *               ],
+ *               bounds: [
+ *                   [44.032123, 38.837827],
+ *                   [37.859427, 50.012896],
+ *               ],
+ *               endTimelineOffset: '-=2200',
+ *           },
+ *           {
+ *               elID: "mapRussiaExits",  // default
+ *               countries: [
+ *                   ["Russia", [58.643898, 65.084873], "top"],
+ *                   ["Kazakhstan", "auto", "top"],
+ *                   ["Georgia", "auto", "bottom"],
+ *                   ["Mongolia", "auto", "top"],
+ *               ],
+ *               places: [
+ *                   [55.756006, 37.620606, "Moscow", "right", "in"],
+ *               ],
+ *               placeColor: "#000",
+ *               bounds: [
+ *                   [56.364228, 27.309065],
+ *                   [43.638917, 121.946686],
+ *               ],
+ *               endTimelineOffset: '-=2200',
+ *           },
+ *       ]
+ *   };
  */
 
 // Addl. globals
 let allBoundaryData = {};
 
-async function renderMap(elId) {
+async function renderMap(elID) {
+    let mapEL = document.getElementById(elID);
+    if (mapEL == null) {
+        throw new Error("Couldn't find element with ID " + elID);
+    }
+
     // remove any placeholder img
-    for (let child of document.getElementById(elId).children) {
+    for (let child of mapEL.children) {
         // my stupid stylesheet overrules tachyon's display none (dn) with
         // my ":not(bare)" display definition, so adding bare and dn...
         child.classList.add("bare");
@@ -55,7 +82,7 @@ async function renderMap(elId) {
 
     // replace "toner" here with "terrain" or "watercolor"
     let layer = new L.StamenTileLayer("toner-background", { detectRetina: true });
-    let map = new L.Map(elId, {
+    let map = new L.Map(elID, {
         zoomSnap: 0.25,
         scrollWheelZoom: false,
         attributionControl: false,
@@ -69,7 +96,7 @@ async function renderMap(elId) {
     return map;
 }
 
-async function loadBoundaries(countries) {
+async function loadBoundaries(dataDir, countries) {
     // country geojson attribution: https://datahub.io/core/geo-countries#data
     // Scotland, N-Ireland from: https://github.com/Crunch-io/geodata
     // England, Wales from https://martinjc.github.io/UK-GeoJSON/
@@ -80,7 +107,7 @@ async function loadBoundaries(countries) {
             continue;
         }
         // console.log("Downloading " + countrySlug);
-        let response = await fetch(MAP_DATA_DIR + "country-boundaries/" + countrySlug + ".geojson")
+        let response = await fetch(dataDir + "country-boundaries/" + countrySlug + ".geojson")
         let boundaryData = await response.json()
         // console.log(boundaryData['geometry']);
         allBoundaryData[countrySlug] = boundaryData;
@@ -88,20 +115,30 @@ async function loadBoundaries(countries) {
 }
 
 async function loadLocations(path) {
-    const fullPath = POST_DIR + path;
-    let response = await fetch(fullPath);
+    let response = await fetch(path);
     return await response.json();
 }
 
 /**
  *
- * @param {*} places = [[lat, lon, label, tooltipDirection]]
- * tooltipDirection \in {right, left, top, bottom, center, auto}
+ * @param {L.map}
+ * @param {[number, number, string, string, string]} places
+ *  looks like[[lat, lon, label, tooltipDirection, curveDirection]]
+ *  and tooltipDirection \in {right, left, top, bottom, center, auto}
+ * @param {string} fillColor
+ * @param {boolean} doLines
+ * @param {string[]} activeList
+ * @param {*} extraConfig
  */
-async function addPlaces(map, places, className) {
-    // lines connecting places
-    let coords = places.map((el) => [el[0], el[1], el[4]]);
-    addLines(map, coords, "mapPath");
+async function addPlaces(map, places, fillColor, doLines, activeList, extraConfig = {}) {
+    if (doLines) {
+        let coords = places.map((el) => [el[0], el[1], el[4]]);
+        addLines(map, coords, fillColor, "mapPath");
+    }
+
+    let tooltipSmall = extraConfig.tooltipSmall || false;
+    let tooltipExtraClasses = extraConfig.tooltipExtraClasses || "";
+    let circleRadius = extraConfig.circleRadius || 10000;
 
     // places
     for (let place of places) {
@@ -109,16 +146,16 @@ async function addPlaces(map, places, className) {
         let coord = [place[0], place[1]];
         let name = place[2];
         let direction = place[3];
-        let active = MAP_ACTIVE_LIST.indexOf(name) != -1;
+        let active = activeList.indexOf(name) != -1;
         let circle = L.circle(coord, {
             color: 'white',
             // stroke: false,
             weight: 3,
-            fillColor: MAP_THEME_COLOR,
+            fillColor: fillColor,
             // fillColor: active ? '#FFF' : '#357EDD',
             fillOpacity: active ? 0.9 : 0.5,
-            radius: 10000,
-            className: className,
+            radius: circleRadius,
+            className: "mapPlace",
         }).addTo(map);
 
         // labels
@@ -128,9 +165,10 @@ async function addPlaces(map, places, className) {
         // but I should try to fix in future.
         // let hOffset = 10;
         let vOffset = -7;
+        let tooltipFont = tooltipSmall ? "f7" : "f6 f5-l";
         circle.bindTooltip(name, {
             // className: className + " sans-serif f6 f5-ns" + (active ? " mapPlaceActive" : ""),
-            className: "mapTooltip sans-serif f6 f5-l" + (active ? " mapPlaceActive" : ""),
+            className: `mapTooltip sans-serif ${tooltipFont} ${tooltipExtraClasses}` + (active ? " mapPlaceActive" : ""),
             permanent: true,
             direction: direction,
             offset: L.point(hOffset, vOffset),
@@ -154,7 +192,7 @@ async function addLabel(map, label, location, direction) {
     }).openTooltip();
 }
 
-async function addLines(map, coords, className) {
+async function addLines(map, coords, lineColor, className) {
     // thanks to https://stackoverflow.com/a/53507336
     for (let i = 0; i < coords.length - 1; i++) {
         let latlng1 = [coords[i][0], coords[i][1]];
@@ -191,7 +229,7 @@ async function addLines(map, coords, className) {
                 'Q', midpointLatLng,
                 latlng2
             ], {
-            color: MAP_THEME_COLOR,
+            color: lineColor,
             // color: '#fff',
             weight: 10,
             className: className,
@@ -219,15 +257,39 @@ async function renderOverlay(map, country, className, color, fillOpacity = null)
 }
 
 /**
+ *
+ * @param {L.Map} map L.Map
+ * @param {{name: str, color: str}[]} countryInfos list of countr
+ * @param {string} className
+ * @param {number} pad
+ * @returns {L.LatLngBounds}
+ */
+async function renderOverlays(map, countryInfos, className, pad) {
+    let bounds = null;
+    for (let ci of countryInfos) {
+        let boundary = await renderOverlay(map, ci.name, className, ci.color);
+        if (bounds == null) {
+            bounds = boundary.getBounds();
+        } else {
+            bounds.extend(boundary.getBounds());
+        }
+    }
+    return bounds.pad(pad);
+}
+
+/**
  * Zoomed out map
  */
 async function makeMapContext() {
     let mapContext = await renderMap("mapContext");
-    let contextBoundary = await renderOverlay(mapContext, MAP_COUNTRY_NAME, "mapOutlineContext", MAP_THEME_COLOR);
-    if (MAP_COUNTRY_EXTRA_NAME != null) {
-        await renderOverlay(mapContext, MAP_COUNTRY_EXTRA_NAME, "mapOutlineContext", MAP_COUNTRY_EXTRA_COLOR);
-    }
-    let contextBounds = contextBoundary.getBounds().pad(MAP_CONTEXT_PADDING);  // probably need to adjust per country
+
+    // make bounds that covers all the desired areas.
+    let contextBounds = await renderOverlays(
+        mapContext,
+        MAP_CONFIG.subjectCountries,
+        "mapOutlineContext",
+        MAP_CONFIG.context.padding
+    );
     mapContext.fitBounds(contextBounds);
 
     anime({
@@ -252,18 +314,32 @@ async function makeMapContext() {
 }
 
 /**
- * Traveling route
+ * Trip: the traveling route.
  */
 async function makeMapTrip() {
-    let mapTrip = await renderMap("mapTravel");
-    let tripOverlay = await renderOverlay(mapTrip, MAP_COUNTRY_NAME, "mapOutlineTravel", MAP_THEME_COLOR);
-    if (MAP_COUNTRY_EXTRA_NAME != null) {
-        await renderOverlay(mapTrip, MAP_COUNTRY_EXTRA_NAME, "mapOutlineTravel", MAP_COUNTRY_EXTRA_COLOR);
-    }
-    let tripBounds = tripOverlay.getBounds().pad(MAP_TRIP_PADDING);
+    let elID = "mapTrip";
+    let mapTrip = await renderMap(elID);
+
+    // make bounds that covers all the desired areas.
+    let tripBounds = await renderOverlays(
+        mapTrip,
+        MAP_CONFIG.subjectCountries,
+        "mapOutlineTrip",
+        MAP_CONFIG.trip.padding
+    );
     mapTrip.fitBounds(tripBounds);
+
+    // minor (photo) locations unimplemented
     // await addLocations(mapTrip, photos, "mapMarker");
-    await addPlaces(mapTrip, MAP_TRIP_PLACES, "mapPlace");
+
+    // add trip stops and lines between them
+    await addPlaces(
+        mapTrip,
+        MAP_CONFIG.trip.places,
+        MAP_CONFIG.trip.placeColor,
+        true,  // add lines
+        MAP_CONFIG.trip.active || [],
+    );
 
     let tl = anime.timeline({
         // easing: 'linear',
@@ -272,20 +348,20 @@ async function makeMapTrip() {
         loop: true, // Is not inherited
     });
     tl.add({
-        targets: '#mapTravel .mapOutlineTravel',
+        targets: `#${elID} .mapOutlineTrip`,
         translateX: -3,
         translateY: -7,
         // opacity: 1,
     }, "+=1000");
     tl.add({
-        targets: '#mapTravel .mapPlace',
+        targets: `#${elID} .mapPlace`,
         translateX: -3,
         translateY: -7,
         opacity: 1,
         delay: anime.stagger(100, { start: 0 }),
     }, '-=1500');
     tl.add({
-        targets: '#mapTravel .mapPath',
+        targets: `#${elID} .mapPath`,
         opacity: 0.7,
         easing: 'easeInOutSine',
         duration: 250,
@@ -294,7 +370,7 @@ async function makeMapTrip() {
     }, '-=2000');
     tl.add({
         easing: "easeOutExpo",
-        targets: '#mapTravel .mapTooltip',
+        targets: `#${elID} .mapTooltip`,
         // translating breaks tooltip locations when map changes (zoom, pan);
         // they stop tracking the spot they're supposed to stay. Annoying
         // because markers and outlines do reposition correctly while animating.
@@ -304,43 +380,53 @@ async function makeMapTrip() {
 
     new ResizeObserver((_, __) => {
         mapTrip.fitBounds(tripBounds);
-    }).observe(document.getElementById("mapTravel"));
+    }).observe(document.getElementById(elID));
 }
 
-async function makeMapNeighbors() {
-    // check whether we should run
-    if (document.getElementById("mapNeighbors") == null ||
-        typeof MAP_NEIGHBORS_LIST === "undefined" ||
-        MAP_NEIGHBORS_LIST == null ||
-        typeof MAP_NEIGHBORS_BOUNDS === "undefined" ||
-        MAP_NEIGHBORS_BOUNDS == null ||
-        typeof MAP_NEIGHBORS_END_TIMELINE_OFFSET === "undefined" ||
-        MAP_NEIGHBORS_END_TIMELINE_OFFSET == null
-    ) {
-        return;
-    }
+async function makeMapNeighbors(mapDataDir, nMap) {
+    let elID = nMap.elID || "mapNeighbors"; // default element ID
 
-    await loadBoundaries(MAP_NEIGHBORS_LIST.map((el) => el[0]));
+    // load countries by names
+    await loadBoundaries(mapDataDir, nMap.countries.map((el) => el[0]));
 
-    let mapNeighbors = await renderMap("mapNeighbors");
+    // render all boundaries, cycling colors
+    let mapNeighbors = await renderMap(elID);
     let allColors = ["#FF4136", "#FF6300", "#FFD700", "#A463F2", "#FF80CC", "#19A974", "#357EDD"];
     let color = 0;
     let neighborOverlays = [];
-    for (let i = 0; i < MAP_NEIGHBORS_LIST.length; i++) {
-        let country = MAP_NEIGHBORS_LIST[i][0];
+    for (let i = 0; i < nMap.countries.length; i++) {
+        let country = nMap.countries[i][0];
         let overlay = await renderOverlay(mapNeighbors, country, "mapOutlineNeighbors", allColors[color]);
         neighborOverlays.push(overlay);
         color = (color + 1) % allColors.length;
     }
-    let neighborsBounds = L.latLngBounds(MAP_NEIGHBORS_BOUNDS);
+    let neighborsBounds = L.latLngBounds(nMap.bounds);
     mapNeighbors.fitBounds(neighborsBounds);
-    // NOTE: we need to add labels and stuff after the bounds, else leaflet freaks out.
-    for (let i = 0; i < MAP_NEIGHBORS_LIST.length; i++) {
+
+    // We need to add labels and stuff after the bounds or leaflet freaks out.
+    for (let i = 0; i < nMap.countries.length; i++) {
         await addLabel(
             mapNeighbors,
-            MAP_NEIGHBORS_LIST[i][0],
-            MAP_NEIGHBORS_LIST[i][1] == "auto" ? neighborOverlays[i].getBounds().getCenter() : MAP_NEIGHBORS_LIST[i][1],
-            MAP_NEIGHBORS_LIST[i][2]
+            nMap.countries[i][0],
+            nMap.countries[i][1] == "auto" ? neighborOverlays[i].getBounds().getCenter() : nMap.countries[i][1],
+            nMap.countries[i][2]
+        );
+    }
+
+    // Add any places
+    let hasPlaces = nMap.places && nMap.places.length > 0;
+    if (hasPlaces) {
+        await addPlaces(
+            mapNeighbors,
+            nMap.places,
+            nMap.placeColor,
+            false, // no lines
+            [], // no active list
+            {
+                tooltipSmall: true,
+                circleRadius: 50000,
+                tooltipExtraClasses: "dn di-ns",
+            },
         );
     }
 
@@ -351,40 +437,54 @@ async function makeMapNeighbors() {
         loop: true, // Is not inherited
     });
     tl.add({
-        targets: '#mapNeighbors .mapOutlineNeighbors',
+        targets: `#${elID} .mapOutlineNeighbors`,
         translateX: -3,
         translateY: -7,
         // opacity: 1,
         delay: anime.stagger(100, { start: 0 }),
     });
+    if (hasPlaces) {
+        tl.add({
+            targets: `#${elID} .mapPlace`,
+            translateX: -3,
+            translateY: -7,
+            opacity: 1,
+            delay: anime.stagger(100, { start: 0 }),
+        }, '-=1500');
+    }
     tl.add({
         easing: "easeOutExpo",
-        targets: '#mapNeighbors .mapTooltip',
+        targets: `#${elID} .mapTooltip`,
         // translating breaks tooltip locations when map changes (zoom, pan);
         // they stop tracking the spot they're supposed to stay. Annoying because
         // markers and outlines do reposition correctly while animating.
         opacity: 0.9,
         delay: anime.stagger(100, { start: 0 }),
         endDelay: 1500,
-    }, MAP_NEIGHBORS_END_TIMELINE_OFFSET);
+    }, nMap.endTimelineOffset);
 
     new ResizeObserver((_, __) => {
         mapNeighbors.fitBounds(neighborsBounds);
-    }).observe(document.getElementById("mapNeighbors"));
+    }).observe(document.getElementById(elID));
 }
 
 // execution
 async function main() {
     // Common setup
-    let toLoad = [MAP_COUNTRY_NAME];
-    if (MAP_COUNTRY_EXTRA_NAME != null) { toLoad.push(MAP_COUNTRY_EXTRA_NAME); }
-    await loadBoundaries(toLoad);
-    // const photos = await loadLocations("2022-scotland-photo-locations-shuffled.json");
+    let mapDataDir = MAP_CONFIG.core.mapDataDir;
+    await loadBoundaries(
+        mapDataDir, MAP_CONFIG.subjectCountries.map(o => o.name),
+    );
+    // const photos = await loadLocations(MAP_CONFIG['trip']['locationsPath']);
 
     // Make maps
     await makeMapContext();
     await makeMapTrip();
-    await makeMapNeighbors();
+    if (MAP_CONFIG.neighborsMaps != null) {
+        for (let nMap of MAP_CONFIG.neighborsMaps) {
+            await makeMapNeighbors(mapDataDir, nMap);
+        }
+    }
 }
 
 main();
