@@ -239,14 +239,8 @@ One of the most interesting things for me was simply a map. And it wasn't even t
 
 Inspired by this, I made a little animated map highlighting which modern day countries border the Mediterranean. Despite visiting Italy and Spain and France several times, I never contextualized them geographically like this.
 
-<!-- Another map: mediterranean context-->
-<div class="full-width flex justify-center fig mb0 pv4 pv5-l fade-bg">
-    <div class="ph3 w-100">
-        <div id="mapNeighbors" class="leafletMapWide bg-white mapWide center">
-            <img src="/assets/posts/2022-israel/israel-map-mediterranean.png" loading="lazy" decoding="async" />
-        </div>
-    </div>
-</div>
+{% import "maps/map-neighbors.njk" as mapNeighbors %}
+{{ mapNeighbors.insertMap("leafletMapWide mapWide", "/assets/posts/2022-israel/israel-map-mediterranean.png") }}
 
 But perhaps the most interesting thing I noticed was something woven into the narrative around the entire museum: that Israel was, and had always been, the rightful home of the Jewish people. Now, I wish neither to confirm nor dispute this, just to mention how subtle but utterly pervasive it was. I think if you weren't looking out for it, you might not realize it was there.
 

@@ -1,0 +1,20 @@
+{% macro overlay(flag, country) %}
+<div id="mapLabelOverlay" class="ph2 ph3-l pv1 bg-white o-90 sans-serif mid-gray shadow-4 br2 absolute flex items-center lh-title">
+    <span class="f3 f2-l mr2">{{ flag }}</span>
+    <span class="f4 f3-l b dib">{{ country }}</span>
+</div>
+{%- endmacro -%}
+
+{% macro doubleOverlay(flag1, country1, flag2, country2) %}
+<div id="mapLabelOverlay"
+    class="ph2 ph3-l pv1 bg-white o-90 sans-serif mid-gray shadow-4 br2 dib absolute lh-solid">
+    <div class="flex items-center">
+        <span class="f3 f2-l mr3">{{ flag1 }}</span>
+        <span class="f4 f3-l b dib tc">{{ country1 }}</span>
+    </div>
+    <div class="flex items-center">
+        <span class="f3 f2-l mr3">{{ flag2 }}</span>
+        <span class="f4 f3-l b dib tc">{{ country2 }}</span>
+    </div>
+</div>
+{%- endmacro -%}

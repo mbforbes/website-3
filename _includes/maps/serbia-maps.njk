@@ -1,36 +1,34 @@
-<link href='{{ "/assets/css/leaflet.css" | url }}' rel='stylesheet' type='text/css'/>
-<link href='{{ "/assets/css/maps.css" | url }}' rel='stylesheet' type='text/css'/>
+{% extends "maps/map-base.njk" %}
+{% import "maps/map-overlays.njk" as overlays %}
 
-<script type="text/javascript" src="/assets/lib/leaflet-1.9.3.min.js" defer></script>
-<script type="text/javascript" src="/assets/lib/tile.stamen-1.3.0.js" defer></script>
-<script type="text/javascript" src="/assets/lib/leaflet.curve-0.9.1.min.js" defer></script>
-<script type="text/javascript" src="/assets/lib/anime-3.2.1.min.js" defer></script>
+{% block setupScript %}
 <script>
     // Vars here change during deploy env (personal website).
-    let libDir = "{{ "/assets/mapData/" | url }}";
-    let postDir = "{{ "/assets/posts/2022-serbia/" | url }}";
-    let activeList = [""];
-</script>
-<script src="/assets/posts/2022-serbia/serbia.js" defer></script>
+    const POST_DIR = "{{ "/assets/posts/2022-serbia/" | url }}";
+    const MAP_DATA_DIR =  "{{ "/assets/mapData/" | url }}";
 
-<div class="full-width flex flex-wrap flex-nowrap-ns justify-center fig mb0 pv5 fade-bg">
-    <!-- Left -->
-    <div class="ph3 pb4 pb3-l w-100 w-auto-ns mw-50-ns">
-        <div class="relative">
-            <div id="mapContext" class="leafletMap bg-white mapSmall center">
-                <img src="/assets/posts/2022-serbia/serbia-map-context.png" />
-            </div>
-            <div id="mapLabelOverlay"
-                class="ph2 ph3-l pv1 bg-white o-90 sans-serif mid-gray shadow-4 br2 dib absolute flex items-center lh-title">
-                <span class="f3 f2-l mr2">🇷🇸</span>
-                <span class="f4 f3-l b dib">Serbia</span>
-            </div>
-        </div>
-    </div>
-    <!-- Right -->
-    <div class="ph3 w-100 w-auto-ns mw-50-ns">
-        <div id="mapTravel" class="leafletMap bg-white mapSmall center">
-            <img src="/assets/posts/2022-serbia/serbia-map-travel.png" />
-        </div>
-    </div>
-</div>
+    // Vars here for context and travel maps.
+    const MAP_COUNTRY_NAME = "Serbia";
+    const MAP_THEME_COLOR = "#FF4136";
+    const MAP_CONTEXT_PADDING = 2.25;
+    const MAP_TRIP_PADDING = 0.05;
+    const MAP_TRIP_PLACES = [
+        [44.8167, 20.4667, "Belgrade", "right", "in"],
+        [45.2644, 19.8317, "Novi Sad", "right", "in"],
+    ];
+
+    // Optional
+    const MAP_ACTIVE_LIST = [""];
+    const MAP_COUNTRY_EXTRA_NAME = null;
+    const MAP_COUNTRY_EXTRA_COLOR = null;
+
+    // Neighbors map (also optional)
+    const MAP_NEIGHBORS_LIST = null;
+    const MAP_NEIGHBORS_BOUNDS = null;
+    const MAP_NEIGHBORS_END_TIMELINE_OFFSET = null;
+</script>
+{% endblock %}
+
+{% block contextPreview %}<img src="/assets/posts/2022-serbia/serbia-map-context.png" />{% endblock %}
+{% block contextOverlay %}{{ overlays.overlay("🇷🇸", "Serbia") }}{% endblock %}
+{% block travelPreview %}<img src="/assets/posts/2022-serbia/serbia-map-travel.png" />{% endblock %}

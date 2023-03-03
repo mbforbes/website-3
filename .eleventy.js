@@ -277,6 +277,7 @@ module.exports = function (eleventyConfig) {
         }
         path = eleventyConfig.getFilter("url")(path);
 
+        // image source / path debug / preview / display
         // let pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
         let pathDisplay = "";
         return [path, `<img class="db bare novmargin ${extraClasses}" src="${path}" style="max-height: min(100vh, ${maxHeight});" loading="lazy" decoding="async" />${pathDisplay}`];
