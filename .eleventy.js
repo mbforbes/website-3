@@ -30,13 +30,24 @@ module.exports = function (eleventyConfig) {
     // My custom filters
 
     const latestDateComp = (a, b) => { return a.date > b.date ? -1 : 1 }
+    const earliestDateComp = (a, b) => { return a.date > b.date ? 1 : -1 }
+    const titleComp = (a, b) => { return a.data.title < b.data.title ? -1 : 1 }
     const seriesOrderComp = (a, b) => { return a.data.seriesOrder - b.data.seriesOrder }
 
     /**
      * Groups posts by series and date, ordered newest to oldest.
-     * - each series is ordered by its latest post date
-     * - non-series posts are interleaved according to their post dates, grouped into
-     *   empty ("") series for convenience
+     * - each series is positioned by the date of its latest post
+     * - non-series posts are interleaved according to their post dates, grouped
+     *   into empty ("") series for convenience
+     * - within a series, posts are sorted by title if they're in the
+     *   garage, or seriesOrder otherwise.
+     *
+     * The date used for the overall ordering is a priority order of travel_end,
+     * updated, then date. NOTE: probably don't want to actually sort by updated
+     * for any posts besides garage.
+     *
+     * No series are internally ordered by date (yet). If they are, need to
+     * update the logic in series-top.njk and series-bottom.njk.
      *
      * Input: [post, post, post, post, post, post, post, post]
      * Output: [
@@ -47,14 +58,15 @@ module.exports = function (eleventyConfig) {
      *  {"": [post]}
      * ]
      */
-    eleventyConfig.addNunjucksFilter("dateSeriesGroupBy", (arr) => {
-        // build collection of posts and save series representative dates for sorting
+    eleventyConfig.addNunjucksFilter("dateSeriesGroupBy", function (arr) {
+        // Build collection of posts and save series representative dates for
+        // sorting. Non-series posts are *not* grouped at this stage.
         let items = [];
         let seriesInfo = {};
         for (let post of arr) {
             let series = post.data.series;
-            // We sort by the `travel_end` field if it's there, because that's how posts will be displayed.
-            let postDate = post.data.travel_end || post.date;
+            // We have a priority sort order for the date to use.
+            let postDate = post.data.travel_end || post.data.updated || post.date;
             if (!series || series == "") {
                 items.push({
                     kind: "post",
@@ -64,8 +76,11 @@ module.exports = function (eleventyConfig) {
             } else {
                 if (!seriesInfo[series]) {
                     seriesInfo[series] = {
+                        kind: "series",
+                        name: series,
                         date: postDate,
                         posts: [post],
+                        sortBy: post.data.tags.indexOf("garage") == -1 ? "seriesOrder" : "title",
                     }
                 } else {
                     // series' date should be the latest post date
@@ -77,28 +92,18 @@ module.exports = function (eleventyConfig) {
             }
         }
 
-        // console.log("Non series items:", items);
-        // console.log("SeriesInfo:", seriesInfo);
-
-        // add series to items for overall sorting
-        for (let series in seriesInfo) {
-            let info = seriesInfo[series];
-            // console.log(series, info.posts.length);
-            items.push({
-                kind: "series",
-                date: info.date,
-                name: series,
-                posts: info.posts,
-            })
+        // Add series to items for overall sorting
+        for (let seriesName in seriesInfo) {
+            items.push(seriesInfo[seriesName]);
         }
 
-        // latest first
+        // Latest date (i.e., most recent) first
         items.sort(latestDateComp)
 
-        // two final operations:
-        // 1. consecutive non-series posts should be aggregated into "" series groups
-        // (for frontend convenience)
-        // 2. series posts should be ordered by seriesOrder
+        // Two final operations:
+        // 1. Consecutive non-series posts should be aggregated into "" series
+        //    groups (for frontend convenience)
+        // 2. Series posts should be sorted by the sortBy field
         let res = [];
         let curNoSeries = { series: "", posts: [] };
         for (let item of items) {
@@ -110,7 +115,12 @@ module.exports = function (eleventyConfig) {
                 if (curNoSeries.posts.length > 0) {
                     res.push(curNoSeries);
                 }
-                res.push({ series: item.name, posts: item.posts.sort(seriesOrderComp) })
+                let sortFunc = {
+                    "title": titleComp,
+                    "date": earliestDateComp,  // currently unused
+                    "seriesOrder": seriesOrderComp,
+                }[item.sortBy];
+                res.push({ series: item.name, posts: item.posts.sort(sortFunc) })
                 curNoSeries = { series: "", posts: [] };
             }
         }
@@ -119,7 +129,6 @@ module.exports = function (eleventyConfig) {
             res.push(curNoSeries);
         }
 
-        // console.log("Results:", res);
         return res;
     });
 
@@ -135,6 +144,13 @@ module.exports = function (eleventyConfig) {
             })
         }
         return obj[attr];
+    });
+
+    // Setting variables is in scope for nunjucks, but setting an object's
+    // properties is not. https://github.com/mozilla/nunjucks/issues/636
+    eleventyConfig.addNunjucksFilter("setAttr", (obj, attr, val) => {
+        obj[attr] = val;
+        return obj;
     });
 
     /**

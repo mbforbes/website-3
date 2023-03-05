@@ -1,7 +1,7 @@
 ---
 title: Image layout test page
 date: 2022-07-10
-updated: 2022-07-30
+updated: 2023-02-24
 ---
 
 I want to experiment with wider layouts, so want to have HTML/CSS formulas for breaking out of the normal content flow.

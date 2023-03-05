@@ -39,6 +39,19 @@ Probably nobody will ever care about 2., but 1. might hamper discoverability. (T
 
 Ideally, I'd like to show both. Maybe both on the index page and on the individual posts. This might go along with reformatting post headers and frontmatter a little bit eventually. There's a bunch of stuff (local maps, regional maps, cover images, travel rating/date metadata) that doesn't cleanly fit in. And all h levels are a bit meager. (Custom travel header? New header that can have aspects remove gracefully?)
 
+(Actually, there's now `updated`, so it's triple dates.)
+
+## Series
+
+Esp. featuring dates and sorting.
+
+Right now, series is kind of a mess. It should probably be implemented with Eleventy's Collections. I think it's a bad fit to have a tag per series, but I'm not positive.
+
+Right now, logic to handle sorting and ordering and displaying Series is spread out across:
+1. `eleventy.js`, the `dateSeriesGroupBy` filter
+2. `_includes/list-posts-and-series.njk` (for listings in Studio)
+3. `_includes/series-top.njk`
+4. `_includes/series-bottom.njk`
 
 ## TODO
 
@@ -50,7 +63,6 @@ Ideally, I'd like to show both. Maybe both on the index page and on the individu
     - [ ] color themes
     - [ ] mobile
 - [ ] unified post view for studio
-- [ ] incoming / outgoing links on all pages?
 - [ ] fix svg text w/ dark mode
     - [ ] calorie counting + meal planning
     - [ ] linear regression post

@@ -4,36 +4,15 @@ hidedate: true
 layout: "layouts/default.njk"
 ---
 
+{% import "list-posts-and-series.njk" as lps %}
+
 <h2>Writing<a name="writing"></a></h2>
 
 {% set writingTags = ["travel", "design", "programming", "creating & thinking", "health"] %}
 {# {% set writingTags = ["programming"] %} #}
 {% for tag in writingTags %}
-
     <h3>{{ tag | title }}<a name="{{ tag | lower }}"></a></h3>
-    <ul class="list pa0 mt0">
-        {# Type is {name: post[]}[], where name is "" for no series. #}
-        {% for seriesObj in collections[tag] | dateSeriesGroupBy %}
-            {% if seriesObj.series != "" %}
-                <li class="mb1 mt4 f5 fw6 ttu tracked">{{ seriesObj.series }}</li>
-                <ol class="mb4">
-            {% endif %}
-
-            {% for post in seriesObj.posts %}
-                <li class="mv1">
-                    <a href="{{ post.url | url }}" class="db pv1 link">
-                        <time class="fr lightest-text-color ml3">{{ post.data.travel_end | default(post.date) | readableDate }}</time>
-                        {{ post.data.title }}
-                    </a>
-                </li>
-            {% endfor %}
-
-            {% if seriesObj.series != "" %}
-                </ol>
-            {% endif %}
-
-        {% endfor %}
-</ul>
+    {{ lps.listPostsAndSeries(collections[tag])  }}
 {% endfor %}
 
 <h2>Projects<a name="projects"></a></h2>
@@ -88,28 +67,15 @@ You might also be interested in checking out my <a href="{{ "/research/#software
 </div>
 
 
-
 <h2>Garage<a name="garage"></a></h2>
 
-<p>
-The garage is a new experiment in "working with the garage door up."
-I develop inter-linked micro notes that evolve over time.
-They're written for me but posted publicly here.
+<p class="f6 f5-ns">
+The garage is an experiment in "working with the garage door up."
+These evolving notes are written for me but posted publicly here.
 Read more in
 <a href="{{ "/garage/what-is-the-garage/" | url }}">
 What is the garage?
 </a>
-The following is an index of all the current entires in the garage.
 </p>
 
-<ul class="list pa0">
-{% for post in collections.garage | sort(false, false, "data.title") %}
-    <li class="mv2">
-        <a href="{{ post.url | url }}" class="db pv1 link">
-            {# TODO: make latest of {date, updated} #}
-            <time class="fr lightest-text-color ml3">{{ post.date | readableDate }}</time>
-            {{ post.data.title }}
-        </a>
-    </li>
-{% endfor %}
-</ul>
+{{ lps.listPostsAndSeries(collections['garage'])  }}

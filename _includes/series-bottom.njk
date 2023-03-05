@@ -1,8 +1,17 @@
-{% set nSeries = collections.all | attr("data") | selectAttrEquals("series", series) | length %}
+{# We add a displayIndex attribute to all posts in the series so that we can
+easily grab the ones before and after the current one, if they exist. #}
+{% set sortAttr = ("title" if "garage" in tags else "seriesOrder") %}
+{% set seriesPostDatas = collections.all | attr("data") | selectAttrEquals("series", series) | sort(false, false, sortAttr) %}
+{% set curDisplayIndex = -1 %}
+{% for seriesPostData in seriesPostDatas %}
+    {% set seriesPostData = seriesPostData | setAttr("displayIndex", loop.index) %}
+    {% if title == seriesPostData.title %}
+        {% set curDisplayIndex = loop.index %}
+    {% endif %}
+{% endfor %}
 
 {# Only show this navigator if > 1 post in the series #}
-{% if nSeries > 1 %}
-
+{% if seriesPostDatas | length > 1 %}
 
 <div class="mw7 center ph3 ph4-ns mv5 f6 f5-ns normal-links">
 
@@ -13,22 +22,21 @@
 
     <div class="flex mt3">
         <div class="w-40 ma0">
-            {% set prevPost = collections.all | attr("data") | selectAttrEquals("series", series) | selectAttrEquals("seriesOrder", seriesOrder - 1) | first %}
+            {% set prevPost = seriesPostDatas | selectAttrEquals("displayIndex", curDisplayIndex - 1) | first %}
             {% if prevPost %}
                 <p class="b ttu ma0 lightest-text-color f7 f6-ns">&larr; previous</p>
-                <a href="{{ prevPost.page.url | url }}" class=" ma0">{{ prevPost.seriesOrder }}. {{prevPost.title }}</a>
+                <a href="{{ prevPost.page.url | url }}" class=" ma0">{{ prevPost.displayIndex }}. {{prevPost.title }}</a>
             {% endif %}
         </div>
         <div class="w-20"></div>
         <div class="w-40 ma0 tr">
-            {% set nextPost = collections.all | attr("data") | selectAttrEquals("series", series) | selectAttrEquals("seriesOrder", seriesOrder + 1) | first %}
+            {% set nextPost = seriesPostDatas | selectAttrEquals("displayIndex", curDisplayIndex + 1) | first %}
             {% if nextPost %}
                 <p class="b ttu ma0 lightest-text-color f7 f6-ns">next &rarr;</p>
-                <a href="{{ nextPost.page.url | url }}" class=" ma0">{{ nextPost.seriesOrder }}. {{nextPost.title }}</a>
+                <a href="{{ nextPost.page.url | url }}" class=" ma0">{{ nextPost.displayIndex }}. {{nextPost.title }}</a>
             {% endif %}
         </div>
     </div>
 </div>
-
 
 {% endif %}
