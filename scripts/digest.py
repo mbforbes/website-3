@@ -10,7 +10,7 @@ Steps:
 
 import code
 from collections import defaultdict
-from datetime import date
+from datetime import date, datetime
 import re
 from typing import Optional
 
@@ -19,15 +19,15 @@ import mistune
 
 from common import get_posts, Post
 
-DATE_START = date(2022, 12, 2)
-DATE_END = date(2023, 2, 1)
+DATE_START = date(2023, 2, 1)
+DATE_END = date(2023, 2, 28)
 # DISPLAY_MONTH = "September"
 # SUBJECT = f"Max Forbes | {DISPLAY_MONTH} 2022 Digest"
 
 PREAMBLE = """
 <p>Hi everyone,</p>
 
-<p>This is a summary of what I published in the last two months over at my website. (I missed sending the January digest.)</p>
+<p>This is a summary of what I published in the last month over at my website.</p>
 
 <br />
 """
@@ -36,24 +36,23 @@ POSTAMBLE = """
 <h2>News</h2>
 
 <p>
-After about six winter weeks in Seattle, we're headed out on the road again in a few days. We're
-going to Taiwan for a couple months. I'm really looking forward to it.
+Hello from Taipei!
 </p>
 
 <p>
-I'm still catching up with travel posts from last year.
-The Bosnia post (included in this digest) was long and text-heavy, but going forward,
-I'm planing to lighten them up considerably.
-Mainly photos and a few bits of commentary.
-(This is the only way I'll actually catch up.)
-Oh, and of course, maps!
+I spent a few days optimizing my pages to make them load faster.
+My travel posts were weighing in at 100MB+, and were awfully slow on a shaky Internet connection.
+They should feel much snappier now (~5MB on page load, and interactive elements initialize later).
+I wrote some notes about engineering that speedup <a href="https://maxwellforbes.com/garage/speeding-up-my-website/">here</a>.
 </p>
 
 <p>
-As always, don't hesitate to reply to this email, even if you'd just like to say a simple hello.
+I'm experimenting reducing what I send out in this digest.
+For now, I'm eliminating exhaustive updates to the <a href="https://maxwellforbes.com/studio/#garage">Garage</a>, the work-in-progress section of my website.
+At the same time, I hope to post more drafts and notes there.
+The purpose of both changes is to make the Garage feel more like a workshop / lab.
+Of course, the garage door is still up, so you can always browse it if you'd like see what I'm working on.
 </p>
-
-<br>
 
 <p>
 Yours,<br>
@@ -199,14 +198,19 @@ def get_display_date(post: Post) -> date:
 
 def get_publish_date(post: Post) -> date:
     if "date" in post["frontmatter"]:
-        return post["frontmatter"]["date"]
-    matches = re.findall(r"\d\d\d\d-\d\d-\d\d", post["path"])
-    if len(matches) != 1:
-        raise ValueError(
-            "No date in frontmatter, and couldn't determine from path for: "
-            + post["path"]
-        )
-    return date(*(int(x) for x in matches[0].split("-")))
+        publish_date = post["frontmatter"]["date"]
+    else:
+        matches = re.findall(r"\d\d\d\d-\d\d-\d\d", post["path"])
+        if len(matches) != 1:
+            raise ValueError(
+                "No date in frontmatter, and couldn't determine from path for: "
+                + post["path"]
+            )
+        publish_date = date(*(int(x) for x in matches[0].split("-")))
+
+    if isinstance(publish_date, datetime):
+        publish_date = publish_date.date()
+    return publish_date
 
 
 def render_post(post: Post) -> str:
@@ -243,6 +247,7 @@ def main():
         publish_date = get_publish_date(post)
         if publish_date < DATE_START or publish_date > DATE_END:
             continue
+
         # print(post["path"])
         # print(post["url"])
         # print(post["frontmatter"])
@@ -259,20 +264,27 @@ def main():
             "posts": 1,
             "sketches": 2,
             "blog": 3,
-            # Not including garage in digest.
-            # "garage": 4,
+            # "garage": 4,  # commenting for clarity; it's omitted for now
         },
     )
+    # categories to not include in the digest
+    cat_omit = {
+        "garage",
+        "microblog",
+    }
 
     # render all posts
     buf = [PREAMBLE]
     for category in sorted(collections.keys(), key=lambda c: cat_order[c]):
+        if category in cat_omit:
+            continue
         posts = collections[category]
         buf.append(f"<h2>{category.capitalize()}</h2>")
         if category == "garage":
             buf.append(GARAGE_NOTICE)
         if category == "sketches":
             buf.append("<div style='overflow: auto;'>")
+
         for post in sorted(posts, key=lambda p: get_publish_date(p)):
             buf.append(RENDERERS[category](post))
             if category != "sketches":
