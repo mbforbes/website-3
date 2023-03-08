@@ -1,7 +1,8 @@
 ---
-title: Restructuring 3D notes
+title: "About: Restructuring my 3D notes"
 date: 2023-02-26
 series: 3D Notebook
+redirect_from: /garage/learning-to-vox/
 ---
 
 **Studies.** I'd like to work on focused studies. If I want to, I can post the result as a sketch, but it's not required. From each study, I will probably learn 1--_n_ techniques. I may start the study with a specific technique to explore, like skyboxes or animated fluids.
@@ -9,7 +10,6 @@ series: 3D Notebook
 **Topic notes: explanations and/or quick guides.** I'd like to organize these techniques into topics, like projections, lighting, underwater, level of detail, and scene composition. From the study, I can link to 1--_n_ notes for the topics. Some of the topics will span 3js and MagicaVoxel (and blender?), and could have specific sections for each program. For example, a depth of field guide could have a general section, then subsections for (a) achieving it in 3js, (b) working with it in MagicaVoxel. Some of these subsections will purely be quick guides. Some topics will only be quick guides for a single software, like doing screen resolution correctly in 3js, or a cheat sheet to using MagicaVoxel shaders.
 
 ---
-
 If we called the series[^seriesorder] "3D Notebook," the index would look like:[^breakup]
 
 [^seriesorder]: Right now the series order expects sequential numbers. Eventually, I might want to allow this to be sorted by date or title.
@@ -74,11 +74,3 @@ Questions
 - What about guides where I want to collect examples from others?
 
     - I just keep these on my own. To encourage not keeping two sets of notes, could keep in mood boards (try out Freeform).
-
----
-
-What exists?
-
-- [x] This
-- [x] Cube confusion
-- [ ] Learning to Vox note

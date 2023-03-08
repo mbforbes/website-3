@@ -1,6 +1,6 @@
 ---
 # layout: "layouts/sketch-fullscreen.njk"
-title: "3js: Cube confusion"
+title: "Three.js: Cube confusion"
 date: 2022-01-18
 image: /assets/garage/cube-confusion.jpg
 series: 3D Notebook

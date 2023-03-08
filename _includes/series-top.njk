@@ -14,11 +14,11 @@
             {% for seriesPostData in seriesPostDatas %}
                 <li class="">
                     {% if seriesPostData.title == title %}
-                        <span class="b">
+                        <span class="b db pt1">
                             {{ seriesPostData.title }}
                         </span>
                     {% else %}
-                        <a href="{{ seriesPostData.page.url | url }}" class="db pv1">
+                        <a href="{{ seriesPostData.page.url | url }}" class="db pt1">
                             {{ seriesPostData.title }}
                         </a>
                     {% endif %}
