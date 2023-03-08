@@ -305,7 +305,7 @@ module.exports = function (eleventyConfig) {
         if (blurStretchSingles && bgImgPath != "") {
             bgDiv = `<div class="bgImageReady svgBlur" style="background-image: none;" data-background-image="url(${bgImgPath})"></div>`;
         }
-        let fwClass = fullWidth ? "full-width" : "";
+        let fwClasses = fullWidth ? "full-width cb" : "";
         // If it's not full-width, then we want them to be aligned with the text margins,
         // not have extra padding. Vanilla embedded align with text margins, too.
         let phClass = (fullWidth && ph) ? "ph1-m ph3-l" : "";
@@ -315,7 +315,7 @@ module.exports = function (eleventyConfig) {
         // <img src="foo" style="max-height: 500px;">
         // </div>
         // but using this so the <img ...> snippet is the same for all layouts.
-        return `<div class="${fwClass} flex justify-center ${phClass} ${marginClasses}">${bgDiv}${imgHTML}</div>`;
+        return `<div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">${bgDiv}${imgHTML}</div>`;
     }
 
     function twoBigImages(imgSpecs, marginClasses, fullWidth) {
@@ -340,18 +340,18 @@ module.exports = function (eleventyConfig) {
         //     bgDiv2 = `<div class="bgImageReady svgBlur" style="background-image: url(${bgImgPath2})"></div>`;
         // }
 
-        let fwClass = fullWidth ? "full-width " : "";
-        return `<div class="${fwClass}flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
+        let fwClasses = fullWidth ? "full-width cb" : "";
+        return `<div class="${fwClasses} flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
 <div class="${mlClass} mr1-ns mb1 mb0-ns">${imgHTML1}</div>
 <div class="${mrClass}">${imgHTML2}</div>
 </div>`;
     }
 
     function threeBigImages(imgSpecs, marginClasses, fullWidth) {
-        let fwClass = fullWidth ? "full-width " : "";
+        let fwClasses = fullWidth ? "full-width cb" : "";
         let mlClass = fullWidth ? "ml1-m ml3-l" : "";
         let mrClass = fullWidth ? "mr1-m mr3-l" : "";
-        return `<div class="${fwClass}flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
+        return `<div class="${fwClasses} flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
 <div class="${mlClass}">${imgSpecToHTML(imgSpecs[0])[1]}</div>
 <div class="mh1-ns mv1 mv0-ns">${imgSpecToHTML(imgSpecs[1])[1]}</div>
 <div class="${mrClass}">${imgSpecToHTML(imgSpecs[2])[1]}</div>
@@ -441,7 +441,7 @@ module.exports = function (eleventyConfig) {
      */
     eleventyConfig.addNunjucksShortcode("cityMap", (path, attribution = true, mt = true, mb = true) => {
         let figClasses = mt && mb ? "fig" : (mt && !mb ? "figtop" : (mb && !mt ? "figbot" : ""));
-        let base = `<div style="background-color: #FCEEE1" class="full-width ${figClasses}">
+        let base = `<div style="background-color: #FCEEE1" class="full-width cb ${figClasses}">
 <img class="content-width novmargin" src="${eleventyConfig.getFilter("url")(path)}" loading="lazy" decoding="async" />
 </div>`
         let attr = `<p class="full-width pr2 pr3-ns figcaption attribution">
@@ -578,12 +578,26 @@ ${third}`;
             }),
             slugify: eleventyConfig.getFilter("slug")
         });
+    // Orig at https://github.com/markdown-it/markdown-it-footnote/blob/HEAD/index.js
     markdownLibrary.renderer.rules.footnote_block_open = () => (
         '<section class="footnotes">\n' +
         '<p class="footnotes-label">Footnotes</p>\n' +
         '<hr class="footnotes-sep" />\n' +
         '<ol class="footnotes-list">\n'
     );
+
+    // Orig at https://github.com/markdown-it/markdown-it-footnote/blob/HEAD/index.js
+    // (1) 0-padding, (2) removing [], so [X] -> 0X
+    markdownLibrary.renderer.rules.footnote_caption = (tokens, idx/*, options, env, slf*/) => {
+        var n = Number(tokens[idx].meta.id + 1).toString().padStart(2, '0');
+
+        if (tokens[idx].meta.subId > 0) {
+            n += ':' + tokens[idx].meta.subId;
+        }
+
+        return n;
+    };
+
 
     eleventyConfig.setLibrary("md", markdownLibrary);
 

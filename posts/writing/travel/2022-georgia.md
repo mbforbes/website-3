@@ -16,7 +16,7 @@ Georgia is in a region called the Caucasus, or Caucasia.[^caucasian]
 
 Caucasus apparently might mean _shimmering with snow,_ or _frozen mud,_ or _mountain of the seagulls._ Or maybe it was a mythical ancient guy.[^caucasus] To this day, I do not know how to pronounce it, and so will go to great lengths to avoid using it in a conversation.
 
-[^caucasus]: https://en.wikipedia.org/wiki/Caucasus
+[^caucasus]: [Wikipedia: Caucasus](https://en.wikipedia.org/wiki/Caucasus)
 
 Technically, I think it's sort of Eastern Europe, and sort of Western Asia. It felt somewhat unique. It's a cool area. I'd like to go back and see more of Georgia and its neighbors.
 

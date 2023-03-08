@@ -3,6 +3,7 @@
     --bg-color: #fff;
     --off-bg-color: #f4f4f4;
     --alt-bg-color: #e2e5e9;
+    --flash-bg-color: #FBF1A9;
     /* --alt-bg-color: #fff; */
     --bg-image: none;
     --text-color: #111;
@@ -33,6 +34,7 @@
     --bg-color: #1e1e1e;
     --off-bg-color: #282828;
     --alt-bg-color: #141414;
+    --flash-bg-color: #FFB70066;
     --bg-image: none;
     --text-color: #fff;
     --alt-text-color: #fff;
@@ -489,6 +491,26 @@ f7: font-size: 0.75rem;
     margin-bottom: -12rem;
 }
 
+.footnote-ref {
+    font-weight: bold;
+}
+
+/* NOTE: Some of the following were WIP styling footnote markers to look like
+  "01" (no decimal after, bold). Got close but no cigar, so abandoning for now.
+  */
+
+ol.footnotes-list {
+    list-style-type: decimal-leading-zero;
+    /* counter-reset: item; */
+}
+
+li.footnote-item::marker {
+    /* font-weight: bold;
+    content: counter(item, decimal-leading-zero) "  ";
+    counter-increment: item;
+    color: var(--lighter-text-color); */
+}
+
 .footnotes-label {
     text-transform: uppercase;
     letter-spacing: .1em;
@@ -617,6 +639,10 @@ ol ol ol {
 /* This is the -ns (not small) media query (at least currently) */
 @media screen and (min-width: 30em) {
 
+    .doublecol-ns {
+        column-count: 2;
+    }
+
     /*  max-width 50% not-small */
     .mw-50-ns {
         max-width: 50%;
@@ -734,4 +760,72 @@ ol ol ol {
 
 .bob {
     animation: bob 3s ease-in-out infinite;
+}
+
+@keyframes flash {
+    0% {
+        background-color: var(--flash-bg-color);
+    }
+
+    100% {
+        background-color: inherit;
+    }
+}
+
+.flash {
+    animation: flash 1s ease-in-out 1;
+}
+
+
+.sidenote {
+    display: none;
+    box-sizing: border-box;
+    font-size: 1rem;
+    width: calc((100vw - 48rem)/2);
+    margin-right: calc((100vw - 48rem)/-2 + -2rem);
+    padding-left: 4rem;
+    padding-right: 2rem;
+    padding-top: 0;
+    padding-bottom: 2rem;
+    left: auto;
+    right: 0;
+    color: var(--lighter-text-color);
+    word-break: break-word;
+}
+
+.sidenote-number {
+    position: absolute;
+    font-weight: bold;
+    margin-left: -2rem;
+    margin-top: 0.1em;
+    font-size: 83%;
+}
+
+/* `-sv` is going to be a "sidenotes visible" media / sizing query:
+
+    - we add it to classes w/ js because sidenotes are only added w/
+      js, so we shouldn't hide anything unless sidenotes will actually
+      be shown
+
+    - we keep it as a media query so that the page remains responsive
+      to resizes
+
+    Also, note the left 48rem is the content width, and the right is a
+    heuristic for how how space we want before we add the sidenotes so
+    they're not too narrow.
+*/
+@media (min-width: calc(48rem + 48rem)) {
+    .dn-sv {
+        display: none;
+    }
+
+    .footnote-ref.plain-sv>a {
+        color: var(--text-color);
+    }
+
+    .sidenote {
+        display: inline-block;
+        float: right;
+        clear: right;
+    }
 }
