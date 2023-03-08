@@ -10,9 +10,10 @@
             {{ series }}
         </p>
 
-        <ol class="ma0 f5">
+        {% set colClass = "doublecol-ns" if seriesPostDatas | length >= 10 else "" %}
+        <ol class="ma0 f5 {{ colClass }} pl0">
             {% for seriesPostData in seriesPostDatas %}
-                <li class="">
+                <li class="ml4">
                     {% if seriesPostData.title == title %}
                         <span class="b db pt1">
                             {{ seriesPostData.title }}
