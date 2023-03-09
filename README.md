@@ -55,6 +55,9 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 
 ## TODO
 
+- [ ] post on website sections (w.r.t. microblog, garage changes)
+- [ ] great `| url` removal (big thing's gonna be fixing link graph builder... wonder if I should finally switch to running in Eleventy)
+- [ ] try upgrading Eleventy + all libs (migration guide?)
 - [ ] new analytics
 - [ ] image sizes ok (& feasible) to add? bg placeholder?
 - [ ] wider code
