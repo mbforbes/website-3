@@ -56,7 +56,8 @@ While ordinarily a bane of my existence,[^graphing] Matplotlib's documentation s
 
 ## Tachyons Components and Colors
 
-{% include "stub.njk" %}
+{% import "cards.njk" as cards %}
+{{ cards.stub() }}
 
 ## Missing: `pandas.Series.agg`
 

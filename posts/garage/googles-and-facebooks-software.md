@@ -3,7 +3,8 @@ title: Google's and Facebook's Software
 date: 2022-11-27
 ---
 
-{% include "stub.njk" %}
+{% import "cards.njk" as cards %}
+{{ cards.stub() }}
 
 Notes:
 - Google: high latency, high bandwidth

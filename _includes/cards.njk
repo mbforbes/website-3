@@ -1,0 +1,23 @@
+{% macro card(cssClass, title, text) %}
+<div class="mv5 pa4 {{ cssClass }} shadow-5 bob">
+  <div class="f4 f3-ns fw6 mt0 mb3">{{ title }}</div>
+  <div class="bt b--near-black">
+    <p class="f6 f5-ns lh-copy mt3 mb0">
+        {{ text }}
+    </p>
+  </div>
+</div>
+{%- endmacro -%}
+
+
+{% macro stub() %}
+{{ card("warning", "Stub", "This is a placeholder for me to write more. Bug me if you want to read it.") }}
+{%- endmacro -%}
+
+{% macro draft() %}
+{{ card("warning", "Draft", "This is a rough draft of a post. I'm still writing and revising it. It probably reads terribly. Proceed at will.") }}
+{%- endmacro -%}
+
+{% macro ideas() %}
+{{ card("warning", "Ideas", "This is a post in its idea generation phase. I'm collecting notes for what to write about. Proceed at will.") }}
+{%- endmacro -%}

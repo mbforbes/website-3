@@ -3,7 +3,8 @@ title: When Lists Don't Work
 date: 2022-11-27
 ---
 
-{% include "stub.njk" %}
+{% import "cards.njk" as cards %}
+{{ cards.stub() }}
 
 This is one note I'd like to just turn into a normal post.
 
