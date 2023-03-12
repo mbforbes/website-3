@@ -5,6 +5,7 @@ tags: programming
 series: Building an ECS in TypeScript
 seriesOrder: 6
 # image: /data/typescript-ecs/TBD.jpg
+# layout: layouts/big-header.njk
 ---
 
 As with `Entity`, our `Component` implementation is also quite minimal.

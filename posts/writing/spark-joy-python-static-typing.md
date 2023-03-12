@@ -5,6 +5,7 @@ tags: programming
 image: /assets/posts/spark-joy-python/spark-joy-python-wide.jpg
 series: Sparking Joy with Python
 seriesOrder: 2
+# layout: layouts/big-header.njk
 ---
 
 ![Marie Kondo holding up the python logo]({{ "/assets/posts/spark-joy-python/spark-joy-python-narrow.jpg" | url }})
