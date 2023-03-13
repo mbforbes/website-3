@@ -1,10 +1,6 @@
 const { DateTime } = require("luxon");
-const fs = require("fs");
 const util = require("util");
-// const pluginRss = require("@11ty/eleventy-plugin-rss"); // TODO
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-// const pluginNavigation = require("@11ty/eleventy-navigation"); // TODO
-// const pluginLinkTo = require('eleventy-plugin-link_to');  // NOTE: if path prefix added
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
@@ -18,10 +14,19 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("CNAME");
 
     // Add plugins
-    //   eleventyConfig.addPlugin(pluginRss); // TODO
     eleventyConfig.addPlugin(pluginSyntaxHighlight);
-    //   eleventyConfig.addPlugin(pluginNavigation); // TODO
-    // eleventyConfig.addPlugin(pluginLinkTo);  // NOTE: if path prefix added
+    // Ideas:
+    // - TOC
+    //      - https://www.npmjs.com/package/eleventy-plugin-toc
+    // - navigation breadcrumbs:
+    //      - https://www.11ty.dev/docs/plugins/navigation/
+    //      - const pluginNavigation = require("@11ty/eleventy-navigation");
+    // - link_to
+    //      - https://github.com/nhoizey/eleventy-plugin-link_to
+    //      - const pluginLinkTo = require('eleventy-plugin-link_to');
+    // - rss
+    //      - https://www.11ty.dev/docs/plugins/rss/
+    //      - const pluginRss = require("@11ty/eleventy-plugin-rss");
 
     // TODO: consider
     // Alias `layout: post` to `layout: layouts/post.njk`
@@ -617,24 +622,6 @@ ${third}`;
             console.error('Error processing markdown:', e);
             return value;
         }
-    });
-
-    // Override Browsersync defaults (used only with --serve)
-    eleventyConfig.setBrowserSyncConfig({
-        callbacks: {
-            ready: function (err, browserSync) {
-                const content_404 = fs.readFileSync('_site/404.html');
-
-                browserSync.addMiddleware("*", (req, res) => {
-                    // Provides the 404 content without redirect.
-                    res.writeHead(404, { "Content-Type": "text/html; charset=UTF-8" });
-                    res.write(content_404);
-                    res.end();
-                });
-            },
-        },
-        ui: false,
-        ghostMode: false
     });
 
     // Set nunjucks options
