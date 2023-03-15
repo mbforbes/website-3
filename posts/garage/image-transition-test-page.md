@@ -26,11 +26,11 @@ Back when I started working with them, I tried rendering them as SVGs, thinking 
 
 Recently, I thought about drawing the maps in layers, then fading between them. Here are some interesting bits:
 
-- I started by giving the images all `position: absolute` to layer them on top of each other. But this leads to problems because the parent container doesn't know their size, so they cover up content below them. I found and used a great [CSS Grid hack](https://stackoverflow.com/a/63711983) position them instead.
+- I started by giving the images all `position: absolute` to layer them on top of each other. But this leads to problems because the parent container doesn't know their size, so they cover up content below them. I found and used a great [CSS Grid hack](https://stackoverflow.com/a/63711983) to position them instead.
 
-- I first implemented the transitions by having one image go from opacity 0 &rarr; 1, and the other from 1 &rarr; 0. But oddly, there was a middle period where their opacities summed to &lt; 1, and the image would partially fade. I started hacking around this by offsetting the 1 &rarr; 0 transition, but realized a better solution. Since I was already using a different `z-index` per image, I just let the one on top fade in over the one below it, keeping the one beneath at opacity 1.
+- I first implemented the transitions by having one image go from opacity 0 &rarr; 1, and the other from 1 &rarr; 0. But oddly, this produced a middle period where their opacities summed to &lt; 1, and the image would partially fade. I started hacking around this by offsetting the 1 &rarr; 0 transition, but realized a better solution. Since I was already using a different `z-index` per image, I just let the one on top fade in over the one below it, keeping the one beneath at opacity 1.
 
-- I want my site to be as functional as possible without JavaScript turned on. If the script isn't included, the HTML and CSS are setup to just display the most complete map.
+- I want my site to be as functional as possible without JavaScript turned on. If the script isn't included, the HTML and CSS are setup to just display the most complete map (it's placed as the top-most z-order image).
 
 <script src="/assets/garage/image-transition-test-page/image-transition.js" defer>
 </script>
