@@ -21,7 +21,8 @@
  *               [42.658347, 44.640784, "Kazbegi", "right", "in"],
  *           ],
  *           placeColor: "#FF4136",
- *           active: [],  // unused
+ *           active: ["Tbilisi"],
+ *           activeTooltipColor: "red",
  *           locationsPath: null, // unused
  *       },
  *       neighborsMaps: [
@@ -139,6 +140,9 @@ async function addPlaces(map, places, fillColor, doLines, activeList, extraConfi
     let tooltipSmall = extraConfig.tooltipSmall || false;
     let tooltipExtraClasses = extraConfig.tooltipExtraClasses || "";
     let circleRadius = extraConfig.circleRadius || 10000;
+    let activeTooltipColor = extraConfig.activeTooltipColor; // could be undefined
+
+    let activeTooltipClasses = activeTooltipColor != null ? `white bg-${activeTooltipColor}` : "";
 
     // places
     for (let place of places) {
@@ -151,8 +155,7 @@ async function addPlaces(map, places, fillColor, doLines, activeList, extraConfi
             color: 'white',
             // stroke: false,
             weight: 3,
-            fillColor: fillColor,
-            // fillColor: active ? '#FFF' : '#357EDD',
+            fillColor: active ? '#FFF' : fillColor,
             fillOpacity: active ? 0.9 : 0.5,
             radius: circleRadius,
             className: "mapPlace",
@@ -166,9 +169,9 @@ async function addPlaces(map, places, fillColor, doLines, activeList, extraConfi
         // let hOffset = 10;
         let vOffset = -7;
         let tooltipFont = tooltipSmall ? "f7" : "f6 f5-l";
+        let curActiveTooltipClasses = active ? activeTooltipClasses : "";
         circle.bindTooltip(name, {
-            // className: className + " sans-serif f6 f5-ns" + (active ? " mapPlaceActive" : ""),
-            className: `mapTooltip sans-serif ${tooltipFont} ${tooltipExtraClasses}` + (active ? " mapPlaceActive" : ""),
+            className: `mapTooltip sans-serif ${tooltipFont} ${tooltipExtraClasses} ${curActiveTooltipClasses}`,
             permanent: true,
             direction: direction,
             offset: L.point(hOffset, vOffset),
@@ -339,6 +342,9 @@ async function makeMapTrip() {
         MAP_CONFIG.trip.placeColor,
         true,  // add lines
         MAP_CONFIG.trip.active || [],
+        {
+            activeTooltipColor: MAP_CONFIG.trip.activeTooltipColor,
+        }
     );
 
     let tl = anime.timeline({

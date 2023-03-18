@@ -440,15 +440,31 @@ module.exports = function (eleventyConfig) {
     });
 
     /**
+     * pathOrPaths (str | str[])
      * attribution (bool, default: true) --- whether to add attribution <p> below
      * mt = margin-top (bool, default: true) --- whether to add figtop (mt5)
      * mb = margin-bottom (bool, default: true) --- whether to add figbot (mb5)
      */
-    eleventyConfig.addNunjucksShortcode("cityMap", (path, attribution = true, mt = true, mb = true) => {
+    eleventyConfig.addNunjucksShortcode("cityMap", (pathOrPaths, attribution = true, mt = true, mb = true, paddingClass = "") => {
+        let paths = pathOrPaths;
+        if (!Array.isArray(paths)) {
+            paths = [paths];
+        }
+        const isX = paths.length > 1;  // X = "transition"
         let figClasses = mt && mb ? "fig" : (mt && !mb ? "figtop" : (mb && !mt ? "figbot" : ""));
-        let base = `<div style="background-color: #FCEEE1" class="full-width cb ${figClasses}">
-<img class="content-width novmargin" src="${eleventyConfig.getFilter("url")(path)}" loading="lazy" decoding="async" />
-</div>`
+        let containerXClasses = isX ? "transitionContainer" : "";
+        let containerXStyle = isX ? "display: grid;" : "";
+
+        let basePieces = [];
+        basePieces.push(`<div style="background-color: #FCEEE1; ${containerXStyle}" class="full-width cb ${figClasses} ${containerXClasses}">`);
+        for (let i = 0; i < paths.length; i++) {
+            let imgXClasses = isX ? `fader z-${i} o-${i == paths.length - 1 ? 1 : 0}` : "";
+            let imgXStyleAttr = isX ? `style="grid-area: 1 / 1 / 2 / 2; transition: opacity 1s;"` : "";
+            basePieces.push(`<img class="content-width novmargin ${imgXClasses} ${paddingClass}" ${imgXStyleAttr} src="${eleventyConfig.getFilter("url")(paths[i])}" loading="lazy" decoding="async" />`)
+        }
+        basePieces.push(`</div>`);
+        let base = basePieces.join("\n");
+
         let attr = `<p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 </p>`;

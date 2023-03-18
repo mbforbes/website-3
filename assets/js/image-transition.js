@@ -3,11 +3,11 @@
 // revealing map layers.
 //
 
-let containers = document.getElementsByClassName("imageContainer");
-for (let container of containers) {
-    let images = container.children;
-    let n = images.length;
-    let endTicks = 3;
+const transitionContainers = document.getElementsByClassName("transitionContainer");
+for (let container of transitionContainers) {
+    const images = container.children;
+    const n = images.length;
+    const endTicks = 3;
     let cur = n - 1;
     let curTicks = endTicks;
     setInterval(() => {
