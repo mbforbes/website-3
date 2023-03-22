@@ -1,0 +1,34 @@
+{% extends "maps/map-base.njk" %}
+{% import "maps/map-overlays.njk" as overlays %}
+
+{% block setupScript %}
+<script type="text/javascript">
+    const MAP_CONFIG = {
+        core: {
+            mapDataDir: "{{ "/assets/mapData/" | url }}",
+        },
+        // Settings common to context and travel maps
+        subjectCountries: [
+            { name: "South Korea", "color": "#357EDD" },
+        ],
+        context: {
+            padding: 2.00,
+        },
+        trip: {
+            padding: 0.05,
+            places: [
+                [37.555549, 126.989445, "Seoul", "right", "in"],
+                [35.149905, 129.058273, "Busan", "right", "in"],
+                [33.499599, 126.530503, "Jeju", "right", "in"],
+            ],
+            placeColor: "#357EDD",
+            active: ["{{ activePlace  }}"],
+            activeTooltipColor: "blue",
+        }
+    };
+</script>
+{% endblock %}
+
+{% block contextPreview %}<img src="/assets/posts/2022-seoul/korea-map-context.png" />{% endblock %}
+{% block contextOverlay %}{{ overlays.overlay("🇰🇷", "South Korea") }}{% endblock %}
+{% block tripPreview %}<img src="/assets/posts/2022-seoul/seoul-map-travel.png" />{% endblock %}
