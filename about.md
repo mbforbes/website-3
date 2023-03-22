@@ -6,9 +6,9 @@ layout: "layouts/default.njk"
 
 ## Now
 
-As of February 2023, I'm traveling indefinitely and writing about where I go.
+As of March 2023, I'm traveling indefinitely and writing about where I go.
 These [travel essays](/studio/#travel) alternate between blocks of crappy iPhone photos and stories of things that confused me.
-I'm also occasionally writing [blog posts](/blog/) and tending to my [notes](/garage/).
+I'm also posting more work-in-progress essays and ideas to my [notes](/garage/).
 I prepare a monthly website digest, which you can subscribe to at the bottom of any page.
 
 ## Testimonials

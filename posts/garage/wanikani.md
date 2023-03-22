@@ -55,6 +55,7 @@ Bad
     - 女の子、女子、
     - 文字、字
     - There are good cases of this, e.g., description of 学ぶ There is another word that means "to learn" that is going to be more common, which is 習う. You'll learn this one later on. 学ぶ sounds a little more serious compared to 習う, so keep that in mind when you use it.
+- Doesn't consistently distinguish mnemonics for the same meaning. E.g., first 死 (death), then 亡 (death). The second mnemonic is a generic "death"-related wacky thing.
 - The whole avoiding kunyomi thing almost works, but doesn't --- you still benefit greatly from learning patterns, but have to do it without their structure
 - Same mnemonics with different pronunciations
 - Be more data driven
