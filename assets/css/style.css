@@ -828,6 +828,12 @@ ol ol ol {
     word-break: break-word;
 }
 
+.sidenote-text {
+    /* apparently need display: block to get it to respect max-width */
+    display: block;
+    max-width: 30em;
+}
+
 .sidenote-number {
     position: absolute;
     font-weight: bold;

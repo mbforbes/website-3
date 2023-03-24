@@ -13,7 +13,11 @@ for (let supEl of document.getElementsByClassName("footnote-ref")) {
     }
     let sidenote = document.createElement("span");
     sidenote.className = "sidenote";
-    sidenote.append(...contentsNodes);
+
+    let sidenoteText = document.createElement("span");
+    sidenoteText.className = "sidenote-text";
+    sidenoteText.append(...contentsNodes);
+    sidenote.insertAdjacentElement("afterbegin", sidenoteText);
 
     let sidenoteNum = document.createElement("span");
     sidenoteNum.className = "sidenote-number";
