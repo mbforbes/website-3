@@ -6,6 +6,7 @@ date: 2023-03-22
 travel_start: 2022-10-04
 travel_end: 2022-10-24
 image: /assets/posts/2022-seoul/IMG_7776.moz80.jpg
+coverImage: /assets/posts/2022-seoul/IMG_7776.moz80.jpg
 customexcerpt: When people ask us where what our favorite place was that we went in 2022, of the eighteen countries we visited, we’d both answer Seoul. We loved Seoul because it took care of us.
 attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
@@ -33,7 +34,7 @@ We layovered, for the third time, in one of Istanbul's mega terminals. It turned
 
 {% img "/assets/posts/2022-seoul/IMG_7680.moz80.jpg", false, false %}
 
-Oddly, though this one was the nicest, it was devoid of good overnight options. We managed^[_Managed_, i.e. they told me our card wasn't working and I had to "is there any possible way?" in a sleep-deprived panic. Which worked. Who knows what they did to get us in, but they have my gratitude if it required rule bending.] to get a three hour nap in these canvas pods. I wish I hadn't been spoiled by Istanbul's other airport's sleep pod offer, with their brick-and-mortar snooze room, dedicated (if janky) shower area, and imaginary toothbrush delivery robot^[They advertised this robot that could deliver you overpriced toiletries, which I never saw on two visits and am pretty sure was out of commission and wouldn't have used even if it was working. But they got points just for advertising it.] Instead, here were a bunch of semi-dark felt pods in a big carpeted area right off an airport walkway.
+Oddly, though this one was the nicest, it was devoid of good overnight options. We managed^[_Managed_, i.e. they told me our card wasn't working and I had to "is there any possible way?" in a sleep-deprived panic. Which worked. Who knows what they did to get us in, but they have my gratitude if it required rule bending.] to get a three hour nap in these canvas pods. I wish I hadn't been spoiled by Istanbul's other airport's sleep pod offer, with their brick-and-mortar snooze room, dedicated (if janky) shower area, and imaginary toothbrush delivery robot.^[They advertised this robot that could deliver you overpriced toiletries, which I never saw on two visits and am pretty sure was out of commission and wouldn't have used even if it was working. But they got points just for advertising it.] Instead, here were a bunch of semi-dark felt pods in a big carpeted area right off an airport walkway.
 
 {% img "/assets/posts/2022-seoul/IMG_7682.moz80.jpg", false, false %}
 
@@ -169,7 +170,6 @@ Seoul Tower sits on a mountain right in the city. You don't even need to buy a t
 Another great part of Seoul is its natural geography. Plenty of green hills erupt from the dense urban metropolis.^[Ugh, I hated writing "dense urban metropolis." I feel like I've read that trigram way too many times. Sorry. But it really really fits here.] The Han River is enormous and plows right through it. But most importantly, the skyscrapers could easily have succumbed to copy-paste dystopian utilitarianism housing, but they didn't. Seouls architects were working overtime. The glass tower variety somehow feels fresh and interesting in every district we visited.
 
 {% img [
-    "/assets/posts/2022-seoul/IMG_7776.moz80.jpg",
     "/assets/posts/2022-seoul/IMG_7784.moz80.jpg",
     "/assets/posts/2022-seoul/IMG_7786.moz80.jpg"
 ] %}

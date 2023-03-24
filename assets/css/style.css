@@ -109,6 +109,27 @@ body {
     /* transition: background-color 1s, color 1s; */
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.ttu,
+.footnote-ref,
+.sidenote-number,
+li.footnote-item::marker,
+.link {
+    /* tachyons: .sans-serif */
+    font-family: -apple-system, BlinkMacSystemFont,
+        'avenir next', avenir,
+        helvetica, 'helvetica neue',
+        ubuntu,
+        roboto, noto,
+        'segoe ui', arial,
+        sans-serif;
+}
+
 /* Prevent link (e.g., top "Maxwell Forbes") from changing color. */
 .textcolor {
     color: var(--text-color);
@@ -508,20 +529,21 @@ f7: font-size: 0.75rem;
     font-weight: bold;
 }
 
-/* NOTE: Some of the following were WIP styling footnote markers to look like
-  "01" (no decimal after, bold). Got close but no cigar, so abandoning for now.
-  */
+/*
+   Bunch of custom styling to get the footnote counter within the footnotes
+   themselves to look like "01 " and be bold, w/ leading zero and no dot.
+*/
 
-ol.footnotes-list {
-    list-style-type: decimal-leading-zero;
-    /* counter-reset: item; */
+li.footnote-item {
+    counter-increment: customfncounter;
+    padding-left: 1rem;
 }
 
 li.footnote-item::marker {
-    /* font-weight: bold;
-    content: counter(item, decimal-leading-zero) "  ";
-    counter-increment: item;
-    color: var(--lighter-text-color); */
+    font-weight: bold;
+    font-size: 83%;
+    color: var(--lighter-text-color);
+    content: counter(customfncounter, decimal-leading-zero) " ";
 }
 
 .footnotes-label {

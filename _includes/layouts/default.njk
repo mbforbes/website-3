@@ -3,7 +3,7 @@
 {% block body %}
 
   {# Nav #}
-  <nav class="mh3 mh4-ns pv3 flex f6 f4-ns justify-between" aria-label="Main">
+  <nav class="mh3 mh4-ns pv3 flex f6 f4-ns justify-between sans-serif" aria-label="Main">
     <div class="tl">
       <a href="{{ "/" | url }}" class="hover dim textcolor" id="header">Maxwell Forbes</a>
     </div>
@@ -25,6 +25,11 @@
       {% include "color-scheme-indicator.njk" %}
     </div>
   </nav>
+
+  {# Huge full-width (not even screen-height-limited) image between nav and post. #}
+  {% if coverImage %}
+    <img src="{{ coverImage }}" />
+  {% endif %}
 
   {# Series header. #}
   {% if series %}

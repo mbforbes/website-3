@@ -44,6 +44,8 @@ Contact me at: <img height="22" class="inline" src="{{ "/assets/img/my-email.png
 
 ## Publications
 
+<div class="sans-serif">
+
 [**Scarecrow: A Framework for Scrutinizing Machine Text**](https://arxiv.org/pdf/2107.01294.pdf)<br/>
 Yao Dou&#42;, **Maxwell Forbes**&#42;, Rik Koncel-Kedziorski, Noah A. Smith, Yejin Choi<br/>
 _Association for Computational Linguistics (ACL) 2022_<br/>
@@ -175,6 +177,8 @@ _AAAI Fall Symposium Series on Human-Robot Interaction 2014_<br/>
 **Maxwell Forbes**, Michael Chung, Maya Cakmak, Luke Zettlemoyer, Rajesh P. N. Rao<br />
 _ACM/IEEE International Conference on Human-Robot Interaction (HRI) Workshop on Asymmetric Interactions 2014_<br/>
 [[slides]({{ "/assets/research/forbes2014grounding-slides.pdf" | url }})]
+
+</div>
 
 ## Software
 
