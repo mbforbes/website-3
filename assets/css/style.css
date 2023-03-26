@@ -525,10 +525,6 @@ f7: font-size: 0.75rem;
     margin-bottom: -12rem;
 }
 
-.footnote-ref {
-    font-weight: bold;
-}
-
 /*
    Bunch of custom styling to get the footnote counter within the footnotes
    themselves to look like "01 " and be bold, w/ leading zero and no dot.
