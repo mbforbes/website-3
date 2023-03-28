@@ -5,6 +5,7 @@
   {# Nav #}
   <nav class="mh3 mh4-ns pv3 flex f6 f4-ns justify-between sans-serif" aria-label="Main">
     <div class="tl">
+      <link rel="prefetch" href="{{ "/" | url }}">
       <a href="{{ "/" | url }}" class="hover dim textcolor" id="header">Maxwell Forbes</a>
     </div>
     <div class="tr">
@@ -15,6 +16,7 @@
             {{ link.name }}
           </span>
         {% else %}
+          <link rel="prefetch" href="{{ link.url | url }}">
           <a class="link hover-link-color ml2 ml3-ns pv1" href="{{ link.url | url }}">
             {{ link.name }}
           </a>

@@ -8,7 +8,8 @@ layout: "layouts/default.njk"
 <p>
 I'm a computer science researcher from Seattle. Right now I'm wandering around the globe.
 You can see
-<a href="{{ "/whereami/" | url }}">where I am right now</a>, or read about
+<link rel="prefetch" href="{{ "/whereami/" | url }}"><a href="{{ "/whereami/" | url }}">where I am right now</a>,
+or read about
 <a href="{{ "/studio/#travel" | url }}">where I've been</a>.
 <p>
 
@@ -17,6 +18,7 @@ You can see
 <ul class="list pa0">
     {% for post in collections.studio | rejectAttrContains(["data", "tags"], "software") | rejectAttrContains(["data", "tags"], "redirect") | sort(true, false, "date") | head(3) %}
     <li class="mv2">
+      <link rel="prefetch" href="{{ post.url | url }}">
       <a href="{{ post.url | url }}" class="db pv1 link">
         {# NOTE: Not using post.data.travel_end because otherwise main page has old dates at top #}
         <time class="fr lightest-text-color ml3">{{ post.date | readableDate }} </time>
@@ -29,6 +31,7 @@ You can see
 <div class="cf mb1">
     {% for sketch in collections.sketch | sort(true, false, "date") | head(3) %}
         <div class="fl mr3">
+            <link rel="prefetch" href="{{ sketch.url | url }}">
             <a href="{{ sketch.url | url }}">
             <img class="dim novmargin" src="{{ sketch.data.thumb | url }}" style="width: 72px; height: 72px;" />
             </a>
@@ -53,6 +56,7 @@ You can see
                 {{ post.templateContent | replace("<p>", "") | replace("</p>", "") | safe }}
             </span>
         {% else %}
+            <link rel="prefetch" href="{{ post.url | url }}">
             <a href="{{ post.url | url }}" class="db pv1 link">
                 <time class="fr lightest-text-color ml3">{{ post.date | readableDate }} </time>
                 {{ post.data.title }}
