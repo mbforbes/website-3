@@ -1,5 +1,5 @@
-{% macro insertMap(mapID, mapClasses, previewIMG) %}
-<div class="full-width cb flex justify-center fig mb0 pv4 pv5-l fade-bg">
+{% macro insertMap(mapID, mapClasses, previewIMG, containerClasses="full-width fade-bg pv4 pv5-l") %}
+<div class="{{ containerClasses }} cb flex justify-center fig">
     <div class="ph3 w-100">
         <div id="{{ mapID }}" class="bg-white center {{ mapClasses }}">
             <img src="{{ previewIMG }}" loading="lazy" decoding="async" />

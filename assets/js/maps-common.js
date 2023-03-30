@@ -36,6 +36,8 @@
  *                   ["Turkey", [39.500450, 41.625810], "top"],
  *                   ["Azerbaijan", "auto", "top"],
  *               ],
+ *               countryColors: ["#FF4136", ...], // optional
+ *               animateCountries: true, // default
  *               bounds: [
  *                   [44.032123, 38.837827],
  *                   [37.859427, 50.012896],
@@ -53,6 +55,7 @@
  *               places: [
  *                   [55.756006, 37.620606, "Moscow", "right", "in"],
  *               ],
+ *               placeCircleRadius: 50000, // default
  *               placeColor: "#000",
  *               bounds: [
  *                   [56.364228, 27.309065],
@@ -145,11 +148,22 @@ async function addPlaces(map, places, fillColor, doLines, activeList, extraConfi
     let activeTooltipClasses = activeTooltipColor != null ? `white bg-${activeTooltipColor}` : "";
 
     // places
-    for (let place of places) {
-        // dots
+    let placeNames = places.map((el) => el[2]);
+    // console.log(placeNames)
+    for (let i = 0; i < places.length; i++) {
+        let place = places[i];
         let coord = [place[0], place[1]];
         let name = place[2];
         let direction = place[3];
+
+        // skip adding dot / label for place twice. (this happens if traveling
+        // to places multiple times and want to show this route)
+        if (placeNames.indexOf(name) < i) {
+            // console.log("Skipping adding", name, "again.")
+            continue;
+        }
+
+        // dots
         let active = activeList.indexOf(name) != -1;
         let circle = L.circle(coord, {
             color: 'white',
@@ -162,12 +176,12 @@ async function addPlaces(map, places, fillColor, doLines, activeList, extraConfi
         }).addTo(map);
 
         // labels
-        let hOffset = direction == "right" ? 10 : (direction == "left" ? -15 : 0);
+        let hOffset = direction == "right" ? 10 : (direction == "left" ? -15 : (direction == "top" ? -3 : 0));
         // let vOffset = direction == "bottom" ? 10 : (direction == "top" ? -10 : 0);
         // hack to get tooltip to line up with offset marker. couldn't get offsets in CSS to work,
         // but I should try to fix in future.
         // let hOffset = 10;
-        let vOffset = -7;
+        let vOffset = direction == "top" ? -19 : -7;
         let tooltipFont = tooltipSmall ? "f7" : "f6 f5-l";
         let curActiveTooltipClasses = active ? activeTooltipClasses : "";
         circle.bindTooltip(name, {
@@ -353,18 +367,21 @@ async function makeMapTrip() {
         direction: 'alternate', // Is not inherited
         loop: true, // Is not inherited
     });
+    // TODO: offsets (e.g. "-=3000") should probably be calculated based on the
+    // number of places. Right now the timing is different for 3 vs 4 vs 5-place
+    // maps.
     tl.add({
         targets: `#${elID} .mapOutlineTrip`,
         translateX: -3,
         translateY: -7,
         // opacity: 1,
-    }, "+=1000");
+    }, "+=250");
     tl.add({
         targets: `#${elID} .mapPlace`,
         translateX: -3,
         translateY: -7,
         opacity: 1,
-        delay: anime.stagger(100, { start: 0 }),
+        delay: anime.stagger(400, { start: 0 }),
     }, '-=1500');
     tl.add({
         targets: `#${elID} .mapPath`,
@@ -372,17 +389,18 @@ async function makeMapTrip() {
         easing: 'easeInOutSine',
         duration: 250,
         strokeDashoffset: [anime.setDashoffset, 0],
-        delay: anime.stagger(250, { start: 0 }),
-    }, '-=2000');
+        delay: anime.stagger(400, { start: 0 }),
+    }, '-=3000');
     tl.add({
         easing: "easeOutExpo",
         targets: `#${elID} .mapTooltip`,
         // translating breaks tooltip locations when map changes (zoom, pan);
         // they stop tracking the spot they're supposed to stay. Annoying
         // because markers and outlines do reposition correctly while animating.
+        delay: anime.stagger(400, { start: 0 }),
         opacity: 0.9,
         endDelay: 1500,
-    }, '-=1500');
+    }, '-=3000');
 
     new ResizeObserver((_, __) => {
         mapTrip.fitBounds(tripBounds);
@@ -392,12 +410,20 @@ async function makeMapTrip() {
 async function makeMapNeighbors(mapDataDir, nMap) {
     let elID = nMap.elID || "mapNeighbors"; // default element ID
 
+    // We'd check for this in renderMap(), but it throws an error. This is fine
+    // if we're including a common maps setting on multiple pages, but each page
+    // has a subset of the neighbors maps drawn.
+    if (document.getElementById(elID) == null) {
+        console.log("No element with ID '" + elID + "' so skipping that neighbors map.");
+        return;
+    }
+
     // load countries by names
     await loadBoundaries(mapDataDir, nMap.countries.map((el) => el[0]));
 
     // render all boundaries, cycling colors
     let mapNeighbors = await renderMap(elID);
-    let allColors = ["#FF4136", "#FF6300", "#FFD700", "#A463F2", "#FF80CC", "#19A974", "#357EDD"];
+    let allColors = nMap.countryColors || ["#FF4136", "#FF6300", "#FFD700", "#A463F2", "#FF80CC", "#19A974", "#357EDD"];
     let color = 0;
     let neighborOverlays = [];
     for (let i = 0; i < nMap.countries.length; i++) {
@@ -430,7 +456,7 @@ async function makeMapNeighbors(mapDataDir, nMap) {
             [], // no active list
             {
                 tooltipSmall: true,
-                circleRadius: 50000,
+                circleRadius: nMap.placeCircleRadius || 50000,
                 tooltipExtraClasses: "dn di-ns",
             },
         );
@@ -442,13 +468,16 @@ async function makeMapNeighbors(mapDataDir, nMap) {
         direction: 'alternate', // Is not inherited
         loop: true, // Is not inherited
     });
-    tl.add({
-        targets: `#${elID} .mapOutlineNeighbors`,
-        translateX: -3,
-        translateY: -7,
-        // opacity: 1,
-        delay: anime.stagger(100, { start: 0 }),
-    });
+    const animCountries = nMap.animateCountries == null || nMap.animateCountries;
+    if (animCountries) {
+        tl.add({
+            targets: `#${elID} .mapOutlineNeighbors`,
+            translateX: -3,
+            translateY: -7,
+            // opacity: 1,
+            delay: anime.stagger(100, { start: 0 }),
+        });
+    }
     if (hasPlaces) {
         tl.add({
             targets: `#${elID} .mapPlace`,
@@ -456,7 +485,7 @@ async function makeMapNeighbors(mapDataDir, nMap) {
             translateY: -7,
             opacity: 1,
             delay: anime.stagger(100, { start: 0 }),
-        }, '-=1500');
+        }, (animCountries ? '-=1500' : ""));
     }
     tl.add({
         easing: "easeOutExpo",

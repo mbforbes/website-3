@@ -1,0 +1,59 @@
+{% extends "maps/map-base.njk" %}
+{% import "maps/map-overlays.njk" as overlays %}
+
+{% block setupScript %}
+<script type="text/javascript">
+    const MAP_CONFIG = {
+        core: {
+            mapDataDir: "{{ "/assets/mapData/" | url }}",
+        },
+        // Settings common to context and travel maps
+        subjectCountries: [
+            { name: "Vietnam", "color": "#FFD700" },
+        ],
+        context: {
+            padding: 1.50,
+        },
+        trip: {
+            padding: 0.05,
+            places: [
+                [21.029, 105.854, "Hanoi", "right", "in"],
+                [22.336, 103.843, "Sapa", "left", "in"],
+                [21.029, 105.854, "Hanoi", "right", "in"],
+                [11.940, 108.438, "Dalat", "right", "out"],
+                [10.776, 106.702, "Ho Chi Minh City", "left", "in"],
+            ],
+            placeColor: "#FF4136",
+            active: ["{{ activePlace  }}"],
+            activeTooltipColor: "red",
+        },
+        neighborsMaps: [
+            {
+                elID: "mapHanoiOMTAs",
+                countries: [
+                    ["Vietnam", "auto", "top"],
+                ],
+                countryColors: ["#FFD700"],
+                animateCountries: false,
+                bounds: [
+                    [23.0, 102.5],
+                    [19.5, 107.8],
+                ],
+                places: [
+                    [21.029, 105.854, "Hanoi", "left", "in"],
+                    [22.336, 103.843, "Sapa", "right", "in"],
+                    [20.255, 105.976, "Ninh Binh", "left", "in"],
+                    [20.908, 107.068, "Halong Bay", "top", "in"],
+                ],
+                placeColor: "#FF4136",
+                placeCircleRadius: 10000,
+                endTimelineOffset: '-=2200',
+            },
+        ],
+    };
+</script>
+{% endblock %}
+
+{% block contextPreview %}<img src="/assets/posts/2022-hanoi/vietnam-map-context.png" />{% endblock %}
+{% block contextOverlay %}{{ overlays.overlay("🇻🇳", "Vietnam") }}{% endblock %}
+{% block tripPreview %}<img src="/assets/posts/2022-{{ activePlace | lower }}/{{ activePlace | lower }}-map-travel.png" />{% endblock %}
