@@ -55,6 +55,7 @@
  *               places: [
  *                   [55.756006, 37.620606, "Moscow", "right", "in"],
  *               ],
+ *               drawPlaceLine: false, // default
  *               placeCircleRadius: 50000, // default
  *               placeColor: "#000",
  *               bounds: [
@@ -447,12 +448,13 @@ async function makeMapNeighbors(mapDataDir, nMap) {
 
     // Add any places
     let hasPlaces = nMap.places && nMap.places.length > 0;
+    let doLines = nMap.drawPlaceLines || false; // I think || false might be a noop lol
     if (hasPlaces) {
         await addPlaces(
             mapNeighbors,
             nMap.places,
             nMap.placeColor,
-            false, // no lines
+            doLines,
             [], // no active list
             {
                 tooltipSmall: true,
@@ -484,8 +486,18 @@ async function makeMapNeighbors(mapDataDir, nMap) {
             translateX: -3,
             translateY: -7,
             opacity: 1,
-            delay: anime.stagger(100, { start: 0 }),
+            delay: anime.stagger(300, { start: 0 }),
         }, (animCountries ? '-=1500' : ""));
+    }
+    if (doLines) {
+        tl.add({
+            targets: `#${elID} .mapPath`,
+            opacity: 0.7,
+            easing: 'easeInOutSine',
+            duration: 500,
+            strokeDashoffset: [anime.setDashoffset, 0],
+            delay: anime.stagger(300, { start: 0 }),
+        }, '-=2000');
     }
     tl.add({
         easing: "easeOutExpo",

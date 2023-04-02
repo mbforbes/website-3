@@ -214,7 +214,7 @@ As I mentioned in my blog post _[Sleeper Train to Sapa](/blog/sleeper-train-to-s
     "mapHanoiOMTAs",
     "leafletMap mapSmall",
     "/assets/posts/2022-hanoi/map-neighbors-omtas.png",
-    "pv3 pv4-l"
+    ""
 ) }}
 
 <p class="figcaption">Locations of Hanoi-region OMTAs.</p>
