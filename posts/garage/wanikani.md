@@ -83,6 +83,7 @@ Bad
         - meaning and reading together (note: they quote research to support not doing this, but the research does not support this actual point. plus, it's a setting as a learning one should get to choose)
 - adding this but might be part of another: not helpful for remembering which reading goes with which. example: 小皿 vocab, alt kunyomi for 小 (ko), and the mnemonic is totally unrelated to this word
 - even when there's two ones we learned, not helping distinguish. e.g., vocab 不正, we learn しょう first for 正, and no explanation when the other is used.
+    - another example: vocab 正直 uses second onyomi for both kanji, and no mnemonic is given
 - nothing helping distinguishing radicals that are similar conceptually
     - 金 gold vs 宝 treasure
     - sometimes they do w/ e.g. run vs foot radicals
