@@ -35,6 +35,7 @@
                 ],
                 countryColors: ["#FFD700"],
                 animateCountries: false,
+                labelCountries: false,
                 bounds: [
                     [23.0, 102.5],
                     [19.5, 107.8],
@@ -56,6 +57,7 @@
                 ],
                 countryColors: ["#FFD700"],
                 animateCountries: false,
+                labelCountries: false,
                 bounds: [
                     [22.8, 103.1],
                     [20.9, 106.3],
@@ -69,6 +71,32 @@
                 placeColor: "#FF4136",
                 placeCircleRadius: 5000,
                 endTimelineOffset: '-=2200',
+            },
+            {
+                elID: "mapDanangHoian",
+                countries: [
+                    ["Vietnam", "auto", "top"],
+                ],
+                countryColors: ["#FFD700"],
+                animateCountries: false,
+                labelCountries: false,
+                bounds: [
+                    [23.5, 102.5],
+                    [8.5, 110.8],
+                ],
+                places: [
+                    [21.029, 105.854, "Hanoi", "top", "in"],
+                    [22.336, 103.843, "Sapa", "bottom", "in"],
+                    [16.068, 108.212, "Da Nang", "right", "in"],
+                    [15.880, 108.327, "Hoi An", "left", "in"],
+                    [11.940, 108.438, "Dalat", "right", "out"],
+                    [10.776, 106.702, "Ho Chi Minh City", "left", "in"],
+                ],
+                active: ["Da Nang", "Hoi An"],
+                activeTooltipColor: "red",
+                placeColor: "#FF4136",
+                placeCircleRadius: 20000,
+                endTimelineOffset: '-=3200',
             },
         ],
     };

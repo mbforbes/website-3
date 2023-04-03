@@ -39,6 +39,7 @@ Sa Pa | Sapa | City
 Ninh Bình | Ninh Binh | Region
 Đà Lạt | Dalat | City
 Hạ Long Bay | Halong Bay | Region
+Đà Nẵng | Da Nang | City
 Hội An | Hoi An | City
 Thành phố Hồ Chí Minh (TP.HCM) / Sài Gòn | Ho Chi Minh City (HCMC) / Saigon | City
 Bánh mì | Banh mi | Sandwich
@@ -142,7 +143,7 @@ Oh, and did I mention it was cheap? Korea was pretty good, but Vietnam is on a w
 
 {% img "/assets/posts/2022-hanoi/IMG_8954.moz80.jpg", false, false %}
 
-<p class="figcaption">Hanoi's, like much of Vietnam, had A+ coffee shop vibe game. The climate allowed generous outpourings of tropical plans that would embarrass any stateside third-wave joint. This is my bad attempt to capture the entrance to one of them.</p>
+<p class="figcaption">Hanoi, like much of Vietnam, had A+ coffee shop vibe game. The climate allowed generous outpourings of tropical plans that would embarrass any stateside third-wave joint. This is my bad attempt to capture the entrance to one of them.</p>
 
 ### With Mopeds, We Finally Understood Hanoi
 

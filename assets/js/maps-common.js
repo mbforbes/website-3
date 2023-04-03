@@ -38,6 +38,7 @@
  *               ],
  *               countryColors: ["#FF4136", ...], // optional
  *               animateCountries: true, // default
+ *               labelCountries: true, // default
  *               bounds: [
  *                   [44.032123, 38.837827],
  *                   [37.859427, 50.012896],
@@ -55,6 +56,8 @@
  *               places: [
  *                   [55.756006, 37.620606, "Moscow", "right", "in"],
  *               ],
+ *               active: [], // default
+ *               activeTooltipColor: "red",  // optional (noop here as no active)
  *               drawPlaceLine: false, // default
  *               placeCircleRadius: 50000, // default
  *               placeColor: "#000",
@@ -177,12 +180,15 @@ async function addPlaces(map, places, fillColor, doLines, activeList, extraConfi
         }).addTo(map);
 
         // labels
-        let hOffset = direction == "right" ? 10 : (direction == "left" ? -15 : (direction == "top" ? -3 : 0));
+        let hOffset = direction == "right" ? 10 :
+            (direction == "left" ? -15 :
+                (direction == "top" ? -3 :
+                    (direction == "bottom" ? -3 : 0)));
         // let vOffset = direction == "bottom" ? 10 : (direction == "top" ? -10 : 0);
         // hack to get tooltip to line up with offset marker. couldn't get offsets in CSS to work,
         // but I should try to fix in future.
         // let hOffset = 10;
-        let vOffset = direction == "top" ? -19 : -7;
+        let vOffset = direction == "top" ? -17 : (direction == "bottom" ? 2 : -7);
         let tooltipFont = tooltipSmall ? "f7" : "f6 f5-l";
         let curActiveTooltipClasses = active ? activeTooltipClasses : "";
         circle.bindTooltip(name, {
@@ -437,13 +443,16 @@ async function makeMapNeighbors(mapDataDir, nMap) {
     mapNeighbors.fitBounds(neighborsBounds);
 
     // We need to add labels and stuff after the bounds or leaflet freaks out.
-    for (let i = 0; i < nMap.countries.length; i++) {
-        await addLabel(
-            mapNeighbors,
-            nMap.countries[i][0],
-            nMap.countries[i][1] == "auto" ? neighborOverlays[i].getBounds().getCenter() : nMap.countries[i][1],
-            nMap.countries[i][2]
-        );
+    const labelCountries = nMap.labelCountries == null || nMap.labelCountries;
+    if (labelCountries) {
+        for (let i = 0; i < nMap.countries.length; i++) {
+            await addLabel(
+                mapNeighbors,
+                nMap.countries[i][0],
+                nMap.countries[i][1] == "auto" ? neighborOverlays[i].getBounds().getCenter() : nMap.countries[i][1],
+                nMap.countries[i][2]
+            );
+        }
     }
 
     // Add any places
@@ -455,11 +464,12 @@ async function makeMapNeighbors(mapDataDir, nMap) {
             nMap.places,
             nMap.placeColor,
             doLines,
-            [], // no active list
+            nMap.active || [],
             {
                 tooltipSmall: true,
                 circleRadius: nMap.placeCircleRadius || 50000,
                 tooltipExtraClasses: "dn di-ns",
+                activeTooltipColor: nMap.activeTooltipColor, // may be undefined
             },
         );
     }
@@ -506,7 +516,7 @@ async function makeMapNeighbors(mapDataDir, nMap) {
         // they stop tracking the spot they're supposed to stay. Annoying because
         // markers and outlines do reposition correctly while animating.
         opacity: 0.9,
-        delay: anime.stagger(100, { start: 0 }),
+        delay: anime.stagger(300, { start: 0 }),
         endDelay: 1500,
     }, nMap.endTimelineOffset);
 
