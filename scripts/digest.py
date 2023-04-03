@@ -1,7 +1,7 @@
 """Monthly digest
 
 Steps:
-- edit DATE_START, DATE_END
+- edit DATE_START, DATE_END (they are inclusive)
 - edit PREAMBLE (opt)
 - edit POSTAMBLE
 - run `python scripts/digest.py | pbcopy`
@@ -19,15 +19,21 @@ import mistune
 
 from common import get_posts, Post
 
-DATE_START = date(2023, 2, 1)
-DATE_END = date(2023, 2, 28)
+DATE_START = date(2023, 3, 1)
+DATE_END = date(2023, 3, 31)
 # DISPLAY_MONTH = "September"
 # SUBJECT = f"Max Forbes | {DISPLAY_MONTH} 2022 Digest"
 
 PREAMBLE = """
 <p>Hi everyone,</p>
 
-<p>This is a summary of what I published in the last month over at my website.</p>
+<p>This is <a href="https://maxwellforbes.com/">Max Forbes</a>.
+You're getting this email because you subscribed to my website's monthly digest.
+Right now, I'm positing a lot of travel essays.
+In general, I also write about design, computer graphics, programming, making websites, and AI.
+</p>
+
+<p>Without further preamble, here is the summary of what I published in the last month over at my website.</p>
 
 <br />
 """
@@ -36,22 +42,12 @@ POSTAMBLE = """
 <h2>News</h2>
 
 <p>
-Hello from Taipei!
+Hello from Kaohsiung, Taiwan!
 </p>
 
 <p>
-I spent a few days optimizing my pages to make them load faster.
-My travel posts were weighing in at 100MB+, and were awfully slow on a shaky Internet connection.
-They should feel much snappier now (~5MB on page load, and interactive elements initialize later).
-I wrote some notes about engineering that speedup <a href="https://maxwellforbes.com/garage/speeding-up-my-website/">here</a>.
-</p>
-
-<p>
-I'm experimenting reducing what I send out in this digest.
-For now, I'm eliminating exhaustive updates to the <a href="https://maxwellforbes.com/studio/#garage">Garage</a>, the work-in-progress section of my website.
-At the same time, I hope to post more drafts and notes there.
-The purpose of both changes is to make the Garage feel more like a workshop / lab.
-Of course, the garage door is still up, so you can always browse it if you'd like see what I'm working on.
+It has been a busy month. We're taking four weeks to circumnavigate Taiwan, and we're about halfway through right now.
+I've been hard at work catching up with the old travel writing, so there are lots of fresh posts, and more being prepared now.
 </p>
 
 <p>
