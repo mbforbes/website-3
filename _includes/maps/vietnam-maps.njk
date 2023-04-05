@@ -103,6 +103,8 @@
 </script>
 {% endblock %}
 
+{% set activePlaceSlug = activePlaceSlug | default(activePlace) | lower %}
+
 {% block contextPreview %}<img src="/assets/posts/2022-hanoi/vietnam-map-context.png" />{% endblock %}
 {% block contextOverlay %}{{ overlays.overlay("🇻🇳", "Vietnam") }}{% endblock %}
-{% block tripPreview %}<img src="/assets/posts/2022-{{ activePlace | lower }}/{{ activePlace | lower }}-map-travel.png" />{% endblock %}
+{% block tripPreview %}<img src="/assets/posts/2022-{{ activePlaceSlug }}/{{ activePlaceSlug }}-map-travel.png" />{% endblock %}
