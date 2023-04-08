@@ -2,7 +2,7 @@
 title: Manila
 series: The Philippines
 seriesOrder: 1
-date: 2023-04-06
+date: 2023-04-08
 travel_start: 2022-11-20
 travel_end: 2022-11-25
 image: /assets/posts/2022-manila/IMG_9559.moz80.jpg
