@@ -64,7 +64,7 @@ We tell her the apartment we're to be staying at, which she didn't know anything
 
 <p class="figcaption">Even in the iron gate'd building complex, our individual unit also has iron bars on the windows facing the hallway.</p>
 
-We get into the apartment, and there's one last task for the day. In the shower is the largest cockroach we'd seen yet. (Aren't they supposed to run away? They never seem to.) It's Julie's turn to kill it. Here's a photo of her armored up in oven gloves and armed with my shoe, working up the nerves to crunch it's little body into the afterlife.
+We get into the apartment, and there's one last task for the day. In the shower is the largest cockroach we'd seen yet. (Aren't they supposed to run away? They never seem to.) It's Julie's turn to kill it. Here's a photo of her armored up in oven gloves and armed with my shoe, working up the nerves to crunch its little body into the afterlife.
 
 {% img "/assets/posts/2022-manila/IMG_9479.moz80.jpg", false, false %}
 
