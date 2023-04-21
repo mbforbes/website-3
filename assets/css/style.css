@@ -119,6 +119,7 @@ h6,
 .footnote-ref,
 .sidenote-number,
 li.footnote-item::marker,
+.footnotes-label,
 .link {
     /* tachyons: .sans-serif */
     font-family: -apple-system, BlinkMacSystemFont,
