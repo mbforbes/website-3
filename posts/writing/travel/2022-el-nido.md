@@ -1,5 +1,6 @@
 ---
 title: El Nido
+delaytitle: true
 series: The Philippines
 seriesOrder: 3
 date: 2023-04-11
@@ -23,6 +24,8 @@ attributions: The custom animated maps use map tiles by [Stamen Design](http://m
 {% set activePlace = "El Nido" %}
 {% set activePlaceSlug = "el-nido" %}
 {% include "maps/philippines-maps.njk" %}
+
+{% include "title.njk" %}
 
 ## Airplane Island Hopping
 

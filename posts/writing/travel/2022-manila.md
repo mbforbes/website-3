@@ -1,5 +1,6 @@
 ---
 title: Manila
+delaytitle: true
 series: The Philippines
 seriesOrder: 1
 date: 2023-04-08
@@ -19,6 +20,8 @@ assets/posts/2022-manila/IMG_9531.moz80.jpg
 
 {% set activePlace = "Manila" %}
 {% include "maps/philippines-maps.njk" %}
+
+{% include "title.njk" %}
 
 ## Guns and Cash: Arrival
 

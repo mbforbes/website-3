@@ -1,0 +1,29 @@
+<div class="mb4 mb5-l mt5 mt6-l">
+{# Date #}
+{% if page.date and not hidedate %}
+<div class="f6 f5-ns lightest-text-color mt0 mb2 sans-serif">
+    {% if not "garage" in tags %}
+    {{ travel_end | default(page.date) | readableDate }}
+    {% else %}
+    <a href="{{ "/studio/#garage" | url }}" class="lightest-text-color hover-blue">GARAGE/</a>
+    {% endif %}
+</div>
+{% endif %}
+
+{# Series #}
+{% if series %}
+<h1 class="f3 ttu tracked lh-solid mv2">
+    {{ series }}
+</h1>
+{% endif %}
+
+{# Title #}
+<h1 class="f1 f-5-l fw9 lh-solid mt0 mb5">
+    {{ title }}
+</h1>
+{% if subtitle %}
+<p class="lighter-text-color subtitle f4 f3-ns">
+    {{ subtitle }}
+</p>
+{% endif %}
+</div>

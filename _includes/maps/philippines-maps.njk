@@ -15,7 +15,7 @@
             padding: 1.50,
         },
         trip: {
-            padding: -0.20,
+            padding: 0.00,
             places: [
                 [14.599605, 120.985202, "Manila", "top", "in"],
                 [9.659, 123.856, "Bohol", "right", "in"],
@@ -32,6 +32,7 @@
 
 {% set activePlaceSlug = activePlaceSlug | default(activePlace) | lower %}
 
+{% block wrapperClasses %}alt-bg pt5 pb4{% endblock %}
 {% block contextPreview %}<img src="/assets/posts/2022-manila/philippines-map-context.png" />{% endblock %}
 {% block contextOverlay %}{{ overlays.overlay("🇵🇭", "The Philippines") }}{% endblock %}
 {% block tripPreview %}<img src="/assets/posts/2022-{{ activePlaceSlug }}/{{ activePlaceSlug }}-map-travel.png" />{% endblock %}

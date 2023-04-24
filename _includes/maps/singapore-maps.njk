@@ -1,0 +1,40 @@
+{% extends "maps/map-base.njk" %}
+{% import "maps/map-overlays.njk" as overlays %}
+
+{% block setupScript %}
+<script type="text/javascript">
+    const MAP_CONFIG = {
+        core: {
+            mapDataDir: "{{ "/assets/mapData/" | url }}",
+        },
+        // Settings common to context and travel maps
+        subjectCountries: [
+            { name: "Singapore", "color": "#FF4136" },
+        ],
+        context: {
+            tileLayer: "terrain-background",
+            padding: 80.0,
+            labelCountries: true,
+            countryLabels: ["right in here"],
+        },
+        trip: {
+            tileLayer: "terrain-background",
+            padding: 5.0,
+            places: [
+                [1.263024, 103.852291, "Singapore", "bottom", "in"],
+            ],
+            placeCircleRadius: 100,
+            skipBounce: true,
+            // placeColor: "#FF4136",
+            placeColor: "#FFFFFF",
+            // active: ["Manila"],
+            activeTooltipColor: "red",
+        }
+    };
+</script>
+{% endblock %}
+
+{% block wrapperClasses %}map-bg pt5{% endblock %}
+{% block contextPreview %}<img src="/assets/posts/2022-singapore/singapore-map-context.png" />{% endblock %}
+{% block contextOverlay %}{{ overlays.overlay("🇸🇬", "Singapore") }}{% endblock %}
+{% block tripPreview %}<img src="/assets/posts/2022-singapore/singapore-map-travel.png" />{% endblock %}

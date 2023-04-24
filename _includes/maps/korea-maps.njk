@@ -29,6 +29,7 @@
 </script>
 {% endblock %}
 
+{% block wrapperClasses %}fade-bg fig pv5{% endblock %}
 {% block contextPreview %}<img src="/assets/posts/2022-seoul/korea-map-context.png" />{% endblock %}
 {% block contextOverlay %}{{ overlays.overlay("🇰🇷", "South Korea") }}{% endblock %}
 {% block tripPreview %}<img src="/assets/posts/2022-{{ activePlace | lower }}/{{ activePlace | lower }}-map-travel.png" />{% endblock %}

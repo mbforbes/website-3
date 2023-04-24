@@ -12,9 +12,13 @@
  *           { name: "Georgia", "color": "#FF4136" },
  *       ],
  *       context: {
+ *           tileLayer: "toner-background", // default
  *           padding: 4.00,
+ *           labelCountries: false, // default
+ *           countryLabels: ["ol' Georgarino"], // if labeling, uses names if this not provided
  *       },
  *       trip: {
+ *           tileLayer: "toner-background", // default
  *           padding: 0.05,
  *           places: [
  *               [41.714963, 44.828851, "Tbilisi", "right", "in"],
@@ -28,6 +32,7 @@
  *       neighborsMaps: [
  *           {
  *               elID: "mapNeighbors",  // default
+ *               tileLayer: "toner-background", // default
  *               countries: [
  *                   ["Russia", [44.190508, 44.189828], "top"],
  *                   ["Georgia", [41.783452, 44.092452], "top"],
@@ -74,7 +79,7 @@
 // Addl. globals
 let allBoundaryData = {};
 
-async function renderMap(elID) {
+async function renderMap(elID, tileLayer = "toner-background") {
     let mapEL = document.getElementById(elID);
     if (mapEL == null) {
         throw new Error("Couldn't find element with ID " + elID);
@@ -89,7 +94,7 @@ async function renderMap(elID) {
     }
 
     // replace "toner" here with "terrain" or "watercolor"
-    let layer = new L.StamenTileLayer("toner-background", { detectRetina: true });
+    let layer = new L.StamenTileLayer(tileLayer, { detectRetina: true });
     let map = new L.Map(elID, {
         zoomSnap: 0.25,
         scrollWheelZoom: false,
@@ -305,7 +310,7 @@ async function renderOverlays(map, countryInfos, className, pad) {
  * Zoomed out map
  */
 async function makeMapContext() {
-    let mapContext = await renderMap("mapContext");
+    let mapContext = await renderMap("mapContext", MAP_CONFIG.context.tileLayer);
 
     // make bounds that covers all the desired areas.
     let contextBounds = await renderOverlays(
@@ -316,6 +321,22 @@ async function makeMapContext() {
     );
     mapContext.fitBounds(contextBounds);
 
+    if (MAP_CONFIG.context.labelCountries) {
+        // console.log("Labeling countries");
+        for (let i = 0; i < MAP_CONFIG.subjectCountries.length; i++) {
+            let label = MAP_CONFIG.subjectCountries[i]['name'];
+            if (MAP_CONFIG.context.countryLabels && MAP_CONFIG.context.countryLabels[i]) {
+                label = MAP_CONFIG.context.countryLabels[i];
+            }
+            await addLabel(
+                mapContext,
+                label,
+                contextBounds.getCenter(),
+                "right",
+            );
+        }
+    }
+
     anime({
         targets: '#mapContext .mapOutlineContext',
         easing: "easeInOutSine",
@@ -325,6 +346,17 @@ async function makeMapContext() {
         // delay: 1000,
         endDelay: 250,
         opacity: 0.9,
+    });
+
+    anime({
+        easing: "easeOutExpo",
+        targets: `#mapContext .mapTooltip`,
+        // translating breaks tooltip locations when map changes (zoom, pan);
+        // they stop tracking the spot they're supposed to stay. Annoying
+        // because markers and outlines do reposition correctly while animating.
+        // delay: anime.stagger(400, { start: 0 }),
+        opacity: 0.9,
+        // endDelay: ,
     });
 
     // `ResizeObserver` works better than `window.addEventListener('resize',
@@ -342,7 +374,7 @@ async function makeMapContext() {
  */
 async function makeMapTrip() {
     let elID = "mapTrip";
-    let mapTrip = await renderMap(elID);
+    let mapTrip = await renderMap(elID, MAP_CONFIG.trip.tileLayer);
 
     // make bounds that covers all the desired areas.
     let tripBounds = await renderOverlays(
@@ -365,6 +397,7 @@ async function makeMapTrip() {
         MAP_CONFIG.trip.active || [],
         {
             activeTooltipColor: MAP_CONFIG.trip.activeTooltipColor,
+            circleRadius: MAP_CONFIG.trip.placeCircleRadius,
         }
     );
 
@@ -377,12 +410,14 @@ async function makeMapTrip() {
     // TODO: offsets (e.g. "-=3000") should probably be calculated based on the
     // number of places. Right now the timing is different for 3 vs 4 vs 5-place
     // maps.
-    tl.add({
-        targets: `#${elID} .mapOutlineTrip`,
-        translateX: -3,
-        translateY: -7,
-        // opacity: 1,
-    }, "+=250");
+    if (MAP_CONFIG.trip.skipBounce == null || !MAP_CONFIG.trip.skipBounce) {
+        tl.add({
+            targets: `#${elID} .mapOutlineTrip`,
+            translateX: -3,
+            translateY: -7,
+            // opacity: 1,
+        }, "+=250");
+    }
     tl.add({
         targets: `#${elID} .mapPlace`,
         translateX: -3,
@@ -429,7 +464,7 @@ async function makeMapNeighbors(mapDataDir, nMap) {
     await loadBoundaries(mapDataDir, nMap.countries.map((el) => el[0]));
 
     // render all boundaries, cycling colors
-    let mapNeighbors = await renderMap(elID);
+    let mapNeighbors = await renderMap(elID, nMap.tileLayer);
     let allColors = nMap.countryColors || ["#FF4136", "#FF6300", "#FFD700", "#A463F2", "#FF80CC", "#19A974", "#357EDD"];
     let color = 0;
     let neighborOverlays = [];

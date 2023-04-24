@@ -141,6 +141,10 @@ li.footnote-item::marker,
     background-image: var(--fade-bg-image);
 }
 
+.map-bg {
+    background-color: #FCEEE1;
+}
+
 .warning {
     background-color: var(--warn-bg-color);
     color: var(--warn-text-color);

@@ -1,5 +1,6 @@
 ---
 title: Bohol
+delaytitle: true
 series: The Philippines
 seriesOrder: 2
 date: 2023-04-10
@@ -23,6 +24,8 @@ attributions: The custom animated maps use map tiles by [Stamen Design](http://m
 
 {% set activePlace = "Bohol" %}
 {% include "maps/philippines-maps.njk" %}
+
+{% include "title.njk" %}
 
 ## Manila Airport Domestic (T4)
 

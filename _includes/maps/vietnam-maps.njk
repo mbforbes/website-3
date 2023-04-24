@@ -105,6 +105,7 @@
 
 {% set activePlaceSlug = activePlaceSlug | default(activePlace) | lower %}
 
+{% block wrapperClasses %}fade-bg fig pv5{% endblock %}
 {% block contextPreview %}<img src="/assets/posts/2022-hanoi/vietnam-map-context.png" />{% endblock %}
 {% block contextOverlay %}{{ overlays.overlay("🇻🇳", "Vietnam") }}{% endblock %}
 {% block tripPreview %}<img src="/assets/posts/2022-{{ activePlaceSlug }}/{{ activePlaceSlug }}-map-travel.png" />{% endblock %}
