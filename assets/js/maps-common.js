@@ -24,6 +24,7 @@
  *               [41.714963, 44.828851, "Tbilisi", "right", "in"],
  *               [42.658347, 44.640784, "Kazbegi", "right", "in"],
  *           ],
+ *           offsetTooltip: "-=3000", // default
  *           placeColor: "#FF4136",
  *           active: ["Tbilisi"],
  *           activeTooltipColor: "red",
@@ -425,14 +426,16 @@ async function makeMapTrip() {
         opacity: 1,
         delay: anime.stagger(400, { start: 0 }),
     }, '-=1500');
-    tl.add({
-        targets: `#${elID} .mapPath`,
-        opacity: 0.7,
-        easing: 'easeInOutSine',
-        duration: 250,
-        strokeDashoffset: [anime.setDashoffset, 0],
-        delay: anime.stagger(400, { start: 0 }),
-    }, '-=3000');
+    if (MAP_CONFIG.trip.places.length > 1) {
+        tl.add({
+            targets: `#${elID} .mapPath`,
+            opacity: 0.7,
+            easing: 'easeInOutSine',
+            duration: 250,
+            strokeDashoffset: [anime.setDashoffset, 0],
+            delay: anime.stagger(400, { start: 0 }),
+        }, '-=3000');
+    }
     tl.add({
         easing: "easeOutExpo",
         targets: `#${elID} .mapTooltip`,
@@ -442,7 +445,7 @@ async function makeMapTrip() {
         delay: anime.stagger(400, { start: 0 }),
         opacity: 0.9,
         endDelay: 1500,
-    }, '-=3000');
+    }, MAP_CONFIG.trip.offsetTooltip || "-=3000");
 
     new ResizeObserver((_, __) => {
         mapTrip.fitBounds(tripBounds);

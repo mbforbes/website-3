@@ -18,7 +18,6 @@ assets/posts/2022-singapore/IMG_0090.moz80.jpg
 -->
 
 {% include "maps/singapore-maps.njk" %}
-{% cityMap "/assets/posts/2022-singapore/singapore-4-perimeter.moz80.jpg", false, false, false, "pb4" %}
 {% include "title.njk" %}
 
 It is very tempting to try to poke holes in Singapore's narrative of itself as a tiny utopia.

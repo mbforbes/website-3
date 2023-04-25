@@ -1,4 +1,4 @@
-{% extends "maps/map-base.njk" %}
+{% extends "maps/map-base-double.njk" %}
 {% import "maps/map-overlays.njk" as overlays %}
 
 {% block setupScript %}
@@ -32,7 +32,7 @@
 
 {% set activePlaceSlug = activePlaceSlug | default(activePlace) | lower %}
 
-{% block wrapperClasses %}alt-bg pt5 pb4{% endblock %}
-{% block contextPreview %}<img src="/assets/posts/2022-manila/philippines-map-context.png" />{% endblock %}
+{% block wrapperClasses %}alt-bg{% endblock %}
+{% block contextPreview %}/assets/posts/2022-manila/philippines-map-context.png{% endblock %}
 {% block contextOverlay %}{{ overlays.overlay("🇵🇭", "The Philippines") }}{% endblock %}
-{% block tripPreview %}<img src="/assets/posts/2022-{{ activePlaceSlug }}/{{ activePlaceSlug }}-map-travel.png" />{% endblock %}
+{% block tripPreview %}/assets/posts/2022-{{ activePlaceSlug }}/{{ activePlaceSlug }}-map-travel.png{% endblock %}

@@ -1,4 +1,4 @@
-{% extends "maps/map-base.njk" %}
+{% extends "maps/map-base-triple.njk" %}
 {% import "maps/map-overlays.njk" as overlays %}
 
 {% block setupScript %}
@@ -34,7 +34,10 @@
 </script>
 {% endblock %}
 
-{% block wrapperClasses %}map-bg pt5{% endblock %}
-{% block contextPreview %}<img src="/assets/posts/2022-singapore/singapore-map-context.png" />{% endblock %}
+{% block wrapperClasses %}map-bg{% endblock %}
+{% block contextPreview %}/assets/posts/2022-singapore/singapore-map-context.png{% endblock %}
 {% block contextOverlay %}{{ overlays.overlay("🇸🇬", "Singapore") }}{% endblock %}
-{% block tripPreview %}<img src="/assets/posts/2022-singapore/singapore-map-travel.png" />{% endblock %}
+{% block tripPreview %}/assets/posts/2022-singapore/singapore-map-travel.png{% endblock %}
+{% block cityMap %}{% cityMap [
+    "/assets/posts/2022-singapore/singapore-map-square.png"
+], false, false, false, "mapSmall shadow-1", true %}{% endblock %}

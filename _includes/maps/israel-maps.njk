@@ -1,4 +1,4 @@
-{% extends "maps/map-base.njk" %}
+{% extends "maps/map-base-double.njk" %}
 {% import "maps/map-overlays.njk" as overlays %}
 
 {% block setupScript %}
@@ -62,7 +62,7 @@
 </script>
 {% endblock %}
 
-{% block wrapperClasses %}fade-bg fig pv5{% endblock %}
-{% block contextPreview %}<img src="/assets/posts/2022-israel/israel-map-context.png" />{% endblock %}
+{% block wrapperClasses %}fade-bg fig{% endblock %}
+{% block contextPreview %}/assets/posts/2022-israel/israel-map-context.png{% endblock %}
 {% block contextOverlay %}{{ overlays.doubleOverlay("🇮🇱", "Israel", "🇵🇸", "Palestine") }}{% endblock %}
-{% block tripPreview %}<img src="/assets/posts/2022-israel/israel-map-travel.png" />{% endblock %}
+{% block tripPreview %}/assets/posts/2022-israel/israel-map-travel.png{% endblock %}

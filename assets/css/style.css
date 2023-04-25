@@ -684,6 +684,11 @@ ol ol ol {
         max-width: 50%;
     }
 
+    /*  max-width 33% not-small */
+    .mw-33-ns {
+        max-width: 33%;
+    }
+
     .markdown-body .figcaption {
         /* f5-ns */
         font-size: 1rem;
