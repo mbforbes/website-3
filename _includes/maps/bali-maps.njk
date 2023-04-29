@@ -1,0 +1,39 @@
+{% extends "maps/map-base-triple.njk" %}
+{% import "maps/map-overlays.njk" as overlays %}
+
+{% block setupScript %}
+<script type="text/javascript">
+    const MAP_CONFIG = {
+        core: {
+            mapDataDir: "{{ "/assets/mapData/" | url }}",
+        },
+        // Settings common to context and travel maps
+        subjectCountries: [
+            { name: "Indonesia", "color": "#FF4136" },
+        ],
+        context: {
+            tileLayer: "terrain-background",
+            padding: 0.8,
+        },
+        trip: {
+            tileLayer: "terrain-background",
+            padding: 0.02,
+            places: [
+                [-8.330, 115.091, "Bali", "bottom", "in"],
+            ],
+            placeCircleRadius: 50000,
+            // skipBounce: true,
+            placeColor: "#FFFFFF",
+            offsetTooltip: "-=1500",
+        }
+    };
+</script>
+{% endblock %}
+
+{% block wrapperClasses %}map-bg{% endblock %}
+{% block contextPreview %}/assets/posts/2022-bali/bali-map-context.png{% endblock %}
+{% block contextOverlay %}{{ overlays.overlay("🇮🇩", "Indonesia") }}{% endblock %}
+{% block tripPreview %}/assets/posts/2022-bali/bali-map-travel.png{% endblock %}
+{% block cityMap %}{% cityMap [
+    "/assets/posts/2022-bali/bali-map.png"
+], false, false, false, "mapSmall", true, "shadow-1" %}{% endblock %}

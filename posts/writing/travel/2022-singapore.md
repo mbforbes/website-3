@@ -155,7 +155,7 @@ Like Seoul, the skyline is interesting and varied, and integrates modern with tr
         "/assets/posts/2022-singapore/IMG_9948.moz80.jpg",
         "/assets/posts/2022-singapore/IMG_9951.moz80.jpg"
     ]
-] %}
+], true %}
 
 The city has a pristinely landscaped and kempt Botanic Gardens, apparently one of only three gardens in the world that's a UNESCO World Heritage Site.^[The whole UNESCO label has always somewhat baffled me---what around the world gets it and why---but that's a digression for another time.] It's even one of the rare things you can check out for free.
 
