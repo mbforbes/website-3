@@ -99,7 +99,7 @@ The other big difference that you can't get from a phone is shallow depth-of-fie
 With these powers, and inspired by food thirst trap videos,^[E.g., Ashley Xu's [_Thirst Trap for Chocolate Milk_](https://www.youtube.com/shorts/5UGQXd0vdfk). It turns out these take considerable skill to make. I watched a process breakdown video of hers, and she said it takes about five full workdays to make one ~12 second video (!!!). Plus, she's clearly more of a pro---editing, lighting, the whole nine yards. Mad respect. Also made me feel less bad about how my two hour attempt turned out.] I tried making a stupid coffee sizzle real, which it turns out is harder than I'd expected.
 
 <iframe class="w-100 fig" style="aspect-ratio: 100 / 56.25;" loading="lazy"
-src="https://www.youtube-nocookie.com/embed/BEpRhGmbv8o?&autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+src="https://www.youtube-nocookie.com/embed/BEpRhGmbv8o?&autoplay=1&mute=1&loop=1&playlist=BEpRhGmbv8o&rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
 
 <p class="figcaption">{{ "Unmute if you'd like to be serenaded by the sweet tones of Romanian pan flue prodigy Zamfir. One thing I definitely messed up is I didn't do any white-balance or color grading. I wanted to keep the warmth from inside lighting, but everything came out weirdly orange." | md | safe }}</p>
 
