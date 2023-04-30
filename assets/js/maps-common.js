@@ -24,6 +24,8 @@
  *               [41.714963, 44.828851, "Tbilisi", "right", "in"],
  *               [42.658347, 44.640784, "Kazbegi", "right", "in"],
  *           ],
+ *           offsetPlace: "-=1500", // default
+ *           offsetPath: "-=3000", // default
  *           offsetTooltip: "-=3000", // default
  *           placeColor: "#FF4136",
  *           active: ["Tbilisi"],
@@ -311,7 +313,12 @@ async function renderOverlays(map, countryInfos, className, pad) {
  * Zoomed out map
  */
 async function makeMapContext() {
-    let mapContext = await renderMap("mapContext", MAP_CONFIG.context.tileLayer);
+    let elID = "mapContext";
+    if (document.getElementById(elID) == null) {
+        console.log("No element with ID '" + elID + "' so skipping context map.");
+        return;
+    }
+    let mapContext = await renderMap(elID, MAP_CONFIG.context.tileLayer);
 
     // make bounds that covers all the desired areas.
     let contextBounds = await renderOverlays(
@@ -339,7 +346,7 @@ async function makeMapContext() {
     }
 
     anime({
-        targets: '#mapContext .mapOutlineContext',
+        targets: `#${elID} .mapOutlineContext`,
         easing: "easeInOutSine",
         direction: 'alternate', // Is not inherited
         loop: true, // Is not inherited
@@ -351,7 +358,7 @@ async function makeMapContext() {
 
     anime({
         easing: "easeOutExpo",
-        targets: `#mapContext .mapTooltip`,
+        targets: `#${elID} .mapTooltip`,
         // translating breaks tooltip locations when map changes (zoom, pan);
         // they stop tracking the spot they're supposed to stay. Annoying
         // because markers and outlines do reposition correctly while animating.
@@ -367,7 +374,7 @@ async function makeMapContext() {
     // uses the old level.
     new ResizeObserver((_, __) => {
         mapContext.fitBounds(contextBounds);
-    }).observe(document.getElementById("mapContext"));
+    }).observe(document.getElementById(elID));
 }
 
 /**
@@ -375,6 +382,10 @@ async function makeMapContext() {
  */
 async function makeMapTrip() {
     let elID = "mapTrip";
+    if (document.getElementById(elID) == null) {
+        console.log("No element with ID '" + elID + "' so skipping trip map.");
+        return;
+    }
     let mapTrip = await renderMap(elID, MAP_CONFIG.trip.tileLayer);
 
     // make bounds that covers all the desired areas.
@@ -384,6 +395,9 @@ async function makeMapTrip() {
         "mapOutlineTrip",
         MAP_CONFIG.trip.padding
     );
+    if (MAP_CONFIG.trip.customBounds) {
+        tripBounds = L.latLngBounds(MAP_CONFIG.trip.customBounds);
+    }
     mapTrip.fitBounds(tripBounds);
 
     // minor (photo) locations unimplemented
@@ -419,13 +433,14 @@ async function makeMapTrip() {
             // opacity: 1,
         }, "+=250");
     }
+    // console.log("Adding animation to places.")
     tl.add({
         targets: `#${elID} .mapPlace`,
         translateX: -3,
         translateY: -7,
         opacity: 1,
         delay: anime.stagger(400, { start: 0 }),
-    }, '-=1500');
+    }, MAP_CONFIG.trip.offsetPlace || '-=1500');
     if (MAP_CONFIG.trip.places.length > 1) {
         tl.add({
             targets: `#${elID} .mapPath`,
@@ -434,7 +449,7 @@ async function makeMapTrip() {
             duration: 250,
             strokeDashoffset: [anime.setDashoffset, 0],
             delay: anime.stagger(400, { start: 0 }),
-        }, '-=3000');
+        }, MAP_CONFIG.trip.offsetPath || '-=3000');
     }
     tl.add({
         easing: "easeOutExpo",
@@ -458,6 +473,7 @@ async function makeMapNeighbors(mapDataDir, nMap) {
     // We'd check for this in renderMap(), but it throws an error. This is fine
     // if we're including a common maps setting on multiple pages, but each page
     // has a subset of the neighbors maps drawn.
+    // TODO: yeah we should just do it there probs lol
     if (document.getElementById(elID) == null) {
         console.log("No element with ID '" + elID + "' so skipping that neighbors map.");
         return;

@@ -145,6 +145,17 @@ li.footnote-item::marker,
     background-color: #FCEEE1;
 }
 
+.map-bg-o70 {
+    /* FF = 255 */
+    /* B2 = 255 * 0.7 = 178(.5) */
+    background-color: #FCEEE1B2;
+}
+
+.w-flag {
+    width: 1em;
+    min-width: 1em;
+}
+
 .warning {
     background-color: var(--warn-bg-color);
     color: var(--warn-text-color);
