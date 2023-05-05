@@ -3,6 +3,7 @@
     --bg-color: #fff;
     --off-bg-color: #f4f4f4;
     --alt-bg-color: #e2e5e9;
+    --dark-bg-color: #cbced2;
     --flash-bg-color: #FBF1A9;
     /* --alt-bg-color: #fff; */
     --bg-image: none;
@@ -38,6 +39,7 @@
     --bg-color: #1e1e1e;
     --off-bg-color: #282828;
     --alt-bg-color: #141414;
+    --dark-bg-color: #000000;
     --flash-bg-color: #FFB70066;
     --bg-image: none;
     --text-color: #fff;
@@ -69,6 +71,7 @@
     --bg-color: transparent;
     --off-bg-color: rgba(255, 255, 255, 0.1);
     --alt-bg-color: transparent;
+    --dark-bg-color: transparent;
     --bg-image: linear-gradient(45deg,
             hsl(240deg 100% 20%) 0%,
             hsl(289deg 100% 21%) 23%,
@@ -141,6 +144,11 @@ li.footnote-item::marker,
     background-image: var(--fade-bg-image);
 }
 
+.bg-white-o90 {
+    /* E6 = 255 * 0.9 = 230 */
+    background-color: #FFFFFFE6;
+}
+
 .map-bg {
     background-color: #FCEEE1;
 }
@@ -175,6 +183,11 @@ li.footnote-item::marker,
 .alt-bg {
     background-color: var(--alt-bg-color);
     color: var(--alt-text-color);
+    border: var(--alt-border);
+}
+
+.dark-bg {
+    background-color: var(--dark-bg-color);
     border: var(--alt-border);
 }
 
@@ -391,13 +404,13 @@ p.subtitle {
     /* font-size     : 1rem; */
 }
 
-.markdown-body a:hover,
+.markdown-body a:hover:not(.nohoverstyle),
 .hover-link-color:hover,
 .normal-links a:hover {
     color: var(--hover-link-color);
 }
 
-.markdown-body a:hover:not(.link),
+.markdown-body a:hover:not(.link, .nohoverstyle),
 .normal-links a:hover {
     text-decoration: underline;
 }

@@ -6,6 +6,7 @@ const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
 const markdownItLazyLoading = require('markdown-it-image-lazy-loading');
 const markdownItReplacements = require('markdown-it-replacements');
+const readingTime = require('eleventy-plugin-reading-time');
 
 module.exports = function (eleventyConfig) {
     // Copy some folders to the output
@@ -15,6 +16,7 @@ module.exports = function (eleventyConfig) {
 
     // Add plugins
     eleventyConfig.addPlugin(pluginSyntaxHighlight);
+    eleventyConfig.addPlugin(readingTime);
     // Ideas:
     // - TOC
     //      - https://www.npmjs.com/package/eleventy-plugin-toc
@@ -284,6 +286,13 @@ module.exports = function (eleventyConfig) {
             }
             return [bgImgPath, `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" loading="lazy" style="max-height: 100vh; ${img.videoStyle}"></iframe>`]
         }
+        if (img.youtubeInfo) {
+            let bgImgPath = "";
+            if (img.bgImgPath) {
+                bgImgPath = eleventyConfig.getFilter("url")(img.bgImgPath);
+            }
+            return [bgImgPath, `<iframe src="https://www.youtube-nocookie.com/embed/${img.youtubeInfo}?&autoplay=1&mute=1&loop=1&playlist=${img.youtubeInfo}&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen loading="lazy" style="max-height: 100vh; ${img.videoStyle}"></iframe>`]
+        }
 
         // image
         let path;
@@ -459,24 +468,26 @@ module.exports = function (eleventyConfig) {
             imgExClasses = "",
             embedded = false,
             firstImgClass = "",
+            plainBig = false,
         ) => {
         let paths = pathOrPaths;
         if (!Array.isArray(paths)) {
             paths = [paths];
         }
         const isX = paths.length > 1;  // X = "transition"
-        const divBGColorStyle = embedded ? "" : "background-color: #FCEEE1;";
+        const divBGColorStyle = embedded ? "" : (plainBig ? "" : "background-color: #FCEEE1;");
         const divWidthClass = embedded ? "" : "full-width";
         const figClasses = mt && mb ? "fig" : (mt && !mb ? "figtop" : (mb && !mt ? "figbot" : ""));
         const containerXClasses = isX ? "transitionContainer" : "";
         const containerXStyle = isX ? "display: grid;" : "";
-        const imageClasses = embedded ? "br-100" : "content-width";
+        const imageClasses = embedded ? "br-100" : (plainBig ? "" : "content-width");
+        const imageStyleSize = plainBig ? "max-height: min(100vh, 1000px); max-width: min(100%, 1000px);" : "";
 
         let basePieces = [];
         basePieces.push(`<div style="${divBGColorStyle} ${containerXStyle}" class="${divWidthClass} cb ${figClasses} ${containerXClasses}">`);
         for (let i = 0; i < paths.length; i++) {
             const imgXClasses = isX ? `fader z-${i} o-${i == paths.length - 1 ? 1 : 0}` : "";
-            const imgXStyleAttr = isX ? `style="grid-area: 1 / 1 / 2 / 2; transition: opacity 0.75s;"` : "";
+            const imgXStyleAttr = isX ? `style="grid-area: 1 / 1 / 2 / 2; transition: opacity 0.75s; ${imageStyleSize}"` : `style="${imageStyleSize}"`;
             basePieces.push(`<img class="novmargin ${imageClasses} ${imgXClasses} ${imgExClasses} ${i == 0 ? firstImgClass : ''}" ${imgXStyleAttr} src="${eleventyConfig.getFilter("url")(paths[i])}" loading="lazy" decoding="async" />`)
         }
         basePieces.push(`</div>`);
@@ -584,6 +595,18 @@ ${third}`;
     eleventyConfig.addFilter("filterTagList", filterTagList)
     // ---------------------------------------------------------------------------------
 
+    eleventyConfig.addFilter("month3", dateObj => {
+        return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat("LLL");
+    });
+
+    eleventyConfig.addFilter("day2", dateObj => {
+        return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat("dd");
+    });
+
+    eleventyConfig.addFilter("year4", dateObj => {
+        return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat("yyyy");
+    });
+
     // Create an array of all tags
     eleventyConfig.addCollection("tagList", function (collection) {
         let tagSet = new Set();
@@ -656,6 +679,9 @@ ${third}`;
             return value;
         }
     });
+
+    // Keys filter. For debugging.
+    eleventyConfig.addFilter("keys", obj => Object.keys(obj).sort());
 
     // Set nunjucks options
     eleventyConfig.setNunjucksEnvironmentOptions({

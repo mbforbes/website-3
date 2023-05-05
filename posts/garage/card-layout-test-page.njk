@@ -1,0 +1,134 @@
+---
+title: Card layout test page
+date: 2023-05-05
+circular: true
+---
+
+<style>
+{# https://fonts.google.com/specimen/Aladin?preview.text=Sapa&preview.text_type=custom&category=Handwriting #}
+@import url('https://fonts.googleapis.com/css2?family=Aladin&display=swap');
+
+{# https://codepen.io/markmiro/pen/wbqMPa #}
+
+.card {
+  text-shadow: 1px 1px 2px #A54E0055;
+
+  box-shadow: 0 1px 5px #00000099;
+  transition-duration: 300ms;
+  transition-property: transform, box-shadow;
+  transition-timing-function: ease-out;
+  transform: rotate3d(0);
+}
+
+
+.card:hover {
+  transition-duration: 150ms;
+  box-shadow: 0 5px 20px 5px #00000044;
+}
+
+.card .glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
+}
+
+{# TODO: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_flip_card #}
+
+{#
+.card {
+    perspective: 1000px;
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
+}
+
+.card:hover .cardInner {
+  transform: rotateY(180deg);
+}
+
+.cardFront, .cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.cardBack {
+  transform: rotateY(180deg);
+}
+#}
+
+</style>
+
+<div class="full-width pa4" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(225px, 1fr)); grid-gap: 20px; font-family: 'Aladin', serif;">
+    {% for post in collections.all | sort(true, false, "date") | head(40) | rejectAttrNested(["data", "circular"])%}
+        {% set img = [1,2,3,4,5,6,7,8,9] | random %}
+        {# https://codemyui.com/hand-drawn-border-buttons-css/ #}
+        {% set br1 = ["255px 15px 225px 15px/15px 225px 15px 255px", "15px 225px 15px 255px/255px 15px 225px 15px"] | random %}
+        {% set br2 = ["50px 10px 35px 10px / 10px 35px 10px 50px", "5px 35px 10px 50px/50px 10px 35px 10px"] | random %}
+        {% set coffeePresent = [false, false, true] | random %}
+        {% set coffeeSize = ["large", "small"] | random %}
+        {% set coffeeRots = [0,1,2,3,4,5,6,7] | random %}
+        {% set coffeeDeg = coffeeRots * 45 %}
+        {% set fontClass = "f2" %}
+        {% if post.data.title | length > 42 %}
+            {% set fontClass = "f5" %}
+        {% elif post.data.title | length > 13 %}
+            {% set fontClass = "f3" %}
+        {% endif %}
+        <a class="br3 pa2 card pointer black nohoverstyle relative font-size: 0px;" style="overflow: hidden; aspect-ratio: 2/3; background-image: url('/assets/img/weathered-texture-slices/slice_{{ img }}.moz80.jpg');">
+            <div class="cardInner h-100">
+                <div class="cardFront h-100">
+                    {% if coffeePresent %}
+                        <img class="novmargin absolute o-20 z-2 rotate-{{ coffeeDeg }}" style="max-width: none; margin-left: -0px; margin-top: -0px;" src="/assets/img/coffee-stain-{{ coffeeSize }}.png" />
+                    {% endif %}
+                    <div class="ba bw3 b--black flex flex-column h-100" style="border-radius: {{br1}};">
+                        <div class="bw3 b--black pa2 {{ fontClass }} tc flex items-center justify-center" style="height: 52px; line-height: 1.0; text-wrap: balance;">
+                            {{ post.data.title | default("no title")}}
+                            </div>
+                        <img class="novmargin absolute o-60 z-1 w3" style="max-width: none; right: 15px; margin-top: 15px;" src="/assets/img/jet.png" />
+                        <div class="ba bw3 b--black bg-black" style="aspect-ratio: 4/3; overflow: hidden; border-radius: {{ br1 }}; flex-shrink: 0;">
+                            <img class="novmargin h-100 w-100" style="filter: sepia(1.0) brightness(0.9); object-fit: cover;" src="{{ post.data.image | default('') }}" />
+                        </div>
+                        <div class="flex items-stretch pa2" style="flex-grow: 1; overflow: hidden;">
+                            <div class="relative tc">
+                                <img class="novmargin w3 rotate-315 absolute o-20" style="filter: drop-shadow(2px 2px 4px #fff); max-width: none; margin-left: -24px; margin-top: -8px;" src="/assets/img/timer.png" />
+                                <p class="ma0 f2 lh-solid">
+                                    {{ post.content | readingTime({raw:true}) }}
+                                </p>
+                                <p class="ma0 f4 lh-solid" style="margin-top: -5px;">
+                                    min
+                                </p>
+                                <p class="ma0 f4 lh-solid" style="margin-top: -5px;">
+                                    read
+                                </p>
+                            </div>
+                            <div class="lh-solid f5 pl3 pr2 flex items-center" style="flex-grow: 1; hyphens: auto; text-wrap: balance; word-break: break-word; text-shadow: none;">
+                                {{ post.data.customexcerpt | default("tbd") | md | safe }}
+                            </div>
+                            <div class="tc relative flex flex-column justify-end lh-solid">
+                                <img class="novmargin w3 absolute o-20" style="filter: drop-shadow(2px 2px 4px #fff); max-width: none; margin-left: -32px; margin-top: -0px;" src="/assets/img/quill.png" />
+                                <p class="ma0 small-caps f4">{{ post.date | month3 | lower}}</p>
+                                <p class="ma0 f3">{{ post.date | day2 }}</p>
+                                <p class="ma0 f6">{{ post.date | year4}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glow"></div>
+                </div>
+                <div class="cardBack h-100">
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
