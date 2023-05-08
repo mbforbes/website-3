@@ -7,6 +7,7 @@ const markdownItFootnote = require("markdown-it-footnote");
 const markdownItLazyLoading = require('markdown-it-image-lazy-loading');
 const markdownItReplacements = require('markdown-it-replacements');
 const readingTime = require('eleventy-plugin-reading-time');
+const Image = require("@11ty/eleventy-img");
 
 module.exports = function (eleventyConfig) {
     // Copy some folders to the output
@@ -275,9 +276,16 @@ module.exports = function (eleventyConfig) {
      * - if obj and image, expects keys path (req) maxHeight (opt, default "939px")
      * - if obj and video, expect keys vimeoInfo (req), videoStyle (req), bgImgPath (opt, for blurStretchSingles)
      *
+     * @param n how many images will be in the final row this is a part of.
+     *          Need this because the layout is breaking in extremely specific conditions
+     *          (multi-img w/ diff dims and only w/ srcset+sizes).
      * @returns [bgImgPath || "", HTML]
      */
-    function imgSpecToHTML(img) {
+    async function imgSpecToHTML(img, n) {
+        // if (n == 3) {
+        //     console.log(img);
+        // }
+
         // video
         if (img.vimeoInfo) {
             let bgImgPath = "";
@@ -307,14 +315,40 @@ module.exports = function (eleventyConfig) {
         }
         path = eleventyConfig.getFilter("url")(path);
 
+        // image plugin
+        // 2504 is standard photo width (4:3 aspect ratio @1878px high)
+        // let metadata = await Image((path[0] == "/" ? path.substring(1) : path), {
+        //     widths: [313, 626, 1252, null],
+        //     formats: ["auto"],
+        //     outputDir: "./_site/assets/eleventyImgs/",
+        //     urlPath: "/assets/eleventyImgs/",
+        // });
+        // console.log(metadata);
+
         // image source / path debug / preview / display
         // let pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
         let pathDisplay = "";
-        return [path, `<img class="db bare novmargin ${extraClasses}" src="${path}" style="max-height: min(100vh, ${maxHeight});" loading="lazy" decoding="async" />${pathDisplay}`];
+        // orig:
+        let html = `<img class="db bare novmargin ${extraClasses}" src="${path}" style="max-height: min(100vh, ${maxHeight});" loading="lazy" decoding="async" />${pathDisplay}`;
+        // re: sizes:
+        // - one reference: https://ericportis.com/posts/2014/srcset-sizes/
+        // - depending on how things go, could simply use 1/2/3 img w/ full-width/not to do some simple guesstimating.
+        // NOTE: See garage note: "image layout test page." 2/3+ image layouts break when we add attrs and set height
+        //       & width auto when images are multiple sizes AND they have the srcset+sizes attrs.
+        // let attrFixStyle = n == 1 ? "width: auto; height: auto;" : "height: auto;";
+        // let html = Image.generateHTML(metadata, {
+        //     sizes: "100vw",  // TODO: probably need to think way more about this
+        //     class: `db bare novmargin ${extraClasses}`,
+        //     style: `max-height: min(100vh, ${maxHeight}); ${attrFixStyle}`,
+        //     loading: "lazy",
+        //     decoding: "async",
+        //     alt: "",
+        // }) + pathDisplay;
+        return [path, html];
     }
 
-    function oneBigImage(imgSpec, marginClasses, blurStretchSingles, fullWidth, ph = true) {
-        let [bgImgPath, imgHTML] = imgSpecToHTML(imgSpec);
+    async function oneBigImage(imgSpec, marginClasses, blurStretchSingles, fullWidth, ph = true) {
+        let [bgImgPath, imgHTML] = await imgSpecToHTML(imgSpec, 1);
         let bgDiv = "";
         if (blurStretchSingles && bgImgPath != "") {
             bgDiv = `<div class="bgImageReady svgBlur" style="background-image: none;" data-background-image="url(${bgImgPath})"></div>`;
@@ -332,9 +366,9 @@ module.exports = function (eleventyConfig) {
         return `<div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">${bgDiv}${imgHTML}</div>`;
     }
 
-    function twoBigImages(imgSpecs, marginClasses, fullWidth) {
-        let [bgImgPath1, imgHTML1] = imgSpecToHTML(imgSpecs[0]);
-        let [bgImgPath2, imgHTML2] = imgSpecToHTML(imgSpecs[1]);
+    async function twoBigImages(imgSpecs, marginClasses, fullWidth) {
+        let [bgImgPath1, imgHTML1] = await imgSpecToHTML(imgSpecs[0], 2);
+        let [bgImgPath2, imgHTML2] = await imgSpecToHTML(imgSpecs[1], 2);
 
         let mlClass = fullWidth ? "ml1-m ml3-l" : "";
         let mrClass = fullWidth ? "mr1-m mr3-l" : "";
@@ -361,14 +395,14 @@ module.exports = function (eleventyConfig) {
 </div>`;
     }
 
-    function threeBigImages(imgSpecs, marginClasses, fullWidth) {
+    async function threeBigImages(imgSpecs, marginClasses, fullWidth) {
         let fwClasses = fullWidth ? "full-width cb" : "";
         let mlClass = fullWidth ? "ml1-m ml3-l" : "";
         let mrClass = fullWidth ? "mr1-m mr3-l" : "";
         return `<div class="${fwClasses} flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
-<div class="${mlClass}">${imgSpecToHTML(imgSpecs[0])[1]}</div>
-<div class="mh1-ns mv1 mv0-ns">${imgSpecToHTML(imgSpecs[1])[1]}</div>
-<div class="${mrClass}">${imgSpecToHTML(imgSpecs[2])[1]}</div>
+<div class="${mlClass}">${(await imgSpecToHTML(imgSpecs[0], 3))[1]}</div>
+<div class="mh1-ns mv1 mv0-ns">${(await imgSpecToHTML(imgSpecs[1], 3))[1]}</div>
+<div class="${mrClass}">${(await imgSpecToHTML(imgSpecs[2], 3))[1]}</div>
 </div>`;
     }
 
@@ -416,7 +450,7 @@ module.exports = function (eleventyConfig) {
      *
      * Third arg is whether to make full width. Can pass false to not stretch.
      */
-    eleventyConfig.addNunjucksShortcode("img", (imgs, blurStretchSingles = false, fullWidth = true) => {
+    eleventyConfig.addShortcode("img", async function (imgs, blurStretchSingles = false, fullWidth = true) {
         if (!Array.isArray(imgs)) {
             imgs = [imgs];
         }
@@ -431,13 +465,13 @@ module.exports = function (eleventyConfig) {
             }
             switch (row.length) {
                 case 1:
-                    buf += oneBigImage(row[0], m, blurStretchSingles, fullWidth);
+                    buf += await oneBigImage(row[0], m, blurStretchSingles, fullWidth);
                     break;
                 case 2:
-                    buf += twoBigImages(row, m, fullWidth);
+                    buf += await twoBigImages(row, m, fullWidth);
                     break;
                 case 3:
-                    buf += threeBigImages(row, m, fullWidth);
+                    buf += await threeBigImages(row, m, fullWidth);
                     break;
                 default:
                     buf += 'UNSUPPORTED IMG ROW ARRAY LENGTH: ' + row.length;
@@ -499,10 +533,10 @@ Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marc
         return attribution ? base + attr : base;
     });
 
-    eleventyConfig.addNunjucksShortcode("cityPic", (path) => {
+    eleventyConfig.addShortcode("cityPic", async function (path) {
         // With getMarginClasses(...), we're pretending it's the last img of a set.
         // Right now this gets us `mt1 figbot`.
-        return oneBigImage(path, getMarginClasses(1, 2), true, true, false)
+        return await oneBigImage(path, getMarginClasses(1, 2), true, true, false)
     });
 
     /**

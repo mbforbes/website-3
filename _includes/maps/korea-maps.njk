@@ -30,6 +30,8 @@
 {% endblock %}
 
 {% block wrapperClasses %}fade-bg fig{% endblock %}
+{% block mapCtxClasses %}mapSmall{% endblock %}
 {% block contextPreview %}/assets/posts/2022-seoul/korea-map-context.png{% endblock %}
 {% block contextOverlay %}{{ overlays.overlay("🇰🇷", "South Korea") }}{% endblock %}
+{% block mapTripClasses %}mapSmall{% endblock %}
 {% block tripPreview %}/assets/posts/2022-{{ activePlace | lower }}/{{ activePlace | lower }}-map-travel.png{% endblock %}

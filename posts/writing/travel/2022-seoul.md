@@ -7,7 +7,7 @@ travel_start: 2022-10-04
 travel_end: 2022-10-24
 image: /assets/posts/2022-seoul/IMG_7776.moz80.jpg
 coverImage: /assets/posts/2022-seoul/IMG_7776.moz80.jpg
-customexcerpt: When people ask us where what our favorite place was that we went in 2022, of the eighteen countries we visited, we’d both answer Seoul. We loved Seoul because it took care of us.
+customexcerpt: Our favorite place of 2022, of the eighteen countries we visited, was Seoul.
 attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 

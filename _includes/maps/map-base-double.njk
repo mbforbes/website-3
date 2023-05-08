@@ -10,14 +10,14 @@
 <div class="full-width cb flex flex-wrap flex-nowrap-ns justify-center pv4 pv5-l {% block wrapperClasses %}{% endblock %}">
     <div class="mb4 mb0-ns ph3 w-100 w-auto-ns mw-50-ns">
         <div class="relative">
-            <div id="mapContext" class="leafletMap bg-white mapSmall center">
+            <div id="mapContext" class="leafletMap bg-white {% block mapCtxClasses %}{% endblock %} center">
                 <img src="{% block contextPreview %}{% endblock %}" class="novmargin" />
             </div>
             {% block contextOverlay %}{% endblock %}
         </div>
     </div>
     <div class="ph3 w-100 w-auto-ns mw-50-ns">
-        <div id="mapTrip" class="leafletMap bg-white mapSmall center">
+        <div id="mapTrip" class="leafletMap bg-white {% block mapTripClasses %}{% endblock %} center">
             <img src="{% block tripPreview %}{% endblock %}" class="novmargin" />
         </div>
     </div>

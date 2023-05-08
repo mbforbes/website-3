@@ -106,6 +106,8 @@
 {% set activePlaceSlug = activePlaceSlug | default(activePlace) | lower %}
 
 {% block wrapperClasses %}fade-bg fig{% endblock %}
+{% block mapCtxClasses %}mapSmall{% endblock %}
 {% block contextPreview %}/assets/posts/2022-hanoi/vietnam-map-context.png{% endblock %}
 {% block contextOverlay %}{{ overlays.overlay("🇻🇳", "Vietnam") }}{% endblock %}
+{% block mapTripClasses %}mapSmall{% endblock %}
 {% block tripPreview %}/assets/posts/2022-{{ activePlaceSlug }}/{{ activePlaceSlug }}-map-travel.png{% endblock %}

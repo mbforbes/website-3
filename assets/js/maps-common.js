@@ -12,18 +12,21 @@
  *           { name: "Georgia", "color": "#FF4136" },
  *       ],
  *       context: {
+ *           opacity: 0.5, // default
  *           tileLayer: "toner-background", // default
  *           padding: 4.00,
  *           labelCountries: false, // default
  *           countryLabels: ["ol' Georgarino"], // if labeling, uses names if this not provided
  *       },
  *       trip: {
+ *           opacity: 0.5, // default
  *           tileLayer: "toner-background", // default
  *           padding: 0.05,
  *           places: [
  *               [41.714963, 44.828851, "Tbilisi", "right", "in"],
  *               [42.658347, 44.640784, "Kazbegi", "right", "in"],
  *           ],
+ *           stagger: 400, // default
  *           offsetPlace: "-=1500", // default
  *           offsetPath: "-=3000", // default
  *           offsetTooltip: "-=3000", // default
@@ -35,6 +38,7 @@
  *       neighborsMaps: [
  *           {
  *               elID: "mapNeighbors",  // default
+ *               opacity: 0.5, // default
  *               tileLayer: "toner-background", // default
  *               countries: [
  *                   ["Russia", [44.190508, 44.189828], "top"],
@@ -55,6 +59,7 @@
  *           },
  *           {
  *               elID: "mapRussiaExits",  // default
+ *               opacity: 0.5, // default
  *               countries: [
  *                   ["Russia", [58.643898, 65.084873], "top"],
  *                   ["Kazakhstan", "auto", "top"],
@@ -82,7 +87,7 @@
 // Addl. globals
 let allBoundaryData = {};
 
-async function renderMap(elID, tileLayer = "toner-background") {
+async function renderMap(elID, tileLayer = "toner-background", opacity = 0.5) {
     let mapEL = document.getElementById(elID);
     if (mapEL == null) {
         throw new Error("Couldn't find element with ID " + elID);
@@ -108,7 +113,7 @@ async function renderMap(elID, tileLayer = "toner-background") {
     map.addLayer(layer);
 
     // make base map lighter
-    map.getPane("tilePane").style.opacity = .5;
+    map.getPane("tilePane").style.opacity = opacity;
     return map;
 }
 
@@ -318,7 +323,7 @@ async function makeMapContext() {
         console.log("No element with ID '" + elID + "' so skipping context map.");
         return;
     }
-    let mapContext = await renderMap(elID, MAP_CONFIG.context.tileLayer);
+    let mapContext = await renderMap(elID, MAP_CONFIG.context.tileLayer, MAP_CONFIG.context.opacity);
 
     // make bounds that covers all the desired areas.
     let contextBounds = await renderOverlays(
@@ -386,7 +391,7 @@ async function makeMapTrip() {
         console.log("No element with ID '" + elID + "' so skipping trip map.");
         return;
     }
-    let mapTrip = await renderMap(elID, MAP_CONFIG.trip.tileLayer);
+    let mapTrip = await renderMap(elID, MAP_CONFIG.trip.tileLayer, MAP_CONFIG.trip.opacity);
 
     // make bounds that covers all the desired areas.
     let tripBounds = await renderOverlays(
@@ -434,12 +439,13 @@ async function makeMapTrip() {
         }, "+=250");
     }
     // console.log("Adding animation to places.")
+    let stagger = MAP_CONFIG.trip.stagger || 400;
     tl.add({
         targets: `#${elID} .mapPlace`,
         translateX: -3,
         translateY: -7,
         opacity: 1,
-        delay: anime.stagger(400, { start: 0 }),
+        delay: anime.stagger(stagger, { start: 0 }),
     }, MAP_CONFIG.trip.offsetPlace || '-=1500');
     if (MAP_CONFIG.trip.places.length > 1) {
         tl.add({
@@ -448,7 +454,7 @@ async function makeMapTrip() {
             easing: 'easeInOutSine',
             duration: 250,
             strokeDashoffset: [anime.setDashoffset, 0],
-            delay: anime.stagger(400, { start: 0 }),
+            delay: anime.stagger(stagger, { start: 0 }),
         }, MAP_CONFIG.trip.offsetPath || '-=3000');
     }
     tl.add({
@@ -457,7 +463,7 @@ async function makeMapTrip() {
         // translating breaks tooltip locations when map changes (zoom, pan);
         // they stop tracking the spot they're supposed to stay. Annoying
         // because markers and outlines do reposition correctly while animating.
-        delay: anime.stagger(400, { start: 0 }),
+        delay: anime.stagger(stagger, { start: 0 }),
         opacity: 0.9,
         endDelay: 1500,
     }, MAP_CONFIG.trip.offsetTooltip || "-=3000");
@@ -483,7 +489,7 @@ async function makeMapNeighbors(mapDataDir, nMap) {
     await loadBoundaries(mapDataDir, nMap.countries.map((el) => el[0]));
 
     // render all boundaries, cycling colors
-    let mapNeighbors = await renderMap(elID, nMap.tileLayer);
+    let mapNeighbors = await renderMap(elID, nMap.tileLayer, nMap.opacity);
     let allColors = nMap.countryColors || ["#FF4136", "#FF6300", "#FFD700", "#A463F2", "#FF80CC", "#19A974", "#357EDD"];
     let color = 0;
     let neighborOverlays = [];

@@ -1,6 +1,7 @@
 ---
 title: Card layout test page
 date: 2023-05-05
+eleventyExcludeFromCollections: true
 circular: true
 ---
 
@@ -71,7 +72,7 @@ circular: true
 </style>
 
 <div class="full-width pa4" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(225px, 1fr)); grid-gap: 20px; font-family: 'Aladin', serif;">
-    {% for post in collections.all | sort(true, false, "date") | head(40) | rejectAttrNested(["data", "circular"])%}
+    {% for post in collections.all | sort(true, false, "date") | rejectAttrNested(["data", "circular"])%}
         {% set img = [1,2,3,4,5,6,7,8,9] | random %}
         {# https://codemyui.com/hand-drawn-border-buttons-css/ #}
         {% set br1 = ["255px 15px 225px 15px/15px 225px 15px 255px", "15px 225px 15px 255px/255px 15px 225px 15px"] | random %}
@@ -86,7 +87,11 @@ circular: true
         {% elif post.data.title | length > 13 %}
             {% set fontClass = "f3" %}
         {% endif %}
-        <a class="br3 pa2 card pointer black nohoverstyle relative font-size: 0px;" style="overflow: hidden; aspect-ratio: 2/3; background-image: url('/assets/img/weathered-texture-slices/slice_{{ img }}.moz80.jpg');">
+        <a
+            href="{{ post.url | url }}"
+            class="br3 pa2 card pointer black nohoverstyle relative font-size: 0px;"
+            style="overflow: hidden; aspect-ratio: 2/3; background-image: url('/assets/img/weathered-texture-slices/slice_{{ img }}.moz80.jpg');"
+        >
             <div class="cardInner h-100">
                 <div class="cardFront h-100">
                     {% if coffeePresent %}

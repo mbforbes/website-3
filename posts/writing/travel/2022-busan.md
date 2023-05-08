@@ -7,7 +7,7 @@ travel_start: 2022-10-24
 travel_end: 2022-10-28
 image: /assets/posts/2022-busan/IMG_8285.moz80.jpg
 coverImage: /assets/posts/2022-busan/IMG_8285.moz80.jpg
-customexcerpt: Busan feels full of potential---that new opportunities await, freedom somehow afforded by the geography. But it also carries the twinge of oldness and slowness that comes with a town that's always playing second fiddle.
+customexcerpt: Busan feels full of potential, but it also carries the slowness of a town that's always playing second fiddle.
 attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 

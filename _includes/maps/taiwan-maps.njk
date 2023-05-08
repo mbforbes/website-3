@@ -1,0 +1,52 @@
+{% extends "maps/map-base-double.njk" %}
+{% import "maps/map-overlays.njk" as overlays %}
+
+{% block setupScript %}
+<script type="text/javascript">
+    const MAP_CONFIG = {
+        core: {
+            mapDataDir: "{{ "/assets/mapData/" | url }}",
+        },
+        // Settings common to context and travel maps
+        subjectCountries: [
+            { name: "Taiwan", "color": "#357EDD" },
+        ],
+        context: {
+            opacity: 0.7,
+            padding: 5.0,
+        },
+        trip: {
+            opacity: 0.7,
+            padding: 0.20,
+            places: [
+                [25.038, 121.564, "Taipei", "top", "out"],
+                [24.163, 120.648, "Taichung", "left", "out"],
+                [23.505, 120.695, "Alishan", "left", "out"],
+                [22.991, 120.185, "Tainan", "left", "out"],
+                [22.620, 120.312, "Kaohsiung", "bottom", "out"],
+                [23.122, 121.215, "Chishang", "right", "out"],
+                [23.991, 121.620, "Hualien", "right", "out"],
+                [25.038, 121.564, "Taipei", "top", "out"],
+            ],
+            customBounds: [
+                [25.8, 119.5],
+                [21.6, 122.7],
+            ],
+            stagger: 200,
+            // placeColor: "#357EDD",
+            placeColor: "#FFFFFF",
+            active: ["{{ activePlace }}"],
+            activeTooltipColor: "blue",
+        }
+    };
+</script>
+{% endblock %}
+
+{% set activePlaceSlug = activePlaceSlug | default(activePlace) | lower %}
+
+{% block wrapperClasses %}dark-bg{% endblock %}
+{% block mapCtxClasses %}mapMedium shadow-1{% endblock %}
+{% block contextPreview %}/assets/posts/2023-taipei/taiwan-map-context.png{% endblock %}
+{% block contextOverlay %}{{ overlays.overlay("🇹🇼", "Taiwan") }}{% endblock %}
+{% block mapTripClasses %}mapMedium shadow-1{% endblock %}
+{% block tripPreview %}/assets/posts/2023-{{ activePlaceSlug }}/{{ activePlaceSlug }}-map-travel.png{% endblock %}

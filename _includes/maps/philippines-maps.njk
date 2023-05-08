@@ -33,6 +33,8 @@
 {% set activePlaceSlug = activePlaceSlug | default(activePlace) | lower %}
 
 {% block wrapperClasses %}alt-bg{% endblock %}
+{% block mapCtxClasses %}mapSmall{% endblock %}
 {% block contextPreview %}/assets/posts/2022-manila/philippines-map-context.png{% endblock %}
 {% block contextOverlay %}{{ overlays.overlay("🇵🇭", "The Philippines") }}{% endblock %}
+{% block mapTripClasses %}mapSmall{% endblock %}
 {% block tripPreview %}/assets/posts/2022-{{ activePlaceSlug }}/{{ activePlaceSlug }}-map-travel.png{% endblock %}
