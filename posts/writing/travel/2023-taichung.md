@@ -192,3 +192,7 @@ We hit up a leisure farm. Nothing was really in bloom, but it was good to get so
     "/assets/posts/2023-taichung/IMG_1455.moz80.jpg",
     "/assets/posts/2023-taichung/IMG_1464.moz80.jpg"
 ], true %}
+
+## Next: Up To Alishan
+
+We left Taichung by car and drove into the mountains, headed to Taiwan's most famous nature area: Alishan.
