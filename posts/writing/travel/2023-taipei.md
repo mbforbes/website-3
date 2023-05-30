@@ -6,6 +6,7 @@ seriesOrder: 1
 date: 2023-05-08
 travel_start: 2023-02-14
 travel_end: 2023-03-14
+updated: 2023-05-30
 image: /assets/posts/2023-taipei/IMG_0870.moz80.jpg
 coverImage: /assets/posts/2023-taipei/IMG_0870.moz80.jpg
 customexcerpt: Still suffering from bubble tea withdrawal.
@@ -215,7 +216,7 @@ But there's a twist. Look how these two signs, both in Taipei, write "Taipei" (I
     "/assets/posts/2023-taipei/IMG_0758.moz80.jpg"
 ], false, false %}
 
-Notice the second one? The first character (Tai) is written as 臺 instead of 台. You may have heard before of _Traditional Chinese_ and _Simplified Chinese._ This is that at work: 臺 is traditional and 台 is simplified. Taiwan, like Hong Kong and Macau, did not switch to simplified Chinese when (mainland) China promoted the switch.^[Malaysia and Singapore did switch to simplified. Source for all this, of course: [Wikipedia: Simplified Chinese](https://en.wikipedia.org/wiki/Simplified_Chinese_characters). The most interesting thing I learned from the [page on traditional Chinese](https://en.wikipedia.org/wiki/Traditional_Chinese_characters) was that the USA uses traditional Chinese characters when it sends out notices translated to Chinese. Quoth: _"Having immigrated to the United States during the second half of the 19th century, well before the institution of simplified characters, Chinese Americans have long used traditional characters. Therefore, US public notices and signage in Chinese are generally in traditional Chinese."_] As such, the writing in Taiwan is generally in traditional, not simplified, Chinese.
+Notice the second one? The first character (Tai) is written as 臺 instead of 台. You may have heard before of _Traditional Chinese_ and _Simplified Chinese._ I originally thought that this is that at work: that 臺 is traditional and 台 is simplified. Taiwan, like Hong Kong and Macau, did not switch to simplified Chinese when (mainland) China promoted the switch.^[Malaysia and Singapore did switch to simplified. Source for all this, of course: [Wikipedia: Simplified Chinese](https://en.wikipedia.org/wiki/Simplified_Chinese_characters). The most interesting thing I learned from the [page on traditional Chinese](https://en.wikipedia.org/wiki/Traditional_Chinese_characters) was that the USA uses traditional Chinese characters when it sends out notices translated to Chinese. Quoth: _"Having immigrated to the United States during the second half of the 19th century, well before the institution of simplified characters, Chinese Americans have long used traditional characters. Therefore, US public notices and signage in Chinese are generally in traditional Chinese."_] As such, the writing in Taiwan is generally in traditional, not simplified, Chinese.
 
 Knowing this, and seeing those two signs, I assumed that some simplification had still made its way into official script. The 臺北 sign certainly looks older than the 台北 one, doesn't it?
 
@@ -225,12 +226,12 @@ But then, another twist: look at these old newspaper clippings from a museum (I'
     "/assets/posts/2023-taipei/IMG_1041.moz80.jpg"
 ], false, false %}
 
-That's right, both 臺北 and 台北 appear! What gives? Truth be told, I do not know. Some ideas:
+That's right, both 臺北 and 台北 appear! What gives? Here were some ideas:
 1. The clippings are actually from different years
 2. One clipping is from Taiwan, one from China
 3. Both 臺北 and 台北 were (are?) used interchangeably
 
-Or it may be none of the above. I'll update this post if I learn more.
+It turns out that this is even more complicated than I'd thought.^[Thank you to Elaine for illuminating this for me!] Because while 臺 is written as 台 in simplified Chinese, the character 台 also exists in traditional Chinese and has its own meaning and usage. From best I can tell---and I neither am a linguist nor have any real knowledge of Chinese---the 臺 &rarr; 台 replacement in Taiwan is an organic process, similar to writing _USA_ instead of _United States of America._ Simplified Chinese made this swap official, but in traditional Chinese the usage varies.^[E.g., _"Although use of the traditional form 臺 is encouraged by the ROC [Taiwan] Ministry of Education, the variant 台 is commonly used instead"_ ([source](https://en.wiktionary.org/wiki/%E8%87%BA)).]
 
 One final thing about Chinese characters that hit me when I was in a museum looking at a 500-year-old book:
 
