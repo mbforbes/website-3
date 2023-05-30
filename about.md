@@ -6,8 +6,8 @@ layout: "layouts/default.njk"
 
 ## Now
 
-As of March 2023, I'm traveling indefinitely and writing about where I go.
-These [travel essays](/studio/#travel) alternate between blocks of crappy iPhone photos and stories of things that confused me.
+As of June 2023, I'm traveling indefinitely, photographing and writing about where I go.
+You can read these [travel essays](/studio/#travel).
 I'm also posting more work-in-progress essays and ideas to my [notes](/garage/).
 I prepare a monthly website digest, which you can subscribe to at the bottom of any page.
 
@@ -66,7 +66,7 @@ I miss the [GeoCities days](http://www.hypnospace.net/), when personal pages wer
 
 ## More of me
 
-I am active on [GitHub](https://github.com/mbforbes), and try to
-[tweet](https://twitter.com/maxforbes) when I post new stuff.
+I am active on [GitHub](https://github.com/mbforbes) and extremely rarely
+[tweet](https://twitter.com/maxforbes).
 
 If you want my bio as a researcher and contact info, check out the [research](/research) page.
