@@ -30,11 +30,14 @@
 
   {# Huge full-width (not even screen-height-limited) image between nav and post. #}
   {% if coverImage %}
-    <img src="{{ coverImage }}" class="db" />
+    {# NOTE: To add nice color borders, could incorporate the following div. #}
+    {# <div class="w-100 pa4 pa5-ns" style="background-color: #F1E7DD"> #}
+      <img src="{{ coverImage }}" class="db" />
+    {# </div> #}
   {% endif %}
 
   {# Series header. #}
-  {% if series %}
+  {% if series and not delayseries %}
     {% include "series-top.njk" %}
   {% endif %}
 

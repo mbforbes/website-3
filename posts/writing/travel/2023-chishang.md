@@ -3,6 +3,7 @@ title: Chishang
 delaytitle: true
 series: Taiwan
 seriesOrder: 6
+delayseries: true
 date: 2023-06-02
 travel_start: 2023-04-05
 travel_end: 2023-04-08

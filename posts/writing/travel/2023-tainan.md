@@ -3,6 +3,7 @@ title: Tainan
 delaytitle: true
 series: Taiwan
 seriesOrder: 4
+delayseries: true
 date: 2023-05-31
 travel_start: 2023-03-25
 travel_end: 2023-03-30

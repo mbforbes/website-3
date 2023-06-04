@@ -19,21 +19,21 @@ import mistune
 
 from common import get_posts, Post
 
-DATE_START = date(2023, 3, 1)
-DATE_END = date(2023, 3, 31)
+DATE_START = date(2023, 4, 1)  # inclusive
+DATE_END = date(2023, 4, 30)  # inclusive
 # DISPLAY_MONTH = "September"
 # SUBJECT = f"Max Forbes | {DISPLAY_MONTH} 2022 Digest"
 
 PREAMBLE = """
 <p>Hi everyone,</p>
 
-<p>This is <a href="https://maxwellforbes.com/">Max Forbes</a>.
-You're getting this email because you subscribed to my website's monthly digest.
-Right now, I'm positing a lot of travel essays.
-In general, I also write about design, computer graphics, programming, making websites, and AI.
+<p>This is your monthly digest of website posts by me, <a href="https://maxwellforbes.com/">Max Forbes</a>.
 </p>
 
-<p>Without further preamble, here is the summary of what I published in the last month over at my website.</p>
+<p>This month's digest has a lot of posts! I am now all caught up with 2022's travels (eighteen countries, can you believe it?).
+At present, I'm writing up the last few month's stops, and greatly looking forward to finally, you know, writing about the place I'm actually currently in.
+</p>
+
 
 <br />
 """
@@ -42,12 +42,13 @@ POSTAMBLE = """
 <h2>News</h2>
 
 <p>
-Hello from Kaohsiung, Taiwan!
+Hello from Kagoshima, Japan!
 </p>
 
 <p>
-It has been a busy month. We're taking four weeks to circumnavigate Taiwan, and we're about halfway through right now.
-I've been hard at work catching up with the old travel writing, so there are lots of fresh posts, and more being prepared now.
+We've migrated from Taiwan to Japan, and are now spending about as much time here as we can (86 days of our 90 day visa limit).
+We're finishing up our Kyushu (southwest area) leg right now, and will then be traveling northeast up the country.
+More travel writing posts incoming.
 </p>
 
 <p>

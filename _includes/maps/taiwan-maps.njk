@@ -1,4 +1,4 @@
-{% extends "maps/map-base-double.njk" %}
+{% extends "maps/map-base-series-triple.njk" %}
 {% import "maps/map-overlays.njk" as overlays %}
 
 {% block setupScript %}
@@ -44,7 +44,7 @@
 
 {% set activePlaceSlug = activePlaceSlug | default(activePlace) | lower %}
 
-{% block wrapperClasses %}dark-bg{% endblock %}
+{% block wrapperClasses %}alt-bg fade-bg{% endblock %}
 {% block mapCtxClasses %}mapMedium shadow-1{% endblock %}
 {% block contextPreview %}/assets/posts/2023-taipei/taiwan-map-context.png{% endblock %}
 {% block contextOverlay %}{{ overlays.overlay("🇹🇼", "Taiwan") }}{% endblock %}

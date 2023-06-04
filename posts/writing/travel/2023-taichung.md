@@ -3,6 +3,7 @@ title: Taichung
 delaytitle: true
 series: Taiwan
 seriesOrder: 2
+delayseries: true
 date: 2023-05-14
 travel_start: 2023-03-14
 travel_end: 2023-03-21

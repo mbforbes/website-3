@@ -3,6 +3,7 @@ title: Kaohsiung
 delaytitle: true
 series: Taiwan
 seriesOrder: 5
+delayseries: true
 date: 2023-06-01
 travel_start: 2023-03-30
 travel_end: 2023-04-05

@@ -3,6 +3,7 @@ title: Taipei
 delaytitle: true
 series: Taiwan
 seriesOrder: 1
+delayseries: true
 date: 2023-05-08
 travel_start: 2023-02-14
 travel_end: 2023-03-14

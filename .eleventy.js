@@ -9,6 +9,53 @@ const markdownItReplacements = require('markdown-it-replacements');
 const readingTime = require('eleventy-plugin-reading-time');
 const Image = require("@11ty/eleventy-img");
 
+/**
+ * Custom md lib. Made to preserve raw (HTML) blocks from being markdown parsed.
+ *
+ * Takes markdown-it library during initialization. Has three methods: render,
+ * set, and disable. set and disable get passed through to markdown-it. render
+ * first grabs raw blocks and replaces with placeholders, then calls
+ * markdown-it's render, then puts raw content back in.
+ */
+class CustomMDLib {
+    constructor(md) {
+        this.md = md;
+    }
+
+    render(content) {
+        const rawBlockDelimiter = /<md-raw>([\s\S]*?)<\/md-raw>/g;
+        let placeholders = {};
+
+        // Before markdown-it processes the content:
+        let i = 0;
+        content = content.replace(rawBlockDelimiter, function (match, rawBlock) {
+            let placeholder = `{{raw-block-${i}}}`;
+            placeholders[placeholder] = rawBlock;
+            i++;
+            return placeholder;
+        });
+
+        content = this.md.render(content);
+
+        // Replace content and also strip out the <p> wrappers it adds
+        // here's a workaround to try to prevent, but seems like more of a headache:
+        // https://github.com/11ty/is-land/blob/43bd04d204b56a377f65d068c93ef35dbd3ddf52/11ty/MarkdownPlugin.cjs#L21
+        for (let placeholder in placeholders) {
+            content = content.replace("<p>" + placeholder + "</p>", placeholders[placeholder]);
+        }
+
+        return content;
+    }
+
+    set(obj) {
+        this.md.set(obj);
+    }
+
+    disable(key) {
+        this.md.disable(key);
+    }
+}
+
 module.exports = function (eleventyConfig) {
     // Copy some folders to the output
     eleventyConfig.addPassthroughCopy("assets");
@@ -482,6 +529,26 @@ module.exports = function (eleventyConfig) {
         return buf;
     });
 
+    eleventyConfig.addShortcode("thumb", async function (path, widths, classes = "", style = "") {
+        if (!Array.isArray(widths)) {
+            widths = [widths];
+        }
+        let metadata = await Image((path[0] == "/" ? path.substring(1) : path), {
+            widths: widths,
+            formats: ["auto"],
+            outputDir: "./_site/assets/eleventyImgs/",
+            urlPath: "/assets/eleventyImgs/",
+        });
+        return Image.generateHTML(metadata, {
+            sizes: "100vw",  // NOTE: If multiple sizes ever used, could replace
+            class: classes,
+            style: style,
+            loading: "lazy",
+            decoding: "async",
+            alt: "",
+        });
+    });
+
     /**
      * pathOrPaths (str | str[])
      * attribution (bool, default: true) --- whether to add attribution <p> below
@@ -673,6 +740,7 @@ ${third}`;
             }),
             slugify: eleventyConfig.getFilter("slug")
         });
+
     // Orig at https://github.com/markdown-it/markdown-it-footnote/blob/HEAD/index.js
     markdownLibrary.renderer.rules.footnote_block_open = () => (
         '<section class="footnotes">\n' +
@@ -693,8 +761,7 @@ ${third}`;
         return n;
     };
 
-
-    eleventyConfig.setLibrary("md", markdownLibrary);
+    eleventyConfig.setLibrary("md", new CustomMDLib(markdownLibrary));
 
     /**
      * Markdown renderer as nunjucks filter.
@@ -716,6 +783,12 @@ ${third}`;
 
     // Keys filter. For debugging.
     eleventyConfig.addFilter("keys", obj => Object.keys(obj).sort());
+
+    // eleventyConfig.addTransform("delete-empty-p", function (content) {
+    //     // Delete all instances of <p></p> that occur in the string content:
+    //     console.log("transforming...");
+    //     return content.replace(/<p><\/p>/g, '');
+    // });
 
     // Set nunjucks options
     eleventyConfig.setNunjucksEnvironmentOptions({

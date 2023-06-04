@@ -3,6 +3,7 @@ title: Alishan
 delaytitle: true
 series: Taiwan
 seriesOrder: 3
+delayseries: true
 date: 2023-05-30
 travel_start: 2023-03-21
 travel_end: 2023-03-25
