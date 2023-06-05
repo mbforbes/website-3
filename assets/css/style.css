@@ -294,7 +294,7 @@ a {
     color: var(--link-color);
 }
 
-.markdown-body a:visited {
+.markdown-body a:visited:not(.novisitedstyle) {
     color: var(--visited-link-color);
 }
 

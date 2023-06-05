@@ -25,7 +25,8 @@ function rotateToMouse(card, e) {
     }
     const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
 
-    card.style.transform = `
+    if (false) {
+        card.style.transform = `
     scale3d(1.07, 1.07, 1.07)
     rotate3d(
       ${center.y / 100},
@@ -34,6 +35,7 @@ function rotateToMouse(card, e) {
       ${Math.log(distance) * 2}deg
     )
   `;
+    }
 
     card.querySelector('.glow').style.backgroundImage = `
     radial-gradient(

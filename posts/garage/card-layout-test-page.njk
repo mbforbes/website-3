@@ -13,14 +13,65 @@ circular: true
 
 .card {
   text-shadow: 1px 1px 2px #A54E0055;
+  text-shadow: 0px 1px 0px white;
+  {# text-shadow: 0px 1px 0px #A54E00; #}
 
   box-shadow: 0 1px 5px #00000099;
   transition-duration: 300ms;
   transition-property: transform, box-shadow;
   transition-timing-function: ease-out;
   transform: rotate3d(0);
+
+  mix-blend-mode: multiply;
 }
 
+.grunge-mask {
+  mask-image: url(/assets/img/grunge-250.png);
+  -webkit-mask-image: url(/assets/img/grunge-250.png);
+  mix-blend-mode: multiply;
+  {# mask-mode: luminance; #}
+  {# -webkit-mask-mode: luminance; #}
+}
+
+.test-mask {
+  mask-image: url(/assets/img/grunge-250.png);
+  -webkit-mask-image: url(/assets/img/grunge-250.png);
+  {# mix-blend-mode: exclusion; #}
+}
+
+.grunge-border-mask {
+    {# NOTE: These don't work the way I'd think they would. May be implementations are still WIP. #}
+    {#       First number seems to do nothing, and fill seems to have opposite effect as expected. #}
+    mask-border-slice: 5 fill;
+    -webkit-mask-box-image-slice: 5 fill;
+    {# NOTE: Fully just unsupported rn, at least in chrome. Damn, bleeding edge!
+             Gotta do alpha, I think (though can't even set it to that!) #}
+    {# mask-border-mode: luminance; #}
+    {# -webkit-mask-box-image-mode: luminance; #}
+    {# NOTE: These don't work the way I'd think they would. OK to do without for now, I think. #}
+    {# mask-border-repeat: repeat; #}
+    {# -webkit-mask-box-image-repeat: stretch repeat; #}
+}
+
+.grunge-border-mask-1 {
+    mask-border-source: url(/assets/img/card-border-v2.png);
+    -webkit-mask-box-image-source: url(/assets/img/card-border-v2.png);
+}
+
+.grunge-border-mask-2 {
+    mask-border-source: url(/assets/img/card-border-v2-2.png);
+    -webkit-mask-box-image-source: url(/assets/img/card-border-v2-2.png);
+}
+
+.grunge-border-mask-3 {
+    mask-border-source: url(/assets/img/card-border-v2-3.png);
+    -webkit-mask-box-image-source: url(/assets/img/card-border-v2-3.png);
+}
+
+.grunge-border-mask-4 {
+    mask-border-source: url(/assets/img/card-border-v2-4.png);
+    -webkit-mask-box-image-source: url(/assets/img/card-border-v2-4.png);
+}
 
 .card:hover {
   transition-duration: 150ms;
@@ -34,6 +85,44 @@ circular: true
   left: 0;
   top: 0;
   background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
+  z-index: 4;
+}
+
+.hand-border {
+    {# border-width: 6px; #}
+    {# border-image-source: url(/assets/img/card-border.png); #}
+    {# border-image-width: 6px; #}
+    {# border-image-slice: 6; #}
+
+    border: 3px solid #111;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+    position: relative;
+    {# TODO: this is promising but requires experimenting to get right #}
+    {# mask-border: url('/assets/img/grunge.png') 10 fill / 10px / 1px round; #}
+    {# -webkit-mask-box-image: url('/assets/img/grunge.png') 10 fill / 10px / 1px round; #}
+}
+
+.hand-border::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 3px solid #111;
+    {# TODO: randomize per card #}
+    transform: translate3d(-50%, -50%, 0) scale(1.02) rotate(1.5deg);
+    border-radius: 1% 1% 2% 4% / 2% 4% 3% 2%;
+    {# NOTE: not visible on images, and z-index doesn't seem to help #}
+    {# z-index: 4; #}
+    mask-border: url('/assets/img/grunge.png');
+    {# -webkit-mask-border: url('/assets/img/grunge.png'); #}
+}
+
+.blrn {
+    border-left: none;
+    border-right: none;
 }
 
 {# TODO: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_flip_card #}
@@ -77,37 +166,57 @@ circular: true
         {# https://codemyui.com/hand-drawn-border-buttons-css/ #}
         {% set br1 = ["255px 15px 225px 15px/15px 225px 15px 255px", "15px 225px 15px 255px/255px 15px 225px 15px"] | random %}
         {% set br2 = ["50px 10px 35px 10px / 10px 35px 10px 50px", "5px 35px 10px 50px/50px 10px 35px 10px"] | random %}
-        {% set coffeePresent = [false, false, true] | random %}
+        {% set coffeePresent = [false, true, true] | random %}
         {% set coffeeSize = ["large", "small"] | random %}
         {% set coffeeRots = [0,1,2,3,4,5,6,7] | random %}
         {% set coffeeDeg = coffeeRots * 45 %}
+        {% set coffeeML = ["-300%", "-100%", "0"] | random %}
+        {% set coffeeMT = ["-300%", "-100%", "0"] | random %}
+        {% set bm1 = ["1", "2", "3", "4"] | random %}
+        {% set bm2 = ["1", "2", "3", "4"] | random %}
         {% set fontClass = "f2" %}
-        {% if post.data.title | length > 42 %}
+        {% set title = post.data.title %}
+        {% if post.data.series %}
+            {% set title = post.data.series + ": " + post.data.title %}
+        {% endif %}
+        {% if title | length > 42 %}
             {% set fontClass = "f5" %}
-        {% elif post.data.title | length > 13 %}
+        {% elif title | length > 13 %}
             {% set fontClass = "f3" %}
         {% endif %}
+        {# NOTE: removed grunge-border-mask grunge-border-mask-{{ bm1 }} could add back to class to grunge border cards #}
         <a
             href="{{ post.url | url }}"
-            class="br3 pa2 card pointer black nohoverstyle relative font-size: 0px;"
+            class="br3 pa3 card grow pointer near-black nohoverstyle novisitedstyle relative font-size: 0px;"
             style="overflow: hidden; aspect-ratio: 2/3; background-image: url('/assets/img/weathered-texture-slices/slice_{{ img }}.moz80.jpg');"
         >
             <div class="cardInner h-100">
                 <div class="cardFront h-100">
+                    {# Overlay: Coffee #}
                     {% if coffeePresent %}
-                        <img class="novmargin absolute o-20 z-2 rotate-{{ coffeeDeg }}" style="max-width: none; margin-left: -0px; margin-top: -0px;" src="/assets/img/coffee-stain-{{ coffeeSize }}.png" />
+                        <img class="novmargin absolute o-40 grunge-mask rotate-{{ coffeeDeg }} z-2" style="max-width: none; margin-left: {{ coffeeML }}; margin-top: {{ coffeeMT }};" src="/assets/img/coffee-stain-{{ coffeeSize }}.png" />
                     {% endif %}
-                    <div class="ba bw3 b--black flex flex-column h-100" style="border-radius: {{br1}};">
-                        <div class="bw3 b--black pa2 {{ fontClass }} tc flex items-center justify-center" style="height: 52px; line-height: 1.0; text-wrap: balance;">
-                            {{ post.data.title | default("no title")}}
+                    {# Stamp: airplane / jet #}
+                    <img class="novmargin absolute z-3 w3 grunge-mask" style="max-width: none; right: 10px; margin-top: 31px;" src="/assets/img/jet-fat-dark-red.png" />
+                    <div class="flex flex-column h-100 ba bw3 b--near-black grunge-border-mask grunge-border-mask-{{ bm2 }}">
+                        {# Section: Title #}
+                        <div class="pa2 {{ fontClass }} tc flex items-center justify-center" style="height: 60px; line-height: 1.0; text-wrap: balance;">
+                            {{ title | default("no title") }}
                             </div>
-                        <img class="novmargin absolute o-60 z-1 w3" style="max-width: none; right: 15px; margin-top: 15px;" src="/assets/img/jet.png" />
-                        <div class="ba bw3 b--black bg-black" style="aspect-ratio: 4/3; overflow: hidden; border-radius: {{ br1 }}; flex-shrink: 0;">
-                            <img class="novmargin h-100 w-100" style="filter: sepia(1.0) brightness(0.9); object-fit: cover;" src="{{ post.data.image | default('') }}" />
+                        {# Section: Image #}
+                        <div class="bg-near-black" style="aspect-ratio: 4/3; lex-shrink: 0;">
+                            {% set thumbImg = post.data.image | default("/assets/img/timer.png") %}
+                            {% thumb
+                                thumbImg,
+                                500,
+                                "novmargin z-1 ba bw0 b--near-black grunge-border-mask grunge-border-mask-1",
+                                "filter: sepia(1.0) brightness(0.9); object-fit: cover; aspect-ratio: 4/3; height: auto;"
+                            %}
                         </div>
+                        {# Section: info #}
                         <div class="flex items-stretch pa2" style="flex-grow: 1; overflow: hidden;">
                             <div class="relative tc">
-                                <img class="novmargin w3 rotate-315 absolute o-20" style="filter: drop-shadow(2px 2px 4px #fff); max-width: none; margin-left: -24px; margin-top: -8px;" src="/assets/img/timer.png" />
+                                <img class="novmargin w3 rotate-315 absolute o-20 grunge-mask" style="max-width: none; margin-left: -24px; margin-top: -8px;" src="/assets/img/timer.png" />
                                 <p class="ma0 f2 lh-solid">
                                     {{ post.content | readingTime({raw:true}) }}
                                 </p>
@@ -118,17 +227,18 @@ circular: true
                                     read
                                 </p>
                             </div>
-                            <div class="lh-solid f5 pl3 pr2 flex items-center" style="flex-grow: 1; hyphens: auto; text-wrap: balance; word-break: break-word; text-shadow: none;">
+                            <div class="lh-solid f5 pl3 pr2 flex items-center" style="flex-grow: 1; hyphens: auto; text-wrap: balance; word-break: break-word;">
                                 {{ post.data.customexcerpt | default("tbd") | md | safe }}
                             </div>
                             <div class="tc relative flex flex-column justify-end lh-solid">
-                                <img class="novmargin w3 absolute o-20" style="filter: drop-shadow(2px 2px 4px #fff); max-width: none; margin-left: -32px; margin-top: -0px;" src="/assets/img/quill.png" />
+                                <img class="novmargin w3 absolute o-20 grunge-mask" style="filter: drop-shadow(2px 2px 4px #fff); max-width: none; margin-left: -32px; margin-top: -0px;" src="/assets/img/quill.png" />
                                 <p class="ma0 small-caps f4">{{ post.date | month3 | lower}}</p>
                                 <p class="ma0 f3">{{ post.date | day2 }}</p>
                                 <p class="ma0 f6">{{ post.date | year4}}</p>
                             </div>
                         </div>
                     </div>
+                    {# Overlay: Glow #}
                     <div class="glow"></div>
                 </div>
                 <div class="cardBack h-100">
