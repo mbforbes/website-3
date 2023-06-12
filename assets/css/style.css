@@ -284,6 +284,10 @@ li.footnote-item::marker,
 
 /* Markdown styles */
 
+.markdown-body {
+    hyphens: auto;
+}
+
 /* Making a's everywhere!
 
 Previously was:
@@ -590,6 +594,14 @@ li.footnote-item::marker {
 
 .content-width {
     width: 704px;
+}
+
+/**
+ * New max-width for images and videos. Used to get margins to always line up,
+ * keep heights within limits, and avoid need for BG svg blur.
+ */
+.media-max-width {
+    max-width: min(1140px, 133.3vh);
 }
 
 

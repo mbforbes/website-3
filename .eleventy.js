@@ -278,6 +278,11 @@ module.exports = function (eleventyConfig) {
         });
     });
 
+    // TODO: get the main collection an item belongs to
+    eleventyConfig.addFilter("primaryCollection", (array) => {
+
+    });
+
     // rejectAttrContains: attr's value is array, testCal is single, checks testVal *not* in
     eleventyConfig.addNunjucksFilter("rejectAttrContains", (array, attrs, testVal) => {
         if (typeof attrs == "string") {
@@ -394,6 +399,37 @@ module.exports = function (eleventyConfig) {
         return [path, html];
     }
 
+    /**
+     * @param img can be a str or obj.
+     * - if obj and image, expects keys `path` (req)
+     * - if obj and video, expect keys `vimeoInfo` or `youtubeInfo` (req)
+     *
+     * @returns str (HTML)
+     */
+    async function imgSpecToHTML2(img) {
+        // video
+        if (img.vimeoInfo) {
+            return `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" loading="lazy" style="width: 100%; aspect-ratio: 16 / 9;"></iframe>`;
+        }
+        if (img.youtubeInfo) {
+            return `<iframe src="https://www.youtube-nocookie.com/embed/${img.youtubeInfo}?&autoplay=1&mute=1&loop=1&playlist=${img.youtubeInfo}&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen loading="lazy" style="width: 100%; aspect-ratio: 16 / 9;"></iframe>`;
+        }
+
+        // image
+        let path;
+        if (typeof img === "string") {
+            path = img;
+        } else {
+            path = img.path;
+            // NOTE: add extra style or class support here + in returned HTML when needed
+        }
+
+        // image source / path debug / preview / display
+        // let pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
+        let pathDisplay = "";
+        return `<img class="db bare novmargin" src="${path}" loading="lazy" decoding="async" />${pathDisplay}`;
+    }
+
     async function oneBigImage(imgSpec, marginClasses, blurStretchSingles, fullWidth, ph = true) {
         let [bgImgPath, imgHTML] = await imgSpecToHTML(imgSpec, 1);
         let bgDiv = "";
@@ -402,7 +438,7 @@ module.exports = function (eleventyConfig) {
         }
         let fwClasses = fullWidth ? "full-width cb" : "";
         // If it's not full-width, then we want them to be aligned with the text margins,
-        // not have extra padding. Vanilla embedded align with text margins, too.
+        // not have extra padding (matching markdown ![]() inline images).
         let phClass = (fullWidth && ph) ? "ph1-m ph3-l" : "";
 
         // NOTE: the one image style could be
@@ -411,6 +447,19 @@ module.exports = function (eleventyConfig) {
         // </div>
         // but using this so the <img ...> snippet is the same for all layouts.
         return `<div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">${bgDiv}${imgHTML}</div>`;
+    }
+
+    async function oneBigImage2(imgSpec, marginClasses, fullWidth) {
+        let imgHTML = await imgSpecToHTML2(imgSpec);
+        let fwClasses = fullWidth ? "full-width cb" : "";
+        let phClass = fullWidth ? "ph1-m ph3-l" : "";
+        return `
+        <div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">
+            <div class="media-max-width">
+                ${imgHTML}
+            </div>
+        </div>
+        `;
     }
 
     async function twoBigImages(imgSpecs, marginClasses, fullWidth) {
@@ -442,6 +491,23 @@ module.exports = function (eleventyConfig) {
 </div>`;
     }
 
+    async function twoBigImages2(imgSpecs, marginClasses, fullWidth) {
+        let imgHTML1 = await imgSpecToHTML2(imgSpecs[0]);
+        let imgHTML2 = await imgSpecToHTML2(imgSpecs[1]);
+
+        let fwClasses = fullWidth ? "full-width cb" : "";
+        let phClass = fullWidth ? "ph1-m ph3-l" : "";
+
+        return `
+        <div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">
+            <div class="flex flex-wrap flex-nowrap-ns justify-center media-max-width">
+                <div class="mr1-ns mb1 mb0-ns">${imgHTML1}</div>
+                <div>${imgHTML2}</div>
+            </div>
+        </div>
+        `;
+    }
+
     async function threeBigImages(imgSpecs, marginClasses, fullWidth) {
         let fwClasses = fullWidth ? "full-width cb" : "";
         let mlClass = fullWidth ? "ml1-m ml3-l" : "";
@@ -451,6 +517,20 @@ module.exports = function (eleventyConfig) {
 <div class="mh1-ns mv1 mv0-ns">${(await imgSpecToHTML(imgSpecs[1], 3))[1]}</div>
 <div class="${mrClass}">${(await imgSpecToHTML(imgSpecs[2], 3))[1]}</div>
 </div>`;
+    }
+
+    async function threeBigImages2(imgSpecs, marginClasses, fullWidth) {
+        let fwClasses = fullWidth ? "full-width cb" : "";
+        let phClass = fullWidth ? "ph1-m ph3-l" : "";
+        return `
+        <div class="${fwClasses} flex flex-wrap flex-nowrap-ns justify-center ${phClass} ${marginClasses}">
+            <div class="flex flex-wrap flex-nowrap-ns justify-center media-max-width">
+                <div>${await imgSpecToHTML2(imgSpecs[0])}</div>
+                <div class="mh1-ns mv1 mv0-ns">${await imgSpecToHTML2(imgSpecs[1])}</div>
+                <div>${await imgSpecToHTML2(imgSpecs[2])}</div>
+            </div>
+        </div>
+        `;
     }
 
     function getMarginClasses(i, n_rows) {
@@ -463,20 +543,20 @@ module.exports = function (eleventyConfig) {
     /**
      * API:
      *
-     * "img"                                   single image
-     * ["img"]                                 single image
-     * [["img"]]                               single image
-     * [["img1", "img2"]]                      side by side
-     * ["img1", "img2"]                        single image, single image
-     * ["img1", ["img2", "img3"]]              single image, side by side
-     * [["img1", "img2"], ["img3", "img4"]]    side by side, side by side
+     * "path"                                   single image
+     * ["path"]                                 single image
+     * [["path"]]                               single image
+     * [["path1", "path2"]]                     side by side
+     * ["path1", "path2"]                       single image, single image
+     * ["path1", ["path2", "path3"]]            single image, side by side
+     * [["path1", "path2"], ["path3", "path4"]] side by side, side by side
      *
      * Each string can be replaced by an object to specify more options.
      *
-     * {path: "img", maxHeight: "500px"}       single image
+     * {path: "path", maxHeight: "500px"}       single image
      * [[                                      side by side
-     *     {path: "img", maxHeight: "500px"},
-     *     {path: "img", maxHeight: "500px"}
+     *     {path: "path", maxHeight: "500px"},
+     *     {path: "path", maxHeight: "500px"}
      * ]]
      * etc.
      *
@@ -487,12 +567,14 @@ module.exports = function (eleventyConfig) {
      *
      * Example:
      * {% img [
-     *     ["img1", "img2"],
-     *     ["img3", "img4"],
+     *     ["path1", "path2"],
+     *     ["path3", "path4"],
      *     "baz",
-     *     {path: "foo", size: "bar"},
+     *     {path: "path", maxHeight: "500px"},
+     *     {path: "path", extraClasses: "bar"},
+     *     {path: "path", maxHeight: "500px", extraClasses: "bar"},
      *     {vimeoInfo: "733917188?h=25f2f93194", videoStyle: "width: 100%; aspect-ratio: 2;"},
-     *     [{path: "foo2", size: "bar2"},{path: "foo3", size: "bar3"}]
+     *     [{path: "path2", maxHeight: "500px"},{path: "path3", maxHeight: "500px"}]
      * ], true %}
      *
      * Third arg is whether to make full width. Can pass false to not stretch.
@@ -528,6 +610,49 @@ module.exports = function (eleventyConfig) {
 
         return buf;
     });
+
+    /**
+     * New image shortcode with a width-limiting div. Ditches svg blur bg.
+     * @param img - see `img` shortcode for API.
+     * @param options - {
+     *   fullWidth: boolean, default: true
+     * }
+     */
+    eleventyConfig.addShortcode("img2", async function (imgs, options = {}) {
+        // extract fullWidth from options, default to true if not set
+        let fullWidth = options.hasOwnProperty('fullWidth') ? options.fullWidth : true;
+
+        if (!Array.isArray(imgs)) {
+            imgs = [imgs];
+        }
+
+        // go row-by-row. top and bottom get big margins, inter-rows are m1.
+        let buf = '';
+        for (let i = 0; i < imgs.length; i++) {
+            let row = imgs[i];
+            let m = getMarginClasses(i, imgs.length);
+            if (!Array.isArray(row)) {
+                row = [row];
+            }
+            switch (row.length) {
+                case 1:
+                    buf += await oneBigImage2(row[0], m, fullWidth);
+                    break;
+                case 2:
+                    buf += await twoBigImages2(row, m, fullWidth);
+                    break;
+                case 3:
+                    buf += await threeBigImages2(row, m, fullWidth);
+                    break;
+                default:
+                    buf += 'UNSUPPORTED IMG ROW ARRAY LENGTH: ' + row.length;
+                    break;
+            }
+        }
+
+        return "<md-raw>" + buf + "</md-raw>";
+    });
+
 
     eleventyConfig.addShortcode("thumb", async function (path, widths, classes = "", style = "") {
         if (!Array.isArray(widths)) {
