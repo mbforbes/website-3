@@ -1,8 +1,13 @@
 ---
 title: About
 date: 2023-06-10
+image: /assets/garage/photo-notebook/cover-reflection.moz80.jpg
 series: Photo Notebook
 ---
+
+{% img2 "/assets/garage/photo-notebook/cover-reflection.moz80.jpg"  %}
+
+<p class="figcaption">Resting Taxi at Tazawako Station [f1.7]</p>
 
 After taking thousands of iPhone photos while traveling over the course of a year, I decided to buy an actual camera. This notebook is about learning photography.
 
@@ -20,7 +25,7 @@ I Googled something along the lines of, "help I just started taking photos with 
 
 I found a forum where someone asked said basically the same thing. There were lots of replies. I got two good takeaways.
 
-The first was that this is normal. Using a professional tool is difficult and requires experience. In the first hour, day, or week, your photos might look worse than your phone's. Keep improving, and you will start creating photos that look as good as your phone's. Keep improving, and you will eventually make photos that surpass what is possible with your phone.
+The first was that this is normal. Using a professional tool is difficult and requires experience. In the first hour, day, or week, your photos might look worse than your phone's. Improve, and you will start creating photos that look as good as your phone's. Keep improving, and you will eventually make photos that surpass what is possible with your phone.
 
 The second takeaway was an extremely helpful conceptualization. It said this: there are two parts to taking a photo:
 1. Capturing light with a sensor
