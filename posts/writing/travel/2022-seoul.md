@@ -121,7 +121,7 @@ But after you check out a couple buildings, everything starts to feel... shut. E
 
 Look, don't touch. Photos only.
 
-It reminds me a bit of a phenomenon I've only seen at such scale as in Korea: shops devoted entirely to taking photos. Brick and mortar multi-room picture booths. They have stylized rooms, piles of equipment for dressing up, and that's it. Some didn't even have humans manning them. Just aesthetic disposable shells.
+It reminds me a bit of a phenomenon I've only seen at such scale as in Korea: shops devoted entirely to taking photos. Commercial multi-room picture booths. They have stylized rooms, piles of equipment for dressing up, and that's it. Some didn't even have humans manning them. Just aesthetic disposable shells.
 
 This connection has bled even further: many of the young Koreans we saw at the historical sights were there for photo shoots, professional photographer and outfit in tow.^[It may be relevant to note that if you show up wearing a hanbok (traditional Korean clothing) you get in for free. Though this doesn't pay for the DSLR pro following you around.]
 
@@ -167,7 +167,7 @@ Seoul Tower sits on a mountain right in the city. You don't even need to buy a t
     "/assets/posts/2022-seoul/IMG_7769.moz80.jpg"
 ], false, false %}
 
-Another great part of Seoul is its natural geography. Plenty of green hills erupt from the dense urban metropolis.^[Ugh, I hated writing "dense urban metropolis." I feel like I've read that trigram way too many times. Sorry. But it really really fits here.] The Han River is enormous and plows right through it. But most importantly, the skyscrapers could easily have succumbed to copy-paste dystopian utilitarianism housing, but they didn't. Seouls architects were working overtime. The glass tower variety somehow feels fresh and interesting in every district we visited.
+Another great part of Seoul is its natural geography. Plenty of green hills erupt from the dense urban metropolis.^[Ugh, I hated writing "dense urban metropolis." I feel like I've read that trigram way too many times. Sorry. But it really really fits here.] The Han River is enormous and plows right through it. But most importantly, the skyscrapers could easily have succumbed to copy-paste dystopian utilitarianism housing, but they didn't. Seoul's architects were working overtime. The variety of glass towers somehow feels fresh and interesting in every district.
 
 {% img [
     "/assets/posts/2022-seoul/IMG_7784.moz80.jpg",

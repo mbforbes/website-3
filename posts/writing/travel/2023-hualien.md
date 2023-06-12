@@ -38,7 +38,7 @@ Hualien was supremely bustling with tourists ready to take in Taiwan's most cele
 
 The central gorge trail acts as a long, leisurely stroll, often shaded, and mostly flat once you enter.
 
-After passing a well-photographed red bridge, you'll occasionally see remnants of old infrastructure, deeply turquoise shallow water (remember, no swimming), and live monkeys. Along the way, you'll find clusters of food and drink stands set up where tour busses park and dump off loads of transient trekkers.
+After passing a well-photographed red bridge, you'll occasionally see remnants of old infrastructure, deeply turquoise shallow water (remember, no swim&shy;ming), and live monkeys. Along the way, you'll find clusters of food and drink stands set up where tour busses park and dump off loads of transient trekkers.
 
 {% img [
     "/assets/posts/2023-hualien/IMG_2060.moz80.jpg",

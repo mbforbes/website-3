@@ -19,8 +19,8 @@ import mistune
 
 from common import get_posts, Post
 
-DATE_START = date(2023, 4, 1)  # inclusive
-DATE_END = date(2023, 4, 30)  # inclusive
+DATE_START = date(2023, 5, 1)  # inclusive
+DATE_END = date(2023, 5, 31)  # inclusive
 # DISPLAY_MONTH = "September"
 # SUBJECT = f"Max Forbes | {DISPLAY_MONTH} 2022 Digest"
 
@@ -30,10 +30,7 @@ PREAMBLE = """
 <p>This is your monthly digest of website posts by me, <a href="https://maxwellforbes.com/">Max Forbes</a>.
 </p>
 
-<p>This month's digest has a lot of posts! I am now all caught up with 2022's travels (eighteen countries, can you believe it?).
-At present, I'm writing up the last few month's stops, and greatly looking forward to finally, you know, writing about the place I'm actually currently in.
-</p>
-
+<p>This installment features four places in Taiwan.</p>
 
 <br />
 """
@@ -42,13 +39,7 @@ POSTAMBLE = """
 <h2>News</h2>
 
 <p>
-Hello from Kagoshima, Japan!
-</p>
-
-<p>
-We've migrated from Taiwan to Japan, and are now spending about as much time here as we can (86 days of our 90 day visa limit).
-We're finishing up our Kyushu (southwest area) leg right now, and will then be traveling northeast up the country.
-More travel writing posts incoming.
+Hello from Sendai, Japan! We're spending three weeks taking trains up north from Tokyo to Sapporo. About halfway through right now.
 </p>
 
 <p>
