@@ -2,6 +2,11 @@
 
 {% block body %}
 
+  {# These are still deferred, but they're listed first so any scripts in the page
+     have access to them. #}
+  <script type="text/javascript" src="/assets/lib/popper-2.9.3.min.js" defer></script>
+  <script type="text/javascript" src="/assets/lib/tippy-6.3.1.umd.min.js" defer></script>
+
   {# Nav #}
   <nav class="mh3 mh4-ns pv3 flex f6 f4-ns justify-between sans-serif" aria-label="Main">
     <div class="tl">
@@ -72,6 +77,5 @@
   <script type="text/javascript" src="/assets/js/lazyBlurBGs.js" defer></script>
   <script type="text/javascript" src="/assets/js/sidenotes.js" defer></script>
   <script type="text/javascript" src="/assets/js/image-transition.js" defer></script>
-  <script type="text/javascript" src="/assets/js/cardFX.js" defer></script>
 
 {% endblock %}

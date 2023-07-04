@@ -2,6 +2,7 @@
 title: "Topic: Colors"
 date: 2021-11-15
 series: 3D Notebook
+image: /assets/garage/3d-notebook/29_Importing-edited.jpg
 ---
 
 ## Postprocessing Colors

@@ -1,0 +1,216 @@
+{# Card CSS #}
+<link href="/assets/css/card-layout.css" rel="stylesheet" type="text/css" />
+
+{# Card HTML #}
+{# NOTE: keep nFlip in sync w/ nFlip in cardFX.js #}
+{% set nFlip = 16 %}
+<div class="full-width pa4 cardGrid" style="display: grid; grid-gap: 20px; font-family: 'Aladin', serif;">
+    {% set cardSoftware = collections.software | selectAttrContains(["data", "tags"], "studio") | rejectAttrNested(["data", "omit"]) %}
+    {% set nonSoftware = collections.all | rejectAttrContains(["data", "tags"], "software") | rejectAttrContains(["data", "tags"], "news") %}
+    {% set posts = cardSoftware | mergeArrays(nonSoftware) %}
+    {% for post in posts | sort(true, false, "date") %}
+        {# Start all cards after first nFlip already flipped. #}
+        {% set startState = "" %}
+        {% if loop.index0 >= nFlip %}
+            {% set startState = "flipped" %}
+        {% endif %}
+
+        {# Determine styles, randomized for variation #}
+        {% set img = [1,2,3,4,5,6,7,8,9] | random %}
+        {% set coffeePresent = [false, true, true] | random %}
+        {% set coffeeSize = ["large", "small"] | random %}
+        {% set coffeeRots = [0,1,2,3,4,5,6,7] | random %}
+        {% set coffeeDeg = coffeeRots * 45 %}
+        {% set coffeeML = ["-300%", "-100%", "0"] | random %}
+        {% set coffeeMT = ["-300%", "-100%", "0"] | random %}
+        {% set bm1 = ["1", "2", "3", "4"] | random %}
+        {% set bm2 = ["1", "2", "3", "4"] | random %}
+        {% set fontClass = "f2" %}
+
+        {# Category determines stamp and foramt and maybe even title. #}
+        {% set category = post.data.tags | primaryCollection %}
+
+        {# Build title and use heuristics to pick font size to try to best fit container. #}
+        {% set title = post.data.title %}
+        {% if post.data.series %}
+            {% set title = post.data.series + ": " + post.data.title %}
+        {% elif category == "software" %}
+            {% set title = "Software: " + post.data.title %}
+        {% endif %}
+        {% if title | length > 39 %}
+            {% set fontClass = "f5" %}
+        {% elif title | length > 13 %}
+            {% set fontClass = "f3" %}
+        {% endif %}
+        {# Add this after length check because it renders as just 2 chars but counts as a ton #}
+        {% if category == "software" %}
+            {% set title = title + "<span class='sans-serif dib'>&nbsp;&#8599;</span>" %}
+        {% endif %}
+
+        {# NOTE: removed "grunge-border-mask grunge-border-mask-{{ bm1 }}"" could add back to class to grunge border cards #}
+
+        {% set display_url = post.url %}
+        {% if category == "microblog" %}
+            {% set display_url = "/microblog/#" + post.data.title %}
+        {% elif category == "software" %}
+            {% set display_url = post.data.software_url %}
+        {% endif %}
+
+        {# The card itself is a link #}
+        <a
+            href="{{ display_url | url }}"
+            class="card grow pointer nohoverstyle novisitedstyle"
+            style="aspect-ratio: 2/3;"
+        >
+            {# The cardInner holds the cardBack (which has the content) and cardFront (which is empty) #}
+            {# Depending on the device and which card, there will be flipping or hiding. #}
+            <div
+                class="cardInner {{ startState }} h-100 br3 near-black relative"
+                style="background-image: url('/assets/img/card-layout/weathered-texture-slices/slice_{{ img }}.moz80.jpg'); background-size: cover;"
+            >
+                {# cardBack has all the actual content #}
+                <div class="cardBack w-100 h-100 overflow-hidden pa2">
+
+                    {# Pick stamp position based on card layout #}
+                    {% set stampPosition = "right: -10px; margin-top: 31px;" %}
+                    {% set stampSize = "width: 27%" %}
+                    {% if category == "microblog" %}
+                        {% set stampPosition = "left: 25px; bottom: 25px;" %}
+                        {% set stampSize = "height: 58px;" %}
+                    {% elif not post.data.image %}
+                        {% set stampPosition = "left: 36.5%; bottom: 25px;" %}
+                    {% elif category == "garage" %}
+                        {# NOTE: Stamp location starting looking a bit too random perhaps at this point. #}
+                        {# {% set stampPosition = "left: -10px; margin-top: 31px;" %} #}
+                    {% endif %}
+                    <img class="novmargin absolute z-4 grunge-mask stamp-{{ category }}" style="{{ stampSize }}; max-width: none; {{ stampPosition }} mix-blend-mode: multiply;" src="/assets/img/card-layout/{{ category }}.png" />
+
+                    {# Overlay: Coffee #}
+                    {% if coffeePresent %}
+                        <img class="novmargin absolute o-40 grunge-mask rotate-{{ coffeeDeg }} z-2" style="max-width: none; margin-left: {{ coffeeML }}; margin-top: {{ coffeeMT }}; mix-blend-mode: multiply;" src="/assets/img/card-layout/coffee-stain-{{ coffeeSize }}.png" />
+                    {% endif %}
+
+                    {# This is the black inner card border that contains all the content #}
+                    <div class="flex flex-column h-100 ba bw3 b--near-black grunge-border-mask grunge-border-mask-{{ bm2 }}">
+                        {# The content and layout depends on the cateogry of the item. #}
+                        {# There's a lot of duplication and no effort was made to refactor it. #}
+                        {% if category == "microblog" %}
+                            {# Card style: Microblog #}
+                            {# --------------------- #}
+                            {# Section: Content #}
+                            {% set excerptFontClass = "f4" %}
+                            {% set excerpt = post.content | striptags | trim | safe %}
+                            {% if excerpt | length < 90 %}
+                                {% set excerptFontClass = "f3" %}
+                            {% endif %}
+                            <div class="flex pa3 {{ excerptFontClass }} items-center items-start-ns lh-solid" style="flex-grow: 1; overflow: hidden;">
+                                {{ excerpt }}
+                            </div>
+                            {# Section: metadata #}
+                            <div class="tc relative flex justify-end lh-solid pa2">
+                                <div>
+                                    <img class="novmargin w3 absolute o-20 grunge-mask" style="filter: drop-shadow(2px 2px 4px #fff); max-width: none; margin-left: -32px; margin-top: -0px;" src="/assets/img/card-layout/quill.png" />
+                                    <p class="ma0 small-caps f4">{{ post.date | month3 | lower}}</p>
+                                    <p class="ma0 f3">{{ post.date | day2 }}</p>
+                                    <p class="ma0 f6">{{ post.date | year4 }}</p>
+                                </div>
+                            </div>
+                        {% elif not post.data.image %}
+                            {# Card style: No image #}
+                            {# -------------------- #}
+                            <div class="pa2 {{ fontClass }} tc flex items-center justify-center" style="height: 60px; line-height: 1.0; text-wrap: balance;">
+                                {{ title | default("no title") | safe }}
+                            </div>
+                            {# Section: content #}
+                            <div
+                                class="lh-solid f4 pa3 flex bt bw3 b--near-black grunge-border-mask grunge-border-mask-{{ bm1 }} items-center items-start-ns"
+                                style="flex-grow: 1; hyphens: auto; word-break: break-word;">
+                                {% set excerpt = post.content | striptags | cleanExcerpt | truncate(120) %}
+                                {% if category == "software" %}
+                                    {% set excerpt = post.data.summary + post.content | striptags | cleanExcerpt | truncate(120) %}
+                                {% endif %}
+                                {{ post.data.customexcerpt | default(excerpt) | safe }}
+                            </div>
+                            {# Section: metadata #}
+                            <div class="flex justify-between pa2" style="flex-shrink: 0; overflow: hidden;">
+                                <div class="relative tc">
+                                    <img class="novmargin w3 rotate-315 absolute o-20 grunge-mask" style="max-width: none; margin-left: -24px; margin-top: -8px;" src="/assets/img/card-layout/timer.png" />
+                                    <p class="ma0 f2 lh-solid">
+                                        {{ post.content | readingTime({raw:true}) }}
+                                    </p>
+                                    <p class="ma0 f4 lh-solid" style="margin-top: -5px;">
+                                        min
+                                    </p>
+                                    <p class="ma0 f4 lh-solid" style="margin-top: -5px;">
+                                        read
+                                    </p>
+                                </div>
+                                <div class="tc relative flex flex-column justify-end lh-solid">
+                                    <img class="novmargin w3 absolute o-20 grunge-mask" style="filter: drop-shadow(2px 2px 4px #fff); max-width: none; margin-left: -32px; margin-top: -0px;" src="/assets/img/card-layout/quill.png" />
+                                    <p class="ma0 small-caps f4">{{ post.date | month3 | lower}}</p>
+                                    <p class="ma0 f3">{{ post.date | day2 }}</p>
+                                    <p class="ma0 f6">{{ post.date | year4 }}</p>
+                                </div>
+                            </div>
+                        {% else %}
+                            {# Card style: Image #}
+                            {# ----------------- #}
+                            {# Section: Title #}
+                            <div class="pa2 {{ fontClass }} tc flex items-center justify-center" style="height: 60px; line-height: 1.0; text-wrap: balance;">
+                                {{ title | default("no title") | safe }}
+                            </div>
+                            {# Section: Image #}
+                            <div class="bg-near-black" style="aspect-ratio: 4/3; lex-shrink: 0;">
+                                {% set thumbImg = post.data.image %}
+                                {% thumb
+                                    thumbImg,
+                                    500,
+                                    "novmargin z-1 ba bw0 b--near-black grunge-border-mask grunge-border-mask-" + bm1,
+                                    "filter: sepia(1.0) brightness(0.9); object-fit: cover; aspect-ratio: 4/3; height: auto;"
+                                %}
+                            </div>
+                            {# Section: metadata #}
+                            <div class="flex items-stretch pa2" style="flex-grow: 1; overflow: hidden;">
+                                <div class="relative tc">
+                                    <img class="novmargin w3 rotate-315 absolute o-20 grunge-mask" style="max-width: none; margin-left: -24px; margin-top: -8px;" src="/assets/img/card-layout/timer.png" />
+                                    <p class="ma0 f2 lh-solid">
+                                        {{ post.content | readingTime({raw:true}) }}
+                                    </p>
+                                    <p class="ma0 f4 lh-solid" style="margin-top: -5px;">
+                                        min
+                                    </p>
+                                    <p class="ma0 f4 lh-solid" style="margin-top: -5px;">
+                                        read
+                                    </p>
+                                </div>
+                                {% set excerpt = post.content | striptags | cleanExcerpt | truncate(120) %}
+                                {% set displayExcerpt = post.data.customexcerpt | default(excerpt) | safe %}
+                                {% set excerptFontClass = "f5" %}
+                                {% if displayExcerpt | length < 30 %}
+                                    {% set excerptFontClass = "f4" %}
+                                {% endif %}
+                                <div class="lh-solid {{ excerptFontClass }} items-center items-start-ns pl3 pr2 flex" style="flex-grow: 1; hyphens: auto; word-break: break-word; overflow: hidden;">
+                                    {{ displayExcerpt }}
+                                </div>
+                                <div class="tc relative flex flex-column justify-end lh-solid">
+                                    <img class="novmargin w3 absolute o-20 grunge-mask" style="filter: drop-shadow(2px 2px 4px #fff); max-width: none; margin-left: -32px; margin-top: -0px;" src="/assets/img/card-layout/quill.png" />
+                                    <p class="ma0 small-caps f4">{{ post.date | month3 | lower}}</p>
+                                    <p class="ma0 f3">{{ post.date | day2 }}</p>
+                                    <p class="ma0 f6">{{ post.date | year4 }}</p>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    {# Overlay: Glow #}
+                    <div class="glow"></div>
+                </div>
+                {# cardFront has nothing on it #}
+                <div class="cardFront w-100 h-100" style="">
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+
+{# Card JS #}
+<script type="text/javascript" src="/assets/js/cardFX.js" defer></script>

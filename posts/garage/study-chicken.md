@@ -2,6 +2,7 @@
 title: "Study: Chicken"
 date: 2021-10-19
 series: 3D Notebook
+image: /assets/garage/3d-notebook/28_CeramiChickens.jpg
 ---
 
 ![]({{ "/assets/garage/3d-notebook/27_BOF3Chicken.jpg" | url }})

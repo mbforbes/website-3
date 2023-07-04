@@ -2,6 +2,7 @@
 title: Crop
 date: 2023-06-10
 series: Photo Notebook
+image: /assets/garage/photo-notebook/crops-display.moz80.jpg
 ---
 
 Cropping to digital zoom presets, keeping the aspect ratio.

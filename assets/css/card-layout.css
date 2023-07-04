@@ -1,0 +1,135 @@
+/* Credits: */
+/* - Google Fonts: Alladin */
+/* - 3D card: https://codepen.io/markmiro/pen/wbqMPa */
+
+@import url('/assets/css/font-alladin.css');
+
+.grunge-mask {
+    mask-image: url(/assets/img/card-layout/grunge-250.png);
+    -webkit-mask-image: url(/assets/img/card-layout/grunge-250.png);
+    mix-blend-mode: multiply;
+}
+
+.grunge-border-mask {
+    /* These don't work the way I'd think they would. May be implementations are still WIP. */
+    /* First number seems to do nothing, and fill seems to have opposite effect as expected. */
+    /* mask-border-mode and mask-border-repeat also don't work either at all or as expected. */
+    mask-border-slice: 5 fill;
+    -webkit-mask-box-image-slice: 5 fill;
+}
+
+.grunge-border-mask-1 {
+    mask-border-source: url(/assets/img/card-layout/card-border-v2-1.png);
+    -webkit-mask-box-image-source: url(/assets/img/card-layout/card-border-v2-1.png);
+}
+
+.grunge-border-mask-2 {
+    mask-border-source: url(/assets/img/card-layout/card-border-v2-2.png);
+    -webkit-mask-box-image-source: url(/assets/img/card-layout/card-border-v2-2.png);
+}
+
+.grunge-border-mask-3 {
+    mask-border-source: url(/assets/img/card-layout/card-border-v2-3.png);
+    -webkit-mask-box-image-source: url(/assets/img/card-layout/card-border-v2-3.png);
+}
+
+.grunge-border-mask-4 {
+    mask-border-source: url(/assets/img/card-layout/card-border-v2-4.png);
+    -webkit-mask-box-image-source: url(/assets/img/card-layout/card-border-v2-4.png);
+}
+
+.cardGrid {
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+}
+
+.card {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.card .glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
+    z-index: 3;
+}
+
+.cardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-origin: center right;
+    transform-style: preserve-3d;
+    display: grid;
+    grid-template-columns: 1fr;
+    text-shadow: 0px 1px 0px white;
+    box-shadow: 0 1px 5px #00000099;
+}
+
+.cardInner:hover {
+    box-shadow: 0 5px 20px 5px #00000044;
+}
+
+.cardFront,
+.cardBack {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* This will be for phones (that don't hit the media query below). */
+/* We avoid any 3D transformations beause they simply break my iPhone. */
+.cardFront {
+    display: none;
+}
+
+/* This is the -ns (not small) media query (at least currently) */
+/* We do some cool 3D flipping animations to annoy everyone. */
+@media screen and (min-width: 30em) {
+    .cardInner {
+        transition: transform 500ms ease, box-shadow 300ms ease-out;
+    }
+
+    .cardFront {
+        transform: rotateY(0deg);
+    }
+
+    .cardBack {
+        transform: rotateY(180deg);
+    }
+
+    .cardInner.flipped {
+        transform: translateX(-100%) rotateY(180deg);
+    }
+}
+
+.tippy-box[data-theme~='stamp'] {
+    background-color: #E7040F;
+    color: white;
+    font-family: 'Aladin', serif;
+    /* f5 */
+    font-size: 1rem;
+}
+
+.tippy-box[data-theme~='stamp'][data-placement^='top']>.tippy-arrow::before {
+    border-top-color: #E7040F;
+}
+
+.tippy-box[data-theme~='stamp'][data-placement^='bottom']>.tippy-arrow::before {
+    border-bottom-color: #E7040F;
+}
+
+.tippy-box[data-theme~='stamp'][data-placement^='left']>.tippy-arrow::before {
+    border-left-color: #E7040F;
+}
+
+.tippy-box[data-theme~='stamp'][data-placement^='right']>.tippy-arrow::before {
+    border-right-color: #E7040F;
+}

@@ -3,6 +3,7 @@ title: Paralysis
 subtitle: Disentangling learning and the creative process
 date: 2016-04-23
 tags: "creating & thinking"
+image: /assets/posts/paralysis/rain_min_tk.jpg
 ---
 
 ![A photo of a sliver of Tokyo through a rainy window using pseudo tilt shift photography to make everything look tiny]({{ "/assets/posts/paralysis/rain_min_tk.jpg" | url }})

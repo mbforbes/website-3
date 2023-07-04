@@ -2,6 +2,7 @@
 title: "Study: Ryu (BoF III): II"
 date: 2022-07-19
 series: 3D Notebook
+image: /assets/garage/3d-notebook/37_Ryu-smaller.moz80.jpg
 ---
 
 I tried another version with a much lower voxel resolution.

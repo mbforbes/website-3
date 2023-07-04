@@ -1,6 +1,7 @@
 ---
 title: Making Plots Pretty
 date: 2014-04-24
+image: /assets/posts/making-plots-pretty/MakingPlotsPretty.023.jpg
 ---
 
 ## Preface

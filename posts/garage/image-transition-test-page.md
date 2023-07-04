@@ -3,6 +3,7 @@ title: Image transition test page
 date: 2023-03-15
 updated: 2023-03-18
 attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
+image: /assets/garage/image-transition-test-page/a-3.moz80.jpg
 ---
 
 

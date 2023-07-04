@@ -2,6 +2,7 @@
 title: "Topic: Lighting"
 date: 2022-04-28
 series: 3D Notebook
+image: /assets/garage/3d-notebook/36_Wood-shelf-room-2-perspective.jpeg
 ---
 
 Lighting is everything.

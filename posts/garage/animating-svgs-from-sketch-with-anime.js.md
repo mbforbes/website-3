@@ -1,6 +1,7 @@
 ---
 title: Animating SVGs from Sketch with anime.js
 date: 2021-07-31
+image: /assets/garage/anime-svg-screenshot.png
 ---
 
 Animating SVGs is great, it makes [posts more lively]({{ "/posts/every-phd-is-different/" | url }}).

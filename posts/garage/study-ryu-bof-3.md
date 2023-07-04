@@ -2,6 +2,7 @@
 title: "Study: Ryu (BoF III)"
 date: 2021-12-31
 series: 3D Notebook
+image: /assets/garage/3d-notebook/33_Ryu-Too-Big-zoom.jpeg
 ---
 
 HAHAHA, he came out so terrifying.

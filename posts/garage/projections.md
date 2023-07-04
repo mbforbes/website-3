@@ -2,6 +2,7 @@
 title: "Topic: Projections"
 date: 2022-04-28
 series: 3D Notebook
+image: /assets/garage/3d-notebook/36_Wood-shelf-room-2-iso.jpeg
 ---
 
 Spent a ton of time a while back trying to finally really understand the difference between different projections to render a 3D scene onto a 2D image. Ultra common ones being:

@@ -2,6 +2,7 @@
 title: Aperture
 date: 2023-06-10
 series: Photo Notebook
+image: /assets/garage/photo-notebook/aperture-pourover-focus.moz80.jpg
 ---
 
 My range: f1.7 -- f16
@@ -19,6 +20,14 @@ Aside from picking a shorter [shutter speed](/garage/photo-shutter-speed/), the 
 {% img2 {path: "/assets/garage/photo-notebook/aperture-pourover-focus.moz80.jpg"} %}
 
 <p class="figcaption">Wrist area detail [f1.7, 1/50s]</p>
+
+## Case Study: Cup
+
+This is f2.8. I don't know if it was on macro mode (must have been, right?) but like, only the wood grain in front of the cup is in focus.
+
+{% img2 {path: "/assets/garage/photo-notebook/aperture-cup.moz80.jpg"} %}
+
+<p class="figcaption">Wood in front of cup [f2.8, 1/80s]</p>
 
 ## Case Study: Osaka
 

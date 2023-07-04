@@ -1,4 +1,7 @@
 {
     "permalink": "/posts/{{ page.fileSlug }}/",
-    "tags": "research"
+    "tags": [
+        "research",
+        "writing"
+    ]
 }

@@ -1,6 +1,7 @@
 ---
 title: "Simulation: Basic street"
 date: 2021-08-15
+image: /assets/garage/simulation-basic-street-screenshot.png
 ---
 
 <canvas id="c" class="w-100"></canvas>

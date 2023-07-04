@@ -3,6 +3,8 @@ layout: "layouts/sketch-fullscreen.njk"
 title: Generative voxel world editor
 date: 2022-01-11
 updated: 2022-01-18
+image: /assets/garage/gen-vox-world-editor.moz80.jpg
+customexcerpt: A voxel experiment.
 ---
 
 

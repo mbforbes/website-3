@@ -4,7 +4,7 @@ date: 2022-01-03
 tags: programming
 series: Building an ECS in TypeScript
 seriesOrder: 8
-# image: /data/typescript-ecs/TBD.jpg
+image: /assets/posts/typescript-ecs/ecs-screenshot.png
 ---
 
 > **Disclaimer:** I'm not sure whether "Aspects" are really a standard thing for ECS. (Or, if they are, whether my usage is the standard one.) When I was learning about ECS, my friend [Alex](https://spacefiller.space/) told me about this idea of Aspects, so I implemented them as he described. They proved useful, so I'm including them here.

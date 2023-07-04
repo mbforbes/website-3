@@ -4,7 +4,7 @@ date: 2022-01-24
 tags: programming
 series: Building an ECS in TypeScript
 seriesOrder: 9
-# image: /data/typescript-ecs/TBD.jpg
+image: /assets/posts/typescript-ecs/ecs-screenshot.png
 ---
 
 We've already covered the basics of how Systems work. Here I'll touch on four advanced topics: ordering, disabling, cleanup, and communication.

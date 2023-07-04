@@ -4,7 +4,7 @@ date: 2021-11-25
 tags: programming
 series: Building an ECS in TypeScript
 seriesOrder: 1
-# image: /data/typescript-ecs/TBD.jpg
+image: /assets/posts/typescript-ecs/ecs-screenshot.png
 ---
 
 ## Preface

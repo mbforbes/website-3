@@ -4,7 +4,7 @@ date: 2021-09-05
 tags: programming
 series: Building an ECS in TypeScript
 seriesOrder: 4
-# image: /data/typescript-ecs/TBD.jpg
+image: /assets/posts/typescript-ecs/ecs-screenshot.png
 ---
 
 The one time I ever wrote tests in making the game Fallgate was after writing the ECS at the very beginning of the project. I only wrote tests because I was in shock at how easy the ECS was to implement. I was sure I'd done something wrong.

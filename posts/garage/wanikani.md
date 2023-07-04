@@ -51,6 +51,8 @@ Bad
     - Most motivated people seem treat it like a game and cram through as much as fast as possible. While I felt that way on previous (failed) attempts, I don't at all this time. (It's also funny to treat it like a game that's "gating your progress" because it's just a nice flash card app with really good cards you whose intervals you can't customize)
 - seems like random number of synonyms (and sometimes alternate spellings?)
     - Wish they’d separate what to memorize from what they accept
+    - e.g., 小学生 is a good one --- so many synonyms, not alternative meanings
+    - makes the "did you know there are other meanings?" popup just noise. they should trim and curate this this the way they've trimmed readings we memorize.
 - Don't distinguish things that seem to have the same meaning
     - 女の子、女子、
     - 文字、字
@@ -69,6 +71,8 @@ Bad
 - No reverse (could join with next point)
     - Fortunately, kaniwani exists
 - Should build (or generate) quizzes vs similar / commonly confused radicals. It's easy to guess which chapter something is from so you don't get much overlap of confusing things in order to practice distinguishing them. This is esp. important because they get morphed later on.
+    - e.g., snake vs bed
+    - e.g., husband, end, jet, fault, tree
 
 - Mnemonics can be half-baked
     - It's hard to come up with good ones, I found making them myself
@@ -89,6 +93,13 @@ Bad
     - sometimes they do w/ e.g. run vs foot radicals
 - some radicals seem clearly wrong
     - the gold radical says it's two sets of spikes? https://www.wanikani.com/radicals/gold
+- patterns of use don't help you understand how to use
+    e.g., 手作り has homemade bread as 手作りパン and 手作りのパン. which is more typical? when would one prefer one over the other?
+- meanings just totally not fully written
+    - e.g., 先回り has "If you get there previous to something rotating (回り), you are arriving ahead, or going ahead in anticipation."
+        - but the "something rotating" has no incorporation at all in the mnemonic.
+- entirely missing some reading explanations
+    e.g., 近々 has ちかぢか and きんきん. きんきん has audio recordings but is entirely unreferenced from the explanation, which just says it's the other one.
 
 Semi-unrelated
 - EtoEto just radio silence dropped, not even online any more, which was part of my incentive to buy WK. Loved the real lang + breakdowns of various depths w/ hotkeys. Wish they just kept what they had online.

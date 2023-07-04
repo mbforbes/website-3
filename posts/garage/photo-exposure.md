@@ -2,6 +2,7 @@
 title: Exposure
 date: 2023-06-10
 series: Photo Notebook
+image: /assets/garage/photo-notebook/exposure-sunset-manual-cropped.moz80.jpg
 ---
 
 ## Setting EV

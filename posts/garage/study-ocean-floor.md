@@ -2,6 +2,7 @@
 title: "Study: Ocean Floor"
 date: 2021-12-23
 series: 3D Notebook
+image: /assets/garage/3d-notebook/30_Underwater.jpg
 ---
 
 ![]({{ "/assets/garage/3d-notebook/30_Underwater.jpg" | url }})

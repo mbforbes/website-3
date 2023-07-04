@@ -2,6 +2,7 @@
 title: Appropriate Quality
 date: 2020-09-02
 tags: "creating & thinking"
+image: /assets/posts/appropriate-quality/measurement.jpg
 ---
 
 ![]({{ "/assets/posts/appropriate-quality/measurement.jpg" | url }})

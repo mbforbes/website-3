@@ -278,9 +278,27 @@ module.exports = function (eleventyConfig) {
         });
     });
 
-    // TODO: get the main collection an item belongs to
+    // Get the main collection an item belongs to, or "other [(array of tags)]"
     eleventyConfig.addFilter("primaryCollection", (array) => {
-
+        if (array == null) {
+            return "other";
+        }
+        const priorities = [
+            "travel",
+            "blog",
+            "garage",
+            "sketch",
+            "microblog",
+            "project",
+            "writing",
+            "software",
+        ]
+        for (let p of priorities) {
+            if (array.indexOf(p) > -1) {
+                return p;
+            }
+        }
+        return `other (${array})`;
     });
 
     // rejectAttrContains: attr's value is array, testCal is single, checks testVal *not* in
@@ -303,12 +321,39 @@ module.exports = function (eleventyConfig) {
         });
     });
 
+    eleventyConfig.addFilter("cleanExcerpt", (txt) => {
+        // if txt contains "Permalink to ... #" then remove that part
+        txt = txt.replace(/Permalink to.*#/, "").trim();
+
+        // see cards.njk. note the annoying escaping of the apostrophe
+        // also there's a caption I put on maps in earlier posts
+        const stripStrs = [
+            "Stub This is a placeholder for me to write more. Bug me if you want to read it.",
+            "Ideas This is a post in its idea generation phase. I&#39;m collecting notes for what to write about. Proceed at will.",
+            "Draft This is a rough draft of a post. I&#39;m still writing and revising it. It probably reads terribly. Proceed at will.",
+            "Map by me, made with marceloprates/prettymaps. Data &copy; OpenStreetMap contributors.",
+        ];
+        for (let ss of stripStrs) {
+            txt = txt.replace(ss, "").trim();
+        }
+
+        return txt;
+    });
+
     // smart dump --- don't explode when there's a circular reference, which there is by
     // default on like all the objects.
     eleventyConfig.addNunjucksFilter('sdump', obj => {
-        return util.inspect(obj)
+        // console.log(util.inspect(obj));
+        return util.inspect(obj);
     });
 
+    /*
+     * Use like this:
+     *     set posts = cardSoftware | mergeArrays(nonSoftware)
+     */
+    eleventyConfig.addNunjucksFilter('mergeArrays', (arr1, arr2) => {
+        return arr1.concat(arr2);
+    });
 
     // Note on URL filters:
     // I use:

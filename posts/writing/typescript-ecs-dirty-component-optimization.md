@@ -4,7 +4,7 @@ date: 2021-10-17
 tags: programming
 series: Building an ECS in TypeScript
 seriesOrder: 7
-# image: /data/typescript-ecs/TBD.jpg
+image: /assets/posts/typescript-ecs/ecs-screenshot.png
 ---
 
 ## Backstory: Crates

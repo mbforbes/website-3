@@ -1,6 +1,9 @@
 ---
 title: Rewrites and replants
+image: /assets/blog/rewrites-and-replants/repotting.moz80.jpg
 ---
+
+{% img2 "/assets/blog/rewrites-and-replants/repotting.moz80.jpg" %}
 
 What I've been up to:
 

@@ -3,6 +3,7 @@ title: Creative Friction
 subtitle: Reflections on making a new website
 date: 2019-05-27
 tags: "creating & thinking"
+image: /assets/posts/creative-friction/cranes.jpg
 ---
 
 ![A photo of three Seattle shipping cranes.]({{ "/assets/posts/creative-friction/cranes.jpg" | url }})

@@ -2,80 +2,108 @@
 title: Studio
 hidedate: true
 layout: "layouts/default.njk"
+delaytitle: true
 ---
 
 {% import "list-posts-and-series.njk" as lps %}
 
-<h2>Writing<a name="writing"></a></h2>
+{# NOTE: Keep in sync with title.njk, or refactor. #}
+<div class="mb4 mb5-l mt5 mt6-l">
+<h1 class="f1 f-5-l fw9 lh-solid mt0 mb5 flex justify-between items-baseline" style="">
+Studio
+{# swap "dn" -> "flex" with js once page loaded #}
+<div id="layout-button-holder" class="dn justify-end" style="column-gap: 0.5rem;">
+    <div id="layout-button-list" class="dib w2 h2 ba br1 bw1 flex items-center justify-center layout-button active">
+        {% include "assets/img/icon-list.svg" %}
+    </div>
+    <div id="layout-button-card" class="dib w2 h2 ba br1 bw1 flex items-center justify-center layout-button">
+        {% include "assets/img/icon-card.svg" %}
+    </div>
+</div>
+</h1>
+</div>
 
-{% set writingTags = ["travel", "design", "programming", "creating & thinking", "health"] %}
-{# {% set writingTags = ["programming"] %} #}
-{% for tag in writingTags %}
-    <h3>{{ tag | title }}<a name="{{ tag | lower }}"></a></h3>
-    {{ lps.listPostsAndSeries(collections[tag])  }}
-{% endfor %}
+{# Layout: list cateogry #}
+<div id="list-category-layout" class="layout">
+    <h2 style="margin-top: 0px;">Writing<a name="writing"></a></h2>
 
-<h2>Projects<a name="projects"></a></h2>
-{% for post in collections.project | sort(true, false, "date") %}
-<a href="{{ post.url | url }}" class="db pv1 link">
-    <time class="fr lightest-text-color ml3">{{ post.date | readableDate }}</time>
-    {{ post.data.title }}
-</a>
-{% endfor %}
+    {% set writingTags = ["travel", "design", "programming", "creating & thinking", "health"] %}
+    {# {% set writingTags = ["programming"] %} #}
+    {% for tag in writingTags %}
+        <h3>{{ tag | title }}<a name="{{ tag | lower }}"></a></h3>
+        {{ lps.listPostsAndSeries(collections[tag])  }}
+    {% endfor %}
 
-<h2>Software<a name="software"></a></h2>
-
-{% include "programming-language-tooltips.njk" %}
-
-{% set software = collections.software | selectAttrContains(["data", "tags"], "studio") | rejectAttrNested(["data", "omit"]) %}
-{% for item in software %}
-{%- include "software-long.njk" -%}
-{% endfor %}
-
-<p>
-You might also be interested in checking out my <a href="{{ "/research/#software" | url }}">research software</a>.
-</p>
-
-<h2>Sketches<a name="sketches"></a></h2>
-
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));">
-{% for sketch in collections.sketch | sort(true, false, "date") %}
-    <a href="{{ sketch.url | url }}">
-        <img class="dim novmargin" src="{{ sketch.data.thumb | url }}" width="216" height="216" style="height: auto;" loading="lazy" decoding="async" />
+    <h2>Projects<a name="projects"></a></h2>
+    {% for post in collections.project | sort(true, false, "date") %}
+    <a href="{{ post.url | url }}" class="db pv1 link">
+        <time class="fr lightest-text-color ml3">{{ post.date | readableDate }}</time>
+        {{ post.data.title }}
     </a>
-{% endfor %}
-</div>
+    {% endfor %}
 
-<h2>Blog<a name="blog"></a></h2>
-{% for post in collections.blog | sort(true, false, "date") %}
-<a href="{{ post.url | url }}" class="db pv1 link">
-    <time class="fr lightest-text-color ml3">{{ post.date | readableDate }}</time>
-    {{ post.data.title }}
-</a>
-{% endfor %}
+    <h2>Software<a name="software"></a></h2>
 
-<h2>µblog<a name="microblog"></a></h2>
-<p>
-    <a href="/microblog/">See all.</a>
-</p>
-{% set post = collections.microblog | sort(true, false, "date") | first %}
-<div class="pl3 pv1 bl bw1 mb4">
-    <p class="f6 f5-ns lightest-text-color">
-        Latest: {{ post.date | readableDate }}
+    {% include "programming-language-tooltips.njk" %}
+
+    {% set software = collections.software | selectAttrContains(["data", "tags"], "studio") | rejectAttrNested(["data", "omit"]) %}
+    {% for item in software %}
+    {%- include "software-long.njk" -%}
+    {% endfor %}
+
+    <p>
+    You might also be interested in checking out my <a href="{{ "/research/#software" | url }}">research software</a>.
     </p>
-    <p class="f5 f4-ns lighter-text-color">{{- post.templateContent  | replace("<p>", "") | replace("</p>", "") | safe  -}}</p>
+
+    <h2>Sketches<a name="sketches"></a></h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));">
+    {% for sketch in collections.sketch | sort(true, false, "date") %}
+        <a href="{{ sketch.url | url }}">
+            <img class="dim novmargin" src="{{ sketch.data.thumb | url }}" width="216" height="216" style="height: auto;" loading="lazy" decoding="async" />
+        </a>
+    {% endfor %}
+    </div>
+
+    <h2>Blog<a name="blog"></a></h2>
+    {% for post in collections.blog | sort(true, false, "date") %}
+    <a href="{{ post.url | url }}" class="db pv1 link">
+        <time class="fr lightest-text-color ml3">{{ post.date | readableDate }}</time>
+        {{ post.data.title }}
+    </a>
+    {% endfor %}
+
+    <h2>µblog<a name="microblog"></a></h2>
+    <p>
+        <a href="/microblog/">See all.</a>
+    </p>
+    {% set post = collections.microblog | sort(true, false, "date") | first %}
+    <div class="pl3 pv1 bl bw1 mb4">
+        <p class="f6 f5-ns lightest-text-color">
+            Latest: {{ post.date | readableDate }}
+        </p>
+        <p class="f5 f4-ns lighter-text-color">{{- post.templateContent  | replace("<p>", "") | replace("</p>", "") | safe  -}}</p>
+    </div>
+
+
+    <h2>Garage<a name="garage"></a></h2>
+
+    <p class="f6 f5-ns">
+    The garage is an experiment in "working with the garage door up."
+    These evolving notes are written for me but posted publicly here.
+    Read more in
+    <a href="{{ "/garage/what-is-the-garage/" | url }}">
+    What is the garage?
+    </a>
+    </p>
+
+    {{ lps.listPostsAndSeries(collections['garage'])  }}
 </div>
 
+{# Layout: cards #}
+<div id="card-layout" class="layout">
+    {% include "layouts/card-layout.njk" %}
+</div>
 
-<h2>Garage<a name="garage"></a></h2>
-
-<p class="f6 f5-ns">
-The garage is an experiment in "working with the garage door up."
-These evolving notes are written for me but posted publicly here.
-Read more in
-<a href="{{ "/garage/what-is-the-garage/" | url }}">
-What is the garage?
-</a>
-</p>
-
-{{ lps.listPostsAndSeries(collections['garage'])  }}
+{# Code for switching between layouts. #}
+<script type="text/javascript" src="/assets/js/layout-switching.js" defer></script>

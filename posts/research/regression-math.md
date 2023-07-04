@@ -1,6 +1,8 @@
 ---
 title: Ordinary least squares, ℓ² (ridge), and ℓ¹ (lasso) linear regressions
 date: 2017-11-21
+customexcerpt: Delightful derivations all in one place, plus pytorch implementations.
+image: /assets/posts/regression-math/regression-math-screenshot.png
 ---
 
 ## Preface

@@ -1,6 +1,7 @@
 ---
 title: Summer 2021 website goals
 date: 2021-07-15
+customexcerpt: I didn't finish, but they helped a lot.
 ---
 
 <style>

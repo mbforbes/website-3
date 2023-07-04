@@ -676,9 +676,9 @@ text-width image*/
 /* a[href^="http://"]:not([href*="example.com"]):not([href*="arxiv.org"]):after,
 a[href^="https://"]:not([href*="example.com"]):not([href*="arxiv.org"]):after { */
 
-/* Current: ignore nothing    */
-a[href^="http://"]:after,
-a[href^="https://"]:after {
+/* Current: ignore cards (in card layout)    */
+a[href^="http://"]:not(.card):after,
+a[href^="https://"]:not(.card):after {
     content: "\00A0 \2197 \FE0E";
 }
 
@@ -911,4 +911,46 @@ ol ol ol {
         float: right;
         clear: right;
     }
+}
+
+/* Layouts, switching and buttons */
+
+/* NOTE: I don't think there's an attribute != selector, which would be cleanest.
+         Maybe there is a way to do it. If adding a third layout, consider.
+         Could be :not([...]) works.
+*/
+
+[data-layout="card-layout"] #list-category-layout {
+    display: none;
+}
+
+[data-layout="list-category-layout"] #card-layout {
+    display: none;
+}
+
+.layout-button {
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-color: var(--text-color);
+}
+
+.layout-button line,
+.layout-button rect {
+    stroke: var(--text-color);
+}
+
+.layout-button:not(.active):hover {
+    cursor: pointer;
+    background-color: var(--text-color);
+}
+
+.layout-button.active {
+    background-color: var(--text-color);
+}
+
+.layout-button:not(.active):hover line,
+.layout-button:not(.active):hover rect,
+.layout-button.active line,
+.layout-button.active rect {
+    stroke: var(--bg-color);
 }

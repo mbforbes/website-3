@@ -3,6 +3,7 @@ title: Shutter Speed
 date: 2023-06-10
 updated: 2023-06-11
 series: Photo Notebook
+image: /assets/garage/photo-notebook/shutter-speed-bike.moz80.jpg
 ---
 
 I started with no minimum,^[There probably was a default minimum, but whatever it was, it was too slow.] which led to stuff like a needless 1/50s when at ISO 100, which meant motion blur.

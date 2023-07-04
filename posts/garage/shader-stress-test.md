@@ -2,6 +2,8 @@
 layout: "layouts/sketch-fullscreen.njk"
 title: Shader stress test
 date: 2022-02-05
+image: /assets/garage/shader-stress-test.png
+customexcerpt: "Answering maybe a silly question: how many shaders can we run?"
 ---
 
 

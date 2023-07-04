@@ -1,6 +1,7 @@
 ---
 title: Bézier basics
 date: 2021-08-29
+image: /assets/garage/bezier-basics-screenshot.png
 ---
 
 <script defer src="{{ "/assets/lib/three-r131.min.js" | url }}"></script>

@@ -2,6 +2,7 @@
 title: Focus
 date: 2023-06-10
 series: Photo Notebook
+image: /assets/garage/photo-notebook/focus-shrubs-166mm-tw.moz80.jpg
 ---
 
 The yin to aperture's yang, focusing is the only other stylistic thing I must do consciously now that not everything is always in focus.^[I also now have to constantly twist my [exposure](/garage/photo-exposure/) knob to make sure bright areas aren't over-exposed.]
