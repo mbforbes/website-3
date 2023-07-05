@@ -954,3 +954,8 @@ ol ol ol {
 .layout-button.active rect {
     stroke: var(--bg-color);
 }
+
+.layout-icon {
+    width: 100%;
+    height: 100%;
+}
