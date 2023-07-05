@@ -18,8 +18,8 @@ or read about
 <ul class="list pa0">
     {% for post in collections.studio | rejectAttrContains(["data", "tags"], "software") | rejectAttrContains(["data", "tags"], "redirect") | sort(true, false, "date") | head(3) %}
     <li class="mv2">
-      <link rel="prefetch" href="{{ post.url | url }}">
-      <a href="{{ post.url | url }}" class="db pv1 link">
+      <link rel="prefetch" href="{{ post.url }}">
+      <a href="{{ post.url }}" class="db pv1 link">
         {# NOTE: Not using post.data.travel_end because otherwise main page has old dates at top #}
         <time class="fr lightest-text-color ml3">{{ post.date | readableDate }} </time>
         {{ (post.data.series + ": " if post.data.series else "") + post.data.title }}
@@ -31,9 +31,9 @@ or read about
 <div class="cf mb1">
     {% for sketch in collections.sketch | sort(true, false, "date") | head(3) %}
         <div class="fl mr3">
-            <link rel="prefetch" href="{{ sketch.url | url }}">
-            <a href="{{ sketch.url | url }}">
-            <img class="dim novmargin" src="{{ sketch.data.thumb | url }}" style="width: 72px; height: 72px;" />
+            <link rel="prefetch" href="{{ sketch.url }}">
+            <a href="{{ sketch.url }}">
+            <img class="dim novmargin" src="{{ sketch.data.thumb }}" style="width: 72px; height: 72px;" />
             </a>
         </div>
     {% endfor %}
@@ -56,8 +56,8 @@ or read about
                 {{ post.templateContent | replace("<p>", "") | replace("</p>", "") | safe }}
             </span>
         {% else %}
-            <link rel="prefetch" href="{{ post.url | url }}">
-            <a href="{{ post.url | url }}" class="db pv1 link">
+            <link rel="prefetch" href="{{ post.url }}">
+            <a href="{{ post.url }}" class="db pv1 link">
                 <time class="fr lightest-text-color ml3">{{ post.date | readableDate }} </time>
                 {{ post.data.title }}
             </a>

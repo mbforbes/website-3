@@ -33,7 +33,7 @@ Contact me at: <img height="22" class="inline" src="/assets/img/my-email.png">
 <ul class="list pa0">
 {% for post in collections.research | rejectAttrContains(["data", "tags"], "software") | rejectAttrContains(["data", "tags"], "news") | sort(true, false, "date") %}
 <li class="mv2">
-<a href="{{ post.url | url }}" class="db pv1 link">
+<a href="{{ post.url }}" class="db pv1 link">
 <time class="fr lightest-text-color ttu ml3">{{ post.date | readableDate }} </time>
 {{ post.data.title }}
 </a>
