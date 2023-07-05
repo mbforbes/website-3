@@ -130,7 +130,15 @@ def main() -> None:
         for k, v in res.items()
     }
 
-    write(out_path, json.dumps(res_out, sort_keys=True, ensure_ascii=False, indent=4))
+    write(
+        out_path,
+        json.dumps(
+            res_out,
+            sort_keys=True,
+            ensure_ascii=False,
+            # indent=4
+        ),
+    )
 
 
 if __name__ == "__main__":

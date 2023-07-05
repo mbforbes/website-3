@@ -3,7 +3,16 @@
 Third iteration of my (personal) website. Live at: **https://maxwellforbes.com**
 
 ```bash
-npm run serve
+rm -rf _site && npm run serve
+```
+
+## Tests
+
+```bash
+python scripts/garage_links.py
+rm -rf _site && npm run serve
+# in a new tab:
+python scripts/test_common.py && python scripts/test_link_finder.py && python scripts/test_link_graph.py
 ```
 
 ## Docs
