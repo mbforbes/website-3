@@ -5,7 +5,7 @@
     {% if not "garage" in tags %}
     {{ travel_end | default(page.date) | readableDate }}
     {% else %}
-    <a href="{{ "/studio/#garage" | url }}" class="lightest-text-color hover-blue">GARAGE/</a>
+    <a href="/studio/#garage" class="lightest-text-color hover-blue">GARAGE/</a>
     {% endif %}
 </div>
 {% endif %}

@@ -364,19 +364,6 @@ module.exports = function (eleventyConfig) {
         return arr1.concat(arr2);
     });
 
-    // Note on URL filters:
-    // I use:
-    //     eleventyConfig.getFilter("url")(url)
-    // in the shortcodes.
-    // But, I never actually deploy to a different base (prefix)...
-    // In 2.0, this will be replaced with a custom implementation
-    // that mimics <base> (new HTML element) by rewriting URLs:
-    //     https://www.11ty.dev/docs/plugins/html-base/
-    // it would, honestly, be really nice to strip out the janky
-    //     "{{ "foo" | url }}"
-    // everywhere and just replace it with
-    //     "foo"
-
     /**
      * @param img can be a str or obj.
      * - if obj and image, expects keys path (req) maxHeight (opt, default "939px")
@@ -394,17 +381,11 @@ module.exports = function (eleventyConfig) {
 
         // video
         if (img.vimeoInfo) {
-            let bgImgPath = "";
-            if (img.bgImgPath) {
-                bgImgPath = eleventyConfig.getFilter("url")(img.bgImgPath);
-            }
+            let bgImgPath = img.bgImgPath || "";
             return [bgImgPath, `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" loading="lazy" style="max-height: 100vh; ${img.videoStyle}"></iframe>`]
         }
         if (img.youtubeInfo) {
-            let bgImgPath = "";
-            if (img.bgImgPath) {
-                bgImgPath = eleventyConfig.getFilter("url")(img.bgImgPath);
-            }
+            let bgImgPath = img.bgImgPath || "";
             return [bgImgPath, `<iframe src="https://www.youtube-nocookie.com/embed/${img.youtubeInfo}?&autoplay=1&mute=1&loop=1&playlist=${img.youtubeInfo}&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen loading="lazy" style="max-height: 100vh; ${img.videoStyle}"></iframe>`]
         }
 
@@ -419,7 +400,6 @@ module.exports = function (eleventyConfig) {
             maxHeight = img.maxHeight || maxHeight;
             extraClasses = img.extraClasses || extraClasses;
         }
-        path = eleventyConfig.getFilter("url")(path);
 
         // image plugin
         // 2504 is standard photo width (4:3 aspect ratio @1878px high)
@@ -768,7 +748,7 @@ module.exports = function (eleventyConfig) {
         for (let i = 0; i < paths.length; i++) {
             const imgXClasses = isX ? `fader z-${i} o-${i == paths.length - 1 ? 1 : 0}` : "";
             const imgXStyleAttr = isX ? `style="grid-area: 1 / 1 / 2 / 2; transition: opacity 0.75s; ${imageStyleSize}"` : `style="${imageStyleSize}"`;
-            basePieces.push(`<img class="novmargin ${imageClasses} ${imgXClasses} ${imgExClasses} ${i == 0 ? firstImgClass : ''}" ${imgXStyleAttr} src="${eleventyConfig.getFilter("url")(paths[i])}" loading="lazy" decoding="async" />`)
+            basePieces.push(`<img class="novmargin ${imageClasses} ${imgXClasses} ${imgExClasses} ${i == 0 ? firstImgClass : ''}" ${imgXStyleAttr} src="${paths[i]}" loading="lazy" decoding="async" />`)
         }
         basePieces.push(`</div>`);
         const base = basePieces.join("\n");
@@ -1001,6 +981,7 @@ ${third}`;
         // Pre-process *.html files with: (default: `liquid`)
         htmlTemplateEngine: "njk",
 
+        // NOTE: The following was from eleventy 1.0, now 2.0 is different.
         // -----------------------------------------------------------------
         // If your site deploys to a subdirectory, change `pathPrefix`.
         // Don’t worry about leading and trailing slashes, we normalize these.
