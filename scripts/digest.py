@@ -19,8 +19,8 @@ import mistune
 
 from common import get_posts, Post
 
-DATE_START = date(2023, 5, 1)  # inclusive
-DATE_END = date(2023, 5, 31)  # inclusive
+DATE_START = date(2023, 6, 1)  # inclusive
+DATE_END = date(2023, 6, 30)  # inclusive
 # DISPLAY_MONTH = "September"
 # SUBJECT = f"Max Forbes | {DISPLAY_MONTH} 2022 Digest"
 
@@ -30,7 +30,10 @@ PREAMBLE = """
 <p>This is your monthly digest of website posts by me, <a href="https://maxwellforbes.com/">Max Forbes</a>.
 </p>
 
-<p>This installment features four places in Taiwan.</p>
+<p>
+This issue contains our final three stops in Taiwan. I also started what I'm calling
+a "photo notebook," where I'm exploring the basics of taking photos with a real camera.
+</p>
 
 <br />
 """
@@ -39,7 +42,10 @@ POSTAMBLE = """
 <h2>News</h2>
 
 <p>
-Hello from Sendai, Japan! We're spending three weeks taking trains up north from Tokyo to Sapporo. About halfway through right now.
+Hello from Sapporo, Japan! We're heading back to the USA shortly.
+This marks the end of traveling for a while.
+I still have three months of places in Japan to write about, which I plan on doing in the coming months.
+Thank you for following along so far.
 </p>
 
 <p>
@@ -252,12 +258,12 @@ def main():
             "posts": 1,
             "sketches": 2,
             "blog": 3,
-            # "garage": 4,  # commenting for clarity; it's omitted for now
+            "garage": 4,  # note that this might be omitted below
         },
     )
     # categories to not include in the digest
     cat_omit = {
-        "garage",
+        # "garage",
         "microblog",
     }
 
