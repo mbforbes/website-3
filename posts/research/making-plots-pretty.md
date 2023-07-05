@@ -21,88 +21,88 @@ _-- Max from 2021_
 
 ## Slides
 
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.001.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.002.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.003.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.004.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.005.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.006.jpg" | url }})
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.007.jpg" | url }}) -->
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.008.jpg" | url }}) -->
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.009.jpg" | url }}) -->
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.010.jpg" | url }}) -->
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.011.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.012.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.013.jpg" | url }})
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.014.jpg" | url }}) -->
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.015.jpg" | url }}) -->
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.016.jpg" | url }}) -->
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.017.jpg" | url }}) -->
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.018.jpg" | url }}) -->
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.019.jpg" | url }})
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.020.jpg" | url }}) -->
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.021.jpg" | url }}) -->
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.022.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.023.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.024.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.025.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.026.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.027.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.028.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.029.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.030.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.031.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.032.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.033.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.034.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.035.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.036.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.037.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.038.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.039.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.040.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.041.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.042.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.043.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.044.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.045.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.046.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.047.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.048.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.049.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.050.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.051.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.052.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.053.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.054.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.055.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.056.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.057.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.058.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.059.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.060.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.061.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.062.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.063.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.064.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.065.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.066.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.067.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.068.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.069.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.070.jpg" | url }})
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.071.jpg" | url }}) -->
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.072.jpg" | url }}) -->
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.073.jpg" | url }}) -->
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.074.jpg" | url }}) -->
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.075.jpg" | url }}) -->
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.076.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.077.jpg" | url }})
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.078.jpg" | url }})
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.079.jpg" | url }}) -->
-![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.080.jpg" | url }})
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.081.jpg" | url }}) -->
-<!-- ![]({{ "/assets/posts/making-plots-pretty/MakingPlotsPretty.082.jpg" | url }}) -->
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.001.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.002.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.003.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.004.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.005.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.006.jpg)
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.007.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.008.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.009.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.010.jpg) -->
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.011.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.012.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.013.jpg)
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.014.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.015.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.016.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.017.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.018.jpg) -->
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.019.jpg)
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.020.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.021.jpg) -->
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.022.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.023.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.024.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.025.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.026.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.027.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.028.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.029.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.030.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.031.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.032.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.033.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.034.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.035.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.036.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.037.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.038.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.039.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.040.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.041.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.042.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.043.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.044.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.045.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.046.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.047.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.048.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.049.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.050.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.051.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.052.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.053.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.054.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.055.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.056.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.057.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.058.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.059.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.060.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.061.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.062.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.063.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.064.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.065.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.066.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.067.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.068.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.069.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.070.jpg)
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.071.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.072.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.073.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.074.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.075.jpg) -->
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.076.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.077.jpg)
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.078.jpg)
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.079.jpg) -->
+![](/assets/posts/making-plots-pretty/MakingPlotsPretty.080.jpg)
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.081.jpg) -->
+<!-- ![](/assets/posts/making-plots-pretty/MakingPlotsPretty.082.jpg) -->
 
 
 ## Acknowledgments

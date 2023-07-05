@@ -6,7 +6,7 @@ image: /assets/posts/misinterpreting-results/cover.png
 ---
 
 
-![]({{ "/assets/posts/misinterpreting-results/cover.png" | url }})
+![](/assets/posts/misinterpreting-results/cover.png)
 
 
 I was reviewing for ACL[^acl] last week, and it was a particularly depressing time. It was depressing because it made me remember how much we lie to each other in our research papers.
@@ -21,7 +21,7 @@ Say you you're reading a paper that presents a new NLP[^nlp] model. The model ta
 
 [^nlp]: NLP is "Natural Language Processing," a field in machine learning (or now, "AI") that studies using computers to do stuff with human languages (mostly English).
 
-![]({{ "/assets/posts/misinterpreting-results/cool-new-model.jpg" | url }})
+![](/assets/posts/misinterpreting-results/cool-new-model.jpg)
 
 <p class="figcaption i">
 Components: wrench, hammer, half of dog.

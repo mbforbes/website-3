@@ -12,7 +12,7 @@ image: /assets/posts/figure-creation-tutorial-figure-1/cover.jpg
 </style>
 
 
-![]({{ "/assets/posts/figure-creation-tutorial-figure-1/cover.jpg" | url }})
+![](/assets/posts/figure-creation-tutorial-figure-1/cover.jpg)
 
 ## Intro
 
@@ -22,7 +22,7 @@ One of the things I think our lab[^yejin] does well is that we put a lot of time
 
 What is Figure 1? It's what we call the figure that appears on the first page of a paper. Due to the software we use to write papers, this figure always gets automatically labeled "Figure 1," hence the name.
 
-![]({{ "/assets/posts/figure-creation-tutorial-figure-1/what-is-figure-1.jpg" | url }})
+![](/assets/posts/figure-creation-tutorial-figure-1/what-is-figure-1.jpg)
 
 Figure 1 is important because:
 - it's how people will visually **remember** your paper,
@@ -78,7 +78,7 @@ My first drafts centered around an example from our dataset, _"Asking my boyfrie
 
 ### v1
 
-![]({{ "/assets/posts/figure-creation-tutorial-figure-1/figure-1-v1.jpg" | url }})
+![](/assets/posts/figure-creation-tutorial-figure-1/figure-1-v1.jpg)
 
 There is a lot going on here! If we focus on **color**, we have the colors of larger boxes representing the relevant character (orange, blue, purple), the underline and judgment box colors matching the whether an action is good or bad (green, yellow, red), and grey to otherwise provide borders.
 
@@ -94,13 +94,13 @@ With such a broad color palette and high density of concepts, I then tried out a
 
 ### v2
 
-![]({{ "/assets/posts/figure-creation-tutorial-figure-1/figure-1-v2.jpg" | url }})
+![](/assets/posts/figure-creation-tutorial-figure-1/figure-1-v2.jpg)
 
 For **v2**, I tried eliminating the moral foundation axes and the <span class="bg-purple b white ph2 pv1 br-pill">his ex</span> character. This reduces the number of concepts, and slightly narrows the color palette. (If we'd further developed this version, I'd have compressed the spacing to make it denser.)
 
 ### v3
 
-![]({{ "/assets/posts/figure-creation-tutorial-figure-1/figure-1-v3.jpg" | url }})
+![](/assets/posts/figure-creation-tutorial-figure-1/figure-1-v3.jpg)
 
 I wanted to try a much simpler example for **v3** to try to evoke the essence of the project: rules-of-thumb (<span class="bg-rot-blue b ph2 pv1 br1">it's rude to make loud noises while others are sleeping</span>) annotated on characters (<span class="bg-blue b white ph2 pv1 br-pill">my roommate</span>) in situations (<span class="bg-light-gray b ph2 pv1 br1">running the blender at 5am</span>). This his the other side of the complexity spectrum compared to **v1**.
 
@@ -108,11 +108,11 @@ Though we didn't keep it, I think it's helpful to try these minimalist reduction
 
 ### v4
 
-![]({{ "/assets/posts/figure-creation-tutorial-figure-1/figure-1-v4.jpg" | url }})
+![](/assets/posts/figure-creation-tutorial-figure-1/figure-1-v4.jpg)
 
 **v4** expands on **v3** in a different direction. Rather than emphasize the _multiple character_ and _multiple perspective_ angles we saw in **v1** and **v2**, we introduce more _attributes_ in **v4**: cultural pressure (<span class="bg-red b white ph2 pv1 br1">against</span>) and anticipated agreement (<span class="bg-green b white ph2 pv1 br1">&gt; 99%</span>). This starts to hint at the density of the annotations we collect (we have over ten attributes per rule-of-thumb).
 
-At this point---if not before---it's good to share some drafts with collaborators. I'm usually so zoomed into the details of a project that it's tough to see the bigger picture. Collaborators who [aren't as tightly involved]({{ "/posts/every-phd-is-different/" | url }}) can be a huge help _because_ they don't remember as much about the project. You can use them to simulate someone coming to the paper fresh.
+At this point---if not before---it's good to share some drafts with collaborators. I'm usually so zoomed into the details of a project that it's tough to see the bigger picture. Collaborators who [aren't as tightly involved](/posts/every-phd-is-different/) can be a huge help _because_ they don't remember as much about the project. You can use them to simulate someone coming to the paper fresh.
 
 ## Rethinking the Design
 
@@ -124,7 +124,7 @@ To display a denser graph that still illustrated our problem, I eventually reali
 
 My other goal, since we had settled on _Social Chemistry_ as the name for our work, was to more deliberately evoke a "chemistry" look. I attempted this by mimicking the design of chemical structural formulas, which use hexagonal shapes.
 
-![]({{ "/assets/posts/figure-creation-tutorial-figure-1/chemistry-diagrams.jpg" | url }})
+![](/assets/posts/figure-creation-tutorial-figure-1/chemistry-diagrams.jpg)
 
 <p class="figcaption">
 Example of structural formulas used in chemistry.
@@ -137,7 +137,7 @@ I drew visual styles and color inspiration from the illustrated version.
 
 ### v5
 
-![]({{ "/assets/posts/figure-creation-tutorial-figure-1/figure-1-v5.jpg" | url }})
+![](/assets/posts/figure-creation-tutorial-figure-1/figure-1-v5.jpg)
 
 Rather than focusing on the rules-of-thumb that were _annotated_ for a particular situation, for **v5**, I showed _generated_ rules-of-thumb that illustrate different attribute labels. For example, for the _Cultural Pressure_ dimension (top), I show rules-of-thumb for **&uarr; positive**, **--- neutral**, and **&darr; negative** cultural pressure.
 
@@ -149,7 +149,7 @@ The upside is that we can show a richer graph structure that illustrates a stren
 
 ### v6
 
-![]({{ "/assets/posts/figure-creation-tutorial-figure-1/figure-1-v6.jpg" | url }})
+![](/assets/posts/figure-creation-tutorial-figure-1/figure-1-v6.jpg)
 
 At this point, I was honing the visuals.
 
@@ -169,7 +169,7 @@ At this point, I was honing the visuals.
 
 ### v7
 
-![]({{ "/assets/posts/figure-creation-tutorial-figure-1/figure-1-v7.jpg" | url }})
+![](/assets/posts/figure-creation-tutorial-figure-1/figure-1-v7.jpg)
 
 At this point, I was honing in on the design elements, and adding more bits as necessary for clarity.
 
@@ -186,7 +186,7 @@ At this point, I was honing in on the design elements, and adding more bits as n
 
 ### v8
 
-![]({{ "/assets/posts/figure-creation-tutorial-figure-1/figure-1-v8.jpg" | url }})
+![](/assets/posts/figure-creation-tutorial-figure-1/figure-1-v8.jpg)
 
 Can you spot the difference?
 
@@ -210,13 +210,13 @@ Usually, my first drawing won't work perfectly with the space constraints of the
 
 ### 2. Use a Text Size Guide
 
-![]({{ "/assets/posts/figure-creation-tutorial-figure-1/text-size-demo.jpg" | url }})
+![](/assets/posts/figure-creation-tutorial-figure-1/text-size-demo.jpg)
 
 The smallest text in your figures should be around the font size of footnotes. It can be difficult to judge this when you're making the figure. I made some placeholder figures that have text at a legible size, and I use them as a guide when I've moved from pen and paper to building the actual figure.
 
 ### 3. Start with Decent Colors
 
-![]({{ "/assets/posts/figure-creation-tutorial-figure-1/tachyons-colors.jpg" | url }})
+![](/assets/posts/figure-creation-tutorial-figure-1/tachyons-colors.jpg)
 
 <p class="figcaption">
 Curated color palette from <a href="https://tachyons.io/docs/themes/skins/">Tachyons</a>.
@@ -226,7 +226,7 @@ If you're used to thinking that red should be `#FF0000`, you can immediately up 
 
 ### 4. Care about Contrast
 
-![]({{ "/assets/posts/figure-creation-tutorial-figure-1/contrast.jpg" | url }})
+![](/assets/posts/figure-creation-tutorial-figure-1/contrast.jpg)
 
 The simplest tip I can give is to try switching your text color from black to white when the background gets darker.
 
@@ -241,7 +241,7 @@ If you want to be thorough, run any color combos you're worried about through a 
 
 ### 5. Export a Scalable Format
 
-![]({{ "/assets/posts/figure-creation-tutorial-figure-1/zoom.jpg" | url }})
+![](/assets/posts/figure-creation-tutorial-figure-1/zoom.jpg)
 
 E.g., PDF for a paper, SVG for a website.[^svg] That way text and graphics remain sharp when people zoom in to read the tiny text you crammed in there when ignoring tip #2 (hey, no judgment).
 

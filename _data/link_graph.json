@@ -1241,7 +1241,8 @@
     "/posts/every-phd-is-different/": {
         "incoming": [
             "/blog/the-distant-rumble-of-change/",
-            "/garage/animating-svgs-from-sketch-with-anime.js/"
+            "/garage/animating-svgs-from-sketch-with-anime.js/",
+            "/posts/figure-creation-tutorial-making-a-figure-1/"
         ],
         "outgoing": [],
         "title": "\"Every PhD Is Different\"",
@@ -1258,7 +1259,9 @@
     },
     "/posts/figure-creation-tutorial-making-a-figure-1/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/posts/every-phd-is-different/"
+        ],
         "title": "Figure Creation Tutorial: Making a Figure 1",
         "url": "/posts/figure-creation-tutorial-making-a-figure-1/"
     },

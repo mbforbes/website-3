@@ -112,7 +112,7 @@ focus to the following task: given a road network and city features (like water
 and parks), fill in the buildings inside of blocks. Figure 1 shows a visual
 depiction of our task.
 
-![dataset fig 1]({{ "/assets/posts/procedural-map-generation-with-gans/task_overview.jpg" | url }})
+![dataset fig 1](/assets/posts/procedural-map-generation-with-gans/task_overview.jpg)
 
 <p class="figcaption">Figure 1: Task overview: given a road network, we attempt to directly fill in blocks with buildings.</p>
 
@@ -131,7 +131,7 @@ take advantage of these semantic cues to generate layouts that are sensitive to
 their surroundings.
 
 
-![2 tasks]({{ "/assets/posts/procedural-map-generation-with-gans/2tasks.jpg" | url }})
+![2 tasks](/assets/posts/procedural-map-generation-with-gans/2tasks.jpg)
 
 <p class="figcaption">Figure 2: The two tasks we consider. In both cases, buildings must be generated on top of an input image. The difference is in the size of the region and the amount of geographic context provided.</p>
 
@@ -203,8 +203,8 @@ identify and extract blocks.
 
 The overall processes of the block extraction is shown below in Figure 3.
 
-![dataset fig 1]({{ "/assets/posts/procedural-map-generation-with-gans/datafig-1.jpg" | url }})
-![dataset fig 2]({{ "/assets/posts/procedural-map-generation-with-gans/datafig-2.jpg" | url }})
+![dataset fig 1](/assets/posts/procedural-map-generation-with-gans/datafig-1.jpg)
+![dataset fig 2](/assets/posts/procedural-map-generation-with-gans/datafig-2.jpg)
 
 <p class="figcaption">Figure 3: Stages of block extraction, done for the first task. The individual steps are described in the running text.</p>
 
@@ -354,7 +354,7 @@ Processing[^processing] to render all of the blocks in bulk, creating pairs of
 (empty, populated) blocks, rendering blocks in grey and buildings in black.
 Several example blocks are shown below in Figure 4.
 
-![example blocks]({{ "/assets/posts/procedural-map-generation-with-gans/example_blocks.jpg" | url }})
+![example blocks](/assets/posts/procedural-map-generation-with-gans/example_blocks.jpg)
 
 <p class="figcaption">Figure 4: Four examples from the dataset for task 1: generating buildings for a block. Whereas some blocks have distinct shapes around which buildings must be placed (columns one and two), others provide almost no input but require specific outputs (columns three and four). Currently, uniform scaling per block results in a distorted appearance; this effect could be reversed in postprocessing, or future approaches could clip blocks to geographic bounds rather than scaling to a set pixel size.</p>
 
@@ -400,7 +400,7 @@ polygons), (3) roads (yellow lines), (4) water (blue polygons), (5) pedestrian
 areas (darker grey polygons), (6) pedestrian walkways (darker grey lines), (7)
 parks (green polygons). Four example renderings are shown below in Figure 5:
 
-![example regions]({{ "/assets/posts/procedural-map-generation-with-gans/example_regions.jpg" | url }})
+![example regions](/assets/posts/procedural-map-generation-with-gans/example_regions.jpg)
 
 <p class="figcaption">Figure 5: Four example regions in the dataset for task 2. The dataset exhibits a wide variety in the correct number of buildings in the output, as can be seen by the second column, which should be left mostly blank. Furthermore, note the presence of pedestrian footpaths around which buildings should not be generated (left and rightmost columns), the presence of buildings along the pier (third column), and the variety of block shapes around which buildings must be placed (columns one versus four).</p>
 
@@ -455,7 +455,7 @@ the image. However, it is able to immediately learn to reproduce the grey
 outline of the input block, and never draws black (buildings) on top of white
 (empty space).
 
-![task 1 epoch 1]({{ "/assets/posts/procedural-map-generation-with-gans/task1-epoch1.jpg" | url }})
+![task 1 epoch 1](/assets/posts/procedural-map-generation-with-gans/task1-epoch1.jpg)
 
 <p class="figcaption">Figure 6: Task 1, after 1 epoch (pass over training data).</p>
 
@@ -463,7 +463,7 @@ After nine epochs, the model is able to produce more ambitious shapes (Figure
 7), but the shapes are too densely connected and rounded to be convincing
 enough to fool a human judge.
 
-![task 1 epoch 9]({{ "/assets/posts/procedural-map-generation-with-gans/task1-epoch9.jpg" | url }})
+![task 1 epoch 9](/assets/posts/procedural-map-generation-with-gans/task1-epoch9.jpg)
 
 <p class="figcaption">Figure 7: Task 1, after 9 epochs.</p>
 
@@ -476,7 +476,7 @@ gold output (far right), it would be difficult to tell whether the generation
 neural network. However, the L1 distance from the generated image to the gold
 is terrible, as it got the buildings almost completely wrong.
 
-![task 1 epoch 193]({{ "/assets/posts/procedural-map-generation-with-gans/task1-epoch193.jpg" | url }})
+![task 1 epoch 193](/assets/posts/procedural-map-generation-with-gans/task1-epoch193.jpg)
 
 <p class="figcaption">Figure 8: Task 1, after 193 epochs. (The model was trained for 200 epochs in total.)</p>
 
@@ -489,7 +489,7 @@ During the middle of training, we observed what appeared to be mode collapse,
 as can be seen in Figure 9. The model repeatedly generates a single building
 near the bottom of the image.
 
-![task 1 possible mode collapse]({{ "/assets/posts/procedural-map-generation-with-gans/task1_mode_collapse.jpg" | url }})
+![task 1 possible mode collapse](/assets/posts/procedural-map-generation-with-gans/task1_mode_collapse.jpg)
 
 <p class="figcaption">Figure 9: Task 1, experiencing possible mode collapse at a handful of earlier epochs.</p>
 
@@ -506,7 +506,7 @@ Similar to with task 1, the model is able to pick up on copying general
 background shapes over to the output by the end of epoch 1, though the results
 are fuzzy, and it has trouble producing buildings (Figure 10).
 
-![task 2 epoch 1]({{ "/assets/posts/procedural-map-generation-with-gans/task2-epoch1.jpg" | url }})
+![task 2 epoch 1](/assets/posts/procedural-map-generation-with-gans/task2-epoch1.jpg)
 
 <p class="figcaption">Figure 10: Task 2, after 1 epoch.</p>
 
@@ -514,7 +514,7 @@ By a few dozen epochs in, the model faithfully copies over the non-building
 context, and generates buildings in largely the appropriate places. However, at
 this point it prefers larger blobs in as many spots as possible, producing cellular-looking outputs that are easily recognized as fake (Figure 11).
 
-![task 2 epoch 44]({{ "/assets/posts/procedural-map-generation-with-gans/task2-epoch44.jpg" | url }})
+![task 2 epoch 44](/assets/posts/procedural-map-generation-with-gans/task2-epoch44.jpg)
 
 <p class="figcaption">Figure 11: Task 2, after 44 epochs.</p>
 
@@ -522,7 +522,7 @@ By the end of training, the model has reached generally decent performance on
 many of the inputs. Figure 12 shows the model after its final 200th epoch of
 training, generating a remarkably faithful output compared to the gold.
 
-![task 2 epoch 200]({{ "/assets/posts/procedural-map-generation-with-gans/task2-epoch200.jpg" | url }})
+![task 2 epoch 200](/assets/posts/procedural-map-generation-with-gans/task2-epoch200.jpg)
 
 <p class="figcaption">Figure 12: Task 2, the final model after 200 epochs.</p>
 
@@ -542,7 +542,7 @@ the parks themselves (with rare exceptions being visitor centers).
 The third row illustrates a seemingly trivial but interesting pattern the model
 has learned: that buildings do not go between freeway roads.
 
-![task 2 successes]({{ "/assets/posts/procedural-map-generation-with-gans/task2-successes.jpg" | url }})
+![task 2 successes](/assets/posts/procedural-map-generation-with-gans/task2-successes.jpg)
 
 <p class="figcaption">Figure 13: Task 2, three patterns the model has learned to reproduce well.</p>
 
@@ -556,7 +556,7 @@ artifacts that make the model often easy to spot by human eyes: the white
 banding in the green park area, and the color mixtures around the long vertical
 grey lines.
 
-![task 2 failures]({{ "/assets/posts/procedural-map-generation-with-gans/task2-problems.jpg" | url }})
+![task 2 failures](/assets/posts/procedural-map-generation-with-gans/task2-problems.jpg)
 
 <p class="figcaption">Figure 14: Task 2, two problems the model has even after training.</p>
 
@@ -571,7 +571,7 @@ hand, other road networks that appear to possibly be barren industrial areas
 near a highway are actually densely lined, and the model guesses the wrong way
 by leaving them empty (bottom row).
 
-![task 2 sparsity]({{ "/assets/posts/procedural-map-generation-with-gans/task2-sparsity.jpg" | url }})
+![task 2 sparsity](/assets/posts/procedural-map-generation-with-gans/task2-sparsity.jpg)
 
 <p class="figcaption">Figure 15: Task 2, sparsity (or density) that is difficult to predict.</p>
 

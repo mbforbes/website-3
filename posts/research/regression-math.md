@@ -44,11 +44,11 @@ My final splits are then 50k/10k/10k train/val/test.
 
 Here's an MNIST image:
 
-![the first mnist datum]({{ "/assets/posts/regression-math/images/example_normal.jpg" | url }})
+![the first mnist datum](/assets/posts/regression-math/images/example_normal.jpg)
 
 Here it is expanded 10x:
 
-![the first mnist datum, expanded]({{ "/assets/posts/regression-math/images/example_bloated.jpg" | url }})
+![the first mnist datum, expanded](/assets/posts/regression-math/images/example_bloated.jpg)
 
 
 ## Data loading: CSV vs binary ("tensor")
@@ -56,12 +56,12 @@ Here it is expanded 10x:
 y-axis is seconds taken to load the file; lower is better. Result: binary is
 way faster.
 
-![data loading speeds, csv vs binary]({{ "/assets/posts/regression-math/images/data_loading.png" | url }})
+![data loading speeds, csv vs binary](/assets/posts/regression-math/images/data_loading.png)
 
 ## Naive regression to scalar
 
 In this we regress each image to a scalar that is the number represented in
-that image. For example, we regress the image <img alt="the first MNIST datum" src="{{ "/assets/posts/regression-math/images/example_normal.jpg" | url }}" class="inline ph2"> to the number `5`.
+that image. For example, we regress the image <img alt="the first MNIST datum" src="/assets/posts/regression-math/images/example_normal.jpg" class="inline ph2"> to the number `5`.
 
 > Disclaimer: this is a suboptimal approach. If you're going to treat was is really a
 > classification problem (like MNIST) as regression, you should regress to each
@@ -83,11 +83,11 @@ that image. For example, we regress the image <img alt="the first MNIST datum" s
 
 Definitions:
 
-![definitions]({{ "/assets/posts/regression-math/svg/definitions.svg" | url }})
+![definitions](/assets/posts/regression-math/svg/definitions.svg)
 
 Math reminders and my notation choices:
 
-![math reminders]({{ "/assets/posts/regression-math/svg/math-reminders.svg" | url }})
+![math reminders](/assets/posts/regression-math/svg/math-reminders.svg)
 
 > NB: While the derivative of a function **f** : ℝ<sup>n</sup> &rarr; ℝ is
 > [technically a row
@@ -100,68 +100,68 @@ Math reminders and my notation choices:
 
 **Loss** (average per datum):
 
-![least squares loss]({{ "/assets/posts/regression-math/svg/least-squares-loss.svg" | url }})
+![least squares loss](/assets/posts/regression-math/svg/least-squares-loss.svg)
 
 Using the average loss per datum is nice because it is invariant of the dataset
 (or (mini)batch) size, which will come into play when we do gradient
 descent. Expanding the loss function out for my noob math:
 
-![least squares loss expanded]({{ "/assets/posts/regression-math/svg/least-squares-loss-expanded.svg" | url }})
+![least squares loss expanded](/assets/posts/regression-math/svg/least-squares-loss-expanded.svg)
 
 Taking the **derivative** of the loss function with respect to the **weight
 vector**:
 
-![least squares loss expanded derivative]({{ "/assets/posts/regression-math/svg/least-squares-loss-expanded-derivative.svg" | url }})
+![least squares loss expanded derivative](/assets/posts/regression-math/svg/least-squares-loss-expanded-derivative.svg)
 
 We can set the gradient equal to 0 (the zero vector) and solve for the
 **analytic solution** (omitting second derivative check):
 
-![least squares analytic expanded]({{ "/assets/posts/regression-math/svg/least-squares-analytic-expanded.svg" | url }})
+![least squares analytic expanded](/assets/posts/regression-math/svg/least-squares-analytic-expanded.svg)
 
 Doing a little bit of algebra to clean up the gradient, we'll get our
 **gradient for gradient descent**:
 
-![least squares gradient]({{ "/assets/posts/regression-math/svg/least-squares-gradient.svg" | url }})
+![least squares gradient](/assets/posts/regression-math/svg/least-squares-gradient.svg)
 
 We can plot the loss as we take more gradient descent steps:
 
-![ols gradient descent linear plot]({{ "/assets/posts/regression-math/images/ols_gd_linear.png" | url }})
+![ols gradient descent linear plot](/assets/posts/regression-math/images/ols_gd_linear.png)
 
 ... but it's hard to see what's happening. That's because the loss starts so
 high and the y-axis is on a linear scale. A log scale is marginally more
 informative:
 
-![ols gradient descent log plot]({{ "/assets/posts/regression-math/images/ols_gd_log.png" | url }})
+![ols gradient descent log plot](/assets/posts/regression-math/images/ols_gd_log.png)
 
 To instead do **coordinate descent**, we optimize a single coordinate at a
 time, keeping all others fixed. We take the **derivative** of the loss function
 with respect to a **single weight**:
 
-![least squares derivative single weight]({{ "/assets/posts/regression-math/svg/least-squares-derivative-single-weight.svg" | url }})
+![least squares derivative single weight](/assets/posts/regression-math/svg/least-squares-derivative-single-weight.svg)
 
 Setting the derivative equal to zero, we can solve for the optimal value for
 that single weight:
 
-![least squares derivative single weight zero]({{ "/assets/posts/regression-math/svg/least-squares-derivative-single-weight-zero.svg" | url }})
+![least squares derivative single weight zero](/assets/posts/regression-math/svg/least-squares-derivative-single-weight-zero.svg)
 
 However, this is an expensive update to a single weight. We can speed this up.
 If we define the residual,
 
-![residual]({{ "/assets/posts/regression-math/svg/residual.svg" | url }})
+![residual](/assets/posts/regression-math/svg/residual.svg)
 
 then we can rewrite the inner term above as,
 
-![least squares residual rewrite]({{ "/assets/posts/regression-math/svg/least-squares-residual-rewrite.svg" | url }})
+![least squares residual rewrite](/assets/posts/regression-math/svg/least-squares-residual-rewrite.svg)
 
 and, using `(t)` and `(t+1)` to clarify old and new values for the weight,
 rewrite the single weight optimum as:
 
-![least squares coord descent]({{ "/assets/posts/regression-math/svg/least-squares-coord-descent.svg" | url }})
+![least squares coord descent](/assets/posts/regression-math/svg/least-squares-coord-descent.svg)
 
 After updating that weight, **r** is immediately stale, so we must update it as
 well:
 
-![least squares coord descent r update]({{ "/assets/posts/regression-math/svg/least-squares-coord-descent-r-update.svg" | url }})
+![least squares coord descent r update](/assets/posts/regression-math/svg/least-squares-coord-descent-r-update.svg)
 
 We can compute an initial **r** and we can precompute all of the column norms
 (the denominator) because they do not change. That means that each weight
@@ -177,11 +177,11 @@ whereas gradient descent can run entirely on the GPU. I'm not sure if I can
 remedy this. With that said, coordinate descent converges with 10x fewer
 iterations.
 
-![ols coordinate descent plot]({{ "/assets/posts/regression-math/images/ols_cd.png" | url }})
+![ols coordinate descent plot](/assets/posts/regression-math/images/ols_cd.png)
 
 But how well do we do in regressing to a scalar with OLS?
 
-![ols accuracy]({{ "/assets/posts/regression-math/images/ols_acc.png" | url }})
+![ols accuracy](/assets/posts/regression-math/images/ols_acc.png)
 
 Not very well.
 
@@ -189,7 +189,7 @@ Not very well.
 
 **Loss:**
 
-![ridge loss]({{ "/assets/posts/regression-math/svg/ridge-loss.svg" | url }})
+![ridge loss](/assets/posts/regression-math/svg/ridge-loss.svg)
 
 > NB: For all regularization methods (e.g., ridge and lasso), we shouldn't be
 > regularizing the weight corresponding to the bias term (I added as an extra
@@ -204,7 +204,7 @@ Not very well.
 (Being a bit more liberal with my hand waving of vector and matrix derivatives
 than above)
 
-![ridge derivative]({{ "/assets/posts/regression-math/svg/ridge-derivative.svg" | url }})
+![ridge derivative](/assets/posts/regression-math/svg/ridge-derivative.svg)
 
 **Analytic:**
 
@@ -213,57 +213,57 @@ than above)
 > solution, I needed to be consistent with how I applied _n_, so I've left it
 > in for completeness.
 
-![ridge analytic]({{ "/assets/posts/regression-math/svg/ridge-analytic.svg" | url }})
+![ridge analytic](/assets/posts/regression-math/svg/ridge-analytic.svg)
 
 **Gradient:**
 
 (Just massaging the derivative we found a bit more.)
 
-![ridge gradient]({{ "/assets/posts/regression-math/svg/ridge-gradient.svg" | url }})
+![ridge gradient](/assets/posts/regression-math/svg/ridge-gradient.svg)
 
 **Coordinate descent:**
 
 The derivative of the regularization term with respect to a single weight is:
 
-![ridge cd 0]({{ "/assets/posts/regression-math/svg/ridge-cd-0.svg" | url }})
+![ridge cd 0](/assets/posts/regression-math/svg/ridge-cd-0.svg)
 
 with that in mind, the derivative of the loss function with respect to a single
 weight is:
 
-![ridge cd 1]({{ "/assets/posts/regression-math/svg/ridge-cd-1.svg" | url }})
+![ridge cd 1](/assets/posts/regression-math/svg/ridge-cd-1.svg)
 
 In setting this equal to 0 and solving, I'm going to do some serious hand
 waving about "previous" versus "next" values of the weight. (I discovered what
 seems (empirically) to be the correct form by modifying late equations of the
 Lasso coordinate descent update, but I'm not sure the correct way to do the
 derivation here.) We'll also make use of the residual
-![residual]({{ "/assets/posts/regression-math/svg/residual.svg" | url }}).
+![residual](/assets/posts/regression-math/svg/residual.svg).
 
-![ridge cd 2]({{ "/assets/posts/regression-math/svg/ridge-cd-2.svg" | url }})
+![ridge cd 2](/assets/posts/regression-math/svg/ridge-cd-2.svg)
 
 As above, we update the residual after each weight update:
 
-![residual update]({{ "/assets/posts/regression-math/svg/residual-update.svg" | url }})
+![residual update](/assets/posts/regression-math/svg/residual-update.svg)
 
 ### Lasso
 
 **Loss:**
 
-![lasso loss]({{ "/assets/posts/regression-math/svg/lasso-loss.svg" | url }})
+![lasso loss](/assets/posts/regression-math/svg/lasso-loss.svg)
 
 **Derivative:**
 
-![lasso derivative part 1]({{ "/assets/posts/regression-math/svg/lasso-derivative-part1.svg" | url }})
+![lasso derivative part 1](/assets/posts/regression-math/svg/lasso-derivative-part1.svg)
 
 Focusing on the final term, we'll use the subgradient, and pick `0` (valid in
 `[-1, 1]`) for the nondifferentiable point. This means we can use `sgn(x)` as
 the "derivative" of `|x|`.
 
-![lasso derivative part 2]({{ "/assets/posts/regression-math/svg/lasso-derivative-part2.svg" | url }})
+![lasso derivative part 2](/assets/posts/regression-math/svg/lasso-derivative-part2.svg)
 
 Substitute in to get the final term for the (sub)gradient:
 
-![lasso derivative part 3]({{ "/assets/posts/regression-math/svg/lasso-derivative-part3.svg" | url }})
+![lasso derivative part 3](/assets/posts/regression-math/svg/lasso-derivative-part3.svg)
 
 > NB: There's no soft thresholding (sparsity-encouraging) property of LASSO
 > when you use gradient descent. You need something like coordinate descent to
@@ -271,36 +271,36 @@ Substitute in to get the final term for the (sub)gradient:
 
 **Coordinate descent:**
 
-![lasso cd 1]({{ "/assets/posts/regression-math/svg/lasso-cd-1.svg" | url }})
+![lasso cd 1](/assets/posts/regression-math/svg/lasso-cd-1.svg)
 
-setting this = 0, and again using the residual ![residual]({{ "/assets/posts/regression-math/svg/residual.svg" | url }}),
+setting this = 0, and again using the residual ![residual](/assets/posts/regression-math/svg/residual.svg),
 we have:
 
-![lasso cd 2]({{ "/assets/posts/regression-math/svg/lasso-cd-2.svg" | url }})
+![lasso cd 2](/assets/posts/regression-math/svg/lasso-cd-2.svg)
 
 > NB: I think that here (and below) we might really be saying that 0 is in the
 > set of subgradients, rather than that it equals zero.
 
 There's a lot going on. Let's define two variables to clean up our equation:
 
-![lasso cd 3]({{ "/assets/posts/regression-math/svg/lasso-cd-3.svg" | url }})
+![lasso cd 3](/assets/posts/regression-math/svg/lasso-cd-3.svg)
 
 From this, we can more clearly see the solution to this 1D problem:
 
-![lasso cd 4]({{ "/assets/posts/regression-math/svg/lasso-cd-4.svg" | url }})
+![lasso cd 4](/assets/posts/regression-math/svg/lasso-cd-4.svg)
 
 This solution is exactly the soft threshold operator:
 
-![lasso cd 5]({{ "/assets/posts/regression-math/svg/lasso-cd-5.svg" | url }})
+![lasso cd 5](/assets/posts/regression-math/svg/lasso-cd-5.svg)
 
 Rewriting this into its full form:
 
-![lasso cd 6]({{ "/assets/posts/regression-math/svg/lasso-cd-6.svg" | url }})
+![lasso cd 6](/assets/posts/regression-math/svg/lasso-cd-6.svg)
 
 As with coordinate descent above, we need to update the residual **r** after
 each weight update (skipping the derivation; same as above for OLS):
 
-![residual update]({{ "/assets/posts/regression-math/svg/residual-update.svg" | url }})
+![residual update](/assets/posts/regression-math/svg/residual-update.svg)
 
 ## Links
 
