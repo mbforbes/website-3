@@ -1,3 +1,7 @@
+"""
+Tests eleventy reimplementation features provided by common.py.
+"""
+
 from rich.console import Console
 
 from common import get_url

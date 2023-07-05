@@ -1,4 +1,8 @@
-"""Re: garage/image-scroll-test-page"""
+"""
+Quick hacky script used for garage/image-scroll-test-page to generate HTML.
+
+Could probably do a check over that page to see what I was doing and then delete this.
+"""
 
 from glob import glob
 

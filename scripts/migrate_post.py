@@ -1,4 +1,8 @@
-"""The great migration"""
+"""
+Script for performing the great post migration---changing post directories.
+
+Was a run-and-done thing. Just here for posterity.
+"""
 
 import code
 import glob

@@ -1,3 +1,12 @@
+"""
+Common provides python implementations of eleventy mechanics for use in other scripts.
+
+For example, eleventy crawls directories to find files to generate webpages (get_posts),
+and it turns file paths into URLs based on configuration (get_url).
+
+Partial tests for this file are in test_common.py.
+"""
+
 import code
 from glob import glob
 import os
@@ -9,6 +18,8 @@ from typing_extensions import TypedDict
 
 
 class Post(TypedDict):
+    """`contents` has the raw (markdown or nunjucks) file contents, no preprocessing."""
+
     path: str
     url: str
     frontmatter: Dict[str, Any]

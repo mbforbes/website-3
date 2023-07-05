@@ -1,3 +1,10 @@
+"""
+Tests accuracy ½ of garage_links.py: do all the generated links point to real pages? In
+other words, an empty link graph passes this test.
+
+The completeness ½ of garage_links.py is tested in test_link_finder.py.
+"""
+
 import code
 import json
 
@@ -12,6 +19,7 @@ LINK_GRAPH_PATH = "_data/link_graph.json"
 
 C = Console()
 link_graph = json.loads(read(LINK_GRAPH_PATH))
+# link_graph = {}  # uncomment to show that empty link graph passes test
 
 try:
     res = requests.get(HOST + "/")

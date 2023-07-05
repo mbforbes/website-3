@@ -2,10 +2,17 @@
 
 Steps:
 - edit DATE_START, DATE_END (they are inclusive)
-- edit PREAMBLE (opt)
+- edit PREAMBLE
 - edit POSTAMBLE
 - run `python scripts/digest.py | pbcopy`
 
+This script involves some wild hackery. E.g., we render markdown as HTML and then parse
+the HTML to get back the original text. It also relies on python implementation of
+eleventy features (in common).
+
+Other than that, it's actually _pretty_ straightforward. The big footgun with generating
+email digests is that email clients are way out-of-date about what HTML/CSS they'll
+render. So we use old-school <table>s for formatting. It works fine.
 """
 
 import code
