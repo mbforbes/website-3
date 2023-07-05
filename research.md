@@ -5,7 +5,7 @@ hidedate: true
 layout: "layouts/default.njk"
 ---
 
-<img width="200" src="{{ "/assets/img/max.jpg" | url }}" style="float: right; margin: 25px;">
+<img width="200" src="/assets/img/max.jpg" style="float: right; margin: 25px;">
 
 ## Bio
 
@@ -26,7 +26,7 @@ Before jumping fully into NLP, I worked on robotics and robotics+NLP, with [Raj 
 
  -->
 
-Contact me at: <img height="22" class="inline" src="{{ "/assets/img/my-email.png" | url }}">
+Contact me at: <img height="22" class="inline" src="/assets/img/my-email.png">
 
 ## Notes
 
@@ -49,21 +49,21 @@ Contact me at: <img height="22" class="inline" src="{{ "/assets/img/my-email.png
 [**Scarecrow: A Framework for Scrutinizing Machine Text**](https://arxiv.org/pdf/2107.01294.pdf)<br/>
 Yao Dou&#42;, **Maxwell Forbes**&#42;, Rik Koncel-Kedziorski, Noah A. Smith, Yejin Choi<br/>
 _Association for Computational Linguistics (ACL) 2022_<br/>
-[[project](https://yao-dou.github.io/scarecrow/)] [[bib]({{ "/assets/research/dou2021scarecrow.bib" | url }})]
+[[project](https://yao-dou.github.io/scarecrow/)] [[bib](/assets/research/dou2021scarecrow.bib)]
 
 <p style="height: 1px;"></p>
 
 [**Delphi: Towards Machine Ethics and Norms**](https://arxiv.org/pdf/2110.07574.pdf)<br/>
 Liwei Jiang, Jena D. Hwang, Chandra Bhagavatula, Ronan Le Bras, **Maxwell Forbes**, Jon Borchardt, Jenny Liang, Oren Etzioni, Maarten Sap, Yejin Choi<br/>
 _arXiv, 2021_<br/>
-[[demo](https://delphi.allenai.org/)] [[bib]({{ "/assets/research/jiang2021delphi.bib" | url }})]
+[[demo](https://delphi.allenai.org/)] [[bib](/assets/research/jiang2021delphi.bib)]
 
 <p style="height: 1px;"></p>
 
 [**CLIPScore: A Reference-free Evaluation Metric for Image Captioning**](https://arxiv.org/pdf/2104.08718.pdf)<br/>
 Jack Hessel, Ari Holtzman, **Maxwell Forbes**, Ronan Le Bras, Yejin Choi<br/>
 _Empirical Methods in Natural Language Processing (EMNLP) 2021_<br/>
-[[bib]({{ "/assets/research/hessel2021clipscore.bib" | url }})]
+[[bib](/assets/research/hessel2021clipscore.bib)]
 
 <p style="height: 1px;"></p>
 
@@ -77,42 +77,42 @@ _Empirical Methods in Natural Language Processing (EMNLP) 2021_<br/>
 [**Edited Media Understanding Frames: Reasoning About the Intent and Implications of Visual Misinformation**](https://aclanthology.org/2021.acl-long.158.pdf)<br/>
 Jeff Da, **Maxwell Forbes**, Rowan Zellers, Anthony Zheng, Jena D. Hwang, Antoine Bosselut, Yejin Choi<br/>
 _Association for Computational Linguistics (ACL) 2021_<br/>
-[[project](https://jeffda.com/edited-media-understanding)] [[bib]({{ "/assets/research/da2021edited.bib" | url }})]
+[[project](https://jeffda.com/edited-media-understanding)] [[bib](/assets/research/da2021edited.bib)]
 
 <p style="height: 1px;"></p>
 
 [**MultiTalk: A Highly-Branching Dialog Testbed for Diverse Conversations**](https://arxiv.org/pdf/2102.01263.pdf)<br/>
 Yao Dou, **Maxwell Forbes**, Ari Holtzman, Yejin Choi<br/>
 _Association for the Advancement of Artificial Intelligence (AAAI) 2021_<br/>
-[[data](https://uwnlp.github.io/multitalk/)] [[bib]({{ "/assets/research/dou2021multitalk.bib" | url }})]
+[[data](https://uwnlp.github.io/multitalk/)] [[bib](/assets/research/dou2021multitalk.bib)]
 
 <p style="height: 1px;"></p>
 
 [**Paragraph-Level Commonsense Transformers with Recurrent Memory**](https://arxiv.org/pdf/2010.01486.pdf)<br/>
 Saadia Gabriel, Chandra Bhagavatula, Vered Shwartz, Ronan Le Bras, **Maxwell Forbes**, Yejin Choi<br/>
 _Association for the Advancement of Artificial Intelligence (AAAI) 2021_<br/>
-[[data &amp; code](https://github.com/skgabriel/paracomet)] [[bib]({{ "/assets/research/gabriel2021paragraph.bib" | url }})]
+[[data &amp; code](https://github.com/skgabriel/paracomet)] [[bib](/assets/research/gabriel2021paragraph.bib)]
 
 <p style="height: 1px;"></p>
 
 [**Social Chemistry 101: Learning to Reason about Social and Moral Norms**](https://arxiv.org/pdf/2011.00620.pdf)<br/>
 **Maxwell Forbes**, Jena D. Hwang, Vered Shwartz, Maarten Sap, Yejin Choi<br/>
 _Empirical Methods in Natural Language Processing (EMNLP) 2020_<br/>
-[[project page](https://maxwellforbes.com/social-chemistry/): [demo](https://maxwellforbes.com/social-chemistry/#demo), [data browser](https://maxwellforbes.com/social-chemistry/#dataset-browser)] [[data](https://storage.googleapis.com/ai2-mosaic-public/projects/social-chemistry/data/social-chem-101.zip)] [[code](https://github.com/mbforbes/social-chemistry-101)] [[video](https://slideslive.com/38939338/social-chemistry-101-learning-to-reason-about-social-and-moral-norms)] [[bib]({{ "/assets/research/forbes2020social.bib" | url }})]
+[[project page](https://maxwellforbes.com/social-chemistry/): [demo](https://maxwellforbes.com/social-chemistry/#demo), [data browser](https://maxwellforbes.com/social-chemistry/#dataset-browser)] [[data](https://storage.googleapis.com/ai2-mosaic-public/projects/social-chemistry/data/social-chem-101.zip)] [[code](https://github.com/mbforbes/social-chemistry-101)] [[video](https://slideslive.com/38939338/social-chemistry-101-learning-to-reason-about-social-and-moral-norms)] [[bib](/assets/research/forbes2020social.bib)]
 
 <p style="height: 1px;"></p>
 
 [**Thinking Like a Skeptic: Defeasible Inference in Natural Language**](https://www.aclweb.org/anthology/2020.findings-emnlp.418.pdf)<br/>
 Rachel Rudinger, Vered Shwartz, Jena D. Hwang, Chandra Bhagavatula, **Maxwell Forbes**, Ronan Le Bras, Noah A. Smith, Yejin Choi<br/>
 _Findings of Empirical Methods in Natural Language Processing (Findings of EMNLP) 2020_<br/>
-[[bib]({{ "/assets/research/rudinger2020thinking.bib" | url }})]
+[[bib](/assets/research/rudinger2020thinking.bib)]
 
 <p style="height: 1px;"></p>
 
 [**The Curious Case of Neural Text <i>De</i>generation**](https://arxiv.org/pdf/1904.09751.pdf)<br/>
 Ari Holtzman, Jan Buys, Li Du, **Maxwell Forbes**, Yejin Choi<br/>
 _International Conference on Learning Representations (ICLR), 2020_<br/>
-[[demo](http://neuraldegen.com/)] [[bib]({{ "/assets/research/holtzman2019curious.bib" | url }})]
+[[demo](http://neuraldegen.com/)] [[bib](/assets/research/holtzman2019curious.bib)]
 
 <p style="height: 1px;"></p>
 
@@ -120,7 +120,7 @@ _International Conference on Learning Representations (ICLR), 2020_<br/>
 [**Neural Naturalist: Generating Fine-Grained Image Comparisons**](https://arxiv.org/pdf/1909.04101.pdf)<br/>
 **Maxwell Forbes**, Christine Kaeser-Chen, Piyush Sharma, Serge Belongie<br/>
 _Empirical Methods in Natural Language Processing (EMNLP) 2019_<br/>
-[[project](https://mbforbes.github.io/neural-naturalist/)] [[data](https://github.com/google-research-datasets/birds-to-words)] [[video](https://vimeo.com/434276978)] [[bib]({{ "/assets/research/forbes2019neural.bib" | url }})]
+[[project](https://mbforbes.github.io/neural-naturalist/)] [[data](https://github.com/google-research-datasets/birds-to-words)] [[video](https://vimeo.com/434276978)] [[bib](/assets/research/forbes2019neural.bib)]
 
 <p style="height: 1px;"></p>
 
@@ -141,42 +141,42 @@ _Association for Computational Linguistics (ACL) 2018_<br/>
 [**Verb Physics: Relative Physical Knowledge of Actions and Objects**](https://arxiv.org/pdf/1706.03799.pdf)<br />
 **Maxwell Forbes**, Yejin Choi<br />
 _Association for Computational Linguistics (ACL) 2017_<br />
-[[project](https://uwnlp.github.io/verbphysics/)] [[code](https://github.com/uwnlp/verbphysics)] [[data](https://github.com/uwnlp/verbphysics#data)] [[video](https://vimeo.com/234954495)]  [[slides]({{ "/assets/research/forbes2017verb-slides.pdf" | url }})] [[bib]({{ "/assets/research/forbes2017verb.bib" | url }})]
+[[project](https://uwnlp.github.io/verbphysics/)] [[code](https://github.com/uwnlp/verbphysics)] [[data](https://github.com/uwnlp/verbphysics#data)] [[video](https://vimeo.com/234954495)]  [[slides](/assets/research/forbes2017verb-slides.pdf)] [[bib](/assets/research/forbes2017verb.bib)]
 
 <p style="height: 1px;"></p>
 
-[**Robot Programming by Demonstration with Situated Spatial Language Understanding**]({{ "/assets/research/forbes2015robot.pdf" | url }})<br />
+[**Robot Programming by Demonstration with Situated Spatial Language Understanding**](/assets/research/forbes2015robot.pdf)<br />
 **Maxwell Forbes**, Rajesh P. N. Rao, Luke Zettlemoyer, Maya Cakmak<br />
 _IEEE International Conference on Robotics and Automation (ICRA) 2015_<br/>
 [[video](https://www.youtube.com/watch?v=uPE-eGqVP3c)] [[code](https://github.com/mbforbes/hfpbd-parser)]
 
 <p style="height: 1px;"></p>
 
-[**Robot Programming by Demonstration with Crowdsourced Action Fixes**]({{ "/assets/research/forbes2014robot.pdf" | url }})<br />
+[**Robot Programming by Demonstration with Crowdsourced Action Fixes**](/assets/research/forbes2014robot.pdf)<br />
 **Maxwell Forbes**, Michael Jae-Yoon Chung, Maya Cakmak, Rajesh P. N. Rao<br />
 _AAAI Conference on Human Computation and Crowdsourcing (HCOMP) 2014_<br />
-[[slides]({{ "/assets/research/forbes2014robot-slides.pdf" | url }})]
+[[slides](/assets/research/forbes2014robot-slides.pdf)]
 
 <p style="height: 1px;"></p>
 
-[**Accelerating Imitation Learning through Crowdsourcing**]({{ "/assets/research/chung2014accelerating.pdf" | url }})<br />
+[**Accelerating Imitation Learning through Crowdsourcing**](/assets/research/chung2014accelerating.pdf)<br />
 Michael Jae-Yoon Chung, **Maxwell Forbes**, Maya Cakmak, Rajesh P. N. Rao<br/>
 _IEEE International Conference on Robotics and Automation (ICRA) 2014_<br />
 [[press: Popular Science](https://www.popsci.com/article/technology/robot-learns-asking-strangers-internet)] [[press: IEEE Spectrum](https://spectrum.ieee.org/automaton/robotics/artificial-intelligence/please-tell-this-robot-what-a-turtle-looks-like)]
 
 ### Workshop papers
 
-[**Programming by Demonstration with Situated Semantic Parsing**]({{ "/assets/research/artzi2014programming.pdf" | url }})<br />
+[**Programming by Demonstration with Situated Semantic Parsing**](/assets/research/artzi2014programming.pdf)<br />
 Yoav Artzi&#42;, **Maxwell Forbes**&#42;, Kenton Lee&#42;, Maya Cakmak<br />
 _AAAI Fall Symposium Series on Human-Robot Interaction 2014_<br/>
-[[slides]({{ "/assets/research/artzi2014programming-slides.pdf" | url }})]
+[[slides](/assets/research/artzi2014programming-slides.pdf)]
 
 <p style="height: 1px;"></p>
 
-[**Grounding Antonym Adjective Pairs through Interaction**]({{ "/assets/research/forbes2014grounding.pdf" | url }})<br/>
+[**Grounding Antonym Adjective Pairs through Interaction**](/assets/research/forbes2014grounding.pdf)<br/>
 **Maxwell Forbes**, Michael Chung, Maya Cakmak, Luke Zettlemoyer, Rajesh P. N. Rao<br />
 _ACM/IEEE International Conference on Human-Robot Interaction (HRI) Workshop on Asymmetric Interactions 2014_<br/>
-[[slides]({{ "/assets/research/forbes2014grounding-slides.pdf" | url }})]
+[[slides](/assets/research/forbes2014grounding-slides.pdf)]
 
 </div>
 

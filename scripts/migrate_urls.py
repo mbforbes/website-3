@@ -37,6 +37,6 @@ def replace_in_files(directories, mode="test"):
                         file.writelines(lines)
 
 
-directories = ["_includes/"]
-# replace_in_files(directories, mode="test")  # for testing
-replace_in_files(directories, mode="replace")  # for replacing
+directories = ["redirects/"]
+replace_in_files(directories, mode="test")  # for testing
+# replace_in_files(directories, mode="replace")  # for replacing

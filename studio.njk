@@ -36,7 +36,7 @@ Studio
 
     <h2>Projects<a name="projects"></a></h2>
     {% for post in collections.project | sort(true, false, "date") %}
-    <a href="{{ post.url | url }}" class="db pv1 link">
+    <a href="{{ post.url }}" class="db pv1 link">
         <time class="fr lightest-text-color ml3">{{ post.date | readableDate }}</time>
         {{ post.data.title }}
     </a>
@@ -52,22 +52,22 @@ Studio
     {% endfor %}
 
     <p>
-    You might also be interested in checking out my <a href="{{ "/research/#software" | url }}">research software</a>.
+    You might also be interested in checking out my <a href="/research/#software">research software</a>.
     </p>
 
     <h2>Sketches<a name="sketches"></a></h2>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));">
     {% for sketch in collections.sketch | sort(true, false, "date") %}
-        <a href="{{ sketch.url | url }}">
-            <img class="dim novmargin" src="{{ sketch.data.thumb | url }}" width="216" height="216" style="height: auto;" loading="lazy" decoding="async" />
+        <a href="{{ sketch.url }}">
+            <img class="dim novmargin" src="{{ sketch.data.thumb }}" width="216" height="216" style="height: auto;" loading="lazy" decoding="async" />
         </a>
     {% endfor %}
     </div>
 
     <h2>Blog<a name="blog"></a></h2>
     {% for post in collections.blog | sort(true, false, "date") %}
-    <a href="{{ post.url | url }}" class="db pv1 link">
+    <a href="{{ post.url }}" class="db pv1 link">
         <time class="fr lightest-text-color ml3">{{ post.date | readableDate }}</time>
         {{ post.data.title }}
     </a>
@@ -92,7 +92,7 @@ Studio
     The garage is an experiment in "working with the garage door up."
     These evolving notes are written for me but posted publicly here.
     Read more in
-    <a href="{{ "/garage/what-is-the-garage/" | url }}">
+    <a href="/garage/what-is-the-garage/">
     What is the garage?
     </a>
     </p>
