@@ -3,7 +3,7 @@ title: Writing vs Blogging
 image: /assets/blog/writing-vs-blogging/tree-path-green.moz80.jpg
 ---
 
-![]({{ "/assets/blog/writing-vs-blogging/tree-path-green.moz80.jpg" | url }})
+![](/assets/blog/writing-vs-blogging/tree-path-green.moz80.jpg)
 
 Meeting some new folks and talking about our travels, I mentioned I wrote a blog.
 I only then realized this is lightly embarrassing.[^realize]
@@ -75,7 +75,7 @@ Anyway, the podcast is super interesting---great anecdotes, and at least intuiti
 
 ### Neon White
 
-Been playing a lot of Neon White, post [here]({{ "/garage/on-neon-white/" | url }}) (hope to add photos to it soon).
+Been playing a lot of Neon White, post [here](/garage/on-neon-white/) (hope to add photos to it soon).
 
 ### Last Call BBS
 

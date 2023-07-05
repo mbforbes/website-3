@@ -5,7 +5,7 @@ date: 2022-07-07
 
 ## Public _vs_ Private Spaces
 
-I'm interested in the difference between  _public_ and _private_ spaces (/groups) (/communities).
+I'm interested in the difference between  _public_ and _private_ spaces (/ groups) (/ communities).
 
 - **Example: Facebook vs Snapchat.** Originally, your "friends" were your actual friends, so posts you wrote were (at least somewhat) private to your group. Now---if you're even still using Facebook---your "friends" are everyone you've ever met (and possibly then some). The space has gone full public.[^lock] And so, people who care about talking among their group (i.e., young people) moved to Snapchat. There, the promise of privacy is part of the pitch.
 

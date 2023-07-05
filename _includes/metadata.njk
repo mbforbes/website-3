@@ -19,7 +19,8 @@
     {% macro linkRow(kind, links) %}
         {% set value = "" %}
         {% for link in links %}
-            {% set value = value + "<li><a href='" + link_graph[link].url | url + "'>" + link_graph[link].title + "</a></li>" %}
+            {% set key = link | stripAnchor %}
+            {% set value = value + "<li><a href='" + link + "'>" + link_graph[key].title + "</a></li>" %}
         {% endfor %}
         {% set value = "<ul class='pl3 mv0'>" + value + "</ul>" %}
         {{ row(kind, value, kind | lower) }}

@@ -12,7 +12,7 @@ I'll back up a tiny bit for some context.
 
 Inspired by [Iron Blogger SF](https://iron-blogger-sf.com/), a few Seattleites and I are working on getting weekly posts done by 6am Mondays, else you owe $5 to the beer pool.
 
-For my first week, I was able to push out the rest of [Every PhD is Different]({{ "/posts/every-phd-is-different/" | url }}).
+For my first week, I was able to push out the rest of [Every PhD is Different](/posts/every-phd-is-different/).
 
 This week... I tried, I really did! I spent many more hours than I anticipated trying to get a fragment shader running on simple 2D drawings. I picked p5.js, which is generally good, but hides just enough of what's going on under the hood that when I step out of a tutorial and shit inevitably hits the fan, it's painful to debug.
 
@@ -38,7 +38,7 @@ My thoughts here aren't fully developed yet. Let me risk some observations:
 
 - However, I find the idea of having sections of work grow and evolve very appealing. This subverts the ideas of _date_ and _artifact_.
 
-- It's actually a little odd that, especially with sketches (see the [studio](/studio)), I've been focusing so much on finished artifacts with no explanation. It's odd because I think my strengths _and_ interests lie more in explaining designs and technical concepts than in showcasing "art." I'm pretty sure that I did think about this when I unconsciously made the goal to post this way, and the point was to challenge myself into creating and not explaining.[^teaching] The alternative seems so simple: why not do both?
+- It's actually a little odd that, especially with sketches (see the [studio](/studio/)), I've been focusing so much on finished artifacts with no explanation. It's odd because I think my strengths _and_ interests lie more in explaining designs and technical concepts than in showcasing "art." I'm pretty sure that I did think about this when I unconsciously made the goal to post this way, and the point was to challenge myself into creating and not explaining.[^teaching] The alternative seems so simple: why not do both?
 
 [^teaching]: I wonder if my drive to create rather than describe was because of some weird internalization of _"Those who can, do; those who can’t, teach"_ that I never questioned. Maybe fearing that this might become true of me, I tried to steer the other way? Wow, it's funny how long things can operate subconsciously.
 

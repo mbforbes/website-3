@@ -44,6 +44,9 @@ def get_url(path: str) -> str:
     posts/research/foo.md
     ->   /posts/foo/
 
+    Other things we think about:
+    - filenames that start with dates (strip that off)
+    - microblog posts (link to /microblog#date rather than /microblog/date)
     """
     # remove ext, and might have date in filename that gets stripped off
     dirname, filename = os.path.split(path)
@@ -58,6 +61,11 @@ def get_url(path: str) -> str:
     for p in post_prefix_list:
         if postdir.startswith(p):
             postdir = "/posts" + postdir[len(p) :]
+
+    # microblog posts are all on one page, so they get a # rather than /
+    if postdir == "/microblog":
+        # also remove trailing slash we added to postname
+        return f"{postdir}#{postname[:-1]}"
 
     return os.path.join(postdir, postname)
 

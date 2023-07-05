@@ -40,7 +40,9 @@ C.print(f"✅ Nonexistent URLs giving non-200s (got {res.status_code})")
 
 failed = []
 for key, value in track(
-    link_graph.items(), description="Checking link graph", transient=True
+    link_graph.items(),
+    description="Checking link graph: keys reachable",
+    transient=True,
 ):
     url = value["url"]
     # These are the same right now. Remove this (and add check?) if not.
@@ -51,11 +53,38 @@ for key, value in track(
 C.print(f"✅ All keys match URLs")
 
 if len(failed) > 0:
-    C.print(f"❌ Some URLs in link graph not found ({len(failed)}/{len(link_graph)})")
+    C.print(
+        f"❌ Some URLs in link graph not reachable ({len(failed)}/{len(link_graph)})"
+    )
     for url in failed:
         C.print("❌", url)
 else:
-    C.print(f"✅ All {len(link_graph)} URLs found")
+    C.print(f"✅ All {len(link_graph)} URLs reachable")
+
+
+failed = []
+attempted = 0
+for key, value in track(
+    link_graph.items(),
+    description="Checking link graph: incoming/outgoing reachable",
+    transient=True,
+):
+    sets = ["incoming", "outgoing"]
+    for s in sets:
+        for link in value[s]:
+            attempted += 1
+            res = requests.get(HOST + key)
+            if res.status_code != 200:
+                failed.append(link)
+
+if len(failed) > 0:
+    C.print(
+        f"❌ Some incoming/outgoing links in link graph not reachable ({len(failed)}/{attempted})"
+    )
+    for url in failed:
+        C.print("❌", url)
+else:
+    C.print(f"✅ All {attempted} incoming/outgoing links reachable")
 
 
 # code.interact(local=dict(globals(), **locals()))

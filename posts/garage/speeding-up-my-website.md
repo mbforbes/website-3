@@ -177,7 +177,7 @@ Time to head to the old [Image layout test page](/garage/image-layout-test-page/
 
 I wrapped that up, and learned you can use CSS to override the sizes you provide. But I think the answer was more (b) than (a), and since my CSS layouts are so complicated, I don't think providing explicit attribute sizes helps at all.
 
-Regardless, I did a whole exploration of lazy loading in the [Image lazy load test page](/garage/image-lazy-load-test-page), and with incredible success. We got the weight of the page from **99MB** down to **5MB**
+Regardless, I did a whole exploration of lazy loading in the [Image lazy load test page](/garage/image-lazy-load-test-page/), and with incredible success. We got the weight of the page from **99MB** down to **5MB**
 
 I'm thrilled with this, and excited to push the change. This is yet another time that I'm glad I wrote wrappers to generate my image layouts, because now all my image collections will benefit from this speedup.
 

@@ -25,7 +25,7 @@ Realized that completely flat terrain is weird, next draft tried to make varied 
 
 Drawing ground terrain by hand. Hard to see---no water version.
 
-Challenge now using grass shader: it wants to place on flat surface. [Workaround](/garage/magicavoxel-project-objects-to-ground) by placing in air, then repeatedly running "drop" shader from lowest to highest color.
+Challenge now using grass shader: it wants to place on flat surface. [Workaround](/garage/magicavoxel-project-objects-to-ground/) by placing in air, then repeatedly running "drop" shader from lowest to highest color.
 
 Realized doing terrain by hand is kind of silly since there's a shader that's great at this.
 

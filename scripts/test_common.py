@@ -18,6 +18,7 @@ worklist = [
     ("posts/blog/2022-08-21-writing-vs-blogging.md", "/blog/writing-vs-blogging/"),
     ("posts/garage/spectators.md", "/garage/spectators/"),
     ("posts/research/gutenberg.md", "/posts/gutenberg/"),
+    ("posts/microblog/20230221193300.md", "/microblog#20230221193300"),
 ]
 
 failed = 0

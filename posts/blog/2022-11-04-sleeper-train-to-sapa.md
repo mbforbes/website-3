@@ -3,7 +3,7 @@ title: Sleeper Train to Sapa
 image: /assets/blog/sleeper-train-to-sapa/sleeper-train.moz80.jpg
 ---
 
-![]({{ "/assets/blog/sleeper-train-to-sapa/sleeper-train.moz80.jpg" | url }})
+![](/assets/blog/sleeper-train-to-sapa/sleeper-train.moz80.jpg)
 
 Hello,
 

@@ -3,7 +3,7 @@ title: My Media Snapshot
 image: /assets/blog/my-media-snapshot/hanoi-towers.moz80.jpg
 ---
 
-![]({{ "/assets/blog/my-media-snapshot/hanoi-towers.moz80.jpg" | url }})
+![](/assets/blog/my-media-snapshot/hanoi-towers.moz80.jpg)
 
 I'm keeping lots of notes while traveling. But I'm trying not to write about travel in the blog (i.e., what you're reading now). So what to write about? It's hard to pick, since when you're traveling, travel is so much of your life.
 

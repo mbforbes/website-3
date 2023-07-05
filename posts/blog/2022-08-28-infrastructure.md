@@ -4,7 +4,7 @@ date: 2022-08-28
 image: /assets/blog/infrastructure/tram.moz80.jpg
 ---
 
-![]({{ "/assets/blog/infrastructure/tram.moz80.jpg" | url }})
+![](/assets/blog/infrastructure/tram.moz80.jpg)
 
 ## The Recurrent Agony of Naming Things
 

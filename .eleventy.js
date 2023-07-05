@@ -301,6 +301,15 @@ module.exports = function (eleventyConfig) {
         return `other (${array})`;
     });
 
+    // "/foo#bar" -> "/foo"
+    eleventyConfig.addFilter("stripAnchor", (s) => {
+        let hashIdx = s.indexOf("#");
+        if (hashIdx == -1) {
+            return s;
+        }
+        return s.slice(0, hashIdx);
+    });
+
     // rejectAttrContains: attr's value is array, testCal is single, checks testVal *not* in
     eleventyConfig.addNunjucksFilter("rejectAttrContains", (array, attrs, testVal) => {
         if (typeof attrs == "string") {

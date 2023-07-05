@@ -5,11 +5,11 @@ image: /assets/blog/praise-critique-digital-gardens/45-Farm-road-d7.moz80.jpg
 customexcerpt: A digital garden may be the solution to creative friction. But is it worth the cost?
 ---
 
-![]({{ "/assets/blog/praise-critique-digital-gardens/45-Farm-road-d7.moz80.jpg" | url }})
+![](/assets/blog/praise-critique-digital-gardens/45-Farm-road-d7.moz80.jpg)
 
 ## Notes (Zettelkasten)
 
-I made the [garage]({{ "/garage/what-is-the-garage/" | url }}), a section of my website inspired by a movement of Zettelkasten-like web projects (e.g., [Andy](https://notes.andymatuschak.org/About_these_notes?stackedNotes=z8AfCaQJdp852orumhXPxHb3r278FHA9xZN8J), [Alex](https://spacefiller.space/)), whose core principles are:
+I made the [garage](/garage/what-is-the-garage/), a section of my website inspired by a movement of Zettelkasten-like web projects (e.g., [Andy](https://notes.andymatuschak.org/About_these_notes?stackedNotes=z8AfCaQJdp852orumhXPxHb3r278FHA9xZN8J), [Alex](https://spacefiller.space/)), whose core principles are:
 
 - **Inter-linked notes.** To me, this is the heart of the Zettelkasten methodology.
 
@@ -19,7 +19,7 @@ A corollary effect follows:
 
 - **Notes evolve over time; they're visible in all stages of development.** W.r.t. coherency, depth, polish.
 
-I initially found this [wonderfully liberating]({{ "/blog/hot/" | url }}). By creating a sandbox for work that was allowed to be in any stage of polish, I felt free to pour more of my ideas into it, worrying less about the _artifact_ quality of each page.
+I initially found this [wonderfully liberating](/blog/hot/). By creating a sandbox for work that was allowed to be in any stage of polish, I felt free to pour more of my ideas into it, worrying less about the _artifact_ quality of each page.
 
 But I'm wondering whether I may have gotten everything backwards, and at the same time, not gone far enough.
 
@@ -47,7 +47,7 @@ But this never seemed to happen. Notes stayed as notes---low friction, fun to wr
 
 [^myself]: Though I maintain that I write primarily for myself, this is never completely true when you're posting online. Despite my best efforts, it's always a bit disappointing when nobody reads the thing you poured dozens of hours into.
 
-Could the digital garden be the solution to my woes? I could transform my entire site into growing posts, all visible in their work-in-progress glory. It would take some ontology reshuffling, but it could remove the biggest friction barrier to my posting. The pursuit of quality, [forever present]({{ "/posts/appropriate-quality/" | url }}) and [long paralyzing]({{ "/posts/paralysis/" | url }})... could it be vanquished by making it a first-class citizen?
+Could the digital garden be the solution to my woes? I could transform my entire site into growing posts, all visible in their work-in-progress glory. It would take some ontology reshuffling, but it could remove the biggest friction barrier to my posting. The pursuit of quality, [forever present](/posts/appropriate-quality/) and [long paralyzing](/posts/paralysis/)... could it be vanquished by making it a first-class citizen?
 
 ## The Problem with Digital Gardens
 

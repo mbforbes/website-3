@@ -4,11 +4,11 @@ subtitle: Seoul
 image: /assets/blog/get-the-picture/filming.moz80.jpg
 ---
 
-![]({{ "/assets/blog/get-the-picture/proj.moz80.jpg" | url }})
+![](/assets/blog/get-the-picture/proj.moz80.jpg)
 
 We're staying near the Dongdaemun Design Plaza, this enormous swoopy blob of a multi-building complex that looks like something Frank Gehry would make if you took all the angst out of him.
 
-![]({{ "/assets/blog/get-the-picture/ddp.moz80.jpg" | url }})
+![](/assets/blog/get-the-picture/ddp.moz80.jpg)
 
 <p class="figcaption">Even the inside is full of huge luxurious curves.</p>
 
@@ -18,7 +18,7 @@ Anyway, we finally made time to explore it today, and got to see an art exhibit 
 
 The piece---a multi-room tour with light projections, screens, and accompanying audio---immediately smells like high-production corporate art. (This made sense in hindsight; leaving, I saw the exhibit is funded by Kia, the car manufacturer.) The framerates are good, the choreography is energetic and crisp, and the audio belongs in a decent superhero movie. At times I felt like I was somehow watching K-pop but in abstract projected 3D renders.
 
-![]({{ "/assets/blog/get-the-picture/cube.moz80.jpg" | url }})
+![](/assets/blog/get-the-picture/cube.moz80.jpg)
 
 But, that's pretty much it. It was not even an inch deep; an ultra polished veneer, but veneer only.
 
@@ -28,7 +28,7 @@ I will now walk through this piece by piece.
 
 The level of polish was so high that everyone grabbed their phones in each room and recorded from start to finish:
 
-![]({{ "/assets/blog/get-the-picture/filming.moz80.jpg" | url }})
+![](/assets/blog/get-the-picture/filming.moz80.jpg)
 
 When you're filming, what you can take from an art piece is immediately cut off, almost completely.
 
@@ -42,7 +42,7 @@ In this case, it wasn't to worry, because there wasn't much to engage with. It w
 
 What's bothering me is the necessary conclusion here.
 
-![]({{ "/assets/blog/get-the-picture/water.moz80.jpg" | url }})
+![](/assets/blog/get-the-picture/water.moz80.jpg)
 
 In one way of looking, everyone saw how _corporate art_ the whole thing was, knew there wouldn't be a deeper message, and whipped out their Samsungs to grab fifteen slightly different angles of the whole twenty minutes.
 
@@ -54,7 +54,7 @@ If you're making high-budget corporate art, you can't make it look crappy. You g
 
 Does this mean that if you want people to engage with your art, you can't polish it or else they might film it? That it has to look bad? Does this explain the dozens of eye-rollingly 2005-looking media installations I've suffered the last umpteen art museums I visited in Europe---that the whole production is _intentionally_ bad, because if it was too good people would immediately banish it to Instagram as yet another _Infinity Mirror Rooms?_
 
-![]({{ "/assets/blog/get-the-picture/green.moz80.jpg" | url }})
+![](/assets/blog/get-the-picture/green.moz80.jpg)
 
 The other obvious option is to say "no photos," but aside from people sneaking them anyway, this will mean that in the back of everyone's mind they'll wish they could photograph it. Maybe this is the answer. It seems to work for movies, but movies get to ease you into the whole absorption experience with the previews and all. Maybe a whole museum has to be photograph-free?
 
@@ -64,7 +64,7 @@ Cerami has raved about his [scroll](https://maxcerami.wordpress.com/infinite-scr
 
 Today I saw a product made exactly for this, albeit in miniature. It uses receipt paper.
 
-![]({{ "/assets/blog/get-the-picture/receipt-scroll.moz80.jpg" | url }})
+![](/assets/blog/get-the-picture/receipt-scroll.moz80.jpg)
 
 And they were selling receipt rolls for $0.33 US a pop.
 
@@ -73,7 +73,7 @@ And they were selling receipt rolls for $0.33 US a pop.
 
 I am happy to report that, since my last visit in 2015, Korean design has retained its love of English near-misses. I'm not being sarcastic---I really treasure this stuff.
 
-![]({{ "/assets/blog/get-the-picture/good-is-fabulous.moz80.jpg" | url }})
+![](/assets/blog/get-the-picture/good-is-fabulous.moz80.jpg)
 
 <p class="figcaption">This kind of thing is everywhere.</p>
 
@@ -83,7 +83,7 @@ I'm also noticing a new category, which is merged words that make sense if you p
 
 One example is "max style" written as "maxtyle." Here is another:
 
-![]({{ "/assets/blog/get-the-picture/bincense.moz80.jpg" | url }})
+![](/assets/blog/get-the-picture/bincense.moz80.jpg)
 
 <p class="figcaption">At least, I'm assuming you're supposed to say it "be incense."</p>
 

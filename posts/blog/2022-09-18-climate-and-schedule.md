@@ -24,7 +24,7 @@ You know when you read the same _kind_ of thing  many times, but it never occurs
 
 I looked it up and yep someone has codified it: the **Köppen climate classification system** is widely used and also has been somewhat extended and refined.
 
-![]({{ "/assets/blog/climate-and-schedule/climate-map.moz80.jpg" | url }})
+![](/assets/blog/climate-and-schedule/climate-map.moz80.jpg)
 
 <p class="figcaption">
 World map of climates using a "refined" Köppen climate classification.
