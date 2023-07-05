@@ -1,14 +1,57 @@
 ---
 title: Image layout test page
 date: 2022-07-10
-updated: 2023-02-24
+updated: 2023-06-12
 ---
 
 I want to experiment with wider layouts, so want to have HTML/CSS formulas for breaking out of the normal content flow.
 
-## House styles
+## House styles [`v2`]
 
 Copy-paste-able snippets for image arrangements.
+
+`v2` styles are width-limited using `.media-max-width`. This width limit factors in a device's height to allow two-row portrait orientation (2:3) photos to be displayed fully. **Width limits apply to a new container, not the images.** As a result, all row configurations will display with identical margins, assuming images are of a sufficient width. Background blur and extra options have all been removed.
+
+With the new height limit, tall single images will stretch beyond the height of the page. This is an intentional omission given (a) the upcoming focus on 3:2 photos, (b) the desire to have consistent margins. This can be revisited to add options for container or image limits if need be.
+
+Non-full-width is still supported, now with an options argument `{fullWidth: false}`.
+
+### One image
+
+{% img2 "/assets/garage/image-test-pages/939x939@3x.png" %}
+
+### Two images
+
+{% img2 [[
+  "/assets/garage/image-test-pages/704x939@3x.png",
+  "/assets/garage/image-test-pages/704x939@3x.png"
+]] %}
+
+### Three images
+
+{% img2 [[
+  "/assets/garage/image-test-pages/704x939@3x.png",
+  "/assets/garage/image-test-pages/704x939@3x.png",
+  "/assets/garage/image-test-pages/704x939@3x.png"
+]] %}
+
+### Multiple rows
+
+{% img2 [
+  "/assets/garage/image-test-pages/939x939@3x.png",
+  [
+    "/assets/garage/image-test-pages/704x939@3x.png",
+    "/assets/garage/image-test-pages/704x939@3x.png"
+  ]
+] %}
+
+
+
+## House styles [`v1`]
+
+Copy-paste-able snippets for image arrangements.
+
+`v1` styles are height-limited but stretch to the full screen width where possible. They can incorporate background blurs for single-row images or videos to help create consistent margins.
 
 ### One image
 
@@ -664,9 +707,24 @@ I can see why you'd want to simply design on a fixed-width grid.
 <div></div>
 <!-- row 2 -->
 <div></div>
-<div class="flex" style="justify-content: center;">
+<div class="bg-pink flex" style="justify-content: center;">
 <div class="w3 h3 bg-red mr1"></div>
 <div class="w3 h3 bg-red"></div>
+</div>
+<div></div>
+<!-- row 3 -->
+<div></div>
+<div class="flex" style="justify-content: center;">
+<div class="w3 h3 bg-red mr1"></div>
+<div class="w3 h3 bg-red mr1"></div>
+<div class="w3 h3 bg-red"></div>
+</div>
+<div></div>
+<!-- row 3 -->
+<div></div>
+<div class="flex" style="justify-content: center;">
+<div class="w4 h4 bg-blue mr1"></div>
+<div class="w3 h3 bg-blue"></div>
 </div>
 <div></div>
 </div>
@@ -760,13 +818,311 @@ Can we fix it? If we add `width: auto` to the CSS, it fixes the case of it going
 <p class="figcaption">{{ '`<img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px); width: auto;" width="2718" height="2718">
 `' | md | safe  }}</p>
 
-WIP:
+Experiments:
 - `aspect-ratio` alone (w/o width spec) doesn't fix anything vs original
 - `width: auto` and `aspect-ratio` doesn't improve over `width: auto`
 - `object-fit: contain` almost works, ugh so close. it adds vertical whitespace above and below the image when it's small (e.g., try 1/3 screen size). i guess it's maintaining some kind of "box" that's full size while resizing the image in it.
   - also can't get rid of `100vh` in the `max-height` though, even though `object-fit: contain` should height limit as well (?)
 - `width: auto; height: auto` works! but... is this really going to allow lazy loading now?
+    - update: lazy loading works! the issue was elsewhere (the background blurred SVGs)
+  - but the real question is: will this prevent layout shifts?
+    - it seems to (see below via Studio page experiment)
+  - but the REAL question is: can we fix this for multi-img multi-dim layouts? (see below)
 
 <div class="full-width flex justify-center ph1-m ph3-l fig">
 <img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px); width: auto; height: auto;" width="2718" height="2718">
 </div>
+
+<p class="figcaption">{{ '`<img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px); width: auto; height: auto;" width="2718" height="2718">`' | md | safe }}</p>
+
+Preventing layout shifts: is this possible since CSS sets max-width and max-height, and width and height to both auto? Theoretically, it seems like it should work; the only information you get when you load the image is its dimensions, which you have if they're in attributions. But event after reading a [lengthy article](https://www.smashingmagazine.com/2020/03/setting-height-width-images-important-again/) about this, I'm still not sure what the answer is. Need to try it.
+
+Easiest spot to see this right now is Studio page w/ slow 3G throttling turned on. Can see each row pop in. Intrinsic usually 216 x 216.
+
+This works on Studio page! With the attributes, the space is reserved before any load. Note: needed to set `height: auto` to get layout correct, and CSS width isn't set. So, I'm optimistic to try.
+
+However, now trying multi-img w/ diff dims, the layout is again broken:
+
+> NOTE: I was testing this by directly embedding images w/ paths generated by eleventy imgs plugin, which I decided to stop using, so the HTML is all broken because the images aren't there. I took screenshots for most of them, which appear **after** the code blocks. This is to help leave a breadcrumb trail if I'm foolish enough to pursue this direction again.
+
+```html
+<div class="full-width cb flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto; width: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/OXm8tvrg-F-1252.jpeg" width="1409" height="1878" srcset="/assets/eleventyImgs/OXm8tvrg-F-1252.jpeg 1252w, /assets/eleventyImgs/OXm8tvrg-F-1409.jpeg 1409w" sizes="100vw"></div>
+<div class="mh1-ns mv1 mv0-ns"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto; width: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/yU7E_JSouU-1252.jpeg" width="2504" height="1878" srcset="/assets/eleventyImgs/yU7E_JSouU-1252.jpeg 1252w, /assets/eleventyImgs/yU7E_JSouU-2504.jpeg 2504w" sizes="100vw"></div>
+<div class="mr1-m mr3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto; width: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/aPBhDDAiiJ-1252.jpeg" width="2504" height="1878" srcset="/assets/eleventyImgs/aPBhDDAiiJ-1252.jpeg 1252w, /assets/eleventyImgs/aPBhDDAiiJ-2504.jpeg 2504w" sizes="100vw"></div>
+</div>
+```
+
+![](/assets/garage/image-test-pages/devimg1.moz80.jpg)
+
+This appears to be caused by `srcset` (and `sizes`) attributes. If I remove it (them), the layout is fine again.
+
+```html
+<div class="full-width cb flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto; width: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/OXm8tvrg-F-1252.jpeg" width="1409" height="1878"></div>
+<div class="mh1-ns mv1 mv0-ns"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto; width: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/yU7E_JSouU-1252.jpeg" width="2504" height="1878"></div>
+<div class="mr1-m mr3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto; width: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/aPBhDDAiiJ-1252.jpeg" width="2504" height="1878" ></div>
+</div>
+```
+
+![](/assets/garage/image-test-pages/devimg2.moz80.jpg)
+
+It might be we just need `height: auto` and not also `width: auto`?
+
+```html
+<div class="full-width cb flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/OXm8tvrg-F-1252.jpeg" width="1409" height="1878" srcset="/assets/eleventyImgs/OXm8tvrg-F-1252.jpeg 1252w, /assets/eleventyImgs/OXm8tvrg-F-1409.jpeg 1409w" sizes="100vw"></div>
+<div class="mh1-ns mv1 mv0-ns"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/yU7E_JSouU-1252.jpeg" width="2504" height="1878" srcset="/assets/eleventyImgs/yU7E_JSouU-1252.jpeg 1252w, /assets/eleventyImgs/yU7E_JSouU-2504.jpeg 2504w" sizes="100vw"></div>
+<div class="mr1-m mr3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/aPBhDDAiiJ-1252.jpeg" width="2504" height="1878" srcset="/assets/eleventyImgs/aPBhDDAiiJ-1252.jpeg 1252w, /assets/eleventyImgs/aPBhDDAiiJ-2504.jpeg 2504w" sizes="100vw"></div>
+</div>
+```
+
+![](/assets/garage/image-test-pages/devimg3.moz80.jpg)
+
+Let's try confirm it w/ the big image:
+
+<div class="full-width flex justify-center ph1-m ph3-l fig">
+<img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px); height: auto;" width="2718" height="2718">
+</div>
+
+<p class="figcaption">{{ '`<img class="db bare novmargin" src="/assets/garage/image-test-pages/939x939@3x.png" style="max-height: min(100vh, 939px); height: auto;" width="2718" height="2718">`' | md | safe }}</p>
+
+Nope, the width is indeed broken (it stretches beyond its aspect ratio). Why is it OK for the three (update: or two) small images but not one big one?
+
+Let's try some experiments:
+- ❌ `height` and `aspect-ratio`: `width` attr then used, `aspect-ratio` ignored
+
+I think the easiest for now is just to remove `width: auto` for 2- or 3- images layouts, but keep it for one big image. Sigh...
+
+Nope, that doesn't even fix it. Enter shorter image:
+
+```html
+<div class="full-width cb flex flex-wrap flex-nowrap-ns justify-center mv1">
+<div class="ml1-m ml3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/_EDdord68w-313.jpeg" width="2504" height="1878" srcset="/assets/eleventyImgs/_EDdord68w-313.jpeg 313w, /assets/eleventyImgs/_EDdord68w-626.jpeg 626w, /assets/eleventyImgs/_EDdord68w-1252.jpeg 1252w, /assets/eleventyImgs/_EDdord68w-2504.jpeg 2504w" sizes="100vw"></div>
+<div class="mh1-ns mv1 mv0-ns"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/tMFXf8ajHv-313.jpeg" width="2504" height="1878" srcset="/assets/eleventyImgs/tMFXf8ajHv-313.jpeg 313w, /assets/eleventyImgs/tMFXf8ajHv-626.jpeg 626w, /assets/eleventyImgs/tMFXf8ajHv-1252.jpeg 1252w, /assets/eleventyImgs/tMFXf8ajHv-2504.jpeg 2504w" sizes="100vw"></div>
+<div class="mr1-m mr3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/JU22y1OINo-313.jpeg" width="1440" height="1080" srcset="/assets/eleventyImgs/JU22y1OINo-313.jpeg 313w, /assets/eleventyImgs/JU22y1OINo-626.jpeg 626w, /assets/eleventyImgs/JU22y1OINo-1252.jpeg 1252w, /assets/eleventyImgs/JU22y1OINo-1440.jpeg 1440w" sizes="100vw"></div>
+</div>
+```
+
+![](/assets/garage/image-test-pages/devimg4.moz80.jpg)
+
+Also (important!), this setting (`height: auto` only) breaks the two big image layout for tall images. Check out "Two Images" at top of this page. They'll be height-limited but will stretch to the full width of the screen.
+
+Seeing if we can fix:
+
+- ❌ `height: 100%;` --- just stretches smaller img vertically
+- ❌ `height: 100%; width: auto;` --- takes liberties w/ aspect ratio
+  - wide renders at 1.49
+  - narrow renders 1.33 (4/3)
+  - orig is 1.50
+- ❌ `height: 100%; width: auto; aspect-ratio: [what it is]`
+  - seems to work for this case
+  - reveals its failure in the 1 tall two wide image case: it just stretches the wide images out
+- ❌ + adding `aspect-ratio` to the img-containing `<div>` --- does nothing
+
+```html
+<div class="full-width cb flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: 100%; width: auto; aspect-ratio: 2504/1878;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/_EDdord68w-313.jpeg" width="2504" height="1878" srcset="/assets/eleventyImgs/_EDdord68w-313.jpeg 313w, /assets/eleventyImgs/_EDdord68w-626.jpeg 626w, /assets/eleventyImgs/_EDdord68w-1252.jpeg 1252w, /assets/eleventyImgs/_EDdord68w-2504.jpeg 2504w" sizes="100vw"></div>
+<div class="mh1-ns mv1 mv0-ns"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: 100%; width: auto; aspect-ratio: 1440/1080;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/JU22y1OINo-313.jpeg" width="1440" height="1080" srcset="/assets/eleventyImgs/JU22y1OINo-313.jpeg 313w, /assets/eleventyImgs/JU22y1OINo-626.jpeg 626w, /assets/eleventyImgs/JU22y1OINo-1252.jpeg 1252w, /assets/eleventyImgs/JU22y1OINo-1440.jpeg 1440w" sizes="100vw"></div>
+<div class="mr1-m mr3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: 100%; width: auto; aspect-ratio: 2504/1878;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/tMFXf8ajHv-313.jpeg" width="2504" height="1878" srcset="/assets/eleventyImgs/tMFXf8ajHv-313.jpeg 313w, /assets/eleventyImgs/tMFXf8ajHv-626.jpeg 626w, /assets/eleventyImgs/tMFXf8ajHv-1252.jpeg 1252w, /assets/eleventyImgs/tMFXf8ajHv-2504.jpeg 2504w" sizes="100vw"></div>
+</div>
+```
+
+![](/assets/garage/image-test-pages/devimg5.moz80.jpg)
+
+Let's try on our cases above:
+
+```html
+<div class="full-width cb flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: 100%; width: auto; aspect-ratio: 1409/1878;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/OXm8tvrg-F-1252.jpeg" width="1409" height="1878" srcset="/assets/eleventyImgs/OXm8tvrg-F-1252.jpeg 1252w, /assets/eleventyImgs/OXm8tvrg-F-1409.jpeg 1409w" sizes="100vw"></div>
+<div class="mh1-ns mv1 mv0-ns"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: 100%; width: auto; aspect-ratio: 2504/1878;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/yU7E_JSouU-1252.jpeg" width="2504" height="1878" srcset="/assets/eleventyImgs/yU7E_JSouU-1252.jpeg 1252w, /assets/eleventyImgs/yU7E_JSouU-2504.jpeg 2504w" sizes="100vw"></div>
+<div class="mr1-m mr3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: 100%; width: auto; aspect-ratio: 2504/1878;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/aPBhDDAiiJ-1252.jpeg" width="2504" height="1878" srcset="/assets/eleventyImgs/aPBhDDAiiJ-1252.jpeg 1252w, /assets/eleventyImgs/aPBhDDAiiJ-2504.jpeg 2504w" sizes="100vw"></div>
+</div>
+```
+
+![](/assets/garage/image-test-pages/devimg6.moz80.jpg)
+
+Experimenting here:
+
+```html
+<div class="full-width cb flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="helpdiv ml1-m ml3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto; width: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/OXm8tvrg-F-1409.jpeg" srcset="/assets/eleventyImgs/OXm8tvrg-F-1409.jpeg 1409w"></div>
+<div class="helpdiv mh1-ns mv1 mv0-ns"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto; width: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/yU7E_JSouU-2504.jpeg" srcset="/assets/eleventyImgs/yU7E_JSouU-2504.jpeg 2504w"></div>
+<div class="helpdiv mr1-m mr3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto; width: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/aPBhDDAiiJ-2504.jpeg" srcset="/assets/eleventyImgs/aPBhDDAiiJ-2504.jpeg 2504w"></div>
+</div>
+```
+
+![](/assets/garage/image-test-pages/devimg7.moz80.jpg)
+
+The taller image is getting:
+- 500w: 159/500 32%
+
+```html
+<div class="full-width cb flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto; width: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/_EDdord68w-313.jpeg" width="2504" height="1878" srcset="/assets/eleventyImgs/_EDdord68w-313.jpeg 313w, /assets/eleventyImgs/_EDdord68w-626.jpeg 626w, /assets/eleventyImgs/_EDdord68w-1252.jpeg 1252w, /assets/eleventyImgs/_EDdord68w-2504.jpeg 2504w" sizes="100vw"></div>
+<div class="mh1-ns mv1 mv0-ns"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto; width: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/JU22y1OINo-313.jpeg" width="1440" height="1080" srcset="/assets/eleventyImgs/JU22y1OINo-313.jpeg 313w, /assets/eleventyImgs/JU22y1OINo-626.jpeg 626w, /assets/eleventyImgs/JU22y1OINo-1252.jpeg 1252w, /assets/eleventyImgs/JU22y1OINo-1440.jpeg 1440w" sizes="100vw"></div>
+<div class="mr1-m mr3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto; width: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/tMFXf8ajHv-313.jpeg" width="2504" height="1878" srcset="/assets/eleventyImgs/tMFXf8ajHv-313.jpeg 313w, /assets/eleventyImgs/tMFXf8ajHv-626.jpeg 626w, /assets/eleventyImgs/tMFXf8ajHv-1252.jpeg 1252w, /assets/eleventyImgs/tMFXf8ajHv-2504.jpeg 2504w" sizes="100vw"></div>
+</div>
+```
+
+All images, including the middle (shorter) one are getting the same W at layout time. But because the middle one is shorter, it doesn't take up the height. This makes me think that the browser is using the width only of srcset to assign width proportions, which then means they don't match heights. The above two even worked on Safari on first load (!) and now are broken on all future reloads (!!).
+
+Working (w/o `srcset`):
+
+```html
+<div class="full-width cb flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto; width: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/OXm8tvrg-F-1409.jpeg" width="1409" height="1878"></div>
+<div class="mh1-ns mv1 mv0-ns"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto; width: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/yU7E_JSouU-2504.jpeg" width="2504" height="1878" ></div>
+<div class="mr1-m mr3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto; width: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/aPBhDDAiiJ-2504.jpeg" width="2504" height="1878" ></div>
+</div>
+```
+
+![](/assets/garage/image-test-pages/devimg8.moz80.jpg)
+
+Wow, I hate this.
+
+OK, so the width and height attributes don't seem to actually be reserving space in the layout. If removing those fixes things, that would be worth it.
+
+```html
+<div class="full-width cb flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/OXm8tvrg-F-1252.jpeg" srcset="/assets/eleventyImgs/OXm8tvrg-F-1252.jpeg 1252w, /assets/eleventyImgs/OXm8tvrg-F-1409.jpeg 1409w" sizes="100vw"></div>
+<div class="mh1-ns mv1 mv0-ns"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/yU7E_JSouU-1252.jpeg" srcset="/assets/eleventyImgs/yU7E_JSouU-1252.jpeg 1252w, /assets/eleventyImgs/yU7E_JSouU-2504.jpeg 2504w" sizes="100vw"></div>
+<div class="mr1-m mr3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/aPBhDDAiiJ-1252.jpeg" srcset="/assets/eleventyImgs/aPBhDDAiiJ-1252.jpeg 1252w, /assets/eleventyImgs/aPBhDDAiiJ-2504.jpeg 2504w" sizes="100vw"></div>
+</div>
+```
+
+The tall img is now broken again, doesn't seem easily fixable. The other one is fine.
+
+```html
+<div class="full-width cb flex flex-wrap flex-nowrap-ns justify-center fig">
+<div class="ml1-m ml3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/_EDdord68w-313.jpeg" srcset="/assets/eleventyImgs/_EDdord68w-313.jpeg 313w, /assets/eleventyImgs/_EDdord68w-626.jpeg 626w, /assets/eleventyImgs/_EDdord68w-1252.jpeg 1252w, /assets/eleventyImgs/_EDdord68w-2504.jpeg 2504w" sizes="100vw"></div>
+<div class="mh1-ns mv1 mv0-ns"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/tMFXf8ajHv-313.jpeg" srcset="/assets/eleventyImgs/tMFXf8ajHv-313.jpeg 313w, /assets/eleventyImgs/tMFXf8ajHv-626.jpeg 626w, /assets/eleventyImgs/tMFXf8ajHv-1252.jpeg 1252w, /assets/eleventyImgs/tMFXf8ajHv-2504.jpeg 2504w" sizes="100vw"></div>
+<div class="mr1-m mr3-l"><img class="db bare novmargin " style="max-height: min(100vh, 939px); height: auto;" loading="lazy" decoding="async" alt="" src="/assets/eleventyImgs/JU22y1OINo-313.jpeg" srcset="/assets/eleventyImgs/JU22y1OINo-313.jpeg 313w, /assets/eleventyImgs/JU22y1OINo-626.jpeg 626w, /assets/eleventyImgs/JU22y1OINo-1252.jpeg 1252w, /assets/eleventyImgs/JU22y1OINo-1440.jpeg 1440w" sizes="100vw"></div>
+</div>
+```
+
+Abandoning this direction. Eleventy Imgs is too slow with the current num. images anyway, given we need to restart the server every time because it caches files wrong. I'm also pretty sure that with all the auto dimensions it wouldn't reserve space anyway.
+
+## Width-limiting
+
+We can width-limit individual images. Is it best to width-limit containers so that we can margin-align multiple images?
+
+<div class="full-width cb flex justify-center ph1-m ph3-l figtop mb1">
+  <div style="max-width: 1140px;">
+    <img class="db bare novmargin " src="/assets/garage/photo-notebook/aperture-pourover-full.moz80.jpg" loading="lazy" decoding="async">
+  </div>
+</div>
+
+<div class="full-width cb flex justify-center mv1 ph1-m ph3-l">
+  <div class="flex flex-wrap flex-nowrap-ns justify-center" style="max-width: 1140px;">
+    <div class="mr1-ns mb1 mb0-ns">
+      <img class="db bare novmargin " src="/assets/garage/image-test-pages/signs-2by3.moz80.jpg" loading="lazy" decoding="async">
+    </div>
+    <div class="">
+      <img class="db bare novmargin " src="/assets/garage/image-test-pages/signs-2by3.moz80.jpg" loading="lazy" decoding="async">
+    </div>
+  </div>
+</div>
+
+<div class="full-width cb flex justify-center mt1 figbot ph1-m ph3-l">
+  <div class="flex flex-wrap flex-nowrap-ns justify-center" style="max-width: 1140px;">
+    <div class="">
+      <img class="db bare novmargin " src="/assets/garage/image-test-pages/signs-2by3.moz80.jpg" loading="lazy" decoding="async">
+    </div>
+    <div class="mh1-ns mv1 mv0-ns">
+      <img class="db bare novmargin " src="/assets/garage/image-test-pages/signs-2by3.moz80.jpg" loading="lazy" decoding="async">
+    </div>
+    <div class="">
+      <img class="db bare novmargin " src="/assets/garage/image-test-pages/signs-2by3.moz80.jpg" loading="lazy" decoding="async">
+    </div>
+  </div>
+</div>
+
+One thing I can't remember, even looking at my notes above, is why I'm using padding to create page edge margins with single large images, but using margins for two or three images.
+
+I do see that I switched to margins for between-image spacing to get the property of margins collapsing.^[Not sure if _collapsing_ is right term. Thing where if left says `mr1` and right says `ml1` then there is a `1` margin between them, not `2`.] But I don't know whether it was necessary to switch from padding for page-margin spacing. I guess I'll try it and find out.
+
+Removing height-limiting means single and double images now create clean margins. For a smaller screen (e.g., 1336 x 679), portrait (2x3) images will now bleed off. This could be alleviated by making the max-width dynamic rather than static. E.g., the width of a container could be capped at a value such that a 2x3 image at roughly half its size won't be taller than 100vh. That's `3/2 * 0.5w ≤ 100vh`, so `w ≤ 133.3vh`?
+
+<div class="full-width cb flex justify-center figtop mb1 ph1-m ph3-l">
+  <div class="flex flex-wrap flex-nowrap-ns justify-center" style="max-width: min(1140px, 133.3vh);">
+    <div class="mr1-ns mb1 mb0-ns">
+      <img class="db bare novmargin " src="/assets/garage/image-test-pages/signs-2by3.moz80.jpg" loading="lazy" decoding="async">
+    </div>
+    <div class="">
+      <img class="db bare novmargin " src="/assets/garage/image-test-pages/signs-2by3.moz80.jpg" loading="lazy" decoding="async">
+    </div>
+  </div>
+</div>
+<div class="full-width cb flex justify-center mv1 ph1-m ph3-l">
+  <div class="flex flex-wrap flex-nowrap-ns justify-center" style="max-width: min(1140px, 133.3vh);">
+    <div class="mr1-ns mb1 mb0-ns">
+      <img class="db bare novmargin " src="/assets/garage/image-test-pages/signs-2by3.moz80.jpg" loading="lazy" decoding="async">
+    </div>
+    <div class="">
+      <img class="db bare novmargin " src="/assets/garage/photo-notebook/aperture-pourover-full.moz80.jpg" loading="lazy" decoding="async">
+    </div>
+  </div>
+</div>
+<div class="full-width cb flex justify-center mv1 ph1-m ph3-l">
+  <div class="flex flex-wrap flex-nowrap-ns justify-center" style="max-width: min(1140px, 133.3vh);">
+    <div class="mr1-ns mb1 mb0-ns">
+      <img class="db bare novmargin " src="/assets/garage/photo-notebook/aperture-pourover-full.moz80.jpg" loading="lazy" decoding="async">
+    </div>
+    <div class="">
+      <img class="db bare novmargin " src="/assets/garage/photo-notebook/aperture-pourover-full.moz80.jpg" loading="lazy" decoding="async">
+    </div>
+  </div>
+</div>
+<div class="full-width cb flex justify-center ph1-m ph3-l figbot mt1">
+  <div style="max-width: min(1140px, 133.3vh);">
+    <img class="db bare novmargin " src="/assets/garage/photo-notebook/aperture-pourover-full.moz80.jpg" loading="lazy" decoding="async">
+  </div>
+</div>
+
+<p class="figcaption">Wow, I think that works.</p>
+
+Of course, single portrait images will still be massive, but that's just inevitable. This way, at least, they still match the margins because the container is limited, not the image.
+
+<div class="full-width cb flex justify-center ph1-m ph3-l figbot mt1">
+  <div style="max-width: min(1140px, 133.3vh);">
+    <img class="db bare novmargin " src="/assets/garage/image-test-pages/signs-2by3.moz80.jpg" loading="lazy" decoding="async">
+  </div>
+</div>
+
+With the new styles, there won't be a way to insert height-limited single portrait photos. But they are so rare right now that I can build that in when desired.
+
+I'm debating whether to try to add this to the existing styles, or to make a new shortcode. There are more differences than I'd anticipated in the features needed:
+
+feature | full-width (old) | width-limited (new)
+--- | --- | ---
+video embeds | ✅ | ✅
+svg bg blur | ✅ | ❌
+max height | ✅ | ❌
+extra div | ❌ | ✅
+2/3-img margin &rarr; padding | 👌 | ✅
+array processing | ✅ | ✅
+swap to options | ❌ | ✅
+
+I'm curious enough about how my DX can be improved that I'm going to try it.
+
+This was added as `v2` house styles (see top of this page).
+
+An additional improvement will be in image size savings. Here's the math for landscape images:
+- `v1`: height limit of 1878px &rarr; 2815 x 1878 &cong; 5.29M px
+- `v2`: width limit of 2280px &rarr; 2280 x 1522 &cong; 3.47M px &cong; 65.6% of the previous size
+
+There's also a chance this helps me start integrating source sets (multiple image sizes) or even adding dimensions to reserve space, though I don't want to jinx it.
+
+## Reminder: Matching Heights
+
+Another thing I'm noticing re-reading my old design notes is I'd tested my layouts all assuming side-by-side images have the same height. I wonder if this was related to the issues I had above when trying to use auto-generated image sizes: that if the heights don't match, my CSS might not work. I remember the issue being weirder though.
+
+{% img [[
+  "/assets/garage/image-test-pages/704x939@3x.png",
+  "/assets/garage/image-test-pages/256x256@2x.png"
+]] %}
+
+<p class="figcaption">But yeah, different heights, they definitely don't match.</p>
+
+Out of curiosity, I checked `eleventy-img` again, and there is indeed no way to specify height resizes, only width. The [issue](https://github.com/11ty/eleventy-img/issues/31) that contains that feature request has been open since November 2020 and as of writing (June 2023) it remains the top feature request but is still unimplemented. Damn.
