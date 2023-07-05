@@ -35,4 +35,4 @@ Simply writing out the possibilities is great. It's a finite list. And, if other
 
 It feels like "proof by cases." It's less elegant than a top-down explanation, but I think it's more realistic. By default you enumerate the complexity of reality, rather than trying to come up with unifying theories at the start.
 
-I also like this framework because it emphasizes looking at the set of [causes and conditions]({{ "/garage/causes-and-conditions/" | url }}) around an event, rather than just the event itself.
+I also like this framework because it emphasizes looking at the set of [causes and conditions](/garage/causes-and-conditions/) around an event, rather than just the event itself.

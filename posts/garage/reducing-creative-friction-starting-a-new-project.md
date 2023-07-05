@@ -3,7 +3,7 @@ title: "Reducing creative friction: starting a new project"
 date: 2021-08-22
 ---
 
-I've written about [creative friction]({{ "/posts/creative-friction/" | url }}) before. But I just realized a new source: how much effort it takes to start a new project.
+I've written about [creative friction](/posts/creative-friction/) before. But I just realized a new source: how much effort it takes to start a new project.
 
 A few seemingly small things can inhibit the process way more than I realize. Here's some I realized recently, and the changes I've made.
 

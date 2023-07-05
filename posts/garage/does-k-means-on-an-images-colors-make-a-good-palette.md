@@ -6,7 +6,7 @@ image: /assets/garage/k-means-colors/example.hsv.palette-1-36.png
 
 I was trying to come up with a color palette for an illustration, and I came across this image:
 
-![bird flying with associated color palette]({{ "/assets/garage/k-means-colors/inspiration.jpg" | url }})
+![bird flying with associated color palette](/assets/garage/k-means-colors/inspiration.jpg)
 
 <p class="figcaption">
 <a href="https://www.printmag.com/post/50-best-color-sites-graphic-designers">
@@ -18,13 +18,13 @@ For whatever reason, this made me wonder: how do people extract color palettes f
 
 Could it perhaps be that, if we simply run k-means on the RGB colors of each pixel, we'll recover the palette?
 
-Rather than Google for the answer, I was struck by a desire to rekindle my [spirit of discovery]({{ "/garage/spirit-of-discovery/" | url }}) and find out for myself.
+Rather than Google for the answer, I was struck by a desire to rekindle my [spirit of discovery](/garage/spirit-of-discovery/) and find out for myself.
 
 ## k-means, RGB
 
 Running k-means on the RGB colors of the image with `k = 7`, I came up with:
 
-![7-color palette]({{ "/assets/garage/k-means-colors/example.rgb.palette-7.png" | url }})
+![7-color palette](/assets/garage/k-means-colors/example.rgb.palette-7.png)
 
 <p class="figcaption">k-means on RGB pixels, <code>k = 7</code></p>
 
@@ -32,7 +32,7 @@ Hmm, definitely missing some of the colors we'd like, at least a red and a green
 
 I tried with different values of `k`. Here's 1 through 12:
 
-![7-color palette]({{ "/assets/garage/k-means-colors/example.rgb.palette-1-12.png" | url }})
+![7-color palette](/assets/garage/k-means-colors/example.rgb.palette-1-12.png)
 
 <p class="figcaption">k-means on RGB pixels, <code>k ∈ {1 ... 12}</code></p>
 
@@ -52,9 +52,9 @@ Just as I finished writing the above, and was considering Googling how people do
 
 I had run k-means on the pixels in RGB color space. But I had then sorted the output palette using a different color space: HSV. What if we ran k-means on the pixels in HSV?
 
-![]({{ "/assets/garage/k-means-colors/reference.palette.jpg" | url }})
-![]({{ "/assets/garage/k-means-colors/example.rgb.palette-7.png" | url }})
-![]({{ "/assets/garage/k-means-colors/example.hsv.palette-7.png" | url }})
+![](/assets/garage/k-means-colors/reference.palette.jpg)
+![](/assets/garage/k-means-colors/example.rgb.palette-7.png)
+![](/assets/garage/k-means-colors/example.hsv.palette-7.png)
 
 <p class="figcaption">
 <span class="b">Top:</span>
@@ -69,7 +69,7 @@ HSV shows minor changes from RGB: just the first three colors.
 
 Here's k-means on HSV for several `k` values:
 
-![]({{ "/assets/garage/k-means-colors/example.hsv.palette-1-12.png" | url }})
+![](/assets/garage/k-means-colors/example.hsv.palette-1-12.png)
 
 <p class="figcaption">k-means on HSV pixels, <code>k ∈ {1 ... 12}</code></p>
 
@@ -77,7 +77,7 @@ Very interesting! We see a brighter green than ever appears in the RGB clusters,
 
 Just for fun, I tried running it up to `k = 36` to see what would happen.
 
-![]({{ "/assets/garage/k-means-colors/example.hsv.palette-1-36.png" | url }})
+![](/assets/garage/k-means-colors/example.hsv.palette-1-36.png)
 
 <p class="figcaption">k-means on HSV pixels, <code>k ∈ {1 ... 36}</code></p>
 
@@ -85,7 +85,7 @@ Looks like red was just around the corner. It's a shame we never get that brilli
 
 ## Wrapping up
 
-I've got to stop working on this now and get back to my other [summer goals]({{ "/garage/summer-2021-website-goals/" | url }}). If you're curious, here's my code:
+I've got to stop working on this now and get back to my other [summer goals](/garage/summer-2021-website-goals/). If you're curious, here's my code:
 
 {% include "programming-language-tooltips.njk" %}
 {% set item = collections.software | selectAttrEquals(["data", "title"], "k-means-colors") | first %}

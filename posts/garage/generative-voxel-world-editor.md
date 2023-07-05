@@ -12,7 +12,7 @@ customexcerpt: A voxel experiment.
     <canvas id="c" class="w-100"></canvas>
 </div>
 
-<script defer src="{{ "/assets/garage/voxel-world-builder/main.min.js" | url }}"></script>
+<script defer src="/assets/garage/voxel-world-builder/main.min.js"></script>
 
 <style>
     .gui-container {

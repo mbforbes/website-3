@@ -15,8 +15,8 @@ customexcerpt: "Answering maybe a silly question: how many shaders can we run?"
 <script>
     const CODE_RESOURCE_PREFIX = "/assets/3js/"
 </script>
-<script defer src="{{ "/assets/lib/three-r137.min.js" | url }}"></script>
-<script defer src="{{ "/assets/3js/09-shader-stress-test/main.js" | url }}"></script>
+<script defer src="/assets/lib/three-r137.min.js"></script>
+<script defer src="/assets/3js/09-shader-stress-test/main.js"></script>
 
 <style>
     .gui-container {

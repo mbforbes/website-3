@@ -7,7 +7,7 @@ image: /assets/garage/3d-notebook/37_Ryu-smaller.moz80.jpg
 
 I tried another version with a much lower voxel resolution.
 
-![]({{ "/assets/garage/3d-notebook/37_Ryu-smaller.moz80.jpg" | url }})
+![](/assets/garage/3d-notebook/37_Ryu-smaller.moz80.jpg)
 
 ## Critique
 

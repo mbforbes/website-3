@@ -5,7 +5,7 @@ updated: 2022-07-30
 customexcerpt: Due to preliminary pixel density tests in the image layout test page, I've been exporting my images assuming an @3x device pixel ratio and a moderately large screen (939 CSSpx height).
 ---
 
-Due to preliminary pixel density tests in the [Image layout test page]({{ "/garage/image-layout-test-page/" | url }}), I've been exporting my images assuming an @3x device pixel ratio and a moderately large screen (939 CSSpx height). My exported size has been **3756 × 2817** (landscape). However, this may have been overkill.
+Due to preliminary pixel density tests in the [Image layout test page](/garage/image-layout-test-page/), I've been exporting my images assuming an @3x device pixel ratio and a moderately large screen (939 CSSpx height). My exported size has been **3756 × 2817** (landscape). However, this may have been overkill.
 
 Image size overkill is important to consider because image size goes up with the square of pixel dimension saved.
 - E.g., 1000 x 1000 is 1M pixels, but 666 x 666 is 444K pixels. Shaving off 33% per side cuts overall size by 56%.

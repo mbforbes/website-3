@@ -4,9 +4,9 @@ date: 2021-08-29
 image: /assets/garage/bezier-basics-screenshot.png
 ---
 
-<script defer src="{{ "/assets/lib/three-r131.min.js" | url }}"></script>
-<script defer src="{{ "/assets/lib/p5-1.4.0.min.js" | url }}"></script>
-<script defer src="{{ "/assets/p5js/01-bezier-basics.js" | url }}"></script>
+<script defer src="/assets/lib/three-r131.min.js"></script>
+<script defer src="/assets/lib/p5-1.4.0.min.js"></script>
+<script defer src="/assets/p5js/01-bezier-basics.js"></script>
 
 <div class="fig dt w-100">
     <div id="parent" class="dtc v-mid tc">

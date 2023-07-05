@@ -9,7 +9,7 @@ Working **blocks** are periods of focused work.[^pomodoro]
 
 ## Benefits
 
-Getting started. You can do anything for twenty-five minutes. When I first discovered this approach, I thought it was the ticket to permanently cure procrastination. Sadly, while it turns out not to be that simple---the treatment requires an [artful balance of several components]({{ "/garage/working-process/" | url }})---the act of starting something does destroy a massive mental barrier. I had never experienced this before.
+Getting started. You can do anything for twenty-five minutes. When I first discovered this approach, I thought it was the ticket to permanently cure procrastination. Sadly, while it turns out not to be that simple---the treatment requires an [artful balance of several components](/garage/working-process/)---the act of starting something does destroy a massive mental barrier. I had never experienced this before.
 
 ## Challenges
 

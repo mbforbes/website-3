@@ -19,9 +19,9 @@ image: /assets/garage/mandelbrot.png
 
 I finally read about the Mandelbrot set and tried implementing it.
 
-<script defer src="{{ "/assets/lib/three-r131.min.js" | url }}"></script>
-<script defer src="{{ "/assets/lib/p5-1.4.0.min.js" | url }}"></script>
-<script defer src="{{ "/assets/p5js/05-mandelbrot.js" | url }}"></script>
+<script defer src="/assets/lib/three-r131.min.js"></script>
+<script defer src="/assets/lib/p5-1.4.0.min.js"></script>
+<script defer src="/assets/p5js/05-mandelbrot.js"></script>
 <div id="parent" class="fig tc custom-full-width">
 </div>
 <p class="figcaption">
@@ -48,7 +48,7 @@ Next, implementation with a shader, fast enough to run in real time. Click to zo
 <script>
     const CODE_RESOURCE_PREFIX = "/assets/p5js/"
 </script>
-<script defer src="{{ "/assets/p5js/06-mandelbrot-shader/06-mandelbrot-shader.js" | url }}"></script>
+<script defer src="/assets/p5js/06-mandelbrot-shader/06-mandelbrot-shader.js"></script>
 <div id="parent2" class="fig tc custom-full-width">
 </div>
 <p class="figcaption">

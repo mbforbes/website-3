@@ -11,4 +11,4 @@ It's a bit sad for me to visit, though, because I'm jealous. (a) I'm always an o
 
 A larger friend group is a community, and I think has many of the same benefits. But I think a semi-public community, like a climbing gym, is in a different category. Since it's technically public, it's lower friction to have new people come. And engagement is high, because if people aren't interested, they won't come. Plus, there's a shared purpose.
 
-I think these ingredients lead to fun and creativity in the space because people are more involved. The mechanics naturally discourage [spectators]({{ "/garage/spectators/" | url }}).
+I think these ingredients lead to fun and creativity in the space because people are more involved. The mechanics naturally discourage [spectators](/garage/spectators/).

@@ -7,11 +7,11 @@ image: /assets/garage/3d-notebook/33_Ryu-Too-Big-zoom.jpeg
 
 HAHAHA, he came out so terrifying.
 
-![]({{ "/assets/garage/3d-notebook/33_Ryu-Too-Big.jpeg" | url }})
+![](/assets/garage/3d-notebook/33_Ryu-Too-Big.jpeg)
 
 <p class="figcaption">Look at this thing</p>
 
-![]({{ "/assets/garage/3d-notebook/33_Ryu-Too-Big-zoom.jpeg" | url }})
+![](/assets/garage/3d-notebook/33_Ryu-Too-Big-zoom.jpeg)
 
 <p class="figcaption">LOOK AT HIM</p>
 

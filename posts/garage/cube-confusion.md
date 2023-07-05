@@ -16,8 +16,8 @@ See demo embedded below.
     <canvas id="c" class="w-100" style="height: 80vh"></canvas>
 </div>
 
-<script defer src="{{ "/assets/lib/three-r131.min.js" | url }}"></script>
-<script defer src="{{ "/assets/3js/06-cube-confusion.js" | url }}"></script>
+<script defer src="/assets/lib/three-r131.min.js"></script>
+<script defer src="/assets/3js/06-cube-confusion.js"></script>
 
 <style>
     .gui-container {

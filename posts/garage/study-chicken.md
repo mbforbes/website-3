@@ -5,9 +5,9 @@ series: 3D Notebook
 image: /assets/garage/3d-notebook/28_CeramiChickens.jpg
 ---
 
-![]({{ "/assets/garage/3d-notebook/27_BOF3Chicken.jpg" | url }})
+![](/assets/garage/3d-notebook/27_BOF3Chicken.jpg)
 
-![]({{ "/assets/garage/3d-notebook/28_CeramiChickens.jpg" | url }})
+![](/assets/garage/3d-notebook/28_CeramiChickens.jpg)
 
 ## Notes
 

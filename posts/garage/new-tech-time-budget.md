@@ -7,7 +7,7 @@ Starting a new project, each new technology you use adds a time cost for figurin
 
 You really notice this when you don't have a lot of time to work on personal projects. Because when you start a new project---if it's been long enough since your last one---you'll feel so out-of-date with everything that you'll feel compelled to make half a dozen new technology choices. The worst case version of this is that you then spend all your time getting up to speed with the new tech, run out of steam, and never finish anything.
 
-I am envious of people who have a stack they're really comfortable with and in which they can just try out new ideas. I've never stuck on one tech stack or even area long enough to develop that. You could say it's a prerequisite to get [lots of practice]({{ "/garage/producing-lots-of-work/" | url }}).
+I am envious of people who have a stack they're really comfortable with and in which they can just try out new ideas. I've never stuck on one tech stack or even area long enough to develop that. You could say it's a prerequisite to get [lots of practice](/garage/producing-lots-of-work/).
 
 ---
 
@@ -19,7 +19,7 @@ A recent example: I'm starting a new project for fun that will probably use a we
 
 3. **CSS Flexbox &rarr; CSS Grid** --- getting things laid out in CSS, a traditional pastime of mine that is pareto-optimally most annoying _and_ on which I spend the most time, I'm now at my limit, my enthusiasm has been burned through quickly, and I want to blast back to something I'm more familiar with.[^pixi]
 
-[^pixi]: Like PixiJS, which I loved using in [Fallgate]({{ "/posts/fallgate/" | url }}), but is now v5 instead of v3, so I feared they finished fragmenting the whole thing into little pieces like they were threatening to do, and in the front page of their docs, the first link is a dead one that just goes to "TODO." This is the price of not staying current.
+[^pixi]: Like PixiJS, which I loved using in [Fallgate](/posts/fallgate/), but is now v5 instead of v3, so I feared they finished fragmenting the whole thing into little pieces like they were threatening to do, and in the front page of their docs, the first link is a dead one that just goes to "TODO." This is the price of not staying current.
 
 ---
 

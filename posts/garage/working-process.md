@@ -9,7 +9,7 @@ of urgency.
 
 ## Components
 
-- [**Blocks**]({{ "/garage/working-blocks/" | url }}) — Chunks (e.g., 25 minutes) of focused work.
+- [**Blocks**](/garage/working-blocks/) — Chunks (e.g., 25 minutes) of focused work.
 
 - **Goals** — Concrete goals for the day. The more concrete, the better.
 

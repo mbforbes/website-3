@@ -3,7 +3,7 @@ title: Producing lots of work
 date: 2022-10-15
 ---
 
-One of the core things I believe about doing good work is that you first need to produce a lot of (probably bad) work in the same craft (ideally even using the same [technology]({{ "/garage/new-tech-time-budget/" | url }})).[^tech]
+One of the core things I believe about doing good work is that you first need to produce a lot of (probably bad) work in the same craft (ideally even using the same [technology](/garage/new-tech-time-budget/)).[^tech]
 
 [^tech]: I mean "technology" broadly, including stuff like oil paints or maybe a type of ceramic glaze (I don't know pottery).
 

@@ -4,7 +4,7 @@ date: 2021-07-31
 image: /assets/garage/anime-svg-screenshot.png
 ---
 
-Animating SVGs is great, it makes [posts more lively]({{ "/posts/every-phd-is-different/" | url }}).
+Animating SVGs is great, it makes [posts more lively](/posts/every-phd-is-different/).
 
 Animating SVGs, at least in the pipeline I'm using (Sketch and anime.js), is also stupidly difficult for obscure reasons. I am going to try to document and improve my process.[^ppl]
 

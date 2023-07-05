@@ -3,9 +3,9 @@ title: Ways of looking
 date: 2021-11-16
 ---
 
-<script defer src="{{ "/assets/lib/three-r131.min.js" | url }}"></script>
-<script defer src="{{ "/assets/lib/p5-1.4.0.min.js" | url }}"></script>
-<script defer src="{{ "/assets/p5js/04-ways-of-looking.js" | url }}"></script>
+<script defer src="/assets/lib/three-r131.min.js"></script>
+<script defer src="/assets/lib/p5-1.4.0.min.js"></script>
+<script defer src="/assets/p5js/04-ways-of-looking.js"></script>
 <div class="fig dt w-100">
     <div id="parent" class="dtc v-mid tc">
     </div>
@@ -34,7 +34,7 @@ In fact, it might be that there is _always_ color.
 
 And in fact, it might be that there is _only_ color.
 
-Closely related: [causes and conditions]({{ "/garage/causes-and-conditions/" | url }}).
+Closely related: [causes and conditions](/garage/causes-and-conditions/).
 
 ## From others
 

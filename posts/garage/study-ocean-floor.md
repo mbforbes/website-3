@@ -5,7 +5,7 @@ series: 3D Notebook
 image: /assets/garage/3d-notebook/30_Underwater.jpg
 ---
 
-![]({{ "/assets/garage/3d-notebook/30_Underwater.jpg" | url }})
+![](/assets/garage/3d-notebook/30_Underwater.jpg)
 
 <p class="figcaption">Part 1</p>
 
@@ -29,7 +29,7 @@ Challenge now using grass shader: it wants to place on flat surface. [Workaround
 
 Realized doing terrain by hand is kind of silly since there's a shader that's great at this.
 
-![]({{ "/assets/garage/3d-notebook/32_Underwater-3.jpg" | url }})
+![](/assets/garage/3d-notebook/32_Underwater-3.jpg)
 
 <p class="figcaption">Part 2</p>
 

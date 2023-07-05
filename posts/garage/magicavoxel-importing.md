@@ -11,7 +11,7 @@ You can just drag’n’drop a `.obj` file into MagicaVoxel to import it.
 
 Need to paint, though. Importing material (`.mtl`) file didn't do anything. Can import `.png` palette, but would need to construct anyway.
 
-![]({{ "/assets/garage/3d-notebook/29_Importing-edited.jpg" | url }})
+![](/assets/garage/3d-notebook/29_Importing-edited.jpg)
 
 <p class="figcaption">
 <a href="https://free3d.com/3d-model/indoor-pot-plant-77983.html">

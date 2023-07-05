@@ -4,7 +4,7 @@ date: 2021-08-23
 image: /assets/garage/website-graveyard/mortrag.jpg
 ---
 
-I think it's important to create [experiments and prototypes]({{ "/garage/benefits-of-creating-prototypes-that-fail/" | url }}), and also to let them go.
+I think it's important to create [experiments and prototypes](/garage/benefits-of-creating-prototypes-that-fail/), and also to let them go.
 
 To celebrate these, I've created a tiny catalog here of abandoned websites I've made.
 
@@ -18,11 +18,11 @@ The first series of websites I made were for _Mortrag,_ a self-described nerd cl
 
 I eventually bought a domain name and web hosting, which suddenly let us run server-side code. Having a bad taste in my mouth from trying to learn Java in middle school, and being terrified of this camel thing called Perl, I stumbled upon a language called PHP. I wrote code for months (years?) in Windows Notepad, not even knowing the concept of syntax highlighting. I am thankful it---the crumbling mountain of PHP---has been lost to the annals of time.
 
-![]({{ "/assets/garage/website-graveyard/mortrag.jpg" | url }})
+![](/assets/garage/website-graveyard/mortrag.jpg)
 
 I had a brief stint with rekindling the Mortrag website, and spent a month or two learning Ruby on Rails with the aim of writing a new one from scratch.
 
-![]({{ "/assets/garage/website-graveyard/mortrag-ror.jpg" | url }})
+![](/assets/garage/website-graveyard/mortrag-ror.jpg)
 
 {% include "programming-language-tooltips.njk" %}
 {% set item = collections.software | selectAttrEquals(["data", "title"], "alpha1") | first %}
@@ -35,7 +35,7 @@ But, alas, the time for making Mortrag websites had passed. I moved on.
 
 ## My first personal website
 
-![]({{ "/assets/garage/website-graveyard/prjpages.jpg" | url }})
+![](/assets/garage/website-graveyard/prjpages.jpg)
 
 {% set item = collections.software | selectAttrEquals(["data", "title"], "prjpages") | first %}
 {% include "software-long.njk" %}
@@ -50,12 +50,12 @@ I hadn't been familiar the concept of generating a static website, so I just ass
 
 Also, if there a few names from that technology list you don't recognize, there's the next lesson: relying on too much shiny new tech. This made debugging a pain.
 
-I wrote more about the nuts and bolts of this website failing in [creative friction]({{ "/posts/creative-friction/" | url }}). With the rose tinted glasses of several years of hindsight, I can comfortably recline and proclaim: but hey, what a great learning experience!
+I wrote more about the nuts and bolts of this website failing in [creative friction](/posts/creative-friction/). With the rose tinted glasses of several years of hindsight, I can comfortably recline and proclaim: but hey, what a great learning experience!
 
 
 ## schmidlak
 
-![]({{ "/assets/garage/website-graveyard/schmidlak.jpg" | url }})
+![](/assets/garage/website-graveyard/schmidlak.jpg)
 
 {% set item = collections.software | selectAttrEquals(["data", "title"], "schmidlak") | first %}
 {% include "software-long.njk" %}
@@ -64,7 +64,7 @@ I made this for my friend Cooper.
 
 ## mlbc
 
-![]({{ "/assets/garage/website-graveyard/mlbc.jpg" | url }})
+![](/assets/garage/website-graveyard/mlbc.jpg)
 
 {% set item = collections.software | selectAttrEquals(["data", "title"], "mlbc") | first %}
 {% include "software-long.njk" %}
@@ -73,7 +73,7 @@ Machine learning bootcamp (`mlbc`). A statistics study group I helped organize i
 
 ## snurfle
 
-![]({{ "/assets/garage/website-graveyard/snurfle.jpg" | url }})
+![](/assets/garage/website-graveyard/snurfle.jpg)
 
 
 {% set item = collections.software | selectAttrEquals(["data", "title"], "snurfle") | first %}
@@ -85,4 +85,4 @@ It took a few times, but at this point I learned not everyone loves having websi
 
 ---
 
-Related: [video game graveyard]({{ "/garage/video-game-graveyard/" | url }}), [personal infrastructure graveyard]({{ "/garage/personal-infrastructure-graveyard/" | url }}).
+Related: [video game graveyard](/garage/video-game-graveyard/), [personal infrastructure graveyard](/garage/personal-infrastructure-graveyard/).

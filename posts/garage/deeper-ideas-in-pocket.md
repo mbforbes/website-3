@@ -3,7 +3,7 @@ title: Deeper ideas in pocket
 date: 2021-07-11
 ---
 
-I wrote about this quote in [Hot]({{ "/blog/hot/" | url }}), but I wanted a way to reference it later.
+I wrote about this quote in [Hot](/blog/hot/), but I wanted a way to reference it later.
 
 > _When you’re new at something, you get excited by trivial or surface things. You have to work through these things to get to deeper things to be interested in._
 >

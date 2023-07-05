@@ -172,7 +172,7 @@ We could go to 4x for future-proofing, but I think there is diminishing returns,
 
 ### Real image, pixel density
 
-Deep dive into this in [Image size test page]({{ "/garage/image-size-test-page/" | url }})
+Deep dive into this in [Image size test page](/garage/image-size-test-page/)
 
 ### Full-width image
 

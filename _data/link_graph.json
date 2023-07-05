@@ -29,7 +29,8 @@
     },
     "/blog/hot/": {
         "incoming": [
-            "/blog/praise-critique-digital-gardens/"
+            "/blog/praise-critique-digital-gardens/",
+            "/garage/deeper-ideas-in-pocket/"
         ],
         "outgoing": [
             "/blog/the-distant-rumble-of-change/",
@@ -93,7 +94,8 @@
     },
     "/blog/the-distant-rumble-of-change/": {
         "incoming": [
-            "/blog/hot/"
+            "/blog/hot/",
+            "/garage/what-is-the-garage/"
         ],
         "outgoing": [
             "/posts/every-phd-is-different/"
@@ -111,13 +113,21 @@
     },
     "/garage/animating-svgs-from-sketch-with-anime.js/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/posts/every-phd-is-different/"
+        ],
         "title": "Animating SVGs from Sketch with anime.js",
         "url": "/garage/animating-svgs-from-sketch-with-anime.js/"
     },
     "/garage/benefits-of-creating-prototypes-that-fail/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/garage/personal-infrastructure-graveyard/",
+            "/garage/video-game-graveyard/",
+            "/garage/website-graveyard/"
+        ],
+        "outgoing": [
+            "/garage/deeper-ideas-in-pocket/"
+        ],
         "title": "Benefits of creating prototypes that fail",
         "url": "/garage/benefits-of-creating-prototypes-that-fail/"
     },
@@ -140,7 +150,10 @@
         "url": "/garage/card-layout-test-page/"
     },
     "/garage/causes-and-conditions/": {
-        "incoming": [],
+        "incoming": [
+            "/garage/thinking-in-reverse/",
+            "/garage/ways-of-looking/"
+        ],
         "outgoing": [],
         "title": "Causes and conditions",
         "url": "/garage/causes-and-conditions/"
@@ -164,7 +177,9 @@
         "url": "/garage/creation-and-virality/"
     },
     "/garage/critiquing-internet-use/": {
-        "incoming": [],
+        "incoming": [
+            "/garage/spirit-of-discovery/"
+        ],
         "outgoing": [],
         "title": "Critiquing Internet use",
         "url": "/garage/critiquing-internet-use/"
@@ -182,14 +197,24 @@
         "url": "/garage/deciding-and-following/"
     },
     "/garage/deeper-ideas-in-pocket/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/garage/benefits-of-creating-prototypes-that-fail/",
+            "/garage/tension-between-discovery-and-intentional-creation/"
+        ],
+        "outgoing": [
+            "/blog/hot/"
+        ],
         "title": "Deeper ideas in pocket",
         "url": "/garage/deeper-ideas-in-pocket/"
     },
     "/garage/does-k-means-on-an-images-colors-make-a-good-palette/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/garage/spirit-of-discovery/"
+        ],
+        "outgoing": [
+            "/garage/spirit-of-discovery/",
+            "/garage/summer-2021-website-goals/"
+        ],
         "title": "Does k-means on an image's colors make a good palette?",
         "url": "/garage/does-k-means-on-an-images-colors-make-a-good-palette/"
     },
@@ -207,16 +232,21 @@
     },
     "/garage/home-base-feeling/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/garage/tension-between-discovery-and-intentional-creation/"
+        ],
         "title": "Home base feeling",
         "url": "/garage/home-base-feeling/"
     },
     "/garage/image-layout-test-page/": {
         "incoming": [
             "/blog/infrastructure/",
+            "/garage/image-size-test-page/",
             "/garage/speeding-up-my-website/"
         ],
-        "outgoing": [],
+        "outgoing": [
+            "/garage/image-size-test-page/"
+        ],
         "title": "Image layout test page",
         "url": "/garage/image-layout-test-page/"
     },
@@ -235,8 +265,12 @@
         "url": "/garage/image-scroll-test-page/"
     },
     "/garage/image-size-test-page/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/garage/image-layout-test-page/"
+        ],
+        "outgoing": [
+            "/garage/image-layout-test-page/"
+        ],
         "title": "Image size test page",
         "url": "/garage/image-size-test-page/"
     },
@@ -323,8 +357,13 @@
         "url": "/garage/mo-photos-mo-problems/"
     },
     "/garage/new-tech-time-budget/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/garage/producing-lots-of-work/"
+        ],
+        "outgoing": [
+            "/garage/producing-lots-of-work/",
+            "/posts/fallgate/"
+        ],
         "title": "New tech time budget",
         "url": "/garage/new-tech-time-budget/"
     },
@@ -336,7 +375,10 @@
     },
     "/garage/omitting-negative-results-precludes-thinking-in-reverse/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/garage/thinking-in-reverse/",
+            "/posts/misinterpreting-results/"
+        ],
         "title": "Omitting negative results precludes thinking in reverse",
         "url": "/garage/omitting-negative-results-precludes-thinking-in-reverse/"
     },
@@ -349,8 +391,16 @@
         "url": "/garage/on-neon-white/"
     },
     "/garage/personal-infrastructure-graveyard/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/garage/video-game-graveyard/",
+            "/garage/website-graveyard/"
+        ],
+        "outgoing": [
+            "/garage/benefits-of-creating-prototypes-that-fail/",
+            "/garage/summer-2021-website-goals/",
+            "/garage/video-game-graveyard/",
+            "/garage/website-graveyard/"
+        ],
         "title": "Personal infrastructure graveyard",
         "url": "/garage/personal-infrastructure-graveyard/"
     },
@@ -445,8 +495,12 @@
         "url": "/garage/pixi-js-graphics-stress-test/"
     },
     "/garage/producing-lots-of-work/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/garage/new-tech-time-budget/"
+        ],
+        "outgoing": [
+            "/garage/new-tech-time-budget/"
+        ],
         "title": "Producing lots of work",
         "url": "/garage/producing-lots-of-work/"
     },
@@ -458,7 +512,9 @@
     },
     "/garage/reducing-creative-friction-starting-a-new-project/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/posts/creative-friction/"
+        ],
         "title": "Reducing creative friction: starting a new project",
         "url": "/garage/reducing-creative-friction-starting-a-new-project/"
     },
@@ -494,12 +550,16 @@
     },
     "/garage/small-communities/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/garage/spectators/"
+        ],
         "title": "Small communities",
         "url": "/garage/small-communities/"
     },
     "/garage/spectators/": {
-        "incoming": [],
+        "incoming": [
+            "/garage/small-communities/"
+        ],
         "outgoing": [],
         "title": "Spectators",
         "url": "/garage/spectators/"
@@ -515,9 +575,13 @@
     },
     "/garage/spirit-of-discovery/": {
         "incoming": [
+            "/garage/does-k-means-on-an-images-colors-make-a-good-palette/",
             "/posts/2022-georgia/"
         ],
-        "outgoing": [],
+        "outgoing": [
+            "/garage/critiquing-internet-use/",
+            "/garage/does-k-means-on-an-images-colors-make-a-good-palette/"
+        ],
         "title": "Spirit of discovery",
         "url": "/garage/spirit-of-discovery/"
     },
@@ -558,7 +622,10 @@
         "url": "/garage/stupid-things-i-do-constantly-in-python/"
     },
     "/garage/summer-2021-website-goals/": {
-        "incoming": [],
+        "incoming": [
+            "/garage/does-k-means-on-an-images-colors-make-a-good-palette/",
+            "/garage/personal-infrastructure-graveyard/"
+        ],
         "outgoing": [],
         "title": "Summer 2021 website goals",
         "url": "/garage/summer-2021-website-goals/"
@@ -576,26 +643,44 @@
         "url": "/garage/templating-languages-considered-harmful/"
     },
     "/garage/tension-between-discovery-and-intentional-creation/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/garage/home-base-feeling/"
+        ],
+        "outgoing": [
+            "/garage/deeper-ideas-in-pocket/"
+        ],
         "title": "Tension between discovery and intentional creation",
         "url": "/garage/tension-between-discovery-and-intentional-creation/"
     },
     "/garage/thinking-in-reverse/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/garage/omitting-negative-results-precludes-thinking-in-reverse/"
+        ],
+        "outgoing": [
+            "/garage/causes-and-conditions/"
+        ],
         "title": "Thinking in reverse",
         "url": "/garage/thinking-in-reverse/"
     },
     "/garage/tiny-naming-woes/": {
-        "incoming": [],
+        "incoming": [
+            "/garage/what-is-the-garage/"
+        ],
         "outgoing": [],
         "title": "Tiny naming woes",
         "url": "/garage/tiny-naming-woes/"
     },
     "/garage/video-game-graveyard/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/garage/personal-infrastructure-graveyard/",
+            "/garage/website-graveyard/"
+        ],
+        "outgoing": [
+            "/garage/benefits-of-creating-prototypes-that-fail/",
+            "/garage/personal-infrastructure-graveyard/",
+            "/garage/website-graveyard/",
+            "/posts/fallgate/"
+        ],
         "title": "Video game graveyard",
         "url": "/garage/video-game-graveyard/"
     },
@@ -607,7 +692,9 @@
     },
     "/garage/ways-of-looking/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/garage/causes-and-conditions/"
+        ],
         "title": "Ways of looking",
         "url": "/garage/ways-of-looking/"
     },
@@ -618,8 +705,16 @@
         "url": "/garage/webp-test-page/"
     },
     "/garage/website-graveyard/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/garage/personal-infrastructure-graveyard/",
+            "/garage/video-game-graveyard/"
+        ],
+        "outgoing": [
+            "/garage/benefits-of-creating-prototypes-that-fail/",
+            "/garage/personal-infrastructure-graveyard/",
+            "/garage/video-game-graveyard/",
+            "/posts/creative-friction/"
+        ],
         "title": "Website graveyard",
         "url": "/garage/website-graveyard/"
     },
@@ -633,7 +728,12 @@
         "incoming": [
             "/blog/praise-critique-digital-gardens/"
         ],
-        "outgoing": [],
+        "outgoing": [
+            "/blog/the-distant-rumble-of-change/",
+            "/garage/tiny-naming-woes/",
+            "/posts/creative-reading/",
+            "/posts/paralysis/"
+        ],
         "title": "What is the garage?",
         "url": "/garage/what-is-the-garage/"
     },
@@ -644,14 +744,22 @@
         "url": "/garage/when-lists-dont-work/"
     },
     "/garage/working-blocks/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/garage/working-process/"
+        ],
+        "outgoing": [
+            "/garage/working-process/"
+        ],
         "title": "Working blocks",
         "url": "/garage/working-blocks/"
     },
     "/garage/working-process/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/garage/working-blocks/"
+        ],
+        "outgoing": [
+            "/garage/working-blocks/"
+        ],
         "title": "Working process",
         "url": "/garage/working-process/"
     },
@@ -1100,13 +1208,18 @@
         "url": "/posts/calorie-counting-meal-planning/"
     },
     "/posts/creative-friction/": {
-        "incoming": [],
+        "incoming": [
+            "/garage/reducing-creative-friction-starting-a-new-project/",
+            "/garage/website-graveyard/"
+        ],
         "outgoing": [],
         "title": "Creative Friction",
         "url": "/posts/creative-friction/"
     },
     "/posts/creative-reading/": {
-        "incoming": [],
+        "incoming": [
+            "/garage/what-is-the-garage/"
+        ],
         "outgoing": [],
         "title": "Creative Reading",
         "url": "/posts/creative-reading/"
@@ -1127,14 +1240,18 @@
     },
     "/posts/every-phd-is-different/": {
         "incoming": [
-            "/blog/the-distant-rumble-of-change/"
+            "/blog/the-distant-rumble-of-change/",
+            "/garage/animating-svgs-from-sketch-with-anime.js/"
         ],
         "outgoing": [],
         "title": "\"Every PhD Is Different\"",
         "url": "/posts/every-phd-is-different/"
     },
     "/posts/fallgate/": {
-        "incoming": [],
+        "incoming": [
+            "/garage/new-tech-time-budget/",
+            "/garage/video-game-graveyard/"
+        ],
         "outgoing": [],
         "title": "Fallgate",
         "url": "/posts/fallgate/"
@@ -1176,14 +1293,17 @@
         "url": "/posts/misclicking-live-search/"
     },
     "/posts/misinterpreting-results/": {
-        "incoming": [],
+        "incoming": [
+            "/garage/omitting-negative-results-precludes-thinking-in-reverse/"
+        ],
         "outgoing": [],
         "title": "A Modest Proposal: Let’s Stop Lying To Each Other in Our Research Papers",
         "url": "/posts/misinterpreting-results/"
     },
     "/posts/paralysis/": {
         "incoming": [
-            "/blog/praise-critique-digital-gardens/"
+            "/blog/praise-critique-digital-gardens/",
+            "/garage/what-is-the-garage/"
         ],
         "outgoing": [],
         "title": "Paralysis",

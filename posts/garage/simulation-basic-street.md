@@ -7,8 +7,8 @@ image: /assets/garage/simulation-basic-street-screenshot.png
 <canvas id="c" class="w-100"></canvas>
 <div class="stats-container gui-container"></div>
 
-<script defer src="{{ "/assets/lib/three-r131.min.js" | url }}"></script>
-<script defer src="{{ "/assets/3js/03-street.prod.js" | url }}"></script>
+<script defer src="/assets/lib/three-r131.min.js"></script>
+<script defer src="/assets/3js/03-street.prod.js"></script>
 
 <script>
     // No easy CSS I can find to set height based on width, so using JS.

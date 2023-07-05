@@ -35,9 +35,9 @@ Medium | Moderate | Creating, growing, and inter-linking webpage snippets center
 
 In other words, it presents a _thinking tool_ by imposing some amount of structure (atomic ideas that are linked together) which can serve as conceptual scaffolding.
 
-The second reason is I think posting in this way can really help my working process for my website. I [realized recently]({{ "/blog/the-distant-rumble-of-change/" | url }}) that I can think of my _website process_ as the cross product of design, content, workflow, technology, and audience. I also realized that my process currently sucks. I post rarely, it's a ton of work per post, and I don't really love it. It doesn't spark joy.
+The second reason is I think posting in this way can really help my working process for my website. I [realized recently](/blog/the-distant-rumble-of-change/) that I can think of my _website process_ as the cross product of design, content, workflow, technology, and audience. I also realized that my process currently sucks. I post rarely, it's a ton of work per post, and I don't really love it. It doesn't spark joy.
 
-Just realizing this was a great step. But with a magical synchronicity, I realized this right as I was hearing about evergreen notes. And it dawned on me that they might present liberating variations on all the axes of my current website process [that have been paralyzing me since, apparently, at least 2016]({{ "/posts/paralysis/" | url }}):
+Just realizing this was a great step. But with a magical synchronicity, I realized this right as I was hearing about evergreen notes. And it dawned on me that they might present liberating variations on all the axes of my current website process [that have been paralyzing me since, apparently, at least 2016](/posts/paralysis/):
 
 axis | post | garage
 :-- | :-- | :--
@@ -74,10 +74,10 @@ And if you ask me, Alex's [crystal analogy](https://notes.spacefiller.space/ever
 
 ... though I guess we need some way for the crystal to change its internal structure over time, as notes evolve. Evergreen crystals?
 
-[^name]: Is the _garage_ a weird name for this? Probably. Add it to the long list of [tiny naming woes]({{ "/garage/tiny-naming-woes/" | url }}).
+[^name]: Is the _garage_ a weird name for this? Probably. Add it to the long list of [tiny naming woes](/garage/tiny-naming-woes/).
 
 [^habit]: Actually, writing for others is going to be a hard habit to break. Some notes, like this one, are written to be much more public facing. I suspect it will be a learning process to stop doing that.
 
-[^creativereading]: On the topic of semi-strctured thinking: here, I'm using my own ideas as scaffolding. Relatedly [creative reading]({{ "/posts/creative-reading/" | url }}) is using someone else's ideas as scaffolding.
+[^creativereading]: On the topic of semi-strctured thinking: here, I'm using my own ideas as scaffolding. Relatedly [creative reading](/posts/creative-reading/) is using someone else's ideas as scaffolding.
 
 [^replace]: In around 2019 or 2020, I got really close to replacing my low-constraint process with a Zettelkasten, but doing _everything_ as text was too limiting. I like images and paper too much!
