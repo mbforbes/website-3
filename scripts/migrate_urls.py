@@ -37,6 +37,6 @@ def replace_in_files(directories, mode="test"):
                         file.writelines(lines)
 
 
-directories = ["posts/research/"]
-# replace_in_files(directories, mode="test")  # for testing
-replace_in_files(directories, mode="replace")  # for replacing
+directories = ["posts/sketches/"]
+replace_in_files(directories, mode="test")  # for testing
+# replace_in_files(directories, mode="replace")  # for replacing

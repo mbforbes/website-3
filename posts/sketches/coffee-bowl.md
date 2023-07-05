@@ -6,4 +6,4 @@ image: /assets/sketches/coffee-bowl.png
 thumb: /assets/sketches/coffee-bowl-crop-thumb.jpg
 ---
 
-![]({{ "/assets/sketches/coffee-bowl.png" | url }})
+![](/assets/sketches/coffee-bowl.png)

@@ -6,4 +6,4 @@ image: /assets/sketches/wide-blue-truck.png
 thumb: /assets/sketches/wide-blue-truck-thumb.jpg
 ---
 
-![]({{ "/assets/sketches/wide-blue-truck.png" | url }})
+![](/assets/sketches/wide-blue-truck.png)

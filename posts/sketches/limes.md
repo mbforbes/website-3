@@ -6,9 +6,9 @@ image: /assets/sketches/limes.png
 thumb: /assets/sketches/limes-thumb.gif
 ---
 
-<script src="{{ "/assets/lib/p5-0.10.2.js" | url }}"></script>
-<script src="{{ "/assets/lib/matter-0.14.2.min.js" | url }}"></script>
-<script src="{{ "/assets/sketches/limes.js" | url }}"></script>
+<script src="/assets/lib/p5-0.10.2.js"></script>
+<script src="/assets/lib/matter-0.14.2.min.js"></script>
+<script src="/assets/sketches/limes.js"></script>
 
 <style>
 

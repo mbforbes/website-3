@@ -6,4 +6,4 @@ image: /assets/sketches/material-study.png
 thumb: /assets/sketches/material-study-thumb.jpg
 ---
 
-![]({{ "/assets/sketches/material-study.png" | url }})
+![](/assets/sketches/material-study.png)

@@ -7,8 +7,8 @@ image: /assets/sketches/primitives-screenshot.png
 thumb: /assets/sketches/primitives-thumb.gif
 ---
 
-<script src="{{ "/assets/lib/p5-0.10.2.js" | url }}"></script>
-<script src="{{ "/assets/sketches/primitives.js" | url }}"></script>
+<script src="/assets/lib/p5-0.10.2.js"></script>
+<script src="/assets/sketches/primitives.js"></script>
 
 <style>
     .top-holder {

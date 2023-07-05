@@ -5,4 +5,4 @@ image: /assets/sketches/wood-shelf-room-iso.jpeg
 thumb: /assets/sketches/wood-shelf-room-iso-thumb.jpeg
 ---
 
-![]({{ "/assets/sketches/wood-shelf-room-iso.jpeg" | url }})
+![](/assets/sketches/wood-shelf-room-iso.jpeg)

@@ -6,4 +6,4 @@ image: /assets/sketches/coffee-mug-scale-study.png
 thumb: /assets/sketches/coffee-mug-scale-study-crop-thumb.jpg
 ---
 
-![]({{ "/assets/sketches/coffee-mug-scale-study.png" | url }})
+![](/assets/sketches/coffee-mug-scale-study.png)

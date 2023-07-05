@@ -6,4 +6,4 @@ image: /assets/sketches/green-screen.png
 thumb: /assets/sketches/green-screen-crop-thumb.jpg
 ---
 
-![]({{ "/assets/sketches/green-screen.png" | url }})
+![](/assets/sketches/green-screen.png)

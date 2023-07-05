@@ -8,5 +8,5 @@ redirect_from: /posts/sketch-fragment-shader-iphone/
 ---
 
 <video width="406" height="720" autoplay muted loop playsinline>
-  <source src="{{ "/assets/sketches/fragment-shader-iphone.mp4" | url }}" type="video/mp4">
+  <source src="/assets/sketches/fragment-shader-iphone.mp4" type="video/mp4">
 </video>

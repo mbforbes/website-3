@@ -37,7 +37,7 @@ redirect_from: /posts/sketch-stars/
     </div>
 </div>
 
-<script src="{{ "/assets/lib/p5-0.10.2.js" | url }}"></script>
-<script src="{{ "/assets/lib/howler-2.2.1.min.js" | url }}"></script>
+<script src="/assets/lib/p5-0.10.2.js"></script>
+<script src="/assets/lib/howler-2.2.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="{{ "/assets/sketches/stars/stars.js" | url }}"></script>
+<script src="/assets/sketches/stars/stars.js"></script>

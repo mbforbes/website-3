@@ -10,11 +10,11 @@ thumb: /assets/sketches/t-shirt-monologue/me-cropped-thumb.jpg
 
 <div class="mt6"></div>
 
-<img alt="A photo of me wearing the new t-shirt I made, featuring a big wall of text in tiny print" src="{{ "/assets/sketches/t-shirt-monologue/me.jpg" | url }}">
+<img alt="A photo of me wearing the new t-shirt I made, featuring a big wall of text in tiny print" src="/assets/sketches/t-shirt-monologue/me.jpg">
 
 <div class="mt6"></div>
 
-<img alt="A close-up photo of the new t-shirt I made, featuring a big wall of text in tiny print" src="{{ "/assets/sketches/t-shirt-monologue/close-up.jpg" | url }}">
+<img alt="A close-up photo of the new t-shirt I made, featuring a big wall of text in tiny print" src="/assets/sketches/t-shirt-monologue/close-up.jpg">
 
 <div class="mt6"></div>
 

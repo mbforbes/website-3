@@ -5,4 +5,4 @@ image: /assets/sketches/chicken.jpeg
 thumb: /assets/sketches/chicken-thumb.jpeg
 ---
 
-![]({{ "/assets/sketches/chicken.jpeg" | url }})
+![](/assets/sketches/chicken.jpeg)

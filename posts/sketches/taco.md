@@ -7,5 +7,5 @@ thumb: /assets/sketches/taco-still-thumb.jpg
 ---
 
 <video autoplay muted loop playsinline class="w-100">
-  <source src="{{ "/assets/sketches/taco.mp4" | url }}" type="video/mp4">
+  <source src="/assets/sketches/taco.mp4" type="video/mp4">
 </video>

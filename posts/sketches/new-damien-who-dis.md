@@ -6,4 +6,4 @@ image: /assets/sketches/new-damien-who-dis.png
 thumb: /assets/sketches/new-damien-who-dis-thumb.jpg
 ---
 
-![]({{ "/assets/sketches/new-damien-who-dis.png" | url }})
+![](/assets/sketches/new-damien-who-dis.png)
