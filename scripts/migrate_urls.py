@@ -10,7 +10,7 @@ import re
 
 
 def replace_in_files(directories, mode="test"):
-    # pattern = r'({{\s*"(.*?)"\s*\|\s*url\s*}})'  #{{ "foo" | url }} -> foo
+    # pattern = r'({{\s*"(.*?)"\s*\|\s*url\s*}})'  # {{ "foo" | url }} -> foo
     pattern = r"({{\s*([^|]*?)\s*\|\s*url\s*}})"  # {{ foo | url }} -> foo
 
     for directory in directories:
@@ -20,7 +20,7 @@ def replace_in_files(directories, mode="test"):
                     filename, "*.njk"
                 ):
                     path = os.path.join(dirpath, filename)
-                    print("Checking", path)
+                    # print("Checking", path)
 
                     with open(path, "r") as file:
                         lines = file.readlines()

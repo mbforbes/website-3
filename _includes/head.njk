@@ -20,8 +20,8 @@
     {# non-hidden date property indicates some kind of post, so we try to use w/ its metadata #}
     <meta content='{{ site.url }}{{ page.url }}' property='og:url'/>
     {% if image %}
-        <meta content='{{ site.url }}{{ image | url }}' property='og:image'/>
-        <meta name='twitter:image' content='{{ site.url }}{{ image | url }}'/>
+        <meta content='{{ site.url }}{{ image }}' property='og:image'/>
+        <meta name='twitter:image' content='{{ site.url }}{{ image }}'/>
         <meta name='twitter:card' content='summary_large_image'/>
     {% endif %}
     {% if customexcerpt %}

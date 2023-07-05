@@ -10,7 +10,7 @@
         <span class="dib fr">
             <img
                 class="h1 novmargin mt1 black-and-white {{ item.data.language }}"
-                src="{{ ["/assets/img/langs/", item.data.language, ".svg"] | join | url }}"/>
+                src="{{ ["/assets/img/langs/", item.data.language, ".svg"] | join }}"/>
         </span>
     {%- endif -%}
     {%- if item.templateContent | length > 0 -%}

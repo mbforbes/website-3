@@ -36,7 +36,7 @@
                 {{ row("Updated", updated | readableDate) }}
             {% endif %}
             {% if tags and "garage" in tags %}
-                {{ row("Disclaimer", "This is an entry in the <a href='" + ("/garage/what-is-the-garage/" | url) + "'>garage</a>. It may change or disappear at any point.") }}
+                {{ row("Disclaimer", "This is an entry in the <a href='/garage/what-is-the-garage/'>garage</a>. It may change or disappear at any point.") }}
             {% endif %}
             {% if link_graph[page.url].incoming | length > 0 %}
                 {{ linkRow("Inbound", link_graph[page.url].incoming) }}

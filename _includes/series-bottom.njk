@@ -25,7 +25,7 @@ easily grab the ones before and after the current one, if they exist. #}
             {% set prevPost = seriesPostDatas | selectAttrEquals("displayIndex", curDisplayIndex - 1) | first %}
             {% if prevPost %}
                 <p class="b ttu ma0 lightest-text-color f7 f6-ns">&larr; previous</p>
-                <a href="{{ prevPost.page.url | url }}" class=" ma0">{{ prevPost.displayIndex }}. {{prevPost.title }}</a>
+                <a href="{{ prevPost.page.url }}" class=" ma0">{{ prevPost.displayIndex }}. {{prevPost.title }}</a>
             {% endif %}
         </div>
         <div class="w-20"></div>
@@ -33,7 +33,7 @@ easily grab the ones before and after the current one, if they exist. #}
             {% set nextPost = seriesPostDatas | selectAttrEquals("displayIndex", curDisplayIndex + 1) | first %}
             {% if nextPost %}
                 <p class="b ttu ma0 lightest-text-color f7 f6-ns">next &rarr;</p>
-                <a href="{{ nextPost.page.url | url }}" class=" ma0">{{ nextPost.displayIndex }}. {{nextPost.title }}</a>
+                <a href="{{ nextPost.page.url }}" class=" ma0">{{ nextPost.displayIndex }}. {{nextPost.title }}</a>
             {% endif %}
         </div>
     </div>

@@ -9,7 +9,7 @@
 
         {% for post in seriesObj.posts %}
             <li class="mv1">
-                <a href="{{ post.url | url }}" class="db pv1 link">
+                <a href="{{ post.url }}" class="db pv1 link">
                     <time class="fr lightest-text-color ml3">{{ post.data.travel_end | default(post.data.updated) | default(post.date) | readableDate }}</time>
                     {{ post.data.title }}
                 </a>

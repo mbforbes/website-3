@@ -20,7 +20,7 @@
   {# Nav #}
     <nav class="mh3 mh4-ns pv3 flex f6 f4-ns justify-between" aria-label="Main">
       <div class="tl">
-        <a href="{{ "/" | url }}" class="hover dim textcolor" id="header">Maxwell Forbes</a>
+        <a href="/" class="hover dim textcolor" id="header">Maxwell Forbes</a>
       </div>
       <div class="tr">
         {% for link in site.links %}
@@ -30,7 +30,7 @@
               {{ link.name }}
             </span>
           {% else %}
-            <a class="link hover-link-color ml2 ml3-ns pv1" href="{{ link.url | url }}">
+            <a class="link hover-link-color ml2 ml3-ns pv1" href="{{ link.url }}">
               {{ link.name }}
             </a>
           {% endif %}
@@ -96,7 +96,7 @@
                 {% if not "garage" in tags %}
                 {{ travel_end | default(page.date) | readableDate }}
                 {% else %}
-                <a href="{{ "/studio/#garage" | url }}" class="lightest-text-color hover-blue">GARAGE/</a>
+                <a href="/studio/#garage" class="lightest-text-color hover-blue">GARAGE/</a>
                 {% endif %}
             </div>
 
@@ -118,7 +118,7 @@
                                         {{ seriesPostData.title }}
                                     </span>
                                 {% else %}
-                                    <a href="{{ seriesPostData.page.url | url }}" class="db pv1">
+                                    <a href="{{ seriesPostData.page.url }}" class="db pv1">
                                         {{ seriesPostData.title }}
                                     </a>
                                 {% endif %}

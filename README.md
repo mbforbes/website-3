@@ -41,7 +41,7 @@ Ideally, I'd like to show both. Maybe both on the index page and on the individu
 
 (Actually, there's now `updated`, so it's triple dates.)
 
-## Series
+### Series
 
 Esp. featuring dates and sorting.
 
@@ -55,7 +55,6 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 
 ## TODO
 
-- [ ] great `| url` removal (big thing's gonna be fixing link graph builder... wonder if I should finally switch to running in Eleventy)
 - [ ] big top img background placeholder (may be impossible)
 - [ ] new analytics
 - [ ] wider code
