@@ -6,7 +6,7 @@ tags: "creating & thinking"
 image: /assets/posts/creative-friction/cranes.jpg
 ---
 
-![A photo of three Seattle shipping cranes.]({{ "/assets/posts/creative-friction/cranes.jpg" | url }})
+![A photo of three Seattle shipping cranes.](/assets/posts/creative-friction/cranes.jpg)
 
 I made a new website. (You are probably on it right now.) It's been over five years
 since I made my last one.[^oldschool]
@@ -122,7 +122,7 @@ creative friction that were just inside my head.
 
 ## Interlude: Why Reduce Creative Friction?
 
-![Wooden columns under a pier.]({{ "/assets/posts/creative-friction/columns.jpg" | url }})
+![Wooden columns under a pier.](/assets/posts/creative-friction/columns.jpg)
 
 Given all of the annoyances, fears, and worries above (phew! what a mess!), maybe it's
 worth asking: should I even reduce my creative friction? Is it so important to produce

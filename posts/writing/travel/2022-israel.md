@@ -36,7 +36,7 @@ But since we had exactly six hours to sleep, this was, of course, too much press
 
 I love seeing the ol' Windows Blue Screen of Death in the wild. Also, didn't have time to look up what's going on with Turkish currency, but something must have been up because the food was way cheaper than it ought to have been w.r.t. standard airport price gouging.
 
-![]({{ "/assets/posts/2022-israel/IMG_6659.moz80.jpg" | url }})
+![](/assets/posts/2022-israel/IMG_6659.moz80.jpg)
 
 ## Jerusalem
 
@@ -90,7 +90,7 @@ The city---and Israel in general---is wildly expensive, on par with the priciest
 
 [^groceryprice]:  Each grocery trip, seeking out the cheapest stores, buying stuff like bread and eggs and pasta, cost $80 -- $100 USD for a few meals. Woof.
 
-![]({{ "/assets/posts/2022-israel/IMG_6782.moz80.jpg" | url }})
+![](/assets/posts/2022-israel/IMG_6782.moz80.jpg)
 
 <p class="figcaption">E.g., the green fruits in this pile are all lemons.</p>
 
@@ -130,7 +130,7 @@ While we're talking old city, here's a fun fact: it's carved up into four quarte
 3. Jewish Quarter
 4. Armenian Quarter
 
-![]({{ "/assets/posts/2022-israel/Map_jerusalem_oldcity.moz80.jpg" | url }})
+![](/assets/posts/2022-israel/Map_jerusalem_oldcity.moz80.jpg)
 
 <p class="figcaption">Four quarters of Jerusalem's Old City.</p>
 
@@ -140,7 +140,7 @@ One of these is not like the other. The Armenian quarter? Yep, my recollection i
 
 So yeah, that's the Old Quarter carved up. But the most fun example of carving up is one of the Christian Churches (check out the color coding):
 
-![]({{ "/assets/posts/2022-israel/church-split.jpg" | url }})
+![](/assets/posts/2022-israel/church-split.jpg)
 
 <p class="figcaption">Diagram of how the church is split between different groups.</p>
 
@@ -235,7 +235,7 @@ Seeing this reminded me of when I learned, at the [Alhambra in Granada](/posts/2
 
 One of the most interesting things for me was simply a map. And it wasn't even the map's contents, just what it showed. This map showed Europe, but stretched southeast to the Indian Ocean. It made the Middle East and North Africa seem like close neighbors of Europe in a way that I--embarrassingly---never really thought about or realized.
 
-![]({{ "/assets/posts/2022-israel/IMG_6848.moz80.jpg" | url }})
+![](/assets/posts/2022-israel/IMG_6848.moz80.jpg)
 
 Inspired by this, I made a little animated map highlighting which modern day countries border the Mediterranean. Despite visiting Italy and Spain and France several times, I never contextualized them geographically like this.
 
@@ -444,11 +444,11 @@ First, parking on sidewalks. This drove me nuts. People do it. Constantly. Every
 
 Next, I present to you the best (auto translated) Google Maps review I have seen to date.
 
-![]({{ "/assets/posts/2022-israel/IMG_1748.moz80.jpg" | url }})
+![](/assets/posts/2022-israel/IMG_1748.moz80.jpg)
 
 Finally, the best sports drink bottle shape.
 
-![]({{ "/assets/posts/2022-israel/IMG_6922.moz80.jpg" | url }})
+![](/assets/posts/2022-israel/IMG_6922.moz80.jpg)
 
 ## Akko
 
@@ -503,7 +503,7 @@ Re: the high production value of all the historical-sites-turned-museums, this i
 
 And finally, more of _America Abroad:_
 
-![]({{ "/assets/posts/2022-israel/IMG_6958.moz80.jpg" | url }})
+![](/assets/posts/2022-israel/IMG_6958.moz80.jpg)
 
 ## 🚌 Haifa &rarr; Tel Aviv
 
@@ -589,7 +589,7 @@ An abjad when a language is written using only consonants. If we try to do this 
 
 But some languages are written this way. Two examples are Hebrew and Arabic, which are the two languages written all over Israel (in addition to English, thanks Britain).
 
-![]({{ "/assets/posts/2022-israel/IMG_6978.moz80.jpg" | url }})
+![](/assets/posts/2022-israel/IMG_6978.moz80.jpg)
 
 <p class="figcaption">Just your normal everyday trilingual sign. Another fun fact, if you weren't aware: both Hebrew and Arabic are written right-to-left. Left-handers rejoice. One more: Hebrew is the only example of a dead language being revived.</p>
 
@@ -597,7 +597,7 @@ As always seems to be the case, things aren't quite this simple in practice. Bot
 
 One other fascinating aside on Hebrew: its writing system incorporates instructions for how to chant it while reading the Torah. This is shown in **blue** in the image below. (**Red** marks show vowels and long consonants.)
 
-![]({{ "/assets/posts/2022-israel/Example_of_biblical_Hebrew_trope.svg" | url }})
+![](/assets/posts/2022-israel/Example_of_biblical_Hebrew_trope.svg)
 
 <p class="figcaption">"Letters in black, niqqud (vowel points) and d'geshim (gemination marks) in red, cantillation in blue." &mdash; <a href="https://en.wikipedia.org/wiki/Hebrew_cantillation">Wikipedia</a></p>
 
@@ -606,7 +606,7 @@ One other fascinating aside on Hebrew: its writing system incorporates instructi
 
 Back to Phil, from _Somebody Feed Phil._ His words when trying the _Sherry Herring_ sandwich---pictured below---continue to echo through my head: "That is as good of a sandwich as I have ever eaten." Encouraged by the amazing lunch at Uri Buri, and spurred on by Phil's review, we journeyed far across town in the heat just to find these sandwiches to try.
 
-![]({{ "/assets/posts/2022-israel/IMG_7150.moz80.jpg" | url }})
+![](/assets/posts/2022-israel/IMG_7150.moz80.jpg)
 
 <p class="figcaption">Yes that is an accompanying shot of vodka. At noon.</p>
 
@@ -616,7 +616,7 @@ This was as bad of a sandwich as I have ever eaten. It may have been the worst. 
 
 In the art museum, I found a caption on a piece that---finally---directly addressed the idea I'd been seeing throughout the museums on the trip. It was the only thing of its kind I saw.
 
-![]({{ "/assets/posts/2022-israel/IMG_7234.moz80.jpg" | url }})
+![](/assets/posts/2022-israel/IMG_7234.moz80.jpg)
 
 <p class="figcaption">Underline mine.</p>
 

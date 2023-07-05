@@ -5,7 +5,7 @@ tags: design
 image: /assets/posts/who-has-been-speaking/cover.jpg
 ---
 
-![]({{ "/assets/posts/who-has-been-speaking/cover.svg" | url }})
+![](/assets/posts/who-has-been-speaking/cover.svg)
 
 For years, I have wanted a simple pie chart to be visible during meetings that plotted how much time each person has spent speaking.
 

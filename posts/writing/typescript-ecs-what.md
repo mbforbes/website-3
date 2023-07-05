@@ -9,7 +9,7 @@ image: /assets/posts/typescript-ecs/ecs-screenshot.png
 
 ## Preface
 
-This series is intended to be a simple walkthrough of building an ECS-based game engine in TypeScript. It's based off my work on [Fallgate]({{ "/posts/fallgate/" | url }}), a small 2D action-adventure game I built with my friend Cooper over about two years of evenings and weekends.
+This series is intended to be a simple walkthrough of building an ECS-based game engine in TypeScript. It's based off my work on [Fallgate](/posts/fallgate/), a small 2D action-adventure game I built with my friend Cooper over about two years of evenings and weekends.
 
 ## So, what _is_ an ECS?
 
@@ -31,9 +31,9 @@ It works this way: you have Entities, Components, and Systems. (I'll capitalize 
 
 This ECS visualization demonstrates the core concept of Systems: **selecting Entities that Contain _at least_ their required Components.** Under-the-hood, the visualization is powered by the ECS that we'll build in this series.
 
-<script defer src="{{ "/assets/lib/three-r131.min.js" | url }}"></script>
-<script defer src="{{ "/assets/lib/p5-1.4.0.min.js" | url }}"></script>
-<script defer src="{{ "/assets/p5js/03-ecs-diagram.js" | url }}"></script>
+<script defer src="/assets/lib/three-r131.min.js"></script>
+<script defer src="/assets/lib/p5-1.4.0.min.js"></script>
+<script defer src="/assets/p5js/03-ecs-diagram.js"></script>
 <div class="fig dt w-100 ba">
     <div id="parent" class="dtc v-mid tc">
     </div>

@@ -94,11 +94,11 @@ Spanish Basque felt very Basque-forward---almost every sign, plaque, and even ad
 
 A tiny fishing village that I think is actually a tourism village now. We took a half day trip there, then enjoyed a coastal walk over to the nearby town of Zarautz, where we caught the slow winding forest train back to Donostia.
 
-![]({{ "/assets/posts/2022-getaria/walk.moz80.jpg" | url }})
+![](/assets/posts/2022-getaria/walk.moz80.jpg)
 
-![]({{ "/assets/posts/2022-getaria/green.moz80.jpg" | url }})
+![](/assets/posts/2022-getaria/green.moz80.jpg)
 
-![]({{ "/assets/posts/2022-getaria/boat.moz80.jpg" | url }})
+![](/assets/posts/2022-getaria/boat.moz80.jpg)
 
 The most striking part of the landscape here was the rocky greenery right next to sandy beaches. Tough to capture it in a way that preserves its strikingness, especially in the cloudy lighting we had.
 
@@ -162,9 +162,9 @@ I'd been spoiled, perhaps, only visiting Paris. But I can now confirm this is tr
 
 To be clear, no hard feelings at all---hey, I'm coming to your country, it's my own fault for not speaking your language. Boy it is tough though.
 
-![]({{ "/assets/posts/2022-bayonne/wall.moz80.jpg" | url }})
+![](/assets/posts/2022-bayonne/wall.moz80.jpg)
 
-![]({{ "/assets/posts/2022-bayonne/sky.moz80.jpg" | url }})
+![](/assets/posts/2022-bayonne/sky.moz80.jpg)
 
 Speaking of languages, I'm hoping to ramp up the language learning again for future destinations.
 

@@ -214,7 +214,7 @@ private checkES(entity: Entity, system: System): void {
 
 Getting rid of an `Entity` now means letting the `System` know we've removed the `Aspect` by calling `onRemove()` so it can do any cleanup.
 
-> Aside: I'm omitting the extra logic we added for the [dirty Component optimization]({{ "/posts/typescript-ecs-dirty-component-optimization" | url }}); it's included in the complete code listing linked below.
+> Aside: I'm omitting the extra logic we added for the [dirty Component optimization](/posts/typescript-ecs-dirty-component-optimization); it's included in the complete code listing linked below.
 
 ```ts
 // Before:
@@ -355,4 +355,4 @@ The advantage of storing single `System`-specific data in `Aspect`s is that othe
 
 ## Code Listing
 
-Here's the [full code listing so far](https://gist.github.com/mbforbes/be6583042eb9a16091f0af98662fb2e6), which includes the [dirty Component optimization]({{ "/posts/typescript-ecs-dirty-component-optimization" | url }}) and `Aspect`s.
+Here's the [full code listing so far](https://gist.github.com/mbforbes/be6583042eb9a16091f0af98662fb2e6), which includes the [dirty Component optimization](/posts/typescript-ecs-dirty-component-optimization) and `Aspect`s.

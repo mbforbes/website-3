@@ -80,14 +80,17 @@
     "/blog/sleeper-train-to-sapa/": {
         "incoming": [
             "/posts/2022-hanoi/",
-            "/posts/2022-sapa/"
+            "/posts/2022-sapa/",
+            "/posts/2022-scotland-roadtrip-aberdeen/"
         ],
         "outgoing": [],
         "title": "Sleeper Train to Sapa",
         "url": "/blog/sleeper-train-to-sapa/"
     },
     "/blog/smaller-posts/": {
-        "incoming": [],
+        "incoming": [
+            "/posts/appropriate-quality/"
+        ],
         "outgoing": [],
         "title": "Smaller Posts",
         "url": "/blog/smaller-posts/"
@@ -836,8 +839,12 @@
         "url": "/microblog#20230517094938"
     },
     "/posts/2022-05-seattle/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/posts/2022-scotland-roadtrip-aberdeen/"
+        ],
+        "outgoing": [
+            "/posts/2022-nerja/"
+        ],
         "title": "Seattle in May",
         "url": "/posts/2022-05-seattle/"
     },
@@ -873,7 +880,9 @@
     },
     "/posts/2022-bosnia/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/posts/2022-serbia/"
+        ],
         "title": "Bosnia and Herzegovina",
         "url": "/posts/2022-bosnia/"
     },
@@ -918,7 +927,11 @@
         "url": "/posts/2022-douro/"
     },
     "/posts/2022-edinburgh/": {
-        "incoming": [],
+        "incoming": [
+            "/posts/2022-london/",
+            "/posts/2022-scotland-roadtrip-aberdeen/",
+            "/posts/2022-scotland-roadtrip-glasgow/"
+        ],
         "outgoing": [
             "/posts/2022-nerja/"
         ],
@@ -979,14 +992,18 @@
         "url": "/posts/2022-jeju/"
     },
     "/posts/2022-lisbon/": {
-        "incoming": [],
+        "incoming": [
+            "/posts/2022-malaga/"
+        ],
         "outgoing": [],
         "title": "Lisbon",
         "url": "/posts/2022-lisbon/"
     },
     "/posts/2022-london/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/posts/2022-edinburgh/#nature-bafflement"
+        ],
         "title": "London",
         "url": "/posts/2022-london/"
     },
@@ -1006,7 +1023,9 @@
     },
     "/posts/2022-malaga/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/posts/2022-lisbon/"
+        ],
         "title": "Málaga",
         "url": "/posts/2022-malaga/"
     },
@@ -1032,6 +1051,7 @@
     },
     "/posts/2022-nerja/": {
         "incoming": [
+            "/posts/2022-05-seattle/",
             "/posts/2022-edinburgh/"
         ],
         "outgoing": [],
@@ -1072,13 +1092,20 @@
     },
     "/posts/2022-scotland-roadtrip-aberdeen/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/blog/sleeper-train-to-sapa/",
+            "/posts/2022-05-seattle/#nature-as-vibes",
+            "/posts/2022-edinburgh/",
+            "/posts/2022-edinburgh/#edinburgh-castle"
+        ],
         "title": "Part I: Aberdeen, British Royalty, and Expensive Castles",
         "url": "/posts/2022-scotland-roadtrip-aberdeen/"
     },
     "/posts/2022-scotland-roadtrip-glasgow/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/posts/2022-edinburgh/#interlude:-uk-vs-great-britain"
+        ],
         "title": "Part V: Glasgow Terminus",
         "url": "/posts/2022-scotland-roadtrip-glasgow/"
     },
@@ -1110,8 +1137,12 @@
         "url": "/posts/2022-seoul/"
     },
     "/posts/2022-serbia/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/posts/2022-bosnia/"
+        ],
+        "outgoing": [
+            "/posts/2022-slovenia/#food-+-drink-interlude"
+        ],
         "title": "Serbia",
         "url": "/posts/2022-serbia/"
     },
@@ -1128,7 +1159,9 @@
         "url": "/posts/2022-singapore/"
     },
     "/posts/2022-slovenia/": {
-        "incoming": [],
+        "incoming": [
+            "/posts/2022-serbia/"
+        ],
         "outgoing": [],
         "title": "Slovenia",
         "url": "/posts/2022-slovenia/"
@@ -1197,7 +1230,10 @@
         "incoming": [
             "/blog/praise-critique-digital-gardens/"
         ],
-        "outgoing": [],
+        "outgoing": [
+            "/blog/smaller-posts/",
+            "/posts/use-examples/"
+        ],
         "title": "Appropriate Quality",
         "url": "/posts/appropriate-quality/"
     },
@@ -1220,7 +1256,9 @@
         "incoming": [
             "/garage/what-is-the-garage/"
         ],
-        "outgoing": [],
+        "outgoing": [
+            "/posts/use-examples/"
+        ],
         "title": "Creative Reading",
         "url": "/posts/creative-reading/"
     },
@@ -1251,7 +1289,11 @@
     "/posts/fallgate/": {
         "incoming": [
             "/garage/new-tech-time-budget/",
-            "/garage/video-game-graveyard/"
+            "/garage/video-game-graveyard/",
+            "/posts/spark-joy-python-why/",
+            "/posts/typescript-ecs-components/",
+            "/posts/typescript-ecs-implementation/",
+            "/posts/typescript-ecs-what/"
         ],
         "outgoing": [],
         "title": "Fallgate",
@@ -1266,7 +1308,9 @@
         "url": "/posts/figure-creation-tutorial-making-a-figure-1/"
     },
     "/posts/fixing-mobile-page-layouts/": {
-        "incoming": [],
+        "incoming": [
+            "/posts/web-justified-text/"
+        ],
         "outgoing": [],
         "title": "Fixing Mobile Page Layouts",
         "url": "/posts/fixing-mobile-page-layouts/"
@@ -1344,7 +1388,9 @@
     },
     "/posts/spark-joy-python-why/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/posts/fallgate/"
+        ],
         "title": "Why",
         "url": "/posts/spark-joy-python-why/"
     },
@@ -1356,19 +1402,35 @@
     },
     "/posts/typescript-ecs-aspects/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/posts/typescript-ecs-dirty-component-optimization"
+        ],
         "title": "Aspects",
         "url": "/posts/typescript-ecs-aspects/"
     },
     "/posts/typescript-ecs-components/": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+            "/posts/typescript-ecs-dirty-component-optimization/"
+        ],
+        "outgoing": [
+            "/posts/fallgate/"
+        ],
         "title": "Deeper Dive: Components",
         "url": "/posts/typescript-ecs-components/"
     },
+    "/posts/typescript-ecs-dirty-component-optimization": {
+        "incoming": [
+            "/posts/typescript-ecs-aspects/"
+        ],
+        "outgoing": [],
+        "title": "",
+        "url": ""
+    },
     "/posts/typescript-ecs-dirty-component-optimization/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/posts/typescript-ecs-components/"
+        ],
         "title": "Dirty Component Optimization",
         "url": "/posts/typescript-ecs-dirty-component-optimization/"
     },
@@ -1380,7 +1442,9 @@
     },
     "/posts/typescript-ecs-implementation/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/posts/fallgate/"
+        ],
         "title": "A TypesScript ECS in 99 Lines of Code",
         "url": "/posts/typescript-ecs-implementation/"
     },
@@ -1398,7 +1462,9 @@
     },
     "/posts/typescript-ecs-what/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/posts/fallgate/"
+        ],
         "title": "What is an ECS?",
         "url": "/posts/typescript-ecs-what/"
     },
@@ -1409,7 +1475,10 @@
         "url": "/posts/typescript-ecs-why/"
     },
     "/posts/use-examples/": {
-        "incoming": [],
+        "incoming": [
+            "/posts/appropriate-quality/",
+            "/posts/creative-reading/"
+        ],
         "outgoing": [],
         "title": "Use Examples",
         "url": "/posts/use-examples/"
@@ -1422,7 +1491,9 @@
     },
     "/posts/web-justified-text/": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+            "/posts/fixing-mobile-page-layouts/"
+        ],
         "title": "Don't Justify Web Text",
         "url": "/posts/web-justified-text/"
     },

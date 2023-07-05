@@ -6,7 +6,7 @@ tags: "creating & thinking"
 image: /assets/posts/use-examples/examples-wide-v2.png
 ---
 
-<img src="{{"/assets/posts/use-examples/examples-v2.svg" | url}}" class="w-100" />
+<img src="/assets/posts/use-examples/examples-v2.svg" class="w-100" />
 
 Examples vastly improve communication.
 
@@ -65,7 +65,7 @@ But I think it’s worth it. Maybe you publish 10x or even 100x fewer ideas, but
 
 Let’s look at a slide (source withheld):
 
-![]({{ "/assets/posts/use-examples/teaching-lol.png" | url }})
+![](/assets/posts/use-examples/teaching-lol.png)
 
 Hey, just apply proper engineering! Just do it! Oh and proper project management, do that too.[^3]
 

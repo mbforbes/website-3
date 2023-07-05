@@ -8,7 +8,7 @@ seriesOrder: 2
 # layout: layouts/big-header.njk
 ---
 
-![Marie Kondo holding up the python logo]({{ "/assets/posts/spark-joy-python/spark-joy-python-narrow.jpg" | url }})
+![Marie Kondo holding up the python logo](/assets/posts/spark-joy-python/spark-joy-python-narrow.jpg)
 
 <p class="figcaption">
 Adapted from

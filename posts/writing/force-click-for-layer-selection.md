@@ -16,7 +16,7 @@ Apple's recent trackpads have a feature where you can press harder on them and g
 Apple has given it a bunch of [uses in their own apps](https://support.apple.com/en-us/HT204352), but I would guess you only ever use it accidentally. The only way I've ever used Force click intentionally is to look up a word. I remember to do this about, uhh, twice a year.
 
 <video width="572" autoplay muted loop playsinline class="ba bw1 center db mw-100 fig">
-  <source src="{{ "/assets/posts/force-click/force-click-word.mp4" | url }}" type="video/mp4">
+  <source src="/assets/posts/force-click/force-click-word.mp4" type="video/mp4">
 </video>
 <p class="figcaption">Demo of Force click on text.</p>
 
@@ -28,7 +28,7 @@ But, rejoice, for I have cooked up a use for Force click.[^related]
 
 Visual software, like Photoshop or Sketch, use the concept of _layers_. Layers separate your overall design into independent visual slices that are placed on top of each other. I'll use Sketch as an example because it's the visual software I use right now.
 
-![]({{ "/assets/posts/force-click/sketch-layer-demo.jpg" | url }})
+![](/assets/posts/force-click/sketch-layer-demo.jpg)
 
 <p class="figcaption">Sketch: layers (left) and corresponding design (right).</p>
 
@@ -56,7 +56,7 @@ I think this motion would be intuitive, because you're clicking _deeper,_ which 
 That is all.
 
 
-<script src="{{ "/assets/lib/anime-3.2.1.min.js" | url }}"></script>
+<script src="/assets/lib/anime-3.2.1.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('force-click-diagram').addEventListener("load", function() {

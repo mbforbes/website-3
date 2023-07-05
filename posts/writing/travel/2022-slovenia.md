@@ -87,7 +87,7 @@ Pit stop. Hey, what do you think they do with ski jumps when it's off season?
 
 If you answered, "they spray water on the turf and skiers just blast off them like it's normal," then you were righter than I. Behold grainy midair proof:
 
-![]({{ "/assets/posts/2022-slovenia/ski-jump-close.moz80.jpg" | url }})
+![](/assets/posts/2022-slovenia/ski-jump-close.moz80.jpg)
 
 <p class="figcaption">
 We were informed by an ex-semi-pro skier that it's basically young light guys/gals who are good at this because, aside from the jump, you basically just want to glide as far a possible, so you want to be light weight and wear a strategically floppy suit.
@@ -131,7 +131,7 @@ Anyway, here are some photos of walking around what Google informs me are the "J
 
 Since there are a lot of nature photos in this one I thought it'd be good to break stuff up with my sparkling consumption commentary.
 
-![]({{ "/assets/posts/2022-slovenia/turkish-coffee.moz80.jpg" | url }})
+![](/assets/posts/2022-slovenia/turkish-coffee.moz80.jpg)
 
 <p class="figcaption">
 I had not realized it, but I'd never had <span class="b">Turkish coffee</span> before. For some reason I had in my brain that a moka pot was Turkish coffee. Anyway, it is prepared by dumping coffee grounds and hot water in this adorable container with side spout. You don't filter it, you just don't pour the dregs. Tasty and top marks for presentation. This was at a restaurant where they informed us the village didn't have running water that day so we couldn't use the toilet, etc. (How were they doing the dishes?)

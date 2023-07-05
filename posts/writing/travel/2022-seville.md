@@ -18,7 +18,7 @@ Seville's big plaza has gorgeous architecture around it, and it---the plaza---is
 
 It's also completely taken over by tourists and people selling them trinkets and horse carriage rides. I think the locals have found smaller plazas to hang out in.
 
-![]({{ "/assets/posts/2022-seville/bridge.moz80.jpg" | url }})
+![](/assets/posts/2022-seville/bridge.moz80.jpg)
 
 <p class="figcaption"><a href="https://en.wikipedia.org/wiki/Alamillo_Bridge">Cool bridge.</a></p>
 
@@ -34,7 +34,7 @@ A bunch of Spanish public parks emphasize paved paths. You walk around bits of d
 
 Now, _tinto de verano:_
 
-![]({{ "/assets/posts/2022-seville/tinto-de-verano.moz80.jpg" | url }})
+![](/assets/posts/2022-seville/tinto-de-verano.moz80.jpg)
 
 <p class="figcaption">Aside: I am learning of a growing list of subjects that iPhone's portrait mode botches. The back half of the glass has been turned into "background" and blurred.</p>
 

@@ -7,7 +7,7 @@ image: /assets/posts/weatherspread/weatherspread.png
 customexcerpt: When you're figuring out where to go, or when to go there, remember that a great shadow force will shape your experience. The weather.
 ---
 
-<object id="cover" type="image/svg+xml" data="{{ "/assets/posts/weatherspread/weatherspread.svg" | url }}"></object>
+<object id="cover" type="image/svg+xml" data="/assets/posts/weatherspread/weatherspread.svg"></object>
 
 ## Remember the Weather
 
@@ -21,7 +21,7 @@ Many weeks or months out, there's no way you can get a reliable **forecast**.
 
 **Wikipedia** gives great historical summaries of climate data, so you might check that out:
 
-![]({{ "/assets/posts/weatherspread/belgrade-wiki.jpg" | url }})
+![](/assets/posts/weatherspread/belgrade-wiki.jpg)
 
 <p class="figcaption">
 Source: <a href="https://en.wikipedia.org/wiki/Belgrade#Climate">Wikipedia</a>
@@ -37,19 +37,19 @@ But wait, the average is missing some key information: **the variance**. As in: 
 
 Since variances are probably hard for most people to reason about, and we're great at eyeballing data (especially if it's colorful), why don't we just look at the daily highs for our month in question in a recent year?
 
-![]({{ "/assets/posts/weatherspread/belgrade-1.jpg" | url }})
+![](/assets/posts/weatherspread/belgrade-1.jpg)
 
 Here I picked colors according to my own preferred temperature range: anything above 90℉ is red, anything 69℉ or lower is blue, and all the "nice and warm" temps (70s & 80s ℉) are in yellow.
 
 Even better, why don't we look at the last three years?
 
-![]({{ "/assets/posts/weatherspread/belgrade-3.jpg" | url }})
+![](/assets/posts/weatherspread/belgrade-3.jpg)
 
 There's a chance we'd have a good chunk of warm weather (albeit with some rain: the small blue bars extending below). But there's also a chance we could hit a week of 90s or even 100℉ weather. It's a risk.
 
 If we might want to move our trip a month or two out, we can plot multiple months and compare them.
 
-![]({{ "/assets/posts/weatherspread/belgrade.jpg" | url }})
+![](/assets/posts/weatherspread/belgrade.jpg)
 
 <p class="figcaption">
 My takeaway from doing this for a dozen places is that September is frustratingly nice everywhere.
@@ -57,11 +57,11 @@ My takeaway from doing this for a dozen places is that September is frustratingl
 
 Compare with, for example, Tel Aviv, which hovers right around 90℉ and has shockingly little variance.
 
-![]({{ "/assets/posts/weatherspread/tel-aviv.jpg" | url }})
+![](/assets/posts/weatherspread/tel-aviv.jpg)
 
 Or, if you want somewhere cool:
 
-![]({{ "/assets/posts/weatherspread/edinburgh.jpg" | url }})
+![](/assets/posts/weatherspread/edinburgh.jpg)
 
 <p class="figcaption">
 My current free data sources don't have reliable precipitation, otherwise I'd guess we'd see some rain in good old Edinburgh.
@@ -77,7 +77,7 @@ I'm calling the tool I built to fetch historical weather data and plot the sprea
 
 Also, if you know good historical weather API with a high free tier, let me know! The best I found was Visual Crossing, but I hit their 1k requests / day limit very fast (each day counts as one request). Right now, the app is powered by [Meteostat](https://dev.meteostat.net/python/), along with [Geopy](https://geopy.readthedocs.io/en/stable/#nominatim)'s interface to [Nominatim](https://nominatim.org/) for looking up the (lat, lon) of place names.
 
-<script src="{{ "/assets/lib/anime-3.2.1.min.js" | url }}"></script>
+<script src="/assets/lib/anime-3.2.1.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('cover').addEventListener("load", function() {

@@ -6,7 +6,7 @@ tags: "creating & thinking"
 image: /assets/posts/paralysis/rain_min_tk.jpg
 ---
 
-![A photo of a sliver of Tokyo through a rainy window using pseudo tilt shift photography to make everything look tiny]({{ "/assets/posts/paralysis/rain_min_tk.jpg" | url }})
+![A photo of a sliver of Tokyo through a rainy window using pseudo tilt shift photography to make everything look tiny](/assets/posts/paralysis/rain_min_tk.jpg)
 
 During the past seven years I have struggled immensely to produce independent
 creative work. Today I realized one reason why: complexity.
@@ -33,7 +33,7 @@ you go, deeper and deeper, way down.[^officespace]
 
 ## Interlude
 
-![A photo of the torso of a woman with a while blouse and a long grey skirt on a white background. The picture is clean, soft, and minimal.]({{ "/assets/posts/paralysis/mermaid.jpg" | url }})
+![A photo of the torso of a woman with a while blouse and a long grey skirt on a white background. The picture is clean, soft, and minimal.](/assets/posts/paralysis/mermaid.jpg)
 <p class="figcaption attribution">
 [<a href="http://www.thisisglamorous.com/2012/10/style-inspiration-at-office-wool-skirt.html/">image source</a>]
 </p>
@@ -123,7 +123,7 @@ These questions multiply as you actually develop an artifact.
 ## Interlude
 
 <audio preload="auto" controls>
- <source src="{{ "/assets/posts/paralysis/clarinet.mp3" | url }}"
+ <source src="/assets/posts/paralysis/clarinet.mp3"
          type="audio/mp3">
 </audio>
 
@@ -150,7 +150,7 @@ produce creatively, then it's not the point.
 
 ## Brutalism
 
-![The harsh, repeating lines of the outside of a brutalist parking structure.]({{ "/assets/posts/paralysis/deltas.jpg" | url }})
+![The harsh, repeating lines of the outside of a brutalist parking structure.](/assets/posts/paralysis/deltas.jpg)
 
 <p class="figcaption attribution">
 [<a href="https://robcartwrightphotography.wordpress.com/2012/08/08/triangles-tuesday-17-july-365-360-day-359">image source</a>]

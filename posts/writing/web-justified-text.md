@@ -9,15 +9,15 @@ image: /assets/posts/web-justified-text/paper-annotated.jpg
 In print, or when typeset with a good program, justified text is beautiful. All of the academic writing in my field is set justified by default, and I think it looks lovely:
 
 <div class="flex">
-<img src="{{ "/assets/posts/web-justified-text/paper.jpg" | url }}" class="sc bare mh2 flex-auto" loading="lazy" decoding="async">
-<img src="{{ "/assets/posts/web-justified-text/paper-annotated.jpg" | url }}" class="sc bare mh2 flex-auto" loading="lazy" decoding="async">
+<img src="/assets/posts/web-justified-text/paper.jpg" class="sc bare mh2 flex-auto" loading="lazy" decoding="async">
+<img src="/assets/posts/web-justified-text/paper-annotated.jpg" class="sc bare mh2 flex-auto" loading="lazy" decoding="async">
 </div>
 
 You get these really nice ultra long vertical lines, broken up into a satisfying rhythm by stuff like headers, figures, tables, and equations.
 
 Grab any book and it’s probably justified. I just took one off my bookshelf at random—_White,_ by Kenya Hara:
 
-![]({{ "/assets/posts/web-justified-text/book.jpg" | url }})
+![](/assets/posts/web-justified-text/book.jpg)
 
 So, what about the web?
 
@@ -26,15 +26,15 @@ So, what about the web?
 Whatever is doing your type layout has got to be able to hyphenate words. If you just slap on a `text-align: justify` CSS, you’ll get goofy spread out text:
 
 <div class="flex">
-<img src="{{ "/assets/posts/web-justified-text/web-justify.jpg" | url }}" class="sc bare mh2 flex-auto" loading="lazy" decoding="async">
-<img src="{{ "/assets/posts/web-justified-text/web-justify-annotated.jpg" | url }}" class="sc bare mh2 flex-auto" loading="lazy" decoding="async">
+<img src="/assets/posts/web-justified-text/web-justify.jpg" class="sc bare mh2 flex-auto" loading="lazy" decoding="async">
+<img src="/assets/posts/web-justified-text/web-justify-annotated.jpg" class="sc bare mh2 flex-auto" loading="lazy" decoding="async">
 </div>
 
 <p class="figcaption">I marked somewhat awkward spaces in orange, and very ugly ones in red.</p>
 
 The last time I’d looked, hyphenation (CSS: `hyphens: auto`) wasn’t widely available. But, lo and behold, wait a few months, and it’s starting to emerge:
 
-![]({{ "/assets/posts/web-justified-text/web-hyphen.jpg" | url }})
+![](/assets/posts/web-justified-text/web-hyphen.jpg)
 
 <p class="figcaption">Hey, much better!</p>
 
@@ -58,17 +58,17 @@ Here’s another example of justified text with and without hyphenation in Chrom
 
 Justified:
 
-![]({{ "/assets/posts/web-justified-text/web2.jpg" | url }})
+![](/assets/posts/web-justified-text/web2.jpg)
 
 Justified, with hyphenation:
 
-![]({{ "/assets/posts/web-justified-text/web2.jpg" | url }})
+![](/assets/posts/web-justified-text/web2.jpg)
 
 Notice the difference? Exactly; there is none. Chrome couldn’t figure out a good way to lay this out, even with hyphenation turned on.
 
 Compare this with LaTeX,[^latex] which aggressively hyphenates. You will almost never see the kind of floaty word spacing like above. Instead, you’ll see dense blocks rich with hyphenation:
 
-![]({{ "/assets/posts/web-justified-text/paper-paragraph.jpg" | url }})
+![](/assets/posts/web-justified-text/paper-paragraph.jpg)
 
 [^latex]: I would like to take this opportunity to complain that LaTeX iS cApItAlIzEd lIkE tHiS.
 
@@ -82,7 +82,7 @@ I’m not actually in a position to recommend any design decisions to anybody. B
 
 I only write this because I come across hand-designed blogs semi-regularly that use justified text and no hyphenation.[^theory] Once you are aware of it, you can’t un-see those ghastly word gaps. If this is you, maybe consider turning on hyphenation right now.
 
-[^theory]: These often look OK on a desktop monitor---and I suspect that's where they were designed---but break down when you [read them on your phone]({{ "/posts/fixing-mobile-page-layouts/" | url }}).
+[^theory]: These often look OK on a desktop monitor---and I suspect that's where they were designed---but break down when you [read them on your phone](/posts/fixing-mobile-page-layouts/).
 
 Or better yet, just align left.
 
@@ -93,18 +93,18 @@ I've started collecting pages I find with justified text without hyphenation tha
 <div class="flex items-center flex-wrap fig">
 
   <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
-      <img src="{{ "/assets/posts/web-justified-text/jpegxl.jpg" | url }}" class="br3 br4-ns novmargin" loading="lazy" decoding="async">
+      <img src="/assets/posts/web-justified-text/jpegxl.jpg" class="br3 br4-ns novmargin" loading="lazy" decoding="async">
       <p class="f6"><span class="strike">From <a href="https://jpegxl.info/">jpegxl.info</a></span> hyphens have been added!</p>
   </div>
 
   <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
-      <img src="{{ "/assets/posts/web-justified-text/kylemcdonald.jpg" | url }}" class="br3 br4-ns novmargin" loading="lazy" decoding="async">
+      <img src="/assets/posts/web-justified-text/kylemcdonald.jpg" class="br3 br4-ns novmargin" loading="lazy" decoding="async">
       <p class="f6">From <a href="https://kylemcdonald.net/psac/">Kyle McDonald</a></p>
   </div>
 
 
   <div class="w-50 w-third-ns tc ph1 ph2-ns mb1 mb2-ns">
-      <img src="{{ "/assets/posts/web-justified-text/publicdelivery.jpg" | url }}" class="br3 br4-ns novmargin" loading="lazy" decoding="async">
+      <img src="/assets/posts/web-justified-text/publicdelivery.jpg" class="br3 br4-ns novmargin" loading="lazy" decoding="async">
       <p class="f6">From <a href="https://publicdelivery.org/damian-ortega-cosmic-thing/">Public Delivery</a></p>
   </div>
 

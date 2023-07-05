@@ -60,7 +60,7 @@ When you ask a local about who lives in Bosnia, they'll tell you there are three
 2. Bosnian Croats; Catholic
 2. Bosnian Serbs; Orthodox
 
-[^coastline]: Bosnia having a tiny bit of coast on the Mediterranean is an interesting factoid on itself. Because Croatia extends before and after it on the coast, you used to have to drive through Bosnia if you wanted to drive down the length of Croatia. You'd have to go through border control, get your passport stamped and everything, just to make it through that tiny stretch of highway, and then go back through Croatian border control. (That Dane I mentioned in the [Serbia]({{ "/posts/2022-serbia/" | url }}) post said he'd gone to Bosnia, and when I asked about his experience---because we were headed there next---he sheepishly admitted they had actually just gone through this road segment on the way down Croatia.) Croatia was tired of this, and they very recently (like, July 2022) finished building a massive bridge off the coast, connecting the Croatian mainland to a Croatian peninsula, to avoid having to go through Bosnia. Sounds great, right? Less hassle for everyone? Well, there's drama to this as well. Though it's an enormous bridge, it's not high enough for shipping vessels to get under it. This isn't a problem now, because Bosnia's tiny cost town Neum doesn't have any kind of harbor, much less one that could process gigantic boats. But, it does _prevent_ Bosnia from ever having a shipping port in the future. Would they ever make one? Croatia argued not, and that building the enormous bridge high enough to accommodate that possibility wasn't worth the wild budget inflation that would have entailed. And here we are.
+[^coastline]: Bosnia having a tiny bit of coast on the Mediterranean is an interesting factoid on itself. Because Croatia extends before and after it on the coast, you used to have to drive through Bosnia if you wanted to drive down the length of Croatia. You'd have to go through border control, get your passport stamped and everything, just to make it through that tiny stretch of highway, and then go back through Croatian border control. (That Dane I mentioned in the [Serbia](/posts/2022-serbia/) post said he'd gone to Bosnia, and when I asked about his experience---because we were headed there next---he sheepishly admitted they had actually just gone through this road segment on the way down Croatia.) Croatia was tired of this, and they very recently (like, July 2022) finished building a massive bridge off the coast, connecting the Croatian mainland to a Croatian peninsula, to avoid having to go through Bosnia. Sounds great, right? Less hassle for everyone? Well, there's drama to this as well. Though it's an enormous bridge, it's not high enough for shipping vessels to get under it. This isn't a problem now, because Bosnia's tiny cost town Neum doesn't have any kind of harbor, much less one that could process gigantic boats. But, it does _prevent_ Bosnia from ever having a shipping port in the future. Would they ever make one? Croatia argued not, and that building the enormous bridge high enough to accommodate that possibility wasn't worth the wild budget inflation that would have entailed. And here we are.
 
 Who Bosnia's neighbors are will become important for understanding Bosnia itself.
 
@@ -70,7 +70,7 @@ When you see the name _Bosnia and Herzegovina (B&H),_ you might initially expect
 
 This is wrong. Herzegovina is a vague geographical region encompassing the south of the country. It's never had strict boundaries, and it's never been an administrative region in B&H.
 
-![]({{ "/assets/posts/2022-bosnia/Herzegovina_location_map_simple.svg" | url }})
+![](/assets/posts/2022-bosnia/Herzegovina_location_map_simple.svg)
 
 <p class="figcaption">Dark orange: definitely Herzegovina. Light orange: maybe Herzegovina. Beige: definitely Bosnia. Also, note the little tendril shooting out to touch the Mediterranean.</p>
 
@@ -86,7 +86,7 @@ When in the region, I often heard people refer to the country in short as just _
 
 Check this out:
 
-![]({{ "/assets/posts/2022-bosnia/Map_Bih_entities.png" | url }})
+![](/assets/posts/2022-bosnia/Map_Bih_entities.png)
 
 <p class="figcaption">There's also a shared admin region called Brčko which I will ignore because I don't know anything about it. I assume the presidents all hang out there.</p>
 
@@ -124,7 +124,7 @@ So, let's touch on everything super briefly.
 
 Then, Yugoslavia exploded. Into a bunch of different countries. Starting in '91, it fractured---basically by ethnic group---in a process so famous they even coined a term after it: Balkanization. Here's a graphic of that happening.
 
-![]({{ "/assets/posts/2022-bosnia/Breakup_of_Yugoslavia-retimed.gif" | url }})
+![](/assets/posts/2022-bosnia/Breakup_of_Yugoslavia-retimed.gif)
 
 <p class="figcaption">B&H is the gray one that ends up the middle. Not pictured: several Yugoslav Wars in this process.</p>
 

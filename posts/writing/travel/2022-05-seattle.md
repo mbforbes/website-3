@@ -12,7 +12,7 @@ redirect_from: /blog/seattle-may-2022/
 
 Back across the pond for about a week.
 
-![]({{ "/assets/posts/2022-05-seattle/green1.moz80.jpg" | url }})
+![](/assets/posts/2022-05-seattle/green1.moz80.jpg)
 
 Seattle is so green. It's sooooooo green. I think what we lack in sun we make up for in abundant foliage explosions. We---and this is a reminder to myself---just need to remember this during the year's many gray months. Don't let it stop you from getting out and being with plants.
 
@@ -20,7 +20,7 @@ I guess I'm proposing that maybe sun and plants are both cognitive fertilizers. 
 
 ## Nature as Vibes
 
-![]({{ "/assets/posts/2022-05-seattle/turtle.moz80.jpg" | url }})
+![](/assets/posts/2022-05-seattle/turtle.moz80.jpg)
 
 <p class="figcaption">
 Hello
@@ -32,9 +32,9 @@ People in Seattle are so hardcore about hiking. It's not just walking around in 
 
 I exaggerate, but I've always felt I'm not up to snuff with Pacific Northwest outdoorsy types. I've assumed, up until recently, that I wasn't into hiking, maybe wasn't even that into the outdoors?
 
-But then, inexplicably, we get to some beach town like [Nerja]({{ "/posts/2022-nerja/" | url }}) and the first thing I want to do is go for a multi-hour trudge up the riverbed, fording and watching critters and photographing the canyon walls. And we appear to be in the 1% of tourists there who want to spend their afternoon that way.
+But then, inexplicably, we get to some beach town like [Nerja](/posts/2022-nerja/) and the first thing I want to do is go for a multi-hour trudge up the riverbed, fording and watching critters and photographing the canyon walls. And we appear to be in the 1% of tourists there who want to spend their afternoon that way.
 
-![]({{ "/assets/posts/2022-05-seattle/green2.moz80.jpg" | url }})
+![](/assets/posts/2022-05-seattle/green2.moz80.jpg)
 
 <p class="figcaption">
 Pictures, at least ones I can take, don't remotely capture what's good about the forest. It's not quite the smell, or the relative quiet, or the walking, or the trees or ferns. I'm not sure whether <span class="i">forest bathing</span> is has already been worn out into a cliche, but it's the best phrase I've heard. The sensation is closest to a subtle soak.
@@ -54,7 +54,7 @@ After seven years of addiction-as-hobby, I rarely encounter a way of brewing cof
 
 Stomping around my old grounds, I popped by Ghost Note to scoop my brain out of the digestive lull brought by a Carmello's greaseadilla.
 
-![]({{ "/assets/posts/2022-05-seattle/coffee.moz80.jpg" | url }})
+![](/assets/posts/2022-05-seattle/coffee.moz80.jpg)
 
 They use an espresso machine (pictured) where you can dramatically adjust the steam's pressure.
 

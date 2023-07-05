@@ -7,7 +7,7 @@ series: Sparking Joy with Python
 seriesOrder: 1
 ---
 
-![Marie Kondo holding up the python logo]({{ "/assets/posts/spark-joy-python/spark-joy-python-narrow.jpg" | url }})
+![Marie Kondo holding up the python logo](/assets/posts/spark-joy-python/spark-joy-python-narrow.jpg)
 
 <p class="figcaption">
 Adapted from
@@ -44,7 +44,7 @@ And since then, it’s Python, all the way down. Absolute globs, scads, and moun
 I write this only to tell you why I still use Python—because it’s the only first-class citizen in machine learning.[^2]
 
 ## I discover TypeScript
-During 2017 and 2018, I spent my free time writing TypeScript for a little game called [Fallgate]({{ "/posts/fallgate/" | url }}). TypeScript is based on JavaScript, which everyone loves to hate, and so I was prepared to hate TypeScript.
+During 2017 and 2018, I spent my free time writing TypeScript for a little game called [Fallgate](/posts/fallgate/). TypeScript is based on JavaScript, which everyone loves to hate, and so I was prepared to hate TypeScript.
 
 But then the funniest thing happened. I actually had a really great time writing TypeScript.
 
@@ -59,10 +59,10 @@ On the other hand, programming for NLP research, I spend most of my time pushing
 
 <div class="flex">
 <div class="w-50">
-<img src="{{ "/assets/posts/spark-joy-python/game-before.gif" | url }}">
+<img src="/assets/posts/spark-joy-python/game-before.gif">
 </div>
 <div class="w-50">
-<img src="{{ "/assets/posts/spark-joy-python/game-after.gif" | url }}">
+<img src="/assets/posts/spark-joy-python/game-after.gif">
 </div>
 </div>
 
@@ -73,10 +73,10 @@ Figure 1: Game programming before and after.
 
 <div class="flex">
 <div class="w-50">
-<img src="{{ "/assets/posts/spark-joy-python/nlp.gif" | url }}">
+<img src="/assets/posts/spark-joy-python/nlp.gif">
 </div>
 <div class="w-50">
-<img src="{{ "/assets/posts/spark-joy-python/nlp.gif" | url }}">
+<img src="/assets/posts/spark-joy-python/nlp.gif">
 </div>
 </div>
 

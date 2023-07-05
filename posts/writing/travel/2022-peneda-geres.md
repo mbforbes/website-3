@@ -14,18 +14,18 @@ Second big day trip from Porto. Also couple hours way, north / northeast. Pretty
 
 Strong heather presence.
 
-![]({{ "/assets/posts/2022-peneda-geres/park-heather.moz80.jpg" | url }})
+![](/assets/posts/2022-peneda-geres/park-heather.moz80.jpg)
 
 Old (unused?) dam. Swam in the lagoons beneath it.
 
-![]({{ "/assets/posts/2022-peneda-geres/park-dam.moz80.jpg" | url }})
+![](/assets/posts/2022-peneda-geres/park-dam.moz80.jpg)
 
 This big fella on the road.
 
-![]({{ "/assets/posts/2022-peneda-geres/bull.moz80.jpg" | url }})
+![](/assets/posts/2022-peneda-geres/bull.moz80.jpg)
 
 Huge shock on the way back---fire! Hard to see much from this photo. Ablaze on both sides of the road, horizon lit up, smoke filling sky. Thought we were doomed.
 
-![]({{ "/assets/posts/2022-peneda-geres/fire.moz80.jpg" | url }})
+![](/assets/posts/2022-peneda-geres/fire.moz80.jpg)
 
 Everyone just drove past. Couldn't even find anything on the news (admittedly, probably bad at searching in Portuguese). Controlled burn?

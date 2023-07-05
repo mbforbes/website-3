@@ -31,7 +31,7 @@ We took a two week roadtrip through Scotland. We got soaked and the food sucked,
 
 ## Edinburgh
 
-We left Edinburgh after [two lovely weeks there]({{ "/posts/2022-edinburgh/" | url }}).
+We left Edinburgh after [two lovely weeks there](/posts/2022-edinburgh/).
 
 However, there is one last thing I forgot to complain about in Edinburgh: the crosswalks.
 
@@ -43,7 +43,7 @@ As a result, everyone just jaywalks constantly, people honk threateningly at jay
 
 ## Left Side, Left-Hand Stick Shift
 
-![]({{ "/assets/posts/2022-scotland/edinburgh-car.moz80.jpg" | url }})
+![](/assets/posts/2022-scotland/edinburgh-car.moz80.jpg)
 
 Thank god I'd at least spent ten years driving a manual in the USA. (Rest in peace Kermit, you stupid beeping wonderful '97 Subaru.) Driving here involved both switching to the left side of the road, _and_ shifting gears with my left hand. Luckily, they didn't also swap the foot pedals.
 
@@ -154,7 +154,7 @@ Linn of Dee is one of the many spots you can hike in the Cairngorms. The Cairngo
 The lushness, quiet, and gentle rolling hills gave me the exact sensation that I was trekking through the plot lull in a fantasy novel.
 Those preteen years I spent reading doorstop adventuring books, I was always imagining places with some kind of feeling tone I'd never experienced, and suddenly, bouncing (literally) through lumpy fragrant moss amongst trees, soft brook beside, the full force of the experience blasted forth and provided a missing anchor for all those imagined voyages.
 
-I wrote before about [preferring forest bathing]({{ "/posts/2022-05-seattle/#nature-as-vibes" | url }}) to the activity of trudging up and down mountains in technical gear. This really hit the spot.
+I wrote before about [preferring forest bathing](/posts/2022-05-seattle/#nature-as-vibes) to the activity of trudging up and down mountains in technical gear. This really hit the spot.
 
 {% img [
     "/assets/posts/2022-scotland/03-hike-trees.moz80.jpg",
@@ -178,7 +178,7 @@ Scotland has a lot of castles.
 
 The castles are expensive to get into, something like $20-$30 a pop.[^pass] Without knowing anything about them, we picked three to visit during our month in the country:
 
-1. Edinburgh Castle (see [last post]({{ "/posts/2022-edinburgh/#edinburgh-castle" | url }}))
+1. Edinburgh Castle (see [last post](/posts/2022-edinburgh/#edinburgh-castle))
 2. Balmoral Castle
 3. Fyvie Castle
 
@@ -203,7 +203,7 @@ Since we came just a few days before the royals would arrive, the produce was in
 
 This triggered something unexpected, which was a pang of longing for homemaking. We'd been on the road for several months at this point. At our apartment in Seattle, without the logistical inclination for pets (briefly: space, travel, and allergies), we'd taken to moderately-extensive plant parenting. This meant yearly repotting, weekly watering, and nearly daily admiring and gossiping about our thirty-ish plants, all of whom we gave names by which we referred to them exclusively.
 
-![]({{ "/assets/posts/2022-scotland/plant-babies.moz80.jpg" | url }})
+![](/assets/posts/2022-scotland/plant-babies.moz80.jpg)
 
 <p class="figcaption">I miss you guys. Especially Leonardo, Rainier, and The Toe</p>
 
@@ -314,7 +314,7 @@ This is a common occurrence for travel in general: local, often tour-related thi
 1. Incorporate it into your travel plans
 2. Sheepishly repeat you're not doing it and wave your hands why
 
-Another example, pulled from where I'm writing this: when you travel in Vietnam, the first question you probably ask other travelers after pleasantries is whether they're going north-to-south or south-to-north. When you look at Vietnam's shape this becomes obvious, but if you haven't bothered to do that before and briefly ponder travel logistics, you wouldn't know it. A more local example, as I [mentioned recently]({{ "/blog/sleeper-train-to-sapa/" | url}}), is in Hanoi---Vietnam's capital---there are three short trips everyone takes, or at least considers taking, from the northern city hub (these are: Sapa, Ninh Binh, Halong Bay). If you haven't been to Hanoi or planned a trip there in detail, there's absolutely no reason you would know those things, but if you show up and haven't heard of them, you will look like a complete fool.
+Another example, pulled from where I'm writing this: when you travel in Vietnam, the first question you probably ask other travelers after pleasantries is whether they're going north-to-south or south-to-north. When you look at Vietnam's shape this becomes obvious, but if you haven't bothered to do that before and briefly ponder travel logistics, you wouldn't know it. A more local example, as I [mentioned recently](/blog/sleeper-train-to-sapa/), is in Hanoi---Vietnam's capital---there are three short trips everyone takes, or at least considers taking, from the northern city hub (these are: Sapa, Ninh Binh, Halong Bay). If you haven't been to Hanoi or planned a trip there in detail, there's absolutely no reason you would know those things, but if you show up and haven't heard of them, you will look like a complete fool.
 
 It's a perfect example of how annoying cultural norms are when traveling. You learn all of these new things each place you go, which grants you membership to the backpackers' club. These local facts are interesting because they are extremely relevant to your immediate life situation. (Or, at the very least, they're quite helpful as small talk fodder to survive a painful chat with someone who, you realize after twenty seconds, you don't want to talk to, but are stuck next to for thirty minutes.) But then, much like college students asking "what classes are you taking?" once you're no longer traveling, precisely zero people in your life want to hear about your trip on the level of detail of these local to-dos. I know this because I certainly don't.[^read]
 

@@ -7,4 +7,4 @@ tags: studio
 date: 2019-10-21
 ---
 
-I wrote this to use it myself. You can read much more about it in my post on [Calorie Counting × Meal Planning]({{ "/posts/calorie-counting-meal-planning/" | url }}).
+I wrote this to use it myself. You can read much more about it in my post on [Calorie Counting × Meal Planning](/posts/calorie-counting-meal-planning/).

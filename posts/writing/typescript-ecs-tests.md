@@ -205,7 +205,7 @@ function test() {
 test();
 ```
 
-<script src="{{ "/assets/posts/typescript-ecs/01-pure-ecs.js" | url }}"></script>
+<script src="/assets/posts/typescript-ecs/01-pure-ecs.js"></script>
 
 ## You Already Ran This Test
 
@@ -215,7 +215,7 @@ Does the ECS pass this test? You tell me. The ECS is running on this webpage, an
 
 This is what I see:
 
-![]({{ "/assets/posts/typescript-ecs/test-results.jpg" | url }})
+![](/assets/posts/typescript-ecs/test-results.jpg)
 
 ## Try It Out
 

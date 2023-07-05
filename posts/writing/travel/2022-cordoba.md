@@ -60,10 +60,10 @@ They had an unbelievably gorgeous, quite new contemporary art museum across the 
 
 I haven't been posting pictures of food. Here's a couple. Tapas have been an amazing way to try as many flavors as possible. With Spanish prices, and split between two people, you can really try a lot without breaking the bank.
 
-![]({{ "/assets/posts/2022-cordoba/food.moz80.jpg" | url }})
+![](/assets/posts/2022-cordoba/food.moz80.jpg)
 
 <p class="figcaption">Left to right: variation on <i>patatas bravas</i> where a hollowed out column is filled with three different sauces; <i>salmorejo</i>, a cold, tomato-y soup; <i>berenjenas con miel</i>, fried eggplants with a sweet balsamic and honey; homemade croquettes, full of what tasted like a cheese, potato, ham mixture.</p>
 
-![]({{ "/assets/posts/2022-cordoba/ox.moz80.jpg" | url }})
+![](/assets/posts/2022-cordoba/ox.moz80.jpg)
 
 <p class="figcaption">Ox tail. Edible with fork.</p>

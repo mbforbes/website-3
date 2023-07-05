@@ -6,7 +6,7 @@ tags: project
 image: /assets/posts/fallgate/title.jpg
 ---
 
-![A screenshot of the game Fallgate]({{ "/assets/posts/fallgate/title.jpg" | url }})
+![A screenshot of the game Fallgate](/assets/posts/fallgate/title.jpg)
 
 Fallgate is a game my friend Cooper and I made as a
 hobby project. It is a pixel-art action-adventure game about questing through a
@@ -26,13 +26,13 @@ You can play the game online for free. Not even ads!
 
 ## Screenshots
 
-![A screenshot of the game Fallgate]({{ "/assets/posts/fallgate/forest-spears.jpg" | url }})
+![A screenshot of the game Fallgate](/assets/posts/fallgate/forest-spears.jpg)
 
-![A screenshot of the game Fallgate]({{ "/assets/posts/fallgate/power-stab.jpg" | url }})
+![A screenshot of the game Fallgate](/assets/posts/fallgate/power-stab.jpg)
 
-![A screenshot of the game Fallgate]({{ "/assets/posts/fallgate/combo.jpg" | url }})
+![A screenshot of the game Fallgate](/assets/posts/fallgate/combo.jpg)
 
-![A screenshot of the game Fallgate]({{ "/assets/posts/fallgate/castle-entrance.jpg" | url }})
+![A screenshot of the game Fallgate](/assets/posts/fallgate/castle-entrance.jpg)
 
 ## Music
 
@@ -40,7 +40,7 @@ Here are two of the tracks I composed for Fallgate. The rest can be found in the
 
 
 <audio preload="auto" controls>
- <source src="{{ "/assets/posts/fallgate/castle.mp3" | url }}"
+ <source src="/assets/posts/fallgate/castle.mp3"
          type="audio/mp3">
 </audio>
 
@@ -49,7 +49,7 @@ Castle Theme from Fallgate
 </p>
 
 <audio preload="auto" controls>
- <source src="{{ "/assets/posts/fallgate/winter.mp3" | url }}"
+ <source src="/assets/posts/fallgate/winter.mp3"
          type="audio/mp3">
 </audio>
 

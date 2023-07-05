@@ -7,7 +7,7 @@ tags: design
 image: /assets/posts/power-of-lists/power-of-lists-header.jpg
 ---
 
-![]({{ "/assets/posts/power-of-lists/power-of-lists-header.jpg" | url }})
+![](/assets/posts/power-of-lists/power-of-lists-header.jpg)
 
 I often find it extremely helpful when people simply enumerate all of the options for something.
 
@@ -20,7 +20,7 @@ In [this GitHub issue](https://github.com/microsoft/TypeScript/issues/2536), som
 
 As a reply, someone simply posted a list:
 
-![]({{ "/assets/posts/power-of-lists/ts-reserved-keywords.jpg" | url }})
+![](/assets/posts/power-of-lists/ts-reserved-keywords.jpg)
 
 I have used this list many times.
 
@@ -29,20 +29,20 @@ I have used this list many times.
 
 [Grimgrains](https://grimgrains.com/), the Hundred Rabbits' cooking blog, opens with a complete list of ingredients, followed by a complete list of recipes.
 
-![]({{ "/assets/posts/power-of-lists/grimgrains-ingredients.jpg" | url }})
+![](/assets/posts/power-of-lists/grimgrains-ingredients.jpg)
 
-![]({{ "/assets/posts/power-of-lists/grimgrains-recipes.jpg" | url }})
+![](/assets/posts/power-of-lists/grimgrains-recipes.jpg)
 
 
 ## PyTorch Installation and Tensor Types
 
 I've always been a huge fan of [PyTorch's installation instructions](https://pytorch.org/). It concisely but completely enumerates the set of installations. I never mind clicking through.
 
-![]({{ "/assets/posts/power-of-lists/pytorch-install.jpg" | url }})
+![](/assets/posts/power-of-lists/pytorch-install.jpg)
 
 The list of tensor types available in PyTorch has exploded a bit---right now it still says there are ten tensor types, but by my counting, the table has seventeen rows---but I still like that they're all there in one place.
 
-![]({{ "/assets/posts/power-of-lists/pytorch-tensors.jpg" | url }})
+![](/assets/posts/power-of-lists/pytorch-tensors.jpg)
 
 
 ## Matplotlib Color Palettes
@@ -51,7 +51,7 @@ While ordinarily a bane of my existence,[^graphing] Matplotlib's documentation s
 
 [^graphing]: No shade on Matplotlib. You can tell it's trying really hard, and I think graph-making is just actually really complicated to program.
 
-![]({{ "/assets/posts/power-of-lists/matplotlib-colors.jpg" | url }})
+![](/assets/posts/power-of-lists/matplotlib-colors.jpg)
 
 
 ## Tachyons Components and Colors

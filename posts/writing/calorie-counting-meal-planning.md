@@ -5,7 +5,7 @@ tags: "health"
 image: /assets/posts/calorie-counting-meal-planning/header.png
 ---
 
-![]({{ "/assets/posts/calorie-counting-meal-planning/header.svg" | url }})
+![](/assets/posts/calorie-counting-meal-planning/header.svg)
 
 I made a really simple calorie counting × meal planning web app. It’s open-source, and you can use it [here](https://github.com/mbforbes/food) if you’d like (not for the faint of heart). Following it worked pretty well for me—I was able to lose fat, save money, and learn to cook some new things.
 
@@ -27,7 +27,7 @@ If you consume American media, it’s hard not to think that exercise is the key
 
 I remember seeing a graph a while ago that I can’t find, so I’ve made one that expresses the same idea:
 
-![Bar graph comparing calorie intake with food vs spending with exercise]({{ "/assets/posts/calorie-counting-meal-planning/diet-vs-exercise.svg" | url }})
+![Bar graph comparing calorie intake with food vs spending with exercise](/assets/posts/calorie-counting-meal-planning/diet-vs-exercise.svg)
 
 <p class="figcaption i">
 With food, you control calories from roughly 1800 - 3500 per day, but with exercise, you only control 200 - 400.
@@ -48,7 +48,7 @@ Is losing fat as simple as consuming fewer calories than you burn? Aside from li
 
 ## Counting calories
 
-![A picture of San Pellegrino with a splash of aperol.]({{ "/assets/posts/calorie-counting-meal-planning/bubbles.jpg" | url }})
+![A picture of San Pellegrino with a splash of aperol.](/assets/posts/calorie-counting-meal-planning/bubbles.jpg)
 
 <p class="figcaption i">
 San Pellegrino with a splash of aperol. My friend Woody correctly observed that buying water in a bottle shipped from Italy is stupid given access to clean and nearly free tap water. But I maintain it's a great treat substitute for a beer.
@@ -77,7 +77,7 @@ If you’re with me so far, food choice is paramount to losing fat. And if you�
 
 But you’re a human being with money and time to manage. When I thought about getting my food, I really had three goals: cheap, fast, and healthy. Could I get all three at once?
 
-![A venn diagram showing healthy, fast, and cheap meal prep options.]({{ "/assets/posts/calorie-counting-meal-planning/food-venn.svg" | url }})
+![A venn diagram showing healthy, fast, and cheap meal prep options.](/assets/posts/calorie-counting-meal-planning/food-venn.svg)
 
 <p class="figcaption i">
 Only meal prepping hit all three marks of cheap, fast, and healthy.
@@ -117,7 +117,7 @@ With no rules on what you can eat aside from hitting calorie goals[^9], you quic
 
 Dealing with hunger, then, was kind of a natural feedback mechanism for screwing up food choices.
 
-![A cup full of chicken]({{ "/assets/posts/calorie-counting-meal-planning/chicken-cup.jpg" | url }})
+![A cup full of chicken](/assets/posts/calorie-counting-meal-planning/chicken-cup.jpg)
 
 <p class="figcaption i">
 Sometimes you just need a cup full of chicken.
@@ -133,7 +133,7 @@ Simply put, this means combining calorie counting with meal planning.
 
 I originally began my meal planning with a spreadsheet. Looking up the calories for each ingredient is both hugely annoying and hugely informative. One of my earlier sheets looked like this:
 
-![A screenshot of an early calorie counting spreadsheet I used.]({{ "/assets/posts/calorie-counting-meal-planning/spreadsheet-small.png" | url }})
+![A screenshot of an early calorie counting spreadsheet I used.](/assets/posts/calorie-counting-meal-planning/spreadsheet-small.png)
 <p class="figcaption i">
 I don't think I had all of the colors originally.
 </p>
@@ -172,7 +172,7 @@ The final factor is money. Call me stingy, but when my calorie counting and meal
 
 This is off topic but I can’t resist.
 
-![Picture of bad menu translation labeling buttered toast as hot sand]({{ "/assets/posts/calorie-counting-meal-planning/hot-sand.jpg" | url }})
+![Picture of bad menu translation labeling buttered toast as hot sand](/assets/posts/calorie-counting-meal-planning/hot-sand.jpg)
 
 <p class="figcaption i">
 I can't believe it's not sand!
@@ -201,19 +201,19 @@ As I began to make meal plans, first with spreadsheets, and then with early vers
 
 The main view of the web app looks like this:
 
-![]({{ "/assets/posts/calorie-counting-meal-planning/preview-edit.png" | url }})
+![](/assets/posts/calorie-counting-meal-planning/preview-edit.png)
 
 The dishes are on the right, and you drag and drop them into the meal slots for the upcoming week:
 
-![]({{ "/assets/posts/calorie-counting-meal-planning/dnd-add-dish.gif" | url }})
+![](/assets/posts/calorie-counting-meal-planning/dnd-add-dish.gif)
 
 There’s a calorie bank that looks up the components for each dish. And it’s easy to split a dish into multiple servings, allowing you to cook in bulk while still tracking calories:
 
-![]({{ "/assets/posts/calorie-counting-meal-planning/chili-complete.png" | url }})
+![](/assets/posts/calorie-counting-meal-planning/chili-complete.png)
 
 At the bottom, a grocery list is generated, along with a little meal prep checklist:
 
-![]({{ "/assets/posts/calorie-counting-meal-planning/small-grocery-preview.png" | url }})
+![](/assets/posts/calorie-counting-meal-planning/small-grocery-preview.png)
 
 The app is super rough around the edges. You have to edit data (`.json`) files by hand to add ingredients or dishes. Here’s the chili from above:
 

@@ -10,7 +10,7 @@ image: /assets/posts/2022-naxos/arch.moz80.jpg
 
 Among tourist destination islands (probably all of them?), this one seemed laid back. Accordingly we did almost nothing.
 
-![]({{ "/assets/posts/2022-naxos/cat.moz80.jpg" | url }})
+![](/assets/posts/2022-naxos/cat.moz80.jpg)
 
 <p class="figcaption">
 Beach gato!
@@ -21,13 +21,13 @@ Mediterranean water up close is saltier and prettier than just about any liquid 
 
 (Now of course that I write that, I don't have a photo of it.)
 
-![]({{ "/assets/posts/2022-naxos/arch.moz80.jpg" | url }})
+![](/assets/posts/2022-naxos/arch.moz80.jpg)
 
 <p class="figcaption">
 Instead here is a photo of a building I liked.
 </p>
 
-![]({{ "/assets/posts/2022-naxos/mizithra.moz80.jpg" | url }})
+![](/assets/posts/2022-naxos/mizithra.moz80.jpg)
 
 
 <p class="figcaption">
@@ -35,13 +35,13 @@ This time with mizithra. By the way, the whole time was a great exercise in reme
 </p>
 
 
-![]({{ "/assets/posts/2022-naxos/temple.moz80.jpg" | url }})
+![](/assets/posts/2022-naxos/temple.moz80.jpg)
 
 <p class="figcaption">
 Temple of Instagram.
 </p>
 
-![]({{ "/assets/posts/2022-naxos/mario.moz80.jpg" | url }})
+![](/assets/posts/2022-naxos/mario.moz80.jpg)
 
 <p class="figcaption">
 I delighted in this <a href="https://characterprofile.fandom.com/wiki/Mario?file=Mario.png">Mario</a> knockoff welcoming you into a random market.

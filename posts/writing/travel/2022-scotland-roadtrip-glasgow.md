@@ -67,7 +67,7 @@ We also finally paid or dues and went to a Scotch distillery. We ended up pickin
 
 [^whisky]: And I've really tried to like whisky. Back when _No Man's Sky_ came out and didn't yet have any redeeming qualities, I bought a bottle of Macallan 12 and made a habit of sitting down to play it with a glass. I tried everything---neat, ice, drops of water---while suffering through maybe ¾ the bottle over a couple months. The peatier ones I can take even less. Combine that with probably a dozen or so flights / "you have to try this Scotch" encounters over the years, and I can still only barely smile through a splash. Gin, for example, I find far more drinkable. Probably the one bit of progress is I'm happy with whisky-based cocktails now. I haven't given up, but it's not looking promising.
 
-![]({{ "/assets/posts/2022-scotland/28-brewery-distill-close.moz80.jpg" | url }})
+![](/assets/posts/2022-scotland/28-brewery-distill-close.moz80.jpg)
 
 ## UK Domestic Design
 
@@ -75,13 +75,13 @@ There were just a couple funny funny bits of design I want to comment on.
 
 The first is the faucets. Generally OK, sometimes maddening. Some appear to be designed by someone who has never used a faucet. E.g., these things pour the water less than an inch from the back.
 
-![]({{ "/assets/posts/2022-scotland/design-faucet-close.moz80.jpg" | url }})
+![](/assets/posts/2022-scotland/design-faucet-close.moz80.jpg)
 
 All that wasted space. You end up slamming your hands into the porcelain constantly trying to rinse.
 
 Then, there's the truly comical separate-hot-and-cold situation.
 
-![]({{ "/assets/posts/2022-scotland/design-faucet-two.moz80.jpg" | url }})
+![](/assets/posts/2022-scotland/design-faucet-two.moz80.jpg)
 
 Out of the left comes skin demolishing scalding water, and out of the right a frigid stream. There's no way to mix to achieve warm water except, I don't know, plugging the drain and filing up the sink? In practice you just use cold water all the time.
 
@@ -89,7 +89,7 @@ Another funny feature---which we've now seen mimicked in other UK-influenced[^co
 
 [^colonized]: "Influenced" AKA "colonized" 😬
 
-![]({{ "/assets/posts/2022-scotland/design-socket-switch.moz80.jpg" | url }})
+![](/assets/posts/2022-scotland/design-socket-switch.moz80.jpg)
 
 It's kind of neat, and I imagine lets you save some power. But since basically every modern device comes with an on/off switch itself, caring about  just-plugged-in power savings as always struck me as an exercise in obsessiveness. When you have bulky travel adapters like ours, it takes delicate positioning to plug them in and keep the outlet on.
 
@@ -112,7 +112,7 @@ I am still in denial of this, but I think I need to accept it. I am out £65 (~$
 
 This sounds impossible, right? The UK is one of the most developed countries, with one of the strongest currencies, on the planet. There is no way that the Pound sterling, AKA British pound, is totally bogus when you happen to get them from an ATM in Scotland, right? Scotland, a place that is so hardcore part of the UK that no lists of countries I come across even count Scotland as its own country? Right?!
 
-Wrong. No place I have been in the world since will accept the bills I got in Scotland. They tell me, "they're Scottish pounds, not British pounds." This especially gets me annoyed, because [Scotland is half of Britain]({{ "/posts/2022-edinburgh/#interlude:-uk-vs-great-britain" | url }}) (sorry again, Wales). What they really mean is they're Scottish-issued pounds, not English-issued pounds.
+Wrong. No place I have been in the world since will accept the bills I got in Scotland. They tell me, "they're Scottish pounds, not British pounds." This especially gets me annoyed, because [Scotland is half of Britain](/posts/2022-edinburgh/#interlude:-uk-vs-great-britain) (sorry again, Wales). What they really mean is they're Scottish-issued pounds, not English-issued pounds.
 
 My bills, which I had absolutely no idea were any different than pounds you get anywhere else, have been universally rejected, from Serbia to Singapore.
 

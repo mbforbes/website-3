@@ -22,7 +22,7 @@ abstract class Component { }
 
 This deceptively simple interface can drive a considerable number of designs when put inside an ECS. Its uses are best shown by example.
 
-So, let's check out three Components I wrote for [Fallgate]({{ "/posts/fallgate/" | url }}). For each Component, I'll give example code that uses it, and discuss some design tradeoffs that arise. After the example components, we'll bend the notion of a Component by adding _code_ to the classes instead of only storing data.  I'll cover three ways that I added code to Components.
+So, let's check out three Components I wrote for [Fallgate](/posts/fallgate/). For each Component, I'll give example code that uses it, and discuss some design tradeoffs that arise. After the example components, we'll bend the notion of a Component by adding _code_ to the classes instead of only storing data.  I'll cover three ways that I added code to Components.
 
 > Just to be clear, the example usage code below all lives in Systems, not the Components. But I figured it'd be easiest to understand what these Components do if you see how they're used.
 

@@ -23,7 +23,7 @@ EV | ??? | Variable, often -1**
 
 TODO:
 - display sleep / camera off (separate?)
-- shutter
+- shutter (mech vs electronic)
 
 <md-raw>
 <p class="figcaption" style="text-align: left;">

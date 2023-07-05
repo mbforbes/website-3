@@ -37,7 +37,7 @@ The average fruit or vegetable that we've tried from the supermarket has equalle
 
 To add insult to injury, they're also cheaper. See, e.g., gorgeous strawberries above for about $1/lb.
 
-![]({{ "/assets/posts/2022-malaga/seafood.moz80.jpg" | url }})
+![](/assets/posts/2022-malaga/seafood.moz80.jpg)
 
 Sorry, this is a generic crappy picture, but I just want to revel in this delight of a pile of fried seafood:
 - shrimp, big & small
@@ -52,7 +52,7 @@ Sorry, this is a generic crappy picture, but I just want to revel in this deligh
 
 It's spooky, and I don't know if it's because I'm getting older or something else has changed in my brain[^beauty], but I'm so obsessed with looking at plants these days.
 
-[^beauty]: Or if, with limited access to cultural beauty [as an outsider]({{ "/posts/2022-lisbon/" | url }}), I've subconsciously switched over to seeking natural beauty?
+[^beauty]: Or if, with limited access to cultural beauty [as an outsider](/posts/2022-lisbon/), I've subconsciously switched over to seeking natural beauty?
 
 {% img [
     "/assets/posts/2022-malaga/bamboo.moz80.jpg",

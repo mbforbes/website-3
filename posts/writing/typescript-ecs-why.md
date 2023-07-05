@@ -18,7 +18,7 @@ There are several questions we should ask ourselves upfront:
 
 Game engine architectures seem to be a mini religious war in programming, much like Emacs vs Vim, or tabs vs spaces. You can find critiques by prominent game industry figures:
 
-![jonathan blow says ecs only good for big teams]({{ "/assets/posts/typescript-ecs/jblow.jpg" | url }})
+![jonathan blow says ecs only good for big teams](/assets/posts/typescript-ecs/jblow.jpg)
 
 Here's an example of one such big company (Blizzard) using ECS to build a prominent game (Overwatch):
 

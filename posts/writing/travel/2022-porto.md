@@ -17,7 +17,7 @@ Porto was, like Lisbon, completely flooded with tourists. But its bigger streets
 
 ## Port
 
-![]({{ "/assets/posts/2022-porto/many-barrels.moz80.jpg" | url }})
+![](/assets/posts/2022-porto/many-barrels.moz80.jpg)
 
 <p class="figcaption">
 In <span class="i">Sandeman's</span> cellars.
@@ -48,7 +48,7 @@ Port's export history was rooted in some entrepreneuring English guy, and even n
 
 Anyway, here I am doing what an anonymous source has termed my "crazy eyes," attempting to put my considerable schnoz to good use in one of those funny glasses.
 
-![]({{ "/assets/posts/2022-porto/max-porto.moz80.jpg" | url }})
+![](/assets/posts/2022-porto/max-porto.moz80.jpg)
 
 <p class="figcaption">
 Somehow port already staining my fingers, etc.
@@ -86,7 +86,7 @@ This might have been a "water in the desert" situation after being packed in wit
 
 Ponds, fields, wooded areas, paths, overlooks, shade, sun, quiet, and space.
 
-![]({{ "/assets/posts/2022-porto/park-pond.moz80.jpg" | url }})
+![](/assets/posts/2022-porto/park-pond.moz80.jpg)
 
 <p class="figcaption">
 All sorts of little nooks underneath trees and nestled next to ponds.
@@ -94,7 +94,7 @@ All sorts of little nooks underneath trees and nestled next to ponds.
 
 One funny but clever thing I saw were these stone chairs, specifically angled to create separate groups:
 
-![]({{ "/assets/posts/2022-porto/grouped-benches.moz80.jpg" | url }})
+![](/assets/posts/2022-porto/grouped-benches.moz80.jpg)
 
 <p class="figcaption">
 It's a smart design. I think if three people where in five parallel chairs, a separate group of two people wouldn't be likely to use the remainder. But I think they might with these.
@@ -159,7 +159,7 @@ Last one (mobile) / bottom-right (desktop) is actually wood masquerading as cobb
 
 Here is a feline I found.
 
-![]({{ "/assets/posts/2022-porto/cat.moz80.jpg" | url }})
+![](/assets/posts/2022-porto/cat.moz80.jpg)
 
 ## Tiles
 

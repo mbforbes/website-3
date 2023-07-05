@@ -357,7 +357,7 @@ ecs.removeSystem(locator); // Bye bye.
 
 ## What's Next
 
-**Complexity.** This ECS is the one I started with when programming the game [Fallgate]({{ "/posts/fallgate/" | url }}). Its core design remained the same throughout the project, but over time I added a few more bells and whistles to handle needs that I encountered. So, I'd like to go through each aspect of the engine and write more about how it grew and why. I'll do that in the upcoming sections.
+**Complexity.** This ECS is the one I started with when programming the game [Fallgate](/posts/fallgate/). Its core design remained the same throughout the project, but over time I added a few more bells and whistles to handle needs that I encountered. So, I'd like to go through each aspect of the engine and write more about how it grew and why. I'll do that in the upcoming sections.
 
 > In general, though, this was one area where organic growth worked well. If I didn't need some capability---like removing a system, as I mentioned above in the code---I just never wrote it.
 

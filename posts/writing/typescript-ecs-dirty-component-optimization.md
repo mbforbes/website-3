@@ -11,7 +11,7 @@ image: /assets/posts/typescript-ecs/ecs-screenshot.png
 
 A while into development, my co-developer Cooper made a level with a ton of objects. Specifically, crates.[^collab]
 
-![]({{ "/assets/posts/typescript-ecs/lot-of-crates.jpg" | url }})
+![](/assets/posts/typescript-ecs/lot-of-crates.jpg)
 
 <p class="figcaption">A similar level in the finished game. That's a lotta crates.</p>
 
@@ -35,7 +35,7 @@ Intuitively, the problem felt fixable, because the crates aren't actually _doing
 
 Fortunately, I had my wits about me. Rather than blindly rushing in and optimizing, I implemented a profiling system that would let us see what was taking so long in Cooper's Crate-topia.
 
-![]({{ "/assets/posts/typescript-ecs/measurement-before.jpg" | url }})
+![](/assets/posts/typescript-ecs/measurement-before.jpg)
 
 <p class="figcaption">Our profiling (white bars and text) rendering on top of the game's debug view.</p>
 
@@ -193,7 +193,7 @@ class Position extends Component {
 
 <p class="figcaption">The <code>Position</code> Component, now with dirty Component optimization.</p>
 
-First, as a quick throwback, you may notice two techniques that we covered in our [`Component` deep-dive]({{ "/posts/typescript-ecs-components/" | url }}):
+First, as a quick throwback, you may notice two techniques that we covered in our [`Component` deep-dive](/posts/typescript-ecs-components/):
 - that we reveal only a copy of our underlying `Point` using getters/setters
 - that we check angles against being `NaN`before setting
 
@@ -546,6 +546,6 @@ If we change the `LatestHealthLogger` to iterate over all `entities`, rather tha
 
 After the dirty Component optimization---and some other improvements to collision detection, which I might cover elsewhere---we brought the _update_ time for each frame from **11.8ms** down to **1.4ms**. The game now ran buttery smooth.
 
-![]({{ "/assets/posts/typescript-ecs/measurement-after.jpg" | url }})
+![](/assets/posts/typescript-ecs/measurement-after.jpg)
 
 Most importantly, the changes meant the game's performance now depended on the number of things that _changed_ every frame, not the number of things that simply _existed._ This paved the way for even bigger levels without worrying about performance.

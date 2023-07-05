@@ -13,8 +13,8 @@ redirect_from: /blog/nerja-granada/
 
 Beach vibes. So many Brits here signs outside bars like "Liverpool match at 15:00."
 
-![]({{ "/assets/posts/2022-nerja/rock.moz80.jpg" | url }})
+![](/assets/posts/2022-nerja/rock.moz80.jpg)
 
-![]({{ "/assets/posts/2022-nerja/horizon.moz80.jpg" | url }})
+![](/assets/posts/2022-nerja/horizon.moz80.jpg)
 
-![]({{ "/assets/posts/2022-nerja/cat.moz80.jpg" | url }})
+![](/assets/posts/2022-nerja/cat.moz80.jpg)

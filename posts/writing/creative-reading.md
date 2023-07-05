@@ -4,7 +4,7 @@ date: 2020-08-27
 tags: "creating & thinking"
 ---
 
-![]({{ "/assets/posts/creative-reading/tree.jpg" | url }})
+![](/assets/posts/creative-reading/tree.jpg)
 
 A little bit ago, I spent a weekend by a lake. We rented a cabin. I passed two days cooking and soaking in nature’s abundant stimulus. Before we left for home, I sat by the lake one last time, opened up a dense book,[^1] and started slowly chewing through the arguments.
 
@@ -42,7 +42,7 @@ Maybe the closest thing that tries to get you to do this is poetry. I could imag
 
 I’ve had a hard time clicking with poetry because I can’t figure out what the hell is going on. Maybe I should try again.
 
-[^1]:	It was a book of Niklas Luhmann’s. I’ve [complained about Luhmann]({{ "/posts/use-examples/" | url }}) because his prose is dense and enigmatic. I stand by this (I mean you'd hope so, I wrote it like a week ago) because I think his goal was science and not art. However, I think you can actually enjoy it as art. Just get in a relaxed mood and don't worry about getting actual ideas or truth out of the writing. Sort of like savory linguistic chewing gum.
+[^1]:	It was a book of Niklas Luhmann’s. I’ve [complained about Luhmann](/posts/use-examples/) because his prose is dense and enigmatic. I stand by this (I mean you'd hope so, I wrote it like a week ago) because I think his goal was science and not art. However, I think you can actually enjoy it as art. Just get in a relaxed mood and don't worry about getting actual ideas or truth out of the writing. Sort of like savory linguistic chewing gum.
 
 [^2]:	Brief Googling reveals others may have already coined "creative reading." But fear not: I have no idea what they meant by it and am not going to find out.
 

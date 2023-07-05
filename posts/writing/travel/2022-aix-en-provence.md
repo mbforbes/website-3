@@ -142,7 +142,7 @@ Let me offer some photos from Domino's itself to demonstrate the difference.
 USA Domino's is its own food genre, in the same way that Taco Bell is not Mexican Food, it is its own thing. Their pizza is not "New York pizza" or anything like that.
 It's more like a particularly good formula of cheesy bread.
 
-![]({{ "/assets/posts/2022-france/dominos-usa.moz80.jpg" | url }})
+![](/assets/posts/2022-france/dominos-usa.moz80.jpg)
 
 <p class="figcaption">
 Domino's USA (source: <a href="https://www.facebook.com/Dominos/photos/a.34325539956/10151649060119957/?type=3">Domino's</a>)
@@ -151,7 +151,7 @@ Domino's USA (source: <a href="https://www.facebook.com/Dominos/photos/a.3432553
 Europe Domino's on the other hand seems to be trying to go more "classic pizza."
 One hypothesis is that people here are used to pizza looking a certain way, and the thing on the top wouldn't be pizza to them. So instead you end up with:
 
-![]({{ "/assets/posts/2022-france/dominos-uk.moz80.jpg" | url }})
+![](/assets/posts/2022-france/dominos-uk.moz80.jpg)
 
 <p class="figcaption">
 Domino's Europe (source: <a href="https://corporate.dominos.co.uk/about-us2">Domino's</a>)

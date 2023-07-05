@@ -55,7 +55,7 @@ The perfume store is in an area called Belgravia. We go there and I walk around 
     "/assets/posts/2022-london/private-park-sign.moz80.jpg"
 ], true %}
 
-Or that's what I thought I'd do. But private parks struck again. You'd think I'd be prepared for this since I hit [private parks in Edinburgh]({{ "/posts/2022-edinburgh/#nature-bafflement" | url }}), but this time I was struck by their sheer dominance. There was no public greenery within a half hour walk. I tried park after park, only to find them all gated and locked. Bah humbug.
+Or that's what I thought I'd do. But private parks struck again. You'd think I'd be prepared for this since I hit [private parks in Edinburgh](/posts/2022-edinburgh/#nature-bafflement), but this time I was struck by their sheer dominance. There was no public greenery within a half hour walk. I tried park after park, only to find them all gated and locked. Bah humbug.
 
 As I walked around, I started noticing strange things. The cars were exclusively Rolls Royce, Bentley, some Lambos, and the occasional Tesla. Down the street was an establishment with people lining the porch wearing---I kid you not---smoking jackets, puffing on cigars. At the corner was an extremely pink building surrounding by relatively normal people who looked universally uncomfortable.
 
@@ -158,11 +158,11 @@ So anyway, this is all to say: there we were, blasting around London for a few d
 
 Yotam Ottolenghi, writer of delightfully creative vegetable-based cookbooks and owner of a small empire of restaurants, is based in London. We submitted our wallets to his pastry powers.
 
-![]({{ "/assets/posts/2022-london/jars.moz80.jpg" | url }})
+![](/assets/posts/2022-london/jars.moz80.jpg)
 
 <p class="figcaption">When I look back at this photo, the only phrase that seems fitting is: "Ottolenghi ALL THE THINGS."</p>
 
-![]({{ "/assets/posts/2022-london/pastries.moz80.jpg" | url }})
+![](/assets/posts/2022-london/pastries.moz80.jpg)
 
 <p class="figcaption">Damn if he didn't nail one of these, though I can't remember which.</p>
 
@@ -180,31 +180,31 @@ I have, again, saved you from a bunch of pictures of food.[^foodpic] Instead, he
 
 One things microwaves and washing machines have in common is they both sometimes have a pizza button.
 
-![]({{ "/assets/posts/2022-london/misc-washer-buttons.moz80.jpg" | url }})
+![](/assets/posts/2022-london/misc-washer-buttons.moz80.jpg)
 
 <p class="figcaption">I loathe these buttons. What, exactly, do they do? Does anyone actually use them?</p>
 
 Another addition to _America Abroad_ collection, the American candy store
 
-![]({{ "/assets/posts/2022-london/misc-american-candy.moz80.jpg" | url }})
+![](/assets/posts/2022-london/misc-american-candy.moz80.jpg)
 
 <p class="figcaption">USA track record still not doing so hot</p>
 
 OK here's a nice one: this bus has a TV screen that simply shows you what it looks like out the front of the bus, because you can't see out from your seat.
 
-![]({{ "/assets/posts/2022-london/misc-bus-camera.moz80.jpg" | url }})
+![](/assets/posts/2022-london/misc-bus-camera.moz80.jpg)
 
 <p class="figcaption">Sounds trivial, but this was super nice to have. It's satisfying just to see where you're going.</p>
 
 English airports get the award for the only places that actually make you put all your liquids in a bag.
 
-![]({{ "/assets/posts/2022-london/misc-airport-bag.moz80.jpg" | url }})
+![](/assets/posts/2022-london/misc-airport-bag.moz80.jpg)
 
 <p class="figcaption">They must go through an ungodly number of these a day.</p>
 
 Ever wondered about the UK flag? Turns out the composition is pretty cute:
 
-![]({{ "/assets/posts/2022-london/uk-flag-anatomy.png" | url }})
+![](/assets/posts/2022-london/uk-flag-anatomy.png)
 
 <p class="figcaption">
 Nothing says Christianity quite like three different crosses layered on top of each other. Actually, I hadn't realized that elongated X and + shapes like these in flags were actually Christian crosses. Now that I knew that, I started noticing them way more. BTW, as usual things are controversial here. Just picking Ireland's contribution: <span class="i">Most Irish nationalists and others reject its use to represent Ireland as a "British invention" "for a people who had never used it" (<a href="https://en.wikipedia.org/wiki/Saint_Patrick%27s_Saltire">Wikipedia</a>).</span>

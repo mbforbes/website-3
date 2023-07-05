@@ -6,7 +6,7 @@ tags: design
 image: /assets/posts/misclicking-live-search/cover.jpg
 ---
 
-<object id="cover" type="image/svg+xml" data="{{ "/assets/posts/misclicking-live-search/cover.svg" | url }}"></object>
+<object id="cover" type="image/svg+xml" data="/assets/posts/misclicking-live-search/cover.svg"></object>
 
 This post is about problems with search-as-you-type features, like search on an iPhone or Spotlight on macOS.
 
@@ -14,13 +14,13 @@ This post is about problems with search-as-you-type features, like search on an 
 
 On my phone, I want to open Google Maps. So I swipe down and start typing “maps.” I get to “m” and search results start streaming in:
 
-![]({{ "/assets/posts/misclicking-live-search/searches-1.jpg" | url }})
+![](/assets/posts/misclicking-live-search/searches-1.jpg)
 
 <p class="figcaption">Ah good, there it is, just let me...</p>
 
 As I finish typing “maps,” I notice where Google Maps is, so I start moving my big stupid slow finger to press it. But right before I touch the screen:
 
-![]({{ "/assets/posts/misclicking-live-search/searches-2.jpg" | url }})
+![](/assets/posts/misclicking-live-search/searches-2.jpg)
 
 <p class="figcaption">I end up opening the settings page for Apple Maps, rather than the actual app for Google Maps.</p>
 
@@ -67,7 +67,7 @@ When I first wrote this, I was using an iPhone 6 and a Macbook Pro from 2015. No
 
 Have they fixed the design? Or have I just graduated back into the expensive class of blissful ignorance?
 
-<script src="{{ "/assets/lib/anime-3.2.1.min.js" | url }}"></script>
+<script src="/assets/lib/anime-3.2.1.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('cover').addEventListener("load", function() {

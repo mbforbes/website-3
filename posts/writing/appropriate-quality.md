@@ -5,7 +5,7 @@ tags: "creating & thinking"
 image: /assets/posts/appropriate-quality/measurement.jpg
 ---
 
-![]({{ "/assets/posts/appropriate-quality/measurement.jpg" | url }})
+![](/assets/posts/appropriate-quality/measurement.jpg)
 
 One skill I have avoided learning for years is doing work at the appropriate level of quality.
 
@@ -74,7 +74,7 @@ I actually started this post with the intention of just saying, “watch out for
 
 What happened was that I realized in the last few days that something was off with my formula. I wasn’t excited to work on this website anymore. This was alarming because consistently working on my website was something I’ve wanted for many years, and I’d finally just made the habit.
 
-The [“Use Examples” post]({{ "/posts/use-examples/" | url }}) took me way too long to edit. (Actually, all the longer essays took way too long to edit.) It didn’t feel worth how much time I spent on it.[^2] It’s not so much that no one reads my writing—though it’s tempting to say that’s the reason, it’s a red herring. And it’s not quite that they needed to be shorter, though [I thought this was the case]({{ "/blog/smaller-posts/" | url }}).
+The [“Use Examples” post](/posts/use-examples/) took me way too long to edit. (Actually, all the longer essays took way too long to edit.) It didn’t feel worth how much time I spent on it.[^2] It’s not so much that no one reads my writing—though it’s tempting to say that’s the reason, it’s a red herring. And it’s not quite that they needed to be shorter, though [I thought this was the case](/blog/smaller-posts/).
 
 It’s that the quality calibration was off. First, these blogs posts don’t have to be high quality. They’re mostly for me, and most of the benefit seems to come from writing the ideas down in the first place. Second, spending a significant time editing only produced a small delta in quality. This is basically the 80/20 rule.
 

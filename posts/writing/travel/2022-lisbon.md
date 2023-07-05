@@ -13,7 +13,7 @@ redirect_from: /blog/lisbon-tiny-europe-woes/
 
 My last memories of Europe are strong and fond. I spent a year in Zurich, Switzerland as a student in college. I made so many friends—both locals and transplants—studied and worked in the city at various times, and did my damndest to learn the local language.[^lang]
 
-![]({{ "/assets/posts/2022-lisbon/bridge-frame.moz80.jpg" | url }})
+![](/assets/posts/2022-lisbon/bridge-frame.moz80.jpg)
 
 [^lang]: For those of you familiar with Swiss German, this is a complex undertaking. I really just learned high (AKA “standard” AKA “Germany”) German and reveled in the few Swiss words I picked up.
 
@@ -35,14 +35,14 @@ I made a list of what struck me the first few days in Lisbon:
 - Cars drive unbelievably fast in the available space. Passing others on sidewalk requires going into the street. A stupid death feels readily available.
 - Due to narrow streets and omnipresent cars, constant smell of gasoline.
 
-![]({{ "/assets/posts/2022-lisbon/tree-house.moz80.jpg" | url }})
+![](/assets/posts/2022-lisbon/tree-house.moz80.jpg)
 
 - Teaming abundance of tourists. For a surprising radius in the city. Locals must hate us. I would.
 - Portuguese sounds like Spanish mixed with Russian. Reads very similar to Spanish.
 - Old men greeting locals with grumpy barks. They like it. Or each other with hugs.
 - Portuguese chain smoking by empty beer glasses at cafes without any signs, with plain tables crammed together in a single whitewashed rectangular room. These are local joints.
 
-![]({{ "/assets/posts/2022-lisbon/courtyard.moz80.jpg" | url }})
+![](/assets/posts/2022-lisbon/courtyard.moz80.jpg)
 
 - Egg tarts are dangerously as good as everyone said they would be.
 - Every meal out has been well-salted and well-cooked. Subtle herbs and spices, pleasant, difficult to pinpoint.
@@ -57,6 +57,6 @@ Without knowing locals, and without speaking the language, it feels like you can
     {path: "/assets/posts/2022-lisbon/vert-col.moz80.jpg", maxHeight: "640px"}
 ]] %}
 
-![]({{ "/assets/posts/2022-lisbon/castle.moz80.jpg" | url }})
+![](/assets/posts/2022-lisbon/castle.moz80.jpg)
 
 Anyway, just a tiny woe---and one obvious in hindsight---to accept. Good impetus to find old friends and make new ones. And overall, it has been lovely here.

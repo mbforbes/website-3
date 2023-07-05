@@ -59,7 +59,7 @@ Just talking to people in our mutual native tongues was such a welcome reduction
 
 We were lucky to find an AirBnb to stay in that was someone's actual home. And it was a new listing, so still cheap. Look at this gorgeous living room.
 
-![]({{ "/assets/posts/2022-edinburgh/home.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/home.moz80.jpg)
 
 We only got it for one week, and apparently we cashed in our AirBnb karma because the second week we ended up in one of those barren, everything-more-than-slightly-broken crapholes, in which, at night, I would lay on the many piles of sharp springs and imagine the YouTube video that could have sparked our faceless host's landlording, _Hey You Budding Entrepreneur, Make Passive Income With No Effort_ etc.
 
@@ -71,7 +71,7 @@ I was initially worried we should have stayed in the district on the water that'
 
 [^leith]: Locals might actually call where we were "Leith," so don't trust my terminology.
 
-![]({{ "/assets/posts/2022-edinburgh/leith-bridge.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/leith-bridge.moz80.jpg)
 
 <p class="figcaption">Still pleasant for a stroll though.</p>
 
@@ -99,15 +99,15 @@ Here are some Jerries screaming about how nice the sunset is in 4K.
 
 ## Interlude: UK _vs_ Great Britain
 
-<link rel="stylesheet" href="{{ "/assets/css/leaflet.css" | url }}" />
-<link rel="stylesheet" href="{{ "/assets/css/maps.css" | url }}" />
-<script type="text/javascript" src="{{ "/assets/lib/leaflet-1.8.0.js" | url }}"></script>
-<script type="text/javascript" src="{{ "/assets/lib/tile.stamen-1.3.0.js" | url }}"></script>
-<script type="text/javascript" src="{{ "/assets/lib/anime-3.2.1.min.js" | url }}"></script>
+<link rel="stylesheet" href="/assets/css/leaflet.css" />
+<link rel="stylesheet" href="/assets/css/maps.css" />
+<script type="text/javascript" src="/assets/lib/leaflet-1.8.0.js"></script>
+<script type="text/javascript" src="/assets/lib/tile.stamen-1.3.0.js"></script>
+<script type="text/javascript" src="/assets/lib/anime-3.2.1.min.js"></script>
 <script type="text/javascript">
-let libDir = "{{ "/assets/mapData/" | url }}";
+let libDir = "/assets/mapData/";
 </script>
-<script type="text/javascript" src="{{ "/assets/posts/2022-edinburgh/uk-vs-gb.js" | url }}" defer></script>
+<script type="text/javascript" src="/assets/posts/2022-edinburgh/uk-vs-gb.js" defer></script>
 
 I have always used _UK,_ _Great Britain,_ and _England_ interchangeably. I finally decided to learn the distinctions.
 
@@ -116,7 +116,7 @@ To start, let's look at geography without political boundaries. The complete set
 > Note: If you're a regular visitor and don't see any maps below, please hard-refresh the page (`⌘`+`Shift`+`R` on Mac, `Ctrl`+`Shift`+`R` Win/Linux).
 
 <div id="mapGeo" class="leafletMap mapBig bg-white fig center">
-<img src="{{ "/assets/posts/2022-edinburgh/map-geo-screenshot.png" | url }}" loading="lazy" decoding="async" />
+<img src="/assets/posts/2022-edinburgh/map-geo-screenshot.png" loading="lazy" decoding="async" />
 </div>
 <div class="figcaption">
 <span class="b">British Isles</span>:
@@ -131,7 +131,7 @@ I'm already cheating a bit; sometimes (Great) Britain is just the one big island
 Now it gets messy. Ireland is broken up into two countries: _Republic of Ireland_ and _Northern Ireland_. And Great Britain is broken up into three countries: England, Wales, and Scotland.
 
 <div id="mapCountry" class="leafletMap mapBig bg-white fig center">
-<img src="{{ "/assets/posts/2022-edinburgh/map-countries-screenshot.png" | url }}" loading="lazy" decoding="async" />
+<img src="/assets/posts/2022-edinburgh/map-countries-screenshot.png" loading="lazy" decoding="async" />
 </div>
 <div class="figcaption">
 <span class="b">Countries</span>:
@@ -152,7 +152,7 @@ Already, there's something I didn't realize: that England, Scotland, and Wales a
 Anyway, yes, it turns out you can have countries within countries. The way that Wikipedia at least handles this is calling the UK, fully known as _The United Kingdom of Great Britain and Northern Ireland,_ a "sovereign country."
 
 <div id="mapPolitical" class="leafletMap mapBig bg-white fig center">
-<img src="{{ "/assets/posts/2022-edinburgh/map-sovereign-screenshot.png" | url }}" loading="lazy" decoding="async" />
+<img src="/assets/posts/2022-edinburgh/map-sovereign-screenshot.png" loading="lazy" decoding="async" />
 </div>
 <div class="figcaption">
 <span class="b">Sovereign Countries</span>:
@@ -204,7 +204,7 @@ The rest of the castle was kind of a weird copy-paste of a bunch of indistinguis
 
 E.g., heroic figure recreating one of the crown's many conquests / looting agendas:
 
-![]({{ "/assets/posts/2022-edinburgh/castle-figure.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/castle-figure.moz80.jpg)
 
 <p class="figcaption">
 The reason I took this photo was my continued amusement that the iPhone's portrait mode works on inanimate objects. I'm not sure why that entertains me.
@@ -218,7 +218,7 @@ One upside is this made me aware of the nuance and art of curation. I bet that c
 
 I did learn some things, like that commanding military people would traditionally give their reports silver after a successful campaign.
 
-![]({{ "/assets/posts/2022-edinburgh/castle-silver.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/castle-silver.moz80.jpg)
 
 <p class="figcaption">Hey, silver seems nice.</p>
 
@@ -246,11 +246,11 @@ I have saved the best for last. A bunch of rooms had bagpipes blaring out songs 
 
 Here's what baffled me: there are **private parks** here. Like right in the middle of the city. Big parks you can't enter. They're totally fenced off and all entrances are locked with a key.
 
-![]({{ "/assets/posts/2022-edinburgh/private-park.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/private-park.moz80.jpg)
 
 I found what looked like a really nice park super close to the city center but I couldn't see a way in. I couldn't imagine it being not open to the public, so I walked around the whole thing. (It is quite big.)
 
-![]({{ "/assets/posts/2022-edinburgh/private-park-location.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/private-park-location.moz80.jpg)
 
 <p class="figcaption">Map source: OpenStreetMap</p>
 
@@ -258,7 +258,7 @@ Even when I saw signs mentioning applying for a set of keys, I assumed that was 
 
 Finally I saw someone walking an expensive looking dog whisk out a set of keys and open one of the doors.
 
-![]({{ "/assets/posts/2022-edinburgh/private-park-gate.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/private-park-gate.moz80.jpg)
 
 So yeah, a completely foreign concept.
 
@@ -275,12 +275,12 @@ To complete the bafflement, there was a big and delightful botanical garden that
 
 The weirdest thing in the garden was this memorial hut for a person Wikipedia tells me I'm to refer to as _Queen Elizabeth The Queen Mother_ (mom of current ancient queen). The inside is completely plastered with pine cones and sea shells that way a child might decorate a tree house, but because adults did it for royalty it's like, sort of nice?
 
-![]({{ "/assets/posts/2022-edinburgh/weird-nature-hut.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/weird-nature-hut.moz80.jpg)
 
 The other weird thing in it was this stone work with typographic decisions I have never seen in English: stacked and embedded letters. The memorial must have been post-2002 (that's when she died), so maybe this is some stonework nouveau trend.
 
 
-![]({{ "/assets/posts/2022-edinburgh/weird-typography-close.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/weird-typography-close.moz80.jpg)
 
 <p class="figcaption">
 Or maybe this is common and I need to brush up on my rock typography.
@@ -292,19 +292,19 @@ Ever since we spent a few days in [Nerja](/posts/2022-nerja/) (south Spanish coa
 
 Turns out I incepted myself, so when we saw an _English breakfast pack_ in Lidl I insisted we get it and live as the locals do.
 
-![]({{ "/assets/posts/2022-edinburgh/proper-breakfast.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/proper-breakfast.moz80.jpg)
 
 <p class="figcaption">It actually wasn't half bad. I had Julie not tell me what haggis was until after we'd finished.</p>
 
 The local specialty soda is Irn Bru, which tastes like 80% orange cream soda and 20% the medicinal spices of Red Bull. I think if I grew up here I'd love the stuff.
 
-![]({{ "/assets/posts/2022-edinburgh/irn-bru.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/irn-bru.moz80.jpg)
 
 ### Interlude on Being "Into Food"
 
 One issue we are continuously balancing as we travel is how much to _critique_ what we eat vs just enjoy it.
 
-![]({{ "/assets/posts/2022-edinburgh/cake-scoop.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/cake-scoop.moz80.jpg)
 
 <p class="figcaption">Assessment at work.</p>
 
@@ -318,7 +318,7 @@ But, inevitably, if you're in that habit, then every meal---even one you cook---
 
 No stunning conclusion here, just---hey, sometimes it's good to remember to _enjoy your pizza._
 
-![]({{ "/assets/posts/2022-edinburgh/julie-pizza.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/julie-pizza.moz80.jpg)
 
 <p class="figcaption">Beer helps.</p>
 
@@ -383,7 +383,7 @@ Actual people playing cricket.
 
 ---
 
-![]({{ "/assets/posts/2022-edinburgh/water-reflection.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/water-reflection.moz80.jpg)
 
 <p class="figcaption">
 The bizarre reflecting area in this pond in the botanical garden.
@@ -392,7 +392,7 @@ The bizarre reflecting area in this pond in the botanical garden.
 
 ---
 
-![]({{ "/assets/posts/2022-edinburgh/frog-death.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/frog-death.moz80.jpg)
 
 <p class="figcaption">
 This ad where a frog meets its horrid demise next to a couple casually dining.
@@ -400,7 +400,7 @@ This ad where a frog meets its horrid demise next to a couple casually dining.
 
 ---
 
-![]({{ "/assets/posts/2022-edinburgh/traffic-hat.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/traffic-hat.moz80.jpg)
 
 <p class="figcaption">
 The quiet dignity of this statue man despite circumstances. Somehow seemed symbolic. Could not quite put finger on why.
@@ -409,7 +409,7 @@ The quiet dignity of this statue man despite circumstances. Somehow seemed symbo
 
 ---
 
-![]({{ "/assets/posts/2022-edinburgh/the-filling-station.moz80.jpg" | url }})
+![](/assets/posts/2022-edinburgh/the-filling-station.moz80.jpg)
 
 <p class="figcaption">
 Latest addition to my <span class="i">America Abroad</span> collection: a restaurant serving American classics they decided to name <span class="tracked">THE FILLING STATION</span>.

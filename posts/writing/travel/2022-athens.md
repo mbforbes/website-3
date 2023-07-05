@@ -26,7 +26,7 @@ The scale of sprawl is hard to capture because it's a bazillion six-ish story bu
 
 Marcus (pictured below) started the humbling trend of _how generous friends can be when they haven't seen you in ten years._ I've been so grateful for it.
 
-![]({{ "/assets/posts/2022-athens/marcus.moz80.jpg" | url }})
+![](/assets/posts/2022-athens/marcus.moz80.jpg)
 
 <p class="figcaption">
 Ridiculously photogenic, as always.
@@ -34,22 +34,22 @@ Ridiculously photogenic, as always.
 
 And, every stranger we talked to was kind and helpful. (Everyone we told this to was a bit surprised.)
 
-![]({{ "/assets/posts/2022-athens/ancient-greek.moz80.jpg" | url }})
+![](/assets/posts/2022-athens/ancient-greek.moz80.jpg)
 
 <p class="figcaption">
 Friendly reminder people had to invent writing spaces between words. (And some languages still don't do this.) I asked Marcus about reading Ancient Greek, and he said they learn it for years in school. There are some similarities with modern Greek, but it's also quite different. In hindsight, this makes complete sense; I thought of trying to read Old English (though no idea how close the comparison is).
 </p>
 
 
-![]({{ "/assets/posts/2022-athens/empty.moz80.jpg" | url }})
+![](/assets/posts/2022-athens/empty.moz80.jpg)
 
-![]({{ "/assets/posts/2022-athens/food-fair.moz80.jpg" | url }})
+![](/assets/posts/2022-athens/food-fair.moz80.jpg)
 
 <p class="figcaption">
 Many gems we would have missed without a local, like this food fair with craft beer and great vegan food.
 </p>
 
-![]({{ "/assets/posts/2022-athens/morning.moz80.jpg" | url }})
+![](/assets/posts/2022-athens/morning.moz80.jpg)
 
 <p class="figcaption">
 Jet lag was actually awesome this time. Wish I could have sustained sunrise wakeups. A hot tropical morning with delivery mopeds occasionally buzzing around evokes for me strong SE Asia vibes.
@@ -57,20 +57,20 @@ Jet lag was actually awesome this time. Wish I could have sustained sunrise wake
 
 Our optimistic plans of cooking local food are nearly always dashed by spartan AirBnb kitchens equipped basically only for pasta making. We made do by throwing in a bunch of olives.
 
-![]({{ "/assets/posts/2022-athens/pasta.moz80.jpg" | url }})
+![](/assets/posts/2022-athens/pasta.moz80.jpg)
 
 <p class="figcaption">
 Riff on <a href="https://www.bonappetit.com/recipe/herby-pasta-with-garlic-and-green-olives">this recipe from BA</a>.
 </p>
 
 
-![]({{ "/assets/posts/2022-athens/cat.moz80.jpg" | url }})
+![](/assets/posts/2022-athens/cat.moz80.jpg)
 
 <p class="figcaption">
 Ubiquitous strays I can't stop calling "beach gatos."
 </p>
 
-![]({{ "/assets/posts/2022-athens/plant-pair.moz80.jpg" | url }})
+![](/assets/posts/2022-athens/plant-pair.moz80.jpg)
 
 <p class="figcaption">
 Just two plant pals.

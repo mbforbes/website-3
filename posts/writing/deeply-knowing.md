@@ -5,7 +5,7 @@ tags: "creating & thinking"
 image: /assets/posts/deeply-knowing/cloud-top.jpg
 ---
 
-![]({{ "/assets/posts/deeply-knowing/cloud-top.jpg" | url }})
+![](/assets/posts/deeply-knowing/cloud-top.jpg)
 
 I think the most important distinction in knowledge is whether you intellectually understand something to be true, or deeply know it.
 

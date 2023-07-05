@@ -150,7 +150,7 @@ This. Is. So. Cool.
 
 Everywhere, you see both Latin and Cyrillic. Billboards, store names, street signs, menus, information placards. I'd never been somewhere where Cyrillic is used, but this was a treat beyond my expectations: fluid use of two writing systems!
 
-![]({{ "/assets/posts/2022-serbia/Cyrillic-italics-nonitalics.png" | url }})
+![](/assets/posts/2022-serbia/Cyrillic-italics-nonitalics.png)
 
 <p class="figcaption">Cyrillic letters & italic variants.</p>
 
@@ -175,7 +175,7 @@ Fences that don’t quite reach anywhere, and people don’t really care about t
 Many things functioning but unfinished.
 Rules a bit more like suggestions.
 
-![]({{ "/assets/posts/2022-serbia/b-church-park.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/b-church-park.moz80.jpg)
 
 <p class="figcaption">The park is kind of like, "fuck it, we're tired of building, let's just go."</p>
 
@@ -212,11 +212,11 @@ This triggered the start of my reflecting on the concept of _repair._ How repair
 
 When you start noticing this stuff, it’s easy to hunt for the most destroyed buildings, the biggest ugliest commie blocks, the grossest pile of trash. Photograph those and tell one story with it.
 
-![]({{ "/assets/posts/2022-serbia/b-underground.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/b-underground.moz80.jpg)
 
 <p class="figcaption">Underground passageway</p>
 
-![]({{ "/assets/posts/2022-serbia/b-fountain-pressure.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/b-fountain-pressure.moz80.jpg)
 
 <p class="figcaption">Some disarray is subtle, like the jets of this fountain exhibiting wildly different water pressure levels.</p>
 
@@ -234,11 +234,11 @@ But the story of ruins and rubble isn't true, of course. The truth is somewhere 
 
 Sometimes you would see both failed construction and newness in the same place. Belgrade's train station is perpetually half-built, years overdue. Tracks plunge into a great concrete ceiling that has the vague hopes of a second story sticking out of it.
 
-![]({{ "/assets/posts/2022-serbia/b-train-station.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/b-train-station.moz80.jpg)
 
 But the trains themselves are quite nice---the cars feel right out of Germany.
 
-![]({{ "/assets/posts/2022-serbia/train.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/train.moz80.jpg)
 
 This inconsistency made me reflect on my total lack of understanding of how development takes place.
 
@@ -250,7 +250,7 @@ But what would you do if you were in charge of a developing place? Do you worry 
 
 My friend Bor had told me about this. "After the Americans bombed them in 1999, they just left this destroyed building right in the middle of the city."
 
-![]({{ "/assets/posts/2022-serbia/b-bombed-building.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/b-bombed-building.moz80.jpg)
 
 And so they had. The whole situation is messy. Yugoslavia was committing genocide against Albanians in Kosovo. NATO wasn't supposed to stop them because Russia and China said no. But they went and bombed Serbia anyway.
 
@@ -260,11 +260,11 @@ Belgrade left the rubble long enough that it eventually became a "de facto war m
 
 Serendipitously, what appears to be a gigantic military poster hangs on a wall across the street.
 
-![]({{ "/assets/posts/2022-serbia/b-poster.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/b-poster.moz80.jpg)
 
 ### Climbing
 
-![]({{ "/assets/posts/2022-serbia/b-max-climb.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/b-max-climb.moz80.jpg)
 
 It's good to do _something_ that locals do. Lets you peek into a slice of life, even just a little. For us, this is rock climbing. We seek out a local indoor bouldering gym wherever we can.
 
@@ -281,7 +281,7 @@ My favorite places to go are where locals would say, "why would you go there? Th
 
 We took a long sweltering walk across the river to New Belgrade.
 
-![]({{ "/assets/posts/2022-serbia/b-julie-walk-bridge.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/b-julie-walk-bridge.moz80.jpg)
 
 <p class="figcaption">This is actually from the way back.</p>
 
@@ -333,41 +333,41 @@ We asked a guy inside whether we could go up to the restaurant at the top. He sa
 
 Not pictured, but we had the best ćevapi (grilled sausages w/ flat bread) to date in Belgrade. And that feast of a dinner cost under $2.50 each.
 
-Visiting cocktail bars in new cities is fun. We encountered strong opinions and minimal herby potions in [Ljubljana]({{ "/posts/2022-slovenia/#food-+-drink-interlude" | url }}). The bar we visited in Belgrade was willing to build more elaborate rum-based tropical drinks.[^balance] The best part of the place was the big framed picture of Tito---former beloved head of former beloved Yugoslavia.
+Visiting cocktail bars in new cities is fun. We encountered strong opinions and minimal herby potions in [Ljubljana](/posts/2022-slovenia/#food-+-drink-interlude). The bar we visited in Belgrade was willing to build more elaborate rum-based tropical drinks.[^balance] The best part of the place was the big framed picture of Tito---former beloved head of former beloved Yugoslavia.
 
 [^balance]: The tiki drinks were uncreative and out of balance :-( Think twice before you get snobby about something. I mostly drink beer now.
 
-![]({{ "/assets/posts/2022-serbia/b-bar-out.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/b-bar-out.moz80.jpg)
 
 Simple foods like börek and coffee were wonderfully cheap and delicious.
 
-![]({{ "/assets/posts/2022-serbia/b-food-borek.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/b-food-borek.moz80.jpg)
 
 <p class="figcaption">Belgrade did have the advantage of being the first Balkan place we visited in this travel segment. We'd grow desperate for vegetables over the coming weeks, subsisting entirely on grilled meat, baked cheese, and bread.</p>
 
-![]({{ "/assets/posts/2022-serbia/n-food.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/n-food.moz80.jpg)
 
 <p class="figcaption">This is actually from Novi Sad. A cool restaurant called <a href="https://plavafrajla.rs/?lang=en">Plava Frajla</a> proudly features the Vojvodina region, the north part of Serbia. Hearty food that seems to have Germanic influence. Their menu has plentiful asides telling you about the food history and culture.</p>
 
 ### Little Observations
 
-![]({{ "/assets/posts/2022-serbia/b-names.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/b-names.moz80.jpg)
 
 <p class="figcaption">"I can't remember... let's see, his last name ends with 'vić.' Is that helpful?"</p>
 
-![]({{ "/assets/posts/2022-serbia/b-womens-secret.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/b-womens-secret.moz80.jpg)
 
 <p class="figcaption">Blatant knockoff of Victoria's Secret?</p>
 
-![]({{ "/assets/posts/2022-serbia/b-new-nork.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/b-new-nork.moz80.jpg)
 
 <p class="figcaption">"New Nork" really just slides off the tongue.</p>
 
-![]({{ "/assets/posts/2022-serbia/b-coca-cola-store.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/b-coca-cola-store.moz80.jpg)
 
 <p class="figcaption">Have you ever seen a Coca Cola store before?</p>
 
-![]({{ "/assets/posts/2022-serbia/b-dirt-tracks.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/b-dirt-tracks.moz80.jpg)
 
 <p class="figcaption">I hadn't thought so much about regulation for a while. Like, limiting what people can do. (E.g., drive on grass and destroy it.) I have a hypothesis that, like many things, people are most comfortable with the amount of regulation in the place they grew up. (Destroyed grass also happens in the USA, especially in parks they're setting up for a festival like this.)</p>
 
@@ -419,7 +419,7 @@ Took the train down from Novi Sad. We were the only ones who got off the train. 
 
 Strangely, we passed by a lot full of tour busses, drivers idling.
 
-![]({{ "/assets/posts/2022-serbia/s-busses.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/s-busses.moz80.jpg)
 
 This is the kind of entertainment you get when you DIY somewhere. We'd eventually find the bus inhabitants in the form of British and German tour groups.
 
@@ -450,7 +450,7 @@ After spending a good forty minutes with him, I tried to pay him when we said go
 
 This was some serious generosity to two random foreigners who walk into your place. The least I can do is give them a plug: if you end up in Sremski Karlovci, check out Petrovic. Their remodel should be done by the time you visit. There's no way he would remember us, but tell him thanks from two Americans to whom he showed touching hospitality warmth when they were hot and tired and wanted Cab. Sav.
 
-![]({{ "/assets/posts/2022-serbia/vending.moz80.jpg" | url }})
+![](/assets/posts/2022-serbia/vending.moz80.jpg)
 
 <p class="figcaption">One last thing. Got scammed by this damned vending machine waiting for the train to Belgrade. Parched, I put in about $10 to get change so I could buy a Pocari Sweat (Japanese Gatorade) from the machine next to it. Turns out the sign on it says it gives maximum $0.75 of change. The last thing I wanted while dehydrated at 6pm was twelve hot coffees. My only hope is that someone eventually came and drank all the free beverages I'd pumped it with.</p>
 
