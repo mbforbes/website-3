@@ -447,6 +447,14 @@ Tachyons:
 */
 
 h1 {
+    /* I'd love text-wrap: balance on all headings, but currently (7/8/23) it's playing
+       badly with break-word, which is necessary to stop titles from potentially making
+       the screen wider. For the title "Image Placeholder Test Page", Chrome is breaking
+       "Placeholder" so the final "r" is on the next line. This is kind of insane because
+       you'd think the overflow wrap would only activate in emergency situations, but it
+       appears to then be in service of balance. The `text-wrap: balance` might be in early
+       stages still since vscode doesn't know it exists, so might just give this time. */
+    /* text-wrap: balance; */
     overflow-wrap: break-word;
 }
 

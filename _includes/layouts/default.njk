@@ -37,7 +37,7 @@
   {% if coverImage %}
     {# NOTE: To add nice color borders, could incorporate the following div. #}
     {# <div class="w-100 pa4 pa5-ns" style="background-color: #F1E7DD"> #}
-      <img src="{{ coverImage }}" class="db" />
+      {% coverImg coverImage, "db w-100 h-auto bg-navy" %}
     {# </div> #}
   {% endif %}
 

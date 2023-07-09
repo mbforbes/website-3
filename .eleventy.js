@@ -708,6 +708,33 @@ module.exports = function (eleventyConfig) {
         });
     });
 
+    eleventyConfig.addShortcode("coverImg", async function (path, classes = "", style = "") {
+        let localPath = path[0] == "/" ? path.substring(1) : path;
+        let stats = Image.statsSync(localPath);
+        let w = stats.jpeg[0].width;  // NOTE: Change if I ever use more than jpegs
+        let ws = [];
+        while (w > 500) {
+            ws.push(w);
+            w = Math.round(w / 2);
+        }
+
+        let metadata = await Image(localPath, {
+            widths: ws,
+            formats: ["auto"],
+            outputDir: "./_site/assets/eleventyImgs/",
+            urlPath: "/assets/eleventyImgs/",
+        });
+        return Image.generateHTML(metadata, {
+            sizes: "100vw",
+            class: classes,
+            style: style,
+            // cover image is @ page top, so we actually want it to load ASAP
+            // loading: "lazy",
+            // decoding: "async",
+            alt: "",
+        });
+    });
+
     /**
      * pathOrPaths (str | str[])
      * attribution (bool, default: true) --- whether to add attribution <p> below

@@ -1003,7 +1003,7 @@ The tall img is now broken again, doesn't seem easily fixable. The other one is 
 
 Abandoning this direction. Eleventy Imgs is too slow with the current num. images anyway, given we need to restart the server every time because it caches files wrong. I'm also pretty sure that with all the auto dimensions it wouldn't reserve space anyway.
 
-## Width-limiting
+### Width-limiting
 
 We can width-limit individual images. Is it best to width-limit containers so that we can margin-align multiple images?
 
@@ -1114,7 +1114,7 @@ An additional improvement will be in image size savings. Here's the math for lan
 
 There's also a chance this helps me start integrating source sets (multiple image sizes) or even adding dimensions to reserve space, though I don't want to jinx it.
 
-## Reminder: Matching Heights
+### Reminder: Matching Heights
 
 Another thing I'm noticing re-reading my old design notes is I'd tested my layouts all assuming side-by-side images have the same height. I wonder if this was related to the issues I had above when trying to use auto-generated image sizes: that if the heights don't match, my CSS might not work. I remember the issue being weirder though.
 
