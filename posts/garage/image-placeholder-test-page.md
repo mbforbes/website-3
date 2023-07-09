@@ -192,3 +192,11 @@ eleventyConfig.addShortcode("coverImg", async function (path, classes = "", styl
 ```
 
 This works! Cover images now save space rather than causing layout shifts (just a navy background color for now), and smaller sizes are generated and loaded when appropriate.
+
+### 5/6 thumbhash
+
+It's surprisingly hard to figure out how to use it! Even the example JavaScript code says "you'll probably generate the hashes on the server," but there's no example JavaScript code to do this on the server (i.e., in Node). A lovely commenter gave an example Node implementation in an issue that uses a Rust canvas library:
+
+https://github.com/evanw/thumbhash/issues/2
+
+I want to make sure this installs before proceeding.
