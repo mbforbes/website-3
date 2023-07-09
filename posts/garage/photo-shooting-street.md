@@ -21,10 +21,6 @@ Min shutter speed | 1/125s | 1/250s
 Aperture | 1.7 | 1.7
 EV | ??? | Variable, often -1**
 
-TODO:
-- display sleep / camera off (separate?)
-- shutter (mech vs electronic)
-
 <md-raw>
 <p class="figcaption" style="text-align: left;">
 * With a filter and a hood, the lens cap is rarely needed anyway.
@@ -32,6 +28,12 @@ TODO:
 ** I don't have a good answer to the exposure setting (EV). I just don't want whites to clip. Setting lower prevents this, but it's still something I need to adjust based on lighting. And, like aperture, I still regularly forget that I've set it too low.
 </p>
 </md-raw>
+
+TODO:
+- display sleep / camera off (separate?)
+- shutter (mech vs electronic)
+- image stabilization
+- image preview
 
 In other words, walking around with the camera always on, held in your hand, primed to go.
 
