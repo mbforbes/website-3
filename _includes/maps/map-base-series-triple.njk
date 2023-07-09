@@ -15,8 +15,8 @@
 {# standard wrapperClasses are "map-bg" #}
 <div class="full-width cb flex flex-wrap flex-nowrap-ns justify-center pv4 pv5-l {% block wrapperClasses %}{% endblock %}">
     {# Col 1: Series #}
-    <div class="ph3 w-100 w-third-ns normal-links sans-serif flex justify-center self-center">
-        <div class="">
+    <div class="ph3 w-100 w-third-ns normal-links sans-serif flex justify-left justify-center-ns self-center">
+        <div class="pl4 pl0-ns">
             <p class="b ttu tracked lh-solid mt1 mb2 mb3-l f4 dib">{{ series }}</p>
             {% set colClass = "doublecol-ns" if seriesPostDatas | length >= 10 else "" %}
             <ol class="ma0 f5 {{ colClass }} pl0">
