@@ -1,7 +1,7 @@
 ---
 title: Image Placeholder Test Page
 date: 2023-07-08
-updated: 2023-07-09
+updated: 2023-07-11
 ---
 
 Is it possible to have images save space and render placeholders before they've loaded?
@@ -200,3 +200,75 @@ It's surprisingly hard to figure out how to use it! Even the example JavaScript 
 https://github.com/evanw/thumbhash/issues/2
 
 I want to make sure this installs before proceeding.
+
+Debugging hash.
+
+img | expected (hex) | actual (hex)
+--- | --- | ---
+`test-cover.moz80.jpg` | `8F E8 09 0D 82 BE 89 57 7F 77 87 6D 77 98 77 68 04 91 B9 FA 76` | `{% thumbhashhex '/assets/garage/image-placeholder-test-page/test-cover.moz80.jpg' %}`
+
+Hashing images test:
+
+img | b64 hash
+--- | ---
+`test-cover.moz80.jpg` | {% thumbhash '/assets/garage/image-placeholder-test-page/test-cover.moz80.jpg' %}
+`test-cover.570w.moz80.jpg` | {% thumbhash '/assets/garage/image-placeholder-test-page/test-cover.570w.moz80.jpg' %}
+
+Live image preview test:
+
+<img class="w-100" style="aspect-ratio: 3/2;" data-thumbhash-b64="{% thumbhash '/assets/garage/image-placeholder-test-page/test-cover.moz80.jpg' %}" />
+
+<img class="w-100" style="aspect-ratio: 3/2;" data-thumbhash-b64="{% thumbhash '/assets/garage/image-placeholder-test-page/test-cover.570w.moz80.jpg' %}" />
+
+Rendering test:
+
+<img class="w-100" style="aspect-ratio: 3/2;" data-thumbhash-hex="8F E8 09 0D 82 BE 89 57 7F 77 87 6D 77 98 77 68 04 91 B9 FA 76" />
+
+<script type="module">
+    // some code from https://github.com/evanw/thumbhash/blob/main/examples/browser/index.html
+
+    import * as ThumbHash from '/assets/lib/thumbhash.js';
+
+    const base64ToBinary = base64 => new Uint8Array(atob(base64).split('').map(x => x.charCodeAt(0)));
+
+    // const el = document.getElementById("thTester");
+    const els = document.querySelectorAll('[data-thumbhash-b64]');
+    for (let el of els) {
+        const b64Hash = el.getAttribute("data-thumbhash-b64");
+        const binHash = base64ToBinary(b64Hash);
+        const placeholderURL = ThumbHash.thumbHashToDataURL(binHash);
+        el.style.background = `center / cover url(${placeholderURL})`;
+    }
+
+    function hex2bin(hexStr) {
+        const hex = hexStr.replace(/[\s,\[\]]/g, '');
+        if (hex.length & 1 || /[^0-9a-fA-F]/.test(hex)) {
+            console.error("Failed test");
+            return
+        }
+        const hash = new Uint8Array(hex.length >> 1)
+        for (let i = 0; i < hex.length; i += 2)
+            hash[i >> 1] = parseInt(hex.slice(i, i + 2), 16)
+        return hash
+    }
+
+    const hexEls = document.querySelectorAll('[data-thumbhash-hex]');
+    for (let el of hexEls) {
+        const hexHash = el.getAttribute("data-thumbhash-hex");
+        const binHash = hex2bin(hexHash);
+        const placeholderURL = ThumbHash.thumbHashToDataURL(binHash);
+        el.style.background = `center / cover url(${placeholderURL})`;
+    }
+</script>
+
+OK, so I can render the thumbhashes correctly, but the issue is I'm not generating them correctly. I guess this isn't too surprising given I'm using the code in a random GitHub comment.
+
+This repository might offer some guidance about using the napi-rs package I'm using
+https://github.com/amehashi/thumbhash-node
+
+Ah, solved the bug! One line was using the original widths instead of the smaller resized ones. This might have been grabbing a bunch of empty pixels or something.
+
+```diff-js
+-const imageData = ctx.getImageData(0, 0, width, height);
++const imageData = ctx.getImageData(0, 0, resizedWidth, resizedHeight);
+```

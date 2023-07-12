@@ -9,6 +9,35 @@ const markdownItReplacements = require('markdown-it-replacements');
 const readingTime = require('eleventy-plugin-reading-time');
 const Image = require("@11ty/eleventy-img");
 
+// d1
+// const { createCanvas, loadImage } = require("@napi-rs/canvas");
+// const { rgbaToThumbHash } = require("thumbhash");
+
+// d2
+// import { createCanvas, loadImage } from "@napi-rs/canvas";
+// import { rgbaToThumbHash } from "thumbhash";
+
+// d3
+// let canvasModule, thumbHashModule;
+// (async function () {
+//     canvasModule = await import("@napi-rs/canvas");
+//     thumbHashModule = await import("thumbhash");
+// })();
+
+// const { createCanvas, loadImage } = canvasModule;
+// const { rgbaToThumbHash } = thumbHashModule;
+
+// d4
+// const { createCanvas, loadImage } = await import("@napi-rs/canvas");
+// const { rgbaToThumbHash } = await import("thumbhash");
+
+// d5
+const canvas = require("@napi-rs/canvas");
+const createCanvas = canvas.createCanvas;
+const loadImage = canvas.loadImage;
+const thumbhash = import("thumbhash"); // then await later
+
+
 /**
  * Custom md lib. Made to preserve raw (HTML) blocks from being markdown parsed.
  *
@@ -706,6 +735,56 @@ module.exports = function (eleventyConfig) {
             decoding: "async",
             alt: "",
         });
+    });
+
+    /**
+     * Thanks to:
+     * https://github.com/evanw/thumbhash/issues/2#issuecomment-1481848612
+     *
+     * @param {*} path string
+     * @returns Promise<Uint8Array>
+     */
+    async function loadAndHashImage(path) {
+        let th = await thumbhash;
+        // let rgbaToThumbhash = th.rgbaToThumbHash;
+
+        const maxSize = 100;
+        const image = await loadImage(path);
+        const width = image.width;
+        const height = image.height;
+        // console.log(image);
+        // console.log("img w:", width);
+        // console.log("img h:", height);
+
+        const scale = Math.min(maxSize / width, maxSize / height);
+        const resizedWidth = Math.round(width * scale);
+        const resizedHeight = Math.round(height * scale);
+
+        const canvas = createCanvas(resizedWidth, resizedHeight);
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(image, 0, 0, resizedWidth, resizedHeight);
+
+        // const imageData = ctx.getImageData(0, 0, width, height);
+        const imageData = ctx.getImageData(0, 0, resizedWidth, resizedHeight);
+        const rgba = new Uint8Array(imageData.data.buffer);
+        const hash = th.rgbaToThumbHash(resizedWidth, resizedHeight, rgba);
+        return hash;
+    }
+
+    const binaryToBase64 = (binary) => btoa(String.fromCharCode(...binary));
+
+    eleventyConfig.addShortcode("thumbhash", async function (path) {
+        let localPath = path[0] == "/" ? path.substring(1) : path;
+        const binaryHash = await loadAndHashImage(localPath);
+        const base64Hash = binaryToBase64(binaryHash);
+        return base64Hash;
+    });
+
+    eleventyConfig.addShortcode("thumbhashhex", async function (path) {
+        let localPath = path[0] == "/" ? path.substring(1) : path;
+        const binaryHash = await loadAndHashImage(localPath);
+        const preview = Array.from(binaryHash).map(b => b.toString(16).padStart(2, '0')).join(' ').toUpperCase();
+        return preview;
     });
 
     eleventyConfig.addShortcode("coverImg", async function (path, classes = "", style = "") {
