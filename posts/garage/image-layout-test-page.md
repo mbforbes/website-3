@@ -1084,7 +1084,7 @@ Removing height-limiting means single and double images now create clean margins
 
 Of course, single portrait images will still be massive, but that's just inevitable. This way, at least, they still match the margins because the container is limited, not the image.
 
-<div class="full-width cb flex justify-center ph1-m ph3-l figbot mt1">
+<div class="full-width cb flex justify-center ph1-m ph3-l fig mt1">
   <div style="max-width: min(1140px, 133.3vh);">
     <img class="db bare novmargin " src="/assets/garage/image-test-pages/signs-2by3.moz80.jpg" loading="lazy" decoding="async">
   </div>
@@ -1123,6 +1123,68 @@ Another thing I'm noticing re-reading my old design notes is I'd tested my layou
   "/assets/garage/image-test-pages/256x256@2x.png"
 ]] %}
 
-<p class="figcaption">But yeah, different heights, they definitely don't match.</p>
+<p class="figcaption">v1: Yep, different heights, they definitely don't match.</p>
+
+{% img2 [[
+  "/assets/garage/image-test-pages/704x939@3x.png",
+  "/assets/garage/image-test-pages/256x256@2x.png"
+]] %}
+
+<p class="figcaption">v2: And it's even wilder since we've removed height-limiting.</p>
 
 Out of curiosity, I checked `eleventy-img` again, and there is indeed no way to specify height resizes, only width. The [issue](https://github.com/11ty/eleventy-img/issues/31) that contains that feature request has been open since November 2020 and as of writing (June 2023) it remains the top feature request but is still unimplemented. Damn.
+
+### v2: Non-Matching Heights
+
+Will this work w/ the new changes?
+
+**Exports**
+
+The maximum display size for portrait orientation images w/ the new 1140px width is 570 x 855px, or **1140 x 1710px** to get @2x. A massive single-image scroller could hit 2280 x 3420px @2x, but honestly that's rare enough I will be fine re-exporting those outside of the batch.
+
+I could limit dimension (i.e., height for portrait) to 2280, though the size reduction would probably be substantial:
+
+- 2280 x 1520px = 3.47M px
+- 1710 x 1140px = 1.95M px (56% of size)
+
+Anyway, good to know. Right now I'm testing non-matching heights so just gotta export to something.
+
+**Layout**
+
+<style>
+
+</style>
+
+Proof of concept using manually-set width percentages:
+
+<div class="full-width cb flex justify-center ph1-m ph3-l fig">
+    <div class="flex flex-wrap flex-nowrap-ns justify-center media-max-width">
+        <div class="mr1-ns mb1 mb0-ns" style="width: 30.77%">
+            <img class="db bare novmargin" src="/assets/garage/image-test-pages/v2-1521x2280.moz80.jpg" loading="lazy" decoding="async">
+        </div>
+        <div style="width: 69.23%">
+            <img class="db bare novmargin" src="/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg" loading="lazy" decoding="async">
+        </div>
+    </div>
+</div>
+
+Computed as:
+
+- ratios are h/w
+- img1 is 3/2 (ratio)
+- img2 is 2/3 (ratio)
+- total ratio is 3/2 + 2/3 = 2.1666
+- img1w = (3/2) / 2.1666 = 0.6923
+- img2w = (2/3) / 2.1666 = 0.3077
+- (OK but something might be backwards because the taller image gets the less wide container)
+
+I'm almost certain there's no way of doing this (at least that I'll ever find) w/ CSS Flexbox (or Grid) if the images are of different pixel heights. This still seems bonkers to me, because they're never rendered at their true size anyway. And yet, yes, it does seem like without the images having the same pixel heights at the source, they won't create a same-height, aspect-ratio-preserving, full-width flexbox row.
+
+I guess the good news is that if I ever do figure out the right CSS incantation, I can just strip out any manual widths I've added in with the macro.
+
+For reference, current results of `img2` macro:
+
+{% img2 [[
+  "/assets/garage/image-test-pages/v2-1521x2280.moz80.jpg",
+  "/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg"
+]] %}

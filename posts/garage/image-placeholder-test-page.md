@@ -197,7 +197,7 @@ eleventyConfig.addShortcode("coverImg", async function (path, classes = "", styl
 
 This works! Cover images now save space rather than causing layout shifts (just a navy background color for now), and smaller sizes are generated and loaded when appropriate.
 
-### 5/6 thumbhash
+### 5/6. thumbhash
 
 It's surprisingly hard to figure out how to use it! Even the example JavaScript code says "you'll probably generate the hashes on the server," but there's no example JavaScript code to do this on the server (i.e., in Node). A lovely commenter gave an example Node implementation in an issue that uses a Rust canvas library:
 
@@ -303,6 +303,19 @@ One bummer for now is that eleventy is a bit slow already generating pages becau
 &nbsp; | `npm run build`
 --- | ---
 base | 7.0s (3x avg)
-+ coverImg thumbhashes | 9.6s (3x avg)
+\+ coverImg thumbhashes | 9.6s (3x avg)
 
 There are some silly things I'm doing in the Eleventy config file (e.g., `await thumbhash` to load the library... every function call?), and I'm not precomputing / caching the thumbhashes, which I totally could do. But ~10s for every reload is already getting pretty crazy.
+
+### 7. v1/v2 migration
+
+n/a
+
+
+## Main images
+
+I'm a fool, but I want this to work. Scrolling through a big page of jumping images is dreadful.
+
+The first thing is to get the image layout working w/ non-height matching images. As-always, this work is done over at the [image layout test page](/garage/image-layout-test-page/).
+
+> Actually, I should just see if I can output the dimensions and have solid backgrounds (and possibly thumbhashes) first. Then I can worry about the non-matching heights and eleventyImg sizes later. But I did get a working draft of the non-matching heights hacked up, so can reference that down the line.
