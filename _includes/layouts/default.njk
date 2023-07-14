@@ -73,6 +73,20 @@
   {% include "footer.njk" %}
 
   {# Dispaly scripts #}
+  {#
+     async on module? Via MDN (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script):
+
+     "The defer attribute has no effect on module scripts — they defer by default."
+
+     ... but also ...
+
+     "For module scripts, if the async attribute is present then the scripts and all
+     their dependencies will be executed in the defer queue, therefore they will get
+     fetched in parallel to parsing and evaluated as soon as they are available."
+
+     So, without async, are they not in the defer queue? IDK.
+   #}
+  <script type="text/javascript" src="/assets/js/render-thumbhashes.js" fetchpriority="high"></script>
   <script type="text/javascript" src="/assets/js/wave.js" defer></script>
   <script type="text/javascript" src="/assets/js/lazyBlurBGs.js" defer></script>
   <script type="text/javascript" src="/assets/js/sidenotes.js" defer></script>

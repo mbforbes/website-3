@@ -8,35 +8,9 @@ const markdownItLazyLoading = require('markdown-it-image-lazy-loading');
 const markdownItReplacements = require('markdown-it-replacements');
 const readingTime = require('eleventy-plugin-reading-time');
 const Image = require("@11ty/eleventy-img");
-
-// d1
-// const { createCanvas, loadImage } = require("@napi-rs/canvas");
-// const { rgbaToThumbHash } = require("thumbhash");
-
-// d2
-// import { createCanvas, loadImage } from "@napi-rs/canvas";
-// import { rgbaToThumbHash } from "thumbhash";
-
-// d3
-// let canvasModule, thumbHashModule;
-// (async function () {
-//     canvasModule = await import("@napi-rs/canvas");
-//     thumbHashModule = await import("thumbhash");
-// })();
-
-// const { createCanvas, loadImage } = canvasModule;
-// const { rgbaToThumbHash } = thumbHashModule;
-
-// d4
-// const { createCanvas, loadImage } = await import("@napi-rs/canvas");
-// const { rgbaToThumbHash } = await import("thumbhash");
-
-// d5
-const canvas = require("@napi-rs/canvas");
-const createCanvas = canvas.createCanvas;
-const loadImage = canvas.loadImage;
+const { createCanvas, loadImage } = require("@napi-rs/canvas");
+// Probably a better way to do this but I never figured it out.
 const thumbhash = import("thumbhash"); // then await later
-
 
 /**
  * Custom md lib. Made to preserve raw (HTML) blocks from being markdown parsed.
@@ -745,8 +719,7 @@ module.exports = function (eleventyConfig) {
      * @returns Promise<Uint8Array>
      */
     async function loadAndHashImage(path) {
-        let th = await thumbhash;
-        // let rgbaToThumbhash = th.rgbaToThumbHash;
+        let th = await thumbhash; // repeated awaiting doesn't seem to have much impact on time.
 
         const maxSize = 100;
         const image = await loadImage(path);
@@ -790,6 +763,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addShortcode("coverImg", async function (path, classes = "", style = "") {
         let localPath = path[0] == "/" ? path.substring(1) : path;
         let stats = Image.statsSync(localPath);
+        // let stats = await Image(localPath, { statsOnly: true });  // ideally faster than statsSync; no time diff for now
         let w = stats.jpeg[0].width;  // NOTE: Change if I ever use more than jpegs
         let ws = [];
         while (w > 500) {
@@ -811,6 +785,7 @@ module.exports = function (eleventyConfig) {
             // loading: "lazy",
             // decoding: "async",
             alt: "",
+            "data-thumbhash-b64": binaryToBase64(await loadAndHashImage(localPath)),
         });
     });
 

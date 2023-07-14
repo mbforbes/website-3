@@ -26,9 +26,13 @@ So, fully fixing this site-wide would involve:
 
 4. **Faster eleventy-img or cache correctness** --- Either profiling and patching eleventy-img (optimistically: direct copying enough? maybe not w/ wanting small sizes of everything...) or re-assessing whether I'm OK with keeping the image cache under most occasions, and profiling startup times keeping it.
 
+    - Followup thought: I could get image stats without copying / resizing. If I can get this to be quick, this might be worth it on its own for sizes, and maybe even thumbhash placeholders.
+
 5. **thumbhash profile and frontend integration** --- Investigating `thumbhash` time requirements on page loads, especially on mobile. Checking out both blocking and defer options. The, integrating the scripts into my site.
 
 6. **thumbhash backend integration** --- Adding `thumbhash` generation into the build pipeline, either inside, alongside, or separate to the eleventy-img pipeline.
+
+    - Followup thought: These could be cached, which would make lookups much faster if I'm doing it for hundreds of images.
 
 7. **potential v1&rarr;v2 migration** --- To fix this for all old posts would require changing over the layouts. This probably wouldn't be too bad, though I might run into tough decisions where I have a full-page v1 grid I want to keep, but I can't do it unless I backport all the above fixes to the v1 styles, which would run me back into the layout issues^[Extensive struggles documented in [image layout test page](/garage/image-layout-test-page/)] and the eleventy-img inability to choose a height export. I'd need to either keep v1 and load big images w/ layout shifts, abandon v1, struggle more with the layout, patch eleventy-img, or some combination.
 
@@ -199,46 +203,43 @@ It's surprisingly hard to figure out how to use it! Even the example JavaScript 
 
 https://github.com/evanw/thumbhash/issues/2
 
-I want to make sure this installs before proceeding.
+I want to make sure this installs on my website deployment server before proceeding. (OK, it does.)
 
-Debugging hash.
+I then ran into problems getting the correct hashes to render. The following table's "actual" column runs thumbhash and outputs hex representation. (It's working now. The hashes are very close.)
 
 img | expected (hex) | actual (hex)
 --- | --- | ---
 `test-cover.moz80.jpg` | `8F E8 09 0D 82 BE 89 57 7F 77 87 6D 77 98 77 68 04 91 B9 FA 76` | `{% thumbhashhex '/assets/garage/image-placeholder-test-page/test-cover.moz80.jpg' %}`
 
-Hashing images test:
+The following table shows base64-encoded hashes.
 
 img | b64 hash
 --- | ---
 `test-cover.moz80.jpg` | {% thumbhash '/assets/garage/image-placeholder-test-page/test-cover.moz80.jpg' %}
 `test-cover.570w.moz80.jpg` | {% thumbhash '/assets/garage/image-placeholder-test-page/test-cover.570w.moz80.jpg' %}
 
-Live image preview test:
+<p class="figcaption">Note: I can't get these tables to not overflow and instead scroll on small screens. I hate HTML and CSS.</p>
+
+The following two images renders these base64-encoded hashes as images:
 
 <img class="w-100" style="aspect-ratio: 3/2;" data-thumbhash-b64="{% thumbhash '/assets/garage/image-placeholder-test-page/test-cover.moz80.jpg' %}" />
 
+<p class="figcaption">Rendered thumbhash of test-cover.moz80.jpg</p>
+
 <img class="w-100" style="aspect-ratio: 3/2;" data-thumbhash-b64="{% thumbhash '/assets/garage/image-placeholder-test-page/test-cover.570w.moz80.jpg' %}" />
 
-Rendering test:
+<p class="figcaption">Rendered thumbhash of test-cover.570w.moz80.jpg, i.e., a pre-shrunk version of the above image.</p>
+
+The next image tests rendering: taking a reference hex thumbhash from the thumbhash demo webpage and displaying it as the `background` style of the `<img>` element.
 
 <img class="w-100" style="aspect-ratio: 3/2;" data-thumbhash-hex="8F E8 09 0D 82 BE 89 57 7F 77 87 6D 77 98 77 68 04 91 B9 FA 76" />
+
+<p class="figcaption">{{ "Rendering of pre-computed thumbhash `8F E8 09 0D 82 BE 89 57 7F 77 87 6D 77 98 77 68 04 91 B9 FA 76` from reference implementation." | md | safe }}</p>
 
 <script type="module">
     // some code from https://github.com/evanw/thumbhash/blob/main/examples/browser/index.html
 
     import * as ThumbHash from '/assets/lib/thumbhash.js';
-
-    const base64ToBinary = base64 => new Uint8Array(atob(base64).split('').map(x => x.charCodeAt(0)));
-
-    // const el = document.getElementById("thTester");
-    const els = document.querySelectorAll('[data-thumbhash-b64]');
-    for (let el of els) {
-        const b64Hash = el.getAttribute("data-thumbhash-b64");
-        const binHash = base64ToBinary(b64Hash);
-        const placeholderURL = ThumbHash.thumbHashToDataURL(binHash);
-        el.style.background = `center / cover url(${placeholderURL})`;
-    }
 
     function hex2bin(hexStr) {
         const hex = hexStr.replace(/[\s,\[\]]/g, '');
@@ -261,14 +262,47 @@ Rendering test:
     }
 </script>
 
-OK, so I can render the thumbhashes correctly, but the issue is I'm not generating them correctly. I guess this isn't too surprising given I'm using the code in a random GitHub comment.
+From the above tests, I learned that I was rendering the thumbhashes fine, but I wasn't generating them correctly. I guess this isn't too surprising given I'm using the code in a random GitHub comment.
 
-This repository might offer some guidance about using the napi-rs package I'm using
+This repository might offer some guidance about using the napi-rs package I'm using:
 https://github.com/amehashi/thumbhash-node
 
-Ah, solved the bug! One line was using the original widths instead of the smaller resized ones. This might have been grabbing a bunch of empty pixels or something.
+Ah, solved the bug! One line was using the original widths instead of the smaller resized ones. This might have been grabbing a bunch of empty pixels.
 
 ```diff-js
 -const imageData = ctx.getImageData(0, 0, width, height);
 +const imageData = ctx.getImageData(0, 0, resizedWidth, resizedHeight);
 ```
+
+My next question is about what to actually do on pageload. I can think of a few options:
+
+1. Send thumbhash
+
+    a. render immediately (blocking, early JS)
+
+    b. render later, blocking (blocking, late JS)
+
+    c. render later, nonblocking (deferred JS)
+
+2. Send full PNG placeholder
+
+The PNG data is about 4.2KB. This isn't much; 100 images would be 420KB. But it's certainly more elegant to send the base64 thumbhash, which is 29B.
+
+**Testing 1. send thumbhash**
+
+Starting with least-obtrusive first.
+
+- **c.** If the (module) script is loaded with all the `defer`ed scripts, with or without `async`, on either fast or slow 3G, the cover image is ~50-75% loaded by the time the thumbhash background appears.
+
+- **b.** If the non-module script is placed near the bottom of the page, but is blocking, it pops in very quickly (image maybe 1% loaded), and takes 2-6ms to run. (Surprisingly, the script executes slower on fast/slow 3G throttling. Why?)
+
+This seems like a good balance. But if there are 100 images, will it take 600ms to run? Probably not, since JIT / startup time, but I'm curious.
+
+One bummer for now is that eleventy is a bit slow already generating pages because of doing the thumbhashes.
+
+&nbsp; | `npm run build`
+--- | ---
+base | 7.0s (3x avg)
++ coverImg thumbhashes | 9.6s (3x avg)
+
+There are some silly things I'm doing in the Eleventy config file (e.g., `await thumbhash` to load the library... every function call?), and I'm not precomputing / caching the thumbhashes, which I totally could do. But ~10s for every reload is already getting pretty crazy.
