@@ -1187,7 +1187,7 @@ For reference, current results of `img2` macro:
 
 ### v2: Saving space
 
-Working on `v2` layout w/ invalid sources (discovered in [image placeholder test page](/garage/image-placeholder-test-page/)) to get placeholder sizes working.
+Working on `v2` layout w/ invalid sources (discovered in [image placeholder development page](/garage/image-placeholder-development-page/)) to get placeholder sizes working.
 
 #### One image
 
