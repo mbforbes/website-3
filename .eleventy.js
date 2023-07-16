@@ -13,6 +13,11 @@ const { createCanvas, loadImage } = require("@napi-rs/canvas");
 const thumbhash = import("thumbhash"); // then await later
 
 /**
+ * localPath (str) --> binary thumbhash (Uint8Array)
+ */
+const thumbhashCache = new Map();
+
+/**
  * Custom md lib. Made to preserve raw (HTML) blocks from being markdown parsed.
  *
  * Takes markdown-it library during initialization. Has three methods: render,
@@ -692,6 +697,8 @@ module.exports = function (eleventyConfig) {
 
 
     eleventyConfig.addShortcode("thumb", async function (path, widths, classes = "", style = "") {
+        // NOTE: use if benchmarking w/o Eleventy Image
+        // return `<img src='${path}'/>`;
         if (!Array.isArray(widths)) {
             widths = [widths];
         }
@@ -715,14 +722,17 @@ module.exports = function (eleventyConfig) {
      * Thanks to:
      * https://github.com/evanw/thumbhash/issues/2#issuecomment-1481848612
      *
-     * @param {*} path string
+     * @param {string} localPath
      * @returns Promise<Uint8Array>
      */
-    async function loadAndHashImage(path) {
+    async function loadAndHashImage(localPath) {
+        if (thumbhashCache.has(localPath)) {
+            return thumbhashCache.get(localPath);
+        }
         let th = await thumbhash; // repeated awaiting doesn't seem to have much impact on time.
 
         const maxSize = 100;
-        const image = await loadImage(path);
+        const image = await loadImage(localPath);
         const width = image.width;
         const height = image.height;
         // console.log(image);
@@ -741,12 +751,15 @@ module.exports = function (eleventyConfig) {
         const imageData = ctx.getImageData(0, 0, resizedWidth, resizedHeight);
         const rgba = new Uint8Array(imageData.data.buffer);
         const hash = th.rgbaToThumbHash(resizedWidth, resizedHeight, rgba);
+        thumbhashCache.set(localPath, hash);
         return hash;
     }
 
     const binaryToBase64 = (binary) => btoa(String.fromCharCode(...binary));
 
     eleventyConfig.addShortcode("thumbhash", async function (path) {
+        // NOTE: use if benchmarking w/o thumbhash
+        // return "j+gJDYK+iVd/d4dtd5h3aASRuftm";
         let localPath = path[0] == "/" ? path.substring(1) : path;
         const binaryHash = await loadAndHashImage(localPath);
         const base64Hash = binaryToBase64(binaryHash);
@@ -754,6 +767,8 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addShortcode("thumbhashhex", async function (path) {
+        // NOTE: use if benchmarking w/o thumbhash
+        // return "8F E8 09 0D 82 BE 89 57 7F 77 87 6D 77 98 77 68 04 91 B9 FA 76";
         let localPath = path[0] == "/" ? path.substring(1) : path;
         const binaryHash = await loadAndHashImage(localPath);
         const preview = Array.from(binaryHash).map(b => b.toString(16).padStart(2, '0')).join(' ').toUpperCase();
@@ -761,9 +776,10 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addShortcode("coverImg", async function (path, classes = "", style = "") {
+        // NOTE: use if benchmarking w/o Eleventy Image
+        // return `<img src='${path}'/>`;
         let localPath = path[0] == "/" ? path.substring(1) : path;
-        let stats = Image.statsSync(localPath);
-        // let stats = await Image(localPath, { statsOnly: true });  // ideally faster than statsSync; no time diff for now
+        let stats = await Image(localPath, { statsOnly: true });  // ideally faster than Image.statsSync() b/c caching
         let w = stats.jpeg[0].width;  // NOTE: Change if I ever use more than jpegs
         let ws = [];
         while (w > 500) {
@@ -785,6 +801,8 @@ module.exports = function (eleventyConfig) {
             // loading: "lazy",
             // decoding: "async",
             alt: "",
+            // NOTE: use if benchmarking w/o thumbhash
+            // "data-thumbhash-b64": "j+gJDYK+iVd/d4dtd5h3aASRuftm",
             "data-thumbhash-b64": binaryToBase64(await loadAndHashImage(localPath)),
         });
     });

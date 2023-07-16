@@ -609,7 +609,7 @@ li.footnote-item::marker {
  * keep heights within limits, and avoid need for BG svg blur.
  */
 .media-max-width {
-    max-width: min(1140px, 133.3vh);
+    max-width: min(100%, 1140px, 133.3vh);
 }
 
 

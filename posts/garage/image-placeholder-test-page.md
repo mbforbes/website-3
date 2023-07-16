@@ -20,7 +20,7 @@ So, fully fixing this site-wide would involve:
 
 1. **Build HTML/CSS layout** --- Testing my v2 CSS macro and potentially developing it until browsers are able to save space for images in advance given w/h attrs.
 
-2. **+ `srcset`** --- Refining the above using srcset (experience has taught this changes image layout behavior).
+2. **+ `srcset`** --- Refining the above using `srcset` (experience has taught this changes image layout behavior).^[Upon further consideration, adding `srcset` may have simply caused images with varying heights to be used, which breaks my flexbox layout. So solving the varying-heights issue might be sufficient to get `srcset` working.]
 
 3. **Determine image size styles** --- The simplest version of this likely has three widths: mobile, small desktop/tablet, full-size. Have to figure out the rules for these.
 
@@ -113,7 +113,10 @@ The following image has three size variants (2280, 1140, and 570 px width) with 
 }}
 </p>
 
-Debugging. Tl;dr it wasn't working because I had the full image above.
+
+
+<details>
+<summary>Debugging why this wasn't working. Tl;dr I had the full image above.</summary>
 
 - Chrome is making it hard to tell what image is being used. It shows "Current source" differently depending on which link you're hovering over. Choosing a tiny window (235px wide), it's saying for `src` and both 2280 and 1140 `srcset` urls it's using the 2280 image, and the 570 image for the 570 size. Like, OK, but... what single image are you actually rendering? I'm going to add indicator text to the images so I can tell.^[Having figured this whole thing out, the current source display is working, and was indeed using the large image size all the time. There is still some occasional confusion when changing responsive sizes, and the smallest size being listed as a different source when not being used. Though there might be something more going on---perhaps with what it _would_ be showing?]
 
@@ -121,7 +124,9 @@ Debugging. Tl;dr it wasn't working because I had the full image above.
 
 - Ooh, could it be because the full-size image is already provided above? That might be it. Let me change it. Yep, that was totally it. **So browsers are smart---might as well use one of the (bigger) srcset images if you already have to get it for another purpose.**
 
-- Now, Chrome does request different images depending on device. Small for tiny iPhones, medium for normal iPhones and smaller desktop widths, and large for iPads and big desktop sizes. Interestingly, it seems to be pretty smart and a little conservative---e.g., I'm pretty sure my laptop's true pixel density is < 2, like 1.5 or something, and it's requesting the M image for longer than you would for a strict 2x upgrade to the L size. My iPhone requests the M image, which seems appropriate for its pixel density (375x812 @3x). ([Quick link to screen resolution test](https://screenresolutiontest.com/))
+</details>
+
+Now Chrome requests different images depending on device. Small for tiny iPhones, medium for normal iPhones and smaller desktop widths, and large for iPads and big desktop sizes. Interestingly, it seems to be pretty smart and a little conservative---e.g., I'm pretty sure my laptop's true pixel density is < 2, like 1.5 or something, and it's requesting the M image for longer than you would for a strict 2x upgrade to the L size. My iPhone requests the M image, which seems appropriate for its pixel density (375x812 @3x). ([Quick link to screen resolution test](https://screenresolutiontest.com/))
 
 Question: now that I'm providing `srcset` and `sizes`, do I still need `width` and `height` attrs? And if so, do they just ignore smaller screens / `srcset` sizes and provide the full, original dims?
 
@@ -315,6 +320,46 @@ n/a
 ## Main images
 
 I'm a fool, but I want this to work. Scrolling through a big page of jumping images is dreadful.
+
+
+### 0. Optimizing eleventy reloads
+
+In-memory optimizing won't help w/ build, but will help with rebuilds, and it's easy. Benchmarking (th = thumbhash, EI = EleventyImage)
+
+&nbsp; | time (3x avg)
+--- | ---
+base (no th, no EI) | 4.06, 3.96, 4.15
+\+ EI 1x | 4.18, 3.72, 4.00
+\+ EI 3x | 4.02, 3.72, 3.70
+current (th, EI) | 7.15, 7.15, 7.05
+
+So thumbhash is the slow thing now. Let's try an in-memory cache for thumbhashes (thCache).
+
+&nbsp; | time (3x avg)
+--- | ---
+thCache, EI | 4.05, 3.68 3.70
+
+It works!
+
+### 0.5 Better Image Placeholder Tests
+
+If I can get an HTML/CSS layout that shows whether the browser is saving space for the image, that would be great because I wouldn't have to constantly simulate a slow network to test. I'm wondering if having an invalid `src` attribute will do.
+
+<img src="foo" class="bg-navy" />
+
+<p class="figcaption">
+{{ '`<img src="foo" class="bg-navy" />`' | md | safe }}
+</p>
+
+<img src="foo" width="300" height="300" class="bg-navy" />
+
+<p class="figcaption">
+{{ '`<img src="foo" width="300" height="300" class="bg-navy" />`' | md | safe }}
+</p>
+
+It works!
+
+### 1. v2 HTML/CSS layout
 
 The first thing is to get the image layout working w/ non-height matching images. As-always, this work is done over at the [image layout test page](/garage/image-layout-test-page/).
 

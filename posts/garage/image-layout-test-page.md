@@ -1151,10 +1151,6 @@ Anyway, good to know. Right now I'm testing non-matching heights so just gotta e
 
 **Layout**
 
-<style>
-
-</style>
-
 Proof of concept using manually-set width percentages:
 
 <div class="full-width cb flex justify-center ph1-m ph3-l fig">
@@ -1170,12 +1166,12 @@ Proof of concept using manually-set width percentages:
 
 Computed as:
 
-- ratios are h/w
-- img1 is 3/2 (ratio)
-- img2 is 2/3 (ratio)
+- ratios are w/h
+- img1 is 2/3 (ratio)
+- img2 is 3/2 (ratio)
 - total ratio is 3/2 + 2/3 = 2.1666
-- img1w = (3/2) / 2.1666 = 0.6923
-- img2w = (2/3) / 2.1666 = 0.3077
+- img1w = (2/3) / 2.1666 = 0.3077
+- img2w = (3/2) / 2.1666 = 0.6923
 - (OK but something might be backwards because the taller image gets the less wide container)
 
 I'm almost certain there's no way of doing this (at least that I'll ever find) w/ CSS Flexbox (or Grid) if the images are of different pixel heights. This still seems bonkers to me, because they're never rendered at their true size anyway. And yet, yes, it does seem like without the images having the same pixel heights at the source, they won't create a same-height, aspect-ratio-preserving, full-width flexbox row.
@@ -1188,3 +1184,166 @@ For reference, current results of `img2` macro:
   "/assets/garage/image-test-pages/v2-1521x2280.moz80.jpg",
   "/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg"
 ]] %}
+
+### v2: Saving space
+
+Working on `v2` layout w/ invalid sources (discovered in [image placeholder test page](/garage/image-placeholder-test-page/)) to get placeholder sizes working.
+
+#### One image
+
+<div class="full-width cb flex justify-center ph1-m ph3-l fig">
+    <div class="media-max-width">
+        <img class="db bare novmargin h-auto bg-navy" src="foo" loading="lazy" decoding="async" width="2280" height="1522">
+    </div>
+</div>
+
+<p class="figcaption">Single image (3:2)</p>
+
+Adding `width` and `height` attributes blasted out the image's size, as somewhat anticipated.
+
+But interestingly, the layout hasn't been wasn't working as I expected:
+- when the page was < 1140px wide, the **image** (with `max-width: 100%`) was limiting the display width to 100%
+- when the page was > 1140px wide, the **div** (with `max-width: min(1140px, 133.3vh)`) was limiting the display width to 1140px
+
+When the image got `width` and `height` attributes, this seemed to override the `max-width: 100%` style. Even setting the element style directly (i.e., not from CSS) didn't help. So I updated the div's style (this is `media-max-width`) to a triple-min `max-width: min(100%, 1140px, 133.3vh)`. Then, `height: auto` on the image fixes the height.
+
+#### Two images, equal dims
+
+This breaks things afresh. The flex container with `media-max-width` obeys the width limit, but the divs containing the images allow themselves to be busted out by the images.
+
+<style>
+@media screen and (min-width: 30em) {
+    .w-2col-50-ns {
+        /* one border of tachyons unit 1 (e.g., mr1-ns) is 0.25rem */
+        width: calc((100% - 0.25rem) * (1/2));
+    }
+}
+</style>
+
+<div class="full-width cb flex justify-center ph1-m ph3-l fig">
+    <div class="flex flex-wrap flex-nowrap-ns justify-center media-max-width">
+        <div class="mr1-ns mb1 mb0-ns w-100 w-2col-50-ns">
+            <img class="db bare novmargin h-auto bg-navy" src="foo" loading="lazy" decoding="async" width="2280" height="1522">
+        </div>
+        <div class="w-100 w-2col-50-ns">
+            <img class="db bare novmargin h-auto bg-navy" src="foo" loading="lazy" decoding="async" width="2280" height="1522">
+        </div>
+    </div>
+</div>
+
+Manually setting `width: 50%` on the image-containing divs seems to work. For the mobile layout, they need `w-100 w-50-ns`.^[Nagging thought: It's surprising to me because it seems like the kind of thing that flexbox should handle, and I shouldn't have to manually specify widths. And I guess it does until the image dimensions are added in...] I wouldn't have been willing to set widths manually, but from all my explorations above, it's the only thing that has worked for unequal height images.
+
+But I think the margin between the divs isn't accounted for, and they're breaking into the page's padding. So I need to do a more complex style that subtracts it. I can't do media queries in element styles, so I'll need some CSS rules. Here's what I ended up with for above:
+
+```css
+@media screen and (min-width: 30em) {
+    .w-2col-50-ns {
+        /* tachyons unit 1 (e.g., mr1-ns) is 0.25rem, divided here across two columns */
+        width: calc((100% - 0.25rem) * (1/2));
+    }
+}
+```
+
+#### Two images, unequal dims
+
+From my exploration with explicit width computation above, I know that a 3:2 portrait and landscape image side-by-side would take up 30.77% (4/13) and 69.23% (9/13) widths, respectively. So we combine that with the 1-Tachyon-unit margin and not-small media query to explicitly set widths.
+
+<style>
+@media screen and (min-width: 30em) {
+    .w-2col-31-ns {
+        /* tachyons unit 1 (e.g., mr1-ns) is 0.25rem, divided here across two columns */
+        width: calc((100% - 0.25rem) * (4/13));
+    }
+
+    .w-2col-69-ns {
+        /* tachyons unit 1 (e.g., mr1-ns) is 0.25rem, divided here across two columns */
+        width: calc((100% - 0.25rem) * (9/13));
+    }
+}
+</style>
+
+<div class="full-width cb flex justify-center ph1-m ph3-l fig">
+    <div class="flex flex-wrap flex-nowrap-ns justify-center media-max-width">
+        <div class="mr1-ns mb1 mb0-ns w-100 w-2col-31-ns">
+            <img class="db bare novmargin h-auto bg-navy" src="foo" loading="lazy" decoding="async" width="1522" height="2280">
+        </div>
+        <div class="w-100 w-2col-69-ns">
+            <img class="db bare novmargin h-auto bg-navy" src="foo" loading="lazy" decoding="async" width="2280" height="1522">
+        </div>
+    </div>
+</div>
+
+```css
+@media screen and (min-width: 30em) {
+    .w-2col-31-ns {
+        /* one border of tachyons unit 1 (e.g., mr1-ns) is 0.25rem */
+        width: calc((100% - 0.25rem) * (4/13));
+    }
+
+    .w-2col-69-ns {
+        /* one border of tachyons unit 1 (e.g., mr1-ns) is 0.25rem */
+        width: calc((100% - 0.25rem) * (9/13));
+    }
+}
+```
+
+The only thing that's worrying me is that since I can't put media queries in element style CSS, I'll need to pre-generate all the CSS classes I'll need, either by hand or on-the-fly. On-the-fly might be also good in that the above heights aren't perfectly the same because images don't end up perfectly at 3:2 (e.g., 1.498...).
+
+#### Three images
+
+I think at this point things ought to work, but testing three images for completeness. Doing unequal sizes to make sure it's robust.
+
+- ratios are w/h
+- img1 is 2280/1522 (ratio)
+- img2 is 1522/2280 (ratio)
+- img3 is 2280/1522 (ratio)
+- total ratio is 1522/2280 + 2280/1522 + 2280/1522 = 3.66...
+- img1w = (2280/1522) / 3.66 ~= 0.41...
+- img2w = (1522/2280) / 3.66 ~= 0.18...
+- img3w = (2280/1522) / 3.66 ~= 0.41...
+
+<style>
+@media screen and (min-width: 30em) {
+    .w-3col-41-ns {
+        /* tachyons unit 1 (e.g., mr1-ns) is 0.25rem, x2 */
+        width: calc((100% - 0.5rem) * ((2280/1522)/(1522/2280 + 2280/1522 + 2280/1522)));
+    }
+
+    .w-3col-18-ns {
+        /* tachyons unit 1 (e.g., mr1-ns) is 0.25rem, x2 */
+        width: calc((100% - 0.5rem) * ((1522/2280)/(1522/2280 + 2280/1522 + 2280/1522)));
+    }
+}
+</style>
+
+<div class="full-width cb flex flex-wrap flex-nowrap-ns justify-center ph1-m ph3-l fig">
+    <div class="flex flex-wrap flex-nowrap-ns justify-center media-max-width">
+        <div class="w-3col-41-ns">
+            <img class="db bare novmargin h-auto bg-navy" src="foo" loading="lazy" decoding="async" width="2280" height="1522">
+        </div>
+        <div class="mh1-ns mv1 mv0-ns w-3col-18-ns">
+            <img class="db bare novmargin h-auto bg-navy" src="foo" loading="lazy" decoding="async" width="1522" height="2280">
+        </div>
+        <div class="w-3col-41-ns">
+            <img class="db bare novmargin h-auto bg-navy" src="foo" loading="lazy" decoding="async" width="2280" height="1522">
+        </div>
+    </div>
+</div>
+
+```css
+@media screen and (min-width: 30em) {
+    .w-3col-41-ns {
+        /* tachyons unit 1 (e.g., mr1-ns) is 0.25rem, x2 */
+        width: calc((100% - 0.5rem) * ((2280/1522)/(1522/2280 + 2280/1522 + 2280/1522)));
+    }
+
+    .w-3col-18-ns {
+        /* tachyons unit 1 (e.g., mr1-ns) is 0.25rem, x2 */
+        width: calc((100% - 0.5rem) * ((1522/2280)/(1522/2280 + 2280/1522 + 2280/1522)));
+    }
+}
+```
+
+Here I computed the widths using the exact pixels (e.g., 2280/1522) rather than anticipated ratios (e.g., 3/2), and the results came out pixel-perfect.
+
+The other good news is that removing the full-width classes and extra padding, the layouts work great at margin-width.
