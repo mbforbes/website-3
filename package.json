@@ -3,10 +3,13 @@
     "version": "0.0.2",
     "description": "It's my personal website, baybeeeee.",
     "scripts": {
+        "prebuild": "node build-image-cache.js",
         "build": "eleventy",
-        "build_ghio": "eleventy --pathprefix 'website-3'",
+        "prewatch": "node build-image-cache.js",
         "watch": "eleventy --watch",
+        "preserve": "node build-image-cache.js",
         "serve": "eleventy --serve",
+        "prestart": "node build-image-cache.js",
         "start": "eleventy --serve",
         "debug": "DEBUG=* eleventy"
     },
@@ -21,13 +24,14 @@
         "@11ty/eleventy-img": "^3.1.0",
         "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
         "@napi-rs/canvas": "^0.1.41",
+        "cli-progress": "^3.12.0",
         "eleventy-plugin-reading-time": "^0.0.1",
+        "fast-glob": "^3.3.0",
         "image-size": "^1.0.2",
         "luxon": "^3.3.0",
         "markdown-it": "^13.0.1",
         "markdown-it-anchor": "^8.6.7",
         "markdown-it-footnote": "^3.0.3",
-        "markdown-it-image-lazy-loading": "^1.2.0",
         "markdown-it-replacements": "^1.0.2",
         "thumbhash": "^0.1.1"
     }

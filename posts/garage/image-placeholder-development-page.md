@@ -429,9 +429,11 @@ CURSPOT actual:
 - [x] height-limiting
 - [x] maybe actually do default height-limiting
 - [x] fix videos (tiny, many diff behaviors, also e.g. youtube vs vimeo)
-- [ ] SHIP
+- [x] SHIP
 - [ ] double or 1.5x fig spacing?
 - [ ] SHIP
-- [ ] inline images
+- [x] inline images
+- [x] SHIP
+- [ ] maps and city pics
 - [ ] SHIP
 - [ ] multiple sizes (test speed, but probably DIY...)

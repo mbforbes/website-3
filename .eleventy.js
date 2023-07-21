@@ -1,66 +1,15 @@
-const fs = require('fs');
-const fsp = require('fs').promises;
-const path = require('path');
 const { DateTime } = require("luxon");
 const util = require("util");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
-const markdownItLazyLoading = require('markdown-it-image-lazy-loading');
 const markdownItReplacements = require('markdown-it-replacements');
 const readingTime = require('eleventy-plugin-reading-time');
 const Image = require("@11ty/eleventy-img");
-const { createCanvas, loadImage } = require("@napi-rs/canvas");
-// Probably a better way to do this but I never figured it out.
-const thumbhash = import("thumbhash"); // then await later
-const getImageSizeFromDisk = require("image-size");
 
-
-// Map serialization operations
-function fileExists(filePath) {
-    try {
-        fs.accessSync(filePath);
-        return true;
-    } catch {
-        return false;
-    }
-}
-function ensureDir(dirpath) {
-    try {
-        fs.accessSync(dirpath);
-    } catch (err) {
-        if (err.code === 'ENOENT') {
-            fs.mkdirSync(dirpath);
-        } else {
-            throw err;
-        }
-    }
-}
-async function serializeMap(map, filePath) {
-    const plainObject = Array.from(map);
-    const jsonString = JSON.stringify(plainObject);
-    await fsp.writeFile(filePath, jsonString);
-    console.log("Wrote Map with " + map.size + " entries to " + filePath);
-}
-function deserializeMap(filePath) {
-    let exists = fileExists(filePath);
-    if (!exists) {
-        console.log("Cache file not found at " + filePath + ", making new Map");
-        return new Map();
-    }
-    const jsonString = fs.readFileSync(filePath, 'utf-8');
-    const plainObject = JSON.parse(jsonString);
-    const ret = new Map(plainObject);
-    console.log("Loaded Map with " + ret.size + " entries from " + filePath);
-    return ret;
-}
-
-
-const CACHE_DIR = path.join(__dirname, ".cache");
-ensureDir(CACHE_DIR);
-const TH_CACHE_PATH = path.join(CACHE_DIR, "thumbhash.map.json");
-const SIZE_CACHE_PATH = path.join(CACHE_DIR, "sizes.map.json");
+// Local code! Wow I'm writing a lot of code lol.
+const { isSVG, serializeMap, deserializeMap, getImageSize, loadAndHashImage, TH_CACHE_PATH, SIZE_CACHE_PATH } = require("./common.js");
 
 /**
  * localPath (str) --> binary thumbhash (Uint8Array)
@@ -73,6 +22,8 @@ let thumbhashCacheLastDiskSize = thumbhashCache.size;
  */
 const sizeCache = deserializeMap(SIZE_CACHE_PATH);
 let sizeCacheLastDiskSize = sizeCache.size;
+
+
 
 /**
  * Custom md lib. Made to preserve raw (HTML) blocks from being markdown parsed.
@@ -119,6 +70,57 @@ class CustomMDLib {
     disable(key) {
         this.md.disable(key);
     }
+}
+
+/**
+ * Custom markdown-it extension to modify inline images.
+ * Based on https://github.com/ruanyf/markdown-it-image-lazy-loading
+ *
+ * Extended to support:
+ * - thumbhash
+ * - caching image sizes
+ */
+function markdownItCustomImageProcessor(md, mdOptions) {
+    var defaultImageRenderer = md.renderer.rules.image;
+
+    md.renderer.rules.image = function (tokens, idx, options, env, self) {
+        var token = tokens[idx];
+        token.attrSet('loading', 'lazy');
+        token.attrSet('decoding', 'async');
+
+        // NOTE: Version this is based on had this base path feature. I didn't
+        // need it, but keeping for reference.
+        // const imgPath = path.join(mdOptions.base_path, imgSrc);
+
+        // Get size and thumbhash (if available).
+        let path = token.attrGet('src');
+        let localPath = path[0] == "/" ? path.substring(1) : path;
+        let [w, h] = getImageSize(sizeCache, localPath);
+        token.attrSet('width', w);
+        token.attrSet('height', h);
+        // Set thumbhash only if it's already available (from pre-build build-image-cache.js).
+        if (thumbhashCache.has(localPath)) {
+            token.attrSet("data-thumbhash-b64", thumbhashCache.get(localPath));
+        }
+        // NOTE: If there are transparent PNGs anywhere, may want to have white
+        // for those as well.
+        let bgClass = isSVG(path) ? "bg-white" : "bg-deep-green";
+        token.attrSet('class', `h-auto ${bgClass}`);
+
+        return defaultImageRenderer(tokens, idx, options, env, self);
+    };
+};
+
+/**
+ * Get width, height, and base64-encoded thumbhash.
+ * @param {string} path Full path to resource (can start with "/")
+ * @returns {Promise<[number, number, string|null]>} [width, height, thumbhash64|null]
+ */
+async function getWHTHB64(path) {
+    let localPath = path[0] == "/" ? path.substring(1) : path;
+    let [w, h] = getImageSize(sizeCache, localPath);
+    let thumbhash64 = await loadAndHashImage(thumbhashCache, localPath);
+    return [w, h, thumbhash64];
 }
 
 module.exports = function (eleventyConfig) {
@@ -440,29 +442,6 @@ module.exports = function (eleventyConfig) {
         return arr1.concat(arr2);
     });
 
-    function getImageSize(localPath) {
-        if (sizeCache.has(localPath)) {
-            return sizeCache.get(localPath);
-        }
-        let { width, height, type } = getImageSizeFromDisk(localPath);
-        if (width == null || height == null) {
-            throw new Error("Failed to get width or height from " + localPath);
-        }
-        sizeCache.set(localPath, [width, height]);
-        return [width, height];
-    }
-
-    /**
-     * Get width, height, and base64-encoded thumbhash.
-     * @param {string} path Full path to resource (can start with "/")
-     */
-    async function getWHTHB64(path) {
-        let localPath = path[0] == "/" ? path.substring(1) : path;
-        let [w, h] = getImageSize(localPath);
-        let thumbhash64 = await loadAndHashImage(localPath);
-        return [w, h, thumbhash64];
-    }
-
     /**
      * @param img can be a str or obj.
      * - if obj and image, expects keys path (req) maxHeight (opt, default "939px")
@@ -511,11 +490,12 @@ module.exports = function (eleventyConfig) {
 
         // get thumbhash and size
         let [w, h, thumbhash64] = await getWHTHB64(path);
+        let thAttr = (thumbhash64 == null) ? "" : `data-thumbhash-b64="${thumbhash64}"`;
 
         // image source / path debug / preview / display
         // let pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
         let pathDisplay = "";
-        let html = `<img class="db bare novmargin h-auto bg-navy ${extraClasses}" src="${path}" loading="lazy" decoding="async" width="${w}" height="${h}" data-thumbhash-b64="${thumbhash64}" />${pathDisplay}`;
+        let html = `<img class="db bare novmargin h-auto bg-navy ${extraClasses}" src="${path}" loading="lazy" decoding="async" width="${w}" height="${h}" ${thAttr} />${pathDisplay}`;
         return [html, {
             video: false,
             bgImgPath: path,
@@ -551,10 +531,11 @@ module.exports = function (eleventyConfig) {
         }
 
         let [w, h, thumbhash64] = await getWHTHB64(path);
+        let thAttr = (thumbhash64 == null) ? "" : `data-thumbhash-b64="${thumbhash64}"`;
         // image source / path debug / preview / display
         // let pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
         let pathDisplay = "";
-        return `<img class="db bare novmargin h-auto bg-deep-red" src="${path}" loading="lazy" decoding="async" width="${w}" height="${h}" data-thumbhash-b64="${thumbhash64}" />${pathDisplay}`;
+        return `<img class="db bare novmargin h-auto bg-deep-red" src="${path}" loading="lazy" decoding="async" width="${w}" height="${h}" ${thAttr} />${pathDisplay}`;
     }
 
     /**
@@ -864,58 +845,18 @@ module.exports = function (eleventyConfig) {
         });
     });
 
-    const binaryToBase64 = (binary) => btoa(String.fromCharCode(...binary));
-
-    /**
-     * Thanks to:
-     * https://github.com/evanw/thumbhash/issues/2#issuecomment-1481848612
-     *
-     * @param {string} localPath
-     * @returns {string} base64-encoded thumbhash
-     */
-    async function loadAndHashImage(localPath) {
-        if (thumbhashCache.has(localPath)) {
-            return thumbhashCache.get(localPath);
-        }
-        let th = await thumbhash; // repeated awaiting doesn't seem to have much impact on time.
-
-        const maxSize = 100;
-        const image = await loadImage(localPath);
-        const width = image.width;
-        const height = image.height;
-
-        const scale = Math.min(maxSize / width, maxSize / height);
-        const resizedWidth = Math.round(width * scale);
-        const resizedHeight = Math.round(height * scale);
-
-        const canvas = createCanvas(resizedWidth, resizedHeight);
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(image, 0, 0, resizedWidth, resizedHeight);
-
-        // const imageData = ctx.getImageData(0, 0, width, height);
-        const imageData = ctx.getImageData(0, 0, resizedWidth, resizedHeight);
-        const rgba = new Uint8Array(imageData.data.buffer);
-        // binaryHash is a Uint8Array
-        const binaryHash = th.rgbaToThumbHash(resizedWidth, resizedHeight, rgba);
-        const hashB64 = binaryToBase64(binaryHash);
-        thumbhashCache.set(localPath, hashB64);
-        return hashB64;
-    }
-
-
-
     eleventyConfig.addShortcode("thumbhash", async function (path) {
         let localPath = path[0] == "/" ? path.substring(1) : path;
-        const base64Hash = await loadAndHashImage(localPath);
-        return base64Hash;
+        const base64Hash = await loadAndHashImage(thumbhashCache, localPath);
+        return (base64Hash == null) ? "" : base64Hash;
     });
 
-    // NOTE: Deprecated since loadAndHashImage() now returns b64 instead of binary.
+    // NOTE: Deprecated since loadAndHashImage(thumbhashCache, ) now returns b64 instead of binary.
     // eleventyConfig.addShortcode("thumbhashhex", async function (path) {
     //     // NOTE: use if benchmarking w/o thumbhash
     //     // return "8F E8 09 0D 82 BE 89 57 7F 77 87 6D 77 98 77 68 04 91 B9 FA 76";
     //     let localPath = path[0] == "/" ? path.substring(1) : path;
-    //     const base64Hash = await loadAndHashImage(localPath);
+    //     const base64Hash = await loadAndHashImage(thumbhashCache, localPath);
     //     // NOTE: Given new API, would need to do b64 -> binary here.
     //     const binaryHash = ???(base64Hash);
     //     const preview = Array.from(binaryHash).map(b => b.toString(16).padStart(2, '0')).join(' ').toUpperCase();
@@ -926,7 +867,7 @@ module.exports = function (eleventyConfig) {
         // NOTE: use if benchmarking w/o Eleventy Image
         // return `<img src='${path}'/>`;
         let localPath = path[0] == "/" ? path.substring(1) : path;
-        let [w, h] = getImageSize(localPath);
+        let [w, h] = getImageSize(sizeCache, localPath);
 
         let ws = [];
         while (w > 500) {
@@ -940,7 +881,7 @@ module.exports = function (eleventyConfig) {
             outputDir: "./_site/assets/eleventyImgs/",
             urlPath: "/assets/eleventyImgs/",
         });
-        return Image.generateHTML(metadata, {
+        let opts = {
             sizes: "100vw",
             class: classes,
             style: style,
@@ -948,8 +889,12 @@ module.exports = function (eleventyConfig) {
             // loading: "lazy",
             // decoding: "async",
             alt: "",
-            "data-thumbhash-b64": await loadAndHashImage(localPath),
-        });
+        };
+        let thB64 = await loadAndHashImage(thumbhashCache, localPath);
+        if (thB64 != null) {
+            opts["data-thumbhash-b64"] = thB64;
+        }
+        return Image.generateHTML(metadata, opts);
     });
 
     /**
@@ -1131,9 +1076,7 @@ ${third}`;
     })
         .use(markdownItReplacements)
         .use(markdownItFootnote)
-        .use(markdownItLazyLoading, {
-            decoding: true,
-        })
+        .use(markdownItCustomImageProcessor)
         .use(markdownItAnchor, {
             permalink: markdownItAnchor.permalink.linkAfterHeader({
                 class: "dn",

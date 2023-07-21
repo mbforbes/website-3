@@ -73,9 +73,6 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
     - [ ] color themes
     - [ ] mobile
 - [ ] unified post view for studio
-- [ ] fix svg text w/ dark mode
-    - [ ] calorie counting + meal planning
-    - [ ] linear regression post
 - [ ] do we want TOC?
 - [ ] the great blockquote fixup
     - note: esp on mobile, and esp double quotes. probably find set of test cases.
