@@ -388,6 +388,7 @@ The most fun fact was that across the dead see you can see Jordan. My phone even
 ## Haifa
 
 {% cityMap "/assets/posts/2022-israel/haifa-israel-1-perimeter.moz80.jpg", false, true, false %}
+
 {% cityPic "/assets/posts/2022-israel/IMG_7088.moz80.jpg" %}
 
 Haifa was my favorite place in Israel. I think the big cities there are just too intense for me. Haifa was bustling enough, but it was quiet, and had nooks and crannies. Warmer people. More laid back, more small cafes, feels like more pockets of art around. Colonies of stray cats. Fresh produce bazaars tucked away, battling constant threat of wilting in the heat.
@@ -453,6 +454,7 @@ Finally, the best sports drink bottle shape.
 ## Akko
 
 {% cityMap "/assets/posts/2022-israel/akko-israel-4-perimeter.moz80.jpg", false, true, false %}
+
 {% cityPic "/assets/posts/2022-israel/IMG_7040.moz80.jpg" %}
 
 This city called _Acre_ in English, but I think that word looks ugly and it's written as _Akko_ everywhere locally so I'm going to call it that.
@@ -540,6 +542,7 @@ I think part of the reason this whole experience struck me as funny is when you 
 ## Tel Aviv
 
 {% cityMap "/assets/posts/2022-israel/tel-aviv-israel-3-perimeter.moz80.jpg", false, true, false %}
+
 {% cityPic "/assets/posts/2022-israel/IMG_7131.moz80.jpg" %}
 
 Tel Aviv coast---serious beach and fitness enthusiasts. Talk about cultural whiplash vs Jerusalem.

@@ -9,7 +9,7 @@ const readingTime = require('eleventy-plugin-reading-time');
 const Image = require("@11ty/eleventy-img");
 
 // Local code! Wow I'm writing a lot of code lol.
-const { isSVG, serializeMap, deserializeMap, getImageSize, loadAndHashImage, TH_CACHE_PATH, SIZE_CACHE_PATH } = require("./common.js");
+const { isSVG, getLocalPath, serializeMap, deserializeMap, getImageSize, loadAndHashImage, TH_CACHE_PATH, SIZE_CACHE_PATH } = require("./common.js");
 
 /**
  * localPath (str) --> binary thumbhash (Uint8Array)
@@ -22,7 +22,6 @@ let thumbhashCacheLastDiskSize = thumbhashCache.size;
  */
 const sizeCache = deserializeMap(SIZE_CACHE_PATH);
 let sizeCacheLastDiskSize = sizeCache.size;
-
 
 
 /**
@@ -58,6 +57,19 @@ class CustomMDLib {
         // https://github.com/11ty/is-land/blob/43bd04d204b56a377f65d068c93ef35dbd3ddf52/11ty/MarkdownPlugin.cjs#L21
         for (let placeholder in placeholders) {
             content = content.replace("<p>" + placeholder + "</p>", placeholders[placeholder]);
+            // There are some cases where we won't have <p></p> surrounding the
+            // raw block:
+            //
+            //  * If two raw blocks are right next to each other (e.g., adjacent
+            //    lines), they'd be like `<p>{{raw-block-0}} {{raw-block-1}}</p>`
+            //
+            //  * The maps inside map-base-triple.njk (b/c deep inside a <div>?)
+            //
+            // Run to check any failed replacements:
+            // `egrep -R -F --include=\*.html "raw-block-" _site/`
+            //
+            // Anyway, we do an exact replace here in case the above failed.
+            content = content.replace(placeholder, placeholders[placeholder]);
         }
 
         return content;
@@ -94,7 +106,7 @@ function markdownItCustomImageProcessor(md, mdOptions) {
 
         // Get size and thumbhash (if available).
         let path = token.attrGet('src');
-        let localPath = path[0] == "/" ? path.substring(1) : path;
+        let localPath = getLocalPath(path);
         let [w, h] = getImageSize(sizeCache, localPath);
         token.attrSet('width', w);
         token.attrSet('height', h);
@@ -117,7 +129,7 @@ function markdownItCustomImageProcessor(md, mdOptions) {
  * @returns {Promise<[number, number, string|null]>} [width, height, thumbhash64|null]
  */
 async function getWHTHB64(path) {
-    let localPath = path[0] == "/" ? path.substring(1) : path;
+    let localPath = getLocalPath(path);
     let [w, h] = getImageSize(sizeCache, localPath);
     let thumbhash64 = await loadAndHashImage(thumbhashCache, localPath);
     return [w, h, thumbhash64];
@@ -846,7 +858,7 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addShortcode("thumbhash", async function (path) {
-        let localPath = path[0] == "/" ? path.substring(1) : path;
+        let localPath = getLocalPath(path);
         const base64Hash = await loadAndHashImage(thumbhashCache, localPath);
         return (base64Hash == null) ? "" : base64Hash;
     });
@@ -866,7 +878,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addShortcode("coverImg", async function (path, classes = "", style = "") {
         // NOTE: use if benchmarking w/o Eleventy Image
         // return `<img src='${path}'/>`;
-        let localPath = path[0] == "/" ? path.substring(1) : path;
+        let localPath = getLocalPath(path);
         let [w, h] = getImageSize(sizeCache, localPath);
 
         let ws = [];
@@ -908,8 +920,8 @@ module.exports = function (eleventyConfig) {
      *  - image: removes content-width, adds border radius
      * firstImgClass (str, default: "") --- anything to put on the first image only
      */
-    eleventyConfig.addNunjucksShortcode(
-        "cityMap", (
+    eleventyConfig.addShortcode(
+        "cityMap", async function (
             pathOrPaths,
             attribution = true,
             mt = true,
@@ -918,7 +930,7 @@ module.exports = function (eleventyConfig) {
             embedded = false,
             firstImgClass = "",
             plainBig = false,
-        ) => {
+        ) {
         let paths = pathOrPaths;
         if (!Array.isArray(paths)) {
             paths = [paths];
@@ -935,9 +947,13 @@ module.exports = function (eleventyConfig) {
         let basePieces = [];
         basePieces.push(`<div style="${divBGColorStyle} ${containerXStyle}" class="${divWidthClass} cb ${figClasses} ${containerXClasses}">`);
         for (let i = 0; i < paths.length; i++) {
+            // NOTE: No thumbhash. If we add vertical padding to give maps more
+            // breathing room (which looks nice), the thumbhash BG shows
+            // through.
+            let [w, h] = getImageSize(sizeCache, getLocalPath(paths[i]));
             const imgXClasses = isX ? `fader z-${i} o-${i == paths.length - 1 ? 1 : 0}` : "";
             const imgXStyleAttr = isX ? `style="grid-area: 1 / 1 / 2 / 2; transition: opacity 0.75s; ${imageStyleSize}"` : `style="${imageStyleSize}"`;
-            basePieces.push(`<img class="novmargin ${imageClasses} ${imgXClasses} ${imgExClasses} ${i == 0 ? firstImgClass : ''}" ${imgXStyleAttr} src="${paths[i]}" loading="lazy" decoding="async" />`)
+            basePieces.push(`<img class="novmargin h-auto ${imageClasses} ${imgXClasses} ${imgExClasses} ${i == 0 ? firstImgClass : ''}" ${imgXStyleAttr} src="${paths[i]}" loading="lazy" decoding="async" width="${w}" height="${h}" />`)
         }
         basePieces.push(`</div>`);
         const base = basePieces.join("\n");
@@ -945,13 +961,15 @@ module.exports = function (eleventyConfig) {
         const attr = `<p class="full-width pr2 pr3-ns figcaption attribution">
 Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
 </p>`;
-        return attribution ? base + attr : base;
+        const content = attribution ? base + attr : base;
+        return "<md-raw>" + content + "</md-raw>";
     });
 
     eleventyConfig.addShortcode("cityPic", async function (path) {
         // With getMarginClasses(...), we're pretending it's the last img of a set.
         // Right now this gets us `mt1 figbot`.
-        return await oneBigImage(path, getMarginClasses(1, 2), true, true, false)
+        const content = await oneBigImage(path, getMarginClasses(1, 2), true, true, false);
+        return "<md-raw>" + content + "</md-raw>";
     });
 
     /**

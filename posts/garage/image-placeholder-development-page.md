@@ -434,6 +434,6 @@ CURSPOT actual:
 - [ ] SHIP
 - [x] inline images
 - [x] SHIP
-- [ ] maps and city pics
-- [ ] SHIP
+- [x] maps (done) and city pics (was already working lol)
+- [x] SHIP
 - [ ] multiple sizes (test speed, but probably DIY...)

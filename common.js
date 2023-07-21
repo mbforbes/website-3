@@ -47,6 +47,17 @@ function isSVG(path) {
     return path.toLowerCase().endsWith(".svg");
 }
 
+/**
+ * Take server or local path, turn into local path.
+ * - Server path = /assets/foo.ext
+ * - Local path  =  assets/foo.ext
+ *
+ * @param {string} path
+ * @returns {string}
+ */
+function getLocalPath(path) {
+    return path[0] == "/" ? path.substring(1) : path;
+}
 
 // Map serialization operations
 
@@ -162,6 +173,7 @@ async function loadAndHashImage(thumbhashCache, localPath) {
 
 module.exports = {
     isSVG,
+    getLocalPath,
     serializeMap,
     deserializeMap,
     getImageSize,

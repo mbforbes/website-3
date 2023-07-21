@@ -23,6 +23,7 @@ Technically, I think it's sort of Eastern Europe, and sort of Western Asia. It f
 ## Tbilisi
 
 {% cityMap "/assets/posts/2022-georgia/tbilisi-georgia-3-perimeter.moz80.jpg", false, true, false %}
+
 {% cityPic "/assets/posts/2022-georgia/t-city-window.moz80.jpg" %}
 
 Taking the bus into town in Tbilisi, Georgia's capital, I was struck by how much beautiful modern architecture there was.
@@ -218,6 +219,7 @@ A huge number of trucks were from Armenia. Armenia is in a crappy local situatio
 ## Kazbegi
 
 {% cityMap "/assets/posts/2022-georgia/stepantsminda-georgia-4-r1500.moz80.jpg", false, true, false %}
+
 {% cityPic "/assets/posts/2022-georgia/IMG_7650.moz80.jpg" %}
 
 I think the town here is technically called _Stepantsminda,_ population ~2k. Dramatic landscape. Excellent spot to go off on day hikes.
