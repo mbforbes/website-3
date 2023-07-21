@@ -117,9 +117,9 @@ We had heard rumors of some kind of drink that's supposed to help with, well, dr
 
 {% img [
     [
-        {path: "/assets/posts/2022-busan/IMG_8343.moz80.jpg", maxHeight: "700px"},
-        {path: "/assets/posts/2022-busan/IMG_8345.moz80.jpg", maxHeight: "700px"},
-        {path: "/assets/posts/2022-busan/IMG_8347.moz80.jpg", maxHeight: "700px"}
+        {path: "/assets/posts/2022-busan/IMG_8343.moz80.jpg", maxHeight: "750"},
+        {path: "/assets/posts/2022-busan/IMG_8345.moz80.jpg", maxHeight: "750"},
+        {path: "/assets/posts/2022-busan/IMG_8347.moz80.jpg", maxHeight: "750"}
     ]
 ] %}
 

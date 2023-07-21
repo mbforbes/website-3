@@ -50,7 +50,7 @@ One interesting aspect I never thought of post-communism: lack of people with "o
 
 [^power]: I am sure there are exceptions. Who ended up with power? Who got land? But still, the concept is interesting.
 
-{% img {path: "/assets/posts/2022-slovenia/lj-night.moz80.jpg", maxHeight: "626px"}%}
+{% img {path: "/assets/posts/2022-slovenia/lj-night.moz80.jpg", maxHeight: "626"}%}
 
 ## Bled
 
@@ -204,8 +204,8 @@ The back contains information in what I think are Polish, Hungarian, Czech, Slov
 [^hr]: One fun fact I looked up in Croatia: "HR" is used as their language code and license plate label, from _Republika Hrvatska_ ("Republic of Croatia"). Reminds me of how "CH" is Switzerland, for _Confoederatio Helvetica_).
 
 {% img [[
-    {path: "/assets/posts/2022-slovenia/softener-front.moz80.jpg", maxHeight: "626px"},
-    {path: "/assets/posts/2022-slovenia/softener-back.moz80.jpg", maxHeight: "626px"}
+    {path: "/assets/posts/2022-slovenia/softener-front.moz80.jpg", maxHeight: "626"},
+    {path: "/assets/posts/2022-slovenia/softener-back.moz80.jpg", maxHeight: "626"}
 ]] %}
 
 ## Couple Final Notes

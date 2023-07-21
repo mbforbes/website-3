@@ -9,7 +9,7 @@ image: /assets/posts/2022-granada/ah3.moz80.jpg
 {% cityMap "/assets/posts/2022-granada/granada-spain-1-perimeter.moz80.jpg" %}
 
 {% img [
-    {path: "/assets/posts/2022-granada/city.moz80.jpg", maxHeight: "569px"},
+    {path: "/assets/posts/2022-granada/city.moz80.jpg", maxHeight: "569"},
     [
         "/assets/posts/2022-granada/street1.moz80.jpg",
         "/assets/posts/2022-granada/street2.moz80.jpg"

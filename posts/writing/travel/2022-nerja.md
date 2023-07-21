@@ -9,7 +9,7 @@ redirect_from: /blog/nerja-granada/
 
 {% cityMap "/assets/posts/2022-nerja/nerja-spain-6-r3000.moz80.jpg"  %}
 
-{% img {path: "/assets/posts/2022-nerja/town.moz80.jpg", maxHeight: "671px"} %}
+{% img {path: "/assets/posts/2022-nerja/town.moz80.jpg", maxHeight: "671"} %}
 
 Beach vibes. So many Brits here signs outside bars like "Liverpool match at 15:00."
 

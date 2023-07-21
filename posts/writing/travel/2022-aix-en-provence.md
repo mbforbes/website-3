@@ -59,25 +59,25 @@ For example, if you're trying to pay the bill in Spanish, you learn that you do 
 If you ask Google Translate how to say "the bill" or "the check," it will tell you:
 
 {% img [[
-    {path: "/assets/posts/2022-france/gt-the-bill.moz80.jpg", maxHeight: "319px", extraClasses: "ba b--black-10"},
-    {path: "/assets/posts/2022-france/gt-the-check.moz80.jpg", maxHeight: "319px", extraClasses: "ba b--black-10"}
+    {path: "/assets/posts/2022-france/gt-the-bill.moz80.jpg", maxHeight: "319", extraClasses: "ba b--black-10"},
+    {path: "/assets/posts/2022-france/gt-the-check.moz80.jpg", maxHeight: "319", extraClasses: "ba b--black-10"}
 ]] %}
 
 You need to add "please" on there for it to understand what your intent is:
 
-{% img {path: "/assets/posts/2022-france/gt-the-bill-please.moz80.jpg", maxHeight: "319px", extraClasses: "ba b--black-10"}, false, false %}
+{% img {path: "/assets/posts/2022-france/gt-the-bill-please.moz80.jpg", maxHeight: "319", extraClasses: "ba b--black-10"}, false, false %}
 
 Here's one from France. We saw this bus painted with a huge _le car._
 
-{% img {path: "/assets/posts/2022-france/aix-le-car.moz80.jpg", maxHeight: "500px"}, false, false %}
+{% img {path: "/assets/posts/2022-france/aix-le-car.moz80.jpg", maxHeight: "500"}, false, false %}
 
 What does that mean?
 
-{% img {path: "/assets/posts/2022-france/gt-le-car.moz80.jpg", maxHeight: "319px", extraClasses: "ba b--black-10"}, false, false %}
+{% img {path: "/assets/posts/2022-france/gt-le-car.moz80.jpg", maxHeight: "319", extraClasses: "ba b--black-10"}, false, false %}
 
 Yes, very intuitive France, thanks. But try going the other way:
 
-{% img {path: "/assets/posts/2022-france/gt-the-bus.moz80.jpg", maxHeight: "319px", extraClasses: "ba b--black-10"}, false, false %}
+{% img {path: "/assets/posts/2022-france/gt-the-bus.moz80.jpg", maxHeight: "319", extraClasses: "ba b--black-10"}, false, false %}
 
 Wonderful.
 
@@ -87,7 +87,7 @@ You seem to need to come up with specific incantations to see them.
 If you provide "the bus"---which you might think to do for languages like Spanish or French that love having words like "the" before nouns---it won't give you any other options.
 But, if you just write "bus," then below, you'll see other options:
 
-{% img {path: "/assets/posts/2022-france/gt-bus.moz80.jpg", maxHeight: "598px", extraClasses: "ba b--black-10"}, false, false %}
+{% img {path: "/assets/posts/2022-france/gt-bus.moz80.jpg", maxHeight: "598", extraClasses: "ba b--black-10"}, false, false %}
 
 The frequencies are a great touch (though unfortunately they don't show up on the iPhone app).
 
@@ -119,9 +119,9 @@ But hear me out, there's a certain wonder to truly hot Domino's in the USA, with
 The flavors in France are at least interesting, so we were cautiously optimistic:
 
 {% img [[
-    {path: "/assets/posts/2022-france/dominos-1.moz80.jpg", maxHeight: "500px"},
-    {path: "/assets/posts/2022-france/dominos-2.moz80.jpg", maxHeight: "500px"},
-    {path: "/assets/posts/2022-france/dominos-3.moz80.jpg", maxHeight: "500px"}
+    {path: "/assets/posts/2022-france/dominos-1.moz80.jpg", maxHeight: "600"},
+    {path: "/assets/posts/2022-france/dominos-2.moz80.jpg", maxHeight: "600"},
+    {path: "/assets/posts/2022-france/dominos-3.moz80.jpg", maxHeight: "600"}
 ]] %}
 
 

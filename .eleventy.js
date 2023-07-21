@@ -1,3 +1,6 @@
+const fs = require('fs');
+const fsp = require('fs').promises;
+const path = require('path');
 const { DateTime } = require("luxon");
 const util = require("util");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -11,11 +14,65 @@ const Image = require("@11ty/eleventy-img");
 const { createCanvas, loadImage } = require("@napi-rs/canvas");
 // Probably a better way to do this but I never figured it out.
 const thumbhash = import("thumbhash"); // then await later
+const getImageSizeFromDisk = require("image-size");
+
+
+// Map serialization operations
+function fileExists(filePath) {
+    try {
+        fs.accessSync(filePath);
+        return true;
+    } catch {
+        return false;
+    }
+}
+function ensureDir(dirpath) {
+    try {
+        fs.accessSync(dirpath);
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            fs.mkdirSync(dirpath);
+        } else {
+            throw err;
+        }
+    }
+}
+async function serializeMap(map, filePath) {
+    const plainObject = Array.from(map);
+    const jsonString = JSON.stringify(plainObject);
+    await fsp.writeFile(filePath, jsonString);
+    console.log("Wrote Map with " + map.size + " entries to " + filePath);
+}
+function deserializeMap(filePath) {
+    let exists = fileExists(filePath);
+    if (!exists) {
+        console.log("Cache file not found at " + filePath + ", making new Map");
+        return new Map();
+    }
+    const jsonString = fs.readFileSync(filePath, 'utf-8');
+    const plainObject = JSON.parse(jsonString);
+    const ret = new Map(plainObject);
+    console.log("Loaded Map with " + ret.size + " entries from " + filePath);
+    return ret;
+}
+
+
+const CACHE_DIR = path.join(__dirname, ".cache");
+ensureDir(CACHE_DIR);
+const TH_CACHE_PATH = path.join(CACHE_DIR, "thumbhash.map.json");
+const SIZE_CACHE_PATH = path.join(CACHE_DIR, "sizes.map.json");
 
 /**
  * localPath (str) --> binary thumbhash (Uint8Array)
  */
-const thumbhashCache = new Map();
+const thumbhashCache = deserializeMap(TH_CACHE_PATH);
+let thumbhashCacheLastDiskSize = thumbhashCache.size;
+
+/**
+ * localPath (str) --> [width, height] (number[])
+ */
+const sizeCache = deserializeMap(SIZE_CACHE_PATH);
+let sizeCacheLastDiskSize = sizeCache.size;
 
 /**
  * Custom md lib. Made to preserve raw (HTML) blocks from being markdown parsed.
@@ -89,6 +146,17 @@ module.exports = function (eleventyConfig) {
     // TODO: consider
     // Alias `layout: post` to `layout: layouts/post.njk`
     //   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
+
+    eleventyConfig.on('eleventy.after', async ({ dir, results, runMode, outputMode }) => {
+        if (thumbhashCacheLastDiskSize != thumbhashCache.size) {
+            await serializeMap(thumbhashCache, TH_CACHE_PATH);
+            thumbhashCacheLastDiskSize = thumbhashCache.size;
+        }
+        if (sizeCacheLastDiskSize != sizeCache.size) {
+            await serializeMap(sizeCache, SIZE_CACHE_PATH);
+            sizeCacheLastDiskSize = sizeCache.size;
+        }
+    });
 
     // My custom filters
 
@@ -372,6 +440,29 @@ module.exports = function (eleventyConfig) {
         return arr1.concat(arr2);
     });
 
+    function getImageSize(localPath) {
+        if (sizeCache.has(localPath)) {
+            return sizeCache.get(localPath);
+        }
+        let { width, height, type } = getImageSizeFromDisk(localPath);
+        if (width == null || height == null) {
+            throw new Error("Failed to get width or height from " + localPath);
+        }
+        sizeCache.set(localPath, [width, height]);
+        return [width, height];
+    }
+
+    /**
+     * Get width, height, and base64-encoded thumbhash.
+     * @param {string} path Full path to resource (can start with "/")
+     */
+    async function getWHTHB64(path) {
+        let localPath = path[0] == "/" ? path.substring(1) : path;
+        let [w, h] = getImageSize(localPath);
+        let thumbhash64 = await loadAndHashImage(localPath);
+        return [w, h, thumbhash64];
+    }
+
     /**
      * @param img can be a str or obj.
      * - if obj and image, expects keys path (req) maxHeight (opt, default "939px")
@@ -380,26 +471,35 @@ module.exports = function (eleventyConfig) {
      * @param n how many images will be in the final row this is a part of.
      *          Need this because the layout is breaking in extremely specific conditions
      *          (multi-img w/ diff dims and only w/ srcset+sizes).
-     * @returns [bgImgPath || "", HTML]
+     * @returns [HTML, {
+     *     video: bool,
+     *     bgImgPath: str | null,
+     *     maxHeight: number | null,
+     *     width: number | null,
+     * }]
      */
-    async function imgSpecToHTML(img, n) {
-        // if (n == 3) {
-        //     console.log(img);
-        // }
-
+    async function imgSpecToHTML(img) {
         // video
-        if (img.vimeoInfo) {
-            let bgImgPath = img.bgImgPath || "";
-            return [bgImgPath, `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" loading="lazy" style="max-height: 100vh; ${img.videoStyle}"></iframe>`]
-        }
-        if (img.youtubeInfo) {
-            let bgImgPath = img.bgImgPath || "";
-            return [bgImgPath, `<iframe src="https://www.youtube-nocookie.com/embed/${img.youtubeInfo}?&autoplay=1&mute=1&loop=1&playlist=${img.youtubeInfo}&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen loading="lazy" style="max-height: 100vh; ${img.videoStyle}"></iframe>`]
+        if (img.vimeoInfo || img.youtubeInfo) {
+            let html;
+            if (img.vimeoInfo) {
+                html = `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" loading="lazy" style="max-height: min(939px, 100vh); ${img.videoStyle}" class="db"></iframe>`;
+            }
+            if (img.youtubeInfo) {
+                html = `<iframe src="https://www.youtube-nocookie.com/embed/${img.youtubeInfo}?&autoplay=1&mute=1&loop=1&playlist=${img.youtubeInfo}&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen loading="lazy" style="max-height: min(939px, 100vh); ${img.videoStyle}" class="db"></iframe>`;
+            }
+            return [html, {
+                video: true,
+                bgImgPath: img.bgImgPath || null,
+                maxHeight: null,
+                width: null,
+                height: null,
+            }]
         }
 
         // image
         let path;
-        let maxHeight = "939px";
+        let maxHeight = null;  // NOTE: 939 now set in getWClassStyle
         let extraClasses = "";
         if (typeof img === "string") {
             path = img;
@@ -409,36 +509,20 @@ module.exports = function (eleventyConfig) {
             extraClasses = img.extraClasses || extraClasses;
         }
 
-        // image plugin
-        // 2504 is standard photo width (4:3 aspect ratio @1878px high)
-        // let metadata = await Image((path[0] == "/" ? path.substring(1) : path), {
-        //     widths: [313, 626, 1252, null],
-        //     formats: ["auto"],
-        //     outputDir: "./_site/assets/eleventyImgs/",
-        //     urlPath: "/assets/eleventyImgs/",
-        // });
-        // console.log(metadata);
+        // get thumbhash and size
+        let [w, h, thumbhash64] = await getWHTHB64(path);
 
         // image source / path debug / preview / display
         // let pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
         let pathDisplay = "";
-        // orig:
-        let html = `<img class="db bare novmargin ${extraClasses}" src="${path}" style="max-height: min(100vh, ${maxHeight});" loading="lazy" decoding="async" />${pathDisplay}`;
-        // re: sizes:
-        // - one reference: https://ericportis.com/posts/2014/srcset-sizes/
-        // - depending on how things go, could simply use 1/2/3 img w/ full-width/not to do some simple guesstimating.
-        // NOTE: See garage note: "image layout test page." 2/3+ image layouts break when we add attrs and set height
-        //       & width auto when images are multiple sizes AND they have the srcset+sizes attrs.
-        // let attrFixStyle = n == 1 ? "width: auto; height: auto;" : "height: auto;";
-        // let html = Image.generateHTML(metadata, {
-        //     sizes: "100vw",  // TODO: probably need to think way more about this
-        //     class: `db bare novmargin ${extraClasses}`,
-        //     style: `max-height: min(100vh, ${maxHeight}); ${attrFixStyle}`,
-        //     loading: "lazy",
-        //     decoding: "async",
-        //     alt: "",
-        // }) + pathDisplay;
-        return [path, html];
+        let html = `<img class="db bare novmargin h-auto bg-navy ${extraClasses}" src="${path}" loading="lazy" decoding="async" width="${w}" height="${h}" data-thumbhash-b64="${thumbhash64}" />${pathDisplay}`;
+        return [html, {
+            video: false,
+            bgImgPath: path,
+            maxHeight: maxHeight,
+            width: w,
+            height: h,
+        }];
     }
 
     /**
@@ -451,10 +535,10 @@ module.exports = function (eleventyConfig) {
     async function imgSpecToHTML2(img) {
         // video
         if (img.vimeoInfo) {
-            return `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" loading="lazy" style="width: 100%; aspect-ratio: 16 / 9;"></iframe>`;
+            return `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" loading="lazy" style="width: 100%; aspect-ratio: 16 / 9;" class=""></iframe>`;
         }
         if (img.youtubeInfo) {
-            return `<iframe src="https://www.youtube-nocookie.com/embed/${img.youtubeInfo}?&autoplay=1&mute=1&loop=1&playlist=${img.youtubeInfo}&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen loading="lazy" style="width: 100%; aspect-ratio: 16 / 9;"></iframe>`;
+            return `<iframe src="https://www.youtube-nocookie.com/embed/${img.youtubeInfo}?&autoplay=1&mute=1&loop=1&playlist=${img.youtubeInfo}&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen loading="lazy" style="width: 100%; aspect-ratio: 16 / 9;" class=""></iframe>`;
         }
 
         // image
@@ -466,29 +550,95 @@ module.exports = function (eleventyConfig) {
             // NOTE: add extra style or class support here + in returned HTML when needed
         }
 
+        let [w, h, thumbhash64] = await getWHTHB64(path);
         // image source / path debug / preview / display
         // let pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
         let pathDisplay = "";
-        return `<img class="db bare novmargin" src="${path}" loading="lazy" decoding="async" />${pathDisplay}`;
+        return `<img class="db bare novmargin h-auto bg-deep-red" src="${path}" loading="lazy" decoding="async" width="${w}" height="${h}" data-thumbhash-b64="${thumbhash64}" />${pathDisplay}`;
+    }
+
+    /**
+      * Handle img (v1) macro size-limiting to account for any specified max height(s).
+      *
+      * @param {*} metadatas Returned (second item) by imgSpecToHTML
+      * @returns class and style to be used in inner container <div> for width limiting
+      */
+    function getWClassStyle(metadatas) {
+        // NOTE: We have an easy knob to adjust v1 styles if we ever want them
+        //       to be width-limited and have clean margins (like v2). Just set
+        //       wStyle (here and below) to have another component in the min(),
+        //       like 133.3vh, or 1140px, or both, or something else! Can also
+        //       use wClass (currently unused). Also of note: The new version
+        //       has no height limiting. (Couldn't get it to work.) We do a
+        //       heuristic to keep single 4:3 images from being taller than the
+        //       page by doing a computation with vh and adding it to the wStyle
+        //       min()s (133.3vh). If desired, could we do the computation w/
+        //       the total row width and make sure the row is page-height
+        //       limited?
+
+        // This wClass needed only for full-width youtube (e.g., "hualien hike")
+        // otherwise left-aligned. It's fine on 2 and 3 img rows, but it's
+        // actually already there, so we don't add it to reduce confusion.
+        let wClass = metadatas.length == 1 ? "flex justify-center" : "";
+        let wStyle = "max-width: min(100%; 133.3vh);"; // rarely used (video only?) if mhs is non-empty (e.g., w/ 939)
+        if (metadatas.length == 1 && metadatas[0].video) {
+            // NOTE: Edge case I guess, videos are teensy if there's an outer
+            // container with only a max-width, so we make it a width.
+            wStyle = "width: 100%;";
+        }
+        let mhs = [939];  // old imgs exported to 1878px H for 939px H @ 2x
+        let ws = [];
+        for (let m of metadatas) {
+            if (m.width == null || m.height == null) {
+                // NOTE: videos return here
+                return [wClass, wStyle];
+            }
+            if (m.maxHeight != null) {
+                mhs.push(m.maxHeight);
+            }
+            ws.push(m.width);
+        }
+        if (mhs.length == 0) {
+            return [wClass, wStyle];
+        }
+
+        // we have at least one desired max height. pick the smallest.
+        // use the total width, but because the layout only supports equal
+        // heights, just assume equal heights for now and use the first.
+        let mh = Math.min(...mhs);
+        let h = metadatas[0].height;
+        let w = ws.reduce((a, b) => a + b, 0);
+        //     w * h/w < maxHeight
+        // ->  w < maxHeight * w/h
+        let mw = Math.round(mh * (w / h));
+        // wClass = "";
+        // NOTE: limit single (landscape 4:3) images' height to 100vh
+        // wStyle = `max-width: min(100%, ${mw}px, 133.3vh);"`;
+        wStyle = metadatas.length == 1 ? `max-width: min(100%, ${mw}px, 133.3vh);"` : `max-width: min(100%, ${mw}px);"`;
+        return [wClass, wStyle];
     }
 
     async function oneBigImage(imgSpec, marginClasses, blurStretchSingles, fullWidth, ph = true) {
-        let [bgImgPath, imgHTML] = await imgSpecToHTML(imgSpec, 1);
+        let [imgHTML, metadata] = await imgSpecToHTML(imgSpec);
         let bgDiv = "";
-        if (blurStretchSingles && bgImgPath != "") {
-            bgDiv = `<div class="bgImageReady svgBlur" style="background-image: none;" data-background-image="url(${bgImgPath})"></div>`;
+        if (blurStretchSingles && metadata.bgImgPath != "") {
+            bgDiv = `<div class="bgImageReady svgBlur" style="background-image: none;" data-background-image="url(${metadata.bgImgPath})"></div>`;
         }
         let fwClasses = fullWidth ? "full-width cb" : "";
         // If it's not full-width, then we want them to be aligned with the text margins,
         // not have extra padding (matching markdown ![]() inline images).
         let phClass = (fullWidth && ph) ? "ph1-m ph3-l" : "";
 
-        // NOTE: the one image style could be
-        // <div class="full-width ph1-m ph3-l">
-        // <img src="foo" style="max-height: 500px;">
-        // </div>
-        // but using this so the <img ...> snippet is the same for all layouts.
-        return `<div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">${bgDiv}${imgHTML}</div>`;
+        // Do any height limiting via width limiting
+        let [wClass, wStyle] = getWClassStyle([metadata]);
+        return `
+        <div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">
+            ${bgDiv}
+            <div class="${wClass}" style="${wStyle}">
+                ${imgHTML}
+            </div>
+        </div>
+        `;
     }
 
     async function oneBigImage2(imgSpec, marginClasses, fullWidth) {
@@ -505,32 +655,20 @@ module.exports = function (eleventyConfig) {
     }
 
     async function twoBigImages(imgSpecs, marginClasses, fullWidth) {
-        let [bgImgPath1, imgHTML1] = await imgSpecToHTML(imgSpecs[0], 2);
-        let [bgImgPath2, imgHTML2] = await imgSpecToHTML(imgSpecs[1], 2);
+        let [imgHTML1, metadata1] = await imgSpecToHTML(imgSpecs[0]);
+        let [imgHTML2, metadata2] = await imgSpecToHTML(imgSpecs[1]);
 
-        let mlClass = fullWidth ? "ml1-m ml3-l" : "";
-        let mrClass = fullWidth ? "mr1-m mr3-l" : "";
-
-        // NOTE: This was experimenting with blur stretch effect on side-by-side images.
-        // + add "relative" to class list on each containing <div>
-        // + add ${bgDivX} just before each ${imgHTMLX}
-        // + first attempt, fixed widths on each img div "w-100 w-50-ns" and "center" on the image HTML.
-        //   Challenge is we don't actually want images to take up 50% each because if they're not exactly
-        //   the same size (aspect ratio?) they ought to scale differently and take up less or more than 50%
-        //   of the width when the page shrinks and both are no longer full size. If we set each to 50% width,
-        //   then one will end up with extra space below/above it, as their heights won't match.
-        // let bgDiv1 = "", bgDiv2 = "";
-        // let blurStretchSingles = true;
-        // if (blurStretchSingles && bgImgPath1 != "" && bgImgPath2 != "") {
-        //     bgDiv1 = `<div class="bgImageReady svgBlur" style="background-image: url(${bgImgPath1})"></div>`;
-        //     bgDiv2 = `<div class="bgImageReady svgBlur" style="background-image: url(${bgImgPath2})"></div>`;
-        // }
-
+        let phClass = fullWidth ? "ph1-m ph3-l" : "";
+        let [wClass, wStyle] = getWClassStyle([metadata1, metadata2]);
         let fwClasses = fullWidth ? "full-width cb" : "";
-        return `<div class="${fwClasses} flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
-<div class="${mlClass} mr1-ns mb1 mb0-ns">${imgHTML1}</div>
-<div class="${mrClass}">${imgHTML2}</div>
-</div>`;
+        return `
+        <div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">
+            <div class="flex flex-wrap flex-nowrap-ns justify-center ${wClass}" style="${wStyle}">
+                <div class="mr1-ns mb1 mb0-ns">${imgHTML1}</div>
+                <div>${imgHTML2}</div>
+            </div>
+        </div>
+        `;
     }
 
     async function twoBigImages2(imgSpecs, marginClasses, fullWidth) {
@@ -551,21 +689,29 @@ module.exports = function (eleventyConfig) {
     }
 
     async function threeBigImages(imgSpecs, marginClasses, fullWidth) {
+        let [imgHTML1, metadata1] = await imgSpecToHTML(imgSpecs[0]);
+        let [imgHTML2, metadata2] = await imgSpecToHTML(imgSpecs[1]);
+        let [imgHTML3, metadata3] = await imgSpecToHTML(imgSpecs[2]);
+
         let fwClasses = fullWidth ? "full-width cb" : "";
-        let mlClass = fullWidth ? "ml1-m ml3-l" : "";
-        let mrClass = fullWidth ? "mr1-m mr3-l" : "";
-        return `<div class="${fwClasses} flex flex-wrap flex-nowrap-ns justify-center ${marginClasses}">
-<div class="${mlClass}">${(await imgSpecToHTML(imgSpecs[0], 3))[1]}</div>
-<div class="mh1-ns mv1 mv0-ns">${(await imgSpecToHTML(imgSpecs[1], 3))[1]}</div>
-<div class="${mrClass}">${(await imgSpecToHTML(imgSpecs[2], 3))[1]}</div>
-</div>`;
+        let phClass = fullWidth ? "ph1-m ph3-l" : "";
+        let [wClass, wStyle] = getWClassStyle([metadata1, metadata2, metadata3]);
+        return `
+        <div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">
+            <div class="flex flex-wrap flex-nowrap-ns justify-center ${wClass}" style="${wStyle}">
+                <div>${imgHTML1}</div>
+                <div class="mh1-ns mv1 mv0-ns">${imgHTML2}</div>
+                <div>${imgHTML3}</div>
+            </div>
+        </div>
+        `;
     }
 
     async function threeBigImages2(imgSpecs, marginClasses, fullWidth) {
         let fwClasses = fullWidth ? "full-width cb" : "";
         let phClass = fullWidth ? "ph1-m ph3-l" : "";
         return `
-        <div class="${fwClasses} flex flex-wrap flex-nowrap-ns justify-center ${phClass} ${marginClasses}">
+        <div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">
             <div class="flex flex-wrap flex-nowrap-ns justify-center media-max-width">
                 <div>${await imgSpecToHTML2(imgSpecs[0])}</div>
                 <div class="mh1-ns mv1 mv0-ns">${await imgSpecToHTML2(imgSpecs[1])}</div>
@@ -650,7 +796,7 @@ module.exports = function (eleventyConfig) {
             }
         }
 
-        return buf;
+        return "<md-raw>" + buf + "</md-raw>";
     });
 
     /**
@@ -718,12 +864,14 @@ module.exports = function (eleventyConfig) {
         });
     });
 
+    const binaryToBase64 = (binary) => btoa(String.fromCharCode(...binary));
+
     /**
      * Thanks to:
      * https://github.com/evanw/thumbhash/issues/2#issuecomment-1481848612
      *
      * @param {string} localPath
-     * @returns Promise<Uint8Array>
+     * @returns {string} base64-encoded thumbhash
      */
     async function loadAndHashImage(localPath) {
         if (thumbhashCache.has(localPath)) {
@@ -735,9 +883,6 @@ module.exports = function (eleventyConfig) {
         const image = await loadImage(localPath);
         const width = image.width;
         const height = image.height;
-        // console.log(image);
-        // console.log("img w:", width);
-        // console.log("img h:", height);
 
         const scale = Math.min(maxSize / width, maxSize / height);
         const resizedWidth = Math.round(width * scale);
@@ -750,37 +895,39 @@ module.exports = function (eleventyConfig) {
         // const imageData = ctx.getImageData(0, 0, width, height);
         const imageData = ctx.getImageData(0, 0, resizedWidth, resizedHeight);
         const rgba = new Uint8Array(imageData.data.buffer);
-        const hash = th.rgbaToThumbHash(resizedWidth, resizedHeight, rgba);
-        thumbhashCache.set(localPath, hash);
-        return hash;
+        // binaryHash is a Uint8Array
+        const binaryHash = th.rgbaToThumbHash(resizedWidth, resizedHeight, rgba);
+        const hashB64 = binaryToBase64(binaryHash);
+        thumbhashCache.set(localPath, hashB64);
+        return hashB64;
     }
 
-    const binaryToBase64 = (binary) => btoa(String.fromCharCode(...binary));
+
 
     eleventyConfig.addShortcode("thumbhash", async function (path) {
-        // NOTE: use if benchmarking w/o thumbhash
-        // return "j+gJDYK+iVd/d4dtd5h3aASRuftm";
         let localPath = path[0] == "/" ? path.substring(1) : path;
-        const binaryHash = await loadAndHashImage(localPath);
-        const base64Hash = binaryToBase64(binaryHash);
+        const base64Hash = await loadAndHashImage(localPath);
         return base64Hash;
     });
 
-    eleventyConfig.addShortcode("thumbhashhex", async function (path) {
-        // NOTE: use if benchmarking w/o thumbhash
-        // return "8F E8 09 0D 82 BE 89 57 7F 77 87 6D 77 98 77 68 04 91 B9 FA 76";
-        let localPath = path[0] == "/" ? path.substring(1) : path;
-        const binaryHash = await loadAndHashImage(localPath);
-        const preview = Array.from(binaryHash).map(b => b.toString(16).padStart(2, '0')).join(' ').toUpperCase();
-        return preview;
-    });
+    // NOTE: Deprecated since loadAndHashImage() now returns b64 instead of binary.
+    // eleventyConfig.addShortcode("thumbhashhex", async function (path) {
+    //     // NOTE: use if benchmarking w/o thumbhash
+    //     // return "8F E8 09 0D 82 BE 89 57 7F 77 87 6D 77 98 77 68 04 91 B9 FA 76";
+    //     let localPath = path[0] == "/" ? path.substring(1) : path;
+    //     const base64Hash = await loadAndHashImage(localPath);
+    //     // NOTE: Given new API, would need to do b64 -> binary here.
+    //     const binaryHash = ???(base64Hash);
+    //     const preview = Array.from(binaryHash).map(b => b.toString(16).padStart(2, '0')).join(' ').toUpperCase();
+    //     return preview;
+    // });
 
     eleventyConfig.addShortcode("coverImg", async function (path, classes = "", style = "") {
         // NOTE: use if benchmarking w/o Eleventy Image
         // return `<img src='${path}'/>`;
         let localPath = path[0] == "/" ? path.substring(1) : path;
-        let stats = await Image(localPath, { statsOnly: true });  // ideally faster than Image.statsSync() b/c caching
-        let w = stats.jpeg[0].width;  // NOTE: Change if I ever use more than jpegs
+        let [w, h] = getImageSize(localPath);
+
         let ws = [];
         while (w > 500) {
             ws.push(w);
@@ -801,9 +948,7 @@ module.exports = function (eleventyConfig) {
             // loading: "lazy",
             // decoding: "async",
             alt: "",
-            // NOTE: use if benchmarking w/o thumbhash
-            // "data-thumbhash-b64": "j+gJDYK+iVd/d4dtd5h3aASRuftm",
-            "data-thumbhash-b64": binaryToBase64(await loadAndHashImage(localPath)),
+            "data-thumbhash-b64": await loadAndHashImage(localPath),
         });
     });
 
@@ -1064,6 +1209,9 @@ ${third}`;
     // })
     // eleventyConfig.setLibrary("njk", nunjucksEnvironment);
 
+    // console.log("Setting myGeneratedCSS in .eleventy.js");
+    // eleventyConfig.addGlobalData("myGeneratedCSS", "Hello from .eleventy.js");
+
     return {
         // Control which files Eleventy will process
         // e.g.: *.md, *.njk, *.html, *.liquid
@@ -1071,7 +1219,6 @@ ${third}`;
             "md",
             "njk",
             "html",
-            "liquid"
         ],
 
         // Pre-process *.md files with: (default: `liquid`)

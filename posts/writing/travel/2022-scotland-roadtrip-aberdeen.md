@@ -292,8 +292,8 @@ Nobody actually lives there anymore. Apparently the maintenance costs for a cast
 To my surprise, I saw my last name and some kind of coat of arms a bunch of places around the castle. Turns out the key owner (Alexander Forbes-Leith) had "Forbes" on his mom's side. I'm really not into European genealogy, so I won't belabor this at all. Instead, I present to you three boars' heads and "Grace Me Guide," neither of which gets me really fired up but hey, some things you don't get to choose.
 
 {% img [[
-    {path: "/assets/posts/2022-scotland/07-leith-forbes-ceiling.moz80.jpg", maxHeight: "500px"},
-    {path: "/assets/posts/2022-scotland/07-leith-forbes-window.moz80.jpg", maxHeight: "500px"}
+    {path: "/assets/posts/2022-scotland/07-leith-forbes-ceiling.moz80.jpg", maxHeight: "500"},
+    {path: "/assets/posts/2022-scotland/07-leith-forbes-window.moz80.jpg", maxHeight: "500"}
 ]] %}
 
 <p class="figcaption">Bagpipes don't get me fired up either. In case you were wondering.</p>

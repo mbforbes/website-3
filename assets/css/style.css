@@ -829,6 +829,16 @@ ol ol ol {
     background-color: #FF630033;
 }
 
+/* tachyons navy (#001b44) is a good placeholder color; these are triadic w/ it (shift hue, keep saturation and brightness */
+.bg-deep-red {
+    background-color: #44001b;
+}
+
+.bg-deep-green {
+    background-color: #1b4400;
+}
+
+
 @keyframes bob {
     0% {
         transform: translatey(-3px);
@@ -882,6 +892,8 @@ ol ol ol {
     /* apparently need display: block to get it to respect max-width */
     display: block;
     max-width: 30em;
+    /* Funny: if a sidenote is from a heading, it'd be bold! */
+    font-weight: normal;
 }
 
 .sidenote-number {

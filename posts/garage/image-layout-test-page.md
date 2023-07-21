@@ -85,7 +85,7 @@ Copy-paste-able snippets for image arrangements.
 
 ### Specify Height
 
-{% img {path: "/assets/garage/image-test-pages/1000x500@3x.png", maxHeight: "500px"} %}
+{% img {path: "/assets/garage/image-test-pages/1000x500@3x.png", maxHeight: "500"} %}
 
 ### Blur stretch singles
 
@@ -1231,10 +1231,6 @@ This breaks things afresh. The flex container with `media-max-width` obeys the w
     </div>
 </div>
 
-Manually setting `width: 50%` on the image-containing divs seems to work. For the mobile layout, they need `w-100 w-50-ns`.^[Nagging thought: It's surprising to me because it seems like the kind of thing that flexbox should handle, and I shouldn't have to manually specify widths. And I guess it does until the image dimensions are added in...] I wouldn't have been willing to set widths manually, but from all my explorations above, it's the only thing that has worked for unequal height images.
-
-But I think the margin between the divs isn't accounted for, and they're breaking into the page's padding. So I need to do a more complex style that subtracts it. I can't do media queries in element styles, so I'll need some CSS rules. Here's what I ended up with for above:
-
 ```css
 @media screen and (min-width: 30em) {
     .w-2col-50-ns {
@@ -1243,6 +1239,28 @@ But I think the margin between the divs isn't accounted for, and they're breakin
     }
 }
 ```
+
+
+Manually setting `width: 50%` on the image-containing divs seems to work. For the mobile layout, they need `w-100 w-50-ns`.^[Nagging thought: It's surprising to me because it seems like the kind of thing that flexbox should handle, and I shouldn't have to manually specify widths. And I guess it does until the image dimensions are added in...] I wouldn't have been willing to set widths manually, but from all my explorations above, it's the only thing that has worked for unequal height images.
+
+But I think the margin between the divs isn't accounted for, and they're breaking into the page's padding. So I need to do a more complex style that subtracts it. I can't do media queries in element styles, so I'll need some CSS rules.
+
+**Update:** here's a confounding thing that happened when I started implementing this. When the image paths were valid, _even before the images loaded,_ they were sized correctly without any modifications to the containing divs. E.g., the following:
+
+<div class="full-width cb flex justify-center ph1-m ph3-l fig">
+    <div class="flex flex-wrap flex-nowrap-ns justify-center media-max-width">
+        <div class="mr1-ns mb1 mb0-ns">
+            <img class="db bare novmargin h-auto bg-navy" src="/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg" loading="lazy" decoding="async" width="2280" height="1522">
+        </div>
+        <div>
+            <img class="db bare novmargin h-auto bg-navy" src="/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg" loading="lazy" decoding="async" width="2280" height="1522">
+        </div>
+    </div>
+</div>
+
+<p class="figcaption">If the images were to point to nonexistent files, the layout would become terrible and their sizes would blast beyond the divs.</p>
+
+I don't know why this happens, but it worries me we may be wading into browser-specific territory. **Update:** Checking Chrome, Firefox, and Safari, only Chrome makes this explosion happen when the src is invalid! So that's bizarre.
 
 #### Two images, unequal dims
 
@@ -1347,3 +1365,102 @@ I think at this point things ought to work, but testing three images for complet
 Here I computed the widths using the exact pixels (e.g., 2280/1522) rather than anticipated ratios (e.g., 3/2), and the results came out pixel-perfect.
 
 The other good news is that removing the full-width classes and extra padding, the layouts work great at margin-width.
+
+### v1: Reimagined
+
+Maybe doing more sizing w/ div and less w/ img is going to help this.
+
+Currently, v1 style is over-stretching.
+
+The v2 style uses an additional div, and does little sizing on the image itself.
+
+```html
+<div class="full-width cb flex justify-center ph1-m ph3-l fig">
+  <img class="db bare novmargin h-auto bg-navy " src="/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg" style="max-height: min(100vh, 939px);" loading="lazy" decoding="async" width="2280" height="1522">
+</div>
+```
+
+<p class="figcaption">img macro</p>
+
+```html
+<div class="full-width cb flex justify-center ph1-m ph3-l fig">
+    <div class="media-max-width">
+        <img class="db bare novmargin h-auto bg-navy" src="/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg" loading="lazy" decoding="async" width="2280" height="1522">
+    </div>
+</div>
+```
+
+<p class="figcaption">img2 macro</p>
+
+Can't get this to work. It seems like something about `media-max-width` being a width-limiter really helps things work.
+- If the (new) inner div has a `max-height: 100vh`, then the img inside ignores this and blasts out of it
+- If `max-height: 100%;` is the applied to the image, it contorts itself wildly (not maintaining aspect ratio, shrinking height to fit)
+- By the time we add `w-auto` to the `h-auto` to get the width the shrink too, all purpose of explicit width and height are gone (dimensions are no longer saved)
+
+```html
+<div class="full-width cb flex justify-center ph1-m ph3-l fig">
+    <div class="" style="max-height: 100vh;">
+        <img style="max-height: 100%;"  class="db bare novmargin w-auto h-auto bg-navy" src="/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg" loading="lazy" decoding="async" width="2280" height="1522">
+    </div>
+</div>
+```
+
+<p class="figcaption">Evidence of failure.</p>
+
+I am seriously wondering whether it's worth keeping the v1 styles around. Why not just migrate to v2?
+OK an intermediary would be to compute a similar media-max-width that accounts for the 4:3 aspect ratio of old photos.
+
+Let's try the same logic as w/ media max width: `4/3 * 0.5w ≤ 100vh`, so `w ≤ 150vh`? Huh, nope, need to think that one through more, but 133vh is better. Since we're allowing full-width we could remove the pixel width limit.
+
+- `max-width: min(100%, 1140px, 133.3vh);`
+- `max-width: min(100%, 133.3vh);`
+
+<div class="full-width cb flex justify-center ph1-m ph3-l fig">
+    <div style="max-width: min(100%, 133.3vh);">
+        <img class="db bare novmargin h-auto bg-navy" src="/assets/posts/2022-edinburgh/church-angle.moz80.jpg" loading="lazy" decoding="async" width="2504" height="1878" data-thumbhash-b64="3/cNHYRsmmiPlnhqd4aHd4RQRghl" >
+    </div>
+</div>
+
+
+A complication: I do use explicit height limiting a bunch of places for v1 images, so they kind of need to support that. But (a) it's always in pixels, (b) it never varies within a row. So I could change them all to a per-row specification, then compute the max-width based on the image ratio and the provided max height. Let's see whether that would work.
+
+Let's say we want to limit to 500px height.
+- w * h/w < 500px
+- w * 3/4 < 500px
+- w < 666.6px
+
+<div class="full-width cb flex justify-center ph1-m ph3-l fig">
+    <div style="max-width: min(100%, 666px, 133.3vh);">
+        <img class="db bare novmargin h-auto bg-navy" src="/assets/posts/2022-edinburgh/church-angle.moz80.jpg" loading="lazy" decoding="async" width="2504" height="1878" data-thumbhash-b64="3/cNHYRsmmiPlnhqd4aHd4RQRghl" >
+    </div>
+</div>
+
+It's still crazy to me that you have to go through all this shenanigans for max-width calculations, and can't just use max-height directly.
+
+This does get more complicated since we often have a height-limited row of two or three images. I guess in that case we want to sum the widths to get the total W, and do the same computation?
+
+- trying a 300px height limit as these are wide
+- w < (w/h) * limit px
+- w < (8/3) * 300px
+- w < 800px
+
+<div class="full-width cb flex justify-center ph1-m ph3-l fig">
+    <div class="flex flex-wrap flex-nowrap-ns justify-center" style="max-width: min(100%, 800px, 133.3vh);">
+        <div class="mr1-ns mb1 mb0-ns">
+            <img class="db bare novmargin h-auto bg-navy" src="/assets/posts/2022-edinburgh/church-angle.moz80.jpg" loading="lazy" decoding="async" width="2504" height="1878" data-thumbhash-b64="3/cNHYRsmmiPlnhqd4aHd4RQRghl">
+        </div>
+        <div>
+            <img class="db bare novmargin h-auto bg-navy" src="/assets/posts/2022-edinburgh/church-angle.moz80.jpg" loading="lazy" decoding="async" width="2504" height="1878" data-thumbhash-b64="3/cNHYRsmmiPlnhqd4aHd4RQRghl">
+        </div>
+    </div>
+</div>
+
+ OK, the logic for the v2 `media-max-width` was:
+
+ > E.g., the width of a container could be capped at a value such that a 2x3 image at roughly half its size won't be taller than 100vh. That's `3/2 * 0.5w ≤ 100vh`, so `w ≤ 133.3vh`?
+
+So, for a singe 4/3 landscape image, it would be:
+- 3/4 * w ≤ 100vh
+- w ≤ 133.3vh
+
+IT'S SO WILD IT'S THE SAME

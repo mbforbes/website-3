@@ -76,7 +76,7 @@ And since if something is worth doing, it's worth overdoing, I went past the 2x 
 
 To me, this finally looks blurry. I think this is because it's now actually stretched on a 2x pixel density screen. To verify, we can display it 1/2 size^[Sizes are confusing. This cuts each of the width and height in half, so it feels like "half size," though the area gets cut by 1/4.] to make it 2x pixel density again.
 
-{% img {path: "/assets/garage/photo-notebook/focus-shrubs-333mm-tw.moz80.jpg", maxHeight: "235px"}, false, false %}
+{% img {path: "/assets/garage/photo-notebook/focus-shrubs-333mm-tw.moz80.jpg", maxHeight: "235"}, false, false %}
 
 <p class="figcaption">"333mm" [f1.7], displayed 1/2 size for 2x pixel density</p>
 

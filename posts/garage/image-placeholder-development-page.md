@@ -214,7 +214,11 @@ I then ran into problems getting the correct hashes to render. The following tab
 
 img | expected (hex) | actual (hex)
 --- | --- | ---
-`test-cover.moz80.jpg` | `8F E8 09 0D 82 BE 89 57 7F 77 87 6D 77 98 77 68 04 91 B9 FA 76` | `{% thumbhashhex '/assets/garage/image-placeholder-test-page/test-cover.moz80.jpg' %}`
+`test-cover.moz80.jpg` | `8F E8 09 0D 82 BE 89 57 7F 77 87 6D 77 98 77 68 04 91 B9 FA 76` | `8F E8 09 0D 82 BE 89 57 7F 77 87 6D 77 98 77 68 04 91 B9 FB 66`
+
+<p class="figcaption">
+{{ "This used to use the `thumbhashhex` macro on `'/assets/garage/image-placeholder-test-page/test-cover.moz80.jpg'`, but I removed that internally for API smoothness." | md | safe }}
+</p>
 
 The following table shows base64-encoded hashes.
 
@@ -364,3 +368,70 @@ It works!
 The first thing is to get the image layout working w/ non-height matching images. As-always, this work is done over at the [image layout test page](/garage/image-layout-test-page/).
 
 > Actually, I should just see if I can output the dimensions and have solid backgrounds (and possibly thumbhashes) first. Then I can worry about the non-matching heights and eleventyImg sizes later. But I did get a working draft of the non-matching heights hacked up, so can reference that down the line.
+
+Surprisingly, the solution to varying heights and having a layout that works with explicit width / height attributes was the same thing: manually specifying image-containing div widths.
+
+My remaining question is how to output CSS.
+
+### 4/6/7. caching (sizes and thumbhash), v1
+
+This is all getting unstructured. Since I realized I could potentially get the same layout to work w/o srcset and different sizes (just keeping original height-matching images), adding width, height, and thumbhash, I'm trying that for v1, which will affect all the posts that currently exist.
+
+Currently, a few problems:
+- the startup time is now 200+ seconds (😱)
+    - don't know if this is eleventyImg or thumbhash or both
+- some layouts are screwed up
+
+Startup time --- 202s, 202s. Either the disk cache doesn't work, or it does but hashing hundreds (thousands?) of images is slow. The PR describing the disk cache says it runs image contents through hash. There are several issues about it being slow (https://github.com/11ty/eleventy-img/issues/170), it all seems like it should be improved in v3 of the plugin, but it's still mind-numbingly slow.
+
+w/o thumbhash
+- 23.7 s startup
+- 4.6 s reload
+
+w/ thumbhash
+- 202.5 s startup
+- 4.35 s reload
+
+OK, so basically thumbhash cache is working, but has to be disk cached to be viable. Also, if I'm just getting dimensions, I may be able to drastically speed up if eleventy img is hashing images when I try to get the stats. The image size module is doing some legit EXIF parsing (https://github.com/image-size/image-size/blob/main/lib/types/jpg.ts) so should be quick.
+
+no thumbhash, eleventyImg for size
+- 24.5 s startup
+- 4.3 s reload
+
+no thumbhash, `image-size` module for size
+- 8.78 s startup
+- 4.9, 4.7, 4.8 s reload
+
+So startup is way faster, but they cache sizes. But I can cache sizes too.
+
+no thumbhash, `image-size` with my own cache
+- 8.5 s startup
+- 4.3, 3.9, 4.2 s reload
+
+Now, with thumbhash disk cache:
+- first build: 182 s
+- next builds: 4.8, 5.1, 4.8 s
+- reloads: 4.2, 4.5, 4.0 s
+
+Good news: ~1600-sized caches have sped initial builds to 5s and reloads to 4s, all v2 and v1 images have placeholder sizes and thumbhashes. Bad news: v1 layouts aren't working -- images stretched. Need a designated v1 test page and to finally hammer it out, or to just migrate to v2. Remaining big complications / questions:
+
+- is the v2 width-limited style just better enough to migrate v1 pages to it? do we recompute the height limit that was 3:2-specific to account for v1 images? if not, perhaps taking inspiration from the v2 design could help v1 work.
+
+- will eleventyImg be fast enough to do the whole site w/ multiple sizes? May be worth a timing check... if not, is it worth implementing on my own?
+
+- if we will support varying heights, how do we output the classes?
+
+- how do we support inline images? it turns out there are plenty of them. The current lazy load plugin for markdown-it is quite simple, I could replace with my own plugin, and if the rest of the code is in scope, I could use the caches + thumbhashes.
+
+CURSPOT actual:
+- [x] figure out a layout that works for v1 (max-width math)
+- [x] implement it
+- [x] height-limiting
+- [x] maybe actually do default height-limiting
+- [x] fix videos (tiny, many diff behaviors, also e.g. youtube vs vimeo)
+- [ ] SHIP
+- [ ] double or 1.5x fig spacing?
+- [ ] SHIP
+- [ ] inline images
+- [ ] SHIP
+- [ ] multiple sizes (test speed, but probably DIY...)

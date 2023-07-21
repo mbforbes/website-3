@@ -145,7 +145,7 @@ Because the cheap average thing is just that good.
 
 Also here's an odd one.
 
-{% img {path: "/assets/posts/2022-france/mp-food-calzone-tacos.moz80.jpg", maxHeight: "500px"} %}
+{% img {path: "/assets/posts/2022-france/mp-food-calzone-tacos.moz80.jpg", maxHeight: "500"} %}
 
 <p class="figcaption">
 At first I was like, WTF is a calzone taco.
