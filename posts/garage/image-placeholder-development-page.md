@@ -423,7 +423,7 @@ Good news: ~1600-sized caches have sped initial builds to 5s and reloads to 4s, 
 
 - how do we support inline images? it turns out there are plenty of them. The current lazy load plugin for markdown-it is quite simple, I could replace with my own plugin, and if the rest of the code is in scope, I could use the caches + thumbhashes.
 
-CURSPOT actual:
+CURSPOT:
 - [x] figure out a layout that works for v1 (max-width math)
 - [x] implement it
 - [x] height-limiting
@@ -436,4 +436,25 @@ CURSPOT actual:
 - [x] SHIP
 - [x] maps (done) and city pics (was already working lol)
 - [x] SHIP
-- [ ] multiple sizes (test speed, but probably DIY...)
+- [x] multiple sizes (`srcset`` + `sizes`)
+    - [x] v2
+    - [x] v1
+- [x] SHIP
+- [ ] multiple sizes for maps (don't spend much time)
+- [ ] multiple sizes for inline images
+
+Sizes!
+https://cloudfour.com/thinks/responsive-images-101-part-5-sizes/
+
+Don't have access to screen media query, but I think that's fine. Currently we're breaking @ 30em (480px on my desktop), and this seems good
+- ✓ Chrome will not let you take browser < 500px
+- ✓ When you do in developer tools, it switches to the small screen layout even on desktop
+- ✓ All phones are < 480px (biggest I saw in chrome dev tools was 412)
+
+Going to use Eleventy Img for now rather than reimplement. I don't love the hashing situation, and I've probably already ruined any robustness by having my thumbhash and size cache^[I could probably remove the size cache now...], and the startup time is slow (initial build ~4m, any startup 22s). But reloads are still fine (4.5s), and most importantly...
+
+**HOLY CRAP INCREMENTAL BUILDS.** 0.18, 0.12, 0.16s. Uhhh ya this is default now. Wow. Development is instant again. Even "full" rebuilds when I edit `.eleventy.js` are ~2.3s now instead of ~4.5s.
+
+> I notice that everything that has a redirect (using `redirect-from.njk`) is also being rebuilt every time. This is irrelevant time-wise but I'm curious, so I wonder whether it's worth reaching out to [Brian](https://brianm.me/posts/eleventy-redirect-from/) and asking him about it. I guess I could try to solve it first (I'm guessing it's the `collections.all`).
+
+Amazingly, `srcset` and `sizes` worked for v1 and v2! All of the pre-work has paid off.

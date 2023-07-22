@@ -8,7 +8,7 @@
         "prewatch": "node build-image-cache.js",
         "watch": "eleventy --watch",
         "preserve": "node build-image-cache.js",
-        "serve": "eleventy --serve",
+        "serve": "eleventy --serve --incremental",
         "prestart": "node build-image-cache.js",
         "start": "eleventy --serve",
         "debug": "DEBUG=* eleventy"

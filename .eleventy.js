@@ -135,6 +135,37 @@ async function getWHTHB64(path) {
     return [w, h, thumbhash64];
 }
 
+/**
+ * Gets desired widths for image size reductions.
+ *
+ * @param {number} w
+ * @returns {number[]}
+ */
+function wantWidths(w) {
+    // We start from the base size and halve *through* the first one that's
+    // below 500.
+    let ws = [w];
+    while (w > 500) {
+        w = Math.round(w / 2);
+        ws.push(w);
+    }
+    return ws;
+}
+
+/**
+ * Eleventy-img has a funny thing where it returns to you an object whose keys
+ * you have to guess based on its logic (I think). It's basically the extension
+ * but with some collapsing.
+ *
+ * @param {string} path
+ * @returns {string}
+ */
+function formatKey(path) {
+    let parts = path.split(".");
+    let extRaw = parts[parts.length - 1].toLowerCase();
+    return extRaw == "jpg" ? "jpeg" : extRaw;
+}
+
 module.exports = function (eleventyConfig) {
     // Copy some folders to the output
     eleventyConfig.addPassthroughCopy("assets");
@@ -455,13 +486,93 @@ module.exports = function (eleventyConfig) {
     });
 
     /**
+     * Get `srcset` and `sizes` attribute values. Includes creating them using eleventy-img.
+     * @param {string} path
+     * @param {number} w original width
+     * @param {string} version "v1" or "v2"
+     * @param {boolean} fullWidth (vs inline)
+     * @param {*} n number of images in row
+     * @returns {[number, number]} [srcset, sizes] attr values
+     */
+    async function getSrcsetSizes(path, w, version, fullWidth, n) {
+        let localPath = getLocalPath(path);
+        let ws = wantWidths(w);
+        let metadata = await Image(localPath, {
+            widths: ws,
+            formats: ["auto"],
+            outputDir: "./_site/assets/eleventyImgs/",
+            urlPath: "/assets/eleventyImgs/",
+        });
+        let fmt = formatKey(localPath);
+        // metadata[fmt] is an array of objects that look like:
+        //{
+        //    format: 'jpeg',
+        //    width: 352,
+        //    height: 234,
+        //    url: '/assets/eleventyImgs/368rsNkvAN-352.jpeg',
+        //    sourceType: 'image/jpeg',
+        //    srcset: '/assets/eleventyImgs/368rsNkvAN-352.jpeg 352w',
+        //    filename: '368rsNkvAN-352.jpeg',
+        //    outputPath: '_site/assets/eleventyImgs/368rsNkvAN-352.jpeg',
+        //    size: 13131
+        //  },
+        let srcSets = [];
+        for (let imgSizeMeta of metadata[fmt]) {
+            srcSets.push(imgSizeMeta.srcset);
+        }
+        let srcSet = srcSets.join(", ");
+
+        // Brief reminder:
+        // - srcset is a list with each variant's true size ("cat-320.jpg 320w, cat-640.jpg 640w, cat-1280.jpg 1280w"")
+        // - sizes is a list of "(condition) display" tuples ("(max-width: 480px) 100vw, (max-width: 900px) 33vw, 254px")
+
+        // NOTE: The non-100vw widths are rough guesses! If we really wanted to
+        // do this correctly, we would compute the expected display widths for
+        // each image based on its width and all the image widths. On the other
+        // hand, this might make a row's images choose different sizes,[0] which
+        // would break the layout without implementing manual explicit widths.
+        //
+        // [0] Actually, the *only* reason to do this would be if it *did* make
+        // a row's images choose different sizes. So if I don't want that to
+        // happen, I shouldn't do it. (Or I should at least see if things are
+        // broken anyway first and maybe not do it if they're fine.)
+
+        // sizes:
+        // (v1/v2) inline:
+        // "(max-width: 30em) 100vw, (max-width: 704px) 33/50/100vw, 235/352/704px"
+        //
+        // (v1) no media max width, fullscreen
+        // "(max-width: 30em) 100vw, 33/50/100vw"
+        //
+        // (v2) media-max-width, fullscreen:
+        // "(max-width: 30em) 100vw, (max-width: 1140px) 33/50/100vw, 380/570/1140px"
+
+        let midSize = n == 1 ? "100" : (n == 2 ? "50" : "33");
+        let sizes;
+        if (version == "v1" && fullWidth) {
+            // Handle (v1) no media max width, fullscreen
+            sizes = `(max-width: 30em) 100vw, ${midSize}vw`;
+        } else {
+            // Handle both (v1/v2) inline, (v2) media-max-width, fullscreen
+            let midBreak = fullWidth ? "1140" : "704";
+            let bigSize;
+            if (fullWidth) {
+                bigSize = n == 1 ? "1140" : (n == 2 ? "570" : "380");
+            } else {
+                bigSize = n == 1 ? "704" : (n == 2 ? "352" : "235");
+            }
+            sizes = `(max-width: 30em) 100vw, (max-width: ${midBreak}px) ${midSize}vw, ${bigSize}px`;
+        }
+
+        return [srcSet, sizes];
+    }
+
+    /**
      * @param img can be a str or obj.
-     * - if obj and image, expects keys path (req) maxHeight (opt, default "939px")
+     * - if obj and image, expects keys path (req) maxHeight (opt, default "939")
      * - if obj and video, expect keys vimeoInfo (req), videoStyle (req), bgImgPath (opt, for blurStretchSingles)
-     *
-     * @param n how many images will be in the final row this is a part of.
-     *          Need this because the layout is breaking in extremely specific conditions
-     *          (multi-img w/ diff dims and only w/ srcset+sizes).
+     * @param {boolean} fullWidth (vs inline)
+     * @param {number} n how many imgs in its row
      * @returns [HTML, {
      *     video: bool,
      *     bgImgPath: str | null,
@@ -469,7 +580,7 @@ module.exports = function (eleventyConfig) {
      *     width: number | null,
      * }]
      */
-    async function imgSpecToHTML(img) {
+    async function imgSpecToHTML(img, fullWidth, n) {
         // video
         if (img.vimeoInfo || img.youtubeInfo) {
             let html;
@@ -500,14 +611,21 @@ module.exports = function (eleventyConfig) {
             extraClasses = img.extraClasses || extraClasses;
         }
 
-        // get thumbhash and size
+        // size, thumbhash, srcset, sizes
         let [w, h, thumbhash64] = await getWHTHB64(path);
         let thAttr = (thumbhash64 == null) ? "" : `data-thumbhash-b64="${thumbhash64}"`;
+        let [srcSet, sizes] = await getSrcsetSizes(path, w, "v1", fullWidth, n)
 
         // image source / path debug / preview / display
         // let pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
         let pathDisplay = "";
-        let html = `<img class="db bare novmargin h-auto bg-navy ${extraClasses}" src="${path}" loading="lazy" decoding="async" width="${w}" height="${h}" ${thAttr} />${pathDisplay}`;
+        let html = `<img
+            src="${path}"
+            class="db bare novmargin h-auto bg-navy ${extraClasses}"
+            loading="lazy" decoding="async"
+            width="${w}" height="${h}" ${thAttr}
+            srcset="${srcSet}" sizes="${sizes}"
+        />${pathDisplay}`;
         return [html, {
             video: false,
             bgImgPath: path,
@@ -518,13 +636,17 @@ module.exports = function (eleventyConfig) {
     }
 
     /**
-     * @param img can be a str or obj.
+     * @param {string|object} img can be a path or an object with a path and
+     * options.
      * - if obj and image, expects keys `path` (req)
      * - if obj and video, expect keys `vimeoInfo` or `youtubeInfo` (req)
+     * @param {boolean} fullWidth whether the image will be displayed full width
+     *  (true) or inline (false). Used for sizes attribute.
+     * @param {number} n number of images in row. Used for sizes attribute.
      *
-     * @returns str (HTML)
+     * @returns {Promise<string>} (HTML)
      */
-    async function imgSpecToHTML2(img) {
+    async function imgSpecToHTML2(img, fullWidth, n) {
         // video
         if (img.vimeoInfo) {
             return `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" loading="lazy" style="width: 100%; aspect-ratio: 16 / 9;" class=""></iframe>`;
@@ -542,12 +664,21 @@ module.exports = function (eleventyConfig) {
             // NOTE: add extra style or class support here + in returned HTML when needed
         }
 
+        // w, h, thumbhash, srcset, sizes
         let [w, h, thumbhash64] = await getWHTHB64(path);
         let thAttr = (thumbhash64 == null) ? "" : `data-thumbhash-b64="${thumbhash64}"`;
+        let [srcSet, sizes] = await getSrcsetSizes(path, w, "v2", fullWidth, n)
+
         // image source / path debug / preview / display
         // let pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
         let pathDisplay = "";
-        return `<img class="db bare novmargin h-auto bg-deep-red" src="${path}" loading="lazy" decoding="async" width="${w}" height="${h}" ${thAttr} />${pathDisplay}`;
+        return `<img
+            src="${path}"
+            class="db bare novmargin h-auto bg-deep-red"
+            loading="lazy" decoding="async"
+            width="${w}" height="${h}" ${thAttr}
+            srcset="${srcSet}" sizes="${sizes}"
+            />${pathDisplay}`;
     }
 
     /**
@@ -612,7 +743,7 @@ module.exports = function (eleventyConfig) {
     }
 
     async function oneBigImage(imgSpec, marginClasses, blurStretchSingles, fullWidth, ph = true) {
-        let [imgHTML, metadata] = await imgSpecToHTML(imgSpec);
+        let [imgHTML, metadata] = await imgSpecToHTML(imgSpec, fullWidth, 1);
         let bgDiv = "";
         if (blurStretchSingles && metadata.bgImgPath != "") {
             bgDiv = `<div class="bgImageReady svgBlur" style="background-image: none;" data-background-image="url(${metadata.bgImgPath})"></div>`;
@@ -635,7 +766,7 @@ module.exports = function (eleventyConfig) {
     }
 
     async function oneBigImage2(imgSpec, marginClasses, fullWidth) {
-        let imgHTML = await imgSpecToHTML2(imgSpec);
+        let imgHTML = await imgSpecToHTML2(imgSpec, fullWidth, 1);
         let fwClasses = fullWidth ? "full-width cb" : "";
         let phClass = fullWidth ? "ph1-m ph3-l" : "";
         return `
@@ -648,8 +779,8 @@ module.exports = function (eleventyConfig) {
     }
 
     async function twoBigImages(imgSpecs, marginClasses, fullWidth) {
-        let [imgHTML1, metadata1] = await imgSpecToHTML(imgSpecs[0]);
-        let [imgHTML2, metadata2] = await imgSpecToHTML(imgSpecs[1]);
+        let [imgHTML1, metadata1] = await imgSpecToHTML(imgSpecs[0], fullWidth, 2);
+        let [imgHTML2, metadata2] = await imgSpecToHTML(imgSpecs[1], fullWidth, 2);
 
         let phClass = fullWidth ? "ph1-m ph3-l" : "";
         let [wClass, wStyle] = getWClassStyle([metadata1, metadata2]);
@@ -665,8 +796,8 @@ module.exports = function (eleventyConfig) {
     }
 
     async function twoBigImages2(imgSpecs, marginClasses, fullWidth) {
-        let imgHTML1 = await imgSpecToHTML2(imgSpecs[0]);
-        let imgHTML2 = await imgSpecToHTML2(imgSpecs[1]);
+        let imgHTML1 = await imgSpecToHTML2(imgSpecs[0], fullWidth, 2);
+        let imgHTML2 = await imgSpecToHTML2(imgSpecs[1], fullWidth, 2);
 
         let fwClasses = fullWidth ? "full-width cb" : "";
         let phClass = fullWidth ? "ph1-m ph3-l" : "";
@@ -682,9 +813,9 @@ module.exports = function (eleventyConfig) {
     }
 
     async function threeBigImages(imgSpecs, marginClasses, fullWidth) {
-        let [imgHTML1, metadata1] = await imgSpecToHTML(imgSpecs[0]);
-        let [imgHTML2, metadata2] = await imgSpecToHTML(imgSpecs[1]);
-        let [imgHTML3, metadata3] = await imgSpecToHTML(imgSpecs[2]);
+        let [imgHTML1, metadata1] = await imgSpecToHTML(imgSpecs[0], fullWidth, 3);
+        let [imgHTML2, metadata2] = await imgSpecToHTML(imgSpecs[1], fullWidth, 3);
+        let [imgHTML3, metadata3] = await imgSpecToHTML(imgSpecs[2], fullWidth, 3);
 
         let fwClasses = fullWidth ? "full-width cb" : "";
         let phClass = fullWidth ? "ph1-m ph3-l" : "";
@@ -701,14 +832,18 @@ module.exports = function (eleventyConfig) {
     }
 
     async function threeBigImages2(imgSpecs, marginClasses, fullWidth) {
+        let imgHTML1 = await imgSpecToHTML2(imgSpecs[0], fullWidth, 3);
+        let imgHTML2 = await imgSpecToHTML2(imgSpecs[1], fullWidth, 3);
+        let imgHTML3 = await imgSpecToHTML2(imgSpecs[2], fullWidth, 3);
+
         let fwClasses = fullWidth ? "full-width cb" : "";
         let phClass = fullWidth ? "ph1-m ph3-l" : "";
         return `
         <div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">
             <div class="flex flex-wrap flex-nowrap-ns justify-center media-max-width">
-                <div>${await imgSpecToHTML2(imgSpecs[0])}</div>
-                <div class="mh1-ns mv1 mv0-ns">${await imgSpecToHTML2(imgSpecs[1])}</div>
-                <div>${await imgSpecToHTML2(imgSpecs[2])}</div>
+                <div>${imgHTML1}</div>
+                <div class="mh1-ns mv1 mv0-ns">${imgHTML2}</div>
+                <div>${imgHTML3}</div>
             </div>
         </div>
         `;
@@ -880,12 +1015,7 @@ module.exports = function (eleventyConfig) {
         // return `<img src='${path}'/>`;
         let localPath = getLocalPath(path);
         let [w, h] = getImageSize(sizeCache, localPath);
-
-        let ws = [];
-        while (w > 500) {
-            ws.push(w);
-            w = Math.round(w / 2);
-        }
+        let ws = wantWidths(w);
 
         let metadata = await Image(localPath, {
             widths: ws,
