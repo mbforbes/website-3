@@ -500,16 +500,16 @@ h1 {
 .markdown-body object,
 .markdown-body pre,
 .markdown-body .fig {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
 }
 
 .markdown-body .figtop {
-    margin-top: 4rem;
+    margin-top: 6rem;
 }
 
 .markdown-body .figbot {
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
 }
 
 
@@ -550,7 +550,7 @@ f7: font-size: 0.75rem;
 
 /* Image caption. Use class figcaption. */
 .markdown-body .figcaption {
-    margin-top: -3.5rem;
+    margin-top: -5.5rem;
     text-align: center;
     color: var(--lighter-text-color);
     margin-bottom: 5rem;
@@ -644,8 +644,8 @@ text-width image*/
 
 .markdown-body table {
     width: 100%;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
     /* padding         : 0.5em; */
     border-top: 1px solid var(--heavy-border-color);
     border-bottom: 1px solid var(--heavy-border-color);
@@ -713,7 +713,7 @@ ol ol ol {
 
 /* Comments */
 .utterances {
-    margin-top: 4rem;
+    margin-top: 6rem;
 }
 
 /* This is the -ns (not small) media query (at least currently) */
