@@ -23,6 +23,15 @@ coverImage: /assets/garage/image-placeholder-test-page/test-cover.moz80.jpg
 
 <p class="figcaption">Animated</p>
 
+{% cityMap [
+    "/assets/posts/2023-taipei/taipei-taiwan-0-combined.png",
+    "/assets/posts/2023-taipei/taipei-taiwan-1-combined.png",
+    "/assets/posts/2023-taipei/taipei-taiwan-2-combined.png",
+    "/assets/posts/2023-taipei/taipei-taiwan-3-combined.png"
+], false, true, true, "", false, "", true %}
+
+<p class="figcaption">"plain big"</p>
+
 ## `cityPic`
 
 {% cityPic "/assets/posts/2022-georgia/t-city-window.moz80.jpg" %}

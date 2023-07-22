@@ -440,7 +440,7 @@ CURSPOT:
     - [x] v2
     - [x] v1
 - [x] SHIP
-- [ ] multiple sizes for maps (don't spend much time)
+- [x] multiple sizes for maps (don't spend much time)
 - [ ] multiple sizes for inline images
 
 Sizes!

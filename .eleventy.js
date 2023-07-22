@@ -492,7 +492,7 @@ module.exports = function (eleventyConfig) {
      * @param {string} version "v1" or "v2"
      * @param {boolean} fullWidth (vs inline)
      * @param {*} n number of images in row
-     * @returns {[number, number]} [srcset, sizes] attr values
+     * @returns {Promise<[number, number]>} [srcset, sizes] attr values
      */
     async function getSrcsetSizes(path, w, version, fullWidth, n) {
         let localPath = getLocalPath(path);
@@ -614,7 +614,7 @@ module.exports = function (eleventyConfig) {
         // size, thumbhash, srcset, sizes
         let [w, h, thumbhash64] = await getWHTHB64(path);
         let thAttr = (thumbhash64 == null) ? "" : `data-thumbhash-b64="${thumbhash64}"`;
-        let [srcSet, sizes] = await getSrcsetSizes(path, w, "v1", fullWidth, n)
+        let [srcSet, sizes] = await getSrcsetSizes(path, w, "v1", fullWidth, n);
 
         // image source / path debug / preview / display
         // let pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
@@ -1072,19 +1072,29 @@ module.exports = function (eleventyConfig) {
         const containerXClasses = isX ? "transitionContainer" : "";
         const containerXStyle = isX ? "display: grid;" : "";
         const imageClasses = embedded ? "br-100" : (plainBig ? "" : "content-width");
-        const imageStyleSize = plainBig ? "max-height: min(100vh, 1000px); max-width: min(100%, 1000px);" : "";
+        const imageStyleSize = plainBig ? "max-width: min(100%, 1000px, 100vh);" : "";
 
         let basePieces = [];
-        basePieces.push(`<div style="${divBGColorStyle} ${containerXStyle}" class="${divWidthClass} cb ${figClasses} ${containerXClasses}">`);
+        basePieces.push(`<div style="${divBGColorStyle}" class="${divWidthClass} cb ${figClasses} flex justify-center">`);
+        basePieces.push(`<div style="${imageStyleSize} ${containerXStyle}" class="${containerXClasses}">`);
         for (let i = 0; i < paths.length; i++) {
             // NOTE: No thumbhash. If we add vertical padding to give maps more
             // breathing room (which looks nice), the thumbhash BG shows
             // through.
             let [w, h] = getImageSize(sizeCache, getLocalPath(paths[i]));
+            let [srcSet, sizes] = await getSrcsetSizes(paths[i], w, "v1", true, 1);
             const imgXClasses = isX ? `fader z-${i} o-${i == paths.length - 1 ? 1 : 0}` : "";
-            const imgXStyleAttr = isX ? `style="grid-area: 1 / 1 / 2 / 2; transition: opacity 0.75s; ${imageStyleSize}"` : `style="${imageStyleSize}"`;
-            basePieces.push(`<img class="novmargin h-auto ${imageClasses} ${imgXClasses} ${imgExClasses} ${i == 0 ? firstImgClass : ''}" ${imgXStyleAttr} src="${paths[i]}" loading="lazy" decoding="async" width="${w}" height="${h}" />`)
+            const imgXStyleAttr = isX ? `style="grid-area: 1 / 1 / 2 / 2; transition: opacity 0.75s;"` : `style=""`;
+            basePieces.push(`<img
+            src="${paths[i]}"
+                class="novmargin h-auto ${imageClasses} ${imgXClasses} ${imgExClasses} ${i == 0 ? firstImgClass : ''}"
+                ${imgXStyleAttr}
+                loading="lazy" decoding="async"
+                width="${w}" height="${h}"
+                srcset="${srcSet}" sizes="${sizes}"
+            />`)
         }
+        basePieces.push(`</div>`);
         basePieces.push(`</div>`);
         const base = basePieces.join("\n");
 
