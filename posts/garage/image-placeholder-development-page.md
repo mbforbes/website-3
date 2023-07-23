@@ -1,7 +1,7 @@
 ---
 title: Image Placeholder Development Page
 date: 2023-07-08
-updated: 2023-07-16
+updated: 2023-07-23
 ---
 
 Is it possible to have images save space and render placeholders before they've loaded?
@@ -330,7 +330,7 @@ I'm a fool, but I want this to work. Scrolling through a big page of jumping ima
 
 In-memory optimizing won't help w/ build, but will help with rebuilds, and it's easy. Benchmarking (th = thumbhash, EI = EleventyImage)
 
-&nbsp; | time (3x avg)
+&nbsp; | rebuild time (3x avg)
 --- | ---
 base (no th, no EI) | 4.06, 3.96, 4.15
 \+ EI 1x | 4.18, 3.72, 4.00
@@ -339,7 +339,7 @@ current (th, EI) | 7.15, 7.15, 7.05
 
 So thumbhash is the slow thing now. Let's try an in-memory cache for thumbhashes (thCache).
 
-&nbsp; | time (3x avg)
+&nbsp; | rebuild time (3x avg)
 --- | ---
 thCache, EI | 4.05, 3.68 3.70
 
@@ -371,9 +371,9 @@ The first thing is to get the image layout working w/ non-height matching images
 
 Surprisingly, the solution to varying heights and having a layout that works with explicit width / height attributes was the same thing: manually specifying image-containing div widths.
 
-My remaining question is how to output CSS.
+My remaining question is how to output CSS. But for the time being, I'm just going to limit myself to matching heights.
 
-### 4/6/7. caching (sizes and thumbhash), v1
+### 2--7. Everything else^[Funny how this happens. I wrote out that plan above, which helped me get started. But then once I was knee-deep in everything and I understood the shape of the problem better, certain bullet points became trivial, and certain expanded to have many parts. So the todo list was a good thing to get started, but I ended up writing a new one inline below once I really figured out what was going to take time to work on.]
 
 This is all getting unstructured. Since I realized I could potentially get the same layout to work w/o srcset and different sizes (just keeping original height-matching images), adding width, height, and thumbhash, I'm trying that for v1, which will affect all the posts that currently exist.
 
@@ -423,11 +423,11 @@ Good news: ~1600-sized caches have sped initial builds to 5s and reloads to 4s, 
 
 - how do we support inline images? it turns out there are plenty of them. The current lazy load plugin for markdown-it is quite simple, I could replace with my own plugin, and if the rest of the code is in scope, I could use the caches + thumbhashes.
 
-CURSPOT:
+Worklist:
 - [x] figure out a layout that works for v1 (max-width math)
 - [x] implement it
-- [x] height-limiting
-- [x] maybe actually do default height-limiting
+- [x] custom height-limiting
+- [x] maybe actually do default page-height height-limiting
 - [x] fix videos (tiny, many diff behaviors, also e.g. youtube vs vimeo)
 - [x] SHIP
 - [x] double or 1.5x fig spacing?
@@ -441,7 +441,7 @@ CURSPOT:
     - [x] v1
 - [x] SHIP
 - [x] multiple sizes for maps (don't spend much time)
-- [ ] multiple sizes for inline images
+- [x] multiple sizes for inline images
 
 Sizes!
 https://cloudfour.com/thinks/responsive-images-101-part-5-sizes/
@@ -458,3 +458,20 @@ Going to use Eleventy Img for now rather than reimplement. I don't love the hash
 > I notice that everything that has a redirect (using `redirect-from.njk`) is also being rebuilt every time. This is irrelevant time-wise but I'm curious, so I wonder whether it's worth reaching out to [Brian](https://brianm.me/posts/eleventy-redirect-from/) and asking him about it. I guess I could try to solve it first (I'm guessing it's the `collections.all`).
 
 Amazingly, `srcset` and `sizes` worked for v1 and v2! All of the pre-work has paid off.
+
+## Epilogue
+
+Holy crap, that was an absolutely wild amount of work. But I am thrilled that now every image on the site has:
+- `width` and `height` attributes to prevent layout shifts
+- a temporary background color^[This is a dark red, green, or blue depending on inline, v1, or v2.]
+- a ~28 byte `data-thumbhash-b64` thumbhash attribute that gets rendered quickly on page load^[Maps lack the thumbhash because of display issues, but honestly they look good without it.]
+- a `srcset` attribute with image variants going down by half through < 500px
+- a `sizes` attribute which describes the nearly correct size, while maintaining any equal-height column layout
+
+This was done for cover images; v1 and v2 image macros, both full-width and inline-limited; inline markdown images; city maps; and city pics.
+- The v1 layout was the hardest, requiring me to convert all height-limiting logic to width-limiting to get image sizes to work correctly
+- Embedded videos were second-hardest, with youtube and vimeo behaving differently with the same CSS
+- Inline images were the most fun, because I got to pre-compute thumbhashes and image resizes that run in a pre-build script.^[This let me learn more about node.js, and use utilities to replace `find` and `grep` with node alternatives, plus a progress bar.]
+- Finally trying Eleventy `--incremental` builds was the most satisfying, because now my rebuilds are instant
+- And through this exploration, I finally have a plan for v2 (or maybe even v1) macros to support non-height-matching images going forward by exactly computing the width percentages.^[My [question](https://github.com/11ty/eleventy/discussions/2998) for doing this cleanly in a single CSS file has gone unanswered thus far, though.] But even better, with `srcset` and `sizes` working, I may not need to ever actually do this, because the browser seems willing to retrieve the same size version of different images with different orientations in a single row, keeping their heights identical.
+    - I guess I'll need to re-read my v2 thoughts about this. There would be a lot of space savings with smaller exports, but retrieving smaller sizes might take care of this.
