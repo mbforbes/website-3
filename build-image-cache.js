@@ -1,24 +1,41 @@
-// This pre-populates image size and thumbhash caches. This should run before
-// any build / serve step.
+// This pre-populates 3 caches: (1) image size, (2) thumbhash, and (3) inline
+// markdown 11tyimg resizes. This should run before any build / serve step.
 //
-// The reason this exists is that thumbhash is async, it probably should stay
-// async[0], and markdown-it can't handle async calls, which means we couldn't
-// get thumbhashes for inline images. Having this run once before any eleventy
-// code means we should be able to precompute all the thumbhashes we need.
-// Eleventy has a before-build event, but because the .eleventy.js file is
-// completely reloaded on every rebuild, we'd run any code there every reload
-// rather than just once.
+// This exists because markdown-it can't handle async calls. Thumbhash and
+// EleventyImg are both async, which means we couldn't get thumbhashes or
+// resizes for inline images.
 //
-// For all non-markdown-it situations, we still compute (and cache) thumbhashes
-// during the Eleventy build. Though it just actually do that much now unless
-// images are added during the watch/build/serve loop.
+// (Also did image sizes before depending on EleventyImg; could remove that
+// now but 🤷‍♂️.)
 //
-// [0] Perhaps ironically, we're calling it synchronously here.
+// We run this once before any eleventy code to to precompute all the
+// thumbhashes and do the EleventyImg resizing we need. Eleventy has a
+// before-build event, but because the .eleventy.js file is completely reloaded
+// on every rebuild, we'd run any code there every reload rather than just once.
+//
+// For non-markdown-it images (i.e., from shortcodes), we still compute (and
+// cache) sizes and thumbhashes, but let EleventyImg resizes happen during the
+// Eleventy build.
+//
+// The caveat with this approach is that images that change during the build
+// will be incorrect. Here is a chart to show what happens if images change
+// *during the build:* (X = wrong/missing, O = correct/OK)
+
+//                     inline image    shortcode image
+// thumbhash, new           X               O
+// thumbhash, changed       X               X
+// size, new                X               O
+// size, changed            X               X
+// srcset/sizes, new        X               O
+// srcset/sizes, changed    X               O
+
+// Any missing thumbhash, size, or srcset/sizes will be skipped, but incorrect
+// values will be used.
 
 const fg = require('fast-glob');
 const cliProgress = require('cli-progress');
-const { isSVG, serializeMap, deserializeMap, getImageSize, loadAndHashImage, TH_CACHE_PATH, SIZE_CACHE_PATH } = require("./common.js");
-
+const { isSVG, serializeMapSync, deserializeMap, getImageSize, loadAndHashImage, TH_CACHE_PATH, SIZE_CACHE_PATH } = require("./common.js");
+const { preprocessInlineMDEleventyImg } = require("./prerun-eleventy-img-inline.js")
 
 let paths = fg.sync("assets/**/*.{jpg,jpeg,png,svg,gif}")
 // Should match (does):
@@ -54,8 +71,11 @@ for (p of paths) {
             bar.increment();
         }
         bar.stop();
-        serializeMap(thumbhashCache, TH_CACHE_PATH);
-        serializeMap(sizeCache, SIZE_CACHE_PATH);
+        serializeMapSync(thumbhashCache, TH_CACHE_PATH);
+        serializeMapSync(sizeCache, SIZE_CACHE_PATH);
+
+        // huh does all my code just have to go here now?
+        preprocessInlineMDEleventyImg();
     } catch (error) {
         console.error('Error:', error);
     }

@@ -23,14 +23,15 @@ function fileExists(filePath) {
 }
 
 /**
- * @param {string} dirpath
+ * @param {string} filePath
  */
-function ensureDir(dirpath) {
+function ensureDir(filePath) {
+    const dirPath = path.dirname(filePath);
     try {
-        fs.accessSync(dirpath);
+        fs.accessSync(dirPath);
     } catch (err) {
         if (err.code === 'ENOENT') {
-            fs.mkdirSync(dirpath);
+            fs.mkdirSync(dirPath, { recursive: true });
         } else {
             throw err;
         }
@@ -52,23 +53,37 @@ function isSVG(path) {
  * - Server path = /assets/foo.ext
  * - Local path  =  assets/foo.ext
  *
- * @param {string} path
+ * @param {string} serverOrLocalPath
  * @returns {string}
  */
-function getLocalPath(path) {
-    return path[0] == "/" ? path.substring(1) : path;
+function getLocalPath(serverOrLocalPath) {
+    const p = serverOrLocalPath;
+    return p[0] == "/" ? p.substring(1) : p;
 }
 
-// Map serialization operations
+// Serialization operations
 
 /**
  * @param {Map} map
  * @param {string} filePath
  */
-async function serializeMap(map, filePath) {
+function serializeMapSync(map, filePath) {
     const plainObject = Array.from(map);
     const jsonString = JSON.stringify(plainObject);
-    ensureDir(CACHE_DIR);
+    ensureDir(filePath);
+    fs.writeFileSync(filePath, jsonString);
+    console.log("Wrote Map with " + map.size + " entries to " + filePath);
+}
+
+
+/**
+ * @param {Map} map
+ * @param {string} filePath
+ */
+async function serializeMapAsync(map, filePath) {
+    const plainObject = Array.from(map);
+    const jsonString = JSON.stringify(plainObject);
+    ensureDir(filePath);
     await fsp.writeFile(filePath, jsonString);
     console.log("Wrote Map with " + map.size + " entries to " + filePath);
 }
@@ -96,9 +111,27 @@ function deserializeMap(filePath) {
 const CACHE_DIR = path.join(__dirname, ".cache");
 const TH_CACHE_PATH = path.join(CACHE_DIR, "thumbhash.map.json");
 const SIZE_CACHE_PATH = path.join(CACHE_DIR, "sizes.map.json");
+const INLINE_11TYIMG_CACHE_PATH = path.join(CACHE_DIR, "11tyimg-inline.map.json");
 
 
 // Image operations
+
+/**
+ * Gets desired widths for image size reductions.
+ *
+ * @param {number} w
+ * @returns {number[]}
+ */
+function wantWidths(w) {
+    // We start from the base size and halve *through* the first one that's
+    // below 500.
+    let ws = [w];
+    while (w > 500) {
+        w = Math.round(w / 2);
+        ws.push(w);
+    }
+    return ws;
+}
 
 /**
  *
@@ -173,11 +206,14 @@ async function loadAndHashImage(thumbhashCache, localPath) {
 
 module.exports = {
     isSVG,
+    wantWidths,
     getLocalPath,
-    serializeMap,
+    serializeMapSync,
+    serializeMapAsync,
     deserializeMap,
     getImageSize,
     loadAndHashImage,
     TH_CACHE_PATH,
     SIZE_CACHE_PATH,
+    INLINE_11TYIMG_CACHE_PATH
 }

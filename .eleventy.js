@@ -9,7 +9,11 @@ const readingTime = require('eleventy-plugin-reading-time');
 const Image = require("@11ty/eleventy-img");
 
 // Local code! Wow I'm writing a lot of code lol.
-const { isSVG, getLocalPath, serializeMap, deserializeMap, getImageSize, loadAndHashImage, TH_CACHE_PATH, SIZE_CACHE_PATH } = require("./common.js");
+const {
+    isSVG, wantWidths, getLocalPath, serializeMapAsync, deserializeMap,
+    getImageSize, loadAndHashImage, TH_CACHE_PATH, SIZE_CACHE_PATH,
+    INLINE_11TYIMG_CACHE_PATH,
+} = require("./common.js");
 
 /**
  * localPath (str) --> binary thumbhash (Uint8Array)
@@ -23,6 +27,31 @@ let thumbhashCacheLastDiskSize = thumbhashCache.size;
 const sizeCache = deserializeMap(SIZE_CACHE_PATH);
 let sizeCacheLastDiskSize = sizeCache.size;
 
+/**
+ * localPath (str) --> {format: spec[]}
+ */
+const inline11tyImgCache = deserializeMap(INLINE_11TYIMG_CACHE_PATH);
+
+/**
+ * For markdown inline images only: returns EleventyImg info only if it's
+ * been preprocessed (via build-image-cache.js /
+ * prerun-eleventy-img-inline.js).
+ *
+ * @param {string} path
+ * @returns {[string|null, string|null]} [srcset, sizes], or [null, null] if
+ * not in cache
+ */
+function getInlineSrcsetSizes(localPath) {
+    if (!inline11tyImgCache.has(localPath)) {
+        return [null, null];
+    }
+
+    let metadata = inline11tyImgCache.get(localPath);
+    let fmt = formatKey(localPath);
+    let srcSet = metadata[fmt].map(m => m.srcset).join(", ");
+    let sizes = "(max-width: 30em) 100vw, (max-width: 704px) 100vw, 704px";
+    return [srcSet, sizes];
+}
 
 /**
  * Custom md lib. Made to preserve raw (HTML) blocks from being markdown parsed.
@@ -119,6 +148,16 @@ function markdownItCustomImageProcessor(md, mdOptions) {
         let bgClass = isSVG(path) ? "bg-white" : "bg-deep-green";
         token.attrSet('class', `h-auto ${bgClass}`);
 
+        // srcset / sizes (only if precomputed)
+        let [srcSet, sizes] = getInlineSrcsetSizes(localPath);
+        if (srcSet != null && sizes != null) {
+            // console.log("Found cached srcset/sizes for " + localPath);
+            token.attrSet("srcset", srcSet);
+            token.attrSet("sizes", sizes);
+        } else {
+            console.log("Missed cache (no srcset/sizes) for " + localPath);
+        }
+
         return defaultImageRenderer(tokens, idx, options, env, self);
     };
 };
@@ -133,23 +172,6 @@ async function getWHTHB64(path) {
     let [w, h] = getImageSize(sizeCache, localPath);
     let thumbhash64 = await loadAndHashImage(thumbhashCache, localPath);
     return [w, h, thumbhash64];
-}
-
-/**
- * Gets desired widths for image size reductions.
- *
- * @param {number} w
- * @returns {number[]}
- */
-function wantWidths(w) {
-    // We start from the base size and halve *through* the first one that's
-    // below 500.
-    let ws = [w];
-    while (w > 500) {
-        w = Math.round(w / 2);
-        ws.push(w);
-    }
-    return ws;
 }
 
 /**
@@ -194,11 +216,11 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.on('eleventy.after', async ({ dir, results, runMode, outputMode }) => {
         if (thumbhashCacheLastDiskSize != thumbhashCache.size) {
-            await serializeMap(thumbhashCache, TH_CACHE_PATH);
+            await serializeMapAsync(thumbhashCache, TH_CACHE_PATH);
             thumbhashCacheLastDiskSize = thumbhashCache.size;
         }
         if (sizeCacheLastDiskSize != sizeCache.size) {
-            await serializeMap(sizeCache, SIZE_CACHE_PATH);
+            await serializeMapAsync(sizeCache, SIZE_CACHE_PATH);
             sizeCacheLastDiskSize = sizeCache.size;
         }
     });
@@ -516,11 +538,7 @@ module.exports = function (eleventyConfig) {
         //    outputPath: '_site/assets/eleventyImgs/368rsNkvAN-352.jpeg',
         //    size: 13131
         //  },
-        let srcSets = [];
-        for (let imgSizeMeta of metadata[fmt]) {
-            srcSets.push(imgSizeMeta.srcset);
-        }
-        let srcSet = srcSets.join(", ");
+        let srcSet = metadata[fmt].map(m => m.srcset).join(", ");
 
         // Brief reminder:
         // - srcset is a list with each variant's true size ("cat-320.jpg 320w, cat-640.jpg 640w, cat-1280.jpg 1280w"")

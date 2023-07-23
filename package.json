@@ -33,6 +33,7 @@
         "markdown-it-anchor": "^8.6.7",
         "markdown-it-footnote": "^3.0.3",
         "markdown-it-replacements": "^1.0.2",
+        "split": "^1.0.1",
         "thumbhash": "^0.1.1"
     }
 }
