@@ -559,19 +559,19 @@ module.exports = function (eleventyConfig) {
         // (v1/v2) inline:
         // "(max-width: 30em) 100vw, (max-width: 704px) 33/50/100vw, 235/352/704px"
         //
-        // (v1) no media max width, fullscreen
+        // (v1) fullscreen
         // "(max-width: 30em) 100vw, 33/50/100vw"
         //
-        // (v2) media-max-width, fullscreen:
+        // (v2) media-max-width
         // "(max-width: 30em) 100vw, (max-width: 1140px) 33/50/100vw, 380/570/1140px"
 
         let midSize = n == 1 ? "100" : (n == 2 ? "50" : "33");
         let sizes;
         if (version == "v1" && fullWidth) {
-            // Handle (v1) no media max width, fullscreen
+            // Handle (v1) fullscreen
             sizes = `(max-width: 30em) 100vw, ${midSize}vw`;
         } else {
-            // Handle both (v1/v2) inline, (v2) media-max-width, fullscreen
+            // Handle both (v1/v2) inline, (v2) media-max-width
             let midBreak = fullWidth ? "1140" : "704";
             let bigSize;
             if (fullWidth) {
@@ -1090,17 +1090,21 @@ module.exports = function (eleventyConfig) {
         const containerXClasses = isX ? "transitionContainer" : "";
         const containerXStyle = isX ? "display: grid;" : "";
         const imageClasses = embedded ? "br-100" : (plainBig ? "" : "content-width");
-        const imageStyleSize = plainBig ? "max-width: min(100%, 1000px, 100vh);" : "";
+        const containerStyleSize = plainBig ? "max-width: min(100%, 1000px, 100vh);" : "";
+        // Rough notes for sizing (that we pass below to getSrcsetSizes())
+        // - content-width (max 704px, i.e. not fullscreen) = !embedded && !plainBig
+        // - embedded: singapore, bali, penang (100vw mobile -> ~1/3 desktop)
+        // - plainBig: max 1000px display <-- just treating as full screen
 
         let basePieces = [];
         basePieces.push(`<div style="${divBGColorStyle}" class="${divWidthClass} cb ${figClasses} flex justify-center">`);
-        basePieces.push(`<div style="${imageStyleSize} ${containerXStyle}" class="${containerXClasses}">`);
+        basePieces.push(`<div style="${containerStyleSize} ${containerXStyle}" class="${containerXClasses}">`);
         for (let i = 0; i < paths.length; i++) {
             // NOTE: No thumbhash. If we add vertical padding to give maps more
             // breathing room (which looks nice), the thumbhash BG shows
             // through.
             let [w, h] = getImageSize(sizeCache, getLocalPath(paths[i]));
-            let [srcSet, sizes] = await getSrcsetSizes(paths[i], w, "v1", true, 1);
+            let [srcSet, sizes] = await getSrcsetSizes(paths[i], w, "v1", embedded || plainBig, embedded ? 3 : 1);
             const imgXClasses = isX ? `fader z-${i} o-${i == paths.length - 1 ? 1 : 0}` : "";
             const imgXStyleAttr = isX ? `style="grid-area: 1 / 1 / 2 / 2; transition: opacity 0.75s;"` : `style=""`;
             basePieces.push(`<img
