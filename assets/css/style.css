@@ -31,6 +31,10 @@
     /* tachyons: light-yellow */
     --warn-text-color: #111111;
     /* tachyons: near-black */
+
+    /* This stuff probably won't be modified by themes */
+    --fig-spacing-desktop: 6rem;
+    --fig-spacing-mobile: 4rem;
 }
 
 [data-theme="dark"] {
@@ -495,21 +499,20 @@ h1 {
     margin-right: auto;
 }
 
-/* = mv5 */
 .markdown-body img:not(.novmargin, .leaflet-tile),
 .markdown-body object,
 .markdown-body pre,
 .markdown-body .fig {
-    margin-top: 6rem;
-    margin-bottom: 6rem;
+    margin-top: var(--fig-spacing-mobile);
+    margin-bottom: var(--fig-spacing-mobile);
 }
 
 .markdown-body .figtop {
-    margin-top: 6rem;
+    margin-top: var(--fig-spacing-mobile);
 }
 
 .markdown-body .figbot {
-    margin-bottom: 6rem;
+    margin-bottom: var(--fig-spacing-mobile);
 }
 
 
@@ -644,8 +647,8 @@ text-width image*/
 
 .markdown-body table {
     width: 100%;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
+    margin-top: var(--fig-spacing-mobile);
+    margin-bottom: var(--fig-spacing-mobile);
     /* padding         : 0.5em; */
     border-top: 1px solid var(--heavy-border-color);
     border-bottom: 1px solid var(--heavy-border-color);
@@ -711,11 +714,6 @@ ol ol ol {
     list-style-type: "⇢ ";
 }
 
-/* Comments */
-.utterances {
-    margin-top: 6rem;
-}
-
 /* This is the -ns (not small) media query (at least currently) */
 @media screen and (min-width: 30em) {
 
@@ -767,6 +765,23 @@ ol ol ol {
     .markdown-body pre code {
         /* f5-ns */
         font-size: 1rem;
+    }
+
+    .markdown-body img:not(.novmargin, .leaflet-tile),
+    .markdown-body object,
+    .markdown-body pre,
+    .markdown-body .fig,
+    .markdown-body table {
+        margin-top: var(--fig-spacing-desktop);
+        margin-bottom: var(--fig-spacing-desktop);
+    }
+
+    .markdown-body .figtop {
+        margin-top: var(--fig-spacing-desktop);
+    }
+
+    .markdown-body .figbot {
+        margin-bottom: var(--fig-spacing-desktop);
     }
 }
 

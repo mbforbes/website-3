@@ -65,7 +65,6 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 ## TODO
 
 - [ ] citymaps that are inline should show as max 704px---though maybe no effect because 704px is (usually? not for later exports?) the largest available
-- [ ] maybe reduce back fig margins for mobile (6->4)
 - [ ] render inner links to parts of page
     - e.g., abderdeen roadtrip post has links to edinburgh page, and w/ edinburgh castle subsection. both work but they don't have different text so it looks silly
 - [ ] new analytics
