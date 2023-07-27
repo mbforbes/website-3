@@ -65,7 +65,7 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 ## TODO
 
 - [ ] render inner links to parts of page
-    - e.g., abderdeen roadtrip post has links to edinburgh page, and w/ edinburgh castle subsection. both work but they don't have different text so it looks silly
+    - e.g., abderdeen roadtrip post has links to edinburgh page, and w/ edinburgh castle subsection. both work but they don't have different text so it looks silly.
 - [ ] new analytics
 - [ ] unified post view for studio
 - [ ] do we want TOC?
