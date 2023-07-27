@@ -755,8 +755,8 @@ module.exports = function (eleventyConfig) {
         let mw = Math.round(mh * (w / h));
         // wClass = "";
         // NOTE: limit single (landscape 4:3) images' height to 100vh
-        // wStyle = `max-width: min(100%, ${mw}px, 133.3vh);"`;
-        wStyle = metadatas.length == 1 ? `max-width: min(100%, ${mw}px, 133.3vh);"` : `max-width: min(100%, ${mw}px);"`;
+        // wStyle = `max-width: min(100%, ${mw}px, 133.3vh);`;
+        wStyle = metadatas.length == 1 ? `max-width: min(100%, ${mw}px, 133.3vh);` : `max-width: min(100%, ${mw}px);`;
         return [wClass, wStyle];
     }
 

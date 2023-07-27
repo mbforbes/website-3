@@ -108,7 +108,7 @@ What I did was make a custom "shortcode" that vomits out the HTML to arrange ima
 
 This is best shown. So for example, if I write the following:
 
-```txt
+```json
 {{ "{%" | e }} img [
     "/assets/posts/2022-slovenia/mangart-moss.moz80.jpg",
     [
@@ -118,16 +118,56 @@ This is best shown. So for example, if I write the following:
 ], true {{ "%}" | e }}
 ```
 
-Then it will spit out the following carefully-constructed HTML:
+Then it will spit out the following carefully-constructed HTML:^[Editor's note: I used to actually just spit out the HTML itself from the shortcode, quote it in markdown, and show a live view. But I got too clever for my own good and started forbidding markdown from parsing the output of these shortcodes so now the HTML shown is copy pasted from a particular date (7/23/23). It's changed a lot since I wrote this blog post last August!]
 
 ```html
-{% img [
-    "/assets/posts/2022-slovenia/mangart-moss.moz80.jpg",
-    [
-        "/assets/posts/2022-france/lyon-city-church.moz80.jpg",
-        "/assets/posts/2022-bilbao/art.moz80.jpg"
-    ]
-], true %}
+<div class="full-width cb flex justify-center ph1-m ph3-l figtop mb1">
+    <div class="bgImageReady svgBlur"
+        style="background-image: url('/assets/posts/2022-slovenia/mangart-moss.moz80.jpg');"
+        data-background-image="url(/assets/posts/2022-slovenia/mangart-moss.moz80.jpg)">
+    </div>
+    <div class="flex justify-center" style="max-width: min(100%, 1252px, 133.3vh);">
+        <img
+            src="/assets/posts/2022-slovenia/mangart-moss.moz80.jpg"
+            class="db bare novmargin h-auto bg-navy "
+            loading="lazy" decoding="async"
+            width="2504" height="1878"
+            data-thumbhash-b64="XrcNNYSGiIh/eIiJd3d4eGZxcCUH"
+            srcset="/assets/eleventyImgs/nGUkUWXnR2-313.jpeg 313w,
+                /assets/eleventyImgs/nGUkUWXnR2-626.jpeg 626w,
+                /assets/eleventyImgs/nGUkUWXnR2-1252.jpeg 1252w,
+                /assets/eleventyImgs/nGUkUWXnR2-2504.jpeg 2504w"
+            sizes="(max-width: 30em) 100vw, 100vw">
+    </div>
+</div>
+<div class="full-width cb flex justify-center ph1-m ph3-l mt1 figbot">
+    <div class="flex flex-wrap flex-nowrap-ns justify-center " style="max-width: min(100%, 1644px);">
+        <div class="mr1-ns mb1 mb0-ns">
+            <img
+                src="/assets/posts/2022-france/lyon-city-church.moz80.jpg"
+                class="db bare novmargin h-auto bg-navy "
+                loading="lazy" decoding="async"
+                width="1409" height="1878"
+                data-thumbhash-b64="H/gFLQaAelVqR2Y3eoeMZlEwBAVD"
+                srcset="/assets/eleventyImgs/n9bNix48Yg-353.jpeg 353w,
+                    /assets/eleventyImgs/n9bNix48Yg-705.jpeg 705w,
+                    /assets/eleventyImgs/n9bNix48Yg-1409.jpeg 1409w"
+                sizes="(max-width: 30em) 100vw, 50vw">
+        </div>
+        <div>
+            <img
+                src="/assets/posts/2022-bilbao/art.moz80.jpg"
+                class="db bare novmargin h-auto bg-navy "
+                loading="lazy" decoding="async"
+                width="1878" height="1878"
+                data-thumbhash-b64="HggSDwCnloePh5d7Zzd1iXl3iPnHmG8L"
+                srcset="/assets/eleventyImgs/VwDLQFV49n-470.jpeg 470w,
+                    /assets/eleventyImgs/VwDLQFV49n-939.jpeg 939w,
+                    /assets/eleventyImgs/VwDLQFV49n-1878.jpeg 1878w"
+                sizes="(max-width: 30em) 100vw, 50vw">
+        </div>
+    </div>
+</div>
 ```
 
 ... which then gets displayed like this on a webpage:

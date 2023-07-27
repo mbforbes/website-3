@@ -3,6 +3,9 @@ title: Research
 subtitle: This is my academic webpage
 hidedate: true
 layout: "layouts/default.njk"
+eleventyExcludeFromCollections: true
+eleventyImport:
+    collections: ["all"]
 ---
 
 <img width="200" src="/assets/img/max.jpg" style="float: right; margin: 25px;">

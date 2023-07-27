@@ -326,9 +326,28 @@ li>p {
     margin-bottom: 0px;
 }
 
+/* <pre><code> is big blocks (<code> only is inline) */
 .markdown-body pre {
-    margin: 0;
-    overflow: auto;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: none;
+    /* These !important override styles in the syntax highlight coloring CSS files. */
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.markdown-body pre code {
+    position: relative;
+    /* The 1rem is to match ph3; we have the 2rem version (ph4-ns) below. */
+    left: max(calc((100vw - 704px)/2), 1rem);
+    width: min-content;
+    max-width: 100%;
 }
 
 .markdown-body :not(pre) code {
@@ -397,7 +416,6 @@ blockquote {
    a huge hassle and would probably require javascript. */
 @media screen and (min-width: 58rem) {
 
-    .markdown-body pre code,
     .markdown-body>blockquote {
         padding: .5rem 5rem;
         margin: 2.5em -5rem;
@@ -499,7 +517,7 @@ h1 {
     margin-right: auto;
 }
 
-.markdown-body img:not(.novmargin, .leaflet-tile),
+.markdown-body img:not(.novmargin, .inline, .leaflet-tile),
 .markdown-body object,
 .markdown-body pre,
 .markdown-body .fig {
@@ -767,7 +785,12 @@ ol ol ol {
         font-size: 1rem;
     }
 
-    .markdown-body img:not(.novmargin, .leaflet-tile),
+    .markdown-body pre code {
+        /* For ph4-ns (well, left-only part of that) */
+        left: max(calc((100vw - 704px)/2), 2rem);
+    }
+
+    .markdown-body img:not(.novmargin, .inline, .leaflet-tile),
     .markdown-body object,
     .markdown-body pre,
     .markdown-body .fig,
