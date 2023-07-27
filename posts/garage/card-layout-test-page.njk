@@ -43,4 +43,17 @@ Also,
 </ul>
 </p>
 
-{% include "layouts/card-layout.njk" %}
+<p>
+NOTE: Now I can't even include the card layout here!
+So bizarre how Eleventy's circular reference problems seem nondeterministic.
+Maybe it depends on some graph it's building in the background.
+Not sure how to make it not freak out about this one.
+IIRC, even steps to explicitly never select this page ended up having it.
+Oh well. The Nunjucks code would be:
+</p>
+
+<pre>
+<code>
+include "layouts/card-layout.njk"
+</code>
+</pre>
