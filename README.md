@@ -64,9 +64,11 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 
 ## TODO
 
-- [ ] Syntax highlighting w/ diffs: update ECS posts to use
+- [ ] Syntax highlighting w/ diffs: update ECS posts to use (WIP)
+- [ ] Ping Brian re: redirect dependency
+- [ ] Swap series bottom w/ footnotes
 - [ ] Show snippets when linking between posts
-- Constrain sketches to not go beyond width or height (see e.g., voxel material study)
+- [ ] Constrain sketches to not go beyond width or height (see e.g., voxel material study)
 - [ ] new analytics
 - [ ] unified post view for studio
 - [ ] do we want TOC?

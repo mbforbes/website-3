@@ -1,6 +1,7 @@
 ---
 title: What is an ECS?
 date: 2021-11-25
+updated: 2023-07-28
 tags: programming
 series: Building an ECS in TypeScript
 seriesOrder: 1
@@ -34,7 +35,7 @@ This ECS visualization demonstrates the core concept of Systems: **selecting Ent
 <script defer src="/assets/lib/three-r131.min.js"></script>
 <script defer src="/assets/lib/p5-1.4.0.min.js"></script>
 <script defer src="/assets/p5js/03-ecs-diagram.js"></script>
-<div class="fig dt w-100 ba">
+<div class="fig dt w-100 ba shadow-4">
     <div id="parent" class="dtc v-mid tc">
     </div>
 </div>

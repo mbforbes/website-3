@@ -346,8 +346,6 @@ li>p {
     position: relative;
     /* The 1rem is to match ph3; we have the 2rem version (ph4-ns) below. */
     left: max(calc((100vw - 704px)/2), 1rem);
-    width: min-content;
-    max-width: 100%;
 }
 
 .markdown-body :not(pre) code {
@@ -588,7 +586,7 @@ f6: font-size: 0.875rem;
 f7: font-size: 0.75rem;
 */
 
-/* Image caption. Use class figcaption. */
+/* Image / video / table / code caption. Use class figcaption. */
 .markdown-body .figcaption {
     margin-top: -5.5rem;
     text-align: center;
@@ -596,6 +594,7 @@ f7: font-size: 0.75rem;
     margin-bottom: 5rem;
     /* f6 (for not-small (-ns) this gets f5) */
     font-size: 0.875rem;
+    text-wrap: balance;
 }
 
 /* Footnotes (in posts) */
@@ -979,7 +978,8 @@ ol ol ol {
         display: none;
     }
 
-    .footnote-ref.plain-sv>a {
+    .footnote-ref.plain-sv>a,
+    .footnote-ref.plain-sv>a:visited {
         color: var(--text-color);
     }
 

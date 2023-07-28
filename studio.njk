@@ -34,7 +34,7 @@ Studio
     {# {% set writingTags = ["programming"] %} #}
     {% for tag in writingTags %}
         <h3>{{ tag | title }}<a name="{{ tag | lower }}"></a></h3>
-        {{ lps.listPostsAndSeries(collections[tag])  }}
+        {{ lps.listPostsAndSeries(collections[tag], false)  }}
     {% endfor %}
 
     <h2>Projects<a name="projects"></a></h2>
@@ -100,7 +100,7 @@ Studio
     </a>
     </p>
 
-    {{ lps.listPostsAndSeries(collections['garage'])  }}
+    {{ lps.listPostsAndSeries(collections['garage'], true)  }}
 </div>
 
 {# Layout: cards #}

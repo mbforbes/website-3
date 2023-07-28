@@ -283,8 +283,17 @@ module.exports = function (eleventyConfig) {
         let seriesInfo = {};
         for (let post of arr) {
             let series = post.data.series;
-            // We have a priority sort order for the date to use.
-            let postDate = post.data.travel_end || post.data.updated || post.date;
+            let isGarage = post.data.tags.indexOf("garage") > -1;
+            // We have a priority sort order for the date to use. Garage pieces
+            // incorporate their `updated` date for overall[0] sorting, but all
+            // other posts use their original post date.
+            //
+            // [0] Date is currently never used for within-series sorting (see
+            // `sortBy` below).
+            let postDate = post.data.travel_end || post.date;
+            if (isGarage) {
+                postDate = post.data.travel_end || post.data.updated || post.date;
+            }
             if (!series || series == "") {
                 items.push({
                     kind: "post",
@@ -298,7 +307,8 @@ module.exports = function (eleventyConfig) {
                         name: series,
                         date: postDate,
                         posts: [post],
-                        sortBy: post.data.tags.indexOf("garage") == -1 ? "seriesOrder" : "title",
+                        // Within-series sorting (currently seriesOrder or title only.)
+                        sortBy: isGarage ? "title" : "seriesOrder",
                     }
                 } else {
                     // series' date should be the latest post date

@@ -1,4 +1,4 @@
-{% macro listPostsAndSeries(collection) %}
+{% macro listPostsAndSeries(collection, useUpdated) %}
 <ul class="list pa0 mt0">
     {# Type is {name: post[]}[], where name is "" for no series. #}
     {% for seriesObj in collection | dateSeriesGroupBy %}
@@ -10,7 +10,11 @@
         {% for post in seriesObj.posts %}
             <li class="mv1">
                 <a href="{{ post.url }}" class="db pv1 link">
-                    <time class="fr lightest-text-color ml3">{{ post.data.travel_end | default(post.data.updated) | default(post.date) | readableDate }}</time>
+                    {% set displayDate = post.data.travel_end | default(post.date) %}
+                    {% if useUpdated %}
+                        {% set displayDate = post.data.travel_end | default(post.data.updated) | default(post.date) %}
+                    {% endif %}
+                    <time class="fr lightest-text-color ml3">{{ displayDate | readableDate }}</time>
                     {{ post.data.title }}
                 </a>
             </li>

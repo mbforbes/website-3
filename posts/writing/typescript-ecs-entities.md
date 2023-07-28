@@ -1,6 +1,7 @@
 ---
 title: "Deeper Dive: Entities"
 date: 2021-09-07
+updated: 2023-07-28
 tags: programming
 series: Building an ECS in TypeScript
 seriesOrder: 5
@@ -16,6 +17,8 @@ Our Entity implementation is about as simple as can be.
  */
 type Entity = number
 ```
+
+<p class="figcaption">The complete Entity implementation. Seriously.</p>
 
 But let me use this as an excuse to tell a little story. The story is about the most beautiful refactor of my life.
 
@@ -37,6 +40,8 @@ class Entity {
 }
 ```
 
+<p class="figcaption">{{ "My original Entity implementation was a class, but it didn't do anything, and I never actually called `toString()` on it." | md | safe }}</p>
+
 I am being a bit harsh on myself here. After all, I had no idea what kinds of things programming a game would demand. Perhaps I'd find a dire need to squirrel away information inside the Entity?
 
 ## The Most Beautiful Refactor of My Life
@@ -49,17 +54,33 @@ But all this time, I'd never put anything else inside the `Entity` class. So I h
 
 There was no reason to except elegance. Wanting to change this was pure greed---but the greed where you want a program to be simpler just because it's more beautiful that way.
 
-Worth a try. I deleted the whole class, replacing it with the simple type alias above. Then, I changed the only place in the entire codebase an `Entity` was created, a single line in the ECS's `addEntity()` function, from
+Worth a try. I deleted the whole class, replacing it with the simple type alias above.
 
-```ts
-let entity = new Entity(this.nextEntityID);
+```diff-ts
+-    class Entity {
+-        private repr: string
+-
+-        constructor(private id: number) {
+-            this.repr = 'Entity(' + id + ')';
+-        }
+-
+-        public toString(): string {
+-            return this.repr;
+-        }
+-    }
++    type Entity = number
 ```
 
-to
+<p class="figcaption">Replacing the Entity implementation entirely.</p>
 
-```ts
-let entity: Entity = this.nextEntityID;
+Then, I changed the only place in the entire codebase an `Entity` was created, a single line in the ECS's `addEntity()` function:
+
+```diff-ts
+-    let entity = new Entity(this.nextEntityID);
++    let entity: Entity = this.nextEntityID;
 ```
+
+<p class="figcaption">Changing the single line of code that used it.</p>
 
 ... and that was it.
 

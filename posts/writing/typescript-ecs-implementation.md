@@ -1,15 +1,16 @@
 ---
 title: A TypesScript ECS in 99 Lines of Code
 date: 2021-09-04
+updated: 2023-07-28
 tags: programming
 series: Building an ECS in TypeScript
 seriesOrder: 3
 image: /assets/posts/typescript-ecs/ecs-screenshot.png
 ---
 
-## Overview
-
 Without further ado, this post is a minimal but complete TypeScript implementation of an ECS.
+
+## Overview
 
 Here's a brief overview of five main parts of the code. I've written more about the `ComponentContainer`, since it seems like extra cruft, but is vital for making the API easy to work with.
 
@@ -278,6 +279,8 @@ class ECS {
 }
 ```
 
+<p class="figcaption">A minimal but complete Entity Component System (ECS) implementation in TypeScript.</p>
+
 
 ## Example Usage
 
@@ -296,6 +299,10 @@ ecs.update();
 // Entity gone.
 ```
 
+<p class="figcaption">
+Entity basic usage: adding to and removing from the ECS.
+</p>
+
 `removeEntity()`'s behavior is a bit funny on purpose. We don't want Entities being removed mid-frame, so we wait until the end of an `update()` to remove them.
 
 ### Components
@@ -307,6 +314,11 @@ class Position extends Component {
     constructor(public x: number, public y: number) { super(); }
 }
 ```
+
+<p class="figcaption">
+Defining a minimal Component called Position that stores an (x, y) coordinate.
+</p>
+
 
 To use it with our ECS, we use `addComponent()`, `getComponents()`, and `removeComponent()`.
 
@@ -325,6 +337,10 @@ let p = comps.get(Position)  // get with *class*
 ecs.removeComponent(entity, Position);  // remove with *class*
 ```
 
+<p class="figcaption">
+Component basic usage: adding a Component to an Entity and retrieving it.
+</p>
+
 ### Systems
 
 Our ECS requires each System specify (a) a non-empty list of Components it requires to run, (b) an `update()` method.
@@ -337,6 +353,10 @@ class Locator extends System {
     update(entities: Set<Entity>): void { super(); }
 }
 ```
+
+<p class="figcaption">
+Defining a minimal System called Locator that selects all Entities with a Position Component.
+</p>
 
 To our ECS, we can `addSystem()` and `removeSystem()`, and it will keep them up-to-date.
 
@@ -354,6 +374,11 @@ ecs.addComponent(entity, position);
 
 ecs.removeSystem(locator); // Bye bye.
 ```
+
+<p class="figcaption">
+System basic usage: adding it to and removing it from the ECS.
+</p>
+
 
 ## What's Next
 

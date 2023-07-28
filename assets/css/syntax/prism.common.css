@@ -1,0 +1,153 @@
+/* Common parts of prism syntax highlighting CSS styles.
+
+Pulled out of first couple selectors, plus edits:
+ - no font size (we set ourselves)
+ - no margin (we set ourselves)
+ - line height 1.25
+ - pulled out line highlighting (no change b/w styles)
+ - pulled out diff highlighting (ditto)
+ - diff-line-highlight CSS replaced w/ Eleventy variants that don't require
+   another class (so diffs get line-highlighted by default).
+*/
+
+code[class*=language-],
+pre[class*=language-] {
+    background: 0 0;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    /* font-size: 1em; */
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.25;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none
+}
+
+pre[class*=language-] {
+    padding: 1em;
+    /* margin: .5em 0; */
+    overflow: auto
+}
+
+:not(pre)>code[class*=language-] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal
+}
+
+
+/* Line highlighting (not really tested, may have interference w/ tachyons?) */
+
+pre[data-line] {
+    position: relative;
+    padding: 1em 0 1em 3em
+}
+
+.line-highlight {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: inherit 0;
+    margin-top: 1em;
+    background: hsla(24, 20%, 50%, .08);
+    background: linear-gradient(to right, hsla(24, 20%, 50%, .1) 70%, hsla(24, 20%, 50%, 0));
+    pointer-events: none;
+    line-height: inherit;
+    white-space: pre
+}
+
+@media print {
+    .line-highlight {
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact
+    }
+}
+
+.line-highlight:before,
+.line-highlight[data-end]:after {
+    content: attr(data-start);
+    position: absolute;
+    top: .4em;
+    left: .6em;
+    min-width: 1em;
+    padding: 0 .5em;
+    background-color: hsla(24, 20%, 50%, .4);
+    color: #f4f1ef;
+    font: bold 65%/1.5 sans-serif;
+    text-align: center;
+    vertical-align: .3em;
+    border-radius: 999px;
+    text-shadow: none;
+    box-shadow: 0 1px #fff
+}
+
+.line-highlight[data-end]:after {
+    content: attr(data-end);
+    top: auto;
+    bottom: .4em
+}
+
+.line-numbers .line-highlight:after,
+.line-numbers .line-highlight:before {
+    content: none
+}
+
+pre[id].linkable-line-numbers span.line-numbers-rows {
+    pointer-events: all
+}
+
+pre[id].linkable-line-numbers span.line-numbers-rows>span:before {
+    cursor: pointer
+}
+
+pre[id].linkable-line-numbers span.line-numbers-rows>span:hover:before {
+    background-color: rgba(128, 128, 128, .2)
+}
+
+/* Diff highlighting
+
+Original selectors (from prism CSS) required additional `diff-highlight` class
+to highlight line, which I don't want to figure out how to add to Eleventy's
+Prism configuration. Simpler (current) selectors (from Eleventy) just
+line-highlight all diffs.
+
+Prism CSS: (downloaded from Prism website, see link above)
+Eleventy CSS: https://www.11ty.dev/docs/plugins/syntaxhighlight/
+
+I'm also giving 1.5 line height because diff highlight lines look cramped w/
+the default 1.25.
+*/
+
+code[class*=language-diff-],
+pre[class*=language-diff-] {
+    line-height: 1.5;
+}
+
+.token.deleted {
+    background-color: hsl(350deg 100% 88% / 47%);
+}
+
+.token.inserted {
+    background-color: hsl(120deg 73% 75% / 35%);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+    display: block;
+}
+
+/* Make the + and - diff characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+    -webkit-user-select: none;
+    user-select: none;
+}

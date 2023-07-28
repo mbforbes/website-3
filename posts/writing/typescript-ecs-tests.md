@@ -1,6 +1,7 @@
 ---
 title: Tests
 date: 2021-09-05
+updated: 2023-07-28
 tags: programming
 series: Building an ECS in TypeScript
 seriesOrder: 4
@@ -70,6 +71,10 @@ class Destroyer extends System {
     }
 }
 ```
+
+<p class="figcaption">
+Defining two Components (Position, Health) and four Systems (Locator, Damager, HealthBarRenderer, Destroyer).
+</p>
 
 The testing code is going to look terrible to anyone who actually writes tests using a good library or tool. I'm just using `console.log()` to print whether conditions we expect to be true indeed are. Why? It was quick and easy. And testing isn't really a main focus of what we're doing overall.
 
@@ -205,6 +210,12 @@ function test() {
 test();
 ```
 
+<p class="figcaption">
+Test of core ECS functionality.
+First, we check Components can be added, found, and deleted.
+Then, we check Systems track Entities that they ought to based on the available Components, and that the lifecycle of removing Entities from the ECS works as expected.
+</p>
+
 <script src="/assets/posts/typescript-ecs/01-pure-ecs.js"></script>
 
 ## You Already Ran This Test
@@ -217,6 +228,11 @@ This is what I see:
 
 ![](/assets/posts/typescript-ecs/test-results.jpg)
 
+
+<p class="figcaption">
+JavaScript console output for this page. Yours should look the same.
+</p>
+
 ## Try It Out
 
 In case you'd like to try out the `ECS` yourself, I've also exposed it and the above Components and Systems on this page. In the console, try something like
@@ -225,5 +241,7 @@ In case you'd like to try out the `ECS` yourself, I've also exposed it and the a
 let ecs = new ECS();
 ecs.addEntity();
 ```
+
+<p class="figcaption">Try this in this page's JavaScript console.</p>
 
 ... and see whether it gives you `0` back.

@@ -1,49 +1,21 @@
-/* PrismJS 1.28.0
-https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+bash+csharp+diff+javadoclike+jsdoc+json+json5+processing+python+ruby+typescript+yaml */
-/* Modifications:
- * - no font size (we set ourselves)
- * - no margin (we set ourselves)
- * - line height 1.25
- * - manually added dark mode query selector everywhere
+/* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+bash+csharp+diff+javadoclike+jsdoc+json+json5+processing+python+ruby+typescript+yaml&plugins=line-highlight+diff-highlight
+
+Modifications:
+ - common styles pulled out to prism.common.css
+ - removed operator token BG inherit (for diffs)
+ - line/diff-highlight pulled out to prism.common.css
+ - manually added dark mode query selector everywhere
 */
 [data-theme="dark"] code[class*=language-],
 [data-theme="dark"] pre[class*=language-] {
     color: #f8f8f2;
-    background: 0 0;
     text-shadow: 0 1px rgba(0, 0, 0, .3);
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    /* font-size: 1em; */
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    word-wrap: normal;
-    line-height: 1.25;
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    tab-size: 4;
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none
-}
-
-[data-theme="dark"] pre[class*=language-] {
-    padding: 1em;
-    /* margin: .5em 0; */
-    overflow: auto;
-    border-radius: .3em
 }
 
 [data-theme="dark"] :not(pre)>code[class*=language-],
 [data-theme="dark"] pre[class*=language-] {
     background: #272822
-}
-
-[data-theme="dark"] :not(pre)>code[class*=language-] {
-    padding: .1em;
-    border-radius: .3em;
-    white-space: normal
 }
 
 [data-theme="dark"] .token.cdata,
@@ -90,7 +62,8 @@ https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clik
 [data-theme="dark"] .token.url,
 [data-theme="dark"] .token.variable {
     color: #f8f8f2;
-    background: inherit;
+    /* Don't need this; causes brighter backgrounds for diffs. */
+    /* background: inherit; */
 }
 
 [data-theme="dark"] .token.atrule,
