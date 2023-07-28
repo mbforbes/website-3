@@ -64,8 +64,9 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 
 ## TODO
 
-- [ ] render inner links to parts of page
-    - e.g., abderdeen roadtrip post has links to edinburgh page, and w/ edinburgh castle subsection. both work but they don't have different text so it looks silly.
+- [ ] Syntax highlighting w/ diffs: update ECS posts to use
+- [ ] Show snippets when linking between posts
+- Constrain sketches to not go beyond width or height (see e.g., voxel material study)
 - [ ] new analytics
 - [ ] unified post view for studio
 - [ ] do we want TOC?
@@ -73,3 +74,7 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
     - note: esp on mobile, and esp double quotes. probably find set of test cases.
     - [ ] plus extend for aside, etc.
         - (how to markup? leaving markdown annoying: footnotes, etc.)
+- [ ] should we do a non-image twitter card when there's no page image? or default to a generic site one?
+- [ ] cloudflare pages
+    - [ ] change subdomain, if possible
+    - [ ] show banner, if possible

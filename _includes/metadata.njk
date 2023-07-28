@@ -20,7 +20,8 @@
         {% set value = "" %}
         {% for link in links %}
             {% set key = link | stripAnchor %}
-            {% set value = value + "<li><a href='" + link + "'>" + link_graph[key].title + "</a></li>" %}
+            {% set maybeAnchor = link | getAnchorReadable %}
+            {% set value = value + "<li><a href='" + link + "'>" + link_graph[key].title + maybeAnchor + "</a></li>" %}
         {% endfor %}
         {% set value = "<ul class='pl3 mv0'>" + value + "</ul>" %}
         {{ row(kind, value, kind | lower) }}

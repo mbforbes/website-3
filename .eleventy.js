@@ -175,6 +175,26 @@ async function getWHTHB64(path) {
 }
 
 /**
+ * "a-beautiful-run-in-the-park-but" -> "A Beautiful Run in the Park But"
+ * @param {string} slug
+ * @returns string
+ */
+function slugToTitleCase(slug) {
+    const stopWords = ["a", "an", "the", "and", "but", "or", "for", "nor", "on", "at", "to", "from", "by", "in", "vs"];
+    const words = slug.split('-');
+    let res = [];
+    for (let i = 0; i < words.length; i++) {
+        // Still capitalize stop word if its first or (interestingly!) last word
+        if (stopWords.includes(words[i]) && i > 0 && i < words.length - 1) {
+            res[i] = words[i].toLowerCase();
+        } else {
+            res[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+        }
+    }
+    return res.join(' ');
+}
+
+/**
  * Eleventy-img has a funny thing where it returns to you an object whose keys
  * you have to guess based on its logic (I think). It's basically the extension
  * but with some collapsing.
@@ -451,6 +471,22 @@ module.exports = function (eleventyConfig) {
             return s;
         }
         return s.slice(0, hashIdx);
+    });
+
+    // "/foo" -> ""
+    // "/foo#" -> ""
+    // "/foo#edinburgh-castle" -> " #Edinburgh Castle"
+    eleventyConfig.addFilter("getAnchorReadable", (s) => {
+        let hashIdx = s.indexOf("#");
+        if (hashIdx == -1) {
+            return "";
+        }
+        // if slicing past bounds, just get ""
+        let slug = s.slice(hashIdx + 1);
+        if (slug == "") {
+            return "";
+        }
+        return " #" + slugToTitleCase(slug);
     });
 
     // rejectAttrContains: attr's value is array, testCal is single, checks testVal *not* in
