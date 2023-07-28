@@ -75,6 +75,7 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
     - [ ] plus extend for aside, etc.
         - (how to markup? leaving markdown annoying: footnotes, etc.)
 - [ ] should we do a non-image twitter card when there's no page image? or default to a generic site one?
-- [ ] cloudflare pages
-    - [ ] change subdomain, if possible
-    - [ ] show banner, if possible
+
+## Note on Legacy
+
+If I ever stop renewing my domain (`maxwellforbes.com`), this site will stay live at the Cloudflare Pages domain it automatically got (`website-3.pages.dev`). That ought to work until Cloudflare deprecates the product or the company shuts down. Then, it's back to dust.
