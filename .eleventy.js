@@ -510,8 +510,10 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addFilter("cleanExcerpt", (txt) => {
-        // if txt contains "Permalink to ... #" then remove that part
-        txt = txt.replace(/Permalink to.*#/, "").trim();
+        // Deprecated: if txt contains "Permalink to ... #" then remove that part
+        // txt = txt.replace(/Permalink to.*#/, "").trim();
+        // New: header anchors are just # characters, we remove them all.
+        txt = txt.replace(/#/g, "").trim();
 
         // see cards.njk. note the annoying escaping of the apostrophe
         // also there's a caption I put on maps in earlier posts
@@ -1294,11 +1296,9 @@ ${third}`;
         .use(markdownItFootnote)
         .use(markdownItCustomImageProcessor)
         .use(markdownItAnchor, {
-            permalink: markdownItAnchor.permalink.linkAfterHeader({
-                class: "dn",
-                style: 'visually-hidden',
-                assistiveText: title => `Permalink to “${title}”`,
-                visuallyHiddenClass: 'dn',
+            permalink: markdownItAnchor.permalink.linkInsideHeader({
+                placement: 'after',
+                ariaHidden: true,
             }),
             slugify: eleventyConfig.getFilter("slug")
         });

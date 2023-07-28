@@ -505,6 +505,25 @@ h1 {
     margin-bottom: 0em;
 }
 
+.markdown-body h1 .header-anchor,
+.markdown-body h2 .header-anchor,
+.markdown-body h3 .header-anchor,
+.markdown-body h4 .header-anchor,
+.markdown-body h5 .header-anchor,
+.markdown-body h6 .header-anchor {
+    visibility: hidden;
+}
+
+.markdown-body h1:hover .header-anchor,
+.markdown-body h2:hover .header-anchor,
+.markdown-body h3:hover .header-anchor,
+.markdown-body h4:hover .header-anchor,
+.markdown-body h5:hover .header-anchor,
+.markdown-body h6:hover .header-anchor {
+    visibility: visible;
+    color: var(--lightest-text-color);
+}
+
 /* objects are for svg. tachyons adds this to img by default */
 .markdown-body object {
     max-width: 100%;
