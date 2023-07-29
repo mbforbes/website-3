@@ -630,7 +630,7 @@ li.footnote-item::marker {
 }
 
 .full-width {
-    width: calc(100vw);
+    width: 100vw;
     position: relative;
     left: 50%;
     right: 50%;

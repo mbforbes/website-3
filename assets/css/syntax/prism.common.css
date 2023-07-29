@@ -131,11 +131,11 @@ pre[class*=language-diff-] {
 }
 
 .token.deleted {
-    background-color: hsl(350deg 100% 88% / 47%);
+    background-color: hsl(350deg 100% 88% / 37%);
 }
 
 .token.inserted {
-    background-color: hsl(120deg 73% 75% / 35%);
+    background-color: hsl(120deg 73% 75% / 30%);
 }
 
 /* Optional: full-width background color */

@@ -64,6 +64,7 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 
 ## TODO
 
+- [ ] Remove horizontal scrollbars OMG
 - [ ] Syntax highlighting w/ diffs: update ECS posts to use (WIP)
 - [ ] Ping Brian re: redirect dependency
 - [ ] Swap series bottom w/ footnotes
