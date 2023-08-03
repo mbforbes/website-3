@@ -692,6 +692,7 @@ Most of all, if you’re in your PhD, I wish you luck finding it.
 
 _**Thanks** to Ari Holtzman, Julian Michael, and Maarten Sap for reading drafts of this._
 
+<md-raw>
 <script src="/assets/lib/anime-3.2.1.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -923,3 +924,4 @@ _**Thanks** to Ari Holtzman, Julian Michael, and Maarten Sap for reading drafts 
         });
     }, false);
 </script>
+</md-raw>
