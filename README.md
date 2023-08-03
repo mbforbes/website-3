@@ -86,6 +86,7 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 - [ ] Ping Brian re: redirect dependency
 - [ ] Swap series bottom w/ footnotes
 - [ ] next post in category when not series
+- [ ] Can I get the style.css?v=XXX to auto-update in head.njk when I change the css (or just always)?
 - [ ] try to re-fix tables (borders gone for the .markdown-body mw7 removal to get padding to work)
 - [ ] Show snippets when linking between posts
 - [ ] Constrain sketches to not go beyond width or height (see e.g., voxel material study)
