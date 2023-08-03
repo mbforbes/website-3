@@ -109,7 +109,7 @@ So that's the geography. Re: who is there, we came before peak season really hit
         "/assets/posts/2022-croatia/prim-burek.moz80.jpg",
         "/assets/posts/2022-croatia/prim-ramp.moz80.jpg"
     ]
-] %}
+], true %}
 
 <p class="figcaption">
 <span class="b">
@@ -138,7 +138,7 @@ Our second favorite thing was visiting a long decommissioned, gutted hotel.
     ],
     "/assets/posts/2022-croatia/prim-bowl.moz80.jpg",
     "/assets/posts/2022-croatia/prim-roof.moz80.jpg"
-] %}
+], true %}
 
 Top fav thing may or may not have been utilizing the local huge inflated floating obstacle course (not pictured).
 
