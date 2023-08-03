@@ -28,16 +28,25 @@ Studio
 
 {# Layout: list cateogry #}
 <div id="list-category-layout" class="layout">
-    <h2 style="margin-top: 0px;">Writing<a name="writing"></a></h2>
+    <h2 id="writing" style="margin-top: 0px;">
+        Writing
+        <a class="header-anchor" href="#writing" aria-hidden="true">#</a>
+    </h2>
 
     {% set writingTags = ["travel", "design", "programming", "creating & thinking", "health"] %}
     {# {% set writingTags = ["programming"] %} #}
     {% for tag in writingTags %}
-        <h3>{{ tag | title }}<a name="{{ tag | lower }}"></a></h3>
+        <h3 id="{{ tag | slug }}">
+            {{ tag | title }}
+            <a class="header-anchor" href="#{{ tag | slug }}" aria-hidden="true">#</a>
+        </h3>
         {{ lps.listPostsAndSeries(collections[tag], false)  }}
     {% endfor %}
 
-    <h2>Projects<a name="projects"></a></h2>
+    <h2 id="projects">
+        Projects
+        <a class="header-anchor" href="#projects" aria-hidden="true">#</a>
+    </h2>
     {% for post in collections.project | sort(true, false, "date") %}
     <a href="{{ post.url }}" class="db pv1 link">
         <time class="fr lightest-text-color ml3">{{ post.date | readableDate }}</time>
@@ -45,7 +54,10 @@ Studio
     </a>
     {% endfor %}
 
-    <h2>Software<a name="software"></a></h2>
+    <h2 id="software">
+        Software
+        <a class="header-anchor" href="#software" aria-hidden="true">#</a>
+    </h2>
 
     {% include "programming-language-tooltips.njk" %}
 
@@ -58,7 +70,10 @@ Studio
     You might also be interested in checking out my <a href="/research/#software">research software</a>.
     </p>
 
-    <h2>Sketches<a name="sketches"></a></h2>
+    <h2 id="sketches">
+        Sketches
+        <a class="header-anchor" href="#sketches" aria-hidden="true">#</a>
+    </h2>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));">
     {% for sketch in collections.sketch | sort(true, false, "date") %}
@@ -68,7 +83,10 @@ Studio
     {% endfor %}
     </div>
 
-    <h2>Blog<a name="blog"></a></h2>
+    <h2 id="blog">
+        Blog
+        <a class="header-anchor" href="#blog" aria-hidden="true">#</a>
+    </h2>
     {% for post in collections.blog | sort(true, false, "date") %}
     <a href="{{ post.url }}" class="db pv1 link">
         <time class="fr lightest-text-color ml3">{{ post.date | readableDate }}</time>
@@ -76,7 +94,10 @@ Studio
     </a>
     {% endfor %}
 
-    <h2>µblog<a name="microblog"></a></h2>
+    <h2 id="microblog">
+        µblog
+        <a class="header-anchor" href="#microblog" aria-hidden="true">#</a>
+    </h2>
     <p>
         <a href="/microblog/">See all.</a>
     </p>
@@ -89,7 +110,10 @@ Studio
     </div>
 
 
-    <h2>Garage<a name="garage"></a></h2>
+    <h2 id="garage">
+        Garage
+        <a class="header-anchor" href="#garage" aria-hidden="true">#</a>
+    </h2>
 
     <p class="f6 f5-ns">
     The garage is an experiment in "working with the garage door up."
@@ -104,7 +128,7 @@ Studio
 </div>
 
 {# Layout: cards #}
-<div id="card-layout" class="layout">
+<div id="card-layout" class="layout full-width">
     {% include "layouts/card-layout.njk" %}
 </div>
 
