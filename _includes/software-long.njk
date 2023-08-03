@@ -2,6 +2,9 @@
    markdown file, it seems to get markdown parsed by default (the opposite of the
    problem other people online seemed to be having), which meant everything got
    put in <pre><code> blocks because they were indented. #}
+{# NOTE: NOTE: Extra <div> for .markdown-body mw7 removal. Border goes outside
+padding, and we really want a margin. #}
+<div>
 <div class="pl3 bl bw1 mb4">
     <a href="{{- item.data.software_url -}}" class="f5 f4-ns b code">
         {{- item.data.title -}}
@@ -25,4 +28,5 @@
     {%- else -%}
         <p class="mv1 f5 f4-ns">{{- item.data.summary -}}</p>
     {%- endif -%}
+</div>
 </div>

@@ -20,7 +20,7 @@ pre[class*=language-] {
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
-    line-height: 1.25;
+    line-height: 1.5;
     -moz-tab-size: 4;
     -o-tab-size: 4;
     tab-size: 4;
@@ -31,7 +31,7 @@ pre[class*=language-] {
 }
 
 pre[class*=language-] {
-    padding: 1em;
+    /* padding: 1em; */
     /* margin: .5em 0; */
     overflow: auto
 }
@@ -120,15 +120,7 @@ line-highlight all diffs.
 
 Prism CSS: (downloaded from Prism website, see link above)
 Eleventy CSS: https://www.11ty.dev/docs/plugins/syntaxhighlight/
-
-I'm also giving 1.5 line height because diff highlight lines look cramped w/
-the default 1.25.
 */
-
-code[class*=language-diff-],
-pre[class*=language-diff-] {
-    line-height: 1.5;
-}
 
 .token.deleted {
     background-color: hsl(350deg 100% 88% / 37%);

@@ -8,7 +8,10 @@ eleventyImport:
     collections: ["all"]
 ---
 
-<img width="200" src="/assets/img/max.jpg" style="float: right; margin: 25px;">
+<!-- NOTE: Extra <div> for .markdown-body mw7 removal -->
+<div>
+<img width="200" src="/assets/img/max.jpg" style="max-width: 50%; float: right; margin-left: 25px; margin-bottom: 25px;">
+</div>
 
 ## Bio
 
@@ -33,7 +36,7 @@ Contact me at: <img height="22" class="inline" src="/assets/img/my-email.png">
 
 ## Notes
 
-<ul class="list pa0">
+<ul class="list pa0 std-left">
 {% for post in collections.research | rejectAttrContains(["data", "tags"], "software") | rejectAttrContains(["data", "tags"], "news") | sort(true, false, "date") %}
 <li class="mv2">
 <a href="{{ post.url }}" class="db pv1 link">
@@ -43,7 +46,6 @@ Contact me at: <img height="22" class="inline" src="/assets/img/my-email.png">
 </li>
 {% endfor %}
 </ul>
-
 
 ## Publications
 

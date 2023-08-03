@@ -46,18 +46,16 @@
     {% include "series-top.njk" %}
   {% endif %}
 
-  {# Main content #}
-  <div class="mw7 center">
-    <main class="tl relative ph3 ph4-ns">
-      {% if not (hidetitle or delaytitle) %}
-        {% include "title.njk" %}
-      {% endif %}
+  {# Main content. (assuming "relative" needed for any absolute children, but haven't tested removing) #}
+  <main class="relative">
+    {% if not (hidetitle or delaytitle) %}
+      {% include "title.njk" %}
+    {% endif %}
 
-      <div class="markdown-body mb7">
-        {{ content | safe }}
-      </div>
-    </main>
-  </div>
+    <div class="markdown-body mb7">
+      {{ content | safe }}
+    </div>
+  </main>
 
   {# Metadata #}
   {% if not hidedate %}

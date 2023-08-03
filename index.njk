@@ -18,7 +18,7 @@ or read about
 
 <h2>Latest from the studio</h2>
 
-<ul class="list pa0">
+<ul class="list pa0 std-left">
     {% for post in collections.studio | rejectAttrContains(["data", "tags"], "software") | rejectAttrContains(["data", "tags"], "redirect") | sort(true, false, "date") | head(3) %}
     <li class="mv2">
       <link rel="prefetch" href="{{ post.url }}">
@@ -50,7 +50,7 @@ or read about
 
 <h2>Latest research</h2>
 
-<ul class="list pa0">
+<ul class="list pa0 std-left">
 {% for post in collections.research | rejectAttrContains(["data", "tags"], "software") | sort(true, false, "date") | head(3) %}
     <li class="mv2">
         {% if "news" in post.data.tags %}

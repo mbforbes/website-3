@@ -32,9 +32,12 @@
     --warn-text-color: #111111;
     /* tachyons: near-black */
 
-    /* This stuff probably won't be modified by themes */
-    --fig-spacing-desktop: 6rem;
-    --fig-spacing-mobile: 4rem;
+    /* This stuff defines mobile sizes. For desktop (ns), check out the -ns
+       media query section further below. This stuff probably won't be modified
+       by themes */
+
+    --fig-spacing: 4rem;
+    --page-padding: 1rem;
 }
 
 [data-theme="dark"] {
@@ -292,6 +295,29 @@ li.footnote-item::marker,
     hyphens: auto;
 }
 
+/* The next three blocks are for the .markdown-body mw7 removal. Now, everything
+has to center itself. */
+
+.markdown-body>*:not(.full-width, pre) {
+    width: 100%;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: var(--page-padding);
+}
+
+.markdown-body>*:not(.full-width, ol, ul, pre),
+.markdown-body>ul.std-left,
+.markdown-body>ol.std-left {
+    padding-left: var(--page-padding);
+}
+
+/* <pre> remains padding-left-less; <code> (inside it) handles.  */
+.markdown-body>ol:not(.std-left),
+.markdown-body>ul:not(.std-left) {
+    padding-left: calc(var(--page-padding) + 40px);
+}
+
 /* Making a's everywhere!
 
 Previously was:
@@ -328,24 +354,19 @@ li>p {
 
 /* <pre><code> is big blocks (<code> only is inline) */
 .markdown-body pre {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    max-width: none;
-    /* These !important override styles in the syntax highlight coloring CSS files. */
-    padding-top: 2em !important;
-    padding-bottom: 2em !important;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .markdown-body pre code {
     position: relative;
-    /* The 1rem is to match ph3; we have the 2rem version (ph4-ns) below. */
-    left: max(calc((100vw - 704px)/2), 1rem);
+    display: block;
+    /* These monstrosities are to match up with left margin of body text. */
+    left: max(calc((100% - (48rem - 2*var(--page-padding)))/2), var(--page-padding));
+    max-width: calc(100% - (max(calc((100% - (48rem - 2*var(--page-padding)))/2), var(--page-padding))));
+
 }
 
 .markdown-body :not(pre) code {
@@ -365,6 +386,8 @@ Previously was
     margin-top: 4em;
     margin-bottom: 4em;
     width: 2em;
+    /* Need 0 padding or else gets hit with the .markdown-body > * padding. */
+    padding: 0;
     border-style: dotted none none;
     border-width: 7px;
     border-color: var(--border-color);
@@ -437,10 +460,6 @@ p.subtitle {
 .markdown-body a:hover:not(.link, .nohoverstyle),
 .normal-links a:hover {
     text-decoration: underline;
-}
-
-.markdown-body>audio {
-    width: 100%;
 }
 
 /* Current type sizes (defaults, I think):
@@ -537,17 +556,18 @@ h1 {
 .markdown-body img:not(.novmargin, .inline, .leaflet-tile),
 .markdown-body object,
 .markdown-body pre,
-.markdown-body .fig {
-    margin-top: var(--fig-spacing-mobile);
-    margin-bottom: var(--fig-spacing-mobile);
+.markdown-body .fig,
+.markdown-body table {
+    margin-top: var(--fig-spacing);
+    margin-bottom: var(--fig-spacing);
 }
 
 .markdown-body .figtop {
-    margin-top: var(--fig-spacing-mobile);
+    margin-top: var(--fig-spacing);
 }
 
 .markdown-body .figbot {
-    margin-bottom: var(--fig-spacing-mobile);
+    margin-bottom: var(--fig-spacing);
 }
 
 
@@ -565,13 +585,21 @@ h1 {
 
 /* Audio itself */
 .markdown-body audio {
-    margin-top: 1em;
+    box-sizing: border-box;
+    display: block;
+    max-width: 100%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.markdown-body svg {
+    box-sizing: border-box;
+    display: block;
 }
 
 /* Audio caption */
 .markdown-body p.audiocaption {
-    margin-top: 2px;
-    margin-bottom: 1em;
+    margin-top: -1.5em;
 }
 
 
@@ -588,7 +616,7 @@ f7: font-size: 0.75rem;
 
 /* Image / video / table / code caption. Use class figcaption. */
 .markdown-body .figcaption {
-    margin-top: -5.5rem;
+    margin-top: -3.5rem;
     text-align: center;
     color: var(--lighter-text-color);
     margin-bottom: 5rem;
@@ -630,17 +658,15 @@ li.footnote-item::marker {
 }
 
 .full-width {
-    width: 100vw;
+    width: 100%;
+    /* relative used for inner svgBlur absolute divs */
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    max-width: none;
 }
 
 .content-width {
-    width: 704px;
+    /* 48rem = 768px in current conditions. Note: Subtracting desktop padding
+    (2rem x 2) yields 44rem = 704px. */
+    width: 48rem;
 }
 
 /**
@@ -683,17 +709,22 @@ text-width image*/
 
 .markdown-body table {
     width: 100%;
-    margin-top: var(--fig-spacing-mobile);
-    margin-bottom: var(--fig-spacing-mobile);
-    /* padding         : 0.5em; */
-    border-top: 1px solid var(--heavy-border-color);
-    border-bottom: 1px solid var(--heavy-border-color);
-    border-collapse: collapse;
+    border-collapse: separate;
+
+    /* NOTE: See about re-introducing these again. Needed border-collapse:
+    separate so that the table respects padding (for the .markdown-body mw7
+    removal) and it doesn't display over-wide. Ideally we'd wrap them all in a
+    <div> or something.*/
+
+    /* border-top: 1px solid var(--heavy-border-color); */
+    /* border-bottom: 1px solid var(--heavy-border-color); */
+    /* border-collapse: collapse; */
 }
 
 .markdown-body table th {
     font-variant: small-caps;
     padding: 5px;
+    /* NOTE: th really should stand out more, I think. */
     background-color: var(--off-bg-color);
 }
 
@@ -753,6 +784,13 @@ ol ol ol {
 /* This is the -ns (not small) media query (at least currently) */
 @media screen and (min-width: 30em) {
 
+    /* These define desktop sizes. They override the mobile sizes defined at the
+    top :root selector. */
+    :root {
+        --page-padding: 2rem;
+        --fig-spacing: 6rem;
+    }
+
     .doublecol-ns {
         column-count: 2;
     }
@@ -770,6 +808,7 @@ ol ol ol {
     .markdown-body .figcaption {
         /* f5-ns */
         font-size: 1rem;
+        margin-top: -5.5rem;
     }
 
     .markdown-body .figcaption.attribution {
@@ -801,28 +840,6 @@ ol ol ol {
     .markdown-body pre code {
         /* f5-ns */
         font-size: 1rem;
-    }
-
-    .markdown-body pre code {
-        /* For ph4-ns (well, left-only part of that) */
-        left: max(calc((100vw - 704px)/2), 2rem);
-    }
-
-    .markdown-body img:not(.novmargin, .inline, .leaflet-tile),
-    .markdown-body object,
-    .markdown-body pre,
-    .markdown-body .fig,
-    .markdown-body table {
-        margin-top: var(--fig-spacing-desktop);
-        margin-bottom: var(--fig-spacing-desktop);
-    }
-
-    .markdown-body .figtop {
-        margin-top: var(--fig-spacing-desktop);
-    }
-
-    .markdown-body .figbot {
-        margin-bottom: var(--fig-spacing-desktop);
     }
 }
 
@@ -932,8 +949,12 @@ ol ol ol {
     display: none;
     box-sizing: border-box;
     font-size: 1rem;
-    width: calc((100vw - 48rem)/2);
-    margin-right: calc((100vw - 48rem)/-2 + -2rem);
+    /* NOTE: 99vw here is a hack because this isn't a child of a 100% width
+    element so we can't use 100% to get the full page width. But by the time
+    this appears, 1vw has always accounted for the scroll bar, so should be
+    good. */
+    width: calc((99vw - 48rem)/2);
+    margin-right: calc((99vw - 48rem)/-2 + -2rem);
     padding-left: 4rem;
     padding-right: 2rem;
     padding-top: 0;

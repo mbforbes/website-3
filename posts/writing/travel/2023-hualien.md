@@ -24,7 +24,7 @@ attributions: The custom animated maps use map tiles by [Stamen Design](http://m
 -->
 
 {% set activePlace = "Hualien" %}
-{%- include "maps/taiwan-maps.njk" -%}
+{% include "maps/taiwan-maps.njk" %}
 
 {% include "title.njk" %}
 

@@ -174,8 +174,11 @@ start to think about design, space, sound, color, feeling, and complexity.
 
 ## Interlude
 
+<!-- NOTE: Extra <div> for .markdown-body mw7 removal -->
+<div>
 <div class="aspect-ratio aspect-ratio--16x9 narrow">
 	<iframe  src="https://www.youtube.com/embed/CJEL4uVC-ao" frameborder="0" class="aspect-ratio--object" allowfullscreen></iframe>
+</div>
 </div>
 
 ## Learning _vs_ creating

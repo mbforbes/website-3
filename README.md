@@ -64,10 +64,29 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 
 ## TODO
 
-- [ ] Remove horizontal scrollbars OMG
+- [x] Remove horizontal scrollbars OMG
+    - [x] Great "all elements fend for themselves" changeover
+    - [x] Fix up code display
+    - [x] Fix Paralysis: Audio + Fallgate: audio
+        - Are we missing some selector? Thinking of first SVG in "Every PhD is different" post
+    - [x] Fix Paralysis: Brutalist Music embed
+    - [x] Any other SVG-containing posts to check?
+    - [x] Re-check if we need the `<div>`s I added; same fix as `<audio>` and `<svg>`?
+    - [x] Tables are too big (e.g., "What is the garage") --- maybe OK?
+    - [x] lh 1.25 feels super tight on code... did this ever look good?
+    - [x] 704px -> 48rem (er, 44rem...)
+    - [x] Final checks
+- [ ] Fix up non-height-matching images
+    - [ ] Two in aberdeen post before "Bagpipes don't get me fired up either."
+- [ ] Fix `&39;` on some cards in card layout
+- [ ] Fix text colors for dark mode in SVGs in Every PhD is Different
+- [ ] Make Aside: in "Animating SVGs from Sketch with anime.js" actually an aside
+- [ ] youtube -> vimeo as much as possible
 - [ ] Syntax highlighting w/ diffs: update ECS posts to use (WIP)
 - [ ] Ping Brian re: redirect dependency
 - [ ] Swap series bottom w/ footnotes
+- [ ] next post in category when not series
+- [ ] try to re-fix tables (borders gone for the .markdown-body mw7 removal to get padding to work)
 - [ ] Show snippets when linking between posts
 - [ ] Constrain sketches to not go beyond width or height (see e.g., voxel material study)
 - [ ] new analytics
@@ -78,6 +97,26 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
     - [ ] plus extend for aside, etc.
         - (how to markup? leaving markdown annoying: footnotes, etc.)
 - [ ] should we do a non-image twitter card when there's no page image? or default to a generic site one?
+
+Notes from trying on 4K screen:
+
+- **consistent margins** --- driving me nuts
+    - center group map / map+series bubbles
+        - + actual bubble around series?
+    - can photos be max-width'd closer to their true width? likely displaying @ full-size will mean @1x density, so there's no reason to limit to 1/2
+    - consider max-width'ing inline full-width post elements (maps)
+    - max-width cover img? w/ border when smaller?
+    - jagged margins of inline posts
+    - ... and horrible stretching
+    - maybe increase media max-width; look @ ratio from body text. or just go much wider
+
+- larger thought: if it's too much work to keep v1 and v2, don't do it. honestly may not need w/ full display capping to some reasonable amt (2000px w?)
+
+- maybe bigger fig margins for sufficiently large screen
+
+- maybe export body-width-limited photos to a multiplier of 704
+
+- make footer at bottom (I think html 100% (min-?)height, body min-height 100% might do the trick)
 
 ## Note on Legacy
 
