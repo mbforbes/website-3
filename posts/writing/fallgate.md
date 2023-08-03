@@ -17,11 +17,23 @@ did the programming, sounds, and music.
 
 You can play the game online for free. Not even ads!
 
-<p class="db tc ba b--green ttu tracked w-100 pa2 mb0 dim pointer">
-  <a href="https://mbforbes.github.io/fallgate" class="green">
+<style>
+a.ghw {
+  color: #19A974 !important;
+}
+a.ghw:hover {
+  text-decoration: none !important;
+  color: white !important;
+}
+</style>
+
+<div>
+<a
+  href="https://mbforbes.github.io/fallgate"
+  class="mt4 db tc ba bw1 b--green green hover-bg-green ghw ttu tracked w-100 pa4 mb0 pointer">
     🎮 play fallgate
-  </a>
-</p>
+</a>
+</div>
 <p class="tc f7 f6-ns mid-gray mt1">desktop only, Chrome optimal</p>
 
 ## Screenshots
