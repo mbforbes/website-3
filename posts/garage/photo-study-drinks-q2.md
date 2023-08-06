@@ -2,6 +2,7 @@
 title: "Study: Photographing Drinks, Q2"
 date: 2023-08-05
 series: Photo Notebook
+image: /assets/garage/photo-notebook/study-drink-q2/edited/L1003981.moz80.jpg
 ---
 
 <!-- Image graveyard:
