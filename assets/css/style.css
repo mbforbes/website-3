@@ -592,6 +592,14 @@ h1 {
     margin-bottom: 2em;
 }
 
+.markdown-body video {
+    box-sizing: border-box;
+    display: block;
+    max-width: 100%;
+    margin-top: var(--fig-spacing);
+    margin-bottom: var(--fig-spacing);
+}
+
 .markdown-body svg {
     box-sizing: border-box;
     display: block;
@@ -674,7 +682,7 @@ li.footnote-item::marker {
  * keep heights within limits, and avoid need for BG svg blur.
  */
 .media-max-width {
-    max-width: min(100%, 1140px, 133.3vh);
+    max-width: min(100%, 2000px, 133.3vh);
 }
 
 

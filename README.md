@@ -79,6 +79,7 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 - [ ] Fix up non-height-matching images
     - [ ] Two in aberdeen post before "Bagpipes don't get me fired up either."
 - [ ] Fix `&39;` on some cards in card layout
+- [ ] Have card layout hide horizontal scrollbar (see if fixes); freaks out when cards are initially flipping
 - [ ] Fix text colors for dark mode in SVGs in Every PhD is Different
 - [ ] Make Aside: in "Animating SVGs from Sketch with anime.js" actually an aside
 - [ ] youtube -> vimeo as much as possible
@@ -90,6 +91,7 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 - [ ] try to re-fix tables (borders gone for the .markdown-body mw7 removal to get padding to work)
 - [ ] Show snippets when linking between posts
 - [ ] Constrain sketches to not go beyond width or height (see e.g., voxel material study)
+- [ ] Some kind of debug data to reliably turn path display for images on and off? Command line flag, data into cascade, ...? Right now changing and reloading the `.eleventy.js` file during a build is buggy.
 - [ ] new analytics
 - [ ] unified post view for studio
 - [ ] do we want TOC?
@@ -112,6 +114,8 @@ Notes from trying on 4K screen:
     - maybe increase media max-width; look @ ratio from body text. or just go much wider
 
 - larger thought: if it's too much work to keep v1 and v2, don't do it. honestly may not need w/ full display capping to some reasonable amt (2000px w?)
+
+- [ ] Can we have the blur svgs reveal a bit earlier? They pop in while visible. Only do if still needed after margins update.
 
 - maybe bigger fig margins for sufficiently large screen
 

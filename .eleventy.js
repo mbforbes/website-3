@@ -603,16 +603,22 @@ module.exports = function (eleventyConfig) {
         // happen, I shouldn't do it. (Or I should at least see if things are
         // broken anyway first and maybe not do it if they're fine.)
 
+        // NOTE: the media-max-width (MMW) started at 1140px, later trying other
+        // values (2000px), so turning into variable. Doing inline width (IW =
+        // 704px) too for good measure.
+
         // sizes:
         // (v1/v2) inline:
-        // "(max-width: 30em) 100vw, (max-width: 704px) 33/50/100vw, 235/352/704px"
+        // "(max-width: 30em) 100vw, (max-width: IWpx) 33/50/100vw, (IW/3)/(IW/2)/(IW)px"
         //
         // (v1) fullscreen
         // "(max-width: 30em) 100vw, 33/50/100vw"
         //
         // (v2) media-max-width
-        // "(max-width: 30em) 100vw, (max-width: 1140px) 33/50/100vw, 380/570/1140px"
+        // "(max-width: 30em) 100vw, (max-width: MMWpx) 33/50/100vw, (MMW/3)/(MMW/2)/(MMW)px"
 
+        const iw = 704; // inline width
+        const mmw = 2000;  // media-max-width
         let midSize = n == 1 ? "100" : (n == 2 ? "50" : "33");
         let sizes;
         if (version == "v1" && fullWidth) {
@@ -620,12 +626,12 @@ module.exports = function (eleventyConfig) {
             sizes = `(max-width: 30em) 100vw, ${midSize}vw`;
         } else {
             // Handle both (v1/v2) inline, (v2) media-max-width
-            let midBreak = fullWidth ? "1140" : "704";
+            let midBreak = fullWidth ? mmw : iw;
             let bigSize;
             if (fullWidth) {
-                bigSize = n == 1 ? "1140" : (n == 2 ? "570" : "380");
+                bigSize = n == 1 ? mmw : (n == 2 ? Math.round(mmw / 2) : Math.round(mmw / 3));
             } else {
-                bigSize = n == 1 ? "704" : (n == 2 ? "352" : "235");
+                bigSize = n == 1 ? iw : (n == 2 ? Math.round(iw / 2) : Math.round(iw / 3));
             }
             sizes = `(max-width: 30em) 100vw, (max-width: ${midBreak}px) ${midSize}vw, ${bigSize}px`;
         }
