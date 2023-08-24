@@ -5,11 +5,12 @@ date: 2022-09-05
 travel_start: 2022-07-17
 travel_end: 2022-07-31
 image: /assets/posts/2022-edinburgh/church-angle.moz80.jpg
+attributions:  "Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). The animated maps are drawn using [Leaflet](https://leafletjs.com/). Animated map tiles by [Stamen Design](https://stamen.com/), under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). The data I used to draw the colored overlays are from several sources: [Country centroids](https://github.com/mihai-craita/countries_center_box); [UK and Ireland](https://datahub.io/core/geo-countries#data); [Scotland and N Ireland](https://github.com/Crunch-io/geodata); and [England and Wales](https://martinjc.github.io/UK-GeoJSON/). All core map data by [OpenStreetMap](https://www.openstreetmap.org/), under [ODbL](https://www.openstreetmap.org/copyright)."
 ---
 
-{% cityMap "/assets/posts/2022-edinburgh/edinburgh-scotland-1-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-edinburgh/edinburgh-scotland-1-perimeter.moz80.jpg", false, true, false %}
 
-{% img "/assets/posts/2022-edinburgh/city.moz80.jpg" %}
+{% cityPic "/assets/posts/2022-edinburgh/city.moz80.jpg" %}
 
 Ahh, back to the motherland, where I finally get the respect and admiration I deserve as bishop.
 
@@ -19,7 +20,7 @@ It was a strange novelty seeing my last name in a bunch of places. But we'll hav
 
 Anyway, cue Edinburgh A-roll.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-edinburgh/monument.moz80.jpg",
         "/assets/posts/2022-edinburgh/hill.moz80.jpg"
@@ -45,7 +46,7 @@ Anyway, cue Edinburgh A-roll.
         "/assets/posts/2022-edinburgh/night-house.moz80.jpg"
     ],
     "/assets/posts/2022-edinburgh/night-complex.moz80.jpg"
-], true %}
+] %}
 
 ## A Fortnight[^fortnight] Home
 
@@ -93,7 +94,7 @@ Fortunately we had decided at some point that all seagulls were called _Jerry,_[
 
 Here are some Jerries screaming about how nice the sunset is in 4K.
 
-{% img {vimeoInfo: "744493469?h=da1808955c", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"} %}
+{% img2 {vimeoInfo: "744493469?h=da1808955c", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"} %}
 
 [^jerry]: No relation to Seinfeld. Jerry just seemed like a good seagull name.
 
@@ -170,21 +171,20 @@ This is the broad picture. Plenty of complications exist, which I'll broadly cat
 
      > The Guardian and Telegraph use Britain as a synonym for the United Kingdom. Some prefer to use Britain as shorthand for Great Britain. The British Cabinet Office's Government Digital Service style guide for use on gov.uk recommends: "Use UK and United Kingdom in preference to Britain and British (UK business, UK foreign policy, ambassador and high commissioner). But British embassy, not UK embassy." ([Wikipedia: UK](https://en.wikipedia.org/wiki/United_Kingdom))
 
-**Attributions:** The maps are drawn using [Leaflet](https://leafletjs.com/); Map tiles by [Stamen Design](https://stamen.com/), under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). Map data by [OpenStreetMap](https://www.openstreetmap.org/), under [ODbL](https://www.openstreetmap.org/copyright). The data I used to draw the colored overlays are from several sources: [Country centroids](https://github.com/mihai-craita/countries_center_box); [UK and Ireland](https://datahub.io/core/geo-countries#data); [Scotland and N Ireland](https://github.com/Crunch-io/geodata); and [England and Wales](https://martinjc.github.io/UK-GeoJSON/).
 
-**See also:** [This map](https://www.britannica.com/story/whats-the-difference-between-great-britain-and-the-united-kingdom) by Encyclopedia Britannica. I emailed them to see if I could put the map in this blog post and they ~~never replied~~ said I'd have to pay them, so naturally I instead spent a gazillion hours making my own.
+This concludes our geographic interlude.[^wasteTime] Next stop is Edinburgh's big old castle.
 
-This concludes our geographic interlude. Next stop is Edinburgh's big old castle.
+[^wasteTime]: [This map](https://cdn.britannica.com/41/193441-050-13CCA6B5/Terminology-British-Isles-United-Kingdom-Ireland-Great.jpg) (if broken, from [this page](https://www.britannica.com/story/whats-the-difference-between-great-britain-and-the-united-kingdom)) by Encyclopedia Britannica inspired the whole tangent. I emailed them to see if I could put the map in this blog post and they ~~never replied~~ said I'd have to pay them, so naturally I instead spent a gazillion hours making my own.
 
 ## Edinburgh Castle
 
-{% img "/assets/posts/2022-edinburgh/castle-location.moz80.jpg" %}
+{% img2 "/assets/posts/2022-edinburgh/castle-location.moz80.jpg" %}
 
 The castle is the Big Tourist Thing you go do in town. Since we were in Edinburgh long enough to eat Krispy Kreme and play mini golf we didn't really have any excuse, so off we went.
 
 Let's start with the good: there is some cool castle-y architecture there, maps and stained glass (both of which I always like looking at), and some quality city panoramas.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-edinburgh/castle-tower.moz80.jpg",
         "/assets/posts/2022-edinburgh/castle-bay.moz80.jpg"
@@ -194,7 +194,7 @@ Let's start with the good: there is some cool castle-y architecture there, maps 
         "/assets/posts/2022-edinburgh/castle-glass-bue.moz80.jpg"
     ],
     "/assets/posts/2022-edinburgh/castle-view.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">
 On the left part of the skyline you can see the building we nicknamed The Cowlick. The one time we got close to it we couldn't go in for some reason. The curvy metal cowlick itself goes all the way to the ground and is super climbable, but they figured that out (probably drunken Scots help you figure things like this out quickly) and had jerry-rigged a barricade.
@@ -238,7 +238,7 @@ The _one_ potential reference I saw, unadorned by any plaque or caption, in some
 
 I have saved the best for last. A bunch of rooms had bagpipes blaring out songs (which you could hear from way off, just like the real thing). I looked around in one room and located the source of the noise: a CD player they shoved up near the ceiling and set on Torture Indefinitely mode.
 
-<iframe src="https://player.vimeo.com/video/744493369?h=bedc16f230&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="bagpipes-on-loop.mov" style="width: 100%; aspect-ratio: 16 / 9;" class="fig"></iframe>
+{% img2 {vimeoInfo: "744493369?h=bedc16f230", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}, {fullWidth: false} %}
 
 <p class="figcaption">Now that I am forced to explain why I found this so great, I am at a loss for words. Somehow the acute sonic injury of nonstop bagpipes seemed made even more pointless by this ancient rigged apparatus. But the truly best part was, as I was standing there wondering how anyone could distinguish the notes, a man comes in and starts cheerfully <span class="i">whistling along</span> with the tune. I suddenly felt more like a foreigner than I had in a long time.</p>
 
@@ -264,14 +264,14 @@ So yeah, a completely foreign concept.
 
 I was able to entertain myself strolling through some of the parks that are public. They had about 1000x more birds in them, and were usually quite swampy.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-edinburgh/swamp-trees.moz80.jpg",
     "/assets/posts/2022-edinburgh/swan.moz80.jpg"
-], true %}
+] %}
 
 To complete the bafflement, there was a big and delightful botanical garden that was completely free.
 
-{% img "/assets/posts/2022-edinburgh/long-hedge.moz80.jpg" %}
+{% img2 "/assets/posts/2022-edinburgh/long-hedge.moz80.jpg" %}
 
 The weirdest thing in the garden was this memorial hut for a person Wikipedia tells me I'm to refer to as _Queen Elizabeth The Queen Mother_ (mom of current ancient queen). The inside is completely plastered with pine cones and sea shells that way a child might decorate a tree house, but because adults did it for royalty it's like, sort of nice?
 
@@ -332,7 +332,7 @@ I didn't realize how cheap groceries could be until we went to this budget store
 
 They seem to achieve this by inventing a massive array of knockoff brands, and adhering to minimal store upkeep (shelving is just huge piles of goods in boxes, kind of like at Costco but without needing to by 24-packs).
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-edinburgh/lidl-cereal-2.moz80.jpg",
         "/assets/posts/2022-edinburgh/lidl-cereal.moz80.jpg",
@@ -371,7 +371,7 @@ Huh.
 
 ---
 
-{% img "/assets/posts/2022-edinburgh/creative-water.moz80.jpg" %}
+{% img2 "/assets/posts/2022-edinburgh/creative-water.moz80.jpg" %}
 
 <p class="figcaption">
 This landscaping outside of the Scottish National Gallery of Modern Art. You immediately want to go hang out there. Kids (and I) loved running up and down the terraces.
@@ -419,7 +419,7 @@ Latest addition to my <span class="i">America Abroad</span> collection: a restau
 
 The words "to let" are used exclusively here in place of phrases we use in the States like "lease" or "rent." The signs are ubiquitous and typographically presented in such a way that an "I" could slip perfectly between the "O" and "L," and it's a good indicator that my twelve-year-old brain is still alive and well that I simply saw this as <span class="tracked">TOILET</span> everywhere.
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-edinburgh/to-let-1.moz80.jpg",
     "/assets/posts/2022-edinburgh/to-let-2.moz80.jpg",
     "/assets/posts/2022-edinburgh/to-let-3.moz80.jpg"
