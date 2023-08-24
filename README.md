@@ -64,25 +64,14 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 
 ## TODO
 
-- [x] Remove horizontal scrollbars OMG
-    - [x] Great "all elements fend for themselves" changeover
-    - [x] Fix up code display
-    - [x] Fix Paralysis: Audio + Fallgate: audio
-        - Are we missing some selector? Thinking of first SVG in "Every PhD is different" post
-    - [x] Fix Paralysis: Brutalist Music embed
-    - [x] Any other SVG-containing posts to check?
-    - [x] Re-check if we need the `<div>`s I added; same fix as `<audio>` and `<svg>`?
-    - [x] Tables are too big (e.g., "What is the garage") --- maybe OK?
-    - [x] lh 1.25 feels super tight on code... did this ever look good?
-    - [x] 704px -> 48rem (er, 44rem...)
-    - [x] Final checks
+- [ ] img macro consolidation
 - [ ] Fix up non-height-matching images
     - [ ] Two in aberdeen post before "Bagpipes don't get me fired up either."
 - [ ] Fix `&39;` on some cards in card layout
 - [ ] Have card layout hide horizontal scrollbar (see if fixes); freaks out when cards are initially flipping
 - [ ] Fix text colors for dark mode in SVGs in Every PhD is Different
 - [ ] Make Aside: in "Animating SVGs from Sketch with anime.js" actually an aside
-- [ ] youtube -> vimeo as much as possible
+- [ ] ~~youtube -> vimeo as much as possible~~ videos just files?
 - [ ] Syntax highlighting w/ diffs: update ECS posts to use (WIP)
 - [ ] Ping Brian re: redirect dependency
 - [ ] Swap series bottom w/ footnotes

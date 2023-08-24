@@ -841,9 +841,16 @@ module.exports = function (eleventyConfig) {
         let imgHTML = await imgSpecToHTML2(imgSpec, fullWidth, 1);
         let fwClasses = fullWidth ? "full-width cb" : "";
         let phClass = fullWidth ? "ph1-m ph3-l" : "";
+        let thAttr;
+        // Throw the thumbhash on the container to get color to stretch to
+        // media-width margins to keep a consistent page margin.
+        if (typeof imgSpec === "string") {
+            let [w, h, thumbhash64] = await getWHTHB64(imgSpec);
+            thAttr = (thumbhash64 == null) ? "" : `data-thumbhash-b64="${thumbhash64}"`;
+        }
         return `
         <div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">
-            <div class="media-max-width">
+            <div class="flex justify-center media-width" ${thAttr}>
                 ${imgHTML}
             </div>
         </div>
@@ -1139,7 +1146,8 @@ module.exports = function (eleventyConfig) {
         }
         const isX = paths.length > 1;  // X = "transition"
         const divBGColorStyle = embedded ? "" : (plainBig ? "" : "background-color: #FCEEE1;");
-        const divWidthClass = embedded ? "" : "full-width";
+        const divWidthClass = embedded ? "" : "full-width ph1-m ph3-l"; // padding is the new margin
+        const divWidthLimiterClass = embedded ? "" : "media-width";  // stretch to media-width
         const figClasses = mt && mb ? "fig" : (mt && !mb ? "figtop" : (mb && !mt ? "figbot" : ""));
         const containerXClasses = isX ? "transitionContainer" : "";
         const containerXStyle = isX ? "display: grid;" : "";
@@ -1151,7 +1159,8 @@ module.exports = function (eleventyConfig) {
         // - plainBig: max 1000px display <-- just treating as full screen
 
         let basePieces = [];
-        basePieces.push(`<div style="${divBGColorStyle}" class="${divWidthClass} cb ${figClasses} flex justify-center">`);
+        basePieces.push(`<div class="${divWidthClass} cb ${figClasses} flex justify-center">`);
+        basePieces.push(`<div style="${divBGColorStyle}" class="${divWidthLimiterClass} flex justify-center">`);
         basePieces.push(`<div style="${containerStyleSize} ${containerXStyle}" class="${containerXClasses}">`);
         for (let i = 0; i < paths.length; i++) {
             // NOTE: No thumbhash. If we add vertical padding to give maps more
@@ -1172,19 +1181,24 @@ module.exports = function (eleventyConfig) {
         }
         basePieces.push(`</div>`);
         basePieces.push(`</div>`);
+        basePieces.push(`</div>`);
         const base = basePieces.join("\n");
 
-        const attr = `<p class="full-width pr2 pr3-ns figcaption attribution">
-Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
-</p>`;
-        const content = attribution ? base + attr : base;
+        const attributionEl = `
+        <div class="full-width ph1-m ph3-l flex justify-center">
+        <p class="media-width figcaption attribution">
+            Map by me, made with <a href="https://github.com/marceloprates/prettymaps/">marceloprates/prettymaps</a>. Data &copy; OpenStreetMap contributors.
+        </p>
+        </div>
+        `;
+        const content = attribution ? base + attributionEl : base;
         return "<md-raw>" + content + "</md-raw>";
     });
 
     eleventyConfig.addShortcode("cityPic", async function (path) {
         // With getMarginClasses(...), we're pretending it's the last img of a set.
         // Right now this gets us `mt1 figbot`.
-        const content = await oneBigImage(path, getMarginClasses(1, 2), true, true, false);
+        const content = await oneBigImage2(path, getMarginClasses(1, 2), true, true, false);
         return "<md-raw>" + content + "</md-raw>";
     });
 

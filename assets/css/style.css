@@ -685,6 +685,14 @@ li.footnote-item::marker {
     max-width: min(100%, 2000px, 133.3vh);
 }
 
+/**
+ * New width to match media-max-width. Used in things that need to be stretched
+ * to be media width. Examples: single-image containers (for thumbhash BG color
+ * stretch), map (tan) BG, map attribution (old style).
+ */
+.media-width {
+    width: min(100%, 2000px, 133.3vh);
+}
 
 /* Image source note. Use class attribution. Pair with "attribution" element for far-right
 caption (matching full-width image), or <p> element for text body-limited caption (for
