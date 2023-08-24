@@ -564,7 +564,7 @@ I tried a burst shot to get different stills of a pour. I wanted to capture seve
 
 Instead, I got this:
 
-<video autoplay muted loop>
+<video autoplay muted loop playsinline>
   <source src="/assets/garage/photo-notebook/study-drink-q2/pour-fail.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
