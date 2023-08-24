@@ -52,7 +52,7 @@ This new paper offers you better performance. For example, it detects sentiment 
 
 [^intervals]: If you're paying close attention, "tweaking the values but keeping the intervals the same" should make you a little suspicious. After all, 0.1 vs 0.2 is pretty different than 100,000.1 vs 100,000.2. Suffice to say, I kept them close enough for jazz (= statistics by a computer science person).
 
-<table class="f7 f6-m f5-l tablecustomfont" style="margin-top: 3em; margin-bottom: 2rem;">
+<table class="f7 f6-m f5-l tablecustomfont fig" style="">
     <thead>
       <tr>
         <th style="text-align: left">model</th>
@@ -198,7 +198,7 @@ Then,
 
 This has led to an unbelievable amount of noise in published research.[^noise] And as a researcher, you have to develop this skill of actively mistrusting basically everything you read.
 
-[^noise]: Check out [Troubling Trends in Machine Learning Scholarship (Lipton and Steinhardt, 2018)](https://arxiv.org/abs/1807.03341) by some folks who cared enough about these problems to actually write a paper about it and get (other) famous people to review it. I really applaud this, though I also [roast them a bit elsewhere](https://maxwellforbes.com/posts/use-examples#pulling-punches).
+[^noise]: Check out [Troubling Trends in Machine Learning Scholarship (Lipton and Steinhardt, 2018)](https://arxiv.org/abs/1807.03341) by some folks who cared enough about these problems to actually write a paper about it and get (other) famous people to review it. I really applaud this, though I also [roast them a bit elsewhere](/posts/use-examples/#pulling-punches).
 
 ## My Call to Action
 

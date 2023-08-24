@@ -718,7 +718,7 @@ module.exports = function (eleventyConfig) {
      *
      * @returns {Promise<string>} (HTML)
      */
-    async function imgSpecToHTML2(img, fullWidth, n) {
+    async function imgSpecToHTML2(img, n, { fullWidth, extraImgClasses }) {
         // video
         if (img.vimeoInfo) {
             return `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" loading="lazy" style="width: 100%; aspect-ratio: 16 / 9;" class=""></iframe>`;
@@ -746,7 +746,7 @@ module.exports = function (eleventyConfig) {
         let pathDisplay = "";
         return `<img
             src="${path}"
-            class="db bare novmargin h-auto bg-deep-red"
+            class="db bare novmargin h-auto bg-deep-red ${extraImgClasses}"
             loading="lazy" decoding="async"
             width="${w}" height="${h}" ${thAttr}
             srcset="${srcSet}" sizes="${sizes}"
@@ -837,10 +837,12 @@ module.exports = function (eleventyConfig) {
         `;
     }
 
-    async function oneBigImage2(imgSpec, marginClasses, fullWidth) {
-        let imgHTML = await imgSpecToHTML2(imgSpec, fullWidth, 1);
+    async function oneBigImage2(imgSpec, marginClasses, { fullWidth, maxWidth, extraImgClasses }) {
+        let imgHTML = await imgSpecToHTML2(imgSpec, 1, { fullWidth, extraImgClasses });
         let fwClasses = fullWidth ? "full-width cb" : "";
         let phClass = fullWidth ? "ph1-m ph3-l" : "";
+        let widthClass = !maxWidth ? "media-width" : "";
+        let styleAttr = !maxWidth ? "" : `style="max-width: ${maxWidth}"`;
         let thAttr;
         // Throw the thumbhash on the container to get color to stretch to
         // media-width margins to keep a consistent page margin.
@@ -850,7 +852,7 @@ module.exports = function (eleventyConfig) {
         }
         return `
         <div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">
-            <div class="flex justify-center media-width" ${thAttr}>
+            <div class="flex justify-center ${widthClass}" ${thAttr} ${styleAttr}>
                 ${imgHTML}
             </div>
         </div>
@@ -874,16 +876,18 @@ module.exports = function (eleventyConfig) {
         `;
     }
 
-    async function twoBigImages2(imgSpecs, marginClasses, fullWidth) {
-        let imgHTML1 = await imgSpecToHTML2(imgSpecs[0], fullWidth, 2);
-        let imgHTML2 = await imgSpecToHTML2(imgSpecs[1], fullWidth, 2);
+    async function twoBigImages2(imgSpecs, marginClasses, { fullWidth, maxWidth, extraImgClasses }) {
+        let imgHTML1 = await imgSpecToHTML2(imgSpecs[0], 2, { fullWidth, extraImgClasses });
+        let imgHTML2 = await imgSpecToHTML2(imgSpecs[1], 2, { fullWidth, extraImgClasses });
 
         let fwClasses = fullWidth ? "full-width cb" : "";
         let phClass = fullWidth ? "ph1-m ph3-l" : "";
+        let widthClass = !maxWidth ? "media-max-width" : "";
+        let styleAttr = !maxWidth ? "" : `style="max-width: ${maxWidth}"`;
 
         return `
         <div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">
-            <div class="flex flex-wrap flex-nowrap-ns justify-center media-max-width">
+            <div class="flex flex-wrap flex-nowrap-ns justify-center ${widthClass}" ${styleAttr}>
                 <div class="mr1-ns mb1 mb0-ns">${imgHTML1}</div>
                 <div>${imgHTML2}</div>
             </div>
@@ -910,16 +914,18 @@ module.exports = function (eleventyConfig) {
         `;
     }
 
-    async function threeBigImages2(imgSpecs, marginClasses, fullWidth) {
-        let imgHTML1 = await imgSpecToHTML2(imgSpecs[0], fullWidth, 3);
-        let imgHTML2 = await imgSpecToHTML2(imgSpecs[1], fullWidth, 3);
-        let imgHTML3 = await imgSpecToHTML2(imgSpecs[2], fullWidth, 3);
+    async function threeBigImages2(imgSpecs, marginClasses, { fullWidth, maxWidth, extraImgClasses }) {
+        let imgHTML1 = await imgSpecToHTML2(imgSpecs[0], 3, { fullWidth, extraImgClasses });
+        let imgHTML2 = await imgSpecToHTML2(imgSpecs[1], 3, { fullWidth, extraImgClasses });
+        let imgHTML3 = await imgSpecToHTML2(imgSpecs[2], 3, { fullWidth, extraImgClasses });
 
         let fwClasses = fullWidth ? "full-width cb" : "";
         let phClass = fullWidth ? "ph1-m ph3-l" : "";
+        let widthClass = !maxWidth ? "media-max-width" : "";
+        let styleAttr = !maxWidth ? "" : `style="max-width: ${maxWidth}"`;
         return `
         <div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">
-            <div class="flex flex-wrap flex-nowrap-ns justify-center media-max-width">
+            <div class="flex flex-wrap flex-nowrap-ns justify-center ${widthClass}" ${styleAttr}>
                 <div>${imgHTML1}</div>
                 <div class="mh1-ns mv1 mv0-ns">${imgHTML2}</div>
                 <div>${imgHTML3}</div>
@@ -1008,14 +1014,16 @@ module.exports = function (eleventyConfig) {
 
     /**
      * New image shortcode with a width-limiting div. Ditches svg blur bg.
-     * @param img - see `img` shortcode for API.
+     * @param img - see `img` shortcode for API (here restricted to str path and video obj)
      * @param options - {
      *   fullWidth: boolean, default: true
+     *   maxWidth: string, any max-width to set on all rows (no default)
+     *   extraImgClasses: string, any classes to add to every <img /> (no default)
      * }
      */
     eleventyConfig.addShortcode("img2", async function (imgs, options = {}) {
-        // extract fullWidth from options, default to true if not set
-        let fullWidth = options.hasOwnProperty('fullWidth') ? options.fullWidth : true;
+        // Default fullWidth to true if not set.
+        options.fullWidth = options.fullWidth ?? true;
 
         if (!Array.isArray(imgs)) {
             imgs = [imgs];
@@ -1031,13 +1039,13 @@ module.exports = function (eleventyConfig) {
             }
             switch (row.length) {
                 case 1:
-                    buf += await oneBigImage2(row[0], m, fullWidth);
+                    buf += await oneBigImage2(row[0], m, options);
                     break;
                 case 2:
-                    buf += await twoBigImages2(row, m, fullWidth);
+                    buf += await twoBigImages2(row, m, options);
                     break;
                 case 3:
-                    buf += await threeBigImages2(row, m, fullWidth);
+                    buf += await threeBigImages2(row, m, options);
                     break;
                 default:
                     buf += 'UNSUPPORTED IMG ROW ARRAY LENGTH: ' + row.length;
@@ -1153,6 +1161,7 @@ module.exports = function (eleventyConfig) {
         const containerXStyle = isX ? "display: grid;" : "";
         const imageClasses = embedded ? "br-100" : (plainBig ? "" : "content-width");
         const containerStyleSize = plainBig ? "max-width: min(100%, 1000px, 100vh);" : "";
+        imgExClasses = !embedded && !plainBig && imgExClasses == "" ? "pv4 pv5-ns" : "";
         // Rough notes for sizing (that we pass below to getSrcsetSizes())
         // - content-width (max 704px, i.e. not fullscreen) = !embedded && !plainBig
         // - embedded: singapore, bali, penang (100vw mobile -> ~1/3 desktop)
@@ -1198,7 +1207,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addShortcode("cityPic", async function (path) {
         // With getMarginClasses(...), we're pretending it's the last img of a set.
         // Right now this gets us `mt1 figbot`.
-        const content = await oneBigImage2(path, getMarginClasses(1, 2), true, true, false);
+        const content = await oneBigImage2(path, getMarginClasses(1, 2), { fullWidth: true });
         return "<md-raw>" + content + "</md-raw>";
     });
 

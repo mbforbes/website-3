@@ -1,6 +1,7 @@
 ---
 title: Image Placeholder Test Page
 date: 2023-07-16
+updated: 2023-08-23
 coverImage: /assets/garage/image-placeholder-test-page/test-cover.moz80.jpg
 ---
 
@@ -233,3 +234,32 @@ NOTE: If I ever implement heights, test by replacing the tall img (`v2-1016x1522
     ],
     "/assets/garage/image-test-pages/v2-1016x1522.moz80.jpg"
 ], {fullWidth: false} %}
+
+### Extra options
+
+All demonstrated here with `fullWidth: false`.
+
+{% img2 [
+    "/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg"
+], {fullWidth: false, maxWidth: "300px"} %}
+
+<p class="figcaption">maxWidth: 300px</p>
+
+{% img2 [[
+    "/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg",
+    "/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg"
+]], {fullWidth: false, maxWidth: "300px"} %}
+
+<p class="figcaption">maxWidth: 300px</p>
+
+{% img2 [
+    "/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg"
+], {fullWidth: false, extraImgClasses: "ba bw4 b--red"} %}
+
+<p class="figcaption">extraImgClasses: ba bw4 b--red</p>
+
+{% img2 [
+    "/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg"
+], {fullWidth: false, maxWidth: "300px", extraImgClasses: "ba bw4 b--red"} %}
+
+<p class="figcaption">maxWidth: 300px, extraImgClasses: ba bw4 b--red</p>

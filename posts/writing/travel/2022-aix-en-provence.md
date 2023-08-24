@@ -5,6 +5,7 @@ date: 2022-08-07
 travel_start: 2022-07-04
 travel_end: 2022-07-09
 image: /assets/posts/2022-france/aix-country-walking.moz80.jpg
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
 {% cityMap "/assets/posts/2022-france/aix-en-provence-france-3-perimeter.moz80.jpg" %}
@@ -19,7 +20,7 @@ With that said, I think you can get a sense of how approachable a city is to an 
 
 Anyway, more on that whole topic some other time. Aix had a gazillion fountains and a lovely outdoor food market near where we stayed.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-france/aix-city.moz80.jpg",
     "/assets/posts/2022-france/aix-fountain-wide.moz80.jpg",
     [
@@ -30,7 +31,7 @@ Anyway, more on that whole topic some other time. Aix had a gazillion fountains 
         "/assets/posts/2022-france/aix-food-madeleine.moz80.jpg",
         "/assets/posts/2022-france/aix-presse.moz80.jpg"
     ]
-], true %}
+] %}
 
 {% doubleCaption
     "These little clam-shaped cakes are called <span class='i'>madeleines</span>. There's a place here that specializes in them. Wikipedia says they originate from elsewhere (NE France). 🤷‍♂️",
@@ -38,7 +39,7 @@ Anyway, more on that whole topic some other time. Aix had a gazillion fountains 
 %}
 
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-france/aix-room.moz80.jpg",
     "/assets/posts/2022-france/aix-weird-ad.moz80.jpg"
 ]] %}
@@ -58,26 +59,28 @@ For example, if you're trying to pay the bill in Spanish, you learn that you do 
 
 If you ask Google Translate how to say "the bill" or "the check," it will tell you:
 
-{% img [[
-    {path: "/assets/posts/2022-france/gt-the-bill.moz80.jpg", maxHeight: "319", extraClasses: "ba b--black-10"},
-    {path: "/assets/posts/2022-france/gt-the-check.moz80.jpg", maxHeight: "319", extraClasses: "ba b--black-10"}
-]] %}
+
+{% img2 [[
+    "/assets/posts/2022-france/gt-the-bill.moz80.jpg",
+    "/assets/posts/2022-france/gt-the-check.moz80.jpg"
+]], {maxWidth: "800px", extraImgClasses: "ba b--black-10"} %}
+
 
 You need to add "please" on there for it to understand what your intent is:
 
-{% img {path: "/assets/posts/2022-france/gt-the-bill-please.moz80.jpg", maxHeight: "319", extraClasses: "ba b--black-10"}, false, false %}
+{% img2 "/assets/posts/2022-france/gt-the-bill-please.moz80.jpg", {maxWidth: "400px", extraImgClasses: "ba b--black-10"} %}
 
 Here's one from France. We saw this bus painted with a huge _le car._
 
-{% img {path: "/assets/posts/2022-france/aix-le-car.moz80.jpg", maxHeight: "500"}, false, false %}
+{% img2 "/assets/posts/2022-france/aix-le-car.moz80.jpg", {maxWidth: "400px"} %}
 
 What does that mean?
 
-{% img {path: "/assets/posts/2022-france/gt-le-car.moz80.jpg", maxHeight: "319", extraClasses: "ba b--black-10"}, false, false %}
+{% img2 "/assets/posts/2022-france/gt-le-car.moz80.jpg", {maxWidth: "400px", extraImgClasses: "ba b--black-10"} %}
 
 Yes, very intuitive France, thanks. But try going the other way:
 
-{% img {path: "/assets/posts/2022-france/gt-the-bus.moz80.jpg", maxHeight: "319", extraClasses: "ba b--black-10"}, false, false %}
+{% img2 "/assets/posts/2022-france/gt-the-bus.moz80.jpg", {maxWidth: "400px", extraImgClasses: "ba b--black-10"} %}
 
 Wonderful.
 
@@ -87,7 +90,7 @@ You seem to need to come up with specific incantations to see them.
 If you provide "the bus"---which you might think to do for languages like Spanish or French that love having words like "the" before nouns---it won't give you any other options.
 But, if you just write "bus," then below, you'll see other options:
 
-{% img {path: "/assets/posts/2022-france/gt-bus.moz80.jpg", maxHeight: "598", extraClasses: "ba b--black-10"}, false, false %}
+{% img2 "/assets/posts/2022-france/gt-bus.moz80.jpg", {maxWidth: "400px", extraImgClasses: "ba b--black-10"} %}
 
 The frequencies are a great touch (though unfortunately they don't show up on the iPhone app).
 
@@ -103,10 +106,10 @@ We took a bus like an hour east out of Aix to try to walk up a mountain and do w
 
 The mountain's fire risk was apparently high enough they'd closed the whole thing off, so we just walked through a bunch of fields. They seemed awful like people's property, but AllTrails said it was cool.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-france/aix-country-wide.moz80.jpg",
     "/assets/posts/2022-france/aix-country-walking.moz80.jpg"
-], true %}
+] %}
 
 It turned out the winery was more of a "try before you buy" kinda situation. So more interested in wholesale purchasers and less in providing a leisurely afternoon with accoutrements etc. We hurriedly gulped our sample glasses under the frequent gaze of the single woman on duty in the warehouse front room, bought a bottle (cheap! no regrets!), and went out to wait for the bus back in the boiling shade.
 
@@ -118,10 +121,10 @@ But hear me out, there's a certain wonder to truly hot Domino's in the USA, with
 
 The flavors in France are at least interesting, so we were cautiously optimistic:
 
-{% img [[
-    {path: "/assets/posts/2022-france/dominos-1.moz80.jpg", maxHeight: "600"},
-    {path: "/assets/posts/2022-france/dominos-2.moz80.jpg", maxHeight: "600"},
-    {path: "/assets/posts/2022-france/dominos-3.moz80.jpg", maxHeight: "600"}
+{% img2 [[
+    "/assets/posts/2022-france/dominos-1.moz80.jpg",
+    "/assets/posts/2022-france/dominos-2.moz80.jpg",
+    "/assets/posts/2022-france/dominos-3.moz80.jpg"
 ]] %}
 
 
@@ -161,13 +164,13 @@ But it tastes like it looks: like mediocre frozen pizza.
 
 ## Marseille Day Trip
 
-{% cityMap "/assets/posts/2022-france/marseille-france-3-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-france/marseille-france-3-perimeter.moz80.jpg", false, true, false %}
 
-{% img  "/assets/posts/2022-france/ms-city-view-pano.moz80.jpg" %}
+{% cityPic  "/assets/posts/2022-france/ms-city-view-pano.moz80.jpg" %}
 
 Marseille is on the southern coast of France. It's the country's second most populated city (after Paris duh).
 
-{% img [
+{% img2 [
     "/assets/posts/2022-france/ms-city-statue.moz80.jpg",
     [
         "/assets/posts/2022-france/ms-city-harbor.moz80.jpg",
@@ -175,7 +178,7 @@ Marseille is on the southern coast of France. It's the country's second most pop
     ],
     "/assets/posts/2022-france/ms-city-building.moz80.jpg",
     "/assets/posts/2022-france/ms-city-plaza.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">
 This thought I keep having when we come across really beautiful public areas like this is: do people who grow up here think it's totally wild that they have this amazing, elaborate, ornate many-tier fountain / arch / promenade thing, right in the middle of their city, for anyone to use?
@@ -197,12 +200,12 @@ Before going on this trip, I even made Julie promise, hey, we are _not_ going to
 
 But now that we're here, it's like we'll be walking along the street, and suddenly, _holy crap, that building is enormous, and totally beautiful._
 
-{% img "/assets/posts/2022-france/ms-church-top.moz80.jpg" %}
+{% img2 "/assets/posts/2022-france/ms-church-top.moz80.jpg", {fullWidth: false} %}
 
 
 Then, you go inside, and your eyes start melting from the fractal details carved & painted into a thousand surfaces everywhere you look.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-france/ms-church-tall-1.moz80.jpg",
         "/assets/posts/2022-france/ms-church-tall-2.moz80.jpg"
