@@ -32,6 +32,10 @@ function preprocessInlineMDEleventyImg() {
                         // console.log(match[1]);
                         const path = match[1];
                         const localPath = getLocalPath(path);
+                        // TODO: remove $1 hack
+                        if (localPath == "" || localPath == "$1") {
+                            continue;
+                        }
                         const [w, h] = getImageSize(dummySizeCache, localPath);
                         // NOTE: Could explicitly add multipliers of inline
                         // width (704px), though (a) don't want too many

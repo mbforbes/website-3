@@ -41,7 +41,7 @@ Several people I've told this to were surprised. Most people seem to think iPhon
 
 Here are two images of identical resolution^[The aspect ratios are different, but both images are exported to the same height (1878 pixels) and are both width and height-limited to your browser window's resolution, so the pixel densities you see for each should be almost identical.] taken in similar lighting conditions.^[I.e., complete omnipresent cloud cover, i.e., PNW's habitat September through June.] One is from a real camera, one is from my iPhone. See if you can tell which is which.
 
-{% img [
+{% img2 [
     "/assets/posts/2023-wintermission/IMG_0007.moz80.jpg",
     "/assets/posts/2023-wintermission/IMG_0491.moz80.jpg"
 ] %}
@@ -58,25 +58,25 @@ Accordingly, it seems like phone photos can look _nearly_ as good if at least on
 
 For example, here's a phone picture with super bright lighting: clear day and reflection off of snow. It looks pretty crisp, even on a laptop screen.
 
-{% img "/assets/posts/2023-wintermission/IMG_0629.moz80.jpg" %}
+{% img2 "/assets/posts/2023-wintermission/IMG_0629.moz80.jpg" %}
 
 <p class="figcaption">Great lighting = decent photo from phone.</p>
 
 This is why so many photos in my blog are landscapes shot on clear days. I'd love to take street and indoor and night photography. But bright scenery is what comes out best from my phone. As soon as you have an overcast day, things get muddier. Take, for example, this phone picture of a giant puddle:
 
-{% img "/assets/posts/2023-wintermission/IMG_0523.moz80.jpg" %}
+{% img2 "/assets/posts/2023-wintermission/IMG_0523.moz80.jpg" %}
 
 <p class="figcaption">Wish I still had big rubber rainboots for tromping. Photo from phone.</p>
 
 Even adjusting the lighting and colors (which I do for every photo I post), it can't come anywhere near to the depth of detail you get if you take a real camera and just point it at the ground.
 
-{% img "/assets/posts/2023-wintermission/IMG_0005.moz80.jpg" %}
+{% img2 "/assets/posts/2023-wintermission/IMG_0005.moz80.jpg" %}
 
 <p class="figcaption">This image somehow feels like it belongs on Pinterest. Photo from real camera.</p>
 
 The difference became intoxicating. I went around pointing this real camera at random things. It felt like cheating. Ordinary objects nearly became art photos.
 
-{% img [
+{% img2 [
     "/assets/posts/2023-wintermission/IMG_9981.moz80.jpg",
     "/assets/posts/2023-wintermission/IMG_9991.moz80.jpg",
     "/assets/posts/2023-wintermission/IMG_0014.moz80.jpg"
@@ -86,20 +86,19 @@ The difference became intoxicating. I went around pointing this real camera at r
 
 In addition to details, real cameras capture more colors. An image of trees from my phone go straight to the trash bin, but a real camera finds thousands of shades of greens in the shadows.
 
-{% img "/assets/posts/2023-wintermission/IMG_0001.moz80.jpg" %}
+{% img2 "/assets/posts/2023-wintermission/IMG_0001.moz80.jpg" %}
 
 <p class="figcaption">Photo from a real camera.</p>
 
 The other big difference that you can't get from a phone is shallow depth-of-field. After months of taking faked bokeh photos using the iPhone's portrait mode, the real thing from a wide aperture lens is gorgeous.
 
-{% img "/assets/posts/2023-wintermission/IMG_0011.moz80.jpg" %}
+{% img2 "/assets/posts/2023-wintermission/IMG_0011.moz80.jpg" %}
 
 <p class="figcaption">Photo from a real camera.</p>
 
 With these powers, and inspired by food thirst trap videos,^[E.g., Ashley Xu's [_Thirst Trap for Chocolate Milk_](https://www.youtube.com/shorts/5UGQXd0vdfk). It turns out these take considerable skill to make. I watched a process breakdown video of hers, and she said it takes about five full workdays to make one ~12 second video (!!!). Plus, she's clearly more of a pro---editing, lighting, the whole nine yards. Mad respect. Also made me feel less bad about how my two hour attempt turned out.] I tried making a stupid coffee sizzle real, which it turns out is harder than I'd expected.
 
-<iframe class="w-100 fig" style="aspect-ratio: 100 / 56.25;" loading="lazy"
-src="https://www.youtube-nocookie.com/embed/BEpRhGmbv8o?&autoplay=1&mute=1&loop=1&playlist=BEpRhGmbv8o&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+{% img2 {"youtubeInfo": "BEpRhGmbv8o", videoStyle: "width: 100%; aspect-ratio: 100 / 56.25;"} %}
 
 <p class="figcaption">{{ "Unmute if you'd like to be serenaded by the sweet tones of Romanian pan flue prodigy Zamfir. One thing I definitely messed up is I didn't do any white-balance or color grading. I wanted to keep the warmth from inside lighting, but everything came out weirdly orange." | md | safe }}</p>
 
@@ -114,7 +113,7 @@ The real kicker is that big cameras are expensive and a pain to carry around.^[A
 
 Fow now, let's throw down some greater Seattle area B-roll, all with the phone.
 
-{% img [
+{% img2 [
     "/assets/posts/2023-wintermission/Moment-App-20230102074236288.moz80.jpg",
     "/assets/posts/2023-wintermission/Moment-App-20230104125854795.moz80.jpg",
     "/assets/posts/2023-wintermission/IMG_0489.moz80.jpg",
@@ -131,13 +130,13 @@ Fow now, let's throw down some greater Seattle area B-roll, all with the phone.
 
 Off on the road again.
 
-{% img {vimeoInfo: "822230418?h=fb5101bbc8", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}, false, false %}
+{% img2 {vimeoInfo: "822230418?h=fb5101bbc8", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"} %}
 
 ## San Diego
 
 A pit stop, treated to some beach and _birria_ near the border.
 
-{% img [
+{% img2 [
     "/assets/posts/2023-wintermission/IMG_0689.moz80.jpg",
     "/assets/posts/2023-wintermission/IMG_0694.moz80.jpg",
     "/assets/posts/2023-wintermission/IMG_0696.moz80.jpg",
@@ -145,6 +144,6 @@ A pit stop, treated to some beach and _birria_ near the border.
     "/assets/posts/2023-wintermission/IMG_0707.moz80.jpg",
     "/assets/posts/2023-wintermission/IMG_0712.moz80.jpg",
     "/assets/posts/2023-wintermission/IMG_0714.moz80.jpg"
-], true %}
+] %}
 
 Next, it's off to Taiwan.

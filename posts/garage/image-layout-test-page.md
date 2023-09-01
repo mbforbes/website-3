@@ -6,97 +6,17 @@ updated: 2023-06-12
 
 I want to experiment with wider layouts, so want to have HTML/CSS formulas for breaking out of the normal content flow.
 
-## House styles [`v2`]
+## Result: House styles [`v2`]
 
-Copy-paste-able snippets for image arrangements.
+`v1` styles were height-limited but stretched to the full screen width where possible. They could incorporate SVG filter background blurs for single-row images or videos to help create consistent margins.
 
-`v2` styles are width-limited using `.media-max-width`. This width limit factors in a device's height to allow two-row portrait orientation (2:3) photos to be displayed fully. **Width limits apply to a new container, not the images.** As a result, all row configurations will display with identical margins, assuming images are of a sufficient width. Background blur and extra options have all been removed.
+`v2` styles are width-limited using `.media-max-width`. This width limit factors in a device's height to allow two-column portrait orientation 2:3 photos to be displayed fully. The same limit allows one-column landscape orientation 4:3 image to be displayed fully. **Width limits apply to a new container, not the images.** As a result, all row configurations will display with identical margins, assuming images are of a sufficient width. Background blur via thumbhash is automatically applied to single images. Extra options include container (all row) width limits and extra image classes.
 
-With the new height limit, tall single images will stretch beyond the height of the page. This is an intentional omission given (a) the upcoming focus on 3:2 photos, (b) the desire to have consistent margins. This can be revisited to add options for container or image limits if need be.
+With the new width limit, tall single images will stretch beyond the height of the page. This is an intentional omission given (a) the upcoming focus on 3:2 photos, (b) the desire to have consistent margins. Currently, this can be worked around with container width limits.
 
-Non-full-width is still supported, now with an options argument `{fullWidth: false}`.
+Non-full-width is still supported, now with an options argument `{fullWidth: false}` or shortcut `img2i`.
 
-### One image
-
-{% img2 "/assets/garage/image-test-pages/939x939@3x.png" %}
-
-### Two images
-
-{% img2 [[
-  "/assets/garage/image-test-pages/704x939@3x.png",
-  "/assets/garage/image-test-pages/704x939@3x.png"
-]] %}
-
-### Three images
-
-{% img2 [[
-  "/assets/garage/image-test-pages/704x939@3x.png",
-  "/assets/garage/image-test-pages/704x939@3x.png",
-  "/assets/garage/image-test-pages/704x939@3x.png"
-]] %}
-
-### Multiple rows
-
-{% img2 [
-  "/assets/garage/image-test-pages/939x939@3x.png",
-  [
-    "/assets/garage/image-test-pages/704x939@3x.png",
-    "/assets/garage/image-test-pages/704x939@3x.png"
-  ]
-] %}
-
-
-
-## House styles [`v1`]
-
-Copy-paste-able snippets for image arrangements.
-
-`v1` styles are height-limited but stretch to the full screen width where possible. They can incorporate background blurs for single-row images or videos to help create consistent margins.
-
-### One image
-
-{% img "/assets/garage/image-test-pages/939x939@3x.png" %}
-
-### Two images
-
-{% img [[
-  "/assets/garage/image-test-pages/704x939@3x.png",
-  "/assets/garage/image-test-pages/704x939@3x.png"
-]] %}
-
-### Three images
-
-{% img [[
-  "/assets/garage/image-test-pages/704x939@3x.png",
-  "/assets/garage/image-test-pages/704x939@3x.png",
-  "/assets/garage/image-test-pages/704x939@3x.png"
-]] %}
-
-### Multiple rows
-
-{% img [
-  "/assets/garage/image-test-pages/939x939@3x.png",
-  [
-    "/assets/garage/image-test-pages/704x939@3x.png",
-    "/assets/garage/image-test-pages/704x939@3x.png"
-  ]
-] %}
-
-
-### Specify Height
-
-{% img {path: "/assets/garage/image-test-pages/1000x500@3x.png", maxHeight: "500"} %}
-
-### Blur stretch singles
-
-{% img [
-  "/assets/garage/image-test-pages/704x939@3x.png",
-  "/assets/garage/image-test-pages/939x939@3x.png"
-], true %}
-
-### Blur stretch doubles
-
-This is possible, but didn't always look that good, and would require more tweaking for images to resize aspect ratio-ally appropriately. See notes in `.eleventy.js` @ the `twoBigImages` function.
+See them in action at the [image placeholder test page](/garage/image-placeholder-test-page/).
 
 ## Workbook
 
@@ -1118,10 +1038,21 @@ There's also a chance this helps me start integrating source sets (multiple imag
 
 Another thing I'm noticing re-reading my old design notes is I'd tested my layouts all assuming side-by-side images have the same height. I wonder if this was related to the issues I had above when trying to use auto-generated image sizes: that if the heights don't match, my CSS might not work. I remember the issue being weirder though.
 
-{% img [[
-  "/assets/garage/image-test-pages/704x939@3x.png",
-  "/assets/garage/image-test-pages/256x256@2x.png"
-]] %}
+<div class="full-width cb flex justify-center ph1-m ph3-l fig">
+    <div class="flex flex-wrap flex-nowrap-ns justify-center " style="max-width: min(100%, 875px);">
+        <div class="mr1-ns mb1 mb0-ns"><img src="/assets/garage/image-test-pages/704x939@3x.png"
+                class="db bare novmargin h-auto bg-navy " loading="lazy" decoding="async" width="2112" height="2817"
+                data-thumbhash-b64="B+cBBQDAheCj58IlTEtqecHgHgzu"
+                srcset="/assets/eleventyImgs/ciTfEm8V0L-264.png 264w, /assets/eleventyImgs/ciTfEm8V0L-528.png 528w, /assets/eleventyImgs/ciTfEm8V0L-1056.png 1056w, /assets/eleventyImgs/ciTfEm8V0L-2112.png 2112w"
+                sizes="(max-width: 30em) 100vw, 50vw"></div>
+        <div><img src="/assets/garage/image-test-pages/256x256@2x.png" class="db bare novmargin h-auto bg-navy "
+                loading="lazy" decoding="async" width="512" height="512"
+                data-thumbhash-b64="F7wBDwCbaKZPdpmhicd2V4iHuvkUZLAO"
+                srcset="/assets/eleventyImgs/n9d6pf2kwQ-256.png 256w, /assets/eleventyImgs/n9d6pf2kwQ-512.png 512w"
+                sizes="(max-width: 30em) 100vw, 50vw"></div>
+    </div>
+</div>
+
 
 <p class="figcaption">v1: Yep, different heights, they definitely don't match.</p>
 

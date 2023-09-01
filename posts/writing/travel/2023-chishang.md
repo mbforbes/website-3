@@ -75,9 +75,7 @@ Basically all the serious _destinations_ were unknown to us beforehand. E.g., th
 
 There was also the bizarre _Mr. Brown,_ a ubiquitous canned coffee brand that had somehow secured it's spot as a bonafide _destination._ The family next to us made their middle school-aged girl take a photo with him. She looked nonplussed.
 
-{% img [
-    "/assets/posts/2023-chishang/IMG_2005.moz80.jpg"
-], false, false %}
+![](/assets/posts/2023-chishang/IMG_2005.moz80.jpg)
 
 <p class="figcaption">I couldn't stop looking in the mug and getting creeped out by the pretend liquid. I think my best guess is it's supposed to have a final layer of whipped cream (or foam?) topped with a chocolate syrup swirl. Is he supposed to look wired or did they just happen to omit both eyelids?</p>
 
@@ -91,9 +89,7 @@ We stayed in an inn run by an old but extremely energetic woman who loved to tel
 
 Here's me making my morning coffee in the hallway:
 
-{% img [
-    "/assets/posts/2023-chishang/IMG_2027.moz80.jpg"
-], false, false %}
+![](/assets/posts/2023-chishang/IMG_2027.moz80.jpg)
 
 The inn was accidentally a thirty-minute walk out of town. Getting there from the train station, and returning a few days later, we took a taxi. Both times, the same woman was driving it: also old, wearing a puffy jacket despite pleasant weather. She wouldn't run the meter but I'm not sure she ever understood me and it wasn't expensive anyway. On our way out, the innkeeper called her every half hour to make sure she wouldn't forget to come, which she (innkeeper) said she (driver) does sometimes. I wondered whether she ran the town's only taxi. On our return trip, she spent the drive engrossed in an animated film playing on her phone.^[The film was interesting. It had 3D-rendered characters doing stock animations on top of stock backgrounds set to dramatic voiceovers. Think like first year students at digital art school doing a rendition of dialog-heavy scenes from _Crouching Tiger._ I remember seeing a similar format of show engross viewers of all ages in Vietnam (though those might have been 2D).]
 

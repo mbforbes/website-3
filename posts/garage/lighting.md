@@ -11,10 +11,10 @@ Lighting is everything.
 
 I changed some other stuff here (some more objects, floor texture, some thicknesses), but largely it's the materials and light and camera settings.
 
-{% img [[
+{% img2 [[
     "/assets/garage/3d-notebook/36_Wood-shelf-room-1.jpeg",
-    "/assets/garage/3d-notebook/36_Wood-shelf-room-2-perspective.jpeg"
-]], false, false %}
+    "/assets/garage/3d-notebook/36_Wood-shelf-room-2-perspective-small.jpeg"
+]] %}
 
 There's much more here than I'd realized. Bolding most important stuff I hadn't been using.
 

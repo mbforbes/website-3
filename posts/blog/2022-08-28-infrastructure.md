@@ -106,7 +106,7 @@ This was so satisfying. It was like long-needed code refactoring. Except even ea
 
 What I did was make a custom "shortcode" that vomits out the HTML to arrange images into rows and columns.
 
-This is best shown. So for example, if I write the following:
+This is best shown. So for example, if I write the following:^[Actually deprecated already. I'm now on a `img2` macro, which is used below to actually spit out the images.]
 
 ```json
 {{ "{%" | e }} img [
@@ -172,15 +172,15 @@ Then it will spit out the following carefully-constructed HTML:^[Editor's note: 
 
 ... which then gets displayed like this on a webpage:
 
-{% img [
+{% img2 [
     "/assets/posts/2022-slovenia/mangart-moss.moz80.jpg",
     [
         "/assets/posts/2022-france/lyon-city-church.moz80.jpg",
         "/assets/posts/2022-bilbao/art.moz80.jpg"
     ]
-], true %}
+] %}
 
-The little `true` at the end says to add a blurred image background to single images to stretch their width if need be. This isn't worth going into, other than that it took an unbelievable amount of time to figure out how to get working.
+<!-- The little `true` at the end says to add a blurred image background to single images to stretch their width if need be. This isn't worth going into, other than that it took an unbelievable amount of time to figure out how to get working. -->
 
 This really was the culmination of a lot of work to get images to display big and nice, which I've covered in varying levels of brevity in some garage entries like the [Image layout test page](/garage/image-layout-test-page/) and [Mo photos mo problems](/garage/mo-photos-mo-problems/). It even works to embed videos.
 

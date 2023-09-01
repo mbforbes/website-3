@@ -223,9 +223,7 @@ Knowing this, and seeing those two signs, I assumed that some simplification had
 
 But then, another twist: look at these old newspaper clippings from a museum (I've circled two areas of interest):
 
-{% img [
-    "/assets/posts/2023-taipei/IMG_1041.moz80.jpg"
-], false, false %}
+![](/assets/posts/2023-taipei/IMG_1041.moz80.jpg)
 
 That's right, both 臺北 and 台北 appear! What gives? Here were some ideas:
 1. The clippings are actually from different years
@@ -337,9 +335,7 @@ So that's bizarre. The other unique hobby that parks seemed to draw out was unus
 - turtles,
 - ...plus I would saw a unusually high portion of cats walking around on leashes.
 
-{% img [
-    "/assets/posts/2023-taipei/Moment-App-20230304143735732.moz80.jpg"
-], false, false %}
+![](/assets/posts/2023-taipei/Moment-App-20230304143735732.moz80.jpg)
 
 <p class="figcaption">E.g., if you see someone doing this in the park, they're taking a picture of their creature. This one is a (well-camouflaged) turtle.</p>
 
@@ -461,29 +457,21 @@ Now for more random stuff.
 
 Sometimes, all it takes for a good sign is just a brutally direct translation.
 
-{% img [
-    "/assets/posts/2023-taipei/IMG_1149.moz80.jpg"
-], false, false %}
+![](/assets/posts/2023-taipei/IMG_1149.moz80.jpg)
 
 <p class="figcaption">They weren't joking. We did not eat there.</p>
 
-{% img [
-    "/assets/posts/2023-taipei/IMG_1166.moz80.jpg"
-], false, false %}
+![](/assets/posts/2023-taipei/IMG_1166.moz80.jpg)
 
 <p class="figcaption">This is the kind of thing that would have been dystopian in Singapore but was harmless here.</p>
 
 Also found a few good rule notices.
 
-{% img [
-    "/assets/posts/2023-taipei/IMG_1209.moz80.jpg"
-], false, false %}
+![](/assets/posts/2023-taipei/IMG_1209.moz80.jpg)
 
 <p class="figcaption">Awkward silence is mandatory.</p>
 
-{% img [
-    "/assets/posts/2023-taipei/IMG_1173.moz80.jpg"
-], false, false %}
+![](/assets/posts/2023-taipei/IMG_1173.moz80.jpg)
 
 <p class="figcaption">If you were wondering what sign would maximally annoy skateboarders, this is it.</p>
 

@@ -65,9 +65,7 @@ The same driver also told us they'd been without power for _months_ after the la
 
 One bit of rustic entertainment is there were ants kind of everywhere, which meant you got to see some cool inter-bug nature show shit (squeamish skip next pic).
 
-{% img [
-    "/assets/posts/2022-bohol/IMG_9642.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-bohol/IMG_9642.moz80.jpg)
 
 ## Island Hopping
 
@@ -101,17 +99,13 @@ One thing these photos don't tell you is that actually getting around the island
 
 The urban area was mostly a bust. Hordes of people wanting to sell you the above island tour would relentlessly attempt to do so, down every block, at every corner. To entertain ourselves, we tried the local fast food chain, Jollibee.
 
-{% img [
-    "/assets/posts/2022-bohol/IMG_9640.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-bohol/IMG_9640.moz80.jpg)
 
 <p class="figcaption">The commitment to having spaghetti as a side is admirable. I think even Filipino McDonald's joints copied them on this front, though I'm not positive.</p>
 
 Way better was some local grilled meat. The part I really want to point out, though, was this adorable little citrus net to hold in errant seeds.
 
-{% img [
-    "/assets/posts/2022-bohol/IMG_9702.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-bohol/IMG_9702.moz80.jpg)
 
 The best thing we did in Bohol was to get out of the main tourist zone and check it out on our own terms.
 

@@ -720,11 +720,14 @@ module.exports = function (eleventyConfig) {
      */
     async function imgSpecToHTML2(img, n, { fullWidth, extraImgClasses }) {
         // video
-        if (img.vimeoInfo) {
-            return `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" loading="lazy" style="width: 100%; aspect-ratio: 16 / 9;" class=""></iframe>`;
-        }
-        if (img.youtubeInfo) {
-            return `<iframe src="https://www.youtube-nocookie.com/embed/${img.youtubeInfo}?&autoplay=1&mute=1&loop=1&playlist=${img.youtubeInfo}&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen loading="lazy" style="width: 100%; aspect-ratio: 16 / 9;" class=""></iframe>`;
+        if (img.vimeoInfo || img.youtubeInfo) {
+            const aspectRatio = img.aspectRatio ?? "16 / 9";
+            if (img.vimeoInfo) {
+                return `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" loading="lazy" style="width: 100%; aspect-ratio: ${aspectRatio};" class=""></iframe>`;
+            }
+            if (img.youtubeInfo) {
+                return `<iframe src="https://www.youtube-nocookie.com/embed/${img.youtubeInfo}?&autoplay=1&mute=1&loop=1&playlist=${img.youtubeInfo}&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen loading="lazy" style="width: 100%; aspect-ratio: ${aspectRatio};" class=""></iframe>`;
+            }
         }
 
         // image
@@ -843,7 +846,7 @@ module.exports = function (eleventyConfig) {
         let phClass = fullWidth ? "ph1-m ph3-l" : "";
         let widthClass = !maxWidth ? "media-width" : "";
         let styleAttr = !maxWidth ? "" : `style="max-width: ${maxWidth}"`;
-        let thAttr;
+        let thAttr = "";
         // Throw the thumbhash on the container to get color to stretch to
         // media-width margins to keep a consistent page margin.
         if (typeof imgSpec === "string") {
@@ -1021,7 +1024,10 @@ module.exports = function (eleventyConfig) {
      *   extraImgClasses: string, any classes to add to every <img /> (no default)
      * }
      */
-    eleventyConfig.addShortcode("img2", async function (imgs, options = {}) {
+    async function img2(imgs, options = {}) {
+        if (typeof options === "boolean") {
+            console.warn("The first argument passed to img2 was a boolean, which is the wrong call signature.")
+        }
         // Default fullWidth to true if not set.
         options.fullWidth = options.fullWidth ?? true;
 
@@ -1054,6 +1060,11 @@ module.exports = function (eleventyConfig) {
         }
 
         return "<md-raw>" + buf + "</md-raw>";
+    }
+
+    eleventyConfig.addShortcode("img2", img2);
+    eleventyConfig.addShortcode("img2i", async function (imgs, options = {}) {
+        return img2(imgs, { fullWidth: false, ...options });
     });
 
 

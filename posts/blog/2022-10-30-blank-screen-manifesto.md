@@ -11,7 +11,7 @@ You open up the computer, and there's icons and text absolutely everywhere.
 
 That's even if you don't have much open. If you have a couple windows open, it's complete madness.
 
-{% img "/assets/blog/blank-screen-manifesto/default-desktop.moz80.jpg" %}
+{% img2 "/assets/blog/blank-screen-manifesto/default-desktop.moz80.jpg" %}
 
 <p class="figcaption">What's wild is it takes a bizarre frame of mind to even see this as madness.</p>
 
@@ -31,7 +31,7 @@ VS Code doesn't get you all the way there, either. I had to spend a whole evenin
 
 [^icons]: It's the icons that really get to me. They're buttons for things I already have key shortcuts for, or never want to do. But I am forced to keep them.
 
-{% img "/assets/blog/blank-screen-manifesto/zen-mode.moz80.jpg" %}
+{% img2 "/assets/blog/blank-screen-manifesto/zen-mode.moz80.jpg" %}
 
 <p class="figcaption">Zen-ish, even after hours of tweaking.</p>
 
@@ -39,7 +39,7 @@ The whole thing makes me want to throw it all out and start over. Start without 
 
 I wouldn't have even thought this possible if I hadn't seen some screenshots of someone named _Nerdy Pepper's_ computer interface a while back:
 
-{% img "/assets/blog/blank-screen-manifesto/dijo.moz80.jpg" %}
+{% img2 "/assets/blog/blank-screen-manifesto/dijo.moz80.jpg" %}
 
 <p class="figcaption">Source: <a href="https://git.peppe.rs/cli/dijo/about/">Nerdy Pepper's "Dijo"</a></p>
 
@@ -65,7 +65,9 @@ I finally figured out how to hide Apple's top menu bar (didn't realize you could
 
 Now, If I press `⌘⌥⌃C`, literally everything goes away, and I'm left with beautiful blankness.
 
-{% img "/assets/blog/blank-screen-manifesto/blank-desktop.moz80.jpg" %}
+{% img2 "/assets/blog/blank-screen-manifesto/blank-desktop.moz80.jpg" %}
+
+<p class="figcaption">Actual desktop screenshot (!)</p>
 
 The most radical was closing my email inbox. I think I've had it open since 2011. I never want to close it. I don't want to "miss something." What would I possibly miss? This realization let me also close Slack, Messages, and others I felt I "had to have up."
 

@@ -118,9 +118,7 @@ Lacking AC was a good forcing function to explore a bit more of the island. You 
 
 <p class="figcaption">On the way back, he wasn't paying attention and drove right into some guy's van. He (van guy) was not happy. Van was fine though.</p>
 
-{% img [
-    "/assets/posts/2022-el-nido/IMG_9805.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-el-nido/IMG_9805.moz80.jpg)
 
 <p class="figcaption">Around this area was even weirder. There was a Crossfit gym and some really expensive healthy aesthetic food places, and a McDonalds. The McDonalds (which we picked, duh) was somehow out of half the menu, and the equipment was mostly broken so they could only take cash. It seemed like someone was betting big on this becoming a new El Nido and it sort of wasn't working yet.</p>
 

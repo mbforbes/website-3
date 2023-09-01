@@ -180,15 +180,11 @@ Head to any waterway, for example, and look at the shore. On the edge will be de
 
 Just a few steps away from where I took the cover image at the top of this post---beautiful building above tropical foliage reflecting in water---is a sign fruitlessly telling people not to do what they've already done.
 
-{% img [
-    "/assets/posts/2022-hanoi/IMG_8662.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-hanoi/IMG_8662.moz80.jpg)
 
 The lack of clean air gave kind of suffocating feeling, mostly metaphorically. Ordinarily, while in a big city, visiting parks is a source of respite when the concrete has gotten to be too much. But even parks in Hanoi were polluted to the point that they didn't give the mind a break from the urban sprawl, only made it more hopeless somehow.
 
-{% img [
-    "/assets/posts/2022-hanoi/IMG_8613.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-hanoi/IMG_8613.moz80.jpg)
 
 <p class="figcaption">A bit hard to convey by photo. I distinctly remember leaving the airport the first night we arrived, and the air smelled and even tasted like Washington air does in heavy forest fire season.</p>
 
@@ -276,9 +272,7 @@ The structure of OMTAs in Vietnam follows a formula that should be familiar to S
 
 Next, Part II of main activity. For Ninh Binh, this was by boat.^[Boat boarding also an operation of shocking scale. We arrive at waterfront with stadium seating. Hundreds of boats with rowers await. A quick queue forms for our group, and we sail off.] The rowers were, to my ceaseless amazement through the whole ride, rowing with their feet.
 
-{% img [
-    "/assets/posts/2022-hanoi/IMG_8878.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-hanoi/IMG_8878.moz80.jpg)
 
 <p class="figcaption">Also, me</p>
 

@@ -28,11 +28,11 @@ The setup was pretty nice. They had some special air flow system to suck air out
 
 But since we had exactly six hours to sleep, this was, of course, too much pressure for my brain to handle, and I spent the entire time hoping I would fall asleep and never actually doing it.
 
-{% img [
+{% img2i [
     "/assets/posts/2022-israel/IMG_6653.moz80.jpg",
     "/assets/posts/2022-israel/IMG_6654.moz80.jpg",
     "/assets/posts/2022-israel/IMG_6656.moz80.jpg"
-], false, false %}
+] %}
 
 I love seeing the ol' Windows Blue Screen of Death in the wild. Also, didn't have time to look up what's going on with Turkish currency, but something must have been up because the food was way cheaper than it ought to have been w.r.t. standard airport price gouging.
 
@@ -64,24 +64,24 @@ Also, the roofs can be flat because there is no snow. Never thought about that.
 Wait, let's back up a bit. First, where we stayed.
 
 <!-- Jerusalem -->
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_6664.moz80.jpg",
     "/assets/posts/2022-israel/IMG_6662.moz80.jpg"
-], true %}
+] %}
 
 The apartment was the best we got in a whole year traveling. An architect's baby, the place was filled with light, plants, tastefully long furniture, and a great kitchen.
 
 The cityscape is filled sand-colored buildings.
 The high rises especially have a look I haven't seen anywhere else.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_6881.moz80.jpg",
     [
         "/assets/posts/2022-israel/IMG_6818.moz80.jpg",
         "/assets/posts/2022-israel/IMG_6666.moz80.jpg"
     ],
     "/assets/posts/2022-israel/IMG_6833.moz80.jpg"
-], true %}
+] %}
 
 
 The city---and Israel in general---is wildly expensive, on par with the priciest USA cities.[^scoreflat] I didn't believe this when they told us this, but I did after going out to eat at a "cheap, casual, local spot" and paying $20 for a small dish. Groceries are no exception to these high prices,[^groceryprice] and to make matters worse, the quality of, e.g., produce is miserable.
@@ -94,7 +94,7 @@ The city---and Israel in general---is wildly expensive, on par with the priciest
 
 <p class="figcaption">E.g., the green fruits in this pile are all lemons.</p>
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-israel/IMG_6774.moz80.jpg",
     "/assets/posts/2022-israel/IMG_6902.moz80.jpg"
 ]] %}
@@ -105,14 +105,14 @@ But of course, you don't come to Jerusalem to eat the fruit, you come to see the
 
 ### Jerusalem Old City
 
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_6789.moz80.jpg",
     [
         "/assets/posts/2022-israel/IMG_6802.moz80.jpg",
         "/assets/posts/2022-israel/IMG_6804.moz80.jpg"
     ],
     "/assets/posts/2022-israel/IMG_6807.moz80.jpg"
-], true %}
+] %}
 
 The Old City has a bunch of important stuff for Judaism, Christianity, and Islam.
 I can't even begin to describe all the stuff going on because I can barely remember a fraction of what I learned during the tours we took, which only describe fraction of what's there.
@@ -121,7 +121,7 @@ Jerusalem's Old City is probably the only place I visited where I felt hopelessl
 I know extremely little about any religion's history, and suddenly there were at least three religions and several cultures with vast numbers of historical and mythical events, important structures and locations, and inter-group beef baked into the landscape around me.
 I think if you've got any interest in religion, or grew up with it, you'd get more value out of the Old City.
 
-{% img "/assets/posts/2022-israel/IMG_6817.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-israel/IMG_6817.moz80.jpg" %}
 <p class="figcaption">E.g., I remember taking a picture of the columns here because they are either true remnants or reconstructed reminders of something, maybe the historical boundaries of Jerusalem's Old City back at some time where one of the groups was happier probably, ugh I don't know.</p>
 
 While we're talking old city, here's a fun fact: it's carved up into four quarters, which are:
@@ -146,23 +146,23 @@ So yeah, that's the Old Quarter carved up. But the most fun example of carving u
 
 Here's a couple more small things I saw:
 
-{% img "/assets/posts/2022-israel/IMG_6806.moz80.jpg", false, false %}
+{% img2i "/assets/posts/2022-israel/IMG_6806.moz80.jpg" %}
 
 <p class="figcaption">It turns out if you get to go to Mecca, it's a huge deal, and so as a celebration you have a big party to decorate the outside of your place when you come back. I found this really cute.</p>
 
-{% img [[
+{% img2i [[
     "/assets/posts/2022-israel/IMG_6778.moz80.jpg",
     "/assets/posts/2022-israel/IMG_6799.moz80.jpg"
-]], false, false %}
+]] %}
 
 {% doubleCaption "Box of kittens left outside our building 😢 We looked up animal shelters but none were open. It was gone by the morning, so it seems like someone lent a helping hand.", "These are outside every apartment door, and I learned they're called Mezuzah." %}
 
 One of my most memorable experiences was taking a bus for an hour out up the hill east of the Old City. There was an immediate transition from Jewish men in head-to-toe garb from different sects, speaking Hebrew, reading the Torah; to men in casual wear, speaking Arabic, with women in hijab. (The reverse transition happened on the bus back.) The restaurants and demographics and infrastructure quality all changed dramatically. In this Arab district, we got lost trying to find the viewpoint we wanted, and friendly people helped us find where to go.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_6886.moz80.jpg",
     "/assets/posts/2022-israel/IMG_6901.moz80.jpg"
-], true %}
+] %}
 
 ### Shabbat in Jerusalem
 
@@ -178,9 +178,9 @@ One cool thing about the Western Wall is the Jewish folks are totally happy for 
 
 [^cantgothere]: This is in contrast to, e.g., the Dome of the Rock, which is an important Muslim monument that they're super strict about (a) only Muslims allowed almost all the time (we got stopped by soldiers with assault rifles when we accidentally wandered towards it), (b) for the rare times others can go, if you are caught saying a prayer to another god, or even having something written down from another religion, it's a biiiiig problem.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_6788.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">Western Wall, Friday just before sundown. Once Shabbat starts you're not supposed to use your phone, at least while there, to keep with the rules.</p>
 
@@ -188,12 +188,12 @@ I barely managed to get the ingredients I needed before stores closed after noon
 
 [^noprice]: One confounding thing is at all the grocery stores I went to, a good percentage of the items don't have any price tags on them. You just find out how much you're going to suffer when you get to the register.
 
-{% img [
+{% img2i [
     [
         "/assets/posts/2022-israel/IMG_6780.moz80.jpg",
         "/assets/posts/2022-israel/IMG_6781.moz80.jpg"
     ]
-], false, false %}
+] %}
 
 <p class="figcaption">This led to some funny situations where, for stylized product fonts, I couldn't tell whether it was Hebrew or Cyrillic, hence the strangest Google Translate I've ever tried.</p>
 
@@ -202,36 +202,36 @@ I learned three things that dinner:
 2. If you roll your pasta too thick, you can cook it for _literally_ 40 minutes an the inside will never get done. I have no idea how this is possible.
 3. Israel makes wine, and it is very good! At least that bottle was.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_6794.moz80.jpg"
-], true %}
+] %}
 
 ### The Israel Museum
 
 I'm not usually into anthropological museums, but this one was beautifully done.
 
 <!-- Jerusalem museum -->
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_6840.moz80.jpg"
-], true %}
+] %}
 
 I'd like to share a couple highlights of things I found interesting.
 
 The first is Phoenician (I think) writing. When in stone, because it's done with these gashes, they can incorporate writing as a story layer on top of their artwork.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_6854.moz80.jpg",
     "/assets/posts/2022-israel/IMG_6862.moz80.jpg"
-], true %}
+] %}
 
 Seeing this reminded me of when I learned, at the [Alhambra in Granada](/posts/2022-granada/), that the thin lines you see decorating Islamic architecture is actually Arabic writing (often passages from the Quran, IIRC). They also had some beautiful samples of that:
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-israel/IMG_6866.moz80.jpg",
         "/assets/posts/2022-israel/IMG_6863.moz80.jpg"
     ]
-], true %}
+] %}
 
 One of the most interesting things for me was simply a map. And it wasn't even the map's contents, just what it showed. This map showed Europe, but stretched southeast to the Indian Ocean. It made the Middle East and North Africa seem like close neighbors of Europe in a way that I--embarrassingly---never really thought about or realized.
 
@@ -255,14 +255,14 @@ The most fascinating aspect to the whole _Israel as rightful home of the Jewish 
 
 [^toisrael]: The British wouldn't even let Jewish people into Israel when the war finished.
 
-{% img "/assets/posts/2022-israel/IMG_6884.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-israel/IMG_6884.moz80.jpg"%}
 
 
 ## West Bank?
 
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_6752.moz80.jpg"
-], true %}
+] %}
 
 So, for context, we took a three-stop tour to areas around Jerusalem:
 1. The En Gedi Nature Reserve
@@ -300,9 +300,9 @@ This is a famous park.
 Riding there, I realized, holy cow, yeah this is seriously the desert. At some point, we stopped for a break and desert photos. The air smelled exactly like cured meat. A boy with a camel walked up to us for paid photo op attempts. This would happen every stop.
 
 <!-- Nature reserve -->
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_6668.moz80.jpg"
-], true %}
+] %}
 
 I [wrote before](/blog/climate-and-schedule/) about the brilliant way climates are defined based on vegetation, which I learned while on this desert ride:
 
@@ -316,7 +316,7 @@ The park had little [hyrax](https://en.wikipedia.org/wiki/Hyrax) hanging around 
 Plus some amazing rock textures.
 The idea _water brings life_ has never been as clear as being in the desert and visiting an oasis.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_6675.moz80.jpg",
     [
         "/assets/posts/2022-israel/IMG_6674.moz80.jpg",
@@ -327,22 +327,22 @@ The idea _water brings life_ has never been as clear as being in the desert and 
         "/assets/posts/2022-israel/IMG_6696.moz80.jpg"
     ],
     "/assets/posts/2022-israel/IMG_6676.moz80.jpg"
-], true %}
+] %}
 
 ### Masada
 
-{% img "/assets/posts/2022-israel/IMG_6726.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-israel/IMG_6726.moz80.jpg" %}
 
 Masada is a hilltop historical fort with some juicy (if you're into that kinda thing) Romans vs Jewish history. I tried my best to learn stuff but honestly just look at some of these cool desert photos.
 
 <!-- Historical fort  -->
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_6709.moz80.jpg",
     "/assets/posts/2022-israel/IMG_6719.moz80.jpg",
     "/assets/posts/2022-israel/IMG_6730.moz80.jpg",
     "/assets/posts/2022-israel/IMG_6736.moz80.jpg",
     "/assets/posts/2022-israel/IMG_6742.moz80.jpg"
-], true %}
+] %}
 
 This is as good a time as any to mention the whole idea of covering up.
 
@@ -354,15 +354,13 @@ Cue me donning lots of clothing in the boiling desert. Wearing pants and long sl
 
 Anyway, long preamble to why when you look around, the tour groups all contain people dressed the way I imagine church moms dress.
 
-{% img [
-    "/assets/posts/2022-israel/IMG_6734.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-israel/IMG_6734.moz80.jpg)
 
 <p class="figcaption">Actually, most tour groups were likely, in fact, full of church moms.</p>
 
 ### The Dead Sea
 
-{% img "/assets/posts/2022-israel/IMG_6758.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-israel/IMG_6758.moz80.jpg" %}
 
 At 100+℉, it's a good time for a dip.
 
@@ -371,17 +369,17 @@ Only catch was, the water temperature was somewhere between an overheated swimmi
 The dead sea mud is supposed to be good for your skin, so everyone rubs it all over themselves. So that's fun.
 
 <!-- Dead sea -->
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_6769.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">I attempted a dignified walk from my beach chair to the water. This immediately turned into a comedy of errors because the rocks were the hottest thing my poor feet have ever touched. I ran, stifled screaming, into the water. Or, I tried to, but upon reaching the banks I then discovered that all aquatic entrances are violently churned up nutritious dead see mud from thousands of people slathering it on themselves. So I proceeded to fall in the sludge, pick myself up, and then repeatedly slip back in again.</p>
 
 The most fun fact was that across the dead see you can see Jordan. My phone even thought I was there. This made me Google Jordan a bit. It seems great. I want to visit now.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_6773.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">Those buildings you can see across the water are Jordan. The second most fun fact is that the dead sea is 1400 feet below sea level, making it the lowest place on Earth.</p>
 
@@ -393,7 +391,7 @@ The most fun fact was that across the dead see you can see Jordan. My phone even
 
 Haifa was my favorite place in Israel. I think the big cities there are just too intense for me. Haifa was bustling enough, but it was quiet, and had nooks and crannies. Warmer people. More laid back, more small cafes, feels like more pockets of art around. Colonies of stray cats. Fresh produce bazaars tucked away, battling constant threat of wilting in the heat.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_6905.moz80.jpg",
     [
         "/assets/posts/2022-israel/IMG_6913.moz80.jpg",
@@ -415,7 +413,7 @@ Haifa was my favorite place in Israel. I think the big cities there are just too
     "/assets/posts/2022-israel/IMG_7051.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7053.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7115.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">I need to stop looking back on this food because it's making me hungry. Just one example: I'm not crazy about hummus. I mean, I like it as much as the next guy. But there's such wild competition for hummus here that the quality is uniformly through the roof. It comes ultra smooth, dolloped with tahini, and completely without this harsh, acidic taste I'd always thought was a feature of hummus, but it turns out is just a feature of hummus you get in the store. But here in Haifa, what really stuck out were the spices. Simply incredible, and ones I didn't recognize. (North African spices, perhaps?)</p>
 
@@ -425,23 +423,23 @@ It turns out there's yet another religion that has close ties to Israel called t
 
 We spent most of the tour trying to read the vibes off of the tour guide lady (kind of spacey, kind of warm, kind of distant) to discern whether she was an outsider or had drunk the kool-aid. Result: inconclusive.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_7054.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7058.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7064.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7072.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7081.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7107.moz80.jpg"
-], true %}
+] %}
 
 All right, time for little observations.
 
 First, parking on sidewalks. This drove me nuts. People do it. Constantly. Everywhere.
 
-{% img [
+{% img2i [
     "/assets/posts/2022-israel/IMG_6941.moz80.jpg",
     "/assets/posts/2022-israel/IMG_6955.moz80.jpg"
-], false, false %}
+] %}
 
 Next, I present to you the best (auto translated) Google Maps review I have seen to date.
 
@@ -464,7 +462,7 @@ We took a day trip to Akko, an ancient walled city that changed hands between Is
 [^layers]: I'm not doing Akko even remote justice here. The layers of history here are unreal. Here are my notes: _"Greek, Roman, early Muslim I think, crusades, Muslims, I think crusades again, Muslims and city downfall, then rebuilt (esp with Ottomans), then British, and now Israel."_  The cool thing about the layers is they are _literal_ layers: people built structures on top of the old ones.
 
 <!-- Akko -->
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-israel/IMG_7034.moz80.jpg",
         "/assets/posts/2022-israel/IMG_6994.moz80.jpg"
@@ -489,7 +487,7 @@ We took a day trip to Akko, an ancient walled city that changed hands between Is
     ],
     "/assets/posts/2022-israel/IMG_7032.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7033.moz80.jpg"
-], true %}
+] %}
 
 You may have spotted Uri Yirmias (AKA _Uri Buri_) standing behind Julie, just before coming over to say hello, as we ate as his place. Great tip from _Somebody Feed Phil,[^sfp]_ the set menu is absolutely worth the splurge if you're in town. Though Phil would later lead us astray in Tel Aviv. More on that later.
 
@@ -497,11 +495,10 @@ You may have spotted Uri Yirmias (AKA _Uri Buri_) standing behind Julie, just be
 
 Re: the high production value of all the historical-sites-turned-museums, this included, e.g., filling the old bathhouse with statues to show you what it was like. But most prominent were the historical reenactment videos. They were everywhere. All across the excavated Crusader halls, in the bathhouse, even in the old synagogue. Each one was a little corny, but they could have done way worse. And taken together, they made Akko come alive with charm.
 
-{% img [
+{% img2i [
     "/assets/posts/2022-israel/IMG_7022.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7027.moz80.jpg"
-], false, false, false %}
-
+] %}
 
 And finally, more of _America Abroad:_
 
@@ -548,7 +545,7 @@ I think part of the reason this whole experience struck me as funny is when you 
 Tel Aviv coast---serious beach and fitness enthusiasts. Talk about cultural whiplash vs Jerusalem.
 
 <!-- Tel Aviv -->
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_7127.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7134.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7137.moz80.jpg",
@@ -574,7 +571,7 @@ Tel Aviv coast---serious beach and fitness enthusiasts. Talk about cultural whip
     "/assets/posts/2022-israel/IMG_7229.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7232.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7236.moz80.jpg"
-], true %}
+] %}
 
 Final score for Israel:
 - Cockroaches seen: 4
@@ -627,11 +624,11 @@ In the art museum, I found a caption on a piece that---finally---directly addres
 
 Finally, I leave you with a video art piece so bizarre and delightful that it could have been made just for me.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-israel/IMG_7239.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7241.moz80.jpg",
     {vimeoInfo: "796431858?h=c8926fc00c", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}
-], true %}
+] %}
 
 ## 🛩 Airport Hell
 

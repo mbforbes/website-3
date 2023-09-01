@@ -57,9 +57,7 @@ Since we were here in November, Hoi An's was scheduled to have rain so heavy tha
 
 ## Hanoi 🛩️ Dalat
 
-{% img [
-    "/assets/posts/2022-dalat/IMG_8986.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-dalat/IMG_8986.moz80.jpg)
 
 As seems to be the case everywhere in the world, even if you've got ample time and like trains, short flights are somehow so cheap they're hard not to choose. Combine that with Vietnam's aging train infrastructure, harrowing tales of bus rides, and how long the country is, a short flight is much more comfortable.
 
@@ -162,9 +160,7 @@ We planned out the morning so we'd catch one of the trains according to a photo 
 
 We arrived at the train station, which is also a ripe ground for photo ops.^[The other surreal thing about the train station is that every single vendor there, without exception, was blasting American Christmas music. Keep in mind, this is mid-November, which is early even by USA standards. I couldn't quite grasp it. The best I could describe is it seemed like it was trying to give everything a _festive vacation_ kind of mood. I guess it worked?] I had read that if you're taking the train, you don't have to pay the entrance fee to look at / take five hundred photographs of the station. As we walked through the parking lot, a guy who looked 50% official flagged us down and wanted money. I tried arguing for a while that we were going to take the train^[Insert _we're taking the train, so we shouldn't have to pay this particular fee_ hand gestures. Boy I'm going to slay at charades after this.] but it wasn't going anywhere so I paid him.
 
-{% img [
-    "/assets/posts/2022-dalat/IMG_9048.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-dalat/IMG_9048.moz80.jpg)
 
 <p class="figcaption">Domestic tourists, <span class="i">in situ.</span></p>
 
@@ -188,9 +184,7 @@ One thing European Christian churches and late Buddhism Asian temples have in co
     "/assets/posts/2022-dalat/IMG_9078.moz80.jpg"
 ], false, false %}
 
-{% img [
-    "/assets/posts/2022-dalat/IMG_9085.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-dalat/IMG_9085.moz80.jpg)
 
 <p class="figcaption">Small section of large Buddha made out of flowers. (Complete with Guinness World Record plaque saying that it is the largest Buddha made out of flowers.)</p>
 
@@ -209,9 +203,7 @@ The Cao Dai temple---massive and very close the to totally packed Buddhist templ
 
 Maybe some things are best left unexplained.
 
-{% img [
-    "/assets/posts/2022-dalat/IMG_9123.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-dalat/IMG_9123.moz80.jpg)
 
 ## "Crazy House"
 

@@ -96,9 +96,7 @@ The city conglomerate is enormous. Its zones range from _ultra developed_ to _50
 
 One unifying factor is the roads: the traffic is wholly ungodly, and the busses are [unique](https://en.wikipedia.org/wiki/Jeepney).^[Would have loved to ride a jeepney, but the logistical hurdle outweighed the temptation.] Our first night in wasn't a fluke---getting a Grab anywhere is hard.
 
-{% img [
-    "/assets/posts/2022-manila/IMG_9610.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-manila/IMG_9610.moz80.jpg)
 
 <p class="figcaption">Yeah Grab, I feel the same way. Any time now...</p>
 
@@ -194,9 +192,7 @@ An order of law seemed to be that food comes with a hokey puck of rice.
 
 I'm also pleased to report that, of all the national light beers I've tried (every country's got their own), _San Miguel Super Dry_ has been my all-time favorite.
 
-{% img [
-    "/assets/posts/2022-manila/IMG_9572.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-manila/IMG_9572.moz80.jpg)
 
 We had a meal at _Lampara,_ which was awesome. This is recommendation number one.
 

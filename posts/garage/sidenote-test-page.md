@@ -23,7 +23,7 @@ This one is positioned to start just a couple words after the last. Also, hey lo
 
 NOTE: Adding `clear: both` works for image.
 
-{% img "/assets/garage/image-test-pages/939x939@3x.png", true, true %}
+{% img2 "/assets/garage/image-test-pages/939x939@3x.png" %}
 
 Since my markdown renderer isn't rendering inline footnote elements (near the references)---and instead puts them all at the end---I don't think a CSS-only solution will work.
 

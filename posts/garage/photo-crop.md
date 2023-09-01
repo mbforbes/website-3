@@ -40,27 +40,27 @@ I am curious about how [focus](/garage/photo-focus/) interacts with crop in [sha
 
 Here are each of those crops displayed at text-width.^[All crops are exported to 1408px width and displayed at maximum of 704px to allow a 2x pixel density.]
 
-{% img {path: "/assets/garage/photo-notebook/focus-shrubs-28mm-tw.moz80.jpg"}, false, false %}
+![](/assets/garage/photo-notebook/focus-shrubs-28mm-tw.moz80.jpg)
 
 <p class="figcaption">28mm (orig) [f1.7]</p>
 
-{% img {path: "/assets/garage/photo-notebook/focus-shrubs-35mm-tw.moz80.jpg"}, false, false %}
+![](/assets/garage/photo-notebook/focus-shrubs-35mm-tw.moz80.jpg)
 
 <p class="figcaption">"35mm" [f1.7]</p>
 
-{% img {path: "/assets/garage/photo-notebook/focus-shrubs-50mm-tw.moz80.jpg"}, false, false %}
+![](/assets/garage/photo-notebook/focus-shrubs-50mm-tw.moz80.jpg)
 
 <p class="figcaption">"50mm" [f1.7]</p>
 
-{% img {path: "/assets/garage/photo-notebook/focus-shrubs-75mm-tw.moz80.jpg"}, false, false %}
+![](/assets/garage/photo-notebook/focus-shrubs-75mm-tw.moz80.jpg)
 
 <p class="figcaption">"75mm" [f1.7]</p>
 
-{% img {path: "/assets/garage/photo-notebook/focus-shrubs-90mm-tw.moz80.jpg"}, false, false %}
+![](/assets/garage/photo-notebook/focus-shrubs-90mm-tw.moz80.jpg)
 
 <p class="figcaption">"90mm" [f1.7]</p>
 
-{% img {path: "/assets/garage/photo-notebook/focus-shrubs-166mm-tw.moz80.jpg"}, false, false %}
+![](/assets/garage/photo-notebook/focus-shrubs-166mm-tw.moz80.jpg)
 
 <p class="figcaption">"166mm" [f1.7]</p>
 
@@ -70,13 +70,13 @@ Out of sheer curiosity, I cropped down to 1408px, the equivalent to an eye-water
 
 And since if something is worth doing, it's worth overdoing, I went past the 2x pixel density and made a raw 704px width photo, which I guess would be 333mm.
 
-{% img {path: "/assets/garage/photo-notebook/focus-shrubs-333mm-tw.moz80.jpg"}, false, false %}
+![](/assets/garage/photo-notebook/focus-shrubs-333mm-tw.moz80.jpg)
 
 <p class="figcaption">"333mm" [f1.7]</p>
 
 To me, this finally looks blurry. I think this is because it's now actually stretched on a 2x pixel density screen. To verify, we can display it 1/2 size^[Sizes are confusing. This cuts each of the width and height in half, so it feels like "half size," though the area gets cut by 1/4.] to make it 2x pixel density again.
 
-{% img {path: "/assets/garage/photo-notebook/focus-shrubs-333mm-tw.moz80.jpg", maxHeight: "235"}, false, false %}
+{% img2 "/assets/garage/photo-notebook/focus-shrubs-333mm-tw.moz80.jpg", {maxWidth: "352px"} %}
 
 <p class="figcaption">"333mm" [f1.7], displayed 1/2 size for 2x pixel density</p>
 

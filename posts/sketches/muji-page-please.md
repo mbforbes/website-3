@@ -5,7 +5,4 @@ image: /assets/sketches/muji-page-please.moz80.jpg
 thumb: /assets/sketches/muji-page-please-thumb.moz80.jpg
 ---
 
-{% img {
-    path: "/assets/sketches/muji-page-please.moz80.jpg",
-    extraClasses: "ba b--black-90 bw4 border-box"
-} %}
+{% img2 "/assets/sketches/muji-page-please.moz80.jpg", {extraImgClasses: "ba b--black-90 bw4 border-box"} %}

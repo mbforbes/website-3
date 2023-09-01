@@ -15,11 +15,11 @@ Learned about [layers and object order](/garage/magicavoxel-layer-vs-outline/) i
 
 Realized that completely flat terrain is weird, next draft tried to make varied terrain.
 
-{% img [[
+{% img2i [[
      "/assets/garage/3d-notebook/31_Underwater-2.jpg",
      "/assets/garage/3d-notebook/31_Underwater-2-nowater.jpg"
 
-]], false, false %}
+]] %}
 
 <p class="figcaption">Part 1: Closeups w/ and w/o water</p>
 

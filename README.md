@@ -65,6 +65,12 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 ## TODO
 
 - [ ] img macro consolidation
+
+here's a helpful vscode regex solution for turning inline images into the classic `![]()` markdown format. (Remove backticks first obvi)
+- search: `\{% img \[\n\s+"(/.*)"\n\], false, false %\}`
+- replace: `![]($1)`
+
+- [ ] new macro or solution for images like sketches (ramen ode) that really ought to simply be constrained by max width or height (but want macro goodies like bg placeholder etc)
 - [ ] Fix up non-height-matching images
     - [ ] Two in aberdeen post before "Bagpipes don't get me fired up either."
 - [ ] Fix `&39;` on some cards in card layout

@@ -126,9 +126,7 @@ Musical instruments formed their own league of fascination. I spent roughly exac
 
 Even some of the art displays had this _The Way Things Work^[Anyone else have that book as a kid? I don't think I retained anything except a love of good diagrams, parts, and processes.]_ feel to it, like this original painting (right) and re-creation done by a student at an art school (left).
 
-{% img [
-    "/assets/posts/2023-tainan/IMG_1826.moz80.jpg"
-], false, false %}
+![](/assets/posts/2023-tainan/IMG_1826.moz80.jpg)
 
 <p class="figcaption">The original (right) is by Friedrich von Amerling in 1854; the study (left) was done four years later at the Austria-Hungary School. (So said the plaque.)</p>
 

@@ -196,9 +196,7 @@ The view at the end ended up being one I had already came to know well in Taiwan
 
 <p class="figcaption">Alishan tea is famous in Taiwan, but they also had coffee. While I may grumble about hyper-developed nature zones and the crowds that come with them, I do not want to veer into complaining, because the fact that I can get a pour-over coffee after lunch in the middle of a nature day is a stupendous treat.</p>
 
-{% img [
-    "/assets/posts/2023-alishan/Moment-App-20230322155500048.moz80.jpg"
-], false, false %}
+![](/assets/posts/2023-alishan/Moment-App-20230322155500048.moz80.jpg)
 
 <p class="figcaption">Shoutout to this bird who let me get super close for a pic.</p>
 
@@ -220,15 +218,11 @@ This process did lead me to learn something I hadn't realized about Taiwan: they
 
 Anyway, we did all that, planning to do the shorter North Peak hike as a nice day trek. Then we had an injury the day before and bailed on the whole thing. We drove up anyway and went for some short walks. A bag of chips finally actually just exploded while I was holding it, which was cool.^[It exploded right outside of the police station, which made me a bit nervous, but then I remembered I was in Taiwan not the USA so nobody was going to run out and preemptively shoot me.]
 
-{% img [
-    "/assets/posts/2023-alishan/IMG_1665.moz80.jpg"
-], false, false %}
+![](/assets/posts/2023-alishan/IMG_1665.moz80.jpg)
 
 <p class="figcaption">Sometimes you only have to translate one phrase to get the point across. Good on them crediting Publicdomainvectors.org.</p>
 
-{% img [
-    "/assets/posts/2023-alishan/IMG_1666.moz80.jpg"
-], false, false %}
+![](/assets/posts/2023-alishan/IMG_1666.moz80.jpg)
 
 <p class="figcaption">Air pressure differential having finally overcame whatever plastic glue it was opposing.</p>
 

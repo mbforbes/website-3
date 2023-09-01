@@ -7,7 +7,7 @@ image: /assets/posts/2022-athens/parthenon.moz80.jpg
 redirect_from: /blog/athens-naxos/
 ---
 
-{% img "/assets/posts/2022-athens/parthenon.moz80.jpg" %}
+{% img2 "/assets/posts/2022-athens/parthenon.moz80.jpg" %}
 
 <p class="figcaption">
 One of those funny things where once you notice it you can't stop seeing it: when the real thing (e.g., the Parthenon) has fakes on it (e.g., reconstructed facades), and the actual things (e.g., original facades) are in a museum for safekeeping. Or you can even get into the business of a museum also having a fake and referencing the real one in another museum. <span class="i">"I'm sorry Mario, the princess is in another castle."</span>
@@ -19,10 +19,10 @@ They (the cool youth) are now into really old traditional Greek music.
 
 The scale of sprawl is hard to capture because it's a bazillion six-ish story buildings in all directions.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-athens/sprawl.moz80.jpg",
     "/assets/posts/2022-athens/block.moz80.jpg"
-], true %}
+] %}
 
 Marcus (pictured below) started the humbling trend of _how generous friends can be when they haven't seen you in ten years._ I've been so grateful for it.
 
@@ -76,7 +76,7 @@ Ubiquitous strays I can't stop calling "beach gatos."
 Just two plant pals.
 </p>
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-athens/red.moz80.jpg",
     "/assets/posts/2022-athens/blue.moz80.jpg"
 ]] %}

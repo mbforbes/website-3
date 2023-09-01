@@ -143,11 +143,9 @@ These are people who you weren't just at war with, but who were committing war c
 
 ## Sarajevo
 
-{% cityMap "/assets/posts/2022-bosnia/sarajevo-bosnia-and-herzegovina-5-perimeter.moz80.jpg", false, false %}
+{% cityMap "/assets/posts/2022-bosnia/sarajevo-bosnia-and-herzegovina-5-perimeter.moz80.jpg", false, true, false %}
 
-{% img [
-    "/assets/posts/2022-bosnia/s-00-city.moz80.jpg"
-], true %}
+{% cityPic "/assets/posts/2022-bosnia/s-00-city.moz80.jpg" %}
 
 Flying into Bosnia's capital, I was amazed by how beautiful the northern country is. It seemed like there were endless tree-blanketed hills, rivers, and little patches of towns.
 
@@ -155,9 +153,7 @@ Flying into Bosnia's capital, I was amazed by how beautiful the northern country
 
 The airport experience in B&H was pretty smooth, so I was optimistic we'd have no trouble catching the airport bus into town. Sure, it only came once every hour and a half, but we arrived and found the stop with time to spare. So we set up camp and waited.
 
-{% img [
-    "/assets/posts/2022-bosnia/s-01-bus.moz80.jpg"
-] %}
+![](/assets/posts/2022-bosnia/s-01-bus.moz80.jpg)
 
 And waited. And waited.
 
@@ -175,36 +171,36 @@ During the car ride, he started making elaborate hand motions and whistling soun
 
 You can feel Sarajevo's history walking around. Some areas will feel like a classic European town, stonework and hills and old homes.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/s-02-lighting.moz80.jpg",
     "/assets/posts/2022-bosnia/s-02-newer-bridge.moz80.jpg",
     "/assets/posts/2022-bosnia/s-02-city-hall.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">Notice (top photo) something you don't see much of in Europe, though: a mosque's minaret. More on this later. Bottom photo: city hall. Though it looks stylistically similar to Moorish architecture you'd see in Spain, it's actually "pseudo-Moorish," built by the Austro-Hungarians (<a href="https://en.wikipedia.org/wiki/Vije%C4%87nica">wiki</a>). </p>
 
 If you get a little elevation, you can spot gorgeous green valleys rolling into the distance, and look back into town to see Muslim cemetaries and orange-shingled residences on serpentine roads.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/s-02-valley.moz80.jpg",
     "/assets/posts/2022-bosnia/s-02-tombstones.moz80.jpg",
     "/assets/posts/2022-bosnia/s-02-cat.moz80.jpg"
-], true %}
+] %}
 
 Passing through the ancient famed bazaar (the phonetically intimidating _Baščaršija;_ no photos, sorry)---mostly hawking for tourists these days---you'll encounter brutalist infrastructure and rusting administrative buildings, markers of past Yugoslavia.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/s-02-brutalism.moz80.jpg",
     [
         "/assets/posts/2022-bosnia/s-02-generic-building.moz80.jpg",
         "/assets/posts/2022-bosnia/s-02-tram.moz80.jpg"
     ],
     "/assets/posts/2022-bosnia/s-02-pink-building.moz80.jpg"
-], true %}
+] %}
 
 If you keep going along the river, you'll reach the heart of foreign money's spend: glass behemoth buildings filled with malls and offices, and gigantic ads that somehow seemed even more out of place than usual. Oracle, Microsoft, and Bloomberg; KFC, Heineken, and Jack Daniels. I think the surge of post-war international investment has dried up since things haven't taken off like they'd hoped.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-bosnia/s-02-oracle.moz80.jpg",
         "/assets/posts/2022-bosnia/s-02-tower.moz80.jpg"
@@ -213,13 +209,13 @@ If you keep going along the river, you'll reach the heart of foreign money's spe
         "/assets/posts/2022-bosnia/s-02-mall.moz80.jpg",
         "/assets/posts/2022-bosnia/s-02-whiskey.moz80.jpg"
     ]
-], true %}
+] %}
 
 ### "Jerusalem of Europe"
 
 Sarajevo's most notable historical quality is probably its religious diversity. Bosniaks are mostly Muslims, but the city has a long history of several religions coexisting. There is technically at least one synagogue still around, but it seemed to me like Islam and Christianity (Catholicism for Croats; Eastern Orthodox for Serbs) were the major players at this point.
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-bosnia/s-02-church.moz80.jpg",
     "/assets/posts/2022-bosnia/s-02-mosque.moz80.jpg"
 ]] %}
@@ -228,14 +224,14 @@ Sarajevo's most notable historical quality is probably its religious diversity. 
 
 Just like Jerusalem---and, oddly enough, Jerusalem was our next destination after Bosnia---Sarajevo's present feels inextricably tied up with the violence of its past. Go into a shop, and you'll find metalworkers building crafts from ammunition shells from the war.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/s-03-shells.moz80.jpg",
     "/assets/posts/2022-bosnia/s-03-shell-craft.moz80.jpg"
 ] %}
 
 We took a long city tour, and they pointed out another prominent historical landmark. The place where the shot that kicked off WWII was fired: the assassination of Archduke Franz Ferdinand happened by the unassuming _Latin Bridge._
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/s-03-bridge.moz80.jpg"
 ] %}
 
@@ -253,15 +249,15 @@ There are frequent reminders that Bosnia, despite being multicultural, isn't a h
 
 These come in the form of signs around town:
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/s-03-library.moz80.jpg"
-], true %}
+] %}
 
 ... to museums documenting other events in the war, like this one about the [Srebrenica massacre](https://en.wikipedia.org/wiki/Srebrenica_massacre):
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/s-03-photos.moz80.jpg"
-], true %}
+] %}
 
 The wildest part to me of this whole thing is that the perpetrators of the vast majority of human rights violations, including nearly uncountable accounts of ethnic cleansing, were from the Army of Republika Srpska. I asked a tour guide, "is that the same _Republika Srpska_ that makes up half of the country today?" She paused for a long while. "Yes."
 
@@ -280,10 +276,10 @@ The concept was neat: he paired pieces from the permanent collection with photos
 
 Didn't understand a thing during the lecture, but there was free wine. And it was fun to see the local art community get together. Even without speaking the language, you could recognize the intimate feel of a scene before it had gotten too big.
 
-{% img [
+{% img2i [
     "/assets/posts/2022-bosnia/s-06-museum-rain.moz80.jpg",
     "/assets/posts/2022-bosnia/s-06-museum-wine.moz80.jpg"
-], false, false %}
+] %}
 
 Another challenge faced by Bosnians is brain drain.
 Seeking opportunities, bright yong people leave in droves for Germany.[^usa]
@@ -298,13 +294,13 @@ I felt guilty for never having had to make this choice, and never appreciating i
 
 You've heard of Salt Fat Acid Heat, but have you heard of the Balkan version: Börek Coffee Cheese Meat?
 
-{% img [
+{% img2i [
     "/assets/posts/2022-bosnia/s-04-borek.moz80.jpg",
     "/assets/posts/2022-bosnia/s-04-coffee.moz80.jpg",
     "/assets/posts/2022-bosnia/s-04-salad.moz80.jpg",
     "/assets/posts/2022-bosnia/s-04-sandwich.moz80.jpg",
     "/assets/posts/2022-bosnia/s-04-variety.moz80.jpg"
-], false, false %}
+] %}
 
 <p class="figcaption">The food in the last photo was great. It was apparently a common style of eating locally, but I forget what it's called (if it even has a special name). You go up to the counter and pick all the stuff you want on your plate kind of cafeteria-style, and just pay per plate. Great spongy bread, too. Only downside is there were no prices listed and I'm pretty sure the guy charged us at least 3x the local rate. Whatever.</p>
 
@@ -318,7 +314,7 @@ I liked that they had a process, but once the novelty wore off, I just slammed i
 
 Sarajevo, back when it was part of Yugoslavia in 1984, hosted the winter olympics. The bobsled track is, you guessed it, in disrepair. But it's been so graffiti'd up it's now a bona fide tourist attraction. They've modernized the cable car so you can ride it up to wander the structured rubble.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/s-05-cable-car.moz80.jpg",
     "/assets/posts/2022-bosnia/s-05-cable-far.moz80.jpg",
     "/assets/posts/2022-bosnia/s-05-track-sign.moz80.jpg",
@@ -326,53 +322,53 @@ Sarajevo, back when it was part of Yugoslavia in 1984, hosted the winter olympic
     "/assets/posts/2022-bosnia/s-05-track-front.moz80.jpg",
     "/assets/posts/2022-bosnia/s-05-track-back.moz80.jpg",
     "/assets/posts/2022-bosnia/s-05-track-supports.moz80.jpg"
-], true %}
+] %}
 
 On another hill, there's an observatory that's like a microcosm of war's sledgehammer to cultural development.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/s-05-astronomy-buildings.moz80.jpg",
     "/assets/posts/2022-bosnia/s-05-astronomy-sign.moz80.jpg"
-], true %}
+] %}
 
 With that said, selfishly, if you're into ruins like I am, it's a fun place to check out.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/s-05-astronomy-ceiling.moz80.jpg"
-], true %}
+] %}
 
 ### μObservations[^micro]
 
 [^micro]: The μ is supposed to stand for "micro." I know, I know, sorry.
 
-{% img [[
+{% img2i [[
     "/assets/posts/2022-bosnia/s-misc-aircon.moz80.jpg",
     "/assets/posts/2022-bosnia/s-misc-tv.moz80.jpg"
-]], false, false %}
+]] %}
 
 <p class="figcaption">Tesla (from a Serbian brand) making the rounds in Bosnia as well, from AC to TV to who knows what else.</p>
 
-{% img "/assets/posts/2022-bosnia/s-02-birds.moz80.jpg", false, false %}
+![](/assets/posts/2022-bosnia/s-02-birds.moz80.jpg)
 
 <p class="figcaption">Some Hitchcock-level bird terror.</p>
 
-{% img "/assets/posts/2022-bosnia/s-misc-bench.moz80.jpg", false, false %}
+![](/assets/posts/2022-bosnia/s-misc-bench.moz80.jpg)
 
 <p class="figcaption">Hey, if it works it works.</p>
 
-{% img "/assets/posts/2022-bosnia/s-misc-big-corny.moz80.jpg", false, false %}
+![](/assets/posts/2022-bosnia/s-misc-big-corny.moz80.jpg)
 
 <p class="figcaption">Anyone else like it when you can buy two different design editions of the same thing?</p>
 
-{% img "/assets/posts/2022-bosnia/s-misc-elevator.moz80.jpg", false, false %}
+![](/assets/posts/2022-bosnia/s-misc-elevator.moz80.jpg)
 
 <p class="figcaption">Every elevator was screwed up in some way. The one in the building where we stayed had two 2 buttons. Another reversed up and down. This one was in the fanciest place we went to, a two story Whole Foods-like grocer in downtown nouveau. They got pretty close.</p>
 
-{% img "/assets/posts/2022-bosnia/s-misc-shopping.moz80.jpg", false, false %}
+![](/assets/posts/2022-bosnia/s-misc-shopping.moz80.jpg)
 
 <p class="figcaption">Oh yeah, this is the store. I included this picture to describe one hobby that I've had since at least 2012 while traveling, which is: going into grocery stores in other places. Grocery stores are so dense and so vital to everyday life that, to me, they're goldmines for a place's differences. They're packed with information. I don't think a lot of people vibe with this, but luckily for me Julie does, so we spend a long time picking through them.</p>
 
-{% img "/assets/posts/2022-bosnia/s-misc-energy.moz80.jpg", false, false %}
+![](/assets/posts/2022-bosnia/s-misc-energy.moz80.jpg)
 
 <p class="figcaption">GROM</p>
 
@@ -382,31 +378,29 @@ I ordered train tickets online. When I went to pick them up at the station, some
 
 [^typewritten]: I'm almost certain I've never used the word "typewritten" before. I thought it'd be "typewritered."
 
-{% img "/assets/posts/2022-bosnia/s-07-train-ticket.moz80.jpg" %}
+{% img2 "/assets/posts/2022-bosnia/s-07-train-ticket.moz80.jpg" %}
 
 Entering the bowels of the train station, there was just a single dimly lit hallway with no signs. I did a double take and went back out, sure I had gone somewhere wrong. Nope. One of these leads up to the tracks.
 
-{% img "/assets/posts/2022-bosnia/s-07-train-station.moz80.jpg" %}
+{% img2 "/assets/posts/2022-bosnia/s-07-train-station.moz80.jpg" %}
 
 The scenery on the train ride was utterly stunning. I think it was the prettiest train ride I have ever been on, and this includes a year's worth of taking them in Switzerland.[^switz] What follows is a video of such obviously terrible quality that I grant you license to make fun of me for including it. But even though the glass and late day sun mangled my attempts to record the view, I couldn't omit it, because I wanted to give an impression of just how gorgeous it was.
 
 [^switz]: Granted, I spent a lot of my time on Swiss trains drinking beer and trying to fit in, so maybe some were prettier. Look, whatever, it was nice, OK.
 
-{% img {vimeoInfo: "789321453?h=e5fd31ce62", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}, true %}
+{% img2 {vimeoInfo: "789321453?h=e5fd31ce62"} %}
 
 ## Mostar
 
-{% cityMap "/assets/posts/2022-bosnia/mostar-bosnia-and-herzegovina-5-perimeter.moz80.jpg", false, false %}
+{% cityMap "/assets/posts/2022-bosnia/mostar-bosnia-and-herzegovina-5-perimeter.moz80.jpg", false, true, false %}
 
-{% img [
-    "/assets/posts/2022-bosnia/m-00-city.moz80.jpg"
-], true %}
+{% cityPic "/assets/posts/2022-bosnia/m-00-city.moz80.jpg" %}
 
 We arrived in Mostar in the evening, not knowing quite what to expect. We knew it was a historic town, also involved in the war, and it felt even more remote than Sarajevo. We dropped off our bags and headed into town.
 
 When we got there, much to our surprise, the place was illuminated by tacky colored lights and bathed in loud Eurotrance party music. We waded past stalls selling trinkets and restaurant hosts trying to lure us in.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/m-01-edm.moz80.jpg"
 ] %}
 
@@ -418,7 +412,7 @@ While it's a bit disappointing to find yourself in another cobblestone Disneylan
 
 Anyway, before I get to that, let's look at Mostar a bit.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/m-02-bridge.moz80.jpg"
 ] %}
 
@@ -427,8 +421,7 @@ Anyway, before I get to that, let's look at Mostar a bit.
 Shell blasts, bullet holes, and building ruins sit alongside tourist entertainment attractions.
 The historical immediacy of the surroundings keeps the past on your mind.
 
-
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/m-02-big-hole-wall.moz80.jpg",
     [
         "/assets/posts/2022-bosnia/m-02-bullet-wall-front.moz80.jpg",
@@ -437,7 +430,7 @@ The historical immediacy of the surroundings keeps the past on your mind.
     "/assets/posts/2022-bosnia/m-02-bullet-wall.moz80.jpg",
     "/assets/posts/2022-bosnia/m-02-ruins.moz80.jpg",
     "/assets/posts/2022-bosnia/m-02-walk.moz80.jpg"
-], true %}
+] %}
 
 It felt increasingly bizarre to come as a tourist, but it's hard to describe why.
 It's not that ruins or bullet holes made me uncomfortable.
@@ -445,15 +438,11 @@ Instead, it somehow seemed inappropriate to be indulging in fun activities, to b
 Spreading money is good, of course, but I couldn't shake a feeling that the world had gotten things backwards.
 That after enduring a war, people should catch a break.
 
-{% img [
-    "/assets/posts/2022-bosnia/m-02-general.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-bosnia/m-02-general.moz80.jpg)
 
 <p class="figcaption">Bosniak general who led a big charge out of Mostar at the end of a grueling siege to connect it to Bosnian military territory and establish a supply line (IIRC). Both sides of the old war still have odes to their military heroes around on walls.</p>
 
-{% img [
-    "/assets/posts/2022-bosnia/m-02-rentals.moz80.jpg"
-], false, false %}
+![](/assets/posts/2022-bosnia/m-02-rentals.moz80.jpg)
 
 <p class="figcaption">Rental store. Maybe.</p>
 
@@ -490,7 +479,7 @@ One thing that I immediately noticed is here, the stories were all Bosniaks vs C
 [^complexWar]: Again, all details here are fractal like, making it hard to say anything simple. E.g., the [Siege of Mostar](https://en.wikipedia.org/wiki/Siege_of_Mostar) actually kind of happened twice, first with Serbs (Yugoslavia) fought back by Croatians, and then later on, with Bosniaks vs Croats.
 Most of what we heard about was the second time, when humanitarian aid was cut off.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/m-03-climate.moz80.jpg",
     "/assets/posts/2022-bosnia/m-03-mountains.moz80.jpg",
     "/assets/posts/2022-bosnia/m-03-cliffs.moz80.jpg"
@@ -506,13 +495,13 @@ So the many hijab-wearing women we'd see in town are largely tourists from other
 
 [^monastery]: Technically it's a [tekke](https://en.wikipedia.org/wiki/Khanqah) built for the [Dervish](https://en.wikipedia.org/wiki/Dervish).
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/m-03-monastery.moz80.jpg"
 ] %}
 
 One of the cooler features of the site was that, at a certain spot, the river came up to a rocky bank, and then poured out from under it. I'd never seen anything quite like it.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/m-03-water-under.moz80.jpg"
 ] %}
 
@@ -520,7 +509,7 @@ One of the cooler features of the site was that, at a certain spot, the river ca
 
 We continued on to an area that sounded boring on paper but was actually pretty neat to see. It's a place where two rivers join, with a shrubby marshland connecting the banks where one spills over into the other.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/m-04-rivers.moz80.jpg"
 ] %}
 
@@ -528,7 +517,7 @@ We continued on to an area that sounded boring on paper but was actually pretty 
 
 As we were walking around, Julie came across an ammunition shell. They are still easy to find.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/m-04-rivers-julie.moz80.jpg",
     "/assets/posts/2022-bosnia/m-04-shell.moz80.jpg"
 ] %}
@@ -542,17 +531,17 @@ The former residents couldn't stomach the sight.
 So it remained a ghost town.
 Only a handful of vendors hung out in the streets, selling juice and trinkets to tourists like us on their way through.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/m-04-village.moz80.jpg",
     "/assets/posts/2022-bosnia/m-04-village-julie.moz80.jpg",
     "/assets/posts/2022-bosnia/m-04-tower.moz80.jpg",
     "/assets/posts/2022-bosnia/m-04-tower-ruins.moz80.jpg",
     "/assets/posts/2022-bosnia/m-04-mosque.moz80.jpg"
-], true %}
+] %}
 
 Way off in the distance, you could see a huge overpass construction project partway through. (Was it progressing, I wondered?)
 
-{% img "/assets/posts/2022-bosnia/m-04-bridge.moz80.jpg" %}
+{% img2 "/assets/posts/2022-bosnia/m-04-bridge.moz80.jpg" %}
 
 On the road, we'd hear stories of our guide's mom and dad's experience in Croatian concentration camps.
 They both survived, but had been split up during the war, his mom with two toddlers, and his dad alone in another camp.
@@ -566,7 +555,7 @@ We spent hours hearing about the war and the history of the local people and pla
 The mood was decidedly somber.
 Then, as per tour guidelines, our next stop was a swim at the famous Kravica Waterfalls.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/m-04-falls-2.moz80.jpg"
 ] %}
 
@@ -589,7 +578,7 @@ The functional part of the station was just a small downstairs area. As we waite
 
 [^poison]: I was spared this time. We think it might have been the sole piece of sad lettuce from her dinner. It was a rough night.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bosnia/m-05-train-station.moz80.jpg",
     "/assets/posts/2022-bosnia/m-05-train-platform.moz80.jpg"
 ] %}

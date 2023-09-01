@@ -20,9 +20,9 @@ What's funny is that I often still have a hard time telling which is used. E.g.,
 Here's a recent test scene trying both ways.
 
 
-{% img [[
+{% img2i [[
     "/assets/garage/3d-notebook/36_Wood-shelf-room-2-perspective.jpeg",
     "/assets/garage/3d-notebook/36_Wood-shelf-room-2-iso.jpeg"
-]], false, false %}
+]] %}
 
 I'm also curious which the voxel community favors.

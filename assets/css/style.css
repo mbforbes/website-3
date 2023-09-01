@@ -358,6 +358,7 @@ li>p {
     padding-bottom: 1.5em;
     padding-left: 0px;
     padding-right: 0px;
+    clear: both;
 }
 
 .markdown-body pre code {

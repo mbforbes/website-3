@@ -29,13 +29,13 @@ Another interesting factor that I hadn't anticipated is the photo's crop and dis
 
 Displayed at the full size of my laptop monitor,^[My laptop screen isn't huge. Apple says it's 2560 × 1600. For websites, it reports itself as 1680 x 1050 with a pixel ratio of 2, which would imply 3360 x 2100. So IDK really what's going on.] I like the shrub photo. Here it is displayed at a large size (depending on your screen).
 
-{% img "/assets/garage/photo-notebook/focus-shrubs-large.moz80.jpg" %}
+{% img2 "/assets/garage/photo-notebook/focus-shrubs-large.moz80.jpg" %}
 
 <p class="figcaption">Large size, shrub focus clearer [f1.7]</p>
 
 However, shrunken down, I like it less. To my eye right now, the focused area seems blurry.
 
-{% img {path: "/assets/garage/photo-notebook/focus-shrubs.moz80.jpg"}, false, false %}
+![](/assets/garage/photo-notebook/focus-shrubs.moz80.jpg)
 
 <p class="figcaption">Small size, shrubs seem blurry [f1.7]</p>
 
@@ -43,7 +43,7 @@ I wonder whether, at a smaller resolution, there simply aren't enough pixels to 
 
 I explored this exhaustively in [Crop: Cropping Limits](/garage/photo-crop/#cropping-limits). Here's the at-width (2x pixel density) crop for comparison:
 
-{% img {path: "/assets/garage/photo-notebook/focus-shrubs-166mm-tw.moz80.jpg"}, false, false %}
+![](/assets/garage/photo-notebook/focus-shrubs-166mm-tw.moz80.jpg)
 
 <p class="figcaption">At "166mm" crop, this should display pixel-for-pixel on a 2x density screen. [f1.7]</p>
 
