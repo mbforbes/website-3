@@ -104,7 +104,6 @@ coverImage: /assets/garage/image-placeholder-test-page/test-cover.moz80.jpg
     "/assets/garage/image-test-pages/v1-1409x1878.moz80.jpg"
 ] %}
 
-
 ## v2 (`img2`)
 
 ### Full-width
@@ -253,13 +252,13 @@ All demonstrated here with `fullWidth: false`.
 <p class="figcaption">maxWidth: 300px</p>
 
 {% img2 [
-    "/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg"
-], {fullWidth: false, extraImgClasses: "ba bw4 b--red"} %}
+    {path: "/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg", extraClasses: "ba bw4 b--red"}
+], {fullWidth: false} %}
 
-<p class="figcaption">extraImgClasses: ba bw4 b--red</p>
+<p class="figcaption">extraClasses: ba bw4 b--red</p>
 
 {% img2 [
-    "/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg"
-], {fullWidth: false, maxWidth: "300px", extraImgClasses: "ba bw4 b--red"} %}
+    {path: "/assets/garage/image-test-pages/v2-2280x1522.moz80.jpg", extraClasses: "ba bw4 b--red"}
+], {fullWidth: false, maxWidth: "300px"} %}
 
-<p class="figcaption">maxWidth: 300px, extraImgClasses: ba bw4 b--red</p>
+<p class="figcaption">maxWidth: 300px, extraClasses: ba bw4 b--red</p>

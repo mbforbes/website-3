@@ -38,7 +38,6 @@ Anyway, more on that whole topic some other time. Aix had a gazillion fountains 
     "<a href='https://www.seattletimes.com/life/food-drink/as-all-time-favorite-restaurant-cafe-press-closes-forever-seattle-says-a-sad-adieu/'>RIP Café Presse</a>. I actually never knew what the yellow sign meant&mdash;it indicates a news seller."
 %}
 
-
 {% img2 [[
     "/assets/posts/2022-france/aix-room.moz80.jpg",
     "/assets/posts/2022-france/aix-weird-ad.moz80.jpg"
@@ -59,16 +58,14 @@ For example, if you're trying to pay the bill in Spanish, you learn that you do 
 
 If you ask Google Translate how to say "the bill" or "the check," it will tell you:
 
-
 {% img2 [[
-    "/assets/posts/2022-france/gt-the-bill.moz80.jpg",
-    "/assets/posts/2022-france/gt-the-check.moz80.jpg"
-]], {maxWidth: "800px", extraImgClasses: "ba b--black-10"} %}
-
+    {path: "/assets/posts/2022-france/gt-the-bill.moz80.jpg", extraClasses: "ba b--black-10"},
+    {path: "/assets/posts/2022-france/gt-the-check.moz80.jpg", extraClasses: "ba b--black-10"}
+]], {maxWidth: "800px"} %}
 
 You need to add "please" on there for it to understand what your intent is:
 
-{% img2 "/assets/posts/2022-france/gt-the-bill-please.moz80.jpg", {maxWidth: "400px", extraImgClasses: "ba b--black-10"} %}
+{% img2 {path: "/assets/posts/2022-france/gt-the-bill-please.moz80.jpg", extraClasses: "ba b--black-10"}, {maxWidth: "400px"} %}
 
 Here's one from France. We saw this bus painted with a huge _le car._
 
@@ -76,11 +73,11 @@ Here's one from France. We saw this bus painted with a huge _le car._
 
 What does that mean?
 
-{% img2 "/assets/posts/2022-france/gt-le-car.moz80.jpg", {maxWidth: "400px", extraImgClasses: "ba b--black-10"} %}
+{% img2 {path: "/assets/posts/2022-france/gt-le-car.moz80.jpg", extraClasses: "ba b--black-10"}, {maxWidth: "400px"} %}
 
 Yes, very intuitive France, thanks. But try going the other way:
 
-{% img2 "/assets/posts/2022-france/gt-the-bus.moz80.jpg", {maxWidth: "400px", extraImgClasses: "ba b--black-10"} %}
+{% img2 {path: "/assets/posts/2022-france/gt-the-bus.moz80.jpg", extraClasses: "ba b--black-10"}, {maxWidth: "400px"} %}
 
 Wonderful.
 
@@ -90,7 +87,7 @@ You seem to need to come up with specific incantations to see them.
 If you provide "the bus"---which you might think to do for languages like Spanish or French that love having words like "the" before nouns---it won't give you any other options.
 But, if you just write "bus," then below, you'll see other options:
 
-{% img2 "/assets/posts/2022-france/gt-bus.moz80.jpg", {maxWidth: "400px", extraImgClasses: "ba b--black-10"} %}
+{% img2 {path: "/assets/posts/2022-france/gt-bus.moz80.jpg", extraClasses: "ba b--black-10"}, {maxWidth: "400px"} %}
 
 The frequencies are a great touch (though unfortunately they don't show up on the iPhone app).
 
@@ -126,7 +123,6 @@ The flavors in France are at least interesting, so we were cautiously optimistic
     "/assets/posts/2022-france/dominos-2.moz80.jpg",
     "/assets/posts/2022-france/dominos-3.moz80.jpg"
 ]] %}
-
 
 <p class="figcaption">
 I am impressed by that they had so many interesting and weird cheeses at freaking Domino's.
@@ -201,7 +197,6 @@ Before going on this trip, I even made Julie promise, hey, we are _not_ going to
 But now that we're here, it's like we'll be walking along the street, and suddenly, _holy crap, that building is enormous, and totally beautiful._
 
 {% img2 "/assets/posts/2022-france/ms-church-top.moz80.jpg", {fullWidth: false} %}
-
 
 Then, you go inside, and your eyes start melting from the fractal details carved & painted into a thousand surfaces everywhere you look.
 

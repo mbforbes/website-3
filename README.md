@@ -68,7 +68,6 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 
 ## TODO
 
-- [ ] per-macro `extraImgClasses` --> per-image `img.extraClasses`
 - [ ] try to get all citymaps w/ attributions swapped to being at end
   - could check w/ regex, but also want to do citypics after them where applicable
 - [ ] cover images: re-export so big enough!?

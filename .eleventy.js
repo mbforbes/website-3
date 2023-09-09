@@ -718,11 +718,12 @@ module.exports = function (eleventyConfig) {
      *
      * @returns {Promise<string>} (HTML)
      */
-    async function imgSpecToHTML2(img, n, { fullWidth, extraImgClasses }) {
+    async function imgSpecToHTML2(img, n, { fullWidth }) {
+        const extraClasses = img.extraClasses ?? "";
+
         // video
         if (img.mp4Path || img.vimeoInfo || img.youtubeInfo) {
             const aspectRatio = img.aspectRatio ?? "16 / 9";
-            const extraClasses = img.extraClasses ?? "";
             if (img.mp4Path) {
                 return `
                 <video autoplay muted loop playsinline class="novmargin">
@@ -739,26 +740,18 @@ module.exports = function (eleventyConfig) {
         }
 
         // image
-        let path;
-        let extraClasses = "";
-        if (typeof img === "string") {
-            path = img;
-        } else {
-            path = img.path;
-            extraClasses = img.extraClasses ?? "";
-        }
-
         // w, h, thumbhash, srcset, sizes
-        let [w, h, thumbhash64] = await getWHTHB64(path);
-        let thAttr = (thumbhash64 == null) ? "" : `data-thumbhash-b64="${thumbhash64}"`;
-        let [srcSet, sizes] = await getSrcsetSizes(path, w, "v2", fullWidth, n)
+        const path = typeof img === "string" ? img : img.path;
+        const [w, h, thumbhash64] = await getWHTHB64(path);
+        const thAttr = (thumbhash64 == null) ? "" : `data-thumbhash-b64="${thumbhash64}"`;
+        const [srcSet, sizes] = await getSrcsetSizes(path, w, "v2", fullWidth, n)
 
         // image source / path debug / preview / display
-        // let pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
-        let pathDisplay = "";
+        // const pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
+        const pathDisplay = "";
         return `<img
             src="${path}"
-            class="db bare novmargin h-auto bg-deep-red ${extraImgClasses}"
+            class="db bare novmargin h-auto bg-deep-red ${extraClasses}"
             loading="lazy" decoding="async"
             width="${w}" height="${h}" ${thAttr}
             srcset="${srcSet}" sizes="${sizes}"
@@ -849,8 +842,8 @@ module.exports = function (eleventyConfig) {
         `;
     }
 
-    async function oneBigImage2(imgSpec, marginClasses, { fullWidth, maxWidth, extraImgClasses }) {
-        let imgHTML = await imgSpecToHTML2(imgSpec, 1, { fullWidth, extraImgClasses });
+    async function oneBigImage2(imgSpec, marginClasses, { fullWidth, maxWidth }) {
+        let imgHTML = await imgSpecToHTML2(imgSpec, 1, { fullWidth });
         let fwClasses = fullWidth ? "full-width cb" : "";
         let phClass = fullWidth ? "ph1-m ph3-l" : "";
         let widthClass = !maxWidth ? "media-width" : "";
@@ -888,9 +881,9 @@ module.exports = function (eleventyConfig) {
         `;
     }
 
-    async function twoBigImages2(imgSpecs, marginClasses, { fullWidth, maxWidth, extraImgClasses }) {
-        let imgHTML1 = await imgSpecToHTML2(imgSpecs[0], 2, { fullWidth, extraImgClasses });
-        let imgHTML2 = await imgSpecToHTML2(imgSpecs[1], 2, { fullWidth, extraImgClasses });
+    async function twoBigImages2(imgSpecs, marginClasses, { fullWidth, maxWidth }) {
+        let imgHTML1 = await imgSpecToHTML2(imgSpecs[0], 2, { fullWidth });
+        let imgHTML2 = await imgSpecToHTML2(imgSpecs[1], 2, { fullWidth });
 
         let fwClasses = fullWidth ? "full-width cb" : "";
         let phClass = fullWidth ? "ph1-m ph3-l" : "";
@@ -926,10 +919,10 @@ module.exports = function (eleventyConfig) {
         `;
     }
 
-    async function threeBigImages2(imgSpecs, marginClasses, { fullWidth, maxWidth, extraImgClasses }) {
-        let imgHTML1 = await imgSpecToHTML2(imgSpecs[0], 3, { fullWidth, extraImgClasses });
-        let imgHTML2 = await imgSpecToHTML2(imgSpecs[1], 3, { fullWidth, extraImgClasses });
-        let imgHTML3 = await imgSpecToHTML2(imgSpecs[2], 3, { fullWidth, extraImgClasses });
+    async function threeBigImages2(imgSpecs, marginClasses, { fullWidth, maxWidth }) {
+        let imgHTML1 = await imgSpecToHTML2(imgSpecs[0], 3, { fullWidth });
+        let imgHTML2 = await imgSpecToHTML2(imgSpecs[1], 3, { fullWidth });
+        let imgHTML3 = await imgSpecToHTML2(imgSpecs[2], 3, { fullWidth });
 
         let fwClasses = fullWidth ? "full-width cb" : "";
         let phClass = fullWidth ? "ph1-m ph3-l" : "";
@@ -1030,7 +1023,6 @@ module.exports = function (eleventyConfig) {
      * @param options - {
      *   fullWidth: boolean, default: true
      *   maxWidth: string, any max-width to set on all rows (no default)
-     *   extraImgClasses: string, any classes to add to every <img /> (no default)
      * }
      */
     async function img2(imgs, options = {}) {
