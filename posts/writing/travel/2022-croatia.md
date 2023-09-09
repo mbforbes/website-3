@@ -6,17 +6,18 @@ travel_start: 2022-06-11
 travel_end: 2022-06-20
 image: /assets/posts/2022-croatia/prim-roof.moz80.jpg
 redirect_from: /blog/croatia/
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
 ## Dubrovnik
 
-{% cityMap "/assets/posts/2022-croatia/dubrovnik-croatia-12-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-croatia/dubrovnik-croatia-12-perimeter.moz80.jpg", false, true, false %}
 
-{% img "/assets/posts/2022-croatia/dub-city.moz80.jpg" %}
+{% cityPic "/assets/posts/2022-croatia/dub-city.moz80.jpg" %}
 
 We arrived in Dubrovnik and immediately realized with sinking hearts: the entire walled city is a tourist Disneyland. It's one huge attraction. With ultra-inflated prices to boot. (You know it's bad if restaurants list prices in foreign currencies for your convenience.)
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-croatia/dub-chair.moz80.jpg",
      "/assets/posts/2022-croatia/dub-inlet.moz80.jpg"
 ]] %}
@@ -25,7 +26,7 @@ We arrived in Dubrovnik and immediately realized with sinking hearts: the entire
 <span class="i">A chair of one's own and 25€ for a bloody entrée.</span> &ndash; Virginia Woolf
 </p>
 
-{% img  "/assets/posts/2022-croatia/dub-walls.moz80.jpg" %}
+{% img2  "/assets/posts/2022-croatia/dub-walls.moz80.jpg" %}
 
 <p class="figcaption">
 Part of the attraction is that, apparently, a featured location in <span class="i">Game of Thrones</span> is a heavily CGI enhanced version of Dubrovnik. I haven't seen Game of Thrones, but here's a <a href="https://www.youtube.com/watch?v=rUldAQ2Haqo">great video</a> where someone photoshops pictures they took of Dubrovnik into scenes from GoT. As you might imagine, this whole situation means the city is riddled with Game of Thrones Walking Tours and Game of Thrones Official-ish Merchandise.
@@ -36,11 +37,11 @@ We immediately set a plan in action: cook our own food, and do as much as we can
 
 One of the free things you can do is swim in the coves and beaches around town.
 
-{% img "/assets/posts/2022-croatia/dub-cove.moz80.jpg" %}
+{% img2 "/assets/posts/2022-croatia/dub-cove.moz80.jpg" %}
 
 You can also hike up the hill nearby the old town for some lovely views.
 
-{% img [
+{% img2 [
     [
          "/assets/posts/2022-croatia/dub-flag.moz80.jpg",
           "/assets/posts/2022-croatia/dub-island.moz80.jpg"
@@ -54,13 +55,13 @@ One thing I have been surprised to find myself interested in while traveling is:
 
 ... or tromp around this other forest park in the city.
 
-{% img "/assets/posts/2022-croatia/dub-hike.moz80.jpg" %}
+{% img2 "/assets/posts/2022-croatia/dub-hike.moz80.jpg" %}
 
 <p class="figcaption">
 Here is something I never appreciated about hikes: if they go up high, there is a good view at the end. I always assumed this just sort of happens naturally. But cresting this hill <span class="i">(Velika and Mala Petka Forest Park)</span>, there was no view. Nearly all directions were blocked by infrastructure or growth. I realized that someone like a forest department probably has to actually plan for viewpoint equipment (platforms, stairs, guard rails) and ecological maintenance (tasteful but non-destructive pruning) and natural beauty lobbying (vs, say, the power or comms depts.) for cases when a view doesn't just throw itself at you.
 </p>
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-croatia/dub-smirk.moz80.jpg",
     "/assets/posts/2022-croatia/dub-turtle.moz80.jpg"
 ]] %}
@@ -71,7 +72,7 @@ I think this is the only time I have seen a statue truly just smirking. I almost
 
 ## ⛴ → Split
 
-{% img [
+{% img2 [
     "/assets/posts/2022-croatia/boat-sign.moz80.jpg",
     "/assets/posts/2022-croatia/boat-water-texture.moz80.jpg",
     "/assets/posts/2022-croatia/boat-pastel.moz80.jpg"
@@ -83,9 +84,9 @@ Really like the water texture on that second one. Almost looks like leather.
 
 ## Primošten
 
-{% cityMap "/assets/posts/2022-croatia/primosten-croatia-16-r750.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-croatia/primosten-croatia-16-r750.moz80.jpg", false, true, false %}
 
-{% img "/assets/posts/2022-croatia/prim-city.moz80.jpg" %}
+{% cityPic "/assets/posts/2022-croatia/prim-city.moz80.jpg" %}
 
 <p class="figcaption">
 The Croatian waters brim with tiny islands. The whole coastline looks like forest cells in various stages of geological mitosis.
@@ -99,7 +100,7 @@ It turns out, the island city is more like Dubrovnik's old town, in that it's go
 
 So that's the geography. Re: who is there, we came before peak season really hit, but even still, this was clearly a resort town. Menus in English and German, vacationers filling the restaurants and beaches. Apparently more Polish tourists than usual. I guess the Croatian coast thrives off tourism, so everywhere you go will be more or less like this. Another humbling aspect of traveling is repeatedly being wrong in this assumption: if I'd never heard of a place, others won't have either.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-croatia/prim-pano.moz80.jpg",
     [
         "/assets/posts/2022-croatia/prim-tower.moz80.jpg",
@@ -109,7 +110,7 @@ So that's the geography. Re: who is there, we came before peak season really hit
         "/assets/posts/2022-croatia/prim-burek.moz80.jpg",
         "/assets/posts/2022-croatia/prim-ramp.moz80.jpg"
     ]
-], true %}
+] %}
 
 <p class="figcaption">
 <span class="b">
@@ -126,7 +127,7 @@ There's kind of a Rorschachian beauty in guessing the purpose of novel infrastru
 
 Our second favorite thing was visiting a long decommissioned, gutted hotel.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-croatia/prim-stair.moz80.jpg",
         "/assets/posts/2022-croatia/prim-hall.moz80.jpg"
@@ -138,7 +139,7 @@ Our second favorite thing was visiting a long decommissioned, gutted hotel.
     ],
     "/assets/posts/2022-croatia/prim-bowl.moz80.jpg",
     "/assets/posts/2022-croatia/prim-roof.moz80.jpg"
-], true %}
+] %}
 
 Top fav thing may or may not have been utilizing the local huge inflated floating obstacle course (not pictured).
 
@@ -154,7 +155,7 @@ This is cool, because it adds a new middle layer to the "language / dialect" lin
 
 ### Bonus: me + 2 animal pals
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-croatia/prim-bug.moz80.jpg",
     "/assets/posts/2022-croatia/prim-owl.moz80.jpg"
 ]] %}
@@ -166,13 +167,13 @@ According to expert bird man, hands and fingers are potential threads so receive
 
 ## Zagreb
 
-{% cityMap "/assets/posts/2022-croatia/zagreb-croatia-4-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-croatia/zagreb-croatia-4-perimeter.moz80.jpg", false %}
 
 I liked Zagreb. It was cheap and interesting, and we had an easy time getting around and talking to people.
 
 The only odd thing was nearly everywhere we went, every time of day and every day of the week, the streets were quite barren.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-croatia/zag-yellow-building.moz80.jpg",
         "/assets/posts/2022-croatia/zag-church.moz80.jpg"
@@ -200,7 +201,7 @@ OK, hear me out: <span class="i">Regular Bar</span> is a great name for a bar.
 This says, in German, <span class="i">used clothing sold at the cheapest prices.</span> German, you might ask? Didn't we just have a whole linguistic interlude on Serbo-Croatian? Right, but recall that before WWI, this was part of Austria-Hungary. But still, why German? Wasn't Croatian a widely spoken & <a href="https://en.wikipedia.org/wiki/Austria-Hungary">official language</a> of AH? Here's where I really ought to read a history book, but from hearsay: German, the language of power, was used for matters of greater business and authority. So, here we are, over 100 years later, and the façade of this building still has a thrift shop sign carved in German letters. This is the kind of stuff historical stuff I like.
 </p>
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-croatia/zag-god-dead.moz80.jpg",
     "/assets/posts/2022-croatia/zag-toaster.moz80.jpg"
 ]] %}

@@ -31,6 +31,7 @@ attributions: The two animated maps showing Serbia use map tiles by [Stamen Desi
 {% include "maps/serbia-maps.njk" %}
 
 I liked Serbia a lot.
+
 - Almost no tourists
 - Interesting and different
 - People are friendly, and treated us honestly
@@ -46,6 +47,7 @@ Queueing. The British love queueing. The only other place more obsessed with lin
 So that's probably why, in our chaotic trip from London's Luton airport to Serbia's capital Belgrade where our flight was cancelled when we were already at the gate and moved to the next day, I got annoyed when people cut in line. Constantly.
 
 No line was safe.
+
 - People cut in lines to talk to agents
 - People cut in the dinner line
 - People cut in the booking line (and took the cab we called)
@@ -69,7 +71,7 @@ I started rooting for the rare occasions they would get kicked to the back of th
 
 {% cityMap "/assets/posts/2022-serbia/belgrade-serbia-1-perimeter.moz80.jpg", false, false %}
 
-{% img "/assets/posts/2022-serbia/b-sunset-wide.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-serbia/b-sunset-wide.moz80.jpg" %}
 
 "It’s all quite run down, isn’t it?"
 
@@ -88,7 +90,7 @@ So as a foreigner, what to do? We found the airport bus.
 The airport bus is also funny because you have to pay in cash, and the drivers were all demanding cash prices that did not match what we'd read online.
 We eventually decided it wasn't worth the logistical acrobatics to find another mode of transport, so we wormed our way into the comically small single bus serving a fraction of the hoard of people arriving at the airport of Serbia's most populous city.
 
-{% img "/assets/posts/2022-serbia/b-street-walk.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-serbia/b-street-walk.moz80.jpg" %}
 
 There we were, crammed into the back of what has become a clown car.
 Everyone is hunched over their luggage and most people ended up standing.
@@ -104,7 +106,7 @@ He continued, "it looks like Sim City, where you have three kinds of buildings a
 
 Months after visiting Belgrade, I found its perfect pithy descriptor: **50 shades of cement**.[^emily]
 
-{% img "/assets/posts/2022-serbia/b-skyline-small.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-serbia/b-skyline-small.moz80.jpg" %}
 
 [^emily]: This blistering name was given by https://wander-lush.org/, who I will now link in return for that wonderful noun phrase.
 
@@ -114,7 +116,7 @@ But mostly, they really had poured concrete here like there was no tomorrow.
 
 Here's a brief vibe reel:
 
-{% img [
+{% img2 [
     "/assets/posts/2022-serbia/b-shadow-hallway.moz80.jpg",
     [
         "/assets/posts/2022-serbia/b-statue-butt.moz80.jpg",
@@ -132,13 +134,13 @@ Here's a brief vibe reel:
     ],
     "/assets/posts/2022-serbia/b-bridge-2.moz80.jpg",
     "/assets/posts/2022-serbia/b-lake.moz80.jpg"
-], true %}
+] %}
 
 My favorite brutalist buildings are these multi-part complexes. So many modern structures are visually contained by a single shape: a twisty tower, a big egg, or an exploded pile of metal (lookin' at you, Gehry). But behemoths here seem to be the result of gluing together great geometrical chunks. They strangely fascinate me.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-serbia/b-building-city-center-complex.moz80.jpg"
-], true %}
+] %}
 
 ### Digraphia
 
@@ -154,21 +156,21 @@ Everywhere, you see both Latin and Cyrillic. Billboards, store names, street sig
 
 <p class="figcaption">Cyrillic letters & italic variants.</p>
 
-{% img "/assets/posts/2022-serbia/b-betting.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-serbia/b-betting.moz80.jpg" %}
 
 ### Saint Sava Temple
 
-{% img [
+{% img2 [
     "/assets/posts/2022-serbia/b-church-outside.moz80.jpg",
     "/assets/posts/2022-serbia/b-church-inside.moz80.jpg"
-], true %}
+] %}
 
 Towering on the outside. Inside, a ceiling bursting with drawings and gold plating. But then... there’s all this empty space. Nobody’s using it for anything. And there’s this wall of construction, a big cord going across, random objects. And on the outside, scaffolding and piles of material.
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-serbia/b-chruch-inside-construction-tall.moz80.jpg",
     "/assets/posts/2022-serbia/b-church-outside-construction-tall.moz80.jpg"
-]], true %}
+]] %}
 
 It’s this half-orderly stuff that caught my eye.
 Fences that don’t quite reach anywhere, and people don’t really care about them.
@@ -183,7 +185,7 @@ Outside, signs proudly feature Putin contributing a little piece to the building
 
 ### Repair and Disrepair
 
-{% img "/assets/posts/2022-serbia/b-building-large.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-serbia/b-building-large.moz80.jpg" %}
 
 "There are no puddles in Switzerland."
 
@@ -206,9 +208,9 @@ Coming to Belgrade form London, I naturally observed:
 
 This triggered the start of my reflecting on the concept of _repair._ How repair is a permanent necessity for human-made environments. Everything must always be in a continuous state of repair, or fall into disrepair.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-serbia/b-building-side.moz80.jpg"
-], true %}
+] %}
 
 When you start noticing this stuff, it’s easy to hunt for the most destroyed buildings, the biggest ugliest commie blocks, the grossest pile of trash. Photograph those and tell one story with it.
 
@@ -221,16 +223,17 @@ When you start noticing this stuff, it’s easy to hunt for the most destroyed b
 <p class="figcaption">Some disarray is subtle, like the jets of this fountain exhibiting wildly different water pressure levels.</p>
 
 But the story of ruins and rubble isn't true, of course. The truth is somewhere in the middle. Because at the same time, there were signs of newness and wealth:
+
 - brand new gorgeous construction
 - manicured lawns, flower beds, and art sprinkled about business parks
 - Rolls Royce, Mercedes, etc.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-serbia/b-building-cutout.moz80.jpg",
     "/assets/posts/2022-serbia/b-building-sharp.moz80.jpg",
     "/assets/posts/2022-serbia/b-building-new-ledges.moz80.jpg",
     "/assets/posts/2022-serbia/b-dot-building.moz80.jpg"
-], true %}
+] %}
 
 Sometimes you would see both failed construction and newness in the same place. Belgrade's train station is perpetually half-built, years overdue. Tracks plunge into a great concrete ceiling that has the vague hopes of a second story sticking out of it.
 
@@ -272,7 +275,6 @@ There was a little girl in the gym, running around while her Serbian dad trained
 Reminded me of the media language effect:[^mle] simply having a better education system doesn't automatically correlate with better English skills. Because in places that produce lots of media in their own tongue (e.g., France, Japan), kids don't have to grow up on foreign films and TV.[^claim]
 
 [^mle]: This thing I'm calling "the media language effect" may be a well-known thing in whatever field studies this (anthropology? linguistics?), or it may be I invented the idea and it's actually totally false if you look at the data. Can't remember, haven't got the time to Google right now.
-
 [^claim]: Not claiming anything here about "everyone _should_ learn English" or anything like that. Just an observation as a wandering monolingual idiot seeing who I can talk to.
 
 ### New Belgrade: Brutalist Utopia
@@ -287,28 +289,28 @@ We took a long sweltering walk across the river to New Belgrade.
 
 Buildings that felt supremely 80s/90s corporate. Rows and rows of---at last---hardcore commie blocks. All with seemingly 50% odds of being maintained.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-serbia/b-green-glass-whole.moz80.jpg",
     "/assets/posts/2022-serbia/b-block-many.moz80.jpg",
     "/assets/posts/2022-serbia/b-block-sky.moz80.jpg",
     "/assets/posts/2022-serbia/b-block-zoom.moz80.jpg",
     "/assets/posts/2022-serbia/b-red-whole.moz80.jpg",
     "/assets/posts/2022-serbia/b-block-yellow.moz80.jpg"
-], true %}
+] %}
 
 But the true star of the show was the Western City Gate.
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-serbia/b-tower-out.moz80.jpg",
     "/assets/posts/2022-serbia/b-tower-center.moz80.jpg"
-]], false %}
+]] %}
 
 This thing is so weird and unique and beautiful in the hopeless way only brutalism can achieve.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-serbia/b-tower-under.moz80.jpg",
     "/assets/posts/2022-serbia/b-tower-up.moz80.jpg"
-], true %}
+] %}
 
 There were three ingredients that made it extra special. First, despite it being Belgrade's most interesting building,[^yugobrut] we saw zero other tourists there during our whole visit.
 
@@ -316,16 +318,16 @@ There were three ingredients that made it extra special. First, despite it being
 
 Second, even though it's still a functional apartment building, the area around it is all but destroyed.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-serbia/b-tower-surrounding.moz80.jpg",
     "/assets/posts/2022-serbia/b-tower-theater.moz80.jpg"
-], true %}
+] %}
 
 And third, the lobby looks like vaporwave stock photo. It's amazing.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-serbia/b-tower-inside.moz80.jpg"
-], true %}
+] %}
 
 We asked a guy inside whether we could go up to the restaurant at the top. He said no. (I don't think it's operational.)
 
@@ -371,10 +373,10 @@ Simple foods like börek and coffee were wonderfully cheap and delicious.
 
 <p class="figcaption">I hadn't thought so much about regulation for a while. Like, limiting what people can do. (E.g., drive on grass and destroy it.) I have a hypothesis that, like many things, people are most comfortable with the amount of regulation in the place they grew up. (Destroyed grass also happens in the USA, especially in parks they're setting up for a festival like this.)</p>
 
-{% img [[
+{% img2i [[
     "/assets/posts/2022-serbia/b-goog-maps-1.moz80.jpg",
     "/assets/posts/2022-serbia/b-goog-maps-2.moz80.jpg"
-]], false, false %}
+]] %}
 
 {% doubleCaption "Take a stroll down the lovely BLOK 66A, or perhaps the refined BLOK 28.", "There are some true gems in translated Google Maps reviews." %}
 
@@ -382,16 +384,15 @@ Simple foods like börek and coffee were wonderfully cheap and delicious.
 
 {% cityMap "/assets/posts/2022-serbia/novi-sad-serbia-1-perimeter.moz80.jpg", false %}
 
-{% img "/assets/posts/2022-serbia/n-bridge.jpg", true %}
+{% img2 "/assets/posts/2022-serbia/n-bridge.jpg" %}
 
 We took a day trip to Novi Sad, Serbia's second most populous city.
 
 Novi Sad has a few churches, an unfinished bridge, and a sign that bafflingly declares it the European Capital of Culture.[^award]
 
-
 [^award]: Novi Sad was one of the three _European Capitals of Culture_ of 2022. On first glance, this award seems to have incomprehensible criteria. Paris won in '89 and it's been downhill ever since. The _Capital of Culture_ designation now goes annually to cities you've never heard of---the other two in 2022 were Veszprém (Hungary) and Timișoara (Romania). The purpose is to "foster urban regeneration" (quoth [Wikipedia](https://en.wikipedia.org/wiki/European_Capital_of_Culture)) rather than some kind of achievement. So, again, can't dunk on it too hard.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-serbia/n-broken-building.moz80.jpg",
     "/assets/posts/2022-serbia/n-capital-culture.moz80.jpg",
     "/assets/posts/2022-serbia/n-car.moz80.jpg",
@@ -405,7 +406,7 @@ Novi Sad has a few churches, an unfinished bridge, and a sign that bafflingly de
     "/assets/posts/2022-serbia/n-plaza.moz80.jpg",
     "/assets/posts/2022-serbia/n-tunnel-look.moz80.jpg",
     "/assets/posts/2022-serbia/n-beer-pong.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">Shoutout to this statute of a guy poised to throw a ping pong ball into a solo cup.</p>
 
@@ -425,18 +426,18 @@ This is the kind of entertainment you get when you DIY somewhere. We'd eventuall
 
 Setting into town, there were a handful of brightly painted buildings I obediently photographed.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-serbia/s-building-pink-close.moz80.jpg",
     "/assets/posts/2022-serbia/s-building-spain-wide.moz80.jpg",
     "/assets/posts/2022-serbia/s-building-striped.moz80.jpg",
     "/assets/posts/2022-serbia/s-church-wide.moz80.jpg"
-], true %}
+] %}
 
 But we weren't here for the buildings. This town's fame is wine. It's like the Napa Valley of Serbia, I guess.
 
 We climbed up into the hills and barren roads of the town, seeking a place to pay for some local pours. But luck was not on our side.
 
-{% img "/assets/posts/2022-serbia/s-street.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-serbia/s-street.moz80.jpg" %}
 
 Wandering from winery to winery, we were turned away at each one. We didn't have a reservation. Hoards of senior citizens had mopped up all the slots. We seemed to be the only ones in the town who hadn't arrived on a tour bus with a booking already set. It was hot, and we were running dangerously close to closing hour.
 
@@ -446,7 +447,7 @@ But then he said, hey, come check out the place. He showed us where they kept th
 
 After spending a good forty minutes with him, I tried to pay him when we said goodbye. He wouldn't take anything.
 
-{% img "/assets/posts/2022-serbia/s-wine.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-serbia/s-wine.moz80.jpg" %}
 
 This was some serious generosity to two random foreigners who walk into your place. The least I can do is give them a plug: if you end up in Sremski Karlovci, check out Petrovic. Their remodel should be done by the time you visit. There's no way he would remember us, but tell him thanks from two Americans to whom he showed touching hospitality warmth when they were hot and tired and wanted Cab. Sav.
 
@@ -456,11 +457,12 @@ This was some serious generosity to two random foreigners who walk into your pla
 
 ## To Bosnia
 
-{% img "/assets/posts/2022-serbia/b-fly.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-serbia/b-fly.moz80.jpg" %}
 
 After a week in Serbia, we boarded a prop plane for Sarajevo.
 
 Our final view of Belgrade summarized common landscapes of ex-Yugoslavia:
+
 - great sectors of commie blocks
 - ... bordered by old homes with clay shingled roofs
 - ... all nestled in the bend of a tree-lined wide river.

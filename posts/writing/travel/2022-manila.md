@@ -47,7 +47,7 @@ We went instead to the coupon taxi queue, which only had one or two people in it
 
 With resignation, we joined what we had spent the whole time hoping we wouldn't have to join: the metered line.
 
-{% img "/assets/posts/2022-manila/IMG_9474.moz80.jpg", false, false %}
+![](/assets/posts/2022-manila/IMG_9474.moz80.jpg)
 
 As we wait, I have a bit of time to look around. There is a _police help_ desk nearby you would hope you could use to ask who to trust, given trust is apparently a problem because all the cops have shotguns. There is no one at the desk.
 
@@ -63,13 +63,13 @@ When we get to our complex, the building entrance has an iron gate with a padloc
 
 We tell her the apartment we're to be staying at, which she didn't know anything about, but after writing our names down on a piece of paper she was fine giving us a key to the room.
 
-{% img "/assets/posts/2022-manila/IMG_9497.moz80.jpg", false, false %}
+![](/assets/posts/2022-manila/IMG_9497.moz80.jpg)
 
 <p class="figcaption">Even in the iron gate'd building complex, our individual unit also has iron bars on the windows facing the hallway.</p>
 
 We get into the apartment, and there's one last task for the day. In the shower is the largest cockroach we'd seen yet. (Aren't they supposed to run away? They never seem to.) It's Julie's turn to kill it. Here's a photo of her armored up in oven gloves and armed with my shoe, working up the nerves to crunch its little body into the afterlife.
 
-{% img "/assets/posts/2022-manila/IMG_9479.moz80.jpg", false, false %}
+![](/assets/posts/2022-manila/IMG_9479.moz80.jpg)
 
 <p class="figcaption">It took maybe fifteen minutes for her to summon the courage. I want to say it was a growing experience, though I feel a bit bad. But I don't want to kill all of them myself. Gross!</p>
 
@@ -88,7 +88,7 @@ Metro Manila has roughly 14M people and is made up of sixteen cities, including 
 
 The city conglomerate is enormous. Its zones range from _ultra developed_ to _50% jungle_ to _scrap-built shacks._ On a twenty-five minute drive,^[Forty minutes in practice.] we'd easily see all three.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-manila/IMG_9562.moz80.jpg",
     "/assets/posts/2022-manila/IMG_9489.moz80.jpg",
     "/assets/posts/2022-manila/IMG_9502.moz80.jpg"
@@ -122,27 +122,27 @@ We met a Canadian at a climbing gym who'd been living in Manilla for the last fe
 
 Manilla does have a serious mall game. "Malls, Guns, and Traffic" could maybe be a decent tagline---hey, just like the USA. Wander to one mall, and it's actually a four-part mall complex. Don't like any of those malls? Well, good news, it's directly connected to multiple other malls / mall complexes. Inside, unfortunately: all chains, and a surprising amount of American goods.
 
-{% img "/assets/posts/2022-manila/IMG_9609.moz80.jpg", false, false %}
+![](/assets/posts/2022-manila/IMG_9609.moz80.jpg)
 
 <p class="figcaption">This mall complex had a whole tropical courtyard walkway thing in between the individual malls, in addition to an elevated walkway.</p>
 
-{% img "/assets/posts/2022-manila/IMG_9496.moz80.jpg", false, false %}
+![](/assets/posts/2022-manila/IMG_9496.moz80.jpg)
 
 <p class="figcaption">The mall closest to us, which we went to to buy groceries, had that funny thing where everything seems sleek until you go to the floor that nobody's on, and there's broken glass and boarded up stuff. Hey, no judgement, that's a good percentage of the USA West Coast right now.</p>
 
-{% img "/assets/posts/2022-manila/IMG_9573.moz80.jpg", false, false %}
+![](/assets/posts/2022-manila/IMG_9573.moz80.jpg)
 
 <p class="figcaption">{{ "They were so close to snagging me and then they went and actually put the word _Hipster_ in it and I couldn't go on or else I'd be a walking meme." | md | safe }}</p>
 
 Connecting mall districts were these hyper-landscaped park-ish spots that seemed to have more (armed) guards patrolling it than civilians using it. We seemed to be the only ones walking around, so maybe parking was bad and nobody could get to it.
 
-{% img "/assets/posts/2022-manila/IMG_9594.moz80.jpg", false, false %}
+![](/assets/posts/2022-manila/IMG_9594.moz80.jpg)
 
 <p class="figcaption">In case you're wondering why I don't have any pictures of these shotgun guys it's because I was afraid to point anything, even my phone, at them. Probably irrational, I know.</p>
 
 Re: OMTAs, we paid our tourist tax and saw the crumbling walls of a former fort, a few Catholic churches,^[Nothing says _lol Spain was here_ like ubiquitous Catholicism.] an extremely dirty lego model of one of those Catholic churches, statue of martyr being firing squad'd, and a big Christmas tree not even trying to look real.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-manila/IMG_9534.moz80.jpg",
     "/assets/posts/2022-manila/IMG_9509.moz80.jpg",
     "/assets/posts/2022-manila/IMG_9510.moz80.jpg",
@@ -154,13 +154,12 @@ Re: OMTAs, we paid our tourist tax and saw the crumbling walls of a former fort,
 
 The OMTA highlight was the art museum. It a bunch of lovely stuff, including a decent amount of Filipino historical art. It also had a massive section devoted to Magellan, the Portuguese / Spanish guy who spent approximately a million years on a boat before landing in the Philippines and getting killed trying to make everybody Catholic.^[The high budget Magellan exhibit, complete with all kinds of infographics and animations, was a bit bizarre. It seemed like they were celebrating, even glorifying him. But the Philippines seems largely anti-colonialism, which Magellan was explicitly doing. 🤷‍♂️]
 
-{% img [
+{% img2 [
     "/assets/posts/2022-manila/IMG_9542.moz80.jpg",
     "/assets/posts/2022-manila/IMG_9545.moz80.jpg"
 ] %}
 
 <p class="figcaption">Oddly relatable.</p>
-
 
 ## Safety, Part II: The YouTube Experience
 
@@ -186,7 +185,7 @@ The Philippines had a reputation for having great English and great service cult
 
 An order of law seemed to be that food comes with a hokey puck of rice.
 
-{% img "/assets/posts/2022-manila/IMG_9499.moz80.jpg", false, false %}
+![](/assets/posts/2022-manila/IMG_9499.moz80.jpg)
 
 <p class="figcaption">Most grub looked roughly like this.</p>
 
@@ -196,7 +195,7 @@ I'm also pleased to report that, of all the national light beers I've tried (eve
 
 We had a meal at _Lampara,_ which was awesome. This is recommendation number one.
 
-{% img [
+{% img2i [
     [
         "/assets/posts/2022-manila/IMG_9583.moz80.jpg",
         "/assets/posts/2022-manila/IMG_9585.moz80.jpg"
@@ -205,11 +204,11 @@ We had a meal at _Lampara,_ which was awesome. This is recommendation number one
         "/assets/posts/2022-manila/IMG_9586.moz80.jpg",
         "/assets/posts/2022-manila/IMG_9592.moz80.jpg"
     ]
-], false, false %}
+] %}
 
 But even more so, I have to urge you to stop for a drink at _Run Rabbit Run,_ should you find yourself in Makati. We usually try one or two top-rated craft cocktail bars in each city, and this was the best one of the entire year. Creative and fun, but most importantly, complex and impeccably balanced.
 
-{% img [
+{% img2i [
     "/assets/posts/2022-manila/IMG_9578.moz80.jpg",
     [
         "/assets/posts/2022-manila/IMG_9574.moz80.jpg",
@@ -219,8 +218,7 @@ But even more so, I have to urge you to stop for a drink at _Run Rabbit Run,_ sh
         "/assets/posts/2022-manila/IMG_9581-1.moz80.jpg",
         "/assets/posts/2022-manila/IMG_9581-2.moz80.jpg"
     ]
-], false, false %}
-
+] %}
 
 BTW, we'd heard the Internet speeds in the Philippines are miserable, but we found them to be totally fine. Good enough for video streaming and video calls. A pleasant surprise.
 

@@ -40,10 +40,10 @@ The central gorge trail acts as a long, leisurely stroll, often shaded, and most
 
 After passing a well-photographed red bridge, you'll occasionally see remnants of old infrastructure, deeply turquoise shallow water (remember, no swim&shy;ming), and live monkeys. Along the way, you'll find clusters of food and drink stands set up where tour busses park and dump off loads of transient trekkers.
 
-{% img [
+{% img2 [
     "/assets/posts/2023-hualien/IMG_2060.moz80.jpg",
     "/assets/posts/2023-hualien/IMG_2077.moz80.jpg",
-    {"vimeoInfo": "832563271?h=08e55b0679", videoStyle: "width: 100%; aspect-ratio: 4 / 3;"},
+    {"vimeoInfo": "832563271?h=08e55b0679", aspectRatio: "4 / 3"},
     "/assets/posts/2023-hualien/IMG_2078.moz80.jpg",
     "/assets/posts/2023-hualien/Moment-App-20230409123556828.moz80.jpg"
 ] %}
@@ -60,19 +60,19 @@ The best part is that it was a prank hike. There was no view at the top. Zero. N
 
 I couldn't even be mad. How many times have you thought: wouldn't it be funny if you got to the top and there was just nothing? You just had to go all the way back down? OK, I never thought it either, but it's still a great idea.
 
-The one thing we did get to see, maybe halfway down the hill, was a view of an enormous dried-up riverbed (more on that later), and what I believe is a cement factory.
+The one thing we did get to see, maybe halfway down the hill, was a view of an enormous dried-up riverbed (more on that later), and what I believe is a cement factory.f
 
-{% img [
-    {"youtubeInfo": "XiL0Ls_s9tY", videoStyle: "max-width: 100%; height: 100vh; aspect-ratio: 4 / 3;"},
+{% img2 [
+    {"youtubeInfo": "XiL0Ls_s9tY", aspectRatio: "4 / 3"},
     "/assets/posts/2023-hualien/IMG_2103.moz80.jpg",
     "/assets/posts/2023-hualien/Moment-App-20230409130834877.moz80.jpg"
 ] %}
 
 Our final stop was something called the _Tunnel of Nine Turns._^[This is as good a time as any for a lengthy aside. _Tunnel of Nine Turns,_ if directly translated from Chinese, results in the slightly less mystical sounding _Nine Turn Tunnel._ This led to those classic microconfusions where you'd ask a bus driver if they're going to _Tunnel of Nine Turns,_ the thing you've seen written online, on signs, on guidebooks, on pamphlets, etc. And they reply (in English) with _Nine Turn Tunnel,_ which is totally correct, but just different enough from what you were expecting that you second-guess yourself and repeat your version, yielding the same reply and generally annoying the line of locals behind you waiting to get on the bus. But a broader phenomenon---which I wanted to point out but completely forgot to during an earlier post---is that variations also happen when Chinese is Romanized. In other words, people decide to "spell" Chinese words using Latin characters differently. E.g., one sign might say _Lixing_ and another _Li Hsin_ (Wikipedia has an [example](https://en.wikipedia.org/wiki/Chinese_language_romanization_in_Taiwan) of both of these spellings visible on two signs next to each other). Meanwhile, Google Maps is probably auto-pronouncing someone that vaguely sounds like neither at you. This is rare in Taipei, but common when you are driving through rural areas with fewer foreign tourists. A part of me loved it when this happened. It felt like a little window into the past, and one that would disappear with time.] This is a pedestrian walkway that I guess is a bunch of landslide-prevention roofing carved into a cliff side. It's pretty nice. The gorge itself is more dramatic here than anywhere else we saw.
 
-{% img "/assets/posts/2023-hualien/IMG_2114.moz80.jpg", false, false %}
+![](/assets/posts/2023-hualien/IMG_2114.moz80.jpg)
 
-{% img [
+{% img2 [
     "/assets/posts/2023-hualien/IMG_2117.moz80.jpg",
     "/assets/posts/2023-hualien/IMG_2120.moz80.jpg"
 ] %}
@@ -87,7 +87,7 @@ We treated ourselves to one hell of a hot pot after this.^[I don't think I've me
 
 Hualien has a rocky, heavily tetrapoded coastline and the general feel of both thriving and falling apart at the same time. We ate food, walked around, met a dedicated coffee enthusiast, and played darts next to a swarm of the local bowling club's matching polos.
 
-{% img [
+{% img2 [
     "/assets/posts/2023-hualien/IMG_2132.moz80.jpg",
     "/assets/posts/2023-hualien/IMG_2136.moz80.jpg",
     "/assets/posts/2023-hualien/IMG_2138.moz80.jpg",
@@ -99,43 +99,43 @@ Hualien has a rocky, heavily tetrapoded coastline and the general feel of both t
 
 But of course I do have some little things to show you.
 
-{% img "/assets/posts/2023-hualien/IMG_2145.moz80.jpg", false, false %}
+![](/assets/posts/2023-hualien/IMG_2145.moz80.jpg)
 
 I immediately recognized the red hat. Do you? I wouldn't blame you if not, it's probably obscure even in the computer world. Check out the logo of Red Hat, Inc. (makers of, most famously, Red Hat Linux).
 
-{% img "/assets/posts/2023-hualien/red-hat-linux-logo.jpg", false, false %}
+![](/assets/posts/2023-hualien/red-hat-linux-logo.jpg)
 
 <p class="figcaption">Can't blame them, it's probably more fitting for a pool hall than a Linux distribution. The only reason I knew this was because we had Red Hat Linux floppy discs lying around at home when I was a kid. Not sure why, I don't think we ever put it on any computer.</p>
 
-{% img "/assets/posts/2023-hualien/IMG_2123.moz80.jpg", false, false %}
+![](/assets/posts/2023-hualien/IMG_2123.moz80.jpg)
 
 <p class="figcaption">Not sure what this is doing but I like it. It looks like someone repurposed the parts of a 1970s robot.</p>
 
-{% img "/assets/posts/2023-hualien/IMG_2127.moz80.jpg", false, false %}
+![](/assets/posts/2023-hualien/IMG_2127.moz80.jpg)
 
 <p class="figcaption">{{ "Hot pots have dessert courses, which is sort of a prank because you've just spent ninety minutes frantically stuffing yourself with meat and beer. In my quest to try everything, I got one of these _ICyPancakes_. It turned out, they are just shockingly faithful executions of the concept they advertise: kid's ice cream put in between normal pancakes. Don't do it, folks. " | md | safe }}</p>
 
-{% img "/assets/posts/2023-hualien/IMG_2130.moz80.jpg", false, false %}
+![](/assets/posts/2023-hualien/IMG_2130.moz80.jpg)
 
 <p class="figcaption">{{ "I reached a tipping point so I have to talk about it. What the heck is this _Brussels International Taste Institute?_ I had never heard of it and now I can't stop seeing it. I first noticed it in Spain where it was plastered all over a cooler holding some promoted brand of water (yes, water). Taiwan seems to have embraced it with a passion, because everything from butter cookies to bubble tea will sport their logo." | md | safe }}</p>
 
 ## Completing the Loop
 
-{% img {"vimeoInfo": "832563339?h=cb26cc4043", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"} %}
+{% img2 {"vimeoInfo": "832563339?h=cb26cc4043"} %}
 
 <p class="figcaption">Hualien Station, getting ready to board the train to Taipei.</p>
 
 Accompanied by misty mountains, we took our final Taiwanese train out of Hualien and back to the capital.
 
-{% img {"youtubeInfo": "qpoU3LxhWNw", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}, false, false %}
+{% img2i {"youtubeInfo": "qpoU3LxhWNw"} %}
 
 One thing I kept noticing on train rides: dry riverbeds. They were massive and appeared over and over again. What was going on? I couldn't tell if this was a seasonal thing, a climate change thing, an infrastructure thing (e.g., were they all dammed?), or what. Some brief Googling revealed that Taiwan may enter a bad situation drought-wise re: climate change and the wet season, but nothing remotely brought up the riverbeds. Strange.
 
-{% img [
+{% img2i [
     "/assets/posts/2023-hualien/Frame-02-06-2023-04-54-44.moz80.jpg",
     "/assets/posts/2023-hualien/Frame-02-06-2023-04-55-01.moz80.jpg",
     "/assets/posts/2023-hualien/Frame-02-06-2023-04-58-59.moz80.jpg"
-], false, false %}
+] %}
 
 Emerging back into Taipei was a pleasant shock. The sheer density of businesses overwhelmed---they seemed packed and stacked into every block, and every block was packed and stacked together. After a while in smaller towns, it was fun to feel lost in the big city again, even if just for one day.
 

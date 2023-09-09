@@ -6,6 +6,7 @@ travel_start: 2022-06-20
 travel_end: 2022-06-28
 image: /assets/posts/2022-slovenia/mangart-mist.moz80.jpg
 redirect_from: /blog/slovenia/
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
 Mentioning Slovenia, a few friends have said, "oh I've heard it's really beautiful and still undiscovered!"
@@ -14,13 +15,13 @@ I regret to inform you, dear reader, that Slovenia is, in fact, utterly and tota
 
 ## Ljubljana
 
-{% cityMap "/assets/posts/2022-slovenia/ljubljana-slovenia-5-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-slovenia/ljubljana-slovenia-5-perimeter.moz80.jpg", false, true, false %}
 
-{% img "/assets/posts/2022-slovenia/lj-pano.moz80.jpg" %}
+{% cityPic "/assets/posts/2022-slovenia/lj-pano.moz80.jpg" %}
 
 For such a small city (pop. ~300k), Slovenia's capital has an envious density of beautiful architecture and leisure infrastructure. Walking along the river that runs through town, there are about a million outdoor cafes packed with people. It's a lovely city to stroll and bike around.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-slovenia/lj-pink.moz80.jpg",
         "/assets/posts/2022-slovenia/lj-river.moz80.jpg"
@@ -33,7 +34,7 @@ For such a small city (pop. ~300k), Slovenia's capital has an envious density of
 
 Puppet shows were a popular storytelling form here. I'm not usually into this kinda thing, but seeing them in person, I understood why they'd have been captivating. They are intricately carved, surprisingly large (e.g., doll-sized), and offering way more degrees of control than anticipated via complex string wirings. Plus, good production value w.r.t. writing, set design, etc. Here are a couple whose stories you will probably recognize.
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-slovenia/lj-puppet-2.moz80.jpg",
     "/assets/posts/2022-slovenia/lj-puppet.moz80.jpg"
 ]] %}
@@ -50,19 +51,19 @@ One interesting aspect I never thought of post-communism: lack of people with "o
 
 [^power]: I am sure there are exceptions. Who ended up with power? Who got land? But still, the concept is interesting.
 
-{% img {path: "/assets/posts/2022-slovenia/lj-night.moz80.jpg", maxHeight: "626"}%}
+{% img2 "/assets/posts/2022-slovenia/lj-night.moz80.jpg" %}
 
 ## Bled
 
-{% cityMap "/assets/posts/2022-slovenia/bled-slovenia-5-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-slovenia/bled-slovenia-5-perimeter.moz80.jpg", false, true, false %}
 
-{% img "/assets/posts/2022-slovenia/bled-overlook.moz80.jpg" %}
+{% cityPic "/assets/posts/2022-slovenia/bled-overlook.moz80.jpg" %}
 
 Bled is this famous lake with a tiny island in the middle with a church on it. I do not have The Picture of this---maybe because we didn't pay to go in the castle, or maybe you need a drone? Anyway, google "lake bled" if interested.
 
 You can just go to the beach for free (+ parking) and have a fantastic, exhausting swim to the little island.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-slovenia/bled-three-lookers.moz80.jpg",
         "/assets/posts/2022-slovenia/bled-cliff.moz80.jpg"
@@ -75,7 +76,7 @@ You can just go to the beach for free (+ parking) and have a fantastic, exhausti
 
 ## Look At These Ski Jumps
 
-{% img "/assets/posts/2022-slovenia/ski-jump-mountains.moz80.jpg" %}
+{% img2 "/assets/posts/2022-slovenia/ski-jump-mountains.moz80.jpg" %}
 
 <p class="figcaption">
 Sorry, not in this photo. Just some establishing scenery. Ski jumps upcoming.
@@ -83,7 +84,7 @@ Sorry, not in this photo. Just some establishing scenery. Ski jumps upcoming.
 
 Pit stop. Hey, what do you think they do with ski jumps when it's off season?
 
-{% img "/assets/posts/2022-slovenia/ski-jump-wide.moz80.jpg" %}
+{% img2 "/assets/posts/2022-slovenia/ski-jump-wide.moz80.jpg" %}
 
 If you answered, "they spray water on the turf and skiers just blast off them like it's normal," then you were righter than I. Behold grainy midair proof:
 
@@ -95,15 +96,15 @@ We were informed by an ex-semi-pro skier that it's basically young light guys/ga
 
 The big one on the left was the world's biggest for a while. That whole grass strip is just the landing pad. You can barely see the start of the run peeking out through the trees. You can walk up it to experience appreciating ski lifts in real time.
 
-{% img "/assets/posts/2022-slovenia/ski-jump-lookers.moz80.jpg" %}
+{% img2 "/assets/posts/2022-slovenia/ski-jump-lookers.moz80.jpg" %}
 
 ## Bovec
 
-{% cityMap "/assets/posts/2022-slovenia/bovec-slovenia-3-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-slovenia/bovec-slovenia-3-perimeter.moz80.jpg", false %}
 
 Bovec is this mountainous region in NW Slovenia that seems to be 98% occupied by German / Austrian adventure tourists. Here is some b-roll establishing footage:
 
-{% img "/assets/posts/2022-slovenia/mountains.moz80.jpg" %}
+{% img2i "/assets/posts/2022-slovenia/mountains.moz80.jpg" %}
 
 To get to Bovec you can drive through one of two mountain passes. One stays in Slovenia, one goes through Italy for a bit. (Cue appreciation of "driving through countries in Europe is like driving through U.S. states, except they're actually different.")
 
@@ -111,12 +112,12 @@ Because we are overachievers we drove through both (one was closed). Upon pit-st
 
 Anyway, here are some photos of walking around what Google informs me are the "Julian Alps," feat. wild strawberries, frigid pool dips, and beginner-level steel rope guides.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-slovenia/short-hike-out.moz80.jpg",
         "/assets/posts/2022-slovenia/selfie.moz80.jpg"
     ],
-    {vimeoInfo: "733917188?h=25f2f93194", videoStyle: "width: 100%; aspect-ratio: 2;"},
+    {vimeoInfo: "733917188?h=25f2f93194", aspectRatio: "2"},
     [
         "/assets/posts/2022-slovenia/short-hike-berry.moz80.jpg",
         "/assets/posts/2022-slovenia/short-hike-pond.moz80.jpg"
@@ -137,7 +138,7 @@ Since there are a lot of nature photos in this one I thought it'd be good to bre
 I had not realized it, but I'd never had <span class="b">Turkish coffee</span> before. For some reason I had in my brain that a moka pot was Turkish coffee. Anyway, it is prepared by dumping coffee grounds and hot water in this adorable container with side spout. You don't filter it, you just don't pour the dregs. Tasty and top marks for presentation. This was at a restaurant where they informed us the village didn't have running water that day so we couldn't use the toilet, etc. (How were they doing the dishes?)
 </p>
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-slovenia/lj-hot-horse-menu.moz80.jpg",
     "/assets/posts/2022-slovenia/lj-food.moz80.jpg"
 ]] %}
@@ -147,7 +148,7 @@ I had not realized it, but I'd never had <span class="b">Turkish coffee</span> b
     "I did eat a bunch of ćevapčići. Sausages w/ flatbread, accompanied by grilled onions + peppers and creamy cheese. Delicious. This is apparently Serbian / Bosnian food, but is a staple in Slovenia. Traditional Slovenian food, I am told, is kind of Alps-esque: meat, potatoes, stew."
 %}
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-slovenia/lj-fill-wine.moz80.jpg",
     "/assets/posts/2022-slovenia/lj-pizza.moz80.jpg"
 ]] %}
@@ -157,7 +158,7 @@ I had not realized it, but I'd never had <span class="b">Turkish coffee</span> b
     "One nice side effect of bordering Italy is there is some amazing Italian food. This is Neapolitan pizza place <span class='i'>Verace</span>."
 %}
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-slovenia/lj-cocktail.moz80.jpg",
     "/assets/posts/2022-slovenia/lj-cocktail-2.moz80.jpg"
 ]] %}
@@ -172,28 +173,27 @@ The drinks were still quite good.
 
 ## Mangart
 
-{% img "/assets/posts/2022-slovenia/mangart-pano.moz80.jpg" %}
+{% img2 "/assets/posts/2022-slovenia/mangart-pano.moz80.jpg" %}
 
 Local mountain. First time using those steel ropes to truly scale cliff walls. Good times.
 
 After a few hours and literally every group we passed speaking German, I began to feel guilty _not_ greeting people in German.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-slovenia/mangart-sign.moz80.jpg",
         "/assets/posts/2022-slovenia/mangart-bor-passes.moz80.jpg"
     ],
     "/assets/posts/2022-slovenia/mangart-mist.moz80.jpg",
-    {vimeoInfo: "733916865?h=fd53e75a74", videoStyle: "width: 100%; aspect-ratio: 16 / 9; max-width: 1252px;", bgImgPath: "/assets/posts/2022-slovenia/julie-climbing-keyframe.moz80.jpg"},
+    {vimeoInfo: "733916865?h=fd53e75a74"},
     "/assets/posts/2022-slovenia/mangart-moss.moz80.jpg",
     [
         "/assets/posts/2022-slovenia/mangart-cliff-wall.moz80.jpg",
         "/assets/posts/2022-slovenia/mangart-ridge.moz80.jpg"
     ],
-    {vimeoInfo: "733916655?h=46183beb41", videoStyle: "width: 100%; aspect-ratio: 16 / 9; max-width: 1252px;", bgImgPath: "/assets/posts/2022-slovenia/alex-descending-keyframe.moz80.jpg"},
+    {vimeoInfo: "733916655?h=46183beb41"},
     "/assets/posts/2022-slovenia/mangart-range.moz80.jpg"
-], true %}
-
+] %}
 
 ## I Keep Failing At Buying Laundry Detergent
 
@@ -203,9 +203,9 @@ The back contains information in what I think are Polish, Hungarian, Czech, Slov
 
 [^hr]: One fun fact I looked up in Croatia: "HR" is used as their language code and license plate label, from _Republika Hrvatska_ ("Republic of Croatia"). Reminds me of how "CH" is Switzerland, for _Confoederatio Helvetica_).
 
-{% img [[
-    {path: "/assets/posts/2022-slovenia/softener-front.moz80.jpg", maxHeight: "626"},
-    {path: "/assets/posts/2022-slovenia/softener-back.moz80.jpg", maxHeight: "626"}
+{% img2i [[
+    "/assets/posts/2022-slovenia/softener-front.moz80.jpg",
+    "/assets/posts/2022-slovenia/softener-back.moz80.jpg"
 ]] %}
 
 ## Couple Final Notes

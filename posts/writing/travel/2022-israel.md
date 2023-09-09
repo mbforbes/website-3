@@ -64,6 +64,7 @@ Also, the roofs can be flat because there is no snow. Never thought about that.
 Wait, let's back up a bit. First, where we stayed.
 
 <!-- Jerusalem -->
+
 {% img2 [
     "/assets/posts/2022-israel/IMG_6664.moz80.jpg",
     "/assets/posts/2022-israel/IMG_6662.moz80.jpg"
@@ -83,12 +84,10 @@ The high rises especially have a look I haven't seen anywhere else.
     "/assets/posts/2022-israel/IMG_6833.moz80.jpg"
 ] %}
 
-
 The city---and Israel in general---is wildly expensive, on par with the priciest USA cities.[^scoreflat] I didn't believe this when they told us this, but I did after going out to eat at a "cheap, casual, local spot" and paying $20 for a small dish. Groceries are no exception to these high prices,[^groceryprice] and to make matters worse, the quality of, e.g., produce is miserable.
 
 [^scoreflat]: In hindsight, I don't know how we scored such a good rental considering this. Maybe we had some AirBnb credits leftover still?
-
-[^groceryprice]:  Each grocery trip, seeking out the cheapest stores, buying stuff like bread and eggs and pasta, cost $80 -- $100 USD for a few meals. Woof.
+[^groceryprice]: Each grocery trip, seeking out the cheapest stores, buying stuff like bread and eggs and pasta, cost $80 -- $100 USD for a few meals. Woof.
 
 ![](/assets/posts/2022-israel/IMG_6782.moz80.jpg)
 
@@ -122,9 +121,11 @@ I know extremely little about any religion's history, and suddenly there were at
 I think if you've got any interest in religion, or grew up with it, you'd get more value out of the Old City.
 
 {% img2 "/assets/posts/2022-israel/IMG_6817.moz80.jpg" %}
+
 <p class="figcaption">E.g., I remember taking a picture of the columns here because they are either true remnants or reconstructed reminders of something, maybe the historical boundaries of Jerusalem's Old City back at some time where one of the groups was happier probably, ugh I don't know.</p>
 
 While we're talking old city, here's a fun fact: it's carved up into four quarters, which are:
+
 1. Muslim Quarter
 2. Christian Quarter
 3. Jewish Quarter
@@ -169,9 +170,10 @@ One of my most memorable experiences was taking a bus for an hour out up the hil
 We'd read before that Shabbat in Jerusalem is a unique experience. The city almost completely shuts down. Ostensibly it's from sundown Friday to sundown Saturday, but stores start closing just after noon on Friday.
 
 Our plan was to spend the Shabbat semi-authentically, by:
+
 - going to check out the Western Wall at sundown on Friday, right when Shabbat started and everyone floods in to pray
 - cooking a big meal and relax in the evening
-    - technically we should have cooked before Shabbat started, but we were kind of following a "spirit not the rule" thing
+  - technically we should have cooked before Shabbat started, but we were kind of following a "spirit not the rule" thing
 - spend Saturday walking around and hanging out
 
 One cool thing about the Western Wall is the Jewish folks are totally happy for you to come and visit, and you can even go and pray to whatever religion or god you like at the wall.[^cantgothere] When I went up to the wall, there were a bunch of Jewish guys from many different sects, but also a handful of randos saying all kinds of stuff. It was cool.
@@ -198,6 +200,7 @@ I barely managed to get the ingredients I needed before stores closed after noon
 <p class="figcaption">This led to some funny situations where, for stylized product fonts, I couldn't tell whether it was Hebrew or Cyrillic, hence the strangest Google Translate I've ever tried.</p>
 
 I learned three things that dinner:
+
 1. A wine bottle makes a decent rolling pin
 2. If you roll your pasta too thick, you can cook it for _literally_ 40 minutes an the inside will never get done. I have no idea how this is possible.
 3. Israel makes wine, and it is very good! At least that bottle was.
@@ -211,6 +214,7 @@ I learned three things that dinner:
 I'm not usually into anthropological museums, but this one was beautifully done.
 
 <!-- Jerusalem museum -->
+
 {% img2 [
     "/assets/posts/2022-israel/IMG_6840.moz80.jpg"
 ] %}
@@ -252,11 +256,9 @@ Immigration to Israel[^toisrael] was now given as two reasons: (1) it is our his
 The most fascinating aspect to the whole _Israel as rightful home of the Jewish people_ narrative in Yad Vashem was architectural. The whole museum is structured like a tunnel. You wander back and forth across it, and it's dark. Then, right at the end, after they present you with the explicit arguments for Jewish people coming to Israel, you exit the doors of the museum, and the edges of the tunnel frame a huge visa out onto the Israeli landscape. It says in all but words, "look, and here is your home."
 
 [^yvnophoto]: I don't have any photos of the inside of _Yad Vashem_ (Jerusalem Holocaust Memorial / Museum) as none were allowed.
-
 [^toisrael]: The British wouldn't even let Jewish people into Israel when the war finished.
 
 {% img2 "/assets/posts/2022-israel/IMG_6884.moz80.jpg"%}
-
 
 ## West Bank?
 
@@ -265,6 +267,7 @@ The most fascinating aspect to the whole _Israel as rightful home of the Jewish 
 ] %}
 
 So, for context, we took a three-stop tour to areas around Jerusalem:
+
 1. The En Gedi Nature Reserve
 2. Masada
 3. The Dead Sea
@@ -281,14 +284,13 @@ This was all quite confusing for me. What I read online told me to bring my pass
 
 And yet, there were none. People freely walked around, in and out of the Old City, in and out of the "West Bank." We went in and out by foot, by car, and by bus. No stops, no guards, nothing to indicate any kind of border, anywhere.
 
-It turns out, Google Map, probably in a complex political decision, shows the official West Bank boundaries,[^westbankmap]  which I think come from the ~1960s. This is due to the fact that the official international stance (UN, USA, EU, even Israel, etc.) that West Bank is under "military occupation."
+It turns out, Google Map, probably in a complex political decision, shows the official West Bank boundaries,[^westbankmap] which I think come from the ~1960s. This is due to the fact that the official international stance (UN, USA, EU, even Israel, etc.) that West Bank is under "military occupation."
 
-[^westbankmap]: E.g., [this map](https://en.wikipedia.org/wiki/West_Bank#/media/File:West_Bank_in_Palestine_(+claimed).svg) shows the coarse West Bank boundary, which is what Google Maps shows.
+[^westbankmap]: E.g., [this map](<https://en.wikipedia.org/wiki/West_Bank#/media/File:West_Bank_in_Palestine_(+claimed).svg>) shows the coarse West Bank boundary, which is what Google Maps shows.
 
 But _in practice_---as I could have Googled, but would find out by asking some guy at a bar---the West Bank is carved up into areas of different classifications: A, B, and C. This is based on who (Israel or Palestine) controls the civil and military goings on.[^areamap] And the way they've carved up the West Bank, we basically just stayed in "Israel" the whole time.[^butdeadsea]
 
 [^areamap]: E.g., check out [this map](https://en.wikipedia.org/wiki/West_Bank_Areas_in_the_Oslo_II_Accord#/media/File:Settlements2006.jpg) of Area C (Israeli only) in the West Bank.
-
 [^butdeadsea]: Still a bit confused about this. E.g., it loos like the border of the Dead Sea isn't in the Israeli "Area C" the way the rest of the places we went are.
 
 The reason I kept this section title as _"West Bank?"_ is, for me, actually visiting the West Bank should involve going to Palestinian settlements and hearing from the people there.
@@ -300,6 +302,7 @@ This is a famous park.
 Riding there, I realized, holy cow, yeah this is seriously the desert. At some point, we stopped for a break and desert photos. The air smelled exactly like cured meat. A boy with a camel walked up to us for paid photo op attempts. This would happen every stop.
 
 <!-- Nature reserve -->
+
 {% img2 [
     "/assets/posts/2022-israel/IMG_6668.moz80.jpg"
 ] %}
@@ -336,6 +339,7 @@ The idea _water brings life_ has never been as clear as being in the desert and 
 Masada is a hilltop historical fort with some juicy (if you're into that kinda thing) Romans vs Jewish history. I tried my best to learn stuff but honestly just look at some of these cool desert photos.
 
 <!-- Historical fort  -->
+
 {% img2 [
     "/assets/posts/2022-israel/IMG_6709.moz80.jpg",
     "/assets/posts/2022-israel/IMG_6719.moz80.jpg",
@@ -369,6 +373,7 @@ Only catch was, the water temperature was somewhere between an overheated swimmi
 The dead sea mud is supposed to be good for your skin, so everyone rubs it all over themselves. So that's fun.
 
 <!-- Dead sea -->
+
 {% img2 [
     "/assets/posts/2022-israel/IMG_6769.moz80.jpg"
 ] %}
@@ -459,9 +464,10 @@ This city called _Acre_ in English, but I think that word looks ugly and it's wr
 
 We took a day trip to Akko, an ancient walled city that changed hands between Islamic rule and the Crusaders multiple times.[^layers] They recently dug up a bunch of Crusader ruins, and made such incredibly high production value exhibits within the barren stone caverns that it's actually genuinely entertaining to visit.
 
-[^layers]: I'm not doing Akko even remote justice here. The layers of history here are unreal. Here are my notes: _"Greek, Roman, early Muslim I think, crusades, Muslims, I think crusades again, Muslims and city downfall, then rebuilt (esp with Ottomans), then British, and now Israel."_  The cool thing about the layers is they are _literal_ layers: people built structures on top of the old ones.
+[^layers]: I'm not doing Akko even remote justice here. The layers of history here are unreal. Here are my notes: _"Greek, Roman, early Muslim I think, crusades, Muslims, I think crusades again, Muslims and city downfall, then rebuilt (esp with Ottomans), then British, and now Israel."_ The cool thing about the layers is they are _literal_ layers: people built structures on top of the old ones.
 
 <!-- Akko -->
+
 {% img2 [
     [
         "/assets/posts/2022-israel/IMG_7034.moz80.jpg",
@@ -545,6 +551,7 @@ I think part of the reason this whole experience struck me as funny is when you 
 Tel Aviv coast---serious beach and fitness enthusiasts. Talk about cultural whiplash vs Jerusalem.
 
 <!-- Tel Aviv -->
+
 {% img2 [
     "/assets/posts/2022-israel/IMG_7127.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7134.moz80.jpg",
@@ -574,6 +581,7 @@ Tel Aviv coast---serious beach and fitness enthusiasts. Talk about cultural whip
 ] %}
 
 Final score for Israel:
+
 - Cockroaches seen: 4
 - Cockroaches killed: 2
 
@@ -601,7 +609,6 @@ One other fascinating aside on Hebrew: its writing system incorporates instructi
 
 <p class="figcaption">"Letters in black, niqqud (vowel points) and d'geshim (gemination marks) in red, cantillation in blue." &mdash; <a href="https://en.wikipedia.org/wiki/Hebrew_cantillation">Wikipedia</a></p>
 
-
 ### Around Town
 
 Back to Phil, from _Somebody Feed Phil._ His words when trying the _Sherry Herring_ sandwich---pictured below---continue to echo through my head: "That is as good of a sandwich as I have ever eaten." Encouraged by the amazing lunch at Uri Buri, and spurred on by Phil's review, we journeyed far across town in the heat just to find these sandwiches to try.
@@ -627,7 +634,7 @@ Finally, I leave you with a video art piece so bizarre and delightful that it co
 {% img2 [
     "/assets/posts/2022-israel/IMG_7239.moz80.jpg",
     "/assets/posts/2022-israel/IMG_7241.moz80.jpg",
-    {vimeoInfo: "796431858?h=c8926fc00c", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}
+    {vimeoInfo: "796431858?h=c8926fc00c"}
 ] %}
 
 ## 🛩 Airport Hell

@@ -30,26 +30,26 @@ I was interested to learn a bit more about Malaysia. My last visit was nine year
 
 This post will be mostly a photo collage, and light on commentary. Enjoy the scroll.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-penang/IMG_0106.moz80.jpg"
 ] %}
 
 <p class="figcaption">{{ "_Masjid Daerah Timur Laut,_ a mosque on the shore." | md | safe }}</p>
 
-{% img [
+{% img2i [
     "/assets/posts/2022-penang/IMG_0118.moz80.jpg",
     "/assets/posts/2022-penang/IMG_0122.moz80.jpg"
-], false, false %}
+] %}
 
 <p class="figcaption">The Snake Temple was filled with snakes, as advertised. Though it was so isolated from the jungle you couldn't help but wonder if the snakes' presence was no longer voluntary.</p>
 
-{% img "/assets/posts/2022-penang/IMG_0123.moz80.jpg", false, false %}
+![](/assets/posts/2022-penang/IMG_0123.moz80.jpg)
 
 <p class="figcaption">Funny to see this word. Kedai Makan was/is an always-in-demand Malaysian restaurant in Seattle (though started by white people).</p>
 
 Some filming locations of _Crazy Rich Asians_ are in Penang, like the _Blue Mansion_ (mahjong scene), and the _Eastern & Oriental Hotel_ (opening scene).
 
-{% img [
+{% img2 [
     "/assets/posts/2022-penang/IMG_0150.moz80.jpg",
     "/assets/posts/2022-penang/IMG_0159.moz80.jpg",
     "/assets/posts/2022-penang/IMG_0163.moz80.jpg",
@@ -58,7 +58,7 @@ Some filming locations of _Crazy Rich Asians_ are in Penang, like the _Blue Mans
 
 More city vibes follow.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-penang/IMG_0125.moz80.jpg",
     "/assets/posts/2022-penang/IMG_0127.moz80.jpg",
     "/assets/posts/2022-penang/IMG_0172.moz80.jpg",
@@ -82,11 +82,11 @@ More city vibes follow.
 
 ---
 
-{% img [
-    {vimeoInfo: "820410240?h=0368e6d986", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"},
-    {vimeoInfo: "820410223?h=35176d54c9", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"},
-    {vimeoInfo: "820410254?h=a17e4facdf", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}
-], false, false %}
+{% img2i [
+    {vimeoInfo: "820410240?h=0368e6d986"},
+    {vimeoInfo: "820410223?h=35176d54c9"},
+    {vimeoInfo: "820410254?h=a17e4facdf"}
+] %}
 
 <p class="figcaption">Sound helps context for the first and last ones.</p>
 
@@ -94,7 +94,7 @@ More city vibes follow.
 
 One thing Penang taught me is you can't just have density, you also need public transportation. They seemed to have nailed the density thing---massive condos erupted all along the north shore. But the poor roads couldn't handle it. We regularly sat in an hour of traffic.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-penang/IMG_0253.moz80.jpg"
 ] %}
 
@@ -102,7 +102,7 @@ One thing Penang taught me is you can't just have density, you also need public 
 
 You can also see (what looks to be) reclaimed land being created.
 
-{% img "/assets/posts/2022-penang/IMG_0266.moz80.jpg" %}
+{% img2 "/assets/posts/2022-penang/IMG_0266.moz80.jpg" %}
 
 <p class="figcaption">It's always baffled me why it's called "reclaimed." Seems like "invented" would be a better word.</p>
 
@@ -113,24 +113,24 @@ This trip, I had some of the best Chinese food I've ever eaten, and developed a 
 
 In the fried food stall (second photo), note that 1.80 Malaysian Ringgit is currently $0.41 US.
 
-{% img [
+{% img2i [
     "/assets/posts/2022-penang/IMG_0110.moz80.jpg",
     "/assets/posts/2022-penang/IMG_0112.moz80.jpg",
     "/assets/posts/2022-penang/IMG_0129.moz80.jpg",
     "/assets/posts/2022-penang/IMG_0202.moz80.jpg",
     "/assets/posts/2022-penang/IMG_0214.moz80.jpg"
-], false, false %}
+] %}
 
 <p class="figcaption">My favorite all-time favorite cocktail, The Jungle Bird, was created in Kuala Lumpur (capital of Malaysia).</p>
 
 Oh, and I can't forget the obligatory interesting product pics.
 
-{% img [
+{% img2i [
     [
         "/assets/posts/2022-penang/IMG_0203.moz80.jpg",
         "/assets/posts/2022-penang/IMG_0204.moz80.jpg"
     ],
     "/assets/posts/2022-penang/IMG_0205.moz80.jpg"
-], false, false %}
+] %}
 
 <p class="figcaption">{{ "The whole _skin whitening_ series of products thing still deeply creeps me out." | md | safe }}</p>

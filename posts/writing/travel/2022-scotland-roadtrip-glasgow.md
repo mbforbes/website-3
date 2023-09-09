@@ -36,7 +36,7 @@ Making it down at last from Trossachs National Park, we said goodbye to our trus
 
 {% cityMap "/assets/posts/2022-scotland/glasgow-scotland-9-r5000.moz80.jpg" %}
 
-{% img "/assets/posts/2022-scotland/27-gls-sunset-building.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/27-gls-sunset-building.moz80.jpg" %}
 
 I had high hopes for Glasgow. Modern city, seemed to have good public transport and millennial hipster comforts: craft beer, snobby coffee, and rock climbing.
 
@@ -50,7 +50,7 @@ All that said, still plenty of buildings to look at, beer to drink, art to _hmm_
 
 [^seattle]: Seattle's downtown has other, uh, _contributing factors_ to its vibe right now, but that's a topic for another day.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-scotland/27-gls-uni-tower.moz80.jpg",
         "/assets/posts/2022-scotland/27-gls-building-orange.moz80.jpg"
@@ -61,7 +61,7 @@ All that said, still plenty of buildings to look at, beer to drink, art to _hmm_
     "/assets/posts/2022-scotland/27-gls-building-moss.moz80.jpg",
     "/assets/posts/2022-scotland/27-gls-building-terrace.moz80.jpg",
     "/assets/posts/2022-scotland/27-gls-museum.moz80.jpg"
-], true %}
+] %}
 
 We also finally paid or dues and went to a Scotch distillery. We ended up picking one that turned out to be lacking on the history front---they opened so recently they had only produced a single batch. I think the operation was the pet project of some guy who made his money elsewhere. But their tour had a museum portion with an extensive history of whisky's evolution in Scotland---featuring various moguls, barkeeps, and distillers---so eh, tit for tat. I sure wish I liked whisky more.[^whisky]
 
@@ -91,19 +91,19 @@ Another funny feature---which we've now seen mimicked in other UK-influenced[^co
 
 ![](/assets/posts/2022-scotland/design-socket-switch.moz80.jpg)
 
-It's kind of neat, and I imagine lets you save some power. But since basically every modern device comes with an on/off switch itself, caring about  just-plugged-in power savings as always struck me as an exercise in obsessiveness. When you have bulky travel adapters like ours, it takes delicate positioning to plug them in and keep the outlet on.
+It's kind of neat, and I imagine lets you save some power. But since basically every modern device comes with an on/off switch itself, caring about just-plugged-in power savings as always struck me as an exercise in obsessiveness. When you have bulky travel adapters like ours, it takes delicate positioning to plug them in and keep the outlet on.
 
 One thing I will give the British plug shape in general, though, is the three rectangle design is super sturdy. Whenever I encounter a universal outlet, it's my first choice of plug.
 
 Finally, something cute: a road speed measurement sign that actually thanks you for obeying it.
 
 <!-- video: scotland-speed-sign -->
-{% img {vimeoInfo: "756058289?h=fa52030b14", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}, false, false %}
+
+{% img2i {vimeoInfo: "756058289?h=fa52030b14"} %}
 
 It's stupid, but I have always gotten irrationally annoyed at those speed monitor signs in the States.[^rude] But this one I found delightful. Come on---the cheeky winking face? Of course it's just a machine, it's not really thanking you. But rewarding you for doing the right thing, rather than just punishing you when you do something bad, is like game design 101.[^dys]
 
 [^rude]: I have been known to present them with rude gestures when I pass by.
-
 [^dys]: I'm curious whether locals are fine with these signs or despise them like I despise those in my hometown. I could imagine them getting dystopian after a while, the wink being the smug false friendliness of big brother's big British surveillance network. 🤷‍♂️
 
 ## Epilogue: Beware Scottish Currency

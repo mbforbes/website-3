@@ -6,9 +6,10 @@ travel_start: 2022-05-16
 travel_end: 2022-05-18
 image: /assets/posts/2022-madrid/madrid-spain-4-perimeter.moz80.jpg
 redirect_from: /blog/madrid/
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
-{% cityMap "/assets/posts/2022-madrid/madrid-spain-4-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-madrid/madrid-spain-4-perimeter.moz80.jpg", false %}
 
 We popped by Madrid for a couple days.
 
@@ -18,8 +19,7 @@ We both liked Madrid much more than we expected! I'm not sure why we thought we 
 
 - Pleasantly laid out, in kind of Washington, D.C. × NYC way: big avenues and long parks, but also densely packed districts.
 
-{% img "/assets/posts/2022-madrid/building.moz80.jpg" %}
-
+{% img2 "/assets/posts/2022-madrid/building.moz80.jpg" %}
 
 Despite a metro system, we ended up walking everywhere.
 

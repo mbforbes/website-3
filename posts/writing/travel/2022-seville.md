@@ -10,7 +10,7 @@ redirect_from: /blog/seville-malaga/
 
 {% cityMap "/assets/posts/2022-seville/seville-spain-28-perimeter.moz80.jpg" %}
 
-{% img "/assets/posts/2022-seville/plaza.moz80.jpg" %}
+{% img2 "/assets/posts/2022-seville/plaza.moz80.jpg" %}
 
 A lovely feature of Spanish cities seems to be big public plazas you can go and hang out in. Art and water features make them pleasant.
 
@@ -24,11 +24,11 @@ It's also completely taken over by tourists and people selling them trinkets and
 
 A bunch of Spanish public parks emphasize paved paths. You walk around bits of delicately manicured trees and some water features. Not my cup of tea to hang out in (just not enough living matter), but pretty.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-seville/building.moz80.jpg",
     "/assets/posts/2022-seville/fountain.moz80.jpg",
     "/assets/posts/2022-seville/font.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">I love the lettering here.</p>
 
@@ -42,9 +42,9 @@ Tinto de verano:
 
 - to a cup of ice
 - add **1 part red wine**
-    - optional: remove the wine bottle's label, either out of respect for the winemaker, or because you're buying in huge jugs and just refilling your counter bottle
+  - optional: remove the wine bottle's label, either out of respect for the winemaker, or because you're buying in huge jugs and just refilling your counter bottle
 - add **1 part lemon-lime soda**
-    - the brand here is completely lost to me
+  - the brand here is completely lost to me
 - garnish with an orange slice
 - revel in disbelief at how delicious this is
 

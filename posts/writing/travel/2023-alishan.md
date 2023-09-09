@@ -41,7 +41,8 @@ assets/posts/2023-alishan/IMG_1570.moz80.jpg
 It's hard to beat having a car. Unless you're willing to stay in either ultra-developed or walkable urban centers, public transit always fails on the fringes.^[Switzerland, I think, might truly be the exception that proves the rule. You can take public transit from your doorstep to hiking trailheads and ski lifts.] At best, remote trips will have few available destinations, require specific transfers, and involve busses that comes once an hour. (And if you miss the last bus, you might actually end up sleeping in the woods.) At worst, there's just no way to get where you're going.
 
 <!-- Driving: town -->
-{% img {"youtubeInfo": "kf-DXfCILXY", videoStyle: "width: 100%; aspect-ratio: 4 / 3;"}, false, false %}
+
+{% img2i {"youtubeInfo": "kf-DXfCILXY", aspectRatio: "4 / 3"} %}
 
 <p class="figcaption">{{ "In addition to rural trips, driving quickly gets you off the beaten path. There were a few moments on the road when we'd pass through small towns I'd get that delightful but increasingly rare _where on earth am I_ feeling. (Rare because of globalization, I think?)" | md | safe }}</p>
 
@@ -49,11 +50,11 @@ Taiwan is no exception to this, and so with our little automatic steed rented at
 
 > NB: Alishan is the name of a specific forested nature area in central-ish Taiwan. I'll get to it in the middle of this post. But the whole driving leg was our _Alishan segment,_ so I just named the post after it.
 
-{% img "/assets/posts/2023-alishan/IMG_1703.moz80.jpg" %}
+{% img2 "/assets/posts/2023-alishan/IMG_1703.moz80.jpg" %}
 
 <p class="figcaption">These landslide-reinforced mountain roads will forever remind me of this one Gran Turismo demo track, which had the first one I'd ever seen.</p>
 
-{% img "/assets/posts/2023-alishan/IMG_1643.moz80.jpg" %}
+{% img2 "/assets/posts/2023-alishan/IMG_1643.moz80.jpg" %}
 
 <p class="figcaption">The side of all the mountain roads had these terrifying sharp ditches an arm's length away from the lane edge. I say terrifying, but really it's just imagining the logistical nightmare of getting your car hauled out and paying the damages if you take any turn slightly too wide or narrow. At least once a day, we'd see a crane vehicle lifting a car out of one of them. And several other times, we'd see these crane trucks waiting on standby. I started to develop a conspiracy theory that these road rescue companies lobbied this brutal highway design to give themselves good business basically forever.</p>
 
@@ -73,24 +74,23 @@ Bizarrely, almost everything around the lake was also closed. Food, coffee, you 
 
 There is a gondola ride, which we took. But, also strangely, you end up in a building that you can't leave unless you buy tickets to the indigenous Taiwanese-themed theme park.^[Woah, is this where _theme park_ comes from??] Ignoring the questionable optics of the amusement park, it's sort of a hilarious prank that the gondola ends in a dead end unless you pay more money. We just enjoyed the view back.
 
-
-{% img [
+{% img2 [
     "/assets/posts/2023-alishan/IMG_1482.moz80.jpg",
     "/assets/posts/2023-alishan/IMG_1484.moz80.jpg",
-    {"vimeoInfo": "827555220?h=f461df0b27", videoStyle: "width: 100%; aspect-ratio: 4 / 3;"},
+    {"vimeoInfo": "827555220?h=f461df0b27", aspectRatio: "4 / 3"},
     "/assets/posts/2023-alishan/IMG_1485.moz80.jpg",
-    {"vimeoInfo": "827555324?h=53c4a3d950", videoStyle: "width: 100%; aspect-ratio: 4 / 3;"},
+    {"vimeoInfo": "827555324?h=53c4a3d950", aspectRatio: "4 / 3"},
     "/assets/posts/2023-alishan/IMG_1500.moz80.jpg",
-    {"vimeoInfo": "827555422?h=5ad4f4a812", bgImgPath: "/assets/posts/2023-alishan/IMG_1510.moz80.jpg", videoStyle: "width: 100%; aspect-ratio: 4 / 3;"}
+    {"vimeoInfo": "827555422?h=5ad4f4a812", aspectRatio: "4 / 3"}
 ] %}
 
 It was interesting to see Sun Moon Lake's infrastructure under such heavy construction. I rarely visit places that are both underdeveloped and in the process of being built up. Most places are either undeveloped and staying that way, or developed but in the process of upgrading or decaying. But at Sun Moon Lake, we could see big changes taking place---whole new boardwalks being built, land or water being reclaimed, foundations and scaffolding for sizeable buildings.
 
-{% img "/assets/posts/2023-alishan/IMG_1522.moz80.jpg" %}
+{% img2 "/assets/posts/2023-alishan/IMG_1522.moz80.jpg" %}
 
 <p class="figcaption">Boardwalk framework. All those X-shaped steel hooks and rods presumably keeping alignment. Didn't envy those guys working in the sun. Boy I have an easy life.</p>
 
-{% img [[
+{% img2 [[
     "/assets/posts/2023-alishan/IMG_1489.moz80.jpg",
     "/assets/posts/2023-alishan/IMG_1490.moz80.jpg"
 ]] %}
@@ -105,7 +105,7 @@ It was interesting to see Sun Moon Lake's infrastructure under such heavy constr
 
 Fenchihu is a town who seems to have formed its identity around metal lunch boxes.^[It's funny watching myself write this. In my head, before starting this section, I was like, "Do I talk about the lunch boxes? I don't know, it might come across as too snarky or complaining." Then, the moment I start writing, out comes the bit about lunch boxes. Sorry. I'm as much of a witness here as you are.] Pictures of an old guy holding an oval food-packed tin are painted on buildings, faded almost to the point of disappearing. Nearly every food shop seems to sell them.
 
-{% img "/assets/posts/2023-alishan/IMG_1645.moz80.jpg" %}
+{% img2 "/assets/posts/2023-alishan/IMG_1645.moz80.jpg" %}
 
 <p class="figcaption">Just kidding, no need to imagine it, I have a photo.</p>
 
@@ -113,24 +113,24 @@ Sorry, I'll back up a sec. Alishan---the most famous of Taiwan's parks and outdo
 
 We lodged at an old fashioned hotel, which I think is a codename for the tub is a hacked off wooden barrel and ants outnumber you fifty to one.^[Fancy sweet stores we visited---e.g., for a certain style of butter cookie that seems popular---had ants engraved in the ground leading up to the store. I think the fancy ice cream place we visited in Taichung had that too. I couldn't quite figure out why---do people like imagining ants getting all up in their food? I still haven't figured it out, but now I at least understand where the inspiration might have came from. Because the first evening we stayed in Fenchihu, I opened up the cookie tin we'd brought, and it was absolutely swarming with ants.] This was fine---if things get too easy, you start adjusting to it, so I think it's good to live amongst bugs and without AC for a few days. Stay humble. When we arrived, we learned that our room actually didn't have windows.^[It did, however, have a set of curtains arranged in a window-like position, which I guess was so that you could pretend that you had a window but just chose to keep it shut all the time.] I think "windowless room" is one of the charming phrases that booking dot com happens to omit from your reservation. The staff were friendly and let us pay a bit more and change it on the spot. Bless them.
 
-{% img "/assets/posts/2023-alishan/IMG_1542.moz80.jpg", false, false %}
+![](/assets/posts/2023-alishan/IMG_1542.moz80.jpg)
 
 The food options being a bit limited, they actually gave us, as part of our standard booking, coupons to the 7-11 located directly above the hotel. Like, a lot of them. Honestly, not bad.^[If you're not familiar with 7-11 or convenience stores in hyper-developed Korea / Taiwan / Japan, the food selection is way more decent than what you'd find in the USA. The quality is roughly on par with a school lunch. The good news is, for whatever bizarre reason, I was always a fan of school lunches, so rotating between microwaved chicken bowls and off-color spaghetti toppings for several days was kind of a treat.]
 
-{% img "/assets/posts/2023-alishan/IMG_1539.moz80.jpg", false, false %}
+![](/assets/posts/2023-alishan/IMG_1539.moz80.jpg)
 
 <p class="figcaption">While not quite at Japan's level of over-the-top-ness, 7-11s in Taiwan are still so packed with nearly every conceivable thing you could need that they come to feel like a supply oasis. But whatever policy they had of uniformly stocking goods led to some funny inventories, like this gamer mouse pad in what is probably the least likely location for someone with gaming PC needs to show up.</p>
 
 The town was charming enough and had some fun morsels to discover over the few days, like artisanal coffee, sesame noodles (pictured), and fresh mini doughnuts of which I could have eaten probably thirty.
 
-{% img [
-    {"youtubeInfo": "zow7WyzG40o", videoStyle: "width: 100%; aspect-ratio: 4 / 3;"},
+{% img2i [
+    {"youtubeInfo": "zow7WyzG40o", aspectRatio: "4 / 3"},
     "/assets/posts/2023-alishan/IMG_1718.moz80.jpg"
-], false, false %}
+] %}
 
 Just out of town are some quietly delightful hikes, dirt paths winding up among bamboo groves and past meadows of monstera.
 
-{% img "/assets/posts/2023-alishan/IMG_1653.moz80.jpg" %}
+{% img2i "/assets/posts/2023-alishan/IMG_1653.moz80.jpg" %}
 
 ## Alishan
 
@@ -142,21 +142,21 @@ We were lucky enough to visit Alishan in sort of cherry blossom season.
 
 I say _sort of_ because if you thought, like me, there's just _one_ cherry blossom season, you will be informed there are actually many.
 
-{% img "/assets/posts/2023-alishan/IMG_1548.moz80.jpg", false, false %}
+![](/assets/posts/2023-alishan/IMG_1548.moz80.jpg)
 
 <p class="figcaption">Timeline of various cherry blossoming seasons available for viewing in park.</p>
 
 The cherry trees were, I think, imported and planted by a Japanese guy. Maybe around a thousand of them? Anyway, it makes for great viewing. Not the flowers themselves (they are OK), but the variety of squatting awkward poses everyone takes when assuming the photographer role.
 
-{% img "/assets/posts/2023-alishan/IMG_1556.moz80.jpg", false, false %}
+![](/assets/posts/2023-alishan/IMG_1556.moz80.jpg)
 
 <p class="figcaption">I never realized how much people like to take belly-height photos until now.</p>
 
 And even aside from cherry trees, there was a good amount of supremely infrastructured park. Paths and huts and signs and bridges and bathrooms.
 
-{% img [
-    {"vimeoInfo": "827572298?h=747b7c611e", videoStyle: "width: 100%; aspect-ratio: 4 / 3;"},
-    {"vimeoInfo": "827572202?h=c2cc7b890f", videoStyle: "width: 100%; aspect-ratio: 4 / 3;"},
+{% img2 [
+    {"vimeoInfo": "827572298?h=747b7c611e", aspectRatio: "4 / 3"},
+    {"vimeoInfo": "827572202?h=c2cc7b890f", aspectRatio: "4 / 3"},
     "/assets/posts/2023-alishan/IMG_1609.moz80.jpg",
     "/assets/posts/2023-alishan/Moment-App-20230322161249910.moz80.jpg"
 ] %}
@@ -167,14 +167,14 @@ This is disorienting at first, because you're wandering around, face buried in t
 
 Eventually, it will dawn on you: there are no spots. It's just all made up. Nature is doing its thing and some people made a map with dense enough labels to make the entry price feel like a good deal.
 
-{% img [
-    {"youtubeInfo": "PSzgEgyiH7Q", videoStyle: "width: 100%; aspect-ratio: 4 / 3;"},
-    {"youtubeInfo": "Y1kKRKcFLUw", videoStyle: "width: 100%; aspect-ratio: 4 / 3;"}
-], false, false %}
+{% img2i [
+    {"youtubeInfo": "PSzgEgyiH7Q", aspectRatio: "4 / 3"},
+    {"youtubeInfo": "Y1kKRKcFLUw", aspectRatio: "4 / 3"}
+] %}
 
 Shortly after realizing this, we ejected ourselves from the main trail and found a hiking route that ascends one of the park's mountains. This random choice turned out to be a great one, because we immediately left all the photo mobbing and constantly shouting old people^[I wish I knew Chinese just to know what they were shouting about. Though every time I've managed to decode another language it has turned out people are saying the same shit they do in English, so it probably wouldn't be that enlightening. MY FEET HURT FROM ALL THESE STEPS. WHAT? MY FEET HURT. OH, OK. SHOULD WE STOP? NO, LET'S KEEP GOING. OK. etc.] behind and emerged into some ultra pleasant woods hiking.
 
-{% img [
+{% img2 [
     "/assets/posts/2023-alishan/IMG_1626.moz80.jpg",
     "/assets/posts/2023-alishan/IMG_1662.moz80.jpg",
     "/assets/posts/2023-alishan/IMG_1613.moz80.jpg",
@@ -184,22 +184,21 @@ Shortly after realizing this, we ejected ourselves from the main trail and found
 
 The view at the end ended up being one I had already came to know well in Taiwan: misty forested hills. But no matter---journey not destination kinda thing.
 
-{% img "/assets/posts/2023-alishan/IMG_1544.moz80.jpg", false, false %}
+![](/assets/posts/2023-alishan/IMG_1544.moz80.jpg)
 
 <p class="figcaption">I guess there's some serious elevation, 'cause check out how puffed up this Cheetos bag is. While I'm on the subject: it's really hard to find sharp cheese flavors in Asia. It's almost uniformly mild and (here's the kicker) sweet. At this point I'd nearly cut off an arm for some really good 36-month gouda or parmesan.</p>
 
-{% img "/assets/posts/2023-alishan/IMG_1582.moz80.jpg", false, false %}
+![](/assets/posts/2023-alishan/IMG_1582.moz80.jpg)
 
 <p class="figcaption">I don't want to say that I don't trust the public's collective ability to coordinate, unsupervised, with bridge weight limits, but... OK yeah, let's just say it, I don't.</p>
 
-{% img "/assets/posts/2023-alishan/IMG_1595.moz80.jpg", false, false %}
+![](/assets/posts/2023-alishan/IMG_1595.moz80.jpg)
 
 <p class="figcaption">Alishan tea is famous in Taiwan, but they also had coffee. While I may grumble about hyper-developed nature zones and the crowds that come with them, I do not want to veer into complaining, because the fact that I can get a pour-over coffee after lunch in the middle of a nature day is a stupendous treat.</p>
 
 ![](/assets/posts/2023-alishan/Moment-App-20230322155500048.moz80.jpg)
 
 <p class="figcaption">Shoutout to this bird who let me get super close for a pic.</p>
-
 
 ## Yushan
 
@@ -209,10 +208,10 @@ If you'd like to hike Yushan (AKA Mt. Jade), you have to do a truly shocking amo
 
 This process did lead me to learn something I hadn't realized about Taiwan: they have their own calendar system, that's like _actually_ in use. Specifically, they have their own year numbers. 1912 becomes year 1. So the current year (2023) is Taiwan year 112 (I think). I found this out while attempting to fill out the separate police hiking permit paperwork and following a few dead ends trying to determine what sort of date system was going on.
 
-{% img [
+{% img2i [
     "/assets/posts/2023-alishan/cal-west.png",
     "/assets/posts/2023-alishan/cal-taiwan.png"
-], false, false %}
+] %}
 
 <p class="figcaption">Top: date I wanted to enter (2023/03/24); bottom: what this came out as (112/03/24).</p>
 
@@ -226,11 +225,11 @@ Anyway, we did all that, planning to do the shorter North Peak hike as a nice da
 
 <p class="figcaption">Air pressure differential having finally overcame whatever plastic glue it was opposing.</p>
 
-{% img "/assets/posts/2023-alishan/IMG_1669.moz80.jpg", false, false %}
+![](/assets/posts/2023-alishan/IMG_1669.moz80.jpg)
 
 <p class="figcaption">We asked a guy at the visitor center which walk we could do with the least elevation gain, and it was this. A stairway. In their defense, we did go to a mountain, so like what should we have expected.</p>
 
-{% img [
+{% img2 [
     "/assets/posts/2023-alishan/IMG_1683.moz80.jpg",
     "/assets/posts/2023-alishan/IMG_1674.moz80.jpg",
     "/assets/posts/2023-alishan/IMG_1685.moz80.jpg"
@@ -243,4 +242,5 @@ Anyway, we did all that, planning to do the shorter North Peak hike as a nice da
 Refreshed by nature's splendor, we continued our journey south along Taiwan's west coast to Tainan, my favorite city of the circumnavigation.
 
 <!-- Driving: highway -->
-{% img {"youtubeInfo": "djWm4kxFgO0", videoStyle: "width: 100%; aspect-ratio: 4 / 3;"}, false, false %}
+
+{% img2i {"youtubeInfo": "djWm4kxFgO0", aspectRatio: "4 / 3"} %}

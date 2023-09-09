@@ -5,15 +5,16 @@ travel_start: 2022-06-28
 travel_end: 2022-07-04
 image: /assets/posts/2022-france/mp-food-home-feast.moz80.jpg
 redirect_from: /blog/france/
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
-{% cityMap "/assets/posts/2022-france/montpellier-france-3-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-france/montpellier-france-3-perimeter.moz80.jpg", false %}
 
 We spent three weeks visiting cities we hadn't seen before in France. (Okay, plus Paris.)
 Top priorities were to eat food and drink sun.
 First stop, Montpellier.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-france/mp-aquaduct.moz80.jpg",
         "/assets/posts/2022-france/mp-city-church.moz80.jpg"
@@ -31,7 +32,7 @@ First stop, Montpellier.
 
 Great vibes in Montpellier. I loved the dense streetcar network and plentiful outdoor public spaces (more on that below). It felt uncrowded and relaxed.
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-france/mp-city-climbing-gym-annotated.moz80.jpg",
     "/assets/posts/2022-france/mp-city-me.moz80.jpg"
 ]] %}
@@ -41,7 +42,7 @@ Great vibes in Montpellier. I loved the dense streetcar network and plentiful ou
     "Portrait of the author."
 %}
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-france/mp-city-river.moz80.jpg",
         "/assets/posts/2022-france/mp-tower.moz80.jpg"
@@ -64,7 +65,7 @@ One thing I liked about statues here is that they were often little scenes rathe
 
 We came across a few parks like this one:
 
-{% img "/assets/posts/2022-france/mp-park.moz80.jpg" %}
+{% img2 "/assets/posts/2022-france/mp-park.moz80.jpg" %}
 
 It's a bit hard to tell just from this photo alone, but the whole park is just fields of (patchy, dying) grass with trees planted in an exact grid.
 The rows of trees thing made the parks feel alien. We never saw anyone hanging out in them.
@@ -73,7 +74,7 @@ Then again, other parks were great, so 🤷‍♂️
 
 ## Mobile Epiphany: A Three-Part Series
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-france/mp-fountain-1.moz80.jpg",
     "/assets/posts/2022-france/mp-fountain-2.moz80.jpg",
     "/assets/posts/2022-france/mp-fountain-3.moz80.jpg"
@@ -133,7 +134,7 @@ After finding out a restaurant we wanted to go to didn't exist (/ was under reno
 Not because we are gifted.
 Because the cheap average thing is just that good.
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-france/mp-food-home-feast.moz80.jpg",
     "/assets/posts/2022-france/mp-food-viet.moz80.jpg"
 ]] %}
@@ -145,7 +146,9 @@ Because the cheap average thing is just that good.
 
 Also here's an odd one.
 
-{% img {path: "/assets/posts/2022-france/mp-food-calzone-tacos.moz80.jpg", maxHeight: "500"} %}
+
+
+![](/assets/posts/2022-france/mp-food-calzone-tacos.moz80.jpg)
 
 <p class="figcaption">
 At first I was like, WTF is a calzone taco.
@@ -167,7 +170,6 @@ Big French extended plazas offer some hybrid of
 
 They're full of people, which also immediately makes them feel safe.
 
-{% img [[
-    "/assets/posts/2022-france/mp-public-space-trees.moz80.jpg",
-    "/assets/posts/2022-france/mp-public-space-wide-2.moz80.jpg"
-]] %}
+![](/assets/posts/2022-france/mp-public-space-trees.moz80.jpg)
+
+![](/assets/posts/2022-france/mp-public-space-wide-2.moz80.jpg)

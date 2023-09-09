@@ -5,6 +5,7 @@ travel_start: 2022-05-08
 travel_end: 2022-05-16
 image: /assets/posts/2022-bayonne/wall.moz80.jpg
 redirect_from: /blog/basque-country/
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
 Basque is a culture, language, and cultural region spanning a chunk of northern Spain and southwest France.
@@ -16,9 +17,9 @@ We mainly stayed in the Spanish side.
 ## Bilbao
 
 
-{% cityMap "/assets/posts/2022-bilbao/bilbao-spain-1.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-bilbao/bilbao-spain-1.moz80.jpg", false, true, false %}
 
-{% img "/assets/posts/2022-bilbao/city.moz80.jpg" %}
+{% cityPic "/assets/posts/2022-bilbao/city.moz80.jpg" %}
 
 Bilbao is a true gem. It's immediately charming. It scores ridiculously high on three axes:
 1. Beauty (it's like walking through some kind of European fairy tale town)
@@ -27,12 +28,12 @@ Bilbao is a true gem. It's immediately charming. It scores ridiculously high on 
 
 To boot, it's decently cheap --- not quite as cheap as in Andalusia, but much cheaper than somewhere like Zurich.
 
-{% img [
+{% img2 [
      "/assets/posts/2022-bilbao/river-day.moz80.jpg",
      "/assets/posts/2022-bilbao/river-night.moz80.jpg",
      "/assets/posts/2022-bilbao/glass.moz80.jpg",
      "/assets/posts/2022-bilbao/art.moz80.jpg"
-], true %}
+] %}
 
 To me, someplace like Granada seems perfect if you're a college student and want to be able to eat and drink your fill for $5. If you're at least 30-something (or just an old soul) and interested in food, nature, and getting away from the crowds, check out Bilbao. I bet it will be absolutely ruined (by us tourists) within ten years.
 
@@ -56,25 +57,24 @@ The good news is, if you're interested in the main sights of a place I mention, 
 
 ## Donostia
 
-{% cityMap "/assets/posts/2022-donostia/donostia-spain-custom.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-donostia/donostia-spain-custom.moz80.jpg", false, true, false %}
 
-{% img "/assets/posts/2022-donostia/beach.moz80.jpg" %}
+{% cityPic "/assets/posts/2022-donostia/beach.moz80.jpg" %}
 
 Called San Sebastián in Spanish, I really think Donostia could have captured my heart if we hit better weather and spent more time in the city. We planned so many day trips outside of it that, despite spending about five days in Donostia, I don't feel like I got to know it much at all.
 
 A bit more sprawling than Bilbao, Donostia still had Basque charm.
 
-{% img "/assets/posts/2022-donostia/apartment.moz80.jpg" %}
+{% img2 "/assets/posts/2022-donostia/apartment.moz80.jpg" %}
 
 <p class="figcaption">
 Like, imagine this level of architecture just for your apartment building.
 </p>
 
-{% img [
+{% img2 [
     "/assets/posts/2022-donostia/clothes.moz80.jpg",
     "/assets/posts/2022-donostia/night.moz80.jpg"
-], true %}
-
+] %}
 
 ## The Basque Language
 
@@ -90,7 +90,7 @@ Spanish Basque felt very Basque-forward---almost every sign, plaque, and even ad
 
 ## Getaria
 
-{% cityMap "/assets/posts/2022-getaria/getaria-spain-6-r1250.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-getaria/getaria-spain-6-r1250.moz80.jpg", false %}
 
 A tiny fishing village that I think is actually a tourism village now. We took a half day trip there, then enjoyed a coastal walk over to the nearby town of Zarautz, where we caught the slow winding forest train back to Donostia.
 
@@ -102,11 +102,11 @@ A tiny fishing village that I think is actually a tourism village now. We took a
 
 The most striking part of the landscape here was the rocky greenery right next to sandy beaches. Tough to capture it in a way that preserves its strikingness, especially in the cloudy lighting we had.
 
-{% img "/assets/posts/2022-getaria/green-sand.moz80.jpg" %}
+{% img2 "/assets/posts/2022-getaria/green-sand.moz80.jpg" %}
 
 Two random oddities on the walk:
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-getaria/sign.moz80.jpg",
     "/assets/posts/2022-getaria/table.moz80.jpg"
 ]] %}
@@ -118,7 +118,7 @@ Two random oddities on the walk:
 
 ## Cider and Wine
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-donostia/apples.moz80.jpg",
     "/assets/posts/2022-donostia/grapes.moz80.jpg"
 ]] %}
@@ -152,9 +152,9 @@ However, it seems like in practice, Spain may behave a lot like a federal republ
 
 ## Bayonne
 
-{% cityMap "/assets/posts/2022-bayonne/bayonne-france-1-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-bayonne/bayonne-france-1-perimeter.moz80.jpg", false, true, false %}
 
-{% img "/assets/posts/2022-bayonne/bridge.moz80.jpg" %}
+{% cityPic "/assets/posts/2022-bayonne/bridge.moz80.jpg" %}
 
 I've always heard people tell stories about the French being unwilling to speak to you in English, even if their English is far, far better than your French.
 

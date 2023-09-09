@@ -555,6 +555,7 @@ h1 {
 }
 
 .markdown-body img:not(.novmargin, .inline, .leaflet-tile),
+.markdown-body video:not(.novmargin),
 .markdown-body object,
 .markdown-body pre,
 .markdown-body .fig,
@@ -597,8 +598,6 @@ h1 {
     box-sizing: border-box;
     display: block;
     max-width: 100%;
-    margin-top: var(--fig-spacing);
-    margin-bottom: var(--fig-spacing);
 }
 
 .markdown-body svg {
@@ -626,12 +625,11 @@ f7: font-size: 0.75rem;
 /* Image / video / table / code caption. Use class figcaption. */
 .markdown-body .figcaption {
     margin-top: -3.5rem;
-    text-align: center;
+    text-align: left;
     color: var(--lighter-text-color);
     margin-bottom: 5rem;
     /* f6 (for not-small (-ns) this gets f5) */
     font-size: 0.875rem;
-    text-wrap: balance;
 }
 
 /* Footnotes (in posts) */

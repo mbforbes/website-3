@@ -720,23 +720,32 @@ module.exports = function (eleventyConfig) {
      */
     async function imgSpecToHTML2(img, n, { fullWidth, extraImgClasses }) {
         // video
-        if (img.vimeoInfo || img.youtubeInfo) {
+        if (img.mp4Path || img.vimeoInfo || img.youtubeInfo) {
             const aspectRatio = img.aspectRatio ?? "16 / 9";
+            const extraClasses = img.extraClasses ?? "";
+            if (img.mp4Path) {
+                return `
+                <video autoplay muted loop playsinline class="novmargin">
+                    <source src="${img.mp4Path}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>`;
+            }
             if (img.vimeoInfo) {
-                return `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" loading="lazy" style="width: 100%; aspect-ratio: ${aspectRatio};" class=""></iframe>`;
+                return `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" loading="lazy" style="width: 100%; aspect-ratio: ${aspectRatio};" class="${extraClasses}"></iframe>`;
             }
             if (img.youtubeInfo) {
-                return `<iframe src="https://www.youtube-nocookie.com/embed/${img.youtubeInfo}?&autoplay=1&mute=1&loop=1&playlist=${img.youtubeInfo}&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen loading="lazy" style="width: 100%; aspect-ratio: ${aspectRatio};" class=""></iframe>`;
+                return `<iframe src="https://www.youtube-nocookie.com/embed/${img.youtubeInfo}?&autoplay=1&mute=1&loop=1&playlist=${img.youtubeInfo}&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen loading="lazy" style="width: 100%; aspect-ratio: ${aspectRatio};" class="${extraClasses}"></iframe>`;
             }
         }
 
         // image
         let path;
+        let extraClasses = "";
         if (typeof img === "string") {
             path = img;
         } else {
             path = img.path;
-            // NOTE: add extra style or class support here + in returned HTML when needed
+            extraClasses = img.extraClasses ?? "";
         }
 
         // w, h, thumbhash, srcset, sizes
@@ -1172,7 +1181,7 @@ module.exports = function (eleventyConfig) {
         const containerXStyle = isX ? "display: grid;" : "";
         const imageClasses = embedded ? "br-100" : (plainBig ? "" : "content-width");
         const containerStyleSize = plainBig ? "max-width: min(100%, 1000px, 100vh);" : "";
-        imgExClasses = !embedded && !plainBig && imgExClasses == "" ? "pv4 pv5-ns" : "";
+        imgExClasses = !embedded && !plainBig && imgExClasses == "" ? "pv4 pv5-ns" : imgExClasses;
         // Rough notes for sizing (that we pass below to getSrcsetSizes())
         // - content-width (max 704px, i.e. not fullscreen) = !embedded && !plainBig
         // - embedded: singapore, bali, penang (100vw mobile -> ~1/3 desktop)

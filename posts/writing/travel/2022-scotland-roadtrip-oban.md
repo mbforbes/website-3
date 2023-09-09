@@ -6,7 +6,7 @@ date: 2022-12-09
 travel_start: 2022-08-10
 travel_end: 2022-08-13
 image: /assets/posts/2022-scotland/27-hike-pond.moz80.jpg
-customexcerpt: "Hiking here is appropriately called \"hill walking.\""
+customexcerpt: 'Hiking here is appropriately called "hill walking."'
 ---
 
 <!-- Image graveyard:
@@ -36,33 +36,34 @@ This episode includes water and rocks and a tiny disaster as our car luck finall
 The nice part about driving around these rainy dramatic hills is one of the seventeen BBC stations plays nonstop ominous classical music you can use as a soundtrack.
 
 <!-- Video: scotland drive -->
-{% img {vimeoInfo: "756056787?h=45a1b1b93b", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}, false, false %}
+
+{% img2i {vimeoInfo: "756056787?h=45a1b1b93b"} %}
 
 Leaving the isle and entering the mainland, we were greeted by clear skys at last.
 
-{% img "/assets/posts/2022-scotland/25-oban-bridge.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/25-oban-bridge.moz80.jpg" %}
 
 ## Oban
 
 {% cityMap "/assets/posts/2022-scotland/oban-scotland-7-r1250.moz80.jpg" %}
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/25-oban-view.moz80.jpg"
-], true %}
+] %}
 
 Oban is quite tiny. The couple fish and chips places each claim to serve the most renowned fried pile. The only grocer we found in the town center was a kind of store I didn't know existed: a frozen foods emporium. The whole path inside was a maze of chest freezers and the fluorescent aura of resignation.
 
 But Oban's most special quality is that there is constantly a child dressed up in full Scottish garb busking at the harbor with a bagpipe. You can hear its screams all the way along beach.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/25-oban-top.moz80.jpg",
     "/assets/posts/2022-scotland/25-oban-town.moz80.jpg",
     "/assets/posts/2022-scotland/25-oban-jelly.moz80.jpg"
-], true %}
+] %}
 
 ## Sailing to Staffa
 
-{% img "/assets/posts/2022-scotland/26-boat-boat.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/26-boat-boat.moz80.jpg" %}
 
 Staffa is a tiny nature preserve island with famous feature called Fingal's Cave.
 
@@ -70,23 +71,23 @@ To get there, you take a ferry from Oban to a big island called the Isle of Mull
 
 On the boat rides over, three kinds of buildings dotted the cliffs and rocks: lighthouses, castles, and monasteries. Each occurrence terribly, defiantly alone.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/26-boat-land.moz80.jpg",
     "/assets/posts/2022-scotland/26-boat-lighthouse.moz80.jpg",
     "/assets/posts/2022-scotland/26-boat-castle.moz80.jpg"
-], true %}
+] %}
 
 ## Staffa & Fingal's Cave
 
-{% img "/assets/posts/2022-scotland/26-boat-cave-out.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/26-boat-cave-out.moz80.jpg" %}
 
 The island features bizarre geology. First because of its strange columnar polygonal rocks, and second because these rocks become different shapes at specific heights.
 
-{% img "/assets/posts/2022-scotland/26-boat-walls.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/26-boat-walls.moz80.jpg" %}
 
 Third, these columns aren't even always vertical. Some costal stretches look like a spaceship crashed through molten rock and splayed out a runway of spikes.
 
-{% img "/assets/posts/2022-scotland/26-boat-coastline.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/26-boat-coastline.moz80.jpg" %}
 
 The cave is neat, and doesn't photograph well unless you're National Geographic. I've omitted my poor attempts.
 
@@ -94,13 +95,13 @@ Staffa is also home for a bit of the year to puffins, clown-like cute birds. We 
 
 So in lieu of either of the two most Instagrammable promises of Staffa, I present to you instead the most Scottish thing I saw all day, which is a boat somebody named _Island Lass._
 
-{% img "/assets/posts/2022-scotland/26-boat-island-lass.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/26-boat-island-lass.moz80.jpg" %}
 
 <p class="figcaption">In addition to calling women <span class="i">lasses,</span> make sure to call all small things <span class="i">wee</span> and you'll be well on your way to fluency.</p>
 
 ## Buachaille Etive Mòr
 
-{% img "/assets/posts/2022-scotland/27-hike-hut.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/27-hike-hut.moz80.jpg" %}
 
 At this point I'm tired of Googling all of these names and writing a low budget etymology lesson, so let's just agree to move on. It's a hill you walk up.
 
@@ -108,20 +109,18 @@ As you can see, this hike doesn't look too bad from the road. We grabbed a coupl
 
 The approach is nice and long, and includes some scenery that looks like it could make for a good Windows XP background.
 
-{% img [
-
+{% img2 [
     "/assets/posts/2022-scotland/27-hike-slope.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">I can almost feel my computer crashing.</p>
 
 But perspective is one hell of a drug, and it turns out the hill is a meticulous patchwork of intricate miniature cliffs and piles of tumbling chips.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/27-hike-hillside.moz80.jpg",
     "/assets/posts/2022-scotland/27-hike-julie-out.moz80.jpg"
-], true %}
-
+] %}
 
 The peak offered many opportunities for further hill climbing. I ran up to another area and found, unexpectedly, some beautiful ponds hanging out with rough weeds. Every new hill we crested offered a higher one next to it.
 
@@ -129,15 +128,15 @@ Even though I was completely out of water at this point, I felt the draw of _jus
 
 Finally, halfway through our walk to another summit, I admitted it was best to call it quits.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/27-hike-peak-valley.moz80.jpg",
     "/assets/posts/2022-scotland/27-hike-pond.moz80.jpg",
     "/assets/posts/2022-scotland/27-hike-down.moz80.jpg"
-], true %}
+] %}
 
 We drove back through more impossibly green valleys, the evening sun giving hill pals long armed shadows to rest on each other.
 
-{% img "/assets/posts/2022-scotland/27-one-sister.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/27-one-sister.moz80.jpg" %}
 
 ## Car Breakdown
 
@@ -156,18 +155,17 @@ What followed was a saga both quite unpleasant and far more pleasant than it cou
 But as it was, up in the park and on a Sunday, we quickly discovered that cars here here have no spare tire in them (!), the limits of what our lovely car rental company Hertz would provide (zero),[^hertz] and what all the AAA-like auto rescue companies would do (also zero).[^aaa]
 
 [^hertz]: Hertz was a comedy of errors. No local office would answer (Sunday, I guess), and all the national numbers you can call redirect you to a hotline which, I kid you not, was disconnected from service.
-
 [^aaa]: Apparently, because we were in a rental car, none of the major roadside companies were allowed to do anything to it, even fix a flat tire. This produced a funny dependency loop because Hertz was utterly MIA (see footnote 1).
 
 Finally, after a dozen calls and transfers and messages and failed online systems, we reached a small dispatcher in England, who found a local repair shop in Glasgow, who agreed to send a guy out for £300 (≈$365) to drive a couple hours to us in what was now horrendous traffic and replace the tire.
 
-{% img "/assets/posts/2022-scotland/26-flat-tire.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/26-flat-tire.moz80.jpg" %}
 
 <p class="figcaption">Lovely guy, I had absolutely no idea what he was saying ~30% of the time.</p>
 
 Another great silver lining is that we had made it to the tip of Loch Lomond, and the incredibly kind folks at the marina where we ended up let us park and use their facilities for free---even kill time on the beach. Good to keep reminding yourself of all the ways you're lucky.
 
-{% img "/assets/posts/2022-scotland/26-flat-scene.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/26-flat-scene.moz80.jpg" %}
 
 <p class="figcaption">Not a bad spot to wait out a mishap.</p>
 

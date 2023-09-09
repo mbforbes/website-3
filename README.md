@@ -22,25 +22,28 @@ python scripts/test_common.py && python scripts/test_link_finder.py && python sc
 Two techniques for two purposes: (1) moved URLs, (2) invented URLs for tweakers like me.
 
 1. `redirect_from`
-    - https://brianm.me/posts/eleventy-redirect-from/
+   - https://brianm.me/posts/eleventy-redirect-from/
 2. `redirect_to`
-    - uses same HTML
-    - check redirects/ folder
+   - uses same HTML
+   - check redirects/ folder
 
 ### Weird double dates
 
 Right now there's two notions of date:
+
 - `travel_end`
 - `date` (always publish date)
 
 `travel_end` is displayed everywhere when available. On the Studio page, posts are sorted by `travel_end` if available, else `date`. (This is done within the big custom `dateSeriesGroupBy` filter in eleventy.js.) On the front page, posts are sorted by `date`---but `travel_end` is still displayed when available.
 
 This is good because:
+
 - travel posts appear by their actual end date
 - generating digests will correctly grab using `date`
 - front page shows recent posts, even if travel was a while ago
 
 It's weird because
+
 1. new posts about old travel will be buried on studio
 2. front page lists old dates as more recent than newer ones
 
@@ -57,6 +60,7 @@ Esp. featuring dates and sorting.
 Right now, series is kind of a mess. It should probably be implemented with Eleventy's Collections. I think it's a bad fit to have a tag per series, but I'm not positive.
 
 Right now, logic to handle sorting and ordering and displaying Series is spread out across:
+
 1. `eleventy.js`, the `dateSeriesGroupBy` filter
 2. `_includes/list-posts-and-series.njk` (for listings in Studio)
 3. `_includes/series-top.njk`
@@ -64,15 +68,13 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 
 ## TODO
 
-- [ ] img macro consolidation
-
-here's a helpful vscode regex solution for turning inline images into the classic `![]()` markdown format. (Remove backticks first obvi)
-- search: `\{% img \[\n\s+"(/.*)"\n\], false, false %\}`
-- replace: `![]($1)`
-
+- [ ] per-macro `extraImgClasses` --> per-image `img.extraClasses`
+- [ ] try to get all citymaps w/ attributions swapped to being at end
+  - could check w/ regex, but also want to do citypics after them where applicable
+- [ ] cover images: re-export so big enough!?
 - [ ] new macro or solution for images like sketches (ramen ode) that really ought to simply be constrained by max width or height (but want macro goodies like bg placeholder etc)
 - [ ] Fix up non-height-matching images
-    - [ ] Two in aberdeen post before "Bagpipes don't get me fired up either."
+  - [ ] Two in aberdeen post before "Bagpipes don't get me fired up either."
 - [ ] Fix `&39;` on some cards in card layout
 - [ ] Have card layout hide horizontal scrollbar (see if fixes); freaks out when cards are initially flipping
 - [ ] Fix text colors for dark mode in SVGs in Every PhD is Different
@@ -91,22 +93,23 @@ here's a helpful vscode regex solution for turning inline images into the classi
 - [ ] unified post view for studio
 - [ ] do we want TOC?
 - [ ] the great blockquote fixup
-    - note: esp on mobile, and esp double quotes. probably find set of test cases.
-    - [ ] plus extend for aside, etc.
-        - (how to markup? leaving markdown annoying: footnotes, etc.)
+  - note: esp on mobile, and esp double quotes. probably find set of test cases.
+  - [ ] plus extend for aside, etc.
+    - (how to markup? leaving markdown annoying: footnotes, etc.)
 - [ ] should we do a non-image twitter card when there's no page image? or default to a generic site one?
 
 Notes from trying on 4K screen:
 
 - **consistent margins** --- driving me nuts
-    - center group map / map+series bubbles
-        - + actual bubble around series?
-    - can photos be max-width'd closer to their true width? likely displaying @ full-size will mean @1x density, so there's no reason to limit to 1/2
-    - consider max-width'ing inline full-width post elements (maps)
-    - max-width cover img? w/ border when smaller?
-    - jagged margins of inline posts
-    - ... and horrible stretching
-    - maybe increase media max-width; look @ ratio from body text. or just go much wider
+
+  - center group map / map+series bubbles
+    - - actual bubble around series?
+  - can photos be max-width'd closer to their true width? likely displaying @ full-size will mean @1x density, so there's no reason to limit to 1/2
+  - consider max-width'ing inline full-width post elements (maps)
+  - max-width cover img? w/ border when smaller?
+  - jagged margins of inline posts
+  - ... and horrible stretching
+  - maybe increase media max-width; look @ ratio from body text. or just go much wider
 
 - larger thought: if it's too much work to keep v1 and v2, don't do it. honestly may not need w/ full display capping to some reasonable amt (2000px w?)
 

@@ -20,29 +20,29 @@ attributions: The two animated maps showing England use map tiles by [Stamen Des
 
 My last visit to London[^map] was ten years ago. I like visiting cities---especially big ones---after waiting a long time, because I seem to end up with completely non-overlapping experiences. Another illuminated sliver of the whole.
 
-[^map]:  I have no idea why there's a missing bit in the middle of the map (I think it's the region technically called the "City of London?"), but this took several hours to generate so there's no way I'm going to fix it.
+[^map]: I have no idea why there's a missing bit in the middle of the map (I think it's the region technically called the "City of London?"), but this took several hours to generate so there's no way I'm going to fix it.
 
 We stayed in a flat down in Kennington. We had some AirBnb credits from issues we kept having in France (tl;dr: missing AC in 100℉+ heat waves), so we could afford to rent an apartment that actually had a kitchen and a living room. Otherwise, affordable options would have been rooms in student dorms. We cooked a few meals, but it was hard not to indulge a bit since London's food scene is booming and eclectic, especially after a month up north.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-london/row-homes-nearby.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">Cute brick homes by us. Keep an eye out for posh ones (upcoming) to be twice as high.</p>
 
 We rode out the tail of the aforementioned heat wave in Scotland, and now it was pleasantly warm and sunny. Which was lucky because we also arrived right when major transportation worker strikes were happening. Our train down from Glasgow got sent off in a confused frenzy without half the people aboard, though they let us on another soon after. One of our days in London, the Tube (subway) was totally shut down, so we had some nice long walks up and around the heart of the city.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-london/fan-building.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">I would be surprised if the fans at the top did much, but you gotta give them style points.</p>
 
 ## Accidentally Posh: Belgravia and Mayfair
 
-{% img [
+{% img2 [
     "/assets/posts/2022-london/fancy-row-homes.moz80.jpg"
-], true %}
+] %}
 
 We had such a weird experience visiting these two districts. It would color our whole perception of London.
 
@@ -50,24 +50,24 @@ It goes like this. Julie wants to do two things: try out perfume at a specific p
 
 The perfume store is in an area called Belgravia. We go there and I walk around to kill time. Fortunately there were several big parks nearby. I stroll to them to go have a nice sit down and read.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-london/private-park-look.moz80.jpg",
     "/assets/posts/2022-london/private-park-sign.moz80.jpg"
-], true %}
+] %}
 
 Or that's what I thought I'd do. But private parks struck again. You'd think I'd be prepared for this since I hit [private parks in Edinburgh](/posts/2022-edinburgh/#nature-bafflement), but this time I was struck by their sheer dominance. There was no public greenery within a half hour walk. I tried park after park, only to find them all gated and locked. Bah humbug.
 
 As I walked around, I started noticing strange things. The cars were exclusively Rolls Royce, Bentley, some Lambos, and the occasional Tesla. Down the street was an establishment with people lining the porch wearing---I kid you not---smoking jackets, puffing on cigars. At the corner was an extremely pink building surrounding by relatively normal people who looked universally uncomfortable.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-london/fancy-pink-store.moz80.jpg"
-], true %}
+] %}
 
 We left and headed towards Mayfair, soon passing a Google office.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-london/google-building.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">Of course the Google office would be here.</p>
 
@@ -89,7 +89,7 @@ I had recently read that there's a clear and ancient class stratification of Bri
 
 This whole experience left me feeling bleak. The wealth we'd spent half a day walking around felt, for lack of a better term, pointless. Everything was expensive and _nice,_ but in a way that felt hollow and creepy.
 
-{% img "/assets/posts/2022-london/fancy-brick-row-homes.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-london/fancy-brick-row-homes.moz80.jpg" %}
 
 The rest of our explorations in London would be much more welcoming and pleasant.
 One of the friends we met laughed when we told her where we went that day.
@@ -103,10 +103,10 @@ But even though we didn't encounter such obvious class boundaries again,[^gates]
 
 Hell yeah, London! Hit up the Tate Modern, but wish I had more time to see even more.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-london/art-black.moz80.jpg",
     "/assets/posts/2022-london/art-white.moz80.jpg"
-], true %}
+] %}
 
 ## A Pricy Tube
 
@@ -124,7 +124,7 @@ But when we talked to some friends living there,[^friends] they mentioned London
 
 [^friends]: Shoutout to our friends Chris & Amanda and Asha & Johnathan for sharing new pockets of the city and their experiences living here.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-london/park-layers.moz80.jpg",
         "/assets/posts/2022-london/park-side-water.moz80.jpg"
@@ -133,10 +133,9 @@ But when we talked to some friends living there,[^friends] they mentioned London
         "/assets/posts/2022-london/park-tower.moz80.jpg",
         "/assets/posts/2022-london/park-water-view.moz80.jpg"
     ]
-], true %}
+] %}
 
 <p class="figcaption">Some of the public parks were quite nice as well.</p>
-
 
 This is an instance of my central struggle while traveling: the local vs tourist divide. If you aren't going somewhere to relax or cash out an Instagram checklist, you're probably tying to _experience_ what it's like.
 
@@ -144,9 +143,9 @@ Along the way, you'll confront several obstacles. Some you impose on yourself, l
 
 But the biggest obstacle, I submit, is time. You need time to actually know a place. Even if you have the best possible help---a local friend happy to show you around---you can't truly shortcut the process of getting to know a place. You must live there. You need to find the spots, food, people, and activities that you like, but you also need to find the ones you dislike. (And you probably need to speak the local language.) Only then does a place begin revealing its full range of colors.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-london/bridge-construction.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">Another aspect of local vs tourist perspectives is reliance on signage to know where to go. I spent probably fifteen minutes trying to figure out how to get on this bridge, and I literally could not figure it out. So I gave up and walked to another bridge. This is despite encountering multiple signs trying to direct me onto it. This problem evaporates when you know your way around.</p>
 
@@ -174,7 +173,7 @@ I have, again, saved you from a bunch of pictures of food.[^foodpic] Instead, he
 
 [^foodpic]: To be honest, it appears I was too busy eating to take any.
 
-{% img "/assets/posts/2022-london/hipster-cafe-annotated.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-london/hipster-cafe-annotated.moz80.jpg" %}
 
 ## Misc / Design Bits
 
@@ -214,7 +213,7 @@ Nothing says Christianity quite like three different crosses layered on top of e
 
 One thing I do remember from past trips is being surprised that Big Ben is connected to other buildings (Parliament, right?). In my mind's eye, it's always alone, a solitary huge clock tower. Not sure why.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-london/big-ben.moz80.jpg",
         "/assets/posts/2022-london/statues.moz80.jpg"
@@ -223,7 +222,7 @@ One thing I do remember from past trips is being surprised that Big Ben is conne
         "/assets/posts/2022-london/building-blobs.moz80.jpg",
         "/assets/posts/2022-london/parliment.moz80.jpg"
     ]
-], true %}
+] %}
 
 This time around, I was struck by awe of the scale and detail of the Big Ben / Parliament / enormous church exteriors.[^visit] Something about the massiveness combined with the ornateness gave these buildings a terrifying beauty. They were impressive as _achievements._
 
@@ -231,8 +230,8 @@ This time around, I was struck by awe of the scale and detail of the Big Ben / P
 
 But I found myself most fascinated by bizarre bulky geometric buildings like the one in the next photo. They felt like brutalism meets '80s glam sensibilities.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-london/brutalist-glam.moz80.jpg"
-], true %}
+] %}
 
 Luckily for me, Serbia---our next stop---would scratch this architecture itch in a big way.

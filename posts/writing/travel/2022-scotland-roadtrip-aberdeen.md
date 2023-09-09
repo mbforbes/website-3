@@ -66,10 +66,10 @@ Our first leg was from Edinburgh to Aberdeen.
 The whole landscape felt pleasantly organized. Each parcel of land accounted for, all green pastures so kempt they looked nearly mowed (hence golf's country of origin suddenly making sense), tasteful bits of trees spouting.
 
 <!-- video: scotland-field -->
-{% img [
-    {vimeoInfo: "756057977?h=8fea7947d3", videoStyle: "width: 100%; aspect-ratio: 16 / 9;", bgImgPath: "/assets/posts/2022-scotland/01-road-field.moz80.jpg"},
+{% img2 [
+    {vimeoInfo: "756057977?h=8fea7947d3"},
     "/assets/posts/2022-scotland/01-road-landscape.moz80.jpg"
-], true %}
+] %}
 
 The one compliment I can give about Scottish cuisine with absolutely no reservations is that their fish and chips are incredible.
 
@@ -77,16 +77,16 @@ The breading is the opposite of Southern (USA) style fried chicken. It's shatter
 
 Reading Google Maps reviews for fish & chips places is a special pastime because everyone is convinced their local joint makes the best in the entire country.
 
-{% img "/assets/posts/2022-scotland/01-road-lunch-close.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/01-road-lunch-close.moz80.jpg" %}
 
 <p class="figcaption">Not wild about the pre-drenching of fries in ketchup, but appreciate the tiny forks provided for stabbing them.</p>
 
 Rocky coast pleasantly familiar to Pacific Northwest (PNW).
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/01-road-jellyfish.moz80.jpg",
     "/assets/posts/2022-scotland/01-road-piles.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">My mom asked her Seattle Aquarium friends about these nice swirls, kind of sand-based <span class="i">Mont Blancs</span>, and it turns out they are piles of worm poop.</p>
 
@@ -100,12 +100,12 @@ If you've been to the PNW Aberdeen, then you'll be pleased to know that Aberdeen
 
 This Aberdeen has a district-dependant mixture of rock and concrete housing, brutalist and gothic university behemoths, sprawling parks with flower arrangements manicured to look like the tops of cakes, and some ancient stuff in-between.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/02-abr-apt.moz80.jpg",
     "/assets/posts/2022-scotland/02-abr-building-pattern.moz80.jpg",
     "/assets/posts/2022-scotland/02-abr-park-wide.moz80.jpg",
     "/assets/posts/2022-scotland/02-abr-big-uni.moz80.jpg"
-], true %}
+] %}
 
 We started wandering the outskirts of town, which has the sleepy King's College.
 Nestled among cottages, the campus was green and quiet and somehow felt very foreign in the specific way a preserved old place can.
@@ -114,30 +114,32 @@ We spotted only the occasional Chinese roughly-twenty-year-old wandering with a 
 Feeling out of place myself in a tiny corner of town gave me a pang of empathy for someone moving from one of China's many million+ population cities to a college town across the globe to study.
 I understood, freshly, why international students stick together.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/02-abr-uni.moz80.jpg",
     [
         "/assets/posts/2022-scotland/02-abr-towers.moz80.jpg",
         "/assets/posts/2022-scotland/02-abr-vines.moz80.jpg"
     ]
-], true %}
+] %}
 
 Checking out downtown, we admired big towers with clouds blasting by.
 As I went absolutely peak tourist and filmed a short video, a voice floated over the fence we were at. "Hey, what do you think of this tower?"
 
 <!-- video: scotland-aberdeen-clouds -->
-{% img {vimeoInfo: "756056344?h=49401b4f8a", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}, true %}
+{% img2 {vimeoInfo: "756056344?h=49401b4f8a"} %}
 
 We spent the next hour or so with John, a lovely Scottish artist and decedent of a mason who worked on these very buildings.
 He took us inside his studio at Marischal College, and even led us down into the abandoned basements.
 An old anatomy college was being slowly repurposed by school-affiliated artists, dissection showrooms turned into dance floors.
 The basement was still fully stocked with woodworking tools for preparing coffins. Some piece of equipment had an _asbestos_ setting.
 
-{% img [
-    "/assets/posts/2022-scotland/02-abr-big-tower.moz80.jpg",
-    "/assets/posts/2022-scotland/02-abr-hallway.moz80.jpg",
+{% img2 [
+    [
+        "/assets/posts/2022-scotland/02-abr-big-tower.moz80.jpg",
+        "/assets/posts/2022-scotland/02-abr-hallway.moz80.jpg"
+    ],
     "/assets/posts/2022-scotland/02-abr-remains.moz80.jpg"
-], true %}
+] %}
 
 John told us Aberdeen was like a big village, and everyone sort of ended up knowing everyone.
 You could feel just under the surface that if you found the right friends and pubs, it'd be a charming place to live.
@@ -145,7 +147,7 @@ He eventually sent us on our way with recommendations for local abandoned castle
 
 ## Linn of Dee
 
-{% img "/assets/posts/2022-scotland/03-hike-stream.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/03-hike-stream.moz80.jpg" %}
 
 I don't want to oversell it, but I'm going to anyway: this was my favorite hiking I have ever done, anywhere, ever.
 
@@ -156,11 +158,11 @@ Those preteen years I spent reading doorstop adventuring books, I was always ima
 
 I wrote before about [preferring forest bathing](/posts/2022-05-seattle/#nature-as-vibes) to the activity of trudging up and down mountains in technical gear. This really hit the spot.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/03-hike-trees.moz80.jpg",
     "/assets/posts/2022-scotland/03-hike-julie.moz80.jpg",
     "/assets/posts/2022-scotland/03-hike-river.moz80.jpg"
-], true %}
+] %}
 
 In my notes when I was here, I tried to describe the sensation of quiet after you've been in a noisy area. I had two analogies here:
 
@@ -172,7 +174,7 @@ This is all pretty funny to read now, because I'm writing this in Vietnam, where
 
 ## Balmoral Castle
 
-{% img "/assets/posts/2022-scotland/04-bal-castle.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/04-bal-castle.moz80.jpg" %}
 
 Scotland has a lot of castles.
 
@@ -192,10 +194,10 @@ Lo and behold, nope, the royal family has spent summers in Balmoral Castle for d
 
 [^pass]: Scotland helpfully sells some tourist passes that get you into a combo of castles which exactly excludes the ones you'd actually want to see.
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-scotland/04-bal-garden.moz80.jpg",
     "/assets/posts/2022-scotland/04-bal-tree-tall.moz80.jpg"
-]], true %}
+]] %}
 
 The garden is extensive and grows a gigantic array of crops and flowers. These are used to feed the royal family and decorate the castle, respectively, during the summers when they're there. Given the cool and sun-limited Scottish climate, the tour guide app explained it is quite a challenge to have all the food ready exactly by the time they arrive each year.
 
@@ -233,45 +235,46 @@ I think part of the weirdness was, because not only is the monarchy still reigni
 
 ## Loch Muick
 
-{% img "/assets/posts/2022-scotland/05-loch-hut.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/05-loch-hut.moz80.jpg" %}
 
 I couldn't tell exactly, but I _think_ the greater grounds of Balmoral Castle might have stretched way out into this loch, making this primo fancypants hunting grounds.
 
 We went right around sunset. It was quiet and cool for the long approach. A rangle of deer with gigantic, fully developed sets of antlers eyed us from the hills. At the loch, a couple locals were, apparently fully voluntarily, taking a frigid dip.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/05-loch-grounds.moz80.jpg",
     "/assets/posts/2022-scotland/05-loch-walk.moz80.jpg",
     "/assets/posts/2022-scotland/05-loch-max.moz80.jpg"
-], true %}
+] %}
 
 BTW, we should get this out of the way early: "loch" is just Scottish for "lake." But "loch" is considerably more fun to say so I will keep using it throughout.
 
 ## Slains Castle
 
-{% img "/assets/posts/2022-scotland/06-slain-castle.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/06-slain-castle.moz80.jpg" %}
 
 I am delighted to tell you that, because it is completely ruined, we did not have to pay any entrance to walk around Slains Castle.
 
 If you're up-to-date on your tetanus boosters and the population of grandmas and five-year-olds is low, the ruins would be a great place to parkour around. Several stories of the rubbly towers are have working stairs and empty windows.
 
+![](/assets/posts/2022-scotland/06-slain-enter.moz80.jpg)
+
 I wish I had a better word for it, but the only appropriate label for this situation of _castle perched on rocky cliff_ is the clichéd: dramatic.
 
 <!-- Video: scotland-slains-beach -->
-{% img [
-    "/assets/posts/2022-scotland/06-slain-enter.moz80.jpg",
-    {vimeoInfo: "756058241?h=946d96c367", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"},
+{% img2 [
+    {vimeoInfo: "756058241?h=946d96c367"},
     [
         "/assets/posts/2022-scotland/06-slain-graffiti.moz80.jpg",
         "/assets/posts/2022-scotland/06-slain-window.moz80.jpg"
     ]
-], true %}
+] %}
 
 <p class="figcaption">At first my main thought was, wow, this is the oldest graffiti I've ever seen. But later I realized, wait, you can just carve any year in you want. I wonder what's the oldest believable year you could pick?</p>
 
 ## Fyvie Castle
 
-{% img "/assets/posts/2022-scotland/07-leith-castle.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/07-leith-castle.moz80.jpg" %}
 
 Fyvie Castle is number 3/3 that we paid to enter. The appeal of this one is that you can walk around the inside (guided tour only) and it's all decorated just like it was when it was lived in.
 
@@ -279,7 +282,7 @@ The place is massive and has a serious portrait collection. I originally wasn't 
 
 Nobody actually lives there anymore. Apparently the maintenance costs for a castle like this are so enormous that if you end up inheriting one, after the novelty wears off, it's just a black hole on your bank account. The last owner sold it to Scotland's historical / tourism umbrella organization I've forgotten the name of. They fix leaks and run tours and probably actually subsist off of trust funds.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-scotland/07-leith-garden.moz80.jpg",
         "/assets/posts/2022-scotland/07-leith-dining.moz80.jpg"
@@ -287,24 +290,24 @@ Nobody actually lives there anymore. Apparently the maintenance costs for a cast
     "/assets/posts/2022-scotland/07-leith-entertain-wide.moz80.jpg",
     "/assets/posts/2022-scotland/07-leith-plates.moz80.jpg",
     "/assets/posts/2022-scotland/07-leith-piano-wide.moz80.jpg"
-], true %}
+] %}
 
 To my surprise, I saw my last name and some kind of coat of arms a bunch of places around the castle. Turns out the key owner (Alexander Forbes-Leith) had "Forbes" on his mom's side. I'm really not into European genealogy, so I won't belabor this at all. Instead, I present to you three boars' heads and "Grace Me Guide," neither of which gets me really fired up but hey, some things you don't get to choose.
 
-{% img [[
-    {path: "/assets/posts/2022-scotland/07-leith-forbes-ceiling.moz80.jpg", maxHeight: "500"},
-    {path: "/assets/posts/2022-scotland/07-leith-forbes-window.moz80.jpg", maxHeight: "500"}
+{% img2 [[
+    "/assets/posts/2022-scotland/07-leith-forbes-ceiling-v2.moz80.jpg",
+    "/assets/posts/2022-scotland/07-leith-forbes-window.moz80.jpg"
 ]] %}
 
 <p class="figcaption">Bagpipes don't get me fired up either. In case you were wondering.</p>
 
 ## Elgin Cathedral
 
-{% img "/assets/posts/2022-scotland/08-cathedral.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/08-cathedral.moz80.jpg" %}
 
 The name reads like somebody hiccuped while saying it. Pretty nice ruins I guess.
 
-{% img "/assets/posts/2022-scotland/08-cathedral-front.moz80.jpg", true %}
+{% img2i "/assets/posts/2022-scotland/08-cathedral-front.moz80.jpg" %}
 
 As we arrived---after closing; just to stalk the fences; fine by us; avoid another hefty entrance fee---a group of young English guys popped out of their own vehicle clown car style. I immediately assumed they were doing something everyone around here knew but I only recently learned of: the NC 500.
 

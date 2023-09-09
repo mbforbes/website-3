@@ -33,28 +33,28 @@ It would be great if you could go directly between these islands, but, as they s
 
 Bohol's airport had that kind of funny '10s wifi situation where there's a bunch of networks that all say they're free and then aren't.
 
-{% img [[
+{% img2i [[
     "/assets/posts/2022-el-nido/IMG_9704.moz80.jpg",
     "/assets/posts/2022-el-nido/IMG_9705.moz80.jpg"
-]], false, false %}
+]] %}
 
 <p class="figcaption">Sometimes it's the little things.</p>
 
 I also saw maybe my favorite piece of failed COVID bureaucratic showboating. There is a _HAND SOAP IS TEMPORARILY OUT_ sign that seems to be a permanent installment because of its weathered lamination. And _on top of this_ sign is a 'Rona sign insisting you (somehow) wash your hands.
 
-{% img "/assets/posts/2022-el-nido/IMG_9706.moz80.jpg", false, false %}
+![](/assets/posts/2022-el-nido/IMG_9706.moz80.jpg)
 
 <p class="figcaption">Granted, it's probably easier to tape signs to the wall than refill soap, so I guess they've got me on that one.</p>
 
 Finally, since I already said I needed to stop saying bad things about Manila, I will even compliment its domestic terminal 4, AKA worst terminal on earth. They had tall cylinders which you could stand next to and eat.^[I am sparing you photos of the food. I have them.] In the middle was a little lid. If you open the lid, it turns out that the whole thing, ingeniously, is one big trash can, and you can neatly slide all your garbage inside.
 
-{% img "/assets/posts/2022-el-nido/IMG_9715.moz80.jpg", false, false %}
+![](/assets/posts/2022-el-nido/IMG_9715.moz80.jpg)
 
 <p class="figcaption">It's a little gross but damn if it isn't clever.</p>
 
 OK OK let's get to the new island already.
 
-{% img "/assets/posts/2022-el-nido/IMG_9718.moz80.jpg", false, false %}
+![](/assets/posts/2022-el-nido/IMG_9718.moz80.jpg)
 
 ## El Nido
 
@@ -68,11 +68,11 @@ Arriving provided the most striking example yet of the following phenomenon: I h
 
 The town is miniscule. There's basically one street. It feels simultaneously discovered and early in development. Discovered because, well, the hoards of Eurobros and American girls screeching drunkedly into the night, the party-encouraging mega hostel, and the presence of somehow halfway decent Neapolitan pizza but complete lack of Filipino food. But still work-in-progress because the buildings all seemed to be a roll of the dice for which century they were built in. A half-finished sleek hotel is up the block from six rusty lean-tos, after which are a handful of solidly eighties plastered boxy blobs.
 
-{% img "/assets/posts/2022-el-nido/IMG_9733.moz80.jpg" %}
+{% img2 "/assets/posts/2022-el-nido/IMG_9733.moz80.jpg" %}
 
 <p class="figcaption">If you try to find a loop to walk, rather than just up and down the one road, you'll end up on a highway road with rustic surroundings.</p>
 
-The other piece to set the mood is the brownouts. _Brownout_ is the Filipino term for a blackout:^[[Brownout](https://en.wikipedia.org/wiki/Brownout_(electricity)) means the voltage drops, but a [blackout](https://en.wikipedia.org/wiki/Power_outage) means the power is shutoff. Power issues used to be a regular headache for those in the Manila area too, IIRC. Since Filipinos use the term _brownout_ for everything, it makes me wonder if the problems started as true brownouts (equipment failing to keep up, so voltage dropping and causing damage), and then when they phased in intentional blackouts to manage demand, the old term just stuck?] a complete loss of power. These are frequently scheduled to reduce demand on the power grid, which can't keep up. For example, when we were there, two of the days were without power from 6am to 6pm.
+The other piece to set the mood is the brownouts. _Brownout_ is the Filipino term for a blackout:^[[Brownout](<https://en.wikipedia.org/wiki/Brownout_(electricity)>) means the voltage drops, but a [blackout](https://en.wikipedia.org/wiki/Power_outage) means the power is shutoff. Power issues used to be a regular headache for those in the Manila area too, IIRC. Since Filipinos use the term _brownout_ for everything, it makes me wonder if the problems started as true brownouts (equipment failing to keep up, so voltage dropping and causing damage), and then when they phased in intentional blackouts to manage demand, the old term just stuck?] a complete loss of power. These are frequently scheduled to reduce demand on the power grid, which can't keep up. For example, when we were there, two of the days were without power from 6am to 6pm.
 
 All the businesses are prepared (ish) for this, so right at six AM when the air conditioning and lights shut off, you hear the roar of a dozen^[No idea how many, really. Maybe five, maybe a hundred?] gas generators all starting up at once. Then, at least for our ultra budget hotel, the lights come on, but not the heavy duty stuff: air conditioning or heated water. You end up reaching a lukewarm equilibrium if you end up being home at all during the day: the shower can't get hot, but you're so hot and sticky without AC that you don't mind dumping cool water on yourself.
 
@@ -80,19 +80,19 @@ All the businesses are prepared (ish) for this, so right at six AM when the air 
 
 The main attraction of El Nido is boat trips, neatly organized into five courses (A through E). In the evening, myriad boats idle in the bay, awaiting the morning rush.
 
-{% img "/assets/posts/2022-el-nido/IMG_9724.moz80.jpg" %}
+{% img2 "/assets/posts/2022-el-nido/IMG_9724.moz80.jpg" %}
 
 In the morning, you head to a waiting shack and make small talk (_which course are you in?_ etc.) with fellow boatgoers. We met two very interesting half French, half Filipino young women, one of whom is a pro wrestler, and the other was between jobs but described the horror of working in a call center.^[The Philippines is a hub for call centers. I've read this chalked up to good English and a similar culture of customer service friendliness, plus their time zone making a clean handoff from the USA (it's 12h off from NYC).]
 
 On our boat, we stopped at many islands, all of which photograph exactly the same: great beach, Instagrammable water gradient, smattering of rocks jutting up in the distance.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-el-nido/IMG_9737.moz80.jpg"
 ] %}
 
 Along with some interesting stops (e.g., long stretch of sand connecting two jungles), the guides spent the majority of the time pointing out large solitary buildings on remote islands and telling us how much it cost to stay there for one night. I think maybe Justin Bieber got married around here?
 
-{% img [
+{% img2 [
     "/assets/posts/2022-el-nido/IMG_9744.moz80.jpg",
     "/assets/posts/2022-el-nido/IMG_9747.moz80.jpg",
     "/assets/posts/2022-el-nido/IMG_9757.moz80.jpg",
@@ -103,7 +103,7 @@ Along with some interesting stops (e.g., long stretch of sand connecting two jun
 
 One of our final stops was in some cave formation we had to crawl into. The guides had done this a thousand times and so knew the best angles to take photos. I thought I was a pro at this point, so I went around by myself trying to capture the cave. I totally failed. Look at these stupid pictures.
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-el-nido/IMG_9777.moz80.jpg",
     "/assets/posts/2022-el-nido/IMG_9778.moz80.jpg"
 ]] %}
@@ -114,7 +114,7 @@ One of our final stops was in some cave formation we had to crawl into. The guid
 
 Lacking AC was a good forcing function to explore a bit more of the island. You can hire guys to drive you in these tin cans down the shore to some other beaches.
 
-{% img {vimeoInfo: "816191727?h=915bc413c3", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}, false, false %}
+{% img2i {vimeoInfo: "816191727?h=915bc413c3"} %}
 
 <p class="figcaption">On the way back, he wasn't paying attention and drove right into some guy's van. He (van guy) was not happy. Van was fine though.</p>
 

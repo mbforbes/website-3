@@ -50,6 +50,7 @@ On the way south, we had wanted to visit Da Nang and Hoi An (which are near each
 But it turns out that it's tricky to pick a single time that's great for visiting all parts of the country. Vietnam is so tall---spans such a wide latitude---that sunny and pleasant temperatures in one part often means typhoons or scorching heat in another.
 
 If you do go to Vietnam, and you want sunny weather that's not too hot, let me save you hours of research:
+
 - **December** seems best for visiting the north (Hanoi and its satellites)
 - **February** seems best for visiting the middle and south (Da Nang & Hoi An, Dalat, Ho Chi Minh City + satellites)
 
@@ -82,10 +83,11 @@ I am empathetic to travel blogs. Surely they do better if they make a place look
 
 I resisted this---only posting photos of nice things. But when making a website, I have no goal other than making something beautiful. And, especially with an iPhone camera, it's hard to take beautiful pictures of everyday things.^[If you don't believe me, look at any random street photos by someone like Craig Mod (e.g., [here](https://craigmod.com/ridgeline/150/)), who is using camera equipment ballpark $5k or $10k. Then, go and take similarly simple / atmospheric photos of your own with your phone. Compare them on a monitor. You have no chance. Your phone sensor does not capture enough light, and your aperture is too small. Relatedly, this is why it is dangerous to look at blogs of people with good cameras. It will convince you you need to buy an expensive camera. God help my wallet, this may have already happened to me.]
 
-{% img "/assets/posts/2022-dalat/IMG_9047.moz80.jpg" %}
+{% img2 "/assets/posts/2022-dalat/IMG_9047.moz80.jpg" %}
 
 Let me give some concrete examples. Photos of Dalat^[When researching Dalat, I used the travel blog _Wander Lush_ (e.g., here's her [Dalat entry](https://wander-lush.org/things-to-do-in-dalat-itinerary/)). Aside from a handful of things being out-of-date and hence (a) double the price or (b) unavailable---which is inevitable for anyone lower budget than Rick Steves---it was generally quite helpful and inspirational. With that said, it totally succumbs to the
 beautifying / mystifying / idealizing I wrote about above.] generally focus on three categories of things:
+
 1. Cafés
 2. French colonial architecture
 3. Officially Mandated Tourist Activities (OMTAs)^[I've been addicted to this term (OMTAs) since I accidentally coined it in the Seoul post. Is it annoying you? Let me know in the comments! Oops just kidding, I deleted the comments because nobody used them so it was embarrassing.]
@@ -94,10 +96,11 @@ beautifying / mystifying / idealizing I wrote about above.] generally focus on t
 
 **Expectation:** walking around Dalat, you will whimsically wander between spacious, airy, tropical plant and natural wood-filled cafés. You sip your artisanal coffee in peace and quiet. Here is photo proof this reality exists:
 
-{% img [
+{% img2 [
     "/assets/posts/2022-dalat/IMG_9042.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9305.moz80.jpg"
 ] %}
+
 <p class="figcaption">Bottom: La Viet Coffee. A bit out of the way, and decidedly catering to foreigners, but it knocked expectations out of the park.</p>
 
 **Reality:** Cafés like this do exist. They're not abundant---most cafés actually focused on food, and served OK coffee only incidentally. They would often be extremely noisy due to being open-air and with hordes of mopeds blasting by.
@@ -108,11 +111,11 @@ But the real lie is subtle. Because the part that isn't true is what wasn't said
 
 You see those cafés and, at least if you're me, assume that the rest of the city will kind of thematically match them. Spacious, calm, pleasant. Then you arrive in Dalat, and it's actually like this:
 
-{% img [
+{% img2i [
     "/assets/posts/2022-dalat/IMG_9037.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9040.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9015.moz80.jpg"
-], false, false %}
+] %}
 
 This is what walking around Dalat is actually like. The central areas are completely, totally, utterly jammed with domestic tourists. Hundreds of clothing stands and dozens of food vendors line the sidewalks and fill warehouse rooms. Mopeds blast everywhere, all the time, and are sometimes parked in such a dense arrangement you have to pick your way through them to walk down the street.
 
@@ -120,7 +123,7 @@ This is what walking around Dalat is actually like. The central areas are comple
 
 **Expectation:** Immerse yourself in a fairytale^[Ignore the whole colonialism part and focus on the architecture part.] world of eye-catching, tastefully decaying buildings. You, dressed in your most whimsical travel clothes, happen upon quaint building after building, each of which delights the senses and stirs imagination. What could be inside? Here's proof:
 
-{% img "/assets/posts/2022-dalat/IMG_9194.moz80.jpg" %}
+{% img2 "/assets/posts/2022-dalat/IMG_9194.moz80.jpg" %}
 
 <p class="figcaption">Ooh, just wait until I get that in the backdrop of my whimsically disinterested expression and carefully selected outfit.</p>
 
@@ -128,11 +131,11 @@ This is what walking around Dalat is actually like. The central areas are comple
 
 Finally, you arrive. Or wait, have you arrived? It's all fenced off.
 
-{% img "/assets/posts/2022-dalat/IMG_9193-1-bar.moz80.jpg", false, false %}
+![](/assets/posts/2022-dalat/IMG_9193-1-bar.moz80.jpg)
 
 Ah, that's right, a footnote somewhere mentioned this might be the case. Well, looks like it's not very much in use. The other footnote said you might be able to find a guard to open the fence, but the only one is very far away and doesn't look remotely interested in your Instagram trespassing. Well, no problem, I'll just lean my phone through the railings and take a shot:
 
-{% img "/assets/posts/2022-dalat/IMG_9193-2-lot.moz80.jpg", false, false %}
+![](/assets/posts/2022-dalat/IMG_9193-2-lot.moz80.jpg)
 
 Then, after cropping heavily and slapping a thick filter on top, we have the photo I put above.
 
@@ -152,7 +155,7 @@ I'll give each OMTA excursion its own section.
 
 ## Trai Mat
 
-{% img "/assets/posts/2022-dalat/IMG_9108.moz80.jpg" %}
+{% img2 "/assets/posts/2022-dalat/IMG_9108.moz80.jpg" %}
 
 Trai Mat is one town over from Dalat. It has a big wild Buddhist temple complex and an as-bizarre-as-advertised Cao Dai^[Don't have the bandwidth right now to read about Cao Dai on Wikipedia and splat out some pithy essence for you. If you're interested, give them a Google. I've heard it's a trip.] temple. It is also connected to Dalat via the only operating chunk of a restored old train line, which runs a handful of times a day to ferry tourists between them.
 
@@ -166,36 +169,36 @@ We arrived at the train station, which is also a ripe ground for photo ops.^[The
 
 We get to the ticket office, only to find the schedule had recently changed by just enough minutes (30) that we had missed it and would need to wait two-and-a-half hours for the next one.
 
-{% img "/assets/posts/2022-dalat/IMG_9050.moz80.jpg", false, false %}
+![](/assets/posts/2022-dalat/IMG_9050.moz80.jpg)
 
 <p class="figcaption">My careful day plan crumbling, I had a funny emotion after this happened which I can only describe as: "someone has to be held responsible for this!" Maybe this is <span class="i">Karen energy.</span> The rage quickly dissipated only because I looked around and realized there was not single person remotely capable of fielding my complaints. (Lucky for everyone involved.)</p>
 
 Since the thirty minute novelty train is just a ten minute drive by car, we Grab'd over to Trai Mat instead and set to work checking out the local religious stuff.
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-dalat/IMG_9076.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9068.moz80.jpg"
 ]] %}
 
 One thing European Christian churches and late Buddhism Asian temples have in common is an _awe via level of detail_ quality to them. E.g., the drawings on each of the thousands of tiles just making up the upper part of this railing.
 
-{% img [
+{% img2i [
     "/assets/posts/2022-dalat/IMG_9082.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9078.moz80.jpg"
-], false, false %}
+] %}
 
 ![](/assets/posts/2022-dalat/IMG_9085.moz80.jpg)
 
 <p class="figcaption">Small section of large Buddha made out of flowers. (Complete with Guinness World Record plaque saying that it is the largest Buddha made out of flowers.)</p>
 
-{% img [
+{% img2 [
     "/assets/posts/2022-dalat/IMG_9091.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9100.moz80.jpg"
 ] %}
 
 The Cao Dai temple---massive and very close the to totally packed Buddhist temple---was completely empty. And it was decidedly strange. It feels like if you took a heaping handful of other religions' icons, blended them together, and ran them through a coat of pastel paint.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-dalat/IMG_9106.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9129.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9124.moz80.jpg"
@@ -209,10 +212,9 @@ Maybe some things are best left unexplained.
 
 This tourist attraction is kind of like if you had Dalí, Gaudí, and Kafka collaborate on a motel complex with the goal of receiving the most possible ADA lawsuits. I had minimal hopes for this and it wildly exceeded them, mostly due to its scale. The place has this cult classic-like feel where you don't know if you're enjoying it on its terms or your own.
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-dalat/IMG_9185.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9178.moz80.jpg"
-
 ], [
     "/assets/posts/2022-dalat/IMG_9184.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9190.moz80.jpg"
@@ -220,15 +222,15 @@ This tourist attraction is kind of like if you had Dalí, Gaudí, and Kafka coll
 
 ## The King's Residence
 
-{% img "/assets/posts/2022-dalat/IMG_9204.moz80.jpg" %}
+{% img2 "/assets/posts/2022-dalat/IMG_9204.moz80.jpg" %}
 
 It actually turns out that the previous king had several summer residences in Dalat. They feel a bit haphazardly kempt, like everyone's preserving something but the reasons why have been forever lost to time. We wore slippers inside and spent time investigating, e.g., the royal bathrooms.^[One takeaway is that bathrooms have improved a lot in a short amount of time. E.g., most hotel bathrooms are better than this king's one.]
 
-{% img [
+{% img2i [
     "/assets/posts/2022-dalat/IMG_9198.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9206.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9219.moz80.jpg"
-], false, false %}
+] %}
 
 <p class="figcaption">I like this plaque because it raises more questions than it answers. The queen just... went to France? A great TV drama brews here. I also love that they specifically pointed out the Royal Concubine.</p>
 
@@ -238,7 +240,7 @@ You can ride from just outside the city, across the forest, and over to a (relat
 
 Dalat's elevation (1,500m AKA 4,900ft) is really apparent here. The prickly foliage, cool air, and frequent cloud cover made me feel right at home
 
-{% img [
+{% img2 [
     "/assets/posts/2022-dalat/IMG_9284.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9246.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9248.moz80.jpg",
@@ -252,7 +254,7 @@ Dalat's elevation (1,500m AKA 4,900ft) is really apparent here. The prickly foli
 
 Oh yeah, and even got another lovely addition to the casual copyright violation collection.
 
-{% img "/assets/posts/2022-dalat/IMG_9294.moz80.jpg", false, false %}
+![](/assets/posts/2022-dalat/IMG_9294.moz80.jpg)
 
 <p class="figcaption">Can't tell whether the uncanny valley effect is due to bad proportions or, you know, the whole <span class="i">made of astroturf</span> thing.</p>
 
@@ -270,20 +272,20 @@ But, like omitting negative results in research, it means half the picture only 
 
 OK, so that's the lengthy preamble. Dalat's specialty food and drinks, in our experience, were decidedly meh. This was only disappointing because Hanoi's kicked so much ass.
 
-{% img [[
+{% img2i [[
     "/assets/posts/2022-dalat/IMG_9020.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9022.moz80.jpg"
-]], false, false %}
+]] %}
 
 {% doubleCaption
     "Vietnamese Pizza (Bánh Tráng Nướng).",
     "Banh mi with meatballs (Bánh Mì Xíu Mại)."
 %}
 
-{% img [[
+{% img2i [[
     "/assets/posts/2022-dalat/IMG_9027.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9043.moz80.jpg"
-]], false, false %}
+]] %}
 
 {% doubleCaption
     "Cocktails: oops all flair.",
@@ -292,19 +294,19 @@ OK, so that's the lengthy preamble. Dalat's specialty food and drinks, in our ex
 
 Here's what wasn't meh: the weird empty Korean party bar next to our hotel that was multiple stories tall, had five people working there, and we were the only customers who ever went inside. We went most nights so we could horribly monopolize their pool table.
 
-{% img [[
+{% img2i [[
     "/assets/posts/2022-dalat/IMG_9231.moz80.jpg",
     "/assets/posts/2022-dalat/IMG_9236.moz80.jpg"
-]], false, false %}
+]] %}
 
 <p class="figcaption">A room of one's own, and overpriced Tiger beer so I can play billiards for hours. &ndash; Virginia Woolf</p>
 
 And there were a couple gems. La Viet Coffee, mentioned in the café section of the post, also had great coffee and creative, delicious food. The other one: a spit-roasted chicken restaurant with killer herbal tea and fragrant sticky rice. I think this was the best non-deep-fried chicken I've had in my life. We went back.
 
-{% img "/assets/posts/2022-dalat/IMG_9146.moz80.jpg", false, false %}
+![](/assets/posts/2022-dalat/IMG_9146.moz80.jpg)
 
 ## One Last Thing
 
-{% img "/assets/posts/2022-dalat/IMG_9148.moz80.jpg" %}
+{% img2 "/assets/posts/2022-dalat/IMG_9148.moz80.jpg" %}
 
 <p class="figcaption">Our hotel was themed in a genre that I can only describe as "plastic royal." It paired nicely with TV (pictured) which 24/7 played footage of seascapes, mostly sea turtles, set to relaxing ambient piano music.</p>

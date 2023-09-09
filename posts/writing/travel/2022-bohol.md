@@ -31,10 +31,10 @@ attributions: The custom animated maps use map tiles by [Stamen Design](http://m
 
 I have a whole rant written up about this but I feel like I've been a bit negative about Manila already so let's cut the whole thing out and say it was bad. But, you've got no choice if you want to fly to the islands. Whatever. It got us on an airplane.
 
-{% img [
+{% img2i [
     "/assets/posts/2022-bohol/IMG_9612.moz80.jpg",
     "/assets/posts/2022-bohol/IMG_9613.moz80.jpg"
-], false, false %}
+] %}
 
 <p class="figcaption"><span class="b">Top:</span> waiting for hours in a line that did not matter. <span class="b">Bottom:</span> lining up in the middle of ground traffic.</p>
 
@@ -49,13 +49,13 @@ We'd heard the islands are much safer than Manila, and I immediately asked the g
 
 We stayed at a budget inn a bit of a walk outside town.^[For those actually curious, the town here is _Panglao,_ which is on the tip of tiny island connected by a couple bridges to the bigger island of Bohol itself.] There wasn't a whole lot in town, so this was actually a nice way to, uh, _get away from it all,_ I guess.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bohol/IMG_9616.moz80.jpg"
 ] %}
 
 The same driver also told us they'd been without power for _months_ after the last big storm. Holy crap. Really puts in perspective how grumpy people stateside get when power goes out for a few hours.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bohol/IMG_9649.moz80.jpg",
     "/assets/posts/2022-bohol/IMG_9646.moz80.jpg",
     "/assets/posts/2022-bohol/IMG_9647.moz80.jpg"
@@ -73,19 +73,19 @@ The main Officially Mandated Tourist Activity (OMTA) in Bohol is to hire a boat 
 
 All the boats are equipped with these things jutting off the sides that I guess are to keep them balanced. Here's the one we took.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bohol/IMG_9625.moz80.jpg"
 ] %}
 
 <p class="figcaption">I don't understand boats so I don't know why they're like this here and nowhere else I've seen boats. Any boat people reading this, please let me know.</p>
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bohol/IMG_9618.moz80.jpg"
 ] %}
 
 <p class="figcaption">Water available in the color of nearly every conceivable flavor of Gatorade.</p>
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bohol/IMG_9637.moz80.jpg"
 ] %}
 
@@ -93,7 +93,7 @@ All the boats are equipped with these things jutting off the sides that I guess 
 
 One thing these photos don't tell you is that actually getting around the islands involves cumulative hours of a deafening cheap motor blasting. You can experience this in the following video if you are foolish enough to unmute it.
 
-{% img {vimeoInfo: "815857942?h=055b179796", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"} %}
+{% img2 {vimeoInfo: "815857942?h=055b179796"} %}
 
 ## In Town
 
@@ -111,29 +111,29 @@ The best thing we did in Bohol was to get out of the main tourist zone and check
 
 ## Inland via Scooter
 
-{% img {vimeoInfo: "815857798?h=ad73024585", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"} %}
+{% img2 {vimeoInfo: "815857798?h=ad73024585"} %}
 
 For a miniscule amount of money, we rented a moped for a day and drove all the way to the center of the main island. Through jungle, up hills, into forests. By all kinds of construction, past kids walking home on the street in their uniforms, alongside farmers and farm animals. People waved and smiled. It was awesome. Such a different slice of life than we'd seen so far.
 
 I think people partly smiled because I had a pink helmet, Julie's sunglasses, and my ridiculous vaporwave shirt.
 
-{% img "/assets/posts/2022-bohol/IMG_9692.moz80.jpg", false, false %}
+{% img2i "/assets/posts/2022-bohol/IMG_9692.moz80.jpg" %}
 
 <p class="figcaption">Look, you don't get to pick your head size.</p>
 
 There were a dozen or two OMTAs along the way. We blasted past almost all of them^[One of the best parts of this was knowing we avoided a tour. The tours would have cost maybe $60 for the both of us, included a whole bunch of padding OMTAs that we would have wished we could skip, and missed the organic feeling of driving anywhere at will. Even just being on a bike instead of a van gave the feeling of being closer to, and in a tiny way even a part of, island life.] and just saw what we were most excited about. One is called the _Chocolate Hills_ (also in the picture at the top of the post).
 
-{% img "/assets/posts/2022-bohol/IMG_9663.moz80.jpg" %}
+{% img2 "/assets/posts/2022-bohol/IMG_9663.moz80.jpg" %}
 
 <p class="figcaption">It turns out they're called Chocolate Hills because that is the most romantic way possible to say that they all turn brown when the grass dries out.</p>
 
 We also stopped by the Tarsier Sanctuary, a manmade home for teensy primates.
 
-{% img {vimeoInfo: "815858031?h=c04676b0f9", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}, false, false %}
+{% img2i {vimeoInfo: "815858031?h=c04676b0f9"} %}
 
 <p class="figcaption">Some b-roll just to give a sense of how thick the sound of the jungle is. (This one an atmospheric rather than deafening unmute. Sorry if you were traumatized by the boat one.)</p>
 
-{% img [
+{% img2i [
     "/assets/posts/2022-bohol/IMG_9688.moz80.jpg"
 ] %}
 
@@ -141,6 +141,6 @@ We also stopped by the Tarsier Sanctuary, a manmade home for teensy primates.
 
 This experience made me wish we spent a bit more of our time in Vietnam out in the countryside on motorbikes. I got scared off them from how crazy the driving was in the big cities. But it's the way to go.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-bohol/IMG_9696.moz80.jpg"
 ] %}

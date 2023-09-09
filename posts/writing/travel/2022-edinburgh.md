@@ -5,7 +5,7 @@ date: 2022-09-05
 travel_start: 2022-07-17
 travel_end: 2022-07-31
 image: /assets/posts/2022-edinburgh/church-angle.moz80.jpg
-attributions:  "Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). The animated maps are drawn using [Leaflet](https://leafletjs.com/). Animated map tiles by [Stamen Design](https://stamen.com/), under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). The data I used to draw the colored overlays are from several sources: [Country centroids](https://github.com/mihai-craita/countries_center_box); [UK and Ireland](https://datahub.io/core/geo-countries#data); [Scotland and N Ireland](https://github.com/Crunch-io/geodata); and [England and Wales](https://martinjc.github.io/UK-GeoJSON/). All core map data by [OpenStreetMap](https://www.openstreetmap.org/), under [ODbL](https://www.openstreetmap.org/copyright)."
+attributions: "Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). The animated maps are drawn using [Leaflet](https://leafletjs.com/). Animated map tiles by [Stamen Design](https://stamen.com/), under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). The data I used to draw the colored overlays are from several sources: [Country centroids](https://github.com/mihai-craita/countries_center_box); [UK and Ireland](https://datahub.io/core/geo-countries#data); [Scotland and N Ireland](https://github.com/Crunch-io/geodata); and [England and Wales](https://martinjc.github.io/UK-GeoJSON/). All core map data by [OpenStreetMap](https://www.openstreetmap.org/), under [ODbL](https://www.openstreetmap.org/copyright)."
 ---
 
 {% cityMap "/assets/posts/2022-edinburgh/edinburgh-scotland-1-perimeter.moz80.jpg", false, true, false %}
@@ -14,7 +14,7 @@ attributions:  "Code to make the city maps is based off of [marceloprates/pretty
 
 Ahh, back to the motherland, where I finally get the respect and admiration I deserve as bishop.
 
-{% img "/assets/posts/2022-edinburgh/bishop-forbes.moz80.jpg" %}
+{% img2i "/assets/posts/2022-edinburgh/bishop-forbes.moz80.jpg" %}
 
 It was a strange novelty seeing my last name in a bunch of places. But we'll have to wait for the next post (Scottish Highlands roadtrip) for more of that.
 
@@ -50,7 +50,7 @@ Anyway, cue Edinburgh A-roll.
 
 ## A Fortnight[^fortnight] Home
 
-[^fortnight]: Google actually asked  _"Did you mean: fortnite?"_ when I checked to see if a fortnight is indeed two weeks and not twenty days, so anyway I hate that.
+[^fortnight]: Google actually asked _"Did you mean: fortnite?"_ when I checked to see if a fortnight is indeed two weeks and not twenty days, so anyway I hate that.
 
 We spent two weeks in Edinburgh. This is the longest we've stayed in one spot since we left Seattle at the end of March.
 
@@ -80,11 +80,11 @@ I was initially worried we should have stayed in the district on the water that'
 
 Buildings looked like they were being permanently rained on, even when it was sunny.
 
-{% img "/assets/posts/2022-edinburgh/building-side.moz80.jpg" %}
+{% img2i "/assets/posts/2022-edinburgh/building-side.moz80.jpg" %}
 
 I was constantly craning my head to look up at these super elongated conical towers shooting out of the gray and dirty brown wallscape.
 
-{% img "/assets/posts/2022-edinburgh/big-church-top.moz80.jpg" %}
+{% img2i "/assets/posts/2022-edinburgh/big-church-top.moz80.jpg" %}
 
 I have never thought about seagulls as much as I have in Edinburgh. We have them in Seattle, but they're more of a "you're visiting the downtown piers" or "you're at the Ballard Locks" novelty.
 
@@ -94,7 +94,7 @@ Fortunately we had decided at some point that all seagulls were called _Jerry,_[
 
 Here are some Jerries screaming about how nice the sunset is in 4K.
 
-{% img2 {vimeoInfo: "744493469?h=da1808955c", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"} %}
+{% img2 {vimeoInfo: "744493469?h=da1808955c"} %}
 
 [^jerry]: No relation to Seinfeld. Jerry just seemed like a good seagull name.
 
@@ -165,12 +165,11 @@ United Kingdom
 
 This is the broad picture. Plenty of complications exist, which I'll broadly categorize into two buckets:
 
-1.   **Extra territories.** For example: The little blob in the middle, which is called the _Isle of Man_ and is apparently a "self-governing British Crown dependency."
+1.  **Extra territories.** For example: The little blob in the middle, which is called the _Isle of Man_ and is apparently a "self-governing British Crown dependency."
 
-2.   **Varied Usage.** I'll let Wikipedia give the example here:
+2.  **Varied Usage.** I'll let Wikipedia give the example here:
 
-     > The Guardian and Telegraph use Britain as a synonym for the United Kingdom. Some prefer to use Britain as shorthand for Great Britain. The British Cabinet Office's Government Digital Service style guide for use on gov.uk recommends: "Use UK and United Kingdom in preference to Britain and British (UK business, UK foreign policy, ambassador and high commissioner). But British embassy, not UK embassy." ([Wikipedia: UK](https://en.wikipedia.org/wiki/United_Kingdom))
-
+    > The Guardian and Telegraph use Britain as a synonym for the United Kingdom. Some prefer to use Britain as shorthand for Great Britain. The British Cabinet Office's Government Digital Service style guide for use on gov.uk recommends: "Use UK and United Kingdom in preference to Britain and British (UK business, UK foreign policy, ambassador and high commissioner). But British embassy, not UK embassy." ([Wikipedia: UK](https://en.wikipedia.org/wiki/United_Kingdom))
 
 This concludes our geographic interlude.[^wasteTime] Next stop is Edinburgh's big old castle.
 
@@ -232,13 +231,13 @@ The _one_ potential reference I saw, unadorned by any plaque or caption, in some
 
 [^cannon]: As we approached the monstrous cannon, a ~ten-year-old would not stop proclaiming to his mom that _he_ had seen a _bigger_ cannon already. The everyday patience of normal parents is unlike anything I can imagine.
 
-{% img "/assets/posts/2022-edinburgh/castle-glass-red.moz80.jpg" %}
+{% img2i "/assets/posts/2022-edinburgh/castle-glass-red.moz80.jpg" %}
 
 <p class="figcaption">If this isn't William Wallace, please don't tell me.</p>
 
 I have saved the best for last. A bunch of rooms had bagpipes blaring out songs (which you could hear from way off, just like the real thing). I looked around in one room and located the source of the noise: a CD player they shoved up near the ceiling and set on Torture Indefinitely mode.
 
-{% img2 {vimeoInfo: "744493369?h=bedc16f230", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}, {fullWidth: false} %}
+{% img2i {vimeoInfo: "744493369?h=bedc16f230"} %}
 
 <p class="figcaption">Now that I am forced to explain why I found this so great, I am at a loss for words. Somehow the acute sonic injury of nonstop bagpipes seemed made even more pointless by this ancient rigged apparatus. But the truly best part was, as I was standing there wondering how anyone could distinguish the notes, a man comes in and starts cheerfully <span class="i">whistling along</span> with the tune. I suddenly felt more like a foreigner than I had in a long time.</p>
 
@@ -278,7 +277,6 @@ The weirdest thing in the garden was this memorial hut for a person Wikipedia te
 ![](/assets/posts/2022-edinburgh/weird-nature-hut.moz80.jpg)
 
 The other weird thing in it was this stone work with typographic decisions I have never seen in English: stacked and embedded letters. The memorial must have been post-2002 (that's when she died), so maybe this is some stonework nouveau trend.
-
 
 ![](/assets/posts/2022-edinburgh/weird-typography-close.moz80.jpg)
 
@@ -389,7 +387,6 @@ Actual people playing cricket.
 The bizarre reflecting area in this pond in the botanical garden.
 </p>
 
-
 ---
 
 ![](/assets/posts/2022-edinburgh/frog-death.moz80.jpg)
@@ -405,7 +402,6 @@ This ad where a frog meets its horrid demise next to a couple casually dining.
 <p class="figcaption">
 The quiet dignity of this statue man despite circumstances. Somehow seemed symbolic. Could not quite put finger on why.
 </p>
-
 
 ---
 

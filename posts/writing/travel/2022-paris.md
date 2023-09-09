@@ -18,7 +18,7 @@ I liked coming to Paris having been in smaller French cities for a few weeks.
 Previously Paris was the first (and only) city I'd visit when coming to France.
 Doing it this way gave Paris a Manhattan vibe compared to the sleepier cities down south.
 
-{% img [
+{% img2 [
     [
         "/assets/posts/2022-france/paris-art-museum.moz80.jpg",
         "/assets/posts/2022-france/paris-pastry.moz80.jpg"
@@ -28,7 +28,6 @@ Doing it this way gave Paris a Manhattan vibe compared to the sleepier cities do
         "/assets/posts/2022-france/paris-scam-wine.moz80.jpg"
     ]
 ] %}
-
 
 {% doubleCaption
     null,

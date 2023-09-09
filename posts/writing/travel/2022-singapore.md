@@ -35,7 +35,7 @@ Singapore is microscopic. This makes it all the more surprising when you visit a
 
 For example, the mall attached to one of the airport terminals is humbly called _Jewel._^[Like _iPhone,_ they stylize it without a "The" before it.] It alone is packed with a selection of clothes and electronics and restaurants that exceeds the selection of most cities. Oh, and it happens to have the largest indoor waterfall in the world.
 
-{% img "/assets/posts/2022-singapore/IMG_9830.moz80.jpg" %}
+{% img2 "/assets/posts/2022-singapore/IMG_9830.moz80.jpg" %}
 
 <p class="figcaption">The whole thing is air conditioned, which somehow feels more surprising given the amount of controlled jungle and waterfall inside. There's also a train running through it, a whole tree fort canopy play area at the top, and... well, you get the picture.</p>
 
@@ -43,19 +43,19 @@ But the surprising thing is that it feels pleasantly large, but doesn't _look_ g
 
 Let's take a peak at the oceanfront, and we'll visit more examples of them pulling off the same thing.
 
-{% img "/assets/posts/2022-singapore/IMG_9998.moz80.jpg" %}
+{% img2 "/assets/posts/2022-singapore/IMG_9998.moz80.jpg" %}
 
 <p class="figcaption">Also note the wild number of ships waiting out at sea.</p>
 
 There are two main things to visit in the waterfront green zone. The first is the park that combines trees with big man-made towers that have plants growing up it to become kind of metal/nature hybrid.
 
-{% img "/assets/posts/2022-singapore/IMG_9859.moz80.jpg" %}
+{% img2 "/assets/posts/2022-singapore/IMG_9859.moz80.jpg" %}
 
 <p class="figcaption">{{ "Complete with suspended walkway to check them out from (at extra charge). The visual motif of these wide, sloping, inverted cones is nearly identical to the shape of _Jewel's_ indoor waterfall." | md | safe }}</p>
 
 The second are the pair of glass domes that house botanical gardens, the inside of which is entirely air conditioned. This, again, sounds only kind of impressive, until you're inside and comprehend its sheer ridiculous scale.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-singapore/IMG_9909.moz80.jpg",
     "/assets/posts/2022-singapore/IMG_9869.moz80.jpg",
     "/assets/posts/2022-singapore/IMG_9900.moz80.jpg"
@@ -63,10 +63,10 @@ The second are the pair of glass domes that house botanical gardens, the inside 
 
 There were a few gimmicky things, like a bunch of plastic sculptures and half-working games promoting _Avatar: The Way of Water_ , plus wood carvings and christmas trees that stuck out like sore thumbs. But that they were individually tasteful and stuck out only because of the awkwardness of their integration almost emphasized more how well-designed everything was.
 
-{% img [[
+{% img2i [[
     "/assets/posts/2022-singapore/IMG_9871.moz80.jpg",
     "/assets/posts/2022-singapore/IMG_9875.moz80.jpg"
-]], false, false %}
+]] %}
 
 <p class="figcaption">The serviced apartments we stayed at was also putting up Christmas trees. I asked the front desk how much they cost. They said ballpark $800 for a small one, and it goes up from there. The amount of Christmas decorations around town was wild, I'd say even exceeding USA standards. I asked some locals why this was so, given &lt; 20% of the population is Christian. They said it was more of consumerism than Christianity. So we have that in common, too.</p>
 
@@ -75,13 +75,13 @@ There were a few gimmicky things, like a bunch of plastic sculptures and half-wo
 Singapore's specialty are what they call _Hawker centers._
 Some are still outdoors, where the name makes sense and you get the novelty of the occasional cockroach.
 
-{% img "/assets/posts/2022-singapore/IMG_9965.moz80.jpg", false, false %}
+![](/assets/posts/2022-singapore/IMG_9965.moz80.jpg)
 
 <p class="figcaption">Deafening rain going on outside.</p>
 
 Many modern hawker centers are in malls. This seems strange---shouldn't we just call them _restaurants_ at this point?---but then you remember people love air conditioning and kind of go with it.
 
-{% img "/assets/posts/2022-singapore/IMG_9922.moz80.jpg", false, false %}
+![](/assets/posts/2022-singapore/IMG_9922.moz80.jpg)
 
 <p class="figcaption">Modern day hawker center, mall basement.</p>
 
@@ -90,7 +90,7 @@ I love it when a city lets you can eat cheap but well.
 And, of course, if you want to spend serious money, that is also readily available.
 Here's a small food montage of shrimpy, garlicky, fishy heaven.
 
-{% img [
+{% img2i [
     [
         "/assets/posts/2022-singapore/IMG_9925.moz80.jpg",
         "/assets/posts/2022-singapore/IMG_9928.moz80.jpg"
@@ -108,7 +108,7 @@ Here's a small food montage of shrimpy, garlicky, fishy heaven.
         "/assets/posts/2022-singapore/IMG_9981.moz80.jpg",
         "/assets/posts/2022-singapore/IMG_0055.moz80.jpg"
     ]
-], false, false %}
+] %}
 
 <p class="figcaption">Also, fresh squeezed (crushed?) sugar cane juice and appropriately overpriced hipster coffee.</p>
 
@@ -117,18 +117,19 @@ Here's a small food montage of shrimpy, garlicky, fishy heaven.
 Singapore plans long term. The government has effectively one political party, which has been in power since 1959. It has deep control over the society, which we'll touch on later. But this means it can make extensive city planning decisions.
 
 We visited the museum they've set up for their own urban planning which talks about two tiers of planning:
+
 1. The **Long-Term Plan,** the 40--50 year strategy
 2. The **Master Plan,** the 10--15 year detailed plans for executing the long-term plan
 
 This leads to both immensely pleasing land use schemes and shared infrastructure. The land use puts space hungry---but briefly visited---things underground, like parking lots, supermarkets, mass transit, and utilities. This, plus vertical building, allows light in living and working spaces, and makes room for greenery. And the shared infrastructure has stuff like pipes distributing district-wide air conditioning and chilled water, which is more efficient than everyone individually producing their own.
 
-{% img "/assets/posts/2022-singapore/IMG_9966.moz80.jpg" %}
+{% img2 "/assets/posts/2022-singapore/IMG_9966.moz80.jpg" %}
 
 This kind of attention to detail, competence, and actually getting things done makes me---how do I put this---extraordinarily jealous.^[If you want to get depressed about the USA's recent track record on public projects, check out something like _[Why America Can't Build](https://www.palladiummag.com/2022/06/09/why-america-cant-build/)._] I'm not saying that it's worth totalitarianism, but there's just a deep feeling of competence and _giving a shit-ness_ that the urban planning here really exudes. It also probably doesn't hurt that the country is both extravagantly wealthy and tiny.^[I remember a quote from someone, I believe a politician in China, saying that if they only had to manage something the size of Singapore, they could do a great job as well. I can't find the quote though, even with GPT-4's help :-(]
 
 With that said, I don't really know how much of all the design was working. Public transit certainly existed, with a decent rail network and gleaming stations. But the stations were often pretty empty. And most places we wanted to go, the metro was sort of helpful, but not quite perfect. Plus, despite gargantuan overhead costs to owning cars,^[~$100k fees imposed by the government as auto ownership deterrence, which seemed to just make them more desirable as high class objects.] everyone we met preferred to get around by car and owned (at least) one.
 
-{% img "/assets/posts/2022-singapore/IMG_9956.moz80.jpg", false, false %}
+![](/assets/posts/2022-singapore/IMG_9956.moz80.jpg)
 
 <p class="figcaption">Gleaming and conspicuously empty.</p>
 
@@ -136,7 +137,7 @@ Whether or not this true, it felt like the metro system was superimposed post-ho
 
 Like Seoul, the skyline is interesting and varied, and integrates modern with traditional. Here's some b-roll of around town.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-singapore/IMG_0007.moz80.jpg",
     [
     "/assets/posts/2022-singapore/IMG_9932.moz80.jpg",
@@ -155,39 +156,37 @@ Like Seoul, the skyline is interesting and varied, and integrates modern with tr
         "/assets/posts/2022-singapore/IMG_9948.moz80.jpg",
         "/assets/posts/2022-singapore/IMG_9951.moz80.jpg"
     ]
-], true %}
+] %}
 
 The city has a pristinely landscaped and kempt Botanic Gardens, apparently one of only three gardens in the world that's a UNESCO World Heritage Site.^[The whole UNESCO label has always somewhat baffled me---what around the world gets it and why---but that's a digression for another time.] It's even one of the rare things you can check out for free.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-singapore/IMG_0071.moz80.jpg",
     "/assets/posts/2022-singapore/IMG_0067.moz80.jpg",
-    {vimeoInfo: "817181203?h=c67cb0eccb", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"},
+    {vimeoInfo: "817181203?h=c67cb0eccb"},
     "/assets/posts/2022-singapore/IMG_0078.moz80.jpg",
-    {vimeoInfo: "817181227?h=0d173c1c04", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"},
+    {vimeoInfo: "817181227?h=0d173c1c04"},
     "/assets/posts/2022-singapore/IMG_0084.moz80.jpg",
     "/assets/posts/2022-singapore/IMG_0088.moz80.jpg",
     "/assets/posts/2022-singapore/IMG_0099.moz80.jpg"
-], true %}
+] %}
 
 <p class="figcaption">It rained the whole time, but was still pleasant, but this does mean the lighting is pretty meh for all the photos. Sorry.</p>
 
 The orchid garden inside is not free, and exhibits one of our recurring gripes that citizens get cheaper prices on everything than outsiders.
 
-{% img "/assets/posts/2022-singapore/IMG_0086.moz80.jpg", false, false %}
+![](/assets/posts/2022-singapore/IMG_0086.moz80.jpg)
 
 <p class="figcaption">I actually like this policy in general. I wish more countries did it. But I think it makes the most sense to balance prices and make sites accessible for locals in lower-income countries. Not, uh, Singapore.</p>
 
 There were also both high-tech and cute design touches around, like automated bag drop machines at the airport, this indoor cycling track in a mall, and a children's play area above plants.
 
-{% img [
+{% img2i [
     "/assets/posts/2022-singapore/IMG_0104.moz80.jpg",
     [
     "/assets/posts/2022-singapore/IMG_0016.moz80.jpg",
     "/assets/posts/2022-singapore/IMG_0015.moz80.jpg"
-]], false, false %}
-
-
+]] %}
 
 But with all this, I couldn't help think about something I noticed right when landing in Singapore, which I'll call _eco aesthetics._
 
@@ -210,13 +209,13 @@ All I'm claiming is that, with the right context, it is possible to, thoroughly 
 
 Once I saw this lens, I noticed it in more ways throughout Singapore. For example, an increasing number of buildings had plants growing on them, which made them feel eco-friendly somehow.
 
-{% img "/assets/posts/2022-singapore/IMG_9974.moz80.jpg", false, false %}
+![](/assets/posts/2022-singapore/IMG_9974.moz80.jpg)
 
 <p class="figcaption">It's a cool aesthetic, but like, those plants aren't actually doing anything.</p>
 
 Another way was in the advertised eco friendliness of the city itself. In the urban design museum, they brag about how innovative they are on the environmental friendliness front by doing stuff like burning their poop---sorry, _waste-to-energy incineration._ But then if you look at how the country actually fuels its energy needs, it's just 95% burning natural gas.
 
-{% img "/assets/posts/2022-singapore/IMG_9967.moz80.jpg", false, false %}
+![](/assets/posts/2022-singapore/IMG_9967.moz80.jpg)
 
 This kind of thing really hit home that, oh, it's not that Singapore's environmentally conscious and that made them successful somehow.^[I mean, obviously that's not true when you think about it, but subliminally, that's the kind of message that I think starts to seep in.] It's that they are extraordinarily wealthy, which lets them buy huge amounts of natural gas, and then do cool stuff with it, like air condition enormous glass domes so it's slightly more pleasant inside them.
 
@@ -244,17 +243,18 @@ So, let's start slowly and ease our way in. For a high level overview, I asked C
 
 From personal experience, the first thing I noticed is that there are a wild number of specific rules posted all around. Anecdotally, they are not shy about enforcing them.
 
-{% img [
+{% img2i [
     [
         "/assets/posts/2022-singapore/IMG_9957.moz80.jpg",
         "/assets/posts/2022-singapore/IMG_0052.moz80.jpg"
     ],
     "/assets/posts/2022-singapore/IMG_0091.moz80.jpg"
-], false, false %}
+] %}
 
 <p class="figcaption">I was sad to find out, after seeing several signs referencing the PTA, that it's not Pain in The Ass, but Parks and Trees Act.</p>
 
 Singapore's most publicized atypical measures of control are:
+
 1. **Chewing gum** --- illegal to import and sell since '92
 2. **Drugs = death** --- signs all over the airport inform you that the death penalty is _mandatory_ if you try to bring in drugs
 3. **Caning** --- the beatings continue until moral improves^[This one is interesting to me. After reading the quote, "If the penalty for a crime is a fine, then that law only exists for the poor," I thought, huh, maybe there is a perverse beauty to caning as punishment. There's a lot of gory details [here](https://en.wikipedia.org/wiki/Caning_in_Singapore), if you're curious. My main question was: how hard? Quoth the source: _"The caning officer is required to exert as much strength as he can muster for each stroke... They are trained to use their entire body weight as the power behind every stroke instead of using only the strength from their arms, as well as [sic] to induce as much pain as possible."_]
@@ -273,14 +273,13 @@ The issues I was more interested in were those about migrant workers. It's extre
 >
 > --- _[Sreyneath Poole for Columbia University, 2022](https://weai.columbia.edu/news/migrant-workers-rights-singapore-advocacy-legal-frameworks-and-prospects-change)_
 
-
-{% img [
+{% img2i [
     [
         "/assets/posts/2022-singapore/IMG_0027.moz80.jpg",
         "/assets/posts/2022-singapore/IMG_0030.moz80.jpg"
     ],
     "/assets/posts/2022-singapore/IMG_0032.moz80.jpg"
-], false, false %}
+] %}
 
 <p class="figcaption">{{ "Pieces from the National Gallery were often pleasant but sanitary (above, a chair's optical illusion), or ever so delicately mentioning the government's unenthusaism for the arts, e.g., _Tang Da Wu's_ 1995 jacket from the period when performance art was illegal." | md | safe }}</p>
 

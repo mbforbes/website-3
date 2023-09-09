@@ -11,7 +11,7 @@ redirect_from: /blog/porto/
 
 {% cityMap "/assets/posts/2022-porto/porto-portugal-7-perimeter.moz80.jpg" %}
 
-{% img "/assets/posts/2022-porto/porto.moz80.jpg" %}
+{% img2 "/assets/posts/2022-porto/porto.moz80.jpg" %}
 
 Porto was, like Lisbon, completely flooded with tourists. But its bigger streets and more open public spaces left us more breathing room. (Usually.)
 
@@ -23,7 +23,6 @@ Porto was, like Lisbon, completely flooded with tourists. But its bigger streets
 In <span class="i">Sandeman's</span> cellars.
 </p>
 
-
 Port, where wine's fermentation is stopped early by adding a bunch of brandy. Sugars remain (it is sweet), and of course the brandy is there too (it is strong).
 
 Kinds:
@@ -34,7 +33,7 @@ Kinds:
 
 The differences in oak'ing were, surprisingly, easily visible. Small barrels provide lots of surface area for tawny ports to be super oaked up. But for ruby ports, they use these gigantic wooden monsters so less is in contact.
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-porto/few-barrels.moz80.jpg",
     "/assets/posts/2022-porto/big-barrel.moz80.jpg"
 ]] %}
@@ -54,18 +53,17 @@ Anyway, here I am doing what an anonymous source has termed my "crazy eyes," att
 Somehow port already staining my fingers, etc.
 </p>
 
-{% img {vimeoInfo: "742250250?h=464f81adf4", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}, false, false %}
+{% img2i {vimeoInfo: "742250250?h=464f81adf4"} %}
 
 <p class="figcaption">
 Locals
 </p>
 
-
 ## _Pastel de Nata_
 
 These egg tart things are _quite good_ for $0.35 the grocery store, or absolutely unbelievably stupidly heavenly delicious for $1.05 at a boutique like _Manteigaria._
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-porto/breakfast.moz80.jpg",
     "/assets/posts/2022-porto/max-eee.moz80.jpg"
 ]] %}
@@ -75,12 +73,11 @@ These egg tart things are _quite good_ for $0.35 the grocery store, or absolutel
     "EEE = Espresso + Egg tart Enlightenment."
 %}
 
-
 ## Park
 
 New favorite park on the planet, _Parque da Cidade do Porto._
 
-{% img "/assets/posts/2022-porto/park-trees.moz80.jpg" %}
+{% img2 "/assets/posts/2022-porto/park-trees.moz80.jpg" %}
 
 This might have been a "water in the desert" situation after being packed in with hoards of tourists and cars in a gazillion cobblestone streets for two weeks, but damn if this place wasn't amazing.
 
@@ -104,12 +101,11 @@ At the end of our walk through the park, we ended up at a beach / wharf.
 
 I like walking to places in cities that people don't usually go. Even if there's nothing remarkable there. It feels like, ah, finally, now I can get a taste of what some part of life here is actually like.
 
-{% img "/assets/posts/2022-porto/wharf.moz80.jpg" %}
+{% img2 "/assets/posts/2022-porto/wharf.moz80.jpg" %}
 
 <p class="figcaption">
 Maybe nobody was there because, honestly, it was quite windy and sand kept blowing in our eyes.
 </p>
-
 
 ## _Chama_
 
@@ -121,11 +117,10 @@ The food wasn't "gastro" (i.e., teensy portions, unidentifiable), but instead it
 
 I only have pictures of our drinks, which were both creative and quite good.
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-porto/chama-yellow.moz80.jpg",
     "/assets/posts/2022-porto/chama-red.moz80.jpg"
 ]] %}
-
 
 If you ever visit Porto, this is my one recommendation. You do need a reservation.
 
@@ -133,7 +128,7 @@ If you ever visit Porto, this is my one recommendation. You do need a reservatio
 
 I have discovered that cobblestone is a genre rather than a thing. Behold.
 
-{% img [
+{% img2i [
     [
         "/assets/posts/2022-porto/c1.moz80.jpg",
         "/assets/posts/2022-porto/c2.moz80.jpg",
@@ -149,7 +144,7 @@ I have discovered that cobblestone is a genre rather than a thing. Behold.
         "/assets/posts/2022-porto/c8.moz80.jpg",
         "/assets/posts/2022-porto/c9.moz80.jpg"
     ]
-], false, false %}
+] %}
 
 <p class="figcaption">
 Last one (mobile) / bottom-right (desktop) is actually wood masquerading as cobblestone. Used in cellars for temperature and physical softness, I think.
@@ -165,4 +160,4 @@ Here is a feline I found.
 
 Beautiful tile work in Portugal.
 
-{% img "/assets/posts/2022-porto/tiles.moz80.jpg" %}
+{% img2 "/assets/posts/2022-porto/tiles.moz80.jpg" %}

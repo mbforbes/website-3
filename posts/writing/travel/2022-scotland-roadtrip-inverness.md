@@ -34,12 +34,11 @@ customexcerpt: With Loch Ness so famous because of its Monster, it had not occur
 {% set activePlace = "Inverness" %}
 {% include "maps/scotland-maps.njk" %}
 
-
 ## Inverness
 
 {% cityMap "/assets/posts/2022-scotland/inverness-scotland-3-r3000.moz80.jpg" %}
 
-{% img "/assets/posts/2022-scotland/09-inverness-view.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/09-inverness-view.moz80.jpg" %}
 
 This city connects Loch Ness (yes, that one) to the Atlantic Ocean.[^ness]
 
@@ -59,7 +58,7 @@ We walk down there, famished after a long day of looking at grass and rocks. The
 
 So we do what any self-respecting global citizens would do in our situation, and buy beer and frozen pizza and cereal from the only other remotely local establishment: a gas station. Both to savor lax public drinking laws and out of general angst of our circumstance, we drink beers on the way back.
 
-{% img "/assets/posts/2022-scotland/09-inverness-beer.moz80.jpg" %}
+{% img2 "/assets/posts/2022-scotland/09-inverness-beer.moz80.jpg" %}
 
 A few days later, we're growing tired of takeout sandwiches from Tesco's value meals and frozen food (hey, the UK is expensive, OK), and we've gotten really hyped up about finally visiting said pub. We make a whole evening plan around it, and arrive early---it closes at 11pm, and we arrive between 6 and 7.
 
@@ -71,48 +70,48 @@ This would happen to us repeatedly at all kinds of food joints from here on out.
 
 ## Glenmore Forest Park
 
-{% img "/assets/posts/2022-scotland/10-hike-path.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/10-hike-path.moz80.jpg" %}
 
 One of the handful of hikes on which we got relatively drenched. The weather in Scotland seemed to be utterly forecast defying. I eventually understood why it seemed like they didn't even really try. The sky seemed to frantically alternate between somewhat cloudy and seriously rainy, but with a patchiness that made the individual acre you happened to be standing on instrumental for your fate.
 
 The hike itself: nice variety of stubby landscapes on the wandering hills.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/10-hike-lavender.moz80.jpg",
     "/assets/posts/2022-scotland/10-hike-shrubs.moz80.jpg",
     "/assets/posts/2022-scotland/10-hike-trees.moz80.jpg"
-], true %}
+] %}
 
 The misty summit seems like it would be a bit anticlimactic as you realize you've ascended one of umpteen similarly stubby mounds, and---given the moisture---you have limited views to the others.
 
 But it was actually still quite satisfying. The advantage of all the water is you get to see mist boiling up from hills beneath you, or a sun-illuminated discrete downpour in the distance.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/10-hike-peak-mist.moz80.jpg",
     "/assets/posts/2022-scotland/10-hike-peak-rain.moz80.jpg"
-], true %}
+] %}
 
 Finishing the hike, the nearby Loch Morlich Beach was decidedly too cold to enjoy any water sports. But putting _fifty degree shirts off Seattle guy_ to shame, dozens of families had donned full wetsuits and were rowing around and flying off paddle boards. Respect.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/10-beach-mix.moz80.jpg",
     "/assets/posts/2022-scotland/10-beach-ppl.moz80.jpg"
-], true %}
+] %}
 
 ## Brief Interlude for Some Ruins That, To My Surprise, Also Had "Forbes" Engraved Somewhere On It
 
-{% img [[
+{% img2 [[
     "/assets/posts/2022-scotland/11-ruins-tall.moz80.jpg",
     "/assets/posts/2022-scotland/11-ruins-sign.moz80.jpg"
-]], true %}
+]] %}
 
 Hope it was for something good.
 
 ## Chanonry Point
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/12-beach.moz80.jpg"
-], true %}
+] %}
 
 We showed up here and I spotted a strange creature I hadn't seen in a longtime. A Seahwaks fan.
 
@@ -122,30 +121,29 @@ To my further disbelief, this wasn't a traveler, but indeed a local Seahawks fan
 
 Before I let us both escape and continue beach wandering I asked him: why the Seahawks? "I liked the mascot." Makes enough sense I guess, local wildlife availability considered.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/12-lighthouse-wide.moz80.jpg"
-], true %}
+] %}
 
 At the far end of the beach were far too many people with far too many tripods, expensive cameras, and telephoto lenses.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/12-dolphins-photographers.moz80.jpg"
-], true %}
+] %}
 
 When we got there a plaque informed us this is one of the most productive ocean dolphin watching spots on the planet. With half a dozen of them jumping around several times a minute, it did not seem to be lying.
 
 It turns out this is something for which you do indeed need a fancy camera, tripod, and telephoto lens, else your best shot looks like this:
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/12-dolphins.moz80.jpg"
-], true %}
-
+] %}
 
 ## Fairy Glen Waterfalls
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/13-log.moz80.jpg"
-], true %}
+] %}
 
 A pleasant tromp through the woods that ends in a miniscule waterfall and a dead tree that seemed convinced the laws of reincarnation take into account how much much spare change you bring with you.
 
@@ -169,15 +167,15 @@ We said our goodbyes as the conversation waned into increasingly distant tangent
 
 ## Loch Ness
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/14-ln-sign.moz80.jpg"
-], true %}
+] %}
 
 Cue yet another travel moment where you ask, wait, why the hell are we here?
 
 With Loch Ness so famous because of its Monster, it had not occurred to me that it might actually turn out to be a completely boring normal lake until we were standing in front of it.
 
-{% img "/assets/posts/2022-scotland/14-ln-beach.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/14-ln-beach.moz80.jpg" %}
 
 <p class="figcaption">Yep, sooooo... here we are.</p>
 
@@ -187,13 +185,13 @@ Sole landmark of note: hut of guy with Guinness World Record for "longest contin
 
 One good thing about ol' Ness is there's a nice little forest by it you can take a stroll through.
 
-{% img [
+{% img2 [
     "/assets/posts/2022-scotland/14-ln-woods.moz80.jpg",
-    {vimeoInfo: "756058202?h=5adc904cfb", videoStyle: "width: 100%; aspect-ratio: 16 / 9;"}
-], true %}
+    {vimeoInfo: "756058202?h=5adc904cfb"}
+] %}
 
 ## Onward to Skye
 
-{% img "/assets/posts/2022-scotland/16-to-skye-castle-in.moz80.jpg", true %}
+{% img2 "/assets/posts/2022-scotland/16-to-skye-castle-in.moz80.jpg" %}
 
 We left for Scotland's most scenic zone, the Isle of Skye. It would come with lots of rain.
