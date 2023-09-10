@@ -6,4 +6,4 @@ image: /assets/sketches/tiny-red-truck.png
 thumb: /assets/sketches/tiny-red-truck-thumb.jpg
 ---
 
-![](/assets/sketches/tiny-red-truck.png)
+{% sketch "/assets/sketches/tiny-red-truck.png" %}

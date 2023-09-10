@@ -6,4 +6,4 @@ image: /assets/sketches/coffee-bowl.png
 thumb: /assets/sketches/coffee-bowl-crop-thumb.jpg
 ---
 
-![](/assets/sketches/coffee-bowl.png)
+{% sketch "/assets/sketches/coffee-bowl.png" %}

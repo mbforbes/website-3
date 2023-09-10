@@ -6,4 +6,4 @@ image: /assets/sketches/symmetry-tools-study.png
 thumb: /assets/sketches/symmetry-tools-study-thumb.jpg
 ---
 
-![](/assets/sketches/symmetry-tools-study.png)
+{% sketch "/assets/sketches/symmetry-tools-study.png" %}

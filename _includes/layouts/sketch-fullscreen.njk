@@ -3,8 +3,8 @@
 {% block body %}
 
     <!-- Back banner -->
-    {% set backName = "garage" if ("garage" in tags) 
-        else 
+    {% set backName = "garage" if ("garage" in tags)
+        else
             "sketches" %}
     {% set backURL = "/studio#" + backName %}
     <div class="bg-white fixed z-2 o-70">
@@ -15,10 +15,12 @@
         </p>
     </div>
 
-    <div class="vh-100 dt w-100">
+    <div class="vh-100 dt w-100 font-zero-not-p">
         <div class="dtc v-mid tc" id="container">
             {{ content | safe }}
         </div>
     </div>
+
+    <script type="text/javascript" src="/assets/js/render-thumbhashes.js" fetchpriority="high"></script>
 
 {% endblock %}

@@ -6,4 +6,4 @@ image: /assets/sketches/lighting-height-study.png
 thumb: /assets/sketches/lighting-height-study-thumb.jpg
 ---
 
-![](/assets/sketches/lighting-height-study.png)
+{% sketch "/assets/sketches/lighting-height-study.png" %}

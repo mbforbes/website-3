@@ -825,7 +825,6 @@ module.exports = function (eleventyConfig) {
         return img2(imgs, { fullWidth: false, ...options });
     });
 
-
     eleventyConfig.addShortcode("thumb", async function (path, widths, classes = "", style = "") {
         // NOTE: use if benchmarking w/o Eleventy Image
         // return `<img src='${path}'/>`;
@@ -866,7 +865,14 @@ module.exports = function (eleventyConfig) {
     //     return preview;
     // });
 
-    eleventyConfig.addShortcode("coverImg", async function (path, classes = "", style = "") {
+
+    /**
+     * Common image function for non-img2 macro images, like cover images and
+     * sketch images. Common code to get srcset, sizes, and thumbhash. It's
+     * currently made for primary content, full-sized images, so it just uses
+     * the 100vw size and omits lazy loading.
+     */
+    async function commonImg(path, classes = "", style = "") {
         // NOTE: use if benchmarking w/o Eleventy Image
         // return `<img src='${path}'/>`;
         let localPath = getLocalPath(path);
@@ -880,12 +886,15 @@ module.exports = function (eleventyConfig) {
             urlPath: "/assets/eleventyImgs/",
         });
         let opts = {
+            // using 100vw as only size for full display images:
+            // - if 100vw < orig size, will get the size matching 100vw
+            // - if 100vw > orig size, will simply get the largest
             sizes: "100vw",
             class: classes,
             style: style,
-            // cover image is @ page top, so we actually want it to load ASAP
+            // @ page top, so we actually want it to load ASAP
             // loading: "lazy",
-            // decoding: "async",
+            decoding: "async",
             alt: "",
         };
         let thB64 = await loadAndHashImage(thumbhashCache, localPath);
@@ -893,6 +902,14 @@ module.exports = function (eleventyConfig) {
             opts["data-thumbhash-b64"] = thB64;
         }
         return Image.generateHTML(metadata, opts);
+    }
+
+    eleventyConfig.addShortcode("sketch", async function (path, classes = "") {
+        return await commonImg(path, "mh-100vh w-auto h-auto pa1 pa3-m pa4-l border-box " + classes);
+    });
+
+    eleventyConfig.addShortcode("coverImg", async function (path, classes = "", style = "") {
+        return await commonImg(path, classes, style);
     });
 
     /**

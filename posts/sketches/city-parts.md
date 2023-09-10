@@ -6,4 +6,4 @@ image: /assets/sketches/city-parts.png
 thumb: /assets/sketches/city-parts-thumb.jpg
 ---
 
-![](/assets/sketches/city-parts.png)
+{% sketch "/assets/sketches/city-parts.png" %}

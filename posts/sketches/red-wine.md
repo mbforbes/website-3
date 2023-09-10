@@ -5,4 +5,4 @@ image: /assets/sketches/red-wine.jpeg
 thumb: /assets/sketches/red-wine-thumb.jpeg
 ---
 
-![](/assets/sketches/red-wine.jpeg)
+{% sketch "/assets/sketches/red-wine.jpeg" %}

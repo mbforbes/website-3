@@ -676,6 +676,18 @@ li.footnote-item::marker {
     width: 48rem;
 }
 
+.mh-100vh {
+    max-height: 100vh;
+}
+
+.font-zero-not-p {
+    font-size: 0px;
+}
+
+.font-zero-not-p p {
+    font-size: initial;
+}
+
 /**
  * New max-width for images and videos. Used to get margins to always line up,
  * keep heights within limits, and avoid need for BG svg blur.

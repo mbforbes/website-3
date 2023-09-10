@@ -6,6 +6,6 @@ image: /assets/sketches/bar-table.png
 thumb: /assets/sketches/bar-table-thumb.jpg
 ---
 
-![](/assets/sketches/bar-table.png)
+{% sketch "/assets/sketches/bar-table.png" %}
 
-![](/assets/sketches/bar-table-actual.jpg)
+{% sketch "/assets/sketches/bar-table-actual.jpg" %}

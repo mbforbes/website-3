@@ -322,7 +322,7 @@ for (let el of els) {
     const b64Hash = el.getAttribute("data-thumbhash-b64");
     const binHash = base64ToBinary(b64Hash);
     const placeholderURL = thumbHashToDataURL(binHash);
-    el.style.background = `center / cover url(${placeholderURL})`;
+    el.style.background = `content-box center / cover url(${placeholderURL})`;
 }
 // const end = now();
 // console.log("Thumbhash rendering took:", end - start, "ms");
