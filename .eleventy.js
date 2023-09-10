@@ -527,10 +527,11 @@ module.exports = function (eleventyConfig) {
 
         // see cards.njk. note the annoying escaping of the apostrophe
         // also there's a caption I put on maps in earlier posts
+        // Note: Since I trimmed all of the # out above, I replaced each "I&#39;" below with "I&39;". This is supremely gross. Sorry.
         const stripStrs = [
             "Stub This is a placeholder for me to write more. Bug me if you want to read it.",
-            "Ideas This is a post in its idea generation phase. I&#39;m collecting notes for what to write about. Proceed at will.",
-            "Draft This is a rough draft of a post. I&#39;m still writing and revising it. It probably reads terribly. Proceed at will.",
+            "Ideas This is a post in its idea generation phase. I&39;m collecting notes for what to write about. Proceed at will.",
+            "Draft This is a rough draft of a post. I&39;m still writing and revising it. It probably reads terribly. Proceed at will.",
             "Map by me, made with marceloprates/prettymaps. Data &copy; OpenStreetMap contributors.",
         ];
         for (let ss of stripStrs) {
