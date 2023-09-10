@@ -559,12 +559,11 @@ module.exports = function (eleventyConfig) {
      * Get `srcset` and `sizes` attribute values. Includes creating them using eleventy-img.
      * @param {string} path
      * @param {number} w original width
-     * @param {string} version "v1" or "v2"
      * @param {boolean} fullWidth (vs inline)
      * @param {*} n number of images in row
      * @returns {Promise<[number, number]>} [srcset, sizes] attr values
      */
-    async function getSrcsetSizes(path, w, version, fullWidth, n) {
+    async function getSrcsetSizes(path, w, fullWidth, n) {
         let localPath = getLocalPath(path);
         let ws = wantWidths(w);
         let metadata = await Image(localPath, {
@@ -608,114 +607,32 @@ module.exports = function (eleventyConfig) {
         // 704px) too for good measure.
 
         // sizes:
-        // (v1/v2) inline:
+        // inline:
         // "(max-width: 30em) 100vw, (max-width: IWpx) 33/50/100vw, (IW/3)/(IW/2)/(IW)px"
         //
-        // (v1) fullscreen
-        // "(max-width: 30em) 100vw, 33/50/100vw"
-        //
-        // (v2) media-max-width
+        // full-width (media-max-width):
         // "(max-width: 30em) 100vw, (max-width: MMWpx) 33/50/100vw, (MMW/3)/(MMW/2)/(MMW)px"
 
         const iw = 704; // inline width
         const mmw = 2000;  // media-max-width
-        let midSize = n == 1 ? "100" : (n == 2 ? "50" : "33");
-        let sizes;
-        if (version == "v1" && fullWidth) {
-            // Handle (v1) fullscreen
-            sizes = `(max-width: 30em) 100vw, ${midSize}vw`;
-        } else {
-            // Handle both (v1/v2) inline, (v2) media-max-width
-            let midBreak = fullWidth ? mmw : iw;
-            let bigSize;
-            if (fullWidth) {
-                bigSize = n == 1 ? mmw : (n == 2 ? Math.round(mmw / 2) : Math.round(mmw / 3));
-            } else {
-                bigSize = n == 1 ? iw : (n == 2 ? Math.round(iw / 2) : Math.round(iw / 3));
-            }
-            sizes = `(max-width: 30em) 100vw, (max-width: ${midBreak}px) ${midSize}vw, ${bigSize}px`;
-        }
+        const rowWidth = fullWidth ? mmw : iw;
+        const midSize = n == 1 ? "100" : (n == 2 ? "50" : "33");
+        const bigSize = n == 1 ? rowWidth : (n == 2 ? Math.round(rowWidth / 2) : Math.round(rowWidth / 3));
+        const sizes = `(max-width: 30em) 100vw, (max-width: ${rowWidth}px) ${midSize}vw, ${bigSize}px`;
 
         return [srcSet, sizes];
     }
 
     /**
-     * @param img can be a str or obj.
-     * - if obj and image, expects keys path (req) maxHeight (opt, default "939")
-     * - if obj and video, expect keys vimeoInfo (req), videoStyle (req), bgImgPath (opt, for blurStretchSingles)
-     * @param {boolean} fullWidth (vs inline)
-     * @param {number} n how many imgs in its row
-     * @returns [HTML, {
-     *     video: bool,
-     *     bgImgPath: str | null,
-     *     maxHeight: number | null,
-     *     width: number | null,
-     * }]
-     */
-    async function imgSpecToHTML(img, fullWidth, n) {
-        // video
-        if (img.vimeoInfo || img.youtubeInfo) {
-            let html;
-            if (img.vimeoInfo) {
-                html = `<iframe src="https://player.vimeo.com/video/${img.vimeoInfo}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; picture-in-picture" loading="lazy" style="max-height: min(939px, 100vh); ${img.videoStyle}" class="db"></iframe>`;
-            }
-            if (img.youtubeInfo) {
-                html = `<iframe src="https://www.youtube-nocookie.com/embed/${img.youtubeInfo}?&autoplay=1&mute=1&loop=1&playlist=${img.youtubeInfo}&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen loading="lazy" style="max-height: min(939px, 100vh); ${img.videoStyle}" class="db"></iframe>`;
-            }
-            return [html, {
-                video: true,
-                bgImgPath: img.bgImgPath || null,
-                maxHeight: null,
-                width: null,
-                height: null,
-            }]
-        }
-
-        // image
-        let path;
-        let maxHeight = null;  // NOTE: 939 now set in getWClassStyle
-        let extraClasses = "";
-        if (typeof img === "string") {
-            path = img;
-        } else {
-            path = img.path;
-            maxHeight = img.maxHeight || maxHeight;
-            extraClasses = img.extraClasses || extraClasses;
-        }
-
-        // size, thumbhash, srcset, sizes
-        let [w, h, thumbhash64] = await getWHTHB64(path);
-        let thAttr = (thumbhash64 == null) ? "" : `data-thumbhash-b64="${thumbhash64}"`;
-        let [srcSet, sizes] = await getSrcsetSizes(path, w, "v1", fullWidth, n);
-
-        // image source / path debug / preview / display
-        // let pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
-        let pathDisplay = "";
-        let html = `<img
-            src="${path}"
-            class="db bare novmargin h-auto bg-navy ${extraClasses}"
-            loading="lazy" decoding="async"
-            width="${w}" height="${h}" ${thAttr}
-            srcset="${srcSet}" sizes="${sizes}"
-        />${pathDisplay}`;
-        return [html, {
-            video: false,
-            bgImgPath: path,
-            maxHeight: maxHeight,
-            width: w,
-            height: h,
-        }];
-    }
-
-    /**
      * @param {string|object} img can be a path or an object with a path and
      * options.
-     * - if obj and image, expects keys `path` (req)
-     * - if obj and video, expect keys `vimeoInfo` or `youtubeInfo` (req)
-     * @param {boolean} fullWidth whether the image will be displayed full width
-     *  (true) or inline (false). Used for sizes attribute.
+     * - if obj and image, expects key `path` (req)
+     * - if obj and video, expect key `mp4Path` or `vimeoInfo` or `youtubeInfo` (req)
      * @param {number} n number of images in row. Used for sizes attribute.
-     *
+     * @param {object} {
+     *   fullWidth - whether containing div will be displayed larger than text margins
+     *               (currently up to ~2000px, I think). Used for sizes attribute.
+     * }
      * @returns {Promise<string>} (HTML)
      */
     async function imgSpecToHTML2(img, n, { fullWidth }) {
@@ -725,6 +642,8 @@ module.exports = function (eleventyConfig) {
         if (img.mp4Path || img.vimeoInfo || img.youtubeInfo) {
             const aspectRatio = img.aspectRatio ?? "16 / 9";
             if (img.mp4Path) {
+                // Note: aspectRatio and extraClasses not plumbed through into
+                // <video> tag yet. Can do when needed.
                 return `
                 <video autoplay muted loop playsinline class="novmargin">
                     <source src="${img.mp4Path}" type="video/mp4">
@@ -744,7 +663,7 @@ module.exports = function (eleventyConfig) {
         const path = typeof img === "string" ? img : img.path;
         const [w, h, thumbhash64] = await getWHTHB64(path);
         const thAttr = (thumbhash64 == null) ? "" : `data-thumbhash-b64="${thumbhash64}"`;
-        const [srcSet, sizes] = await getSrcsetSizes(path, w, "v2", fullWidth, n)
+        const [srcSet, sizes] = await getSrcsetSizes(path, w, fullWidth, n)
 
         // image source / path debug / preview / display
         // const pathDisplay = `<div class="z-1 absolute bg-white black mt2 pa2 o-90">${path.split("/").slice(-1)}</div>`;
@@ -756,90 +675,6 @@ module.exports = function (eleventyConfig) {
             width="${w}" height="${h}" ${thAttr}
             srcset="${srcSet}" sizes="${sizes}"
             />${pathDisplay}`;
-    }
-
-    /**
-      * Handle img (v1) macro size-limiting to account for any specified max height(s).
-      *
-      * @param {*} metadatas Returned (second item) by imgSpecToHTML
-      * @returns class and style to be used in inner container <div> for width limiting
-      */
-    function getWClassStyle(metadatas) {
-        // NOTE: We have an easy knob to adjust v1 styles if we ever want them
-        //       to be width-limited and have clean margins (like v2). Just set
-        //       wStyle (here and below) to have another component in the min(),
-        //       like 133.3vh, or 1140px, or both, or something else! Can also
-        //       use wClass (currently unused). Also of note: The new version
-        //       has no height limiting. (Couldn't get it to work.) We do a
-        //       heuristic to keep single 4:3 images from being taller than the
-        //       page by doing a computation with vh and adding it to the wStyle
-        //       min()s (133.3vh). If desired, could we do the computation w/
-        //       the total row width and make sure the row is page-height
-        //       limited?
-
-        // This wClass needed only for full-width youtube (e.g., "hualien hike")
-        // otherwise left-aligned. It's fine on 2 and 3 img rows, but it's
-        // actually already there, so we don't add it to reduce confusion.
-        let wClass = metadatas.length == 1 ? "flex justify-center" : "";
-        let wStyle = "max-width: min(100%; 133.3vh);"; // rarely used (video only?) if mhs is non-empty (e.g., w/ 939)
-        if (metadatas.length == 1 && metadatas[0].video) {
-            // NOTE: Edge case I guess, videos are teensy if there's an outer
-            // container with only a max-width, so we make it a width.
-            wStyle = "width: 100%;";
-        }
-        let mhs = [939];  // old imgs exported to 1878px H for 939px H @ 2x
-        let ws = [];
-        for (let m of metadatas) {
-            if (m.width == null || m.height == null) {
-                // NOTE: videos return here
-                return [wClass, wStyle];
-            }
-            if (m.maxHeight != null) {
-                mhs.push(m.maxHeight);
-            }
-            ws.push(m.width);
-        }
-        if (mhs.length == 0) {
-            return [wClass, wStyle];
-        }
-
-        // we have at least one desired max height. pick the smallest.
-        // use the total width, but because the layout only supports equal
-        // heights, just assume equal heights for now and use the first.
-        let mh = Math.min(...mhs);
-        let h = metadatas[0].height;
-        let w = ws.reduce((a, b) => a + b, 0);
-        //     w * h/w < maxHeight
-        // ->  w < maxHeight * w/h
-        let mw = Math.round(mh * (w / h));
-        // wClass = "";
-        // NOTE: limit single (landscape 4:3) images' height to 100vh
-        // wStyle = `max-width: min(100%, ${mw}px, 133.3vh);`;
-        wStyle = metadatas.length == 1 ? `max-width: min(100%, ${mw}px, 133.3vh);` : `max-width: min(100%, ${mw}px);`;
-        return [wClass, wStyle];
-    }
-
-    async function oneBigImage(imgSpec, marginClasses, blurStretchSingles, fullWidth, ph = true) {
-        let [imgHTML, metadata] = await imgSpecToHTML(imgSpec, fullWidth, 1);
-        let bgDiv = "";
-        if (blurStretchSingles && metadata.bgImgPath != "") {
-            bgDiv = `<div class="bgImageReady svgBlur" style="background-image: none;" data-background-image="url(${metadata.bgImgPath})"></div>`;
-        }
-        let fwClasses = fullWidth ? "full-width cb" : "";
-        // If it's not full-width, then we want them to be aligned with the text margins,
-        // not have extra padding (matching markdown ![]() inline images).
-        let phClass = (fullWidth && ph) ? "ph1-m ph3-l" : "";
-
-        // Do any height limiting via width limiting
-        let [wClass, wStyle] = getWClassStyle([metadata]);
-        return `
-        <div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">
-            ${bgDiv}
-            <div class="${wClass}" style="${wStyle}">
-                ${imgHTML}
-            </div>
-        </div>
-        `;
     }
 
     async function oneBigImage2(imgSpec, marginClasses, { fullWidth, maxWidth }) {
@@ -864,23 +699,6 @@ module.exports = function (eleventyConfig) {
         `;
     }
 
-    async function twoBigImages(imgSpecs, marginClasses, fullWidth) {
-        let [imgHTML1, metadata1] = await imgSpecToHTML(imgSpecs[0], fullWidth, 2);
-        let [imgHTML2, metadata2] = await imgSpecToHTML(imgSpecs[1], fullWidth, 2);
-
-        let phClass = fullWidth ? "ph1-m ph3-l" : "";
-        let [wClass, wStyle] = getWClassStyle([metadata1, metadata2]);
-        let fwClasses = fullWidth ? "full-width cb" : "";
-        return `
-        <div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">
-            <div class="flex flex-wrap flex-nowrap-ns justify-center ${wClass}" style="${wStyle}">
-                <div class="mr1-ns mb1 mb0-ns">${imgHTML1}</div>
-                <div>${imgHTML2}</div>
-            </div>
-        </div>
-        `;
-    }
-
     async function twoBigImages2(imgSpecs, marginClasses, { fullWidth, maxWidth }) {
         let imgHTML1 = await imgSpecToHTML2(imgSpecs[0], 2, { fullWidth });
         let imgHTML2 = await imgSpecToHTML2(imgSpecs[1], 2, { fullWidth });
@@ -895,25 +713,6 @@ module.exports = function (eleventyConfig) {
             <div class="flex flex-wrap flex-nowrap-ns justify-center ${widthClass}" ${styleAttr}>
                 <div class="mr1-ns mb1 mb0-ns">${imgHTML1}</div>
                 <div>${imgHTML2}</div>
-            </div>
-        </div>
-        `;
-    }
-
-    async function threeBigImages(imgSpecs, marginClasses, fullWidth) {
-        let [imgHTML1, metadata1] = await imgSpecToHTML(imgSpecs[0], fullWidth, 3);
-        let [imgHTML2, metadata2] = await imgSpecToHTML(imgSpecs[1], fullWidth, 3);
-        let [imgHTML3, metadata3] = await imgSpecToHTML(imgSpecs[2], fullWidth, 3);
-
-        let fwClasses = fullWidth ? "full-width cb" : "";
-        let phClass = fullWidth ? "ph1-m ph3-l" : "";
-        let [wClass, wStyle] = getWClassStyle([metadata1, metadata2, metadata3]);
-        return `
-        <div class="${fwClasses} flex justify-center ${phClass} ${marginClasses}">
-            <div class="flex flex-wrap flex-nowrap-ns justify-center ${wClass}" style="${wStyle}">
-                <div>${imgHTML1}</div>
-                <div class="mh1-ns mv1 mv0-ns">${imgHTML2}</div>
-                <div>${imgHTML3}</div>
             </div>
         </div>
         `;
@@ -947,7 +746,9 @@ module.exports = function (eleventyConfig) {
     }
 
     /**
-     * API:
+     * Image gallery shortcode with width-limiting <div>, thumbhash, and srcset/sizes.
+     *
+     * @param img The first argument is the image or set of images:
      *
      * "path"                                   single image
      * ["path"]                                 single image
@@ -957,70 +758,25 @@ module.exports = function (eleventyConfig) {
      * ["path1", ["path2", "path3"]]            single image, side by side
      * [["path1", "path2"], ["path3", "path4"]] side by side, side by side
      *
-     * Each string can be replaced by an object to specify more options.
+     * Each string can be replaced by an object to specify extraClasses:
      *
-     * {path: "path", maxHeight: "500px"}       single image
-     * [[                                      side by side
-     *     {path: "path", maxHeight: "500px"},
-     *     {path: "path", maxHeight: "500px"}
+     * {path: "path", extraClasses: "ba bw1 b--red"}       single image
+     * [[                                                  side by side
+     *     {path: "path", extraClasses: "ba bw1 b--red"},
+     *     {path: "path", extraClasses: "ba bw1 b--red"}
      * ]]
      * etc.
      *
-     * Video can be specified:
-     * { vimeoInfo: "733916865?h=fd53e75a74", videoStyle: "width: 100%; aspect-ratio: 16 / 9; max-width: 1252px;"}
+     * Videos can be specified. They are also specified by an object. Videos
+     * default to 100% width and 16 / 9 aspect ratio. The aspect ratio can be
+     * overridden.
      *
-     * Second arg is to add BG image blur stretch for single img(s) to full width.
+     * { vimeoInfo: "733916865?h=fd53e75a74"}
+     * { vimeoInfo: "733916865?h=fd53e75a74", aspectRatio: "4 / 3"}
+     * { youtubeInfo: "youtubeidhere"}
+     * { mp4Path: "path"}
      *
-     * Example:
-     * {% img [
-     *     ["path1", "path2"],
-     *     ["path3", "path4"],
-     *     "baz",
-     *     {path: "path", maxHeight: "500px"},
-     *     {path: "path", extraClasses: "bar"},
-     *     {path: "path", maxHeight: "500px", extraClasses: "bar"},
-     *     {vimeoInfo: "733917188?h=25f2f93194", videoStyle: "width: 100%; aspect-ratio: 2;"},
-     *     [{path: "path2", maxHeight: "500px"},{path: "path3", maxHeight: "500px"}]
-     * ], true %}
-     *
-     * Third arg is whether to make full width. Can pass false to not stretch.
-     */
-    eleventyConfig.addShortcode("img", async function (imgs, blurStretchSingles = false, fullWidth = true) {
-        if (!Array.isArray(imgs)) {
-            imgs = [imgs];
-        }
-
-        // go row-by-row. top and bottom get big margins, inter-rows are m1.
-        let buf = '';
-        for (let i = 0; i < imgs.length; i++) {
-            let row = imgs[i];
-            let m = getMarginClasses(i, imgs.length);
-            if (!Array.isArray(row)) {
-                row = [row];
-            }
-            switch (row.length) {
-                case 1:
-                    buf += await oneBigImage(row[0], m, blurStretchSingles, fullWidth);
-                    break;
-                case 2:
-                    buf += await twoBigImages(row, m, fullWidth);
-                    break;
-                case 3:
-                    buf += await threeBigImages(row, m, fullWidth);
-                    break;
-                default:
-                    buf += 'UNSUPPORTED IMG ROW ARRAY LENGTH: ' + row.length;
-                    break;
-            }
-        }
-
-        return "<md-raw>" + buf + "</md-raw>";
-    });
-
-    /**
-     * New image shortcode with a width-limiting div. Ditches svg blur bg.
-     * @param img - see `img` shortcode for API (here restricted to str path and video obj)
-     * @param options - {
+     * @param options The second argument is global formatting options: {
      *   fullWidth: boolean, default: true
      *   maxWidth: string, any max-width to set on all rows (no default)
      * }
@@ -1188,7 +944,7 @@ module.exports = function (eleventyConfig) {
             // breathing room (which looks nice), the thumbhash BG shows
             // through.
             let [w, h] = getImageSize(sizeCache, getLocalPath(paths[i]));
-            let [srcSet, sizes] = await getSrcsetSizes(paths[i], w, "v1", embedded || plainBig, embedded ? 3 : 1);
+            let [srcSet, sizes] = await getSrcsetSizes(paths[i], w, embedded || plainBig, embedded ? 3 : 1);
             const imgXClasses = isX ? `fader z-${i} o-${i == paths.length - 1 ? 1 : 0}` : "";
             const imgXStyleAttr = isX ? `style="grid-area: 1 / 1 / 2 / 2; transition: opacity 0.75s;"` : `style=""`;
             basePieces.push(`<img
