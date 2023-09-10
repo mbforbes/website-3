@@ -8,6 +8,7 @@ travel_start: 2022-07-31
 travel_end: 2022-08-03
 image: /assets/posts/2022-scotland/07-leith-castle.moz80.jpg
 customexcerpt: We took a two week roadtrip through Scotland. We got soaked and the food sucked, but the nature was awesome. 10/10.
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
 <!-- image graveyard
@@ -66,6 +67,7 @@ Our first leg was from Edinburgh to Aberdeen.
 The whole landscape felt pleasantly organized. Each parcel of land accounted for, all green pastures so kempt they looked nearly mowed (hence golf's country of origin suddenly making sense), tasteful bits of trees spouting.
 
 <!-- video: scotland-field -->
+
 {% img2 [
     {vimeoInfo: "756057977?h=8fea7947d3"},
     "/assets/posts/2022-scotland/01-road-landscape.moz80.jpg"
@@ -92,7 +94,7 @@ Rocky coast pleasantly familiar to Pacific Northwest (PNW).
 
 ## Aberdeen
 
-{% cityMap "/assets/posts/2022-scotland/aberdeen-scotland-1-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-scotland/aberdeen-scotland-1-perimeter.moz80.jpg", false %}
 
 Nirvana main guy Kurt Cobain was from Aberdeen, WA, USA. My friend Callan's dad grew up there and went to the same high school. Apparently Kurt was an unpleasant menace, but I can't blame him too much given Wikipedia's account of his childhood. Good angst brewing for grunge anyway.
 
@@ -126,6 +128,7 @@ Checking out downtown, we admired big towers with clouds blasting by.
 As I went absolutely peak tourist and filmed a short video, a voice floated over the fence we were at. "Hey, what do you think of this tower?"
 
 <!-- video: scotland-aberdeen-clouds -->
+
 {% img2 {vimeoInfo: "756056344?h=49401b4f8a"} %}
 
 We spent the next hour or so with John, a lovely Scottish artist and decedent of a mason who worked on these very buildings.
@@ -262,6 +265,7 @@ If you're up-to-date on your tetanus boosters and the population of grandmas and
 I wish I had a better word for it, but the only appropriate label for this situation of _castle perched on rocky cliff_ is the clichéd: dramatic.
 
 <!-- Video: scotland-slains-beach -->
+
 {% img2 [
     {vimeoInfo: "756058241?h=946d96c367"},
     [
@@ -314,6 +318,7 @@ As we arrived---after closing; just to stalk the fences; fine by us; avoid anoth
 ## Interlude on Local Destinations and the NC 500
 
 This is a common occurrence for travel in general: local, often tour-related thing that absolutely everybody knows about, which you have never heard of before coming. Once you learn about it---which you must in order to appropriately banter with people about what, in fact, you are _doing_ all the way out here---you either:
+
 1. Incorporate it into your travel plans
 2. Sheepishly repeat you're not doing it and wave your hands why
 

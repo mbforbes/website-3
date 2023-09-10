@@ -7,6 +7,7 @@ travel_start: 2022-08-03
 travel_end: 2022-08-06
 image: /assets/posts/2022-scotland/16-to-skye-castle-in.moz80.jpg
 customexcerpt: With Loch Ness so famous because of its Monster, it had not occurred to me that it might actually turn out to be a completely boring normal lake until we were standing in front of it.
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
 <!-- Image graveyard:
@@ -36,9 +37,9 @@ customexcerpt: With Loch Ness so famous because of its Monster, it had not occur
 
 ## Inverness
 
-{% cityMap "/assets/posts/2022-scotland/inverness-scotland-3-r3000.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-scotland/inverness-scotland-3-r3000.moz80.jpg", false, true, false %}
 
-{% img2 "/assets/posts/2022-scotland/09-inverness-view.moz80.jpg" %}
+{% cityPic "/assets/posts/2022-scotland/09-inverness-view.moz80.jpg" %}
 
 This city connects Loch Ness (yes, that one) to the Atlantic Ocean.[^ness]
 
@@ -58,7 +59,7 @@ We walk down there, famished after a long day of looking at grass and rocks. The
 
 So we do what any self-respecting global citizens would do in our situation, and buy beer and frozen pizza and cereal from the only other remotely local establishment: a gas station. Both to savor lax public drinking laws and out of general angst of our circumstance, we drink beers on the way back.
 
-{% img2 "/assets/posts/2022-scotland/09-inverness-beer.moz80.jpg" %}
+{% img2i "/assets/posts/2022-scotland/09-inverness-beer.moz80.jpg" %}
 
 A few days later, we're growing tired of takeout sandwiches from Tesco's value meals and frozen food (hey, the UK is expensive, OK), and we've gotten really hyped up about finally visiting said pub. We make a whole evening plan around it, and arrive early---it closes at 11pm, and we arrive between 6 and 7.
 

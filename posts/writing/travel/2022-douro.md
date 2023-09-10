@@ -4,9 +4,10 @@ date: 2022-05-05
 travel_start: 2022-05-05
 travel_end: 2022-05-05
 image: /assets/posts/2022-douro/douro-valley.moz80.jpg
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
-{% cityMap "/assets/posts/2022-douro/douro-portugal-2-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-douro/douro-portugal-2-perimeter.moz80.jpg", false %}
 
 Back in Porto, this is one of a couple day trips we took.
 

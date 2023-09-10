@@ -8,6 +8,7 @@ travel_start: 2022-08-06
 travel_end: 2022-08-10
 image: /assets/posts/2022-scotland/24-hp-train.moz80.jpg
 customexcerpt: Isle of Skye is one of those places that is dramatic when you're there but totally doesn't photograph well. I have never been anywhere like it.
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
 <!-- Image graveyard:
@@ -51,9 +52,9 @@ The good part about it photographing poorly is that it's hard for me to spoil wh
 
 ## Luib
 
-{% cityMap "/assets/posts/2022-scotland/luib-scotland-10-r1250.png" %}
+{% cityMap "/assets/posts/2022-scotland/luib-scotland-10-r1250.png", false, true, false %}
 
-{% img2 "/assets/posts/2022-scotland/17-skye-town.moz80.jpg" %}
+{% cityPic "/assets/posts/2022-scotland/17-skye-town.moz80.jpg" %}
 
 The whole island was pretty booked up. I think there are more people going these days than the infrastructure is made for (see also last post re: trying to find places to eat). So we ended up staying in the smallest named location I've ever been in my life: the town of Luib. I think there were literally fewer than a dozen homes.
 

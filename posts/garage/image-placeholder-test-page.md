@@ -3,6 +3,7 @@ title: Image Placeholder Test Page
 date: 2023-07-16
 updated: 2023-08-23
 coverImage: /assets/garage/image-placeholder-test-page/test-cover.moz80.jpg
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
 ## Inline
@@ -11,7 +12,7 @@ coverImage: /assets/garage/image-placeholder-test-page/test-cover.moz80.jpg
 
 ## `cityMap`
 
-{% cityMap "/assets/posts/2022-lisbon/lisbon-portugal-23-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-lisbon/lisbon-portugal-23-perimeter.moz80.jpg", false %}
 
 <p class="figcaption">Static</p>
 

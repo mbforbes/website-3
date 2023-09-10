@@ -6,9 +6,10 @@ travel_start: 2022-05-18
 travel_end: 2022-05-26
 image: /assets/posts/2022-05-seattle/turtle.moz80.jpg
 redirect_from: /blog/seattle-may-2022/
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
-{% cityMap "/assets/posts/2022-05-seattle/seattle-usa-2-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-05-seattle/seattle-usa-2-perimeter.moz80.jpg", false %}
 
 Back across the pond for about a week.
 

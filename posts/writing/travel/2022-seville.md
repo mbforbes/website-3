@@ -6,11 +6,12 @@ travel_end: 2022-04-21
 updated: 2022-08-25
 image: /assets/posts/2022-seville/plaza.moz80.jpg
 redirect_from: /blog/seville-malaga/
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
-{% cityMap "/assets/posts/2022-seville/seville-spain-28-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-seville/seville-spain-28-perimeter.moz80.jpg", false, true, false %}
 
-{% img2 "/assets/posts/2022-seville/plaza.moz80.jpg" %}
+{% cityPic "/assets/posts/2022-seville/plaza.moz80.jpg" %}
 
 A lovely feature of Spanish cities seems to be big public plazas you can go and hang out in. Art and water features make them pleasant.
 

@@ -68,8 +68,6 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 
 ## TODO
 
-- [ ] try to get all citymaps w/ attributions swapped to being at end
-  - could check w/ regex, but also want to do citypics after them where applicable
 - [ ] cover images: re-export so big enough!?
 - [ ] new macro or solution for images like sketches (ramen ode) that really ought to simply be constrained by max width or height (but want macro goodies like bg placeholder etc)
 - [ ] Have card layout hide horizontal scrollbar (see if fixes); freaks out when cards are initially flipping

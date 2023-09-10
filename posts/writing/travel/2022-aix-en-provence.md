@@ -8,7 +8,7 @@ image: /assets/posts/2022-france/aix-country-walking.moz80.jpg
 attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
-{% cityMap "/assets/posts/2022-france/aix-en-provence-france-3-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-france/aix-en-provence-france-3-perimeter.moz80.jpg", false %}
 
 Just call it "Aix," pronounced like the letter X.
 

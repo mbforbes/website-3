@@ -7,6 +7,7 @@ travel_start: 2022-08-10
 travel_end: 2022-08-13
 image: /assets/posts/2022-scotland/27-hike-pond.moz80.jpg
 customexcerpt: 'Hiking here is appropriately called "hill walking."'
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
 <!-- Image graveyard:
@@ -45,11 +46,9 @@ Leaving the isle and entering the mainland, we were greeted by clear skys at las
 
 ## Oban
 
-{% cityMap "/assets/posts/2022-scotland/oban-scotland-7-r1250.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-scotland/oban-scotland-7-r1250.moz80.jpg", false, true, false %}
 
-{% img2 [
-    "/assets/posts/2022-scotland/25-oban-view.moz80.jpg"
-] %}
+{% cityPic "/assets/posts/2022-scotland/25-oban-view.moz80.jpg" %}
 
 Oban is quite tiny. The couple fish and chips places each claim to serve the most renowned fried pile. The only grocer we found in the town center was a kind of store I didn't know existed: a frozen foods emporium. The whole path inside was a maze of chest freezers and the fluorescent aura of resignation.
 

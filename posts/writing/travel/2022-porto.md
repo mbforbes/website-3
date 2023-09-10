@@ -7,11 +7,12 @@ travel_end: 2022-04-18
 updated: 2022-08-26
 image: /assets/posts/2022-porto/cat.moz80.jpg
 redirect_from: /blog/porto/
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
-{% cityMap "/assets/posts/2022-porto/porto-portugal-7-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-porto/porto-portugal-7-perimeter.moz80.jpg", false, true, false %}
 
-{% img2 "/assets/posts/2022-porto/porto.moz80.jpg" %}
+{% cityPic "/assets/posts/2022-porto/porto.moz80.jpg" %}
 
 Porto was, like Lisbon, completely flooded with tourists. But its bigger streets and more open public spaces left us more breathing room. (Usually.)
 

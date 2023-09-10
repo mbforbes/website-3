@@ -4,11 +4,12 @@ date: 2022-05-07
 travel_start: 2022-05-07
 travel_end: 2022-05-07
 image: /assets/posts/2022-peneda-geres/park-big.moz80.jpg
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
-{% cityMap "/assets/posts/2022-peneda-geres/peneda-geres-national-park-portugal-4-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-peneda-geres/peneda-geres-national-park-portugal-4-perimeter.moz80.jpg", false, true, false %}
 
-{% img2 "/assets/posts/2022-peneda-geres/park-big.moz80.jpg" %}
+{% cityPic "/assets/posts/2022-peneda-geres/park-big.moz80.jpg" %}
 
 Second big day trip from Porto. Also couple hours way, north / northeast. Pretty park, might be _the_ big nature reserve in Portugal. Seems like hiking's not big here? If so, shame---pretty country.
 

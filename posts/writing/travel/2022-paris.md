@@ -4,9 +4,10 @@ date: 2022-08-07
 travel_start: 2022-07-13
 travel_end: 2022-07-17
 image: /assets/posts/2022-france/paris-art-museum.moz80.jpg
+attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
-{% cityMap "/assets/posts/2022-france/paris-france-3-perimeter.moz80.jpg" %}
+{% cityMap "/assets/posts/2022-france/paris-france-3-perimeter.moz80.jpg", false %}
 
 Ultra light entry on Paris.
 
