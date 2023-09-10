@@ -15,30 +15,32 @@
 {# standard wrapperClasses are "map-bg" #}
 <div class="full-width cb flex flex-wrap flex-nowrap-ns justify-center pv4 pv5-l {% block wrapperClasses %}{% endblock %}">
     {# Col 1: Series #}
-    <div class="ph3 w-100 w-third-ns normal-links sans-serif flex justify-left justify-center-ns self-center">
-        <div class="pl4 pl0-ns">
-            <p class="b ttu tracked lh-solid mt1 mb2 mb3-l f4 dib">{{ series }}</p>
-            {% set colClass = "doublecol-ns" if seriesPostDatas | length >= 10 else "" %}
-            <ol class="ma0 f5 {{ colClass }} pl0">
-                {% for seriesPostData in seriesPostDatas %}
-                    <li class="ml4">
-                        {% if seriesPostData.title == title %}
-                            <span class="b db pt1">
-                                {{ seriesPostData.title }}
-                            </span>
-                        {% else %}
-                            <a href="{{ seriesPostData.page.url }}" class="db pt1">
-                                {{ seriesPostData.title }}
-                            </a>
-                        {% endif %}
-                    </li>
-                {% endfor %}
-            </ol>
+    <div class="ph3 w-100 w-auto-ns mw-33-ns normal-links sans-serif flex">
+        <div class="pl4 pl0-ns mapSmall shadow-1 br-100 flex flex-column justify-center items-center overflow-hidden" style="aspect-ratio: 1">
+            <div>
+                <p class="b ttu tracked lh-solid mt1 mb2 mb3-l f4 dib">{{ series }}</p>
+                {% set colClass = "doublecol-ns" if seriesPostDatas | length >= 10 else "" %}
+                <ol class="ma0 f5 {{ colClass }} pl0">
+                    {% for seriesPostData in seriesPostDatas %}
+                        <li class="ml4">
+                            {% if seriesPostData.title == title %}
+                                <span class="b db pt1">
+                                    {{ seriesPostData.title }}
+                                </span>
+                            {% else %}
+                                <a href="{{ seriesPostData.page.url }}" class="db pt1">
+                                    {{ seriesPostData.title }}
+                                </a>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ol>
+            </div>
         </div>
     </div>
 
     {# Col 2: Context map #}
-    <div class="mv4 mv0-ns ph3 w-100 w-third-ns">
+    <div class="mv4 mv0-ns ph3 w-100 w-auto-ns mw-33-ns">
         <div class="relative">
             <div id="mapContext" class="leafletMap bg-white mapSmall center shadow-1">
                 <img src="{% block contextPreview %}{% endblock %}" class="novmargin" />
@@ -48,7 +50,7 @@
     </div>
 
     {# Col 3: Trip map #}
-    <div class="ph3 w-100 w-third-ns">
+    <div class="ph3 w-100 w-auto-ns mw-33-ns">
         <div id="mapTrip" class="leafletMap bg-white mapSmall center shadow-1">
             <img src="{% block tripPreview %}{% endblock %}" class="novmargin" />
         </div>

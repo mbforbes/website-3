@@ -96,20 +96,7 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 
 Notes from trying on 4K screen:
 
-- **consistent margins** --- driving me nuts
-
-  - center group map / map+series bubbles
-    - - actual bubble around series?
-  - can photos be max-width'd closer to their true width? likely displaying @ full-size will mean @1x density, so there's no reason to limit to 1/2
-  - consider max-width'ing inline full-width post elements (maps)
-  - max-width cover img? w/ border when smaller?
-  - jagged margins of inline posts
-  - ... and horrible stretching
-  - maybe increase media max-width; look @ ratio from body text. or just go much wider
-
-- larger thought: if it's too much work to keep v1 and v2, don't do it. honestly may not need w/ full display capping to some reasonable amt (2000px w?)
-
-- [ ] Can we have the blur svgs reveal a bit earlier? They pop in while visible. Only do if still needed after margins update.
+- consider max-media-width'ing static map imgs (just out of the box? or only on @1x displays?)
 
 - maybe bigger fig margins for sufficiently large screen
 
