@@ -66,7 +66,24 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 3. `_includes/series-top.njk`
 4. `_includes/series-bottom.njk`
 
+### Image sizes
+
+All social media has slightly different sizes. Going to just export to one size. And just exporting to widths for now.
+
+- `image`: 1200w --- used for social media previews and card layout thumbs (500w)
+- `coverImage`: 3840w --- 4k resolution width
+
 ## TODO
+
+### posts
+
+- [ ] finish typescript + ecs posts
+
+### new features
+
+todo: move stuff here
+
+### fixups
 
 - [ ] cover images: re-export so big enough!?
 - [ ] Have card layout hide horizontal scrollbar (see if fixes); freaks out when cards are initially flipping
@@ -78,6 +95,7 @@ Right now, logic to handle sorting and ordering and displaying Series is spread 
 - [ ] Swap series bottom w/ footnotes
 - [ ] next post in category when not series
 - [ ] Can I get the style.css?v=XXX to auto-update in head.njk when I change the css (or just always)?
+  - insert date (incl. h/m/s?) w/ nunjucks
 - [ ] try to re-fix tables (borders gone for the .markdown-body mw7 removal to get padding to work)
 - [ ] Show snippets when linking between posts
 - [ ] Constrain sketches to not go beyond width or height (see e.g., voxel material study)

@@ -7,8 +7,8 @@ delayseries: true
 date: 2023-06-04
 travel_start: 2023-04-08
 travel_end: 2023-04-11
-image: /assets/posts/2023-hualien/IMG_2052.moz80.jpg
-coverImage: /assets/posts/2023-hualien/IMG_2052.moz80.jpg
+image: /assets/posts/2023-hualien/IMG_2052-1200.moz80.jpg
+coverImage: /assets/posts/2023-hualien/IMG_2052-4k.moz80.jpg
 customexcerpt: The general feel of both thriving and falling apart at the same time.
 attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
