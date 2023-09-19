@@ -370,12 +370,12 @@ li>p {
 
 }
 
+/* Inline monospace snippets (like `foo`) */
 .markdown-body :not(pre) code {
     background-color: var(--off-bg-color);
     padding: 0.25rem 0.25rem;
+    hyphens: none;
 }
-
-
 
 /* Making hrs everywhere do this!
 

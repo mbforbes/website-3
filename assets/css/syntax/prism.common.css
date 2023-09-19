@@ -42,6 +42,20 @@ pre[class*=language-] {
     white-space: normal
 }
 
+/* Actual line highlighting seems to not use the below. Instead, it seems to use
+the <mark> HTML tag. This styling is custom added by me. */
+
+pre code mark {
+    /* Soften the background color a bit. */
+    background-color: hsla(61, 98%, 64%, 0.443);
+
+    /* The default inline display highlights tokens only, not lines. */
+    display: block;
+
+    /* ... but, this mode is weird, and adds <br>s below every line, so if we do
+    display: block, we get empty lines afterwards. This removes them. */
+    margin-bottom: -1lh;
+}
 
 /* Line highlighting (not really tested, may have interference w/ tachyons?) */
 
