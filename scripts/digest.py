@@ -15,19 +15,19 @@ email digests is that email clients are way out-of-date about what HTML/CSS they
 render. So we use old-school <table>s for formatting. It works fine.
 """
 
-import code
+import code  # type: ignore
 from collections import defaultdict
 from datetime import date, datetime
 import re
 from typing import Optional
 
 from bs4 import BeautifulSoup
-import mistune
+import mistune  # type: ignore
 
 from common import get_posts, Post
 
-DATE_START = date(2023, 6, 1)  # inclusive
-DATE_END = date(2023, 6, 30)  # inclusive
+DATE_START = date(2023, 7, 1)  # inclusive
+DATE_END = date(2023, 10, 31)  # inclusive
 # DISPLAY_MONTH = "September"
 # SUBJECT = f"Max Forbes | {DISPLAY_MONTH} 2022 Digest"
 
@@ -136,9 +136,9 @@ def get_excerpt(post: Post) -> str:
         return post["frontmatter"]["customexcerpt"]
     # yes, we're going to render markdown as html, then parse the html, then get the
     # normal text that we wrote in there lmaooo
-    soup = BeautifulSoup(mistune.html(post["contents"]), "html.parser")
+    soup = BeautifulSoup(mistune.html(post["contents"]), "html.parser")  # type: ignore
     els = soup.find_all(["p", "li"])
-    buf = []
+    buf: list[str] = []
 
     # enable to manually check a post
     # if post["frontmatter"]["title"] == "Writing vs Blogging":
@@ -243,7 +243,7 @@ RENDERERS = defaultdict(lambda: render_post, {"sketches": render_sketch})
 
 def main():
     # filter by date and sort into categories
-    collections = defaultdict(lambda: [])
+    collections: dict[str, list[Post]] = defaultdict(lambda: [])
     for post in get_posts():
         publish_date = get_publish_date(post)
         if publish_date < DATE_START or publish_date > DATE_END:

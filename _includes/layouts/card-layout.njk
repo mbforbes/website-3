@@ -99,11 +99,11 @@
                             {# --------------------- #}
                             {# Section: Content #}
                             {% set excerptFontClass = "f4" %}
-                            {% set excerpt = post.content | striptags | trim | safe %}
+                            {% set excerpt = post.content | trim | safe %}
                             {% if excerpt | length < 90 %}
                                 {% set excerptFontClass = "f3" %}
                             {% endif %}
-                            <div class="flex pa3 {{ excerptFontClass }} items-center items-start-ns lh-solid" style="flex-grow: 1; overflow: hidden;">
+                            <div class="flex flex-column pa3 {{ excerptFontClass }} justify-center justify-start-ns lh-solid inner-p-no-margin" style="flex-grow: 1; overflow: hidden;">
                                 {{ excerpt }}
                             </div>
                             {# Section: metadata #}

@@ -1,39 +1,39 @@
 {
-    "name": "mbforbes-website-3",
-    "version": "0.0.2",
-    "description": "It's my personal website, baybeeeee.",
-    "scripts": {
-        "prebuild": "node build-image-cache.js",
-        "build": "eleventy",
-        "prewatch": "node build-image-cache.js",
-        "watch": "eleventy --watch",
-        "preserve": "node build-image-cache.js",
-        "serve": "eleventy --serve --incremental",
-        "prestart": "node build-image-cache.js",
-        "start": "eleventy --serve",
-        "debug": "DEBUG=* eleventy"
-    },
-    "author": {
-        "name": "Maxwell Forbes",
-        "url": "https://maxwellforbes.com/"
-    },
-    "license": "All rights reserved. (All my code I license MIT, but this repo has all my personal created content, ya know.)",
-    "homepage": "https://maxwellforbes.com",
-    "devDependencies": {
-        "@11ty/eleventy": "^2.0.0",
-        "@11ty/eleventy-img": "^3.1.0",
-        "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
-        "@napi-rs/canvas": "^0.1.41",
-        "cli-progress": "^3.12.0",
-        "eleventy-plugin-reading-time": "^0.0.1",
-        "fast-glob": "^3.3.0",
-        "image-size": "^1.0.2",
-        "luxon": "^3.3.0",
-        "markdown-it": "^13.0.1",
-        "markdown-it-anchor": "^8.6.7",
-        "markdown-it-footnote": "^3.0.3",
-        "markdown-it-replacements": "^1.0.2",
-        "split": "^1.0.1",
-        "thumbhash": "^0.1.1"
-    }
+  "name": "mbforbes-website-3",
+  "version": "0.0.2",
+  "description": "It's my personal website, baybeeeee.",
+  "scripts": {
+    "prebuild": "node build-image-cache.js",
+    "build": "eleventy",
+    "prewatch": "node build-image-cache.js",
+    "watch": "eleventy --watch",
+    "preserve": "node build-image-cache.js",
+    "serve": "eleventy --serve --incremental",
+    "prestart": "node build-image-cache.js",
+    "start": "eleventy --serve",
+    "debug": "DEBUG=* eleventy"
+  },
+  "author": {
+    "name": "Maxwell Forbes",
+    "url": "https://maxwellforbes.com/"
+  },
+  "license": "All rights reserved. (All my code I license MIT, but this repo has all my personal created content, ya know.)",
+  "homepage": "https://maxwellforbes.com",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-img": "^3.1.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
+    "@napi-rs/canvas": "^0.1.41",
+    "cli-progress": "^3.12.0",
+    "eleventy-plugin-reading-time": "^0.0.1",
+    "fast-glob": "^3.3.0",
+    "image-size": "^1.0.2",
+    "luxon": "^3.3.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-anchor": "^8.6.7",
+    "markdown-it-footnote": "^3.0.3",
+    "markdown-it-replacements": "^1.0.2",
+    "split": "^1.0.1",
+    "thumbhash": "^0.1.1"
+  }
 }

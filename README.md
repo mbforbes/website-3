@@ -62,7 +62,7 @@ Right now, series is kind of a mess. It should probably be implemented with Elev
 Right now, logic to handle sorting and ordering and displaying Series is spread out across:
 
 1. `eleventy.js`, the `dateSeriesGroupBy` filter
-2. `_includes/list-posts-and-series.njk` (for listings in Studio)
+2. `studio2.11ty.js` (what date to sort and show)
 3. `_includes/series-top.njk`
 4. `_includes/series-bottom.njk`
 

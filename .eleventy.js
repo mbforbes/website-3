@@ -7,6 +7,7 @@ const markdownItFootnote = require("markdown-it-footnote");
 const markdownItReplacements = require('markdown-it-replacements');
 const readingTime = require('eleventy-plugin-reading-time');
 const Image = require("@11ty/eleventy-img");
+const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
 // Local code! Wow I'm writing a lot of code lol.
 const {
@@ -215,6 +216,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("CNAME");
 
     // Add plugins
+    eleventyConfig.addPlugin(EleventyRenderPlugin);
     eleventyConfig.addPlugin(pluginSyntaxHighlight);
     eleventyConfig.addPlugin(readingTime);
     // Ideas:
@@ -275,8 +277,8 @@ module.exports = function (eleventyConfig) {
      *  {"series2": [post, post]}
      *  {"": [post]}
      * ]
-     */
-    eleventyConfig.addNunjucksFilter("dateSeriesGroupBy", function (arr) {
+     */    
+    function dateSeriesGroupBy (arr) {
         // Build collection of posts and save series representative dates for
         // sorting. Non-series posts are *not* grouped at this stage.
         let items = [];
@@ -358,7 +360,10 @@ module.exports = function (eleventyConfig) {
         }
 
         return res;
-    });
+    }
+
+    eleventyConfig.addNunjucksFilter("dateSeriesGroupBy", dateSeriesGroupBy);    
+    eleventyConfig.addJavaScriptFunction("dateSeriesGroupBy", dateSeriesGroupBy);    
 
 
     /**
@@ -827,16 +832,20 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addShortcode("thumb", async function (path, widths, classes = "", style = "") {
         // NOTE: use if benchmarking w/o Eleventy Image
-        // return `<img src='${path}'/>`;
+        // console.log("Returning", `<img src='${path}'/>`);
+        // return `<img src='${path}'/>`;        
+        
         if (!Array.isArray(widths)) {
             widths = [widths];
         }
-        let metadata = await Image((path[0] == "/" ? path.substring(1) : path), {
+        const src = path[0] == "/" ? path.substring(1) : path;
+        const options = {
             widths: widths,
             formats: ["auto"],
             outputDir: "./_site/assets/eleventyImgs/",
             urlPath: "/assets/eleventyImgs/",
-        });
+        };                
+        let metadata = await Image(src, options);
         return Image.generateHTML(metadata, {
             sizes: "100vw",  // NOTE: If multiple sizes ever used, could replace
             class: classes,
@@ -1203,6 +1212,7 @@ ${third}`;
             "md",
             "njk",
             "html",
+            "11ty.js",
         ],
 
         // Pre-process *.md files with: (default: `liquid`)

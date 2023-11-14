@@ -108,6 +108,7 @@ Bad
     - but the "something rotating" has no incorporation at all in the mnemonic.
 - entirely missing some reading explanations
   e.g., 近々 has ちかぢか and きんきん. きんきん has audio recordings but is entirely unreferenced from the explanation, which just says it's the other one.
+- mnemonic pathologically bad: 和 vs 乗, which involve the same radicals. 和 is remembered through putting rice in mouth. then, 乗 says "don't get this confused with 和, because _this_ time the rice is in the mouth."
 
 Semi-unrelated
 

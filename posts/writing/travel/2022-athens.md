@@ -5,6 +5,7 @@ travel_start: 2022-05-27
 travel_end: 2022-05-31
 image: /assets/posts/2022-athens/parthenon.moz80.jpg
 redirect_from: /blog/athens-naxos/
+customexcerpt: Gritty and sprawling. Anarchist enthusiast youth districts. Generous seafood, meat, and salads, especially in the outskirts.
 ---
 
 {% img2 "/assets/posts/2022-athens/parthenon.moz80.jpg" %}
@@ -40,7 +41,6 @@ And, every stranger we talked to was kind and helpful. (Everyone we told this to
 Friendly reminder people had to invent writing spaces between words. (And some languages still don't do this.) I asked Marcus about reading Ancient Greek, and he said they learn it for years in school. There are some similarities with modern Greek, but it's also quite different. In hindsight, this makes complete sense; I thought of trying to read Old English (though no idea how close the comparison is).
 </p>
 
-
 ![](/assets/posts/2022-athens/empty.moz80.jpg)
 
 ![](/assets/posts/2022-athens/food-fair.moz80.jpg)
@@ -62,7 +62,6 @@ Our optimistic plans of cooking local food are nearly always dashed by spartan A
 <p class="figcaption">
 Riff on <a href="https://www.bonappetit.com/recipe/herby-pasta-with-garlic-and-green-olives">this recipe from BA</a>.
 </p>
-
 
 ![](/assets/posts/2022-athens/cat.moz80.jpg)
 

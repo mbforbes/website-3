@@ -5,7 +5,7 @@ hidedate: true
 layout: "layouts/default.njk"
 eleventyExcludeFromCollections: true
 eleventyImport:
-    collections: ["all"]
+  collections: ["all"]
 ---
 
 <!-- NOTE: Extra <div> for .markdown-body mw7 removal -->
@@ -52,7 +52,7 @@ Contact me at: <img height="22" class="inline" src="/assets/img/my-email.png">
 <div class="sans-serif">
 
 [**Scarecrow: A Framework for Scrutinizing Machine Text**](https://arxiv.org/pdf/2107.01294.pdf)<br/>
-Yao Dou&#42;, **Maxwell Forbes**&#42;, Rik Koncel-Kedziorski, Noah A. Smith, Yejin Choi<br/>
+Yao Dou\*, **Maxwell Forbes**\*, Rik Koncel-Kedziorski, Noah A. Smith, Yejin Choi<br/>
 _Association for Computational Linguistics (ACL) 2022_<br/>
 [[project](https://yao-dou.github.io/scarecrow/)] [[bib](/assets/research/dou2021scarecrow.bib)]
 
@@ -121,7 +121,6 @@ _International Conference on Learning Representations (ICLR), 2020_<br/>
 
 <p style="height: 1px;"></p>
 
-
 [**Neural Naturalist: Generating Fine-Grained Image Comparisons**](https://arxiv.org/pdf/1909.04101.pdf)<br/>
 **Maxwell Forbes**, Christine Kaeser-Chen, Piyush Sharma, Serge Belongie<br/>
 _Empirical Methods in Natural Language Processing (EMNLP) 2019_<br/>
@@ -143,10 +142,16 @@ _Association for Computational Linguistics (ACL) 2018_<br/>
 
 <p style="height: 1px;"></p>
 
+[**Balancing shared autonomy with human-robot communication**](https://arxiv.org/pdf/1805.07719.pdf)<br/>
+Rosario Scalise, Yonatan Bisk, **Maxwell Forbes**, Daqing Yi, Yejin Choi, Siddhartha Srinivasa<br/>
+_arXiv, 2018_<br/>
+
+<p style="height: 1px;"></p>
+
 [**Verb Physics: Relative Physical Knowledge of Actions and Objects**](https://arxiv.org/pdf/1706.03799.pdf)<br />
 **Maxwell Forbes**, Yejin Choi<br />
 _Association for Computational Linguistics (ACL) 2017_<br />
-[[project](https://uwnlp.github.io/verbphysics/)] [[code](https://github.com/uwnlp/verbphysics)] [[data](https://github.com/uwnlp/verbphysics#data)] [[video](https://vimeo.com/234954495)]  [[slides](/assets/research/forbes2017verb-slides.pdf)] [[bib](/assets/research/forbes2017verb.bib)]
+[[project](https://uwnlp.github.io/verbphysics/)] [[code](https://github.com/uwnlp/verbphysics)] [[data](https://github.com/uwnlp/verbphysics#data)] [[video](https://vimeo.com/234954495)] [[slides](/assets/research/forbes2017verb-slides.pdf)] [[bib](/assets/research/forbes2017verb.bib)]
 
 <p style="height: 1px;"></p>
 
@@ -172,7 +177,7 @@ _IEEE International Conference on Robotics and Automation (ICRA) 2014_<br />
 ### Workshop papers
 
 [**Programming by Demonstration with Situated Semantic Parsing**](/assets/research/artzi2014programming.pdf)<br />
-Yoav Artzi&#42;, **Maxwell Forbes**&#42;, Kenton Lee&#42;, Maya Cakmak<br />
+Yoav Artzi\*, **Maxwell Forbes**\*, Kenton Lee\*, Maya Cakmak<br />
 _AAAI Fall Symposium Series on Human-Robot Interaction 2014_<br/>
 [[slides](/assets/research/artzi2014programming-slides.pdf)]
 

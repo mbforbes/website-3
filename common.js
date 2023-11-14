@@ -1,11 +1,22 @@
-const fs = require('fs');
-const fsp = require('fs').promises;
-const path = require('path');
+const fs = require("fs");
+const fsp = require("fs").promises;
+const path = require("path");
 const getImageSizeFromDisk = require("image-size");
 const { createCanvas, loadImage } = require("@napi-rs/canvas");
 // Probably a better way to do this but I never figured it out.
 const thumbhash = import("thumbhash"); // then await later
 
+// Utils
+
+/**
+ * We don't actually want to do anything special w/ the html tagged template, so
+ * this is just a no-op. If we want to do escaping, could use `const html =
+ * require("html-template-tag");`, or any of the more involved libraries at
+ * https://github.com/kay-is/awesome-tagged-templates#html.
+ */
+function html(strings, ...values) {
+    return strings.reduce((result, str, i) => result + str + (values[i] || ""), "");
+}
 
 // File system operations.
 
@@ -30,7 +41,7 @@ function ensureDir(filePath) {
     try {
         fs.accessSync(dirPath);
     } catch (err) {
-        if (err.code === 'ENOENT') {
+        if (err.code === "ENOENT") {
             fs.mkdirSync(dirPath, { recursive: true });
         } else {
             throw err;
@@ -75,7 +86,6 @@ function serializeMapSync(map, filePath) {
     console.log("Wrote Map with " + map.size + " entries to " + filePath);
 }
 
-
 /**
  * @param {Map} map
  * @param {string} filePath
@@ -98,13 +108,12 @@ function deserializeMap(filePath) {
         console.log("Cache file not found at " + filePath + ", making new Map");
         return new Map();
     }
-    const jsonString = fs.readFileSync(filePath, 'utf-8');
+    const jsonString = fs.readFileSync(filePath, "utf-8");
     const plainObject = JSON.parse(jsonString);
     const ret = new Map(plainObject);
     console.log("Loaded Map with " + ret.size + " entries from " + filePath);
     return ret;
 }
-
 
 // Constants
 
@@ -112,7 +121,6 @@ const CACHE_DIR = path.join(__dirname, ".cache");
 const TH_CACHE_PATH = path.join(CACHE_DIR, "thumbhash.map.json");
 const SIZE_CACHE_PATH = path.join(CACHE_DIR, "sizes.map.json");
 const INLINE_11TYIMG_CACHE_PATH = path.join(CACHE_DIR, "11tyimg-inline.map.json");
-
 
 // Image operations
 
@@ -205,6 +213,7 @@ async function loadAndHashImage(thumbhashCache, localPath) {
 }
 
 module.exports = {
+    html,
     isSVG,
     wantWidths,
     getLocalPath,
@@ -215,5 +224,5 @@ module.exports = {
     loadAndHashImage,
     TH_CACHE_PATH,
     SIZE_CACHE_PATH,
-    INLINE_11TYIMG_CACHE_PATH
-}
+    INLINE_11TYIMG_CACHE_PATH,
+};

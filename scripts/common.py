@@ -71,10 +71,10 @@ def get_url(path: str) -> str:
 
 
 def get_posts(
-    glob_pattern="posts/**/*",
-    exts=["md", "njk"],
-    skip_url_prefixes=["/software/", "/news/"],
-    skip_underscore_file_prefix=True,
+    glob_pattern: str = "posts/**/*",
+    exts: list[str] = ["md", "njk"],
+    skip_url_prefixes: list[str] = ["/software/", "/news/"],
+    skip_underscore_file_prefix: bool = True,
 ) -> List[Post]:
     posts: List[Post] = []
     for path in glob(glob_pattern, recursive=True):

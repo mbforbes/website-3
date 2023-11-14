@@ -198,6 +198,23 @@ li.footnote-item::marker,
     border: var(--alt-border);
 }
 
+.hover-visible {
+    visibility: hidden;
+}
+
+.hover-visible-container:hover .hover-visible {
+    visibility: visible;
+}
+
+.hover-off-bg-color:hover {
+    background-color: var(--off-bg-color);
+}
+
+.inner-p-no-margin>p {
+    /* margin-block-end: 0px; */
+    margin-block-start: 0px;
+}
+
 .off-bg-color {
     background-color: var(--off-bg-color);
 }
