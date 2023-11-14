@@ -87,7 +87,9 @@ todo: move stuff here
 
 - [ ] cover images: re-export so big enough!?
 - [ ] Have card layout hide horizontal scrollbar (see if fixes); freaks out when cards are initially flipping
-- [ ] Fix text colors for dark mode in SVGs in Every PhD is Different
+- [ ] Fix text colors for dark mode in SVGs in
+  - [ ] Every PhD is Different
+  - [ ] force click
 - [ ] Make Aside: in "Animating SVGs from Sketch with anime.js" actually an aside
 - [ ] ~~youtube -> vimeo as much as possible~~ videos just files?
 - [ ] Syntax highlighting w/ diffs + code captions: update ECS posts to use (WIP)
