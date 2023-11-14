@@ -81,7 +81,7 @@ All social media has slightly different sizes. Going to just export to one size.
 
 ### new features
 
-todo: move stuff here
+Todo: move stuff here
 
 ### fixups
 
