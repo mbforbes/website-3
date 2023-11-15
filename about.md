@@ -58,6 +58,8 @@ I miss the [GeoCities days](http://www.hypnospace.net/), when personal pages wer
 
 - [**Bret Victor**](http://worrydream.com/) • interaction and abstraction
 
+- [**Craig Mod**](https://craigmod.com/) • long walks, atmospheric photos
+
 - [**Hundred Rabbits**](https://100r.co/site/home.html) • physical and digital minimalism from first principles, extensively documented
 
 - [**Mu-An Chiou**](http://muan.co/) • rhythm, space, movement, color
