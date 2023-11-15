@@ -15,7 +15,7 @@ const thumbhash = import("thumbhash"); // then await later
  * https://github.com/kay-is/awesome-tagged-templates#html.
  */
 function html(strings, ...values) {
-    return strings.reduce((result, str, i) => result + str + (values[i] || ""), "");
+  return strings.reduce((result, str, i) => result + str + (values[i] || ""), "");
 }
 
 // File system operations.
@@ -25,28 +25,28 @@ function html(strings, ...values) {
  * @returns {boolean}
  */
 function fileExists(filePath) {
-    try {
-        fs.accessSync(filePath);
-        return true;
-    } catch {
-        return false;
-    }
+  try {
+    fs.accessSync(filePath);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 /**
  * @param {string} filePath
  */
 function ensureDir(filePath) {
-    const dirPath = path.dirname(filePath);
-    try {
-        fs.accessSync(dirPath);
-    } catch (err) {
-        if (err.code === "ENOENT") {
-            fs.mkdirSync(dirPath, { recursive: true });
-        } else {
-            throw err;
-        }
+  const dirPath = path.dirname(filePath);
+  try {
+    fs.accessSync(dirPath);
+  } catch (err) {
+    if (err.code === "ENOENT") {
+      fs.mkdirSync(dirPath, { recursive: true });
+    } else {
+      throw err;
     }
+  }
 }
 
 /**
@@ -56,7 +56,7 @@ function ensureDir(filePath) {
  * @returns {boolean}
  */
 function isSVG(path) {
-    return path.toLowerCase().endsWith(".svg");
+  return path.toLowerCase().endsWith(".svg");
 }
 
 /**
@@ -68,8 +68,8 @@ function isSVG(path) {
  * @returns {string}
  */
 function getLocalPath(serverOrLocalPath) {
-    const p = serverOrLocalPath;
-    return p[0] == "/" ? p.substring(1) : p;
+  const p = serverOrLocalPath;
+  return p[0] == "/" ? p.substring(1) : p;
 }
 
 // Serialization operations
@@ -79,11 +79,11 @@ function getLocalPath(serverOrLocalPath) {
  * @param {string} filePath
  */
 function serializeMapSync(map, filePath) {
-    const plainObject = Array.from(map);
-    const jsonString = JSON.stringify(plainObject);
-    ensureDir(filePath);
-    fs.writeFileSync(filePath, jsonString);
-    console.log("Wrote Map with " + map.size + " entries to " + filePath);
+  const plainObject = Array.from(map);
+  const jsonString = JSON.stringify(plainObject);
+  ensureDir(filePath);
+  fs.writeFileSync(filePath, jsonString);
+  console.log("Wrote Map with " + map.size + " entries to " + filePath);
 }
 
 /**
@@ -91,11 +91,11 @@ function serializeMapSync(map, filePath) {
  * @param {string} filePath
  */
 async function serializeMapAsync(map, filePath) {
-    const plainObject = Array.from(map);
-    const jsonString = JSON.stringify(plainObject);
-    ensureDir(filePath);
-    await fsp.writeFile(filePath, jsonString);
-    console.log("Wrote Map with " + map.size + " entries to " + filePath);
+  const plainObject = Array.from(map);
+  const jsonString = JSON.stringify(plainObject);
+  ensureDir(filePath);
+  await fsp.writeFile(filePath, jsonString);
+  console.log("Wrote Map with " + map.size + " entries to " + filePath);
 }
 
 /**
@@ -103,16 +103,16 @@ async function serializeMapAsync(map, filePath) {
  * @returns {Map}
  */
 function deserializeMap(filePath) {
-    let exists = fileExists(filePath);
-    if (!exists) {
-        console.log("Cache file not found at " + filePath + ", making new Map");
-        return new Map();
-    }
-    const jsonString = fs.readFileSync(filePath, "utf-8");
-    const plainObject = JSON.parse(jsonString);
-    const ret = new Map(plainObject);
-    console.log("Loaded Map with " + ret.size + " entries from " + filePath);
-    return ret;
+  let exists = fileExists(filePath);
+  if (!exists) {
+    console.log("Cache file not found at " + filePath + ", making new Map");
+    return new Map();
+  }
+  const jsonString = fs.readFileSync(filePath, "utf-8");
+  const plainObject = JSON.parse(jsonString);
+  const ret = new Map(plainObject);
+  console.log("Loaded Map with " + ret.size + " entries from " + filePath);
+  return ret;
 }
 
 // Constants
@@ -131,14 +131,14 @@ const INLINE_11TYIMG_CACHE_PATH = path.join(CACHE_DIR, "11tyimg-inline.map.json"
  * @returns {number[]}
  */
 function wantWidths(w) {
-    // We start from the base size and halve *through* the first one that's
-    // below 500.
-    let ws = [w];
-    while (w > 500) {
-        w = Math.round(w / 2);
-        ws.push(w);
-    }
-    return ws;
+  // We start from the base size and halve *through* the first one that's
+  // below 500.
+  let ws = [w];
+  while (w > 500) {
+    w = Math.round(w / 2);
+    ws.push(w);
+  }
+  return ws;
 }
 
 /**
@@ -148,15 +148,15 @@ function wantWidths(w) {
  * @returns {[number,number]} [width, height]
  */
 function getImageSize(sizeCache, localPath) {
-    if (sizeCache.has(localPath)) {
-        return sizeCache.get(localPath);
-    }
-    let { width, height, type } = getImageSizeFromDisk(localPath);
-    if (width == null || height == null) {
-        throw new Error("Failed to get width or height from " + localPath);
-    }
-    sizeCache.set(localPath, [width, height]);
-    return [width, height];
+  if (sizeCache.has(localPath)) {
+    return sizeCache.get(localPath);
+  }
+  let { width, height, type } = getImageSizeFromDisk(localPath);
+  if (width == null || height == null) {
+    throw new Error("Failed to get width or height from " + localPath);
+  }
+  sizeCache.set(localPath, [width, height]);
+  return [width, height];
 }
 
 const binaryToBase64 = (binary) => btoa(String.fromCharCode(...binary));
@@ -171,58 +171,58 @@ const binaryToBase64 = (binary) => btoa(String.fromCharCode(...binary));
  * @returns {Promise<string|null>} base64-encoded thumbhash
  */
 async function loadAndHashImage(thumbhashCache, localPath) {
-    if (thumbhashCache.has(localPath)) {
-        return thumbhashCache.get(localPath);
-    }
-    // We can encounter errors deep in the stack with (some?) SVGs:
-    //
-    //     unsupported unit type: <4>
-    //     ...
-    //     unsupported unit type: <4>
-    //     ../../src/core/SkBitmap.cpp:250: fatal error: "assert(this->tryAllocPixels(info, rowBytes))"
-    //
-    // ... so we skip all of them for now. We could return a default hash, but thumbhashes encode the
-    // aspect ratio, and that wouldn't.
-    if (isSVG(localPath)) {
-        return null;
-    }
+  if (thumbhashCache.has(localPath)) {
+    return thumbhashCache.get(localPath);
+  }
+  // We can encounter errors deep in the stack with (some?) SVGs:
+  //
+  //     unsupported unit type: <4>
+  //     ...
+  //     unsupported unit type: <4>
+  //     ../../src/core/SkBitmap.cpp:250: fatal error: "assert(this->tryAllocPixels(info, rowBytes))"
+  //
+  // ... so we skip all of them for now. We could return a default hash, but thumbhashes encode the
+  // aspect ratio, and that wouldn't.
+  if (isSVG(localPath)) {
+    return null;
+  }
 
-    let th = await thumbhash; // repeated awaiting doesn't seem to have much impact on time.
+  let th = await thumbhash; // repeated awaiting doesn't seem to have much impact on time.
 
-    const maxSize = 100;
-    const image = await loadImage(localPath);
-    const width = image.width;
-    const height = image.height;
+  const maxSize = 100;
+  const image = await loadImage(localPath);
+  const width = image.width;
+  const height = image.height;
 
-    const scale = Math.min(maxSize / width, maxSize / height);
-    const resizedWidth = Math.round(width * scale);
-    const resizedHeight = Math.round(height * scale);
+  const scale = Math.min(maxSize / width, maxSize / height);
+  const resizedWidth = Math.round(width * scale);
+  const resizedHeight = Math.round(height * scale);
 
-    const canvas = createCanvas(resizedWidth, resizedHeight);
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(image, 0, 0, resizedWidth, resizedHeight);
+  const canvas = createCanvas(resizedWidth, resizedHeight);
+  const ctx = canvas.getContext("2d");
+  ctx.drawImage(image, 0, 0, resizedWidth, resizedHeight);
 
-    // const imageData = ctx.getImageData(0, 0, width, height);
-    const imageData = ctx.getImageData(0, 0, resizedWidth, resizedHeight);
-    const rgba = new Uint8Array(imageData.data.buffer);
-    // binaryHash is a Uint8Array
-    const binaryHash = th.rgbaToThumbHash(resizedWidth, resizedHeight, rgba);
-    const hashB64 = binaryToBase64(binaryHash);
-    thumbhashCache.set(localPath, hashB64);
-    return hashB64;
+  // const imageData = ctx.getImageData(0, 0, width, height);
+  const imageData = ctx.getImageData(0, 0, resizedWidth, resizedHeight);
+  const rgba = new Uint8Array(imageData.data.buffer);
+  // binaryHash is a Uint8Array
+  const binaryHash = th.rgbaToThumbHash(resizedWidth, resizedHeight, rgba);
+  const hashB64 = binaryToBase64(binaryHash);
+  thumbhashCache.set(localPath, hashB64);
+  return hashB64;
 }
 
 module.exports = {
-    html,
-    isSVG,
-    wantWidths,
-    getLocalPath,
-    serializeMapSync,
-    serializeMapAsync,
-    deserializeMap,
-    getImageSize,
-    loadAndHashImage,
-    TH_CACHE_PATH,
-    SIZE_CACHE_PATH,
-    INLINE_11TYIMG_CACHE_PATH,
+  html,
+  isSVG,
+  wantWidths,
+  getLocalPath,
+  serializeMapSync,
+  serializeMapAsync,
+  deserializeMap,
+  getImageSize,
+  loadAndHashImage,
+  TH_CACHE_PATH,
+  SIZE_CACHE_PATH,
+  INLINE_11TYIMG_CACHE_PATH,
 };

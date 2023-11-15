@@ -7,7 +7,12 @@ async function insert(path) {
 }
 
 function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+  return str
+    .split(" ")
+    .map((sub) => {
+      return sub.charAt(0).toUpperCase() + sub.slice(1);
+    })
+    .join(" ");
 }
 
 /**
@@ -58,6 +63,40 @@ function stripTags(inputString) {
 }
 
 async function renderPostPhoto(ths, post, date) {
+  const flexBasis = post.data.series ? "flex-basis: 32%;" : "";
+  const titleFont =
+    post.data.title.length > 55
+      ? "f6 f5-m f4-l"
+      : post.data.title.length > 45
+      ? "f5 f4-l"
+      : "f4";
+  return html`
+    <a
+      href="${post.url}"
+      class="h4 w-100 overflow-hidden flex items-center relative mv2 darken-bottom dim"
+    >
+      ${await ths.rawImg(
+        post.data.image,
+        [1408, 704],
+        "(max-width: 704px) 100vw, 704px",
+        "novmargin h-auto"
+      )}
+      <div
+        class="w-100 h-100 pa2 z-2 absolute white sans-serif flex justify-between items-end"
+        style="text-shadow: 1px 1px 1px black;"
+      >
+        <p class="mv0 lh-title ${titleFont}" style="${flexBasis} text-wrap: balance;">
+          ${post.data.title}
+        </p>
+        ${post.data.series &&
+        html`<p class="mv0 f5 fw6 ttu tracked tc">${post.data.series}</p>`}
+        <p class="mv0 f5 tr" style="${flexBasis}">${date}</p>
+      </div>
+    </a>
+  `;
+}
+
+async function renderPostThumb(ths, post, date) {
   const excerpt = stripTags(post.data.customexcerpt ?? post.content).slice(0, 120);
   return html`
     <a
@@ -132,6 +171,8 @@ async function listPostsAndSeries(ths, collection, display) {
             group.posts.map(async (post) => {
               let date = displayDate(ths, post);
               switch (display) {
+                case "thumb":
+                  return renderPostThumb(ths, post, date);
                 case "photo":
                   return renderPostPhoto(ths, post, date);
                 default:
@@ -142,15 +183,15 @@ async function listPostsAndSeries(ths, collection, display) {
         ).join(" ");
 
         return html`
-          <ul class="list pa0 mt0">
-            ${isSeries
+          <ul class="list pa0 mt0 ${display == "photo" ? "mb0" : ""}">
+            ${isSeries && display != "photo"
               ? html`<li class="mb1 mt4 f5 fw6 ttu tracked">${group.series}</li>`
               : ""}
             ${numberPosts
               ? html`<ol class="mb4">
                   ${posts}
                 </ol>`
-              : isSeries
+              : isSeries && display != "photo"
               ? html`<div class="mb5">${posts}</div>`
               : html`${posts}`}
           </ul>
@@ -203,7 +244,7 @@ class Studio {
     const writingTags = [
       ["travel", "photo"],
       ["programming", "text"],
-      ["design", "photo"],
+      ["design", "thumb"],
       ["creating & thinking", "text"],
       ["health", "text"],
     ];

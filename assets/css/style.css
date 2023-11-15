@@ -147,6 +147,18 @@ li.footnote-item::marker,
     transition: color 1s;
 }
 
+/* For, e.g., over images w/ text overlaid @ bottom. */
+.darken-bottom::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
+    z-index: 1;
+}
+
 .fade-bg {
     background-image: var(--fade-bg-image);
 }
