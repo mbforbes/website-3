@@ -73,7 +73,7 @@ async function renderPostPhoto(ths, post, date) {
   return html`
     <a
       href="${post.url}"
-      class="h4 w-100 overflow-hidden flex items-center relative mv2 darken-bottom dim"
+      class="h4 w-100 overflow-hidden flex items-center relative mv2 darken-bottom dim lh-title"
     >
       ${await ths.rawImg(
         post.data.image,
@@ -85,12 +85,12 @@ async function renderPostPhoto(ths, post, date) {
         class="w-100 h-100 pa2 z-2 absolute white sans-serif flex justify-between items-end"
         style="text-shadow: 1px 1px 1px black;"
       >
-        <p class="mv0 lh-title ${titleFont}" style="${flexBasis} text-wrap: balance;">
+        <p class="mv0 ${titleFont}" style="${flexBasis} text-wrap: balance;">
           ${post.data.title}
         </p>
         ${post.data.series &&
-        html`<p class="mv0 f5 fw6 ttu tracked tc">${post.data.series}</p>`}
-        <p class="mv0 f5 tr" style="${flexBasis}">${date}</p>
+        html`<p class="mv0 f6 fw6 ttu tracked tc">${post.data.series}</p>`}
+        <p class="mv0 f6 tr" style="${flexBasis}">${date}</p>
       </div>
     </a>
   `;
