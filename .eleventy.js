@@ -1012,6 +1012,8 @@ module.exports = function (eleventyConfig) {
    *  - container div: removes full-width, removes bg color
    *  - image: removes content-width, adds border radius
    * firstImgClass (str, default: "") --- anything to put on the first image only
+   * plainBig (TBD)
+   * fullWBG (bool, default: false) --- whether to add the tan BG color to the div stretching all the way to the page boundaries
    */
   eleventyConfig.addShortcode(
     "cityMap",
@@ -1023,13 +1025,15 @@ module.exports = function (eleventyConfig) {
       imgExClasses = "",
       embedded = false,
       firstImgClass = "",
-      plainBig = false
+      plainBig = false,
+      fullWBG = false
     ) {
       let paths = pathOrPaths;
       if (!Array.isArray(paths)) {
         paths = [paths];
       }
       const isX = paths.length > 1; // X = "transition"
+      const fullDivBGColorStyle = fullWBG ? "background-color: #FCEEE1;" : "";
       const divBGColorStyle = embedded
         ? ""
         : plainBig
@@ -1052,7 +1056,7 @@ module.exports = function (eleventyConfig) {
 
       let basePieces = [];
       basePieces.push(
-        `<div class="${divWidthClass} cb ${figClasses} flex justify-center">`
+        `<div class="${divWidthClass} cb ${figClasses} flex justify-center" style="${fullDivBGColorStyle}">`
       );
       basePieces.push(
         `<div style="${divBGColorStyle}" class="${divWidthLimiterClass} flex justify-center">`

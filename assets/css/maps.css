@@ -20,7 +20,11 @@
     width: 800px;
 }
 
-.mapBig {
+/* Need second more specific selector to get to work for inline maps under
+markdown body, else full-width due to all elements controlling their own width
+with the new (non-markdown-body-width-limited) layout. */
+.mapBig,
+.markdown-body>.mapBig {
     width: 600px;
 }
 

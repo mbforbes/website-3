@@ -7,7 +7,7 @@ travel_end: 2023-02-14
 image: /assets/posts/2023-wintermission/IMG_9997.moz80.jpg
 coverImage: /assets/posts/2023-wintermission/IMG_9997.moz80.jpg
 customexcerpt: On good cameras, Seattle, and San Diego.
-attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
+attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0), hosted by [Stadia Maps](https://stadiamaps.com/). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
 <!-- image graveyard:

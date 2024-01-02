@@ -8,7 +8,7 @@ travel_start: 2022-08-06
 travel_end: 2022-08-10
 image: /assets/posts/2022-scotland/24-hp-train.moz80.jpg
 customexcerpt: Isle of Skye is one of those places that is dramatic when you're there but totally doesn't photograph well. I have never been anywhere like it.
-attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
+attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0), hosted by [Stadia Maps](https://stadiamaps.com/). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
 <!-- Image graveyard:

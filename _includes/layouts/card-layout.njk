@@ -99,7 +99,10 @@
                             {# --------------------- #}
                             {# Section: Content #}
                             {% set excerptFontClass = "f4" %}
-                            {% set excerpt = post.content | trim | safe %}
+                            {# NOTE: Stripping tags because links in microblog
+                            posts somehow destroy the layout and it's hard to
+                            debug. #}
+                            {% set excerpt = post.content | trim | striptags(true) | nl2br | safe %}
                             {% if excerpt | length < 90 %}
                                 {% set excerptFontClass = "f3" %}
                             {% endif %}

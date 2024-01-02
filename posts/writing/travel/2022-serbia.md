@@ -5,7 +5,7 @@ travel_start: 2022-08-23
 travel_end: 2022-08-28
 image: /assets/posts/2022-serbia/b-tower-under.moz80.jpg
 customexcerpt: “It’s all quite run down, isn’t it?” We were all thinking it, but I wished he wouldn’t say it so loudly.
-attributions: The two animated maps showing Serbia use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL). Image of Cyrillic letters public domain, from Wikipedia.
+attributions: The two animated maps showing Serbia use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0), hosted by [Stadia Maps](https://stadiamaps.com/). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL). Image of Cyrillic letters public domain, from Wikipedia.
 ---
 
 <!-- Image graveyard

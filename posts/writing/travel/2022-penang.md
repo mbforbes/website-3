@@ -7,7 +7,7 @@ travel_end: 2022-12-17
 image: /assets/posts/2022-penang/IMG_0263.moz80.jpg
 coverImage: /assets/posts/2022-penang/IMG_0263.moz80.jpg
 customexcerpt: Street eats and a melting pot of traffic.
-attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
+attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0), hosted by [Stadia Maps](https://stadiamaps.com/). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
 <!-- image graveyard:

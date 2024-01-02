@@ -5,7 +5,7 @@ travel_start: 2022-08-28
 travel_end: 2022-09-06
 image: /assets/posts/2022-bosnia/s-02-lighting.moz80.jpg
 customexcerpt: Everything about Bosnia has fractal-like complexity. For example, there are five presidents. Why? We must go deeper.
-attributions: The four custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL). Map of Herzegovina [from Wikipedia](https://en.wikipedia.org/wiki/File:Herzegovina_location_map_simple.svg) (CC BY-SA 4.0). Map showing two entities of B&H [from Wikipedia](https://commons.wikimedia.org/wiki/File:Map_Bih_entities.png) (public domain). Animated map showing breakup of Yugoslavia [from Wikipedia](https://en.wikipedia.org/wiki/Breakup_of_Yugoslavia#/media/File:Breakup_of_Yugoslavia.gif) (CC BY-SA 3.0).
+attributions: The four custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0), hosted by [Stadia Maps](https://stadiamaps.com/). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL). Map of Herzegovina [from Wikipedia](https://en.wikipedia.org/wiki/File:Herzegovina_location_map_simple.svg) (CC BY-SA 4.0). Map showing two entities of B&H [from Wikipedia](https://commons.wikimedia.org/wiki/File:Map_Bih_entities.png) (public domain). Animated map showing breakup of Yugoslavia [from Wikipedia](https://en.wikipedia.org/wiki/Breakup_of_Yugoslavia#/media/File:Breakup_of_Yugoslavia.gif) (CC BY-SA 3.0).
 ---
 
 <!--
@@ -56,9 +56,10 @@ Mainly: Croatia and Serbia.
 Amazingly, Bosnia does actually have a wee bit of coastline,[^coastline] though it's so small you can't even see it here. (You'll see it on the next map.)
 
 When you ask a local about who lives in Bosnia, they'll tell you there are three ethnic groups, each paired with its own religion. And they'll tell you which one they are.
+
 1. Bosniaks; Muslim
 2. Bosnian Croats; Catholic
-2. Bosnian Serbs; Orthodox
+3. Bosnian Serbs; Orthodox
 
 [^coastline]: Bosnia having a tiny bit of coast on the Mediterranean is an interesting factoid on itself. Because Croatia extends before and after it on the coast, you used to have to drive through Bosnia if you wanted to drive down the length of Croatia. You'd have to go through border control, get your passport stamped and everything, just to make it through that tiny stretch of highway, and then go back through Croatian border control. (That Dane I mentioned in the [Serbia](/posts/2022-serbia/) post said he'd gone to Bosnia, and when I asked about his experience---because we were headed there next---he sheepishly admitted they had actually just gone through this road segment on the way down Croatia.) Croatia was tired of this, and they very recently (like, July 2022) finished building a massive bridge off the coast, connecting the Croatian mainland to a Croatian peninsula, to avoid having to go through Bosnia. Sounds great, right? Less hassle for everyone? Well, there's drama to this as well. Though it's an enormous bridge, it's not high enough for shipping vessels to get under it. This isn't a problem now, because Bosnia's tiny cost town Neum doesn't have any kind of harbor, much less one that could process gigantic boats. But, it does _prevent_ Bosnia from ever having a shipping port in the future. Would they ever make one? Croatia argued not, and that building the enormous bridge high enough to accommodate that possibility wasn't worth the wild budget inflation that would have entailed. And here we are.
 
@@ -79,7 +80,6 @@ Herzegovina comes from _Herzog_ (German for _duke_) and _-ov + -ina_ (Slavic[^sl
 When in the region, I often heard people refer to the country in short as just _Bosnia,_ and I'll do the same here.
 
 [^slavic]: Slavic is not a language, and is a simplification here. The language is _Bosnian-Croatian-Montenegrin-Serbian,_ which is a single South Slavic language. Each of those components in the name (e.g., _Bosnian_) are mutually intelligible _standard varieties_ of the language. Here's the [Wikipedia article](https://en.wikipedia.org/wiki/Serbo-Croatian) if you're curious for more.
-
 [^wikiherz]: [Wikipedia: Herzegovina](https://en.wikipedia.org/wiki/Herzegovina)
 
 ### 3. The State Boundaries Are Wild
@@ -118,7 +118,7 @@ Talking about any of this stuff is like unraveling a fractal. The Bosnian War wa
 
 So, let's touch on everything super briefly.
 
-**Yugoslavia** was a mega-country for most of the 1900s. After WWII it ended up as this socialist state awkwardly sandwiched between the West (USA, Western Europe, etc.) and the USSR, but non-aligned with either. It contained Bosnia and all its neighbors that I put in that map above, plus Slovenia (NW corner) and  Macedonia[^macedonia] (SE corner).
+**Yugoslavia** was a mega-country for most of the 1900s. After WWII it ended up as this socialist state awkwardly sandwiched between the West (USA, Western Europe, etc.) and the USSR, but non-aligned with either. It contained Bosnia and all its neighbors that I put in that map above, plus Slovenia (NW corner) and Macedonia[^macedonia] (SE corner).
 
 [^macedonia]: _Macedonia_ is Now called _North Macedonia_ because Greece didn't like that name. That argument took [28 years](https://en.wikipedia.org/wiki/Macedonia_naming_dispute).
 
@@ -138,7 +138,6 @@ The state of things is as awkward as you'd expect if you just stopped fighting a
 These are people who you weren't just at war with, but who were committing war crimes (incl. genocide via ethnic cleansing) to you. Even in the Federation part, Bosniaks and Croats go to separate schools, attend different universities, use different post offices, even run different power companies.[^children] It has the mood of a bitter truce, carved up by ethnic lines and regularly reinforced by nationalist[^nationalist] rhetoric.
 
 [^children]: In Mostar there is one school on the Croat/Bosniak dividing line. Though kids of both ethnicities do go there, they attend classes at different times of the day so that they don't mix.
-
 [^nationalist]: Here _nationalism_ is a dividing force---Serbs supporting Serbia, and Croats supporting Croatia. These stances are reinforced both by those countries as well as local politicians.
 
 ## Sarajevo
@@ -476,8 +475,9 @@ We took a full day tour. Our guide was a Bosniak Muslim whose family was in the 
 
 One thing that I immediately noticed is here, the stories were all Bosniaks vs Croats.[^complexWar] The siege of Mostar, the internment camps---this was all Croatian forces. In Sarajevo, the focus was on Serbs (e.g., Siege of Sarajevo, Srebrenica massacre).
 
-[^complexWar]: Again, all details here are fractal like, making it hard to say anything simple. E.g., the [Siege of Mostar](https://en.wikipedia.org/wiki/Siege_of_Mostar) actually kind of happened twice, first with Serbs (Yugoslavia) fought back by Croatians, and then later on, with Bosniaks vs Croats.
-Most of what we heard about was the second time, when humanitarian aid was cut off.
+[^complexWar]:
+    Again, all details here are fractal like, making it hard to say anything simple. E.g., the [Siege of Mostar](https://en.wikipedia.org/wiki/Siege_of_Mostar) actually kind of happened twice, first with Serbs (Yugoslavia) fought back by Croatians, and then later on, with Bosniaks vs Croats.
+    Most of what we heard about was the second time, when humanitarian aid was cut off.
 
 {% img2 [
     "/assets/posts/2022-bosnia/m-03-climate.moz80.jpg",

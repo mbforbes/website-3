@@ -9,7 +9,7 @@ travel_end: 2022-12-04
 image: /assets/posts/2022-el-nido/IMG_9730.moz80.jpg
 coverImage: /assets/posts/2022-el-nido/IMG_9730.moz80.jpg
 customexcerpt: Islas de Instagram.
-attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL). Philippines Languages map from [Wikipedia](https://en.wikipedia.org/wiki/Languages_of_the_Philippines#/media/File:KWF_Linguistic_Atlas_of_the_Philippines_(Overview).png) (public domain).
+attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0), hosted by [Stadia Maps](https://stadiamaps.com/). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL). Philippines Languages map from [Wikipedia](https://en.wikipedia.org/wiki/Languages_of_the_Philippines#/media/File:KWF_Linguistic_Atlas_of_the_Philippines_(Overview).png) (public domain).
 ---
 
 <!-- Image graveyard:

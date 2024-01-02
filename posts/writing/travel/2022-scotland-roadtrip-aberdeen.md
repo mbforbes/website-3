@@ -8,7 +8,7 @@ travel_start: 2022-07-31
 travel_end: 2022-08-03
 image: /assets/posts/2022-scotland/07-leith-castle.moz80.jpg
 customexcerpt: We took a two week roadtrip through Scotland. We got soaked and the food sucked, but the nature was awesome. 10/10.
-attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
+attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0), hosted by [Stadia Maps](https://stadiamaps.com/). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
 <!-- image graveyard

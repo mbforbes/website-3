@@ -7,7 +7,7 @@ travel_start: 2022-08-13
 travel_end: 2022-08-17
 image: /assets/posts/2022-scotland/27-gls-sunset-building.moz80.jpg
 customexcerpt: "I had high hopes for Glasgow. Modern city, seemed to have good public transport and millennial hipster comforts: craft beer, snobby coffee, and rock climbing."
-attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
+attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0), hosted by [Stadia Maps](https://stadiamaps.com/). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
 <!-- Photo graveyard

@@ -5,7 +5,7 @@ travel_start: 2022-08-17
 travel_end: 2022-08-23
 image: /assets/posts/2022-london/fancy-row-homes.moz80.jpg
 customexcerpt: I like visiting cities, especially big ones, after waiting a long time. I seem to end up with completely non-overlapping experiences. Another illuminated sliver of the whole.
-attributions: The two animated maps showing England use map tiles by [Stamen Design](http://maps.stamen.com/), under CC BY 3.0. England outline data from [martinjc/UK-GeoJSON](https://martinjc.github.io/UK-GeoJSON/). Code to make the map of London is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors under ODbL. The flags are all public domain on Wikipedia.
+attributions: The two animated maps showing England use map tiles by [Stamen Design](http://maps.stamen.com/) (under CC BY 3.0), hosted by [Stadia Maps](https://stadiamaps.com/). England outline data from [martinjc/UK-GeoJSON](https://martinjc.github.io/UK-GeoJSON/). Code to make the map of London is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors under ODbL. The flags are all public domain on Wikipedia.
 ---
 
 <!-- Image graveyard
@@ -16,7 +16,7 @@ attributions: The two animated maps showing England use map tiles by [Stamen Des
 
 {% include "maps/london-maps.njk" %}
 
-{% cityMap "/assets/posts/2022-london/london-england-1-perimeter.moz80.jpg", false, false %}
+{% cityMap "/assets/posts/2022-london/london-england-1-perimeter.moz80.jpg", false, false, true, "", false, "", false, true %}
 
 My last visit to London[^map] was ten years ago. I like visiting cities---especially big ones---after waiting a long time, because I seem to end up with completely non-overlapping experiences. Another illuminated sliver of the whole.
 

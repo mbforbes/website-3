@@ -5,7 +5,7 @@ date: 2022-09-05
 travel_start: 2022-07-17
 travel_end: 2022-07-31
 image: /assets/posts/2022-edinburgh/church-angle.moz80.jpg
-attributions: "Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). The animated maps are drawn using [Leaflet](https://leafletjs.com/). Animated map tiles by [Stamen Design](https://stamen.com/), under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). The data I used to draw the colored overlays are from several sources: [Country centroids](https://github.com/mihai-craita/countries_center_box); [UK and Ireland](https://datahub.io/core/geo-countries#data); [Scotland and N Ireland](https://github.com/Crunch-io/geodata); and [England and Wales](https://martinjc.github.io/UK-GeoJSON/). All core map data by [OpenStreetMap](https://www.openstreetmap.org/), under [ODbL](https://www.openstreetmap.org/copyright)."
+attributions: "Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). The animated maps are drawn using [Leaflet](https://leafletjs.com/). Animated map tiles by [Stamen Design](https://stamen.com/) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)), hosted by [Stadia Maps](https://stadiamaps.com/). The data I used to draw the colored overlays are from several sources: [Country centroids](https://github.com/mihai-craita/countries_center_box); [UK and Ireland](https://datahub.io/core/geo-countries#data); [Scotland and N Ireland](https://github.com/Crunch-io/geodata); and [England and Wales](https://martinjc.github.io/UK-GeoJSON/). All core map data by [OpenStreetMap](https://www.openstreetmap.org/), under [ODbL](https://www.openstreetmap.org/copyright)."
 ---
 
 {% cityMap "/assets/posts/2022-edinburgh/edinburgh-scotland-1-perimeter.moz80.jpg", false, true, false %}
@@ -100,10 +100,9 @@ Here are some Jerries screaming about how nice the sunset is in 4K.
 
 ## Interlude: UK _vs_ Great Britain
 
-<link rel="stylesheet" href="/assets/css/leaflet.css" />
-<link rel="stylesheet" href="/assets/css/maps.css" />
-<script type="text/javascript" src="/assets/lib/leaflet-1.8.0.js"></script>
-<script type="text/javascript" src="/assets/lib/tile.stamen-1.3.0.js"></script>
+<script type="text/javascript" src="/assets/lib/leaflet-1.9.3.min.js" defer></script>
+<script type="text/javascript" src="/assets/lib/maplibre-gl-3.2.1.js" defer></script>
+<script type="text/javascript" src="/assets/lib/leaflet-maplibre-gl-0.0.20.js" defer></script>
 <script type="text/javascript" src="/assets/lib/anime-3.2.1.min.js"></script>
 <script type="text/javascript">
 let libDir = "/assets/mapData/";

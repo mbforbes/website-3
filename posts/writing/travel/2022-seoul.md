@@ -8,9 +8,8 @@ travel_end: 2022-10-24
 image: /assets/posts/2022-seoul/IMG_7776.moz80.jpg
 coverImage: /assets/posts/2022-seoul/IMG_7776.moz80.jpg
 customexcerpt: Our favorite place of 2022, of the eighteen countries we visited, was Seoul.
-attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
+attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0), hosted by [Stadia Maps](https://stadiamaps.com/). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
-
 
 <!-- image graveyard
 "/assets/posts/2022-seoul/IMG_7694.moz80.jpg",
@@ -455,6 +454,7 @@ We ended up in Gangnam again, took a ride back home, and carbo-recovered at a Ne
 ## Seoul, Haven of Type I Fun
 
 You may have heard of this particular fun ontology.
+
 - _Type I fun:_ activity that's fun while you do it. "Fun now." For example, eating donuts or drinking booze.
 - _Type II fun:_ activity that's somewhat unpleasant while you do it, but which you look back on fondly. "Fun later." Prime example: hiking.^[Types I and II seem to be have broad consensus. I have heard various proposals for what _Type III fun_ might be, my favorite of which is "an activity that you never find fun, but which those around you find fun." For example, embarrassing yourself in public.]
 
@@ -510,6 +510,7 @@ I mean, OK, sure, I guess if you have a reasonable coffee culture of supporting 
 Globally, I don't think we've entirely figured out the whole _smart home_ thing yet. A few places we stayed in Korea had evidence of the kind of maximalist approach that infuriates old people, and now, me.
 
 Within ten minutes of entering our next AirBnb, I:
+
 - Accidentally had the heated floors on at maximum setting
 - Couldn't figure out what the AC was
 - Couldn't lock the door
@@ -518,6 +519,7 @@ This was at an old place. The Busan apartment (forthcoming post), being swanky, 
 
 <!-- NOTE: I do not understand what's happening here. The maxWidth on the container is working,
 but then the video is limiting itself to 300px width no matter what. -->
+
 {% img2 {vimeoInfo: "809319590?h=6978089be7", aspectRatio: "9 / 16"}, {maxWidth: "500px"} %}
 
 <p class="figcaption">(Audio on) Imagine this every time you turn on the fan.</p>

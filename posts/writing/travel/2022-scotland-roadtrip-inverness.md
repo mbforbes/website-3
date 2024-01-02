@@ -7,7 +7,7 @@ travel_start: 2022-08-03
 travel_end: 2022-08-06
 image: /assets/posts/2022-scotland/16-to-skye-castle-in.moz80.jpg
 customexcerpt: With Loch Ness so famous because of its Monster, it had not occurred to me that it might actually turn out to be a completely boring normal lake until we were standing in front of it.
-attributions: Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
+attributions: The custom animated maps use map tiles by [Stamen Design](http://maps.stamen.com/) (CC BY 3.0), hosted by [Stadia Maps](https://stadiamaps.com/). Country outline data from [DataHub](https://datahub.io/core/geo-countries) (PDDL), originally by [Natural Earth](https://www.naturalearthdata.com/) (public domain). Code to make the city maps is based off of [marceloprates/prettymaps](https://github.com/marceloprates/prettymaps/). Data for all maps &copy; OpenStreetMap contributors (ODbL).
 ---
 
 <!-- Image graveyard:
