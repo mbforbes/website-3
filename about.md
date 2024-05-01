@@ -6,10 +6,10 @@ layout: "layouts/default.njk"
 
 ## Now
 
-As of July 2023, I'm traveling indefinitely, photographing and writing about where I go.
-You can read these [travel essays](/studio/#travel).
-I'm also posting more work-in-progress essays and ideas to my [notes](/garage/).
-I prepare a monthly website digest, which you can subscribe to at the bottom of any page.
+As of May 2024, I'm working on bootstrapping a small software business.
+My first product, a game called [Talk to Me Human](https://talktomehuman.com/) is finally out in early access after ten months. It will probably take me a few more months to do the full release.
+Right now the garden of this website is pretty desolate, so I'm excited to plant new seeds.
+I also need to get my monthly digest back up and running.
 
 ## Testimonials
 
@@ -40,6 +40,8 @@ I miss the [GeoCities days](http://www.hypnospace.net/), when personal pages wer
 
 - [**Callan Berry**](https://mumblecity.com/) • comic artist and designer; hilarious and personable; seems to always know full plots to games and movies before they're out.
 
+- [**Greg Technology**](https://greg.technology/) • bountiful hacker and map guru; overflowing with support; improvises songs as a means of telling you important news.
+
 <!-- Cooper's website is gone :-( Leaving here for now in memoriam. -->
 <!--
 - [**Cooper Smith**](https://schmidlak.com/) • pixel artist, drummer, retro game
@@ -56,7 +58,9 @@ I miss the [GeoCities days](http://www.hypnospace.net/), when personal pages wer
 
 ## Internet people I am a fan of
 
-- [**Bret Victor**](http://worrydream.com/) • interaction and abstraction
+- [**Bartosz Ciechanowski**](https://ciechanow.ski/) • singlehandedly produces impossibly perfect interactive explanations
+
+- [**Bret Victor**](https://worrydream.com/Home2011/) • interaction and abstraction
 
 - [**Craig Mod**](https://craigmod.com/) • long walks, atmospheric photos
 
@@ -68,7 +72,9 @@ I miss the [GeoCities days](http://www.hypnospace.net/), when personal pages wer
 
 ## More of me
 
-I am active on [GitHub](https://github.com/mbforbes) and extremely rarely
-[tweet](https://twitter.com/maxforbes).
+I'm active on [GitHub](https://github.com/mbforbes) and constantly trying and failing to
+[tweet](https://twitter.com/maxforbes) regularly.
 
 If you want my bio as a researcher and contact info, check out the [research](/research) page.
+
+If you're interested in hiring me for some consulting work, you can [do that too](/hire/).

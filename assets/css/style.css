@@ -112,6 +112,14 @@
     --alt-border: 1px solid white;
 }
 
+/* fonts */
+@font-face {
+    font-family: "Monaspace Kyrpton";
+    src: url("/assets/font/MonaspaceKryptonVarVF[wght,wdth,slnt].woff2") format("woff2 supports variations"),
+        url("/assets/font/MonaspaceKryptonVarVF[wght,wdth,slnt].woff2") format("woff2-variations");
+    /* font-weight: 100 1000; */
+}
+
 body {
     background-color: var(--bg-color);
     background-image: var(--bg-image);
@@ -632,6 +640,10 @@ h1 {
 .markdown-body svg {
     box-sizing: border-box;
     display: block;
+}
+
+.markdown-body svg.inline {
+    display: inline;
 }
 
 /* Audio caption */

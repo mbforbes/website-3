@@ -17,7 +17,7 @@ eleventyImport:
 
 I received my PhD in computer science from the University of Washington. I was advised by [Yejin Choi](https://homes.cs.washington.edu/~yejin/). My primary field of study is natural language processing (NLP).
 
-I'm interested in NLP where the rubber meets the road: language and stuff like robotics, vision, physical commonsense, and social norms. Rather than "language and X," I think of it as "X, but sometimes we also use language." In other words, language as a messy artifact of a messy world.
+I'm interested in NLP where the rubber meets the road: language and stuff like robotics, vision, physical common sense, and social norms. Rather than "language and X," I think of it as "X involves _communication_, which involves language." In other words, language as a messy artifact of a messy world.
 
 I was a 2016 NSF Graduate Research Fellow. In 2018--2019, I was a student researcher at
 Google AI, working with [Christine Kaeser-Chen](https://twitter.com/kaeserchen) and
