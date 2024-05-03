@@ -117,7 +117,7 @@
     font-family: "Monaspace Kyrpton";
     src: url("/assets/font/MonaspaceKryptonVarVF[wght,wdth,slnt].woff2") format("woff2 supports variations"),
         url("/assets/font/MonaspaceKryptonVarVF[wght,wdth,slnt].woff2") format("woff2-variations");
-    /* font-weight: 100 1000; */
+    font-weight: 100 1000;
 }
 
 body {

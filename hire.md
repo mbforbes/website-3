@@ -1,5 +1,5 @@
 ---
-title: Hire me
+title: Hire
 hidedate: true
 layout: "layouts/default.njk"
 eleventyExcludeFromCollections: true
@@ -46,7 +46,7 @@ eleventyExcludeFromCollections: true
 </dl>
 <dl class="dib mr5 mv2">
     <dd class="f6 ml0 ">Contact</dd>
-    <dd class="f3 ml0 fw6 pl1" id="business-email" style="font-family: Monaspace Krypton;">
+    <dd class="f3 ml0 b pl1" id="business-email" style="font-family: 'Monaspace Krypton', monospace;">
         enable JS plz
     </dd>
 </dl>
