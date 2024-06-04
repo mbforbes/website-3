@@ -2,15 +2,15 @@
 <html lang="en">
 
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {% set displayTitle = (series + ": " if series else "") + title + ( ": " + subtitle if subtitle else "") + " - " + site.title %}
         <title>{{ displayTitle }}</title>
         {# NOTE: Twitter uses name='', og uses property='' #}
-        <meta content="{{ displayTitle }}" property="title"/>
-        <meta content="{{ displayTitle }}" property="og:title"/>
-        <meta name="twitter:title" content="{{ displayTitle }}"/>
+        <meta content="{{ displayTitle }}" property="title" />
+        <meta content="{{ displayTitle }}" property="og:title" />
+        <meta name="twitter:title" content="{{ displayTitle }}" />
 
         {% include "head.njk" %}
     </head>

@@ -245,6 +245,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(readingTime);
+  // NOTE: RSS would be a pain to support. E.g.,
+  // - nunjucks undefined values like { title }
+  // - default feed generator didn't actually have my posts (wrong collection?)
+  // - I use invalid XML a bunch (e.g., <script ... defer>) so would need to fix it all
+  //
+  // eleventyConfig.addPlugin(pluginRss, {
+  //   posthtmlRenderOptions: {
+  //     closingSingleTag: "default", // opt-out of <img/>-style XHTML single tags
+  //   },
+  // });
+  //
   // Ideas:
   // - TOC
   //      - https://www.npmjs.com/package/eleventy-plugin-toc
@@ -254,9 +265,6 @@ module.exports = function (eleventyConfig) {
   // - link_to
   //      - https://github.com/nhoizey/eleventy-plugin-link_to
   //      - const pluginLinkTo = require('eleventy-plugin-link_to');
-  // - rss
-  //      - https://www.11ty.dev/docs/plugins/rss/
-  //      - const pluginRss = require("@11ty/eleventy-plugin-rss");
 
   // TODO: consider
   // Alias `layout: post` to `layout: layouts/post.njk`

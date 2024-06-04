@@ -38,11 +38,14 @@ eleventyExcludeFromCollections: true
 <div class="mb3">
 <dl class="dib mr5 mv2">
     <dd class="f6 ml0 ">Availability</dd>
-    <dd class="f3 b ml0">Limited</dd>
+    <dd class="f3 b ml0">
+    <!-- Limited -->
+    None
+    </dd>
 </dl>
 <dl class="dib mr5 mv2">
     <dd class="f6 ml0 ">Updated</dd>
-    <dd class="f3 b ml0">May 2024</dd>
+    <dd class="f3 b ml0">June 2024</dd>
 </dl>
 <dl class="dib mr5 mv2">
     <dd class="f6 ml0 ">Contact</dd>
@@ -53,13 +56,18 @@ eleventyExcludeFromCollections: true
 </div>
 
 <div class="mb5">
-<div class="w2 h2 bg-orange br3 inline-flex v-btm mr2" style="padding: 0.3rem;">
+<div class="w2 h2 bg-red br3 inline-flex v-btm mr2" style="padding: 0.3rem;">
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFF" class="" style="">
 <path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M4.5 10.5h6.75V15H4.5v-4.5ZM3.75 18h15A2.25 2.25 0 0 0 21 15.75v-6a2.25 2.25 0 0 0-2.25-2.25h-15A2.25 2.25 0 0 0 1.5 9.75v6A2.25 2.25 0 0 0 3.75 18Z" />
 </svg>
 </div>
-I currently have ~20 hours / month open consulting capacity.
-<p class="f6 mt3 serif">One-time or recurring contracts. Flexible scheduling. Minimum 5 hours. Meetings EST working hours. My business is Least Significant Bit, LLC.</p>
+<!-- I currently have ~20 hours / month consulting capacity. -->
+I am currently fully booked.
+<!-- Reach out to schedule autumn 2024. -->
+<p class="f6 mt3 serif">
+Feel free to reach out if you're scheduling work a few months out. One-time or recurring contracts.
+<!-- Flexible scheduling. -->
+Minimum 5 hours. Meetings EST working hours. My business is Least Significant Bit, LLC.</p>
 </div>
 </div>
 
