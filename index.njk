@@ -9,13 +9,25 @@ eleventyImport:
 ---
 
 <p class="mt6">
-I'm an artificial intelligence researcher from Seattle, currenly based in NYC.
-I recently spent a couple years wandering the globe,
-told through some <a href="/studio/#travel">photos and essays</a>.
-Now I've gone indie, working on my own products. My first is out now: <a href="https://talktomehuman.com/">Talk to Me Human</a>. I have some open capacity for <a href="/hire">consulting</a>.
-<p>
+I'm Max, an artificial intelligence researcher from Seattle, currenly based in NYC. Recently:
+</p>
+<ul>
+<li>'21 - I completed my PhD at the University of Washington, where I was advised by Yejin Choi.</li>
+<li>'23 - I spent a couple years <a href="/studio/#travel">wandering the globe</a>.</li>
+<li>'24 - Now I'm working on bootstrapping an indie software shop called Least Significant Bit.</li>
+</ul>
 
-<h2>Latest from the studio</h2>
+<h2 style="text-wrap: balance;">Latest product</h2>
+
+<p>My first product is out now in early access! It's a game called <span class="b">Talk to Me Human</span>. You play by speaking, talking your way out of sticky situations to AI-powered characters with lifelike voices. You can check it out here ↓</p>
+
+<p>
+<a href="https://talktomehuman.com/" class="nolinkarrow dim">
+<img src="/assets/products/ttmh/ttmh-personal-website-banner.moz90.jpg" class="novmargin"/>
+</a>
+</p>
+
+<h2 style="text-wrap: balance;">Latest from the studio</h2>
 
 <ul class="list pa0 std-left">
     {% for post in collections.studio | rejectAttrContains(["data", "tags"], "software") | rejectAttrContains(["data", "tags"], "redirect") | sort(true, false, "date") | head(3) %}

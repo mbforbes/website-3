@@ -6,10 +6,11 @@ layout: "layouts/default.njk"
 
 ## Now
 
-As of May 2024, I'm working on bootstrapping a small software business.
-My first product, a game called [Talk to Me Human](https://talktomehuman.com/) is finally out in early access after ten months. It will probably take me a few more months to do the full release.
-Right now the garden of this website is pretty desolate, so I'm excited to plant new seeds.
-I also need to get my monthly digest back up and running.
+As of June 2024, I'm working on bootstrapping a small software business called _Least Significant Bit._
+My first product, a game called [**Talk to Me Human**](https://talktomehuman.com/) is out now in early access.
+This month, I'm focusing on marketing, which is challenging and fascinating.
+I'm also finally getting my monthly digest back up and running!
+But the garden of this website is pretty desolate, so I'm excited to plant new seeds.
 
 ## Testimonials
 
@@ -77,4 +78,4 @@ I'm active on [GitHub](https://github.com/mbforbes) and constantly trying and fa
 
 If you want my bio as a researcher and contact info, check out the [research](/research) page.
 
-If you're interested in hiring me for some consulting work, you can [do that too](/hire/).
+If you're interested in hiring me for some consulting work, you can [check my availability and business contact info](/hire/).

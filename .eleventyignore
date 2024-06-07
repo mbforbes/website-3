@@ -1,4 +1,6 @@
 README.md
+digests/*
+
 # start draft filenames with _; check what this finds with:
 # ls -R posts | egrep "^_.*\.md$"
 **/_*.md

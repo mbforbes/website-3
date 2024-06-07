@@ -8,12 +8,12 @@
   <script type="text/javascript" src="/assets/lib/tippy-6.3.1.umd.min.js" defer></script>
 
   {# Nav #}
-  <nav class="mh3 mh4-ns pv3 flex f6 f4-ns justify-between sans-serif" aria-label="Main">
+  <nav class="mh3 mh4-ns pv3 flex f6 f4-ns justify-between sans-serif bb" aria-label="Main">
     <div class="tl">
       <link rel="prefetch" href="/">
       <a href="/" class="hover dim textcolor" id="header">Maxwell Forbes</a>
     </div>
-    <div class="tr">
+    <div class="tr" style="text-wrap: balance;">
       {% for link in site.links %}
         {# If you're on that page, don't show as a link. #}
         {% if title == link.name %}

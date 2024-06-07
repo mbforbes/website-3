@@ -11,6 +11,10 @@
   },
   "links": [
     {
+      "name": "Products",
+      "url": "/products"
+    },
+    {
       "name": "Studio",
       "url": "/studio"
     },

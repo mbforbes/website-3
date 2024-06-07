@@ -8,3 +8,4 @@ types-requests
 python-frontmatter
 mistune
 beautifulsoup4
+Jinja2

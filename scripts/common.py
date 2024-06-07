@@ -11,9 +11,9 @@ import code
 from glob import glob
 import os
 import re
-from typing import List, Dict, Any
+from typing import Any
 
-import frontmatter
+import frontmatter  # type: ignore
 from typing_extensions import TypedDict
 
 
@@ -22,7 +22,7 @@ class Post(TypedDict):
 
     path: str
     url: str
-    frontmatter: Dict[str, Any]
+    frontmatter: dict[str, Any]
     contents: str
 
 
@@ -75,8 +75,8 @@ def get_posts(
     exts: list[str] = ["md", "njk"],
     skip_url_prefixes: list[str] = ["/software/", "/news/"],
     skip_underscore_file_prefix: bool = True,
-) -> List[Post]:
-    posts: List[Post] = []
+) -> list[Post]:
+    posts: list[Post] = []
     for path in glob(glob_pattern, recursive=True):
         if not path.split(".")[-1] in exts:
             continue

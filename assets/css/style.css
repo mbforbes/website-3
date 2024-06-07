@@ -823,8 +823,8 @@ text-width image*/
 a[href^="https://"]:not([href*="example.com"]):not([href*="arxiv.org"]):after { */
 
 /* Current: ignore cards (in card layout)    */
-a[href^="http://"]:not(.card):after,
-a[href^="https://"]:not(.card):after {
+a[href^="http://"]:not(.card, .nolinkarrow):after,
+a[href^="https://"]:not(.card, .nolinkarrow):after {
     content: "\00A0 \2197 \FE0E";
 }
 

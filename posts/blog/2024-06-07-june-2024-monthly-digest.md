@@ -1,0 +1,86 @@
+---
+image: /assets/img/newsletter-social-image.moz90.jpg
+imgNewsletterGeneral: /assets/img/newsletter-social-image.moz90.jpg
+imgNewsletterIssue: /assets/blog/2024-06-digest/cover-photo.moz90.jpg
+imgNewsletterIssueCaption: Me symbolically emerging from under a rock. (Niseko, Japan
+  &mdash; June, 2023)
+subtitle: June 2024 Monthly Digest
+title: A Big Move and a Small Game
+---
+
+{% img2 [
+    "/assets/img/newsletter-social-image.moz90.jpg",
+    "/assets/blog/2024-06-digest/cover-photo.moz90.jpg"
+], true %}
+
+<p class="figcaption">Me symbolically emerging from under a rock. (Niseko, Japan &mdash; June, 2023)</p>
+
+Hi everyone,
+
+Welcome back!
+
+This is the brand new edition of my monthly digest. It's me, [Max Forbes](https://maxwellforbes.com/), natural language processing researcher and writer of blog posts on topics like slow travel and indie development.
+
+The last digest was sent in January, just before my newsletter provider (TinyLetter) shut down. I've finally switched to a new provider (Buttondown) who will send these emails. At least for now.
+
+## No posts
+
+It's been a long dry spell on the old website. I'm looking forward to jumping back in.
+
+Here's what I've been up to in the meanwhile.
+
+![](/assets/blog/2024-06-digest/joshua-tree.moz90.jpg)
+
+<p class="figcaption">Ahem, a "dry spell." (Joshua Tree, CA &mdash; December, 2023)</p>
+
+## A big move
+
+I moved to New York City in March.
+
+And holy cow, wow, it's humid already. I'm bracing myself for the summer.
+
+But overall, what an incredible place. Incredible in all senses of the word. Trash, concrete, wealth, poverty, commercialism, finance. Brick façades, no alleys, overly manicured parks, gates and locks and bars. The occasional tree. But mostly, _diversity._ Good god New York is so refreshingly diverse. It reminds me what a special place the USA is in many ways, despite its enormous flaws and wounds.
+
+The longest I've spent in New York before was in 2018, when I was here for a three month internship. I'm looking forward to savoring a longer flavor of it.
+
+![](/assets/blog/2024-06-digest/bushwick-underpass.moz90.jpg)
+
+<p class="figcaption">Bushwick underpass. (Brooklyn, NY &mdash; May, 2024)</p>
+
+## A small game
+
+I've started an indie bootstrapped (self-funded) software studio. I'm calling it _Least Significant Bit._ My goal is to make small pieces of delightful software and sell them commercially. Kind of a mom-and-pop software shop.
+
+It may fail entirely. Then I'd go get a normal job. But I knew I wanted to try, and it felt like the time was now or never. So it's now.
+
+And, I recently launched my first product---a game! I think it's a totally new kind of game. I'm biased, of course. But it feels like something truly novel. It's called **[Talk to Me Human](https://talktomehuman.com/)**.
+
+<p>
+<a href="https://talktomehuman.com/" class="nolinkarrow">
+<img src="/assets/products/ttmh/ttmh-personal-website-banner.moz90.jpg" />
+</a>
+</p>
+
+<p class="figcaption">Talk to Me Human features an excruciatingly yellow color palette. No regrets.</p>
+
+It's a game where you play by speaking out loud, and the characters speak back (with shockingly lifelike voices). It works like this:
+
+> 1. **Encounter:** Find yourself in unexpected, awkward, and humorous scenarios.
+>
+> 2. **Explain:** Lie, misdirect, compliment, coerce — the choices are endless. Speak out loud!
+>
+> 3. **Receive Judgment:** The AI decides if you pass or fail. You can always try again!
+
+Here's a [video trailer](https://www.youtube.com/watch?v=ZTxAkBVtktg). It's out now in early access for $4.99, which includes the whole game upon release. Playable on web (phone, tablet, or desktop). If you end up trying it out, I'd be thrilled to hear what you think!
+
+It's been quite a learning experience building something like this and trying to navigate new territory (e.g., marketing???). I plan to write more about it.
+
+_Also, apologies to hit you with a product announcement on my first newsletter back in a long time! I promise that I still fully intend to keep this newsletter a cozy, "what have I been up to?" kind of thing. It's just that making the game is what I'd been up to the last (checks calendar) eleven months."_
+
+## See you next month
+
+As always, you can reply to this email to reach me directly. See you then!
+
+Yours,
+
+Max
