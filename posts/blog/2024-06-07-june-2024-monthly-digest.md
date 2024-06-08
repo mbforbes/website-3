@@ -11,7 +11,7 @@ title: A Big Move and a Small Game
 {% img2 [
     "/assets/img/newsletter-social-image.moz90.jpg",
     "/assets/blog/2024-06-digest/cover-photo.moz90.jpg"
-], true %}
+], {fullWidth: false} %}
 
 <p class="figcaption">Me symbolically emerging from under a rock. (Niseko, Japan &mdash; June, 2023)</p>
 
@@ -56,7 +56,7 @@ It may fail entirely. Then I'd go get a normal job. But I knew I wanted to try, 
 And, I recently launched my first product---a game! I think it's a totally new kind of game. I'm biased, of course. But it feels like something truly novel. It's called **[Talk to Me Human](https://talktomehuman.com/)**.
 
 <p>
-<a href="https://talktomehuman.com/" class="nolinkarrow">
+<a href="https://talktomehuman.com/" class="nolinkarrow dim">
 <img src="/assets/products/ttmh/ttmh-personal-website-banner.moz90.jpg" />
 </a>
 </p>

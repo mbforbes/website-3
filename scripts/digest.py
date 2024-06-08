@@ -301,16 +301,16 @@ def main():
 {{% img2 [
     "{digest_fm['imgNewsletterGeneral']}",
     "{digest_fm['imgNewsletterIssue']}"
-], true %}}
+], {{fullWidth: false}} %}}
 
 <p class="figcaption">{digest_fm['imgNewsletterIssueCaption']}</p>
 """
     else:
         # email
         top = f"""
-![]({DOMAIN} + {digest_fm['imgNewsletterGeneral']})
+![]({DOMAIN + digest_fm['imgNewsletterGeneral']})
 
-![]({DOMAIN} + {digest_fm['imgNewsletterIssue']})
+![]({DOMAIN + digest_fm['imgNewsletterIssue']})
 
 _{digest_fm['imgNewsletterIssueCaption']}_
 """
